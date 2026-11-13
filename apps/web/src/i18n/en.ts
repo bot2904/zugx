@@ -1,6 +1,8 @@
 export default {
   app: { tagline: "Austrian trains, fast. Departures, connections, train runs – live." },
   nav: {
+    main: "Main",
+    menu: "Menu",
     search: "Search",
     trains: "Trains",
     radar: "Radar",

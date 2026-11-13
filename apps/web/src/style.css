@@ -240,3 +240,13 @@ table.dense thead th {
     }
   }
 }
+
+/* collapsed navigation: popover anchored below the header */
+.site-menu:popover-open {
+  position: fixed;
+  inset: 3rem auto auto 0.5rem;
+  margin: 0;
+  max-block-size: calc(100dvh - 4rem);
+  overflow: auto;
+  color: var(--fg);
+}

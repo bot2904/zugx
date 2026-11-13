@@ -1,15 +1,49 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { useRouter } from "vue-router";
 import CommandPalette from "./components/CommandPalette.vue";
 import ModalDialog from "./components/ModalDialog.vue";
 import DebugPanel from "./components/DebugPanel.vue";
-import { LOCALES, setLocale, type Locale } from "./i18n/index.ts";
+import { i18n, LOCALES, setLocale, type Locale } from "./i18n/index.ts";
 import { useKeys } from "./lib/keys.ts";
 import { state } from "./lib/store.ts";
 import { scheme, toggleScheme } from "./lib/theme.ts";
 
 const router = useRouter();
+
+// navigation layout: measure whether the inline list fits the header row
+const headerRow = ref<HTMLElement>();
+const navList = ref<HTMLElement>();
+const navWide = ref(true);
+let lastWidth = 0;
+async function measureNav() {
+  const row = headerRow.value;
+  if (!row) return;
+  const width = row.clientWidth;
+  // while collapsed, only re-measure when the header grew (avoids layout thrash)
+  if (!navWide.value && width <= lastWidth) return;
+  lastWidth = width;
+  navWide.value = true;
+  await nextTick();
+  navWide.value = row.scrollWidth <= row.clientWidth;
+}
+function closeMenu() {
+  if (!navWide.value) navList.value?.hidePopover?.();
+}
+let navRo: ResizeObserver | undefined;
+onMounted(() => {
+  navRo = new ResizeObserver(() => void measureNav());
+  if (headerRow.value) navRo.observe(headerRow.value);
+});
+onBeforeUnmount(() => navRo?.disconnect());
+// translations change the width of the links
+watch(
+  () => i18n.global.locale.value,
+  () => {
+    lastWidth = 0;
+    void measureNav();
+  },
+);
 const commitHash = import.meta.env.VITE_COMMIT_HASH;
 const commitDate = import.meta.env.VITE_COMMIT_DATE;
 const palette = ref(false);
@@ -60,7 +94,7 @@ const shortcuts: [string, string][] = [
 <template>
   <a href="#main" class="skip-link">{{ $t("common.skip") }}</a>
   <header class="border-b border-[var(--line)] bg-[var(--bg2)]">
-    <div class="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-1 px-3 py-2">
+    <div ref="headerRow" class="mx-auto flex max-w-6xl items-center gap-x-4 px-3 py-2">
       <RouterLink
         to="/"
         class="mono text-lg font-bold text-[var(--fg)] no-underline"
@@ -68,16 +102,37 @@ const shortcuts: [string, string][] = [
       >
         <span class="text-[var(--accent)]">z</span>ugx
       </RouterLink>
-      <nav class="flex flex-wrap gap-3 text-sm">
-        <RouterLink
-          v-for="n in nav"
-          :key="n.to"
-          :to="n.to"
-          class="text-[var(--muted)] hover:text-[var(--fg)]"
-          active-class="!text-[var(--fg)]"
-          :exact-active-class="n.to === '/' ? '!text-[var(--fg)]' : undefined"
-          >{{ $t(n.key) }}</RouterLink
+      <!-- one navigation list: inline when it fits, a native popover behind "Menu" when not
+           (modern-web-guidance: navbar) -->
+      <nav :aria-label="$t('nav.main')" class="text-sm">
+        <button
+          v-if="!navWide"
+          type="button"
+          class="btn"
+          popovertarget="site-menu"
+          aria-controls="site-menu"
         >
+          <span aria-hidden="true">☰</span> {{ $t("nav.menu") }}
+        </button>
+        <ul
+          id="site-menu"
+          ref="navList"
+          :popover="navWide ? undefined : 'auto'"
+          class="site-menu m-0 list-none p-0"
+          :class="navWide ? 'flex gap-3' : 'card p-1 shadow-lg'"
+        >
+          <li v-for="n in nav" :key="n.to">
+            <RouterLink
+              :to="n.to"
+              class="block whitespace-nowrap text-[var(--muted)] hover:text-[var(--fg)]"
+              :class="!navWide && 'px-3 py-2'"
+              active-class="!text-[var(--fg)]"
+              :exact-active-class="n.to === '/' ? '!text-[var(--fg)]' : undefined"
+              @click="closeMenu"
+              >{{ $t(n.key) }}</RouterLink
+            >
+          </li>
+        </ul>
       </nav>
       <div class="ml-auto flex items-center gap-2 text-xs">
         <button

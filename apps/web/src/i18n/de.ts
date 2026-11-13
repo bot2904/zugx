@@ -3,6 +3,8 @@ import type en from "./en.ts";
 export default {
   app: { tagline: "Österreichs Züge, schnell. Abfahrten, Verbindungen, Zugläufe – live." },
   nav: {
+    main: "Hauptnavigation",
+    menu: "Menü",
     search: "Suche",
     trains: "Züge",
     radar: "Radar",
