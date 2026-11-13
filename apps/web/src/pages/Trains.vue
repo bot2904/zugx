@@ -127,7 +127,13 @@ const filtered = computed<TrainEntry[]>(() => {
   });
 });
 
-const shown = computed(() => filtered.value.slice(0, limit.value));
+const sorted = computed(() =>
+  [...filtered.value].sort(
+    (a, b) =>
+      catRank(a.cat) - catRank(b.cat) || a.cat.localeCompare(b.cat) || Number(a.nr) - Number(b.nr),
+  ),
+);
+const shown = computed(() => sorted.value.slice(0, limit.value));
 
 const daysT = computed(() => ({
   weekdays: tm("weekdays") as string[],
@@ -299,10 +305,12 @@ watch(sel, (i) =>
                 ><LineBadge :cat="x.cat" :nr="x.nr"
               /></RouterLink>
               <div v-if="x.name" class="text-xs italic">»{{ x.name }}«</div>
-              <div class="muted text-[11px]">{{ x.op }}</div>
+              <div v-if="x.op !== 'oebb'" class="muted text-[11px]">{{ x.op }}</div>
             </td>
             <td>
-              <span class="mono muted">{{ x.from[1] }}</span>
+              <span class="mono muted mr-1"
+                >{{ x.from[1] }}{{ x.from[2] ? `+${x.from[2]}` : "" }}</span
+              >
               <a href="#" class="text-[var(--fg)]" @click.prevent="setQuery({ at: x.from[0] })">{{
                 stationName(x.from[0])
               }}</a>
@@ -310,7 +318,7 @@ watch(sel, (i) =>
               <a href="#" class="text-[var(--fg)]" @click.prevent="setQuery({ at: x.to[0] })">{{
                 stationName(x.to[0])
               }}</a>
-              <span class="mono muted"> {{ x.to[1] }}</span>
+              <span class="mono muted ml-1">{{ x.to[1] }}{{ x.to[2] ? `+${x.to[2]}` : "" }}</span>
               <div v-if="x.via?.length" class="muted text-xs">
                 <template v-for="(v, k) in x.via" :key="v">
                   <span v-if="k"> · </span

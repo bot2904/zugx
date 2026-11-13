@@ -30,8 +30,7 @@ let loading: Promise<Indexed[]> | undefined;
 
 export function loadStations(): Promise<Indexed[]> {
   loading ??= (async () => {
-    const load = Object.values(loaders)[0];
-    const list: Station[] = load ? (await load()).default : [];
+    const list = (await import("@zugx/stations/stations.json")).default as Station[];
     byId = new Map(list.map((s) => [s.id, s]));
     index = list.map((s) => {
       const names = [s.name, ...(s.alias ?? [])];

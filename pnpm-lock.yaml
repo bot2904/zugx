@@ -238,6 +238,12 @@ importers:
       '@zugx/netz':
         specifier: workspace:*
         version: link:../../packages/netz
+      '@zugx/stations':
+        specifier: workspace:*
+        version: link:../../packages/stations
+      '@zugx/trains':
+        specifier: workspace:*
+        version: link:../../packages/trains
       maplibre-gl:
         specifier: 'catalog:'
         version: 6.18.0

@@ -14,6 +14,8 @@
   "dependencies": {
     "@zugx/hafas": "workspace:*",
     "@zugx/netz": "workspace:*",
+    "@zugx/stations": "workspace:*",
+    "@zugx/trains": "workspace:*",
     "maplibre-gl": "catalog:",
     "vue": "catalog:",
     "vue-i18n": "catalog:",

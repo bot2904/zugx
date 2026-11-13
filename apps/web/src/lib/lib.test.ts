@@ -68,12 +68,13 @@ describe("train running days", () => {
     let count = 0;
     for (let i = 0; i < n; i++)
       if (pred(i)) {
-        b[i >> 3]! |= 1 << (i & 7);
+        b[i >> 3]! |= 1 << (7 - (i & 7));
         count++;
       }
     return { days: btoa(String.fromCharCode(...b)), n: count };
   };
   const entry = (pred: (i: number) => boolean): TrainEntry => ({
+    via: [],
     op: "oebb",
     cat: "RJ",
     nr: "1",

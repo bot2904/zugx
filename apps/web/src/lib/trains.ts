@@ -1,32 +1,9 @@
 // Train index (packages/trains/data): default file (long-distance + night) loaded first,
 // full file (incl. regional + S-Bahn) on demand.
-import { LONG_DISTANCE, NIGHT, REGIONAL, SUBURBAN } from "./products.ts";
+import { isLongDistance, type TrainEntry, type TrainIndex } from "@zugx/trains";
+import { NIGHT, REGIONAL, SUBURBAN } from "./products.ts";
 
-export interface TrainEntry {
-  op: string;
-  cat: string;
-  nr: string;
-  name?: string;
-  from: [id: string, time: string];
-  to: [id: string, time: string];
-  via?: string[];
-  /** base64 bitset of running days, bit 0 = timetable begin */
-  days: string;
-  /** number of running days */
-  n: number;
-  first: string;
-  last: string;
-  var?: number;
-}
-
-export interface TrainIndex {
-  year: number;
-  begin: string;
-  end: string;
-  source: string;
-  stations: Record<string, string>;
-  trains: TrainEntry[];
-}
+export type { TrainEntry, TrainIndex } from "@zugx/trains";
 
 const files = import.meta.glob<{ default: TrainIndex }>(
   "../../../../packages/trains/data/trains-*.json",
@@ -82,10 +59,10 @@ function bytes(e: TrainEntry): Uint8Array {
   return b;
 }
 
-/** bit i (day i after `begin`); LSB-first within each byte */
+/** bit i (day i after `begin`); MSB-first within each byte, like HAFAS sDaysB */
 export function runsOnDay(e: TrainEntry, i: number): boolean {
   const b = bytes(e)[i >> 3];
-  return b !== undefined && ((b >> (i & 7)) & 1) === 1;
+  return b !== undefined && ((b >> (7 - (i & 7))) & 1) === 1;
 }
 
 export const dayIndex = (begin: string, iso: string) =>
@@ -150,7 +127,7 @@ export function inGroup(cat: string, g: QuickFilter): boolean {
     case "all":
       return true;
     case "long":
-      return LONG_DISTANCE.has(cat) || (!REGIONAL.has(cat) && !SUBURBAN.has(cat));
+      return isLongDistance({ cat });
     case "regional":
       return REGIONAL.has(cat);
     case "suburban":
