@@ -2,7 +2,8 @@
 // Gantt-style rows on a shared time axis: one row per journey, one bar per leg.
 // Realtime: planned bar ghosted behind the actual bar. Transfers labelled, red when tight.
 import type { Journey, Leg } from "@zugx/hafas";
-import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import { useResizeObserver } from "@vueuse/core";
+import { computed, ref } from "vue";
 import { fmtDuration, hhmm, ms } from "../lib/format.ts";
 import { lineColor } from "../lib/products.ts";
 
@@ -13,14 +14,9 @@ const ROW = 34;
 const PAD_TOP = 22;
 const width = ref(900);
 const box = ref<HTMLDivElement>();
-let ro: ResizeObserver | undefined;
-onMounted(() => {
-  ro = new ResizeObserver(([e]) => {
-    if (e) width.value = Math.max(640, Math.round(e.contentRect.width));
-  });
-  if (box.value) ro.observe(box.value);
+useResizeObserver(box, ([e]) => {
+  if (e) width.value = Math.max(640, Math.round(e.contentRect.width));
 });
-onBeforeUnmount(() => ro?.disconnect());
 const W_ = computed(() => width.value);
 
 const t = (ev: { planned: string; actual?: string }) => ms(ev.actual ?? ev.planned);

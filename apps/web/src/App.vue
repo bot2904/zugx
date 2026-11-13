@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { useResizeObserver } from "@vueuse/core";
+import { nextTick, ref, watch } from "vue";
 import { useRouter } from "vue-router";
 import CommandPalette from "./components/CommandPalette.vue";
 import ModalDialog from "./components/ModalDialog.vue";
@@ -30,12 +31,7 @@ async function measureNav() {
 function closeMenu() {
   if (!navWide.value) navList.value?.hidePopover?.();
 }
-let navRo: ResizeObserver | undefined;
-onMounted(() => {
-  navRo = new ResizeObserver(() => void measureNav());
-  if (headerRow.value) navRo.observe(headerRow.value);
-});
-onBeforeUnmount(() => navRo?.disconnect());
+useResizeObserver(headerRow, () => void measureNav());
 // translations change the width of the links
 watch(
   () => i18n.global.locale.value,

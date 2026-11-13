@@ -15,7 +15,7 @@ import {
   type StyleSpecification,
 } from "maplibre-gl";
 import type { Feature, FeatureCollection } from "geojson";
-import { useLocalStorage } from "@vueuse/core";
+import { useLocalStorage, useResizeObserver } from "@vueuse/core";
 import { onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { scheme } from "../lib/theme.ts";
 
@@ -55,7 +55,6 @@ const props = withDefaults(
 const emit = defineEmits<{ ready: [MlMap]; moveend: [MlMap]; clickPoint: [string] }>();
 const el = ref<HTMLDivElement>();
 let map: MlMap | undefined;
-let ro: ResizeObserver | undefined;
 
 const fc = (features: Feature[]): FeatureCollection => ({ type: "FeatureCollection", features });
 
@@ -211,8 +210,6 @@ onMounted(() => {
     attributionControl: { compact: true },
   });
   map = m;
-  ro = new ResizeObserver(() => m.resize());
-  ro.observe(el.value);
   m.addControl(new NavigationControl({ showCompass: false }), "top-right");
   // (re-)add our layers whenever a base style is (re)loaded, e.g. after a theme switch
   m.on("style.load", () => addOverlays(m));
@@ -279,10 +276,8 @@ watch(
 );
 watch(() => props.lines, fitAll);
 
-onBeforeUnmount(() => {
-  ro?.disconnect();
-  map?.remove();
-});
+useResizeObserver(el, () => map?.resize());
+onBeforeUnmount(() => map?.remove());
 </script>
 
 <template>
