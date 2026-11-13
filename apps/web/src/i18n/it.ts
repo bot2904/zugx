@@ -172,6 +172,7 @@ export default {
     takt: "Cadenza",
     symmetry: "Simmetria",
   },
+  map: { orm: "Mappa ferroviaria", ormTip: "Overlay OpenRailwayMap (binari, stazioni, segnali)" },
   debug: {
     title: "API grezza",
     show: "Mostra JSON grezzo",

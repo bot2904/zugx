@@ -172,6 +172,7 @@ export default {
     takt: "Takt",
     symmetry: "Symmetrie",
   },
+  map: { orm: "Bahnkarte", ormTip: "OpenRailwayMap-Overlay (Gleise, Bahnhöfe, Signale)" },
   debug: {
     title: "Roh-API",
     show: "Roh-JSON der API zeigen",

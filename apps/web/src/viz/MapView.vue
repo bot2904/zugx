@@ -12,11 +12,10 @@ import {
   setWorkerUrl,
   type GeoJSONSource,
   type MapGeoJSONFeature,
-  type LayerSpecification,
-  type StyleSpecification,
 } from "maplibre-gl";
 import type { Feature, FeatureCollection } from "geojson";
 import { onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { state } from "../lib/store.ts";
 
 export interface MapLine {
   coords: [lat: number, lon: number][];
@@ -86,65 +85,31 @@ function fitAll() {
   if (!b.isEmpty()) map.fitBounds(b, { padding: 40, maxZoom: 13, duration: 0 });
 }
 
-onMounted(() => {
-  if (!el.value) return;
-  const sources: StyleSpecification["sources"] = {
-    osm: {
-      type: "raster",
-      tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
-      tileSize: 256,
-      attribution: "© OpenStreetMap contributors",
-      maxzoom: 19,
-    },
-  };
-  const layers: LayerSpecification[] = [
-    {
-      id: "osm",
-      type: "raster",
-      source: "osm",
-      paint: { "raster-saturation": -0.8, "raster-opacity": 0.85 },
-    },
-  ];
-  if (props.railway) {
-    sources.orm = {
-      type: "raster",
-      tiles: ["https://a.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png"],
-      tileSize: 256,
-      attribution: "<a href='https://www.openrailwaymap.org/'>OpenRailwayMap</a> (CC BY-SA)",
-      maxzoom: 19,
-    };
-    layers.push({ id: "orm", type: "raster", source: "orm", paint: { "raster-opacity": 0.6 } });
-  }
-  const m = new MlMap({
-    container: el.value,
-    style: { version: 8, sources, layers },
-    center: [14.5, 47.6],
-    zoom: 6.3,
-    attributionControl: { compact: true },
-  });
-  map = m;
-  ro = new ResizeObserver(() => m.resize());
-  ro.observe(el.value);
-  m.addControl(new NavigationControl({ showCompass: false }), "top-right");
-  m.on("load", () => {
-    const map = m;
-    map.addSource("lines", { type: "geojson", data: lineData() });
-    map.addSource("points", { type: "geojson", data: pointData() });
-    map.addLayer({
+// ---- base map: OpenFreeMap vector styles (calm, railways included), optional OpenRailwayMap overlay ----
+const ORM_KEY = "zugx:map-orm";
+const orm = ref(localStorage.getItem(ORM_KEY) === "1");
+const styleUrl = () =>
+  `https://tiles.openfreemap.org/styles/${state.theme === "dark" ? "dark" : "positron"}`;
+
+function addOverlays(m: MlMap) {
+  if (!m.getSource("lines")) {
+    m.addSource("lines", { type: "geojson", data: lineData() });
+    m.addSource("points", { type: "geojson", data: pointData() });
+    m.addLayer({
       id: "lines-casing",
       type: "line",
       source: "lines",
       paint: { "line-color": "#000", "line-width": 6, "line-opacity": 0.35 },
       layout: { "line-cap": "round", "line-join": "round" },
     });
-    map.addLayer({
+    m.addLayer({
       id: "lines",
       type: "line",
       source: "lines",
       paint: { "line-color": ["get", "color"], "line-width": 4 },
       layout: { "line-cap": "round", "line-join": "round" },
     });
-    map.addLayer({
+    m.addLayer({
       id: "points",
       type: "circle",
       source: "points",
@@ -155,6 +120,69 @@ onMounted(() => {
         "circle-stroke-width": ["case", ["==", ["get", "stroke"], "#000"], 1, 2],
       },
     });
+  }
+  // make the base map's railway lines a bit more prominent (still calm grey)
+  for (const l of m.getStyle().layers ?? []) {
+    if (l.type === "line" && l.id.startsWith("railway")) {
+      m.setPaintProperty(l.id, "line-color", state.theme === "dark" ? "#7d8590" : "#7a7f87");
+    }
+  }
+  setOrm(m);
+}
+
+/** OpenRailwayMap raster overlay, desaturated so it doesn't dominate */
+function setOrm(m: MlMap) {
+  if (!props.railway) return;
+  if (orm.value && !m.getSource("orm")) {
+    m.addSource("orm", {
+      type: "raster",
+      tiles: ["https://a.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png"],
+      tileSize: 256,
+      attribution: "<a href='https://www.openrailwaymap.org/'>OpenRailwayMap</a> (CC BY-SA)",
+      maxzoom: 19,
+    });
+    m.addLayer(
+      {
+        id: "orm",
+        type: "raster",
+        source: "orm",
+        paint: { "raster-saturation": -0.7, "raster-opacity": 0.55 },
+      },
+      "lines-casing",
+    );
+  } else if (!orm.value && m.getSource("orm")) {
+    m.removeLayer("orm");
+    m.removeSource("orm");
+  }
+}
+
+watch(orm, (v) => {
+  localStorage.setItem(ORM_KEY, v ? "1" : "0");
+  if (map) setOrm(map);
+});
+watch(
+  () => state.theme,
+  () => map?.setStyle(styleUrl()),
+);
+
+onMounted(() => {
+  if (!el.value) return;
+  const m = new MlMap({
+    container: el.value,
+    style: styleUrl(),
+    center: [14.5, 47.6],
+    zoom: 6.3,
+    attributionControl: { compact: true },
+  });
+  map = m;
+  ro = new ResizeObserver(() => m.resize());
+  ro.observe(el.value);
+  m.addControl(new NavigationControl({ showCompass: false }), "top-right");
+  // (re-)add our layers whenever a base style is (re)loaded, e.g. after a theme switch
+  m.on("style.load", () => addOverlays(m));
+  m.on("load", () => {
+    const map = m;
+    addOverlays(map);
     // tooltip: hover on desktop; on touch the first tap shows it, a second tap on the same marker opens it
     const tip = new Popup({
       closeButton: false,
@@ -222,9 +250,20 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div
-    ref="el"
-    class="w-full overflow-hidden rounded-md border border-[var(--line)]"
-    :style="{ height }"
-  />
+  <div class="relative">
+    <div
+      ref="el"
+      class="w-full overflow-hidden rounded-md border border-[var(--line)]"
+      :style="{ height }"
+    />
+    <button
+      v-if="railway"
+      class="btn chip absolute top-2 left-2 z-10 bg-[var(--bg2)] py-0.5 text-xs shadow"
+      :class="orm && 'btn-on'"
+      :title="$t('map.ormTip')"
+      @click="orm = !orm"
+    >
+      {{ $t("map.orm") }}
+    </button>
+  </div>
 </template>

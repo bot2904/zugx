@@ -170,6 +170,7 @@ export default {
     takt: "Interval",
     symmetry: "Symmetry",
   },
+  map: { orm: "Railway map", ormTip: "OpenRailwayMap overlay (tracks, stations, signals)" },
   debug: {
     title: "Raw API",
     show: "Show raw API JSON",
