@@ -68,7 +68,7 @@ test("language switch", async ({ page }) => {
 test("station autocomplete uses the local index", async ({ page }) => {
   await page.goto("/");
   await page.locator("#from").fill("innsbr");
-  await expect(page.getByRole("option").first()).toContainText("Innsbruck Hbf");
+  await expect(page.locator("[role=listbox] [role=option]").first()).toContainText("Innsbruck Hbf");
 });
 
 test("train index lists trains and filters", async ({ page }) => {
@@ -80,5 +80,5 @@ test("bildfahrplan and netzgrafik render", async ({ page }) => {
   await page.goto("/bf/westbahn?from=7&h=2");
   await expect(page.locator("svg[role=img] path").first()).toBeVisible();
   await page.goto("/netz");
-  await expect(page.getByText("Salzburg Hbf").first()).toBeVisible();
+  await expect(page.locator("svg text", { hasText: "Salzburg Hbf" }).first()).toBeVisible();
 });
