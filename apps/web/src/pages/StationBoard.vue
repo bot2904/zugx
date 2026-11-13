@@ -12,6 +12,7 @@ import { useAsync } from "../lib/async.ts";
 import { fromLocalInput, hhmm, toLocalInput } from "../lib/format.ts";
 import { useKeys } from "../lib/keys.ts";
 import { PRODUCT_GROUPS, RAIL_CLS } from "../lib/products.ts";
+import { catRank } from "../lib/trains.ts";
 import { loadStations, stationById } from "../lib/stations.ts";
 import { addRecent, isFavourite, toggleFavourite } from "../lib/store.ts";
 
@@ -86,7 +87,43 @@ function toggleProduct(cls: number) {
   setQuery({ p: p === RAIL_CLS ? undefined : String(p || RAIL_CLS) });
 }
 
-const rows = computed(() => board.data.value ?? []);
+// sortable columns, state in the URL (?sort=line&desc=1); default: by time
+type SortKey = "time" | "line" | "direction" | "platform";
+const SORT_KEYS: SortKey[] = ["time", "line", "direction", "platform"];
+const sort = computed<SortKey>(() =>
+  SORT_KEYS.includes(route.query.sort as SortKey) ? (route.query.sort as SortKey) : "time",
+);
+const desc = computed(() => route.query.desc === "1");
+function sortBy(k: SortKey) {
+  const d = sort.value === k ? !desc.value : false;
+  setQuery({ sort: k === "time" && !d ? undefined : k, desc: d ? "1" : undefined });
+}
+const arrow = (k: SortKey) => (sort.value === k ? (desc.value ? " ↓" : " ↑") : "");
+
+const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
+const sortValue = (e: BoardEntry, k: SortKey): string => {
+  switch (k) {
+    case "time":
+      return e.when.actual ?? e.when.planned;
+    case "line":
+      return `${String(catRank(e.line.category.toUpperCase())).padStart(2, "0")} ${e.line.name}`;
+    case "direction":
+      return e.direction;
+    case "platform":
+      return e.when.platform ?? "\uffff"; // no platform last
+  }
+};
+
+const rows = computed(() => {
+  const list = [...(board.data.value ?? [])];
+  if (sort.value === "time" && !desc.value) return list; // HAFAS order
+  const dir = desc.value ? -1 : 1;
+  return list.sort(
+    (a, b) =>
+      dir * collator.compare(sortValue(a, sort.value), sortValue(b, sort.value)) ||
+      collator.compare(a.when.planned, b.when.planned),
+  );
+});
 
 function open(e?: BoardEntry) {
   if (e) void router.push(`/train/${encodeURIComponent(e.journeyId)}`);
@@ -173,10 +210,18 @@ watch(sel, (i) =>
     <table v-if="rows.length" class="dense">
       <thead>
         <tr>
-          <th>{{ $t("board.time") }}</th>
-          <th>{{ $t("board.line") }}</th>
-          <th>{{ arrivals ? $t("board.from") : $t("board.direction") }}</th>
-          <th class="text-right">{{ $t("board.platform") }}</th>
+          <th class="cursor-pointer select-none" @click="sortBy('time')">
+            {{ $t("board.time") }}{{ arrow("time") }}
+          </th>
+          <th class="cursor-pointer select-none" @click="sortBy('line')">
+            {{ $t("board.line") }}{{ arrow("line") }}
+          </th>
+          <th class="cursor-pointer select-none" @click="sortBy('direction')">
+            {{ arrivals ? $t("board.from") : $t("board.direction") }}{{ arrow("direction") }}
+          </th>
+          <th class="cursor-pointer select-none text-right" @click="sortBy('platform')">
+            {{ $t("board.platform") }}{{ arrow("platform") }}
+          </th>
         </tr>
       </thead>
       <tbody>

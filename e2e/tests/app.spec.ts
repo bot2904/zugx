@@ -155,3 +155,20 @@ test("bildfahrplan index keeps its sort order after visiting a corridor", async 
   await expect(page).toHaveURL(/sort=km/);
   await expect(page.locator("tbody tr").first().getByRole("link").nth(1)).toHaveText(first);
 });
+
+test("station board columns are sortable", async ({ page }) => {
+  await page.goto("/station/8103000");
+  await page.locator("table.dense tbody tr[data-row]").first().waitFor();
+  await page.getByRole("columnheader", { name: /^(Pl\.|Bst\.|Bin\.)/ }).click();
+  await expect(page).toHaveURL(/sort=platform/);
+  const platforms = await page
+    .locator("table.dense tbody tr[data-row] td:last-child")
+    .allInnerTexts();
+  const shown = platforms.map((p) => p.trim()).filter(Boolean);
+  const sorted = [...shown].sort(
+    new Intl.Collator(undefined, { numeric: true, sensitivity: "base" }).compare,
+  );
+  expect(shown).toEqual(sorted);
+  await page.getByRole("columnheader", { name: /^(Pl\.|Bst\.|Bin\.)/ }).click();
+  await expect(page).toHaveURL(/desc=1/);
+});
