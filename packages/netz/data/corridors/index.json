@@ -41,6 +41,156 @@
       "stations": 25,
       "trains": 314,
       "file": "brenner.json"
+    },
+    {
+      "id": "arlberg",
+      "name": "Arlbergbahn Innsbruck – Landeck – Bludenz",
+      "from": "Innsbruck Hbf",
+      "to": "Bludenz",
+      "km": 135.5,
+      "stations": 24,
+      "trains": 237,
+      "file": "arlberg.json"
+    },
+    {
+      "id": "rheintal",
+      "name": "Rheintal Bludenz – Feldkirch – Bregenz",
+      "from": "Bludenz",
+      "to": "Bregenz",
+      "km": 56.8,
+      "stations": 23,
+      "trains": 272,
+      "file": "rheintal.json"
+    },
+    {
+      "id": "tauern",
+      "name": "Tauernbahn Schwarzach – Bad Gastein – Villach",
+      "from": "Schwarzach-St. Veit",
+      "to": "Villach Hbf",
+      "km": 114.9,
+      "stations": 13,
+      "trains": 119,
+      "file": "tauern.json"
+    },
+    {
+      "id": "gisela",
+      "name": "Giselabahn Salzburg – Zell am See – Wörgl",
+      "from": "Salzburg Hbf",
+      "to": "Wörgl Hbf",
+      "km": 191.2,
+      "stations": 49,
+      "trains": 265,
+      "file": "gisela.json"
+    },
+    {
+      "id": "pyhrn",
+      "name": "Pyhrnbahn Linz – Selzthal – Leoben",
+      "from": "Linz Hbf",
+      "to": "Leoben Hbf",
+      "km": 174.9,
+      "stations": 33,
+      "trains": 184,
+      "file": "pyhrn.json"
+    },
+    {
+      "id": "ennstal",
+      "name": "Ennstalbahn Selzthal – Bischofshofen",
+      "from": "Selzthal",
+      "to": "Bischofshofen",
+      "km": 98.4,
+      "stations": 21,
+      "trains": 80,
+      "file": "ennstal.json"
+    },
+    {
+      "id": "stammstrecke",
+      "name": "S-Bahn-Stammstrecke Wien Floridsdorf – Meidling",
+      "from": "Wien Floridsdorf",
+      "to": "Wien Meidling",
+      "km": 13.3,
+      "stations": 10,
+      "trains": 1073,
+      "file": "stammstrecke.json"
+    },
+    {
+      "id": "nordbahn",
+      "name": "Nordbahn Wien – Gänserndorf – Břeclav",
+      "from": "Wien Floridsdorf",
+      "to": "Břeclav",
+      "km": 78.4,
+      "stations": 21,
+      "trains": 297,
+      "file": "nordbahn.json"
+    },
+    {
+      "id": "ostbahn",
+      "name": "Ostbahn Wien – Bruck/Leitha – Hegyeshalom",
+      "from": "Wien Hbf",
+      "to": "Hegyeshalom",
+      "km": 72.2,
+      "stations": 15,
+      "trains": 342,
+      "file": "ostbahn.json"
+    },
+    {
+      "id": "westbahn-alt",
+      "name": "Alte Westbahn Wien Westbf – Wienerwald – St. Pölten",
+      "from": "Wien Westbf",
+      "to": "St. Pölten Hbf",
+      "km": 60.3,
+      "stations": 23,
+      "trains": 510,
+      "file": "westbahn-alt.json"
+    },
+    {
+      "id": "summerau",
+      "name": "Summerauer Bahn Linz – Summerau",
+      "from": "Linz Hbf",
+      "to": "Summerau",
+      "km": 62.3,
+      "stations": 15,
+      "trains": 88,
+      "file": "summerau.json"
+    },
+    {
+      "id": "fjb",
+      "name": "Franz-Josefs-Bahn Wien – Tulln – Gmünd",
+      "from": "Wien Franz-Josefs-Bahnhof",
+      "to": "Gmünd NÖ",
+      "km": 161.9,
+      "stations": 19,
+      "trains": 121,
+      "file": "fjb.json"
+    },
+    {
+      "id": "kamptal",
+      "name": "Kamptalbahn Krems – Horn – Sigmundsherberg",
+      "from": "Krems",
+      "to": "Sigmundsherberg",
+      "km": 53.3,
+      "stations": 18,
+      "trains": 173,
+      "file": "kamptal.json"
+    },
+    {
+      "id": "innviertel",
+      "name": "Wels – Schärding – Passau",
+      "from": "Wels Hbf",
+      "to": "Passau Hbf",
+      "km": 81.1,
+      "stations": 16,
+      "trains": 72,
+      "file": "innviertel.json"
+    },
+    {
+      "id": "aspang",
+      "name": "Aspangbahn Wiener Neustadt – Aspang – Hartberg – Fehring",
+      "from": "Wiener Neustadt Hbf",
+      "to": "Fehring",
+      "km": 132.5,
+      "stations": 30,
+      "trains": 70,
+      "file": "aspang.json"
     }
   ]
 }

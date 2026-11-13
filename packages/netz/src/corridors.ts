@@ -85,6 +85,170 @@ export const CORRIDORS: CorridorDef[] = [
       "Pit:22021:1389", // Brennero/Brenner
     ],
   },
+  {
+    id: "arlberg",
+    name: "Arlbergbahn Innsbruck – Landeck – Bludenz",
+    anchors: [
+      "Pat:47:1187", // Innsbruck Hbf
+      "Pat:47:1212", // Landeck-Zams
+      "Pat:48:130", // Bludenz
+    ],
+  },
+  {
+    id: "rheintal",
+    name: "Rheintal Bludenz – Feldkirch – Bregenz",
+    anchors: [
+      "Pat:48:130", // Bludenz
+      "Pat:48:817", // Feldkirch
+      "Pat:48:585", // Dornbirn
+      "Pat:48:452", // Bregenz
+    ],
+  },
+  {
+    id: "tauern",
+    name: "Tauernbahn Schwarzach – Bad Gastein – Villach",
+    anchors: [
+      "Pat:45:52197", // Schwarzach-St. Veit
+      "Pat:45:52204", // Bad Gastein
+      "Pat:42:2128", // Spittal-Millstätter See
+      "Pat:42:3654", // Villach Hbf
+    ],
+  },
+  {
+    id: "gisela",
+    name: "Giselabahn Salzburg – Zell am See – Wörgl",
+    anchors: [
+      "Pat:45:50002", // Salzburg Hbf
+      "Pat:45:52099", // Bischofshofen
+      "Pat:45:52197", // Schwarzach-St. Veit
+      "Pat:45:54104", // Zell am See
+      "Pat:45:54001", // Saalfelden
+      "Pat:47:1160", // Kitzbühel
+      "Pat:47:1170", // Wörgl Hbf
+    ],
+  },
+  {
+    id: "pyhrn",
+    name: "Pyhrnbahn Linz – Selzthal – Leoben",
+    anchors: [
+      "Pat:44:41164", // Linz Hbf
+      "Pat:44:43500", // Kirchdorf/Krems
+      "Pat:44:43660", // Spital am Pyhrn
+      "Pat:46:6938", // Selzthal
+      "Pat:46:6344", // Leoben Hbf
+    ],
+  },
+  {
+    id: "ennstal",
+    name: "Ennstalbahn Selzthal – Bischofshofen",
+    anchors: [
+      "Pat:46:6938", // Selzthal
+      "Pat:46:7437", // Liezen
+      "Pat:46:6892", // Stainach-Irdning
+      "Pat:45:52099", // Bischofshofen
+    ],
+  },
+  {
+    id: "stammstrecke",
+    name: "S-Bahn-Stammstrecke Wien Floridsdorf – Meidling",
+    anchors: [
+      "Pat:49:334", // Wien Floridsdorf
+      "Pat:49:1040", // Wien Praterstern
+      "Pat:49:743", // Wien Mitte
+      "Pat:49:1091", // Wien Rennweg
+      "Pat:49:1346", // Wien Quartier Belvedere
+      "Pat:49:1349", // Wien Hbf
+      "Pat:49:1015", // Wien Meidling
+    ],
+  },
+  {
+    id: "nordbahn",
+    name: "Nordbahn Wien – Gänserndorf – Břeclav",
+    anchors: [
+      "Pat:49:334", // Wien Floridsdorf
+      "Pat:43:3622", // Gänserndorf
+      "Pat:43:3162", // Bernhardsthal
+      "Pcz:0:5433425", // Břeclav
+    ],
+  },
+  {
+    id: "ostbahn",
+    name: "Ostbahn Wien – Bruck/Leitha – Hegyeshalom",
+    anchors: [
+      "Pat:49:1349", // Wien Hbf
+      "Pat:43:3895", // Kledering
+      "Pat:43:3538", // Gramatneusiedl
+      "Pat:43:3209", // Bruck/Leitha
+      "Pat:41:4469", // Parndorf
+      "Phu:17905:27000493", // Hegyeshalom
+    ],
+  },
+  {
+    id: "westbahn-alt",
+    name: "Alte Westbahn Wien Westbf – Wienerwald – St. Pölten",
+    anchors: [
+      "Pat:49:1468", // Wien Westbahnhof
+      "Pat:43:4601", // Purkersdorf Sanatorium
+      "Pat:43:4651", // Rekawinkel
+      "Pat:43:4337", // Neulengbach
+      "Pat:43:4848", // St. Pölten Hbf
+    ],
+  },
+  {
+    id: "summerau",
+    name: "Summerauer Bahn Linz – Summerau",
+    anchors: [
+      "Pat:44:41164", // Linz Hbf
+      "Pat:44:45090", // Pregarten
+      "Pat:44:45260", // Summerau
+    ],
+  },
+  {
+    id: "fjb",
+    name: "Franz-Josefs-Bahn Wien – Tulln – Gmünd",
+    anchors: [
+      "Pat:49:345", // Wien Franz-Josefs-Bahnhof
+      "Pat:43:5034", // Tulln
+      "Pat:43:3004", // Absdorf-Hippersdorf
+      "Pat:43:4789", // Sigmundsherberg
+      "Pat:43:7169", // Gmünd NÖ
+    ],
+  },
+  {
+    id: "kamptal",
+    name: "Kamptalbahn Krems – Horn – Sigmundsherberg",
+    anchors: [
+      "Pat:43:3993", // Krems
+      "Pat:43:3660", // Hadersdorf/Kamp
+      "Pat:43:4036", // Langenlois
+      "Pat:43:3486", // Gars-Thunau
+      "Pat:43:3784", // Horn
+      "Pat:43:4789", // Sigmundsherberg
+    ],
+  },
+  {
+    id: "innviertel",
+    name: "Wels – Schärding – Passau",
+    anchors: [
+      "Pat:44:42107", // Wels Hbf
+      "Pat:44:40156", // Neumarkt-Kallham
+      "Pat:44:48500", // Schärding
+      "Pde:09262:156", // Passau Hbf
+    ],
+  },
+  {
+    id: "aspang",
+    name: "Aspangbahn Wiener Neustadt – Aspang – Hartberg – Fehring",
+    anchors: [
+      "Pat:43:5210", // Wiener Neustadt Hbf
+      "Pat:43:7034", // Pitten
+      "Pat:43:7040", // Edlitz-Grimmenstein
+      "Pat:43:7041", // Aspang Markt
+      "Pat:46:7543", // Friedberg
+      "Pat:46:2022", // Hartberg
+      "Pat:46:1960", // Fehring
+    ],
+  },
 ];
 
 const median = (xs: number[]) => {
