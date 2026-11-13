@@ -1,0 +1,159 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { describe, expect, it } from "vite-plus/test";
+import {
+  createClient,
+  decodePolyline,
+  parseDuration,
+  parseTime,
+  runningDays,
+} from "../src/index.ts";
+
+const fixture = (name: string) =>
+  JSON.parse(readFileSync(join(import.meta.dirname, "..", "fixtures", `${name}.json`), "utf8"));
+
+/** A fake fetch that answers each method with its recorded fixture. */
+function fixtureClient() {
+  const byMeth: Record<string, string> = {
+    LocMatch: "loc-match",
+    LocGeoPos: "loc-geo-pos",
+    TripSearch: "trip-search",
+    Reconstruction: "reconstruction",
+    JourneyDetails: "journey-details",
+    JourneyMatch: "journey-match",
+    JourneyGeoPos: "journey-geo-pos",
+    HimSearch: "him-search",
+  };
+  const calls: any[] = [];
+  const fetch = (async (_url: string, init: RequestInit) => {
+    const body = JSON.parse(init.body as string);
+    calls.push(body);
+    const req = body.svcReqL[0];
+    const name =
+      req.meth === "StationBoard"
+        ? req.req.type === "ARR"
+          ? "station-board-arr"
+          : "station-board"
+        : byMeth[req.meth];
+    return new Response(JSON.stringify(fixture(name!).response));
+  }) as typeof globalThis.fetch;
+  return { client: createClient({ fetch, endpoint: "/api/mgate" }), calls };
+}
+
+describe("time parsing", () => {
+  it("parses HHMMSS with explicit offset", () => {
+    expect(parseTime("20261113", "122400", 60)).toBe("2026-11-13T12:24:00+01:00");
+  });
+  it("parses day offset", () => {
+    expect(parseTime("20261113", "01003000", 60)).toBe("2026-11-14T00:30:00+01:00");
+  });
+  it("falls back to Europe/Vienna offset (summer)", () => {
+    expect(parseTime("20260701", "080000")).toBe("2026-07-01T08:00:00+02:00");
+  });
+  it("parses durations", () => {
+    expect(parseDuration("023600")).toBe(156);
+    expect(parseDuration("01020000")).toBe(1560);
+  });
+});
+
+describe("polyline", () => {
+  it("decodes the Google example", () => {
+    expect(decodePolyline("_p~iF~ps|U_ulLnnqC_mqNvxq`@")).toEqual([
+      [38.5, -120.2],
+      [40.7, -120.95],
+      [43.252, -126.453],
+    ]);
+  });
+});
+
+describe("running days", () => {
+  it("decodes the bitmap", () => {
+    expect(runningDays("C", "20251214")).toEqual(["2025-12-14", "2025-12-15"]);
+  });
+});
+
+describe("client against fixtures", () => {
+  it("locations", async () => {
+    const { client } = fixtureClient();
+    const locs = await client.locations("Linz");
+    expect(locs[0]).toMatchObject({ id: "8100013", name: "Linz/Donau Hbf", type: "station" });
+    expect(locs[0]!.lat).toBeCloseTo(48.29, 1);
+  });
+  it("nearby", async () => {
+    const { client } = fixtureClient();
+    const locs = await client.nearby(48.185, 16.376);
+    expect(locs.length).toBeGreaterThan(0);
+    expect(locs[0]!.distance).toBeTypeOf("number");
+  });
+  it("departures", async () => {
+    const { client, calls } = fixtureClient();
+    const deps = await client.board("8103000");
+    expect(calls[0].svcReqL[0].req.stbLoc.lid).toBe("A=1@L=8103000@");
+    expect(deps.length).toBeGreaterThan(5);
+    const d = deps[0]!;
+    expect(d.journeyId).toMatch(/^2\|/);
+    expect(d.line.name).toBeTruthy();
+    expect(d.when.planned).toMatch(/^\d{4}-\d\d-\d\dT\d\d:\d\d:00\+0[12]:00$/);
+    expect(deps.some((x) => x.when.delay !== undefined)).toBe(true);
+    expect(deps.some((x) => x.when.platform)).toBe(true);
+  });
+  it("arrivals", async () => {
+    const { client } = fixtureClient();
+    const arrs = await client.board("8100002", { arrivals: true });
+    expect(arrs.length).toBeGreaterThan(0);
+  });
+  it("journeys", async () => {
+    const { client } = fixtureClient();
+    const r = await client.journeys("8103000", "8100173");
+    expect(r.journeys.length).toBeGreaterThan(0);
+    expect(r.laterRef).toBeTruthy();
+    const j = r.journeys[0]!;
+    expect(j.recon).toBeTruthy();
+    expect(j.legs[0]!.kind).toBe("journey");
+    expect(j.legs[0]!.origin.id).toBe("8103000");
+    expect(j.legs[0]!.stopovers!.length).toBeGreaterThan(2);
+    expect(j.duration).toBeGreaterThan(60);
+    expect(
+      r.journeys.flatMap((x) => x.legs).some((l) => l.polyline && l.polyline.length > 10),
+    ).toBe(true);
+  });
+  it("reconstruction", async () => {
+    const { client } = fixtureClient();
+    const j = await client.refreshJourney("x");
+    expect(j?.legs.length).toBeGreaterThan(0);
+  });
+  it("trip", async () => {
+    const { client } = fixtureClient();
+    const t = await client.trip("2|x");
+    expect(t.stopovers.length).toBeGreaterThan(2);
+    expect(t.stopovers[0]!.dep).toBeTruthy();
+    expect(t.stopovers.at(-1)!.arr).toBeTruthy();
+    expect(t.polyline?.length).toBeGreaterThan(10);
+    expect(t.polyline![0]![0]).toBeGreaterThan(45);
+    expect(t.runningDays).toBeTruthy();
+  });
+  it("tripsByName", async () => {
+    const { client } = fixtureClient();
+    const m = await client.tripsByName("RJX 162");
+    expect(m[0]).toMatchObject({ line: { category: "RJX", number: "162", product: "highspeed" } });
+    expect(m[0]!.origin?.name).toBe("Budapest-Keleti");
+  });
+  it("radar", async () => {
+    const { client } = fixtureClient();
+    const mv = await client.radar({ north: 48.3, west: 16.2, south: 48.1, east: 16.5 });
+    expect(mv.length).toBeGreaterThan(0);
+    expect(mv[0]!.lat).toBeGreaterThan(48);
+  });
+  it("warnings", async () => {
+    const { client } = fixtureClient();
+    const w = await client.warnings();
+    expect(w.length).toBeGreaterThan(0);
+    expect(w[0]!.title).toBeTruthy();
+  });
+  it("caches identical requests", async () => {
+    const { client, calls } = fixtureClient();
+    await client.locations("Linz");
+    await client.locations("Linz");
+    expect(calls.length).toBe(1);
+  });
+});

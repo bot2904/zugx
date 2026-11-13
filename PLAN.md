@@ -10,22 +10,24 @@ Status: **draft plan, open questions at the bottom**.
 Name: **zugx** (decided).
 
 Considered names (German railway terms):
-| Name | Meaning |
-|---|---|
-| Kursbuch | printed book of all timetables; ÖBB still publishes one per timetable period |
-| Bildfahrplan | time–distance diagram (graphic timetable) |
-| Perron | old Austrian/Swiss word for platform (Bahnsteig) |
-| Buchfahrplan | the train driver's timetable for one train |
-| Taktknoten | node station where trains meet on the hour in an integrated interval timetable |
-| Kondukteur | old Austrian word for conductor |
-| Stellwerk | signal box; already used by many products and games |
-| Drehscheibe | turntable; clashes with the "Drehscheibe Online" railway fan forum |
+
+| Name         | Meaning                                                                        |
+| ------------ | ------------------------------------------------------------------------------ |
+| Kursbuch     | printed book of all timetables; ÖBB still publishes one per timetable period   |
+| Bildfahrplan | time–distance diagram (graphic timetable)                                      |
+| Perron       | old Austrian/Swiss word for platform (Bahnsteig)                               |
+| Buchfahrplan | the train driver's timetable for one train                                     |
+| Taktknoten   | node station where trains meet on the hour in an integrated interval timetable |
+| Kondukteur   | old Austrian word for conductor                                                |
+| Stellwerk    | signal box; already used by many products and games                            |
+| Drehscheibe  | turntable; clashes with the "Drehscheibe Online" railway fan forum             |
 
 ---
 
 ## 1. Goals / non-goals
 
 **Goals**
+
 - Journey search A → B (via, date/time, dep/arr, products filter, min. transfer time)
 - Station boards (departures / arrivals) with realtime delays, platforms, cancellations
 - Train detail ("Zuglauf"): all stops, times, delays, platform, composition if available
@@ -40,6 +42,7 @@ Considered names (German railway terms):
 - Responsive: dense tables/timelines on desktop, collapsing to cards on mobile; station board + journey search must work well on a phone
 
 **Non-goals (for now)**
+
 - Ticket sales / prices (decided: ignored; at most a deep link to the ÖBB ticket shop per journey)
 - Delay history / punctuality statistics (decided: out of scope for now, idea kept — see §7, option C, and §11)
 - Native apps (PWA is enough)
@@ -50,6 +53,7 @@ Considered names (German railway terms):
 ## 2. UI reference: npmx.dev
 
 What to borrow from npmx.dev:
+
 - Search-first landing page; `/` focuses search, arrow keys navigate results
 - Dense, calm, typographic layout; dark mode by default with light mode toggle
 - URL-compatible permalinks (npmx mirrors npmjs.com URLs → we could mirror sensible Scotty-ish URL patterns, but mainly our own clean ones)
@@ -58,17 +62,17 @@ What to borrow from npmx.dev:
 
 Proposed URL structure:
 
-| Page | URL |
-|---|---|
-| Home / search | `/` |
-| Station search | `/s?q=wien` |
-| Station board | `/station/8103000` (`?arr`, `?t=2026-11-13T12:00`, `?products=…`) |
-| Journey search | `/j/8103000/8100002?t=…&via=…&dep` |
-| Journey detail (one result) | `/j/…/#3` or `/trip/<recon-token>` |
-| Train run | `/train/<journeyId>` and friendly `/train/RJX-260?d=2026-11-13` |
-| Disruptions | `/him` |
-| Train index | `/trains` (see §8) |
-| Netzgrafik (later) | `/netz/<region>` |
+| Page                        | URL                                                               |
+| --------------------------- | ----------------------------------------------------------------- |
+| Home / search               | `/`                                                               |
+| Station search              | `/s?q=wien`                                                       |
+| Station board               | `/station/8103000` (`?arr`, `?t=2026-11-13T12:00`, `?products=…`) |
+| Journey search              | `/j/8103000/8100002?t=…&via=…&dep`                                |
+| Journey detail (one result) | `/j/…/#3` or `/trip/<recon-token>`                                |
+| Train run                   | `/train/<journeyId>` and friendly `/train/RJX-260?d=2026-11-13`   |
+| Disruptions                 | `/him`                                                            |
+| Train index                 | `/trains` (see §8)                                                |
+| Netzgrafik (later)          | `/netz/<region>`                                                  |
 
 Station IDs = HAFAS/UIC "EVA"/IBNR numbers (Austrian stations are `81xxxxx`, e.g. Wien Hbf `8103000`).
 
@@ -77,6 +81,7 @@ Station IDs = HAFAS/UIC "EVA"/IBNR numbers (Austrian stations are `81xxxxx`, e.g
 ## 3. Data source: ÖBB HAFAS `mgate.exe` API
 
 ### 3.1 How Öffi & friends talk to ÖBB
+
 - **Öffi** (Andreas Schildbach) uses the library **public-transport-enabler (PTE)**, which has an `OebbProvider` extending its HAFAS provider base. Older versions used `fahrplan.oebb.at/bin/query.exe`; current PTE/others use the JSON **mgate** API.
 - **KDE KPublicTransport** network config for ÖBB (at_oebb, 2026-04): endpoint `https://fahrplan.oebb.at/bin/mgate.exe`, auth `{type: "AID", aid: "OWDL4fE4ixNiPBBm"}`, client `{id: "OEBB", type: "AND"}`. Realtime coverage AT, regular coverage incl. CH, CZ, DE, HU, IT, …
 - **hafas-client** (JS, `public-transport/hafas-client`) has an `oebb` profile (`hafas-client/p/oebb`). Good reference for request/response parsing (lines, products bitmask, remarks, polylines). Ports exist: pyhafas (Python), hafas-rs (Rust), fshafas (F#), hafas-client-php.
@@ -85,6 +90,7 @@ Station IDs = HAFAS/UIC "EVA"/IBNR numbers (Austrian stations are `81xxxxx`, e.g
 > ⚠️ Unofficial API. No SLA, no published ToS for third-party use, may change any time (AID / version bumps). Must be polite: caching, rate limiting, honest User-Agent with contact. We should design an adapter layer so we can swap sources.
 
 ### 3.2 Request envelope
+
 ```json
 POST https://fahrplan.oebb.at/bin/mgate.exe
 Content-Type: application/json
@@ -97,21 +103,24 @@ Content-Type: application/json
   "svcReqL": [ { "meth": "LocMatch", "req": { "input": { "field": "S", "loc": { "name": "Wien Hbf", "type": "ALL" }, "maxLoc": 10 } } } ]
 }
 ```
+
 `svcReqL` can batch several requests in one HTTP call.
 
 ### 3.3 Methods we need
-| Method | Use |
-|---|---|
-| `LocMatch` | station/address/POI search (fallback when local index misses, addresses/POIs) |
-| `LocGeoPos` | nearby stations |
-| `TripSearch` | journeys; `outCtxScrF`/`outCtxScrB` context tokens for "earlier/later" paging |
-| `Reconstruction` | refresh a journey by its `ctxRecon` token (permalinks, live updates) |
-| `StationBoard` | departures/arrivals (`type: DEP/ARR`) |
-| `JourneyDetails` | full train run incl. stops, remarks, polyline |
-| `JourneyGeoPos` / `JourneyMatch` | live train positions ("radar") / find train by number |
-| `HimSearch` | disruptions |
+
+| Method                           | Use                                                                           |
+| -------------------------------- | ----------------------------------------------------------------------------- |
+| `LocMatch`                       | station/address/POI search (fallback when local index misses, addresses/POIs) |
+| `LocGeoPos`                      | nearby stations                                                               |
+| `TripSearch`                     | journeys; `outCtxScrF`/`outCtxScrB` context tokens for "earlier/later" paging |
+| `Reconstruction`                 | refresh a journey by its `ctxRecon` token (permalinks, live updates)          |
+| `StationBoard`                   | departures/arrivals (`type: DEP/ARR`)                                         |
+| `JourneyDetails`                 | full train run incl. stops, remarks, polyline                                 |
+| `JourneyGeoPos` / `JourneyMatch` | live train positions ("radar") / find train by number                         |
+| `HimSearch`                      | disruptions                                                                   |
 
 Response quirks to handle (hafas-client has prior art for all of these):
+
 - Common lookup tables in `res.common` (`locL`, `prodL`, `opL`, `remL`, `himL`, `polyL`), objects reference them by index
 - Times as `HHMMSS` strings with optional day offset prefix (`01HHMMSS`), relative to a `date` (`YYYYMMDD`), Europe/Vienna
 - Realtime vs planned: `dTimeS`/`dTimeR`, `dPlatfS`/`dPlatfR`, cancellations flags
@@ -121,6 +130,7 @@ Response quirks to handle (hafas-client has prior art for all of these):
 - Encoded polylines (`polyG`/`crdEncYX`) for map display
 
 ### 3.4 No backend: static SPA + dumb reverse proxy (decided)
+
 The browser can't call `mgate.exe` directly (no CORS headers). Instead of an app backend we serve the SPA and the API from **one origin**, so no CORS is needed at all:
 
 ```
@@ -129,6 +139,7 @@ browser ──► host Caddy (zugx.legner.me, TLS)
                    ├─ /            → static Vue SPA (dist/, incl. hashed stations chunk)
                    └─ /api/mgate   → reverse_proxy https://fahrplan.oebb.at/bin/mgate.exe
 ```
+
 The host Caddy only terminates TLS and forwards; everything app-specific is inside the container image, so the app is self-contained and versioned with the repo.
 
 - All HAFAS logic (request building, parsing, normalizing) lives **in the browser** in `packages/hafas` (typed, framework-free TS). The AID is public anyway (it ships in the official apps).
@@ -144,6 +155,7 @@ The host Caddy only terminates TLS and forwards; everything app-specific is insi
 - Option: use `hafas-client` with the ÖBB profile in the browser vs. our own minimal typed client. Leaning towards **own small client** (only ~8 methods, no Node deps, tree-shakeable), using hafas-client as reference + test oracle.
 
 ### 3.5 Alternative / complementary sources
+
 - **data.oebb.at** – ÖBB open data portal (checked 2026-11-13):
   - [GTFS Fahrplan ÖBB 2026](https://data.oebb.at/de/datensaetze~soll-fahrplan-gtfs~): static GTFS ZIP, valid 14.12.2025 – 12.12.2026, updated yearly, **CC BY 4.0**, download after accepting terms (no API key). Covers **ÖBB-Personenverkehr, CAT, Montafonerbahn only** — not WESTbahn, GKB, StH, …
   - [NeTEx 2026 (EU 2024/490 / MMTIS)](https://data.oebb.at/de/datensaetze~datenbereitstellung_delegierte_verordnung_eu_2024-490~) by ÖBB-Infrastruktur, CC BY 3.0 AT ("Datenquelle: ÖBB-Infrastruktur AG").
@@ -160,18 +172,30 @@ The host Caddy only terminates TLS and forwards; everything app-specific is insi
 Goal: station autocomplete returns results in < 5 ms after first load, works offline.
 
 **Build step (CI, e.g. weekly cron)**
+
 1. Source stations from **open data** GTFS/NeTEx (mobilitydata.gv.at / data.oebb.at — the same feed as the train index, §8) (decided), then map/verify each to its **HAFAS ID** (what the API needs) via `LocMatch` in CI. No HAFAS grid crawl.
 2. Merge + dedupe; keep: `id`, `name`, `lat`, `lon`, product mask, "weight" (importance — e.g. number of departures/day or product class, so "Wien Hbf" beats "Wiener Neustadt Hbf" for `wien`), aliases/abbrev (e.g. `Wien Hbf`, `Wien Hauptbahnhof`, Betriebsstellen-Kürzel like `Wbf`?).
 3. Write **`packages/stations/stations.json` — committed to the repo** (decided). Pretty-printed, one station per line, sorted by ID → readable, small `git diff`s show exactly which stations changed. Rail-only AT ≈ 1–2k stations → ~100–200 KB raw, a few tens of KB compressed.
 4. A scheduled GitHub Action reruns the build weekly and **opens a PR** if the JSON changed (review the diff, merge). The build is never run at deploy time, so deploys are reproducible and don't depend on ÖBB being up.
 
 Example entry:
+
 ```json
-{"id":"8103000","name":"Wien Hbf","lat":48.185184,"lon":16.376413,"p":["RJX","RJ","NJ","EC","REX","R","S"],"w":1000,"alias":["Wien Hauptbahnhof"]}
+{
+  "id": "8103000",
+  "name": "Wien Hbf",
+  "lat": 48.185184,
+  "lon": 16.376413,
+  "p": ["RJX", "RJ", "NJ", "EC", "REX", "R", "S"],
+  "w": 1000,
+  "alias": ["Wien Hauptbahnhof"]
+}
 ```
+
 (Coordinates illustrative.) A JSON Schema (`stations.schema.json`) + a CI check validates the file.
 
 **Client**
+
 - The SPA loads it with a dynamic `import('…/stations.json')` → Vite emits it as its own content-hashed chunk: cached forever by the browser, not in the main bundle, re-downloaded only when it changes
 - Precached by the service worker (PWA, offline)
 - Search: normalized (lowercase, strip diacritics: `ö→o`/`oe`, `ß→ss`, `St.`↔`Sankt`, `Hbf`↔`Hauptbahnhof`), prefix + fuzzy (e.g. `uFuzzy` or a small trigram/prefix index built in a Web Worker), ranked by weight
@@ -197,22 +221,23 @@ Tech: SVG via D3 scales (or plain Vue + computed SVG) for 1–3, 5; Canvas/WebGL
 
 ## 6. Proposed stack
 
-| Concern | Choice | Notes |
-|---|---|---|
-| Framework | **Vue 3 + Vite + TS, SPA** (decided) | Vue Router, Pinia only if needed; no SSR/Nuxt since there's no backend |
-| i18n | `vue-i18n` | en, de, it (decided) |
-| Licence | **AGPL-3.0** (decided) | hafas-client (ISC) code reusable; PTE (GPL) usable as reference |
-| Styling | UnoCSS | dense utility styling; CSS vars for theme (npmx-like) |
-| Viz | D3 (scales/shapes only) + SVG | no heavy chart lib |
-| Map | MapLibre GL | open tiles, OpenRailwayMap overlay |
-| Station search | Web Worker + uFuzzy / custom prefix index | |
-| Offline | `vite-plugin-pwa` | precache station index + shell |
-| Hosting | **zugx.legner.me**, own server, **Podman** (decided): one container (Caddy serving `dist/` + `/api/mgate` proxy) run as a systemd service via Quadlet; host Caddy in front for TLS | |
-| Toolchain | **Vite+ (`vite-plus`, latest — 1.6.0 as of 2026-11) + pnpm (latest — 12.18.0)** (decided) | one `vp` CLI for dev/build/test/lint/fmt/typecheck/pack/tasks/hooks, see §6.1 |
-| Testing | Vitest via `vp test` (unit, recorded HAFAS fixtures), Playwright (e2e) | |
-| CI | GitHub Actions: build image → push to `ghcr.io/<you>/zugx` (decided), server pulls via `podman auto-update`; weekly job regenerating `stations.json` + `trains-<year>.json` / `trains-<year>.full.json` → PR | |
+| Concern        | Choice                                                                                                                                                                                                       | Notes                                                                         |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
+| Framework      | **Vue 3 + Vite + TS, SPA** (decided)                                                                                                                                                                         | Vue Router, Pinia only if needed; no SSR/Nuxt since there's no backend        |
+| i18n           | `vue-i18n`                                                                                                                                                                                                   | en, de, it (decided)                                                          |
+| Licence        | **AGPL-3.0** (decided)                                                                                                                                                                                       | hafas-client (ISC) code reusable; PTE (GPL) usable as reference               |
+| Styling        | UnoCSS                                                                                                                                                                                                       | dense utility styling; CSS vars for theme (npmx-like)                         |
+| Viz            | D3 (scales/shapes only) + SVG                                                                                                                                                                                | no heavy chart lib                                                            |
+| Map            | MapLibre GL                                                                                                                                                                                                  | open tiles, OpenRailwayMap overlay                                            |
+| Station search | Web Worker + uFuzzy / custom prefix index                                                                                                                                                                    |                                                                               |
+| Offline        | `vite-plugin-pwa`                                                                                                                                                                                            | precache station index + shell                                                |
+| Hosting        | **zugx.legner.me**, own server, **Podman** (decided): one container (Caddy serving `dist/` + `/api/mgate` proxy) run as a systemd service via Quadlet; host Caddy in front for TLS                           |                                                                               |
+| Toolchain      | **Vite+ (`vite-plus`, latest — 1.6.0 as of 2026-11) + pnpm (latest — 12.18.0)** (decided)                                                                                                                    | one `vp` CLI for dev/build/test/lint/fmt/typecheck/pack/tasks/hooks, see §6.1 |
+| Testing        | Vitest via `vp test` (unit, recorded HAFAS fixtures), Playwright (e2e)                                                                                                                                       |                                                                               |
+| CI             | GitHub Actions: build image → push to `ghcr.io/<you>/zugx` (decided), server pulls via `podman auto-update`; weekly job regenerating `stations.json` + `trains-<year>.json` / `trains-<year>.full.json` → PR |                                                                               |
 
 Repo layout (monorepo, pnpm workspace, Vite+):
+
 ```
 apps/web            Vue SPA (pages, components, viz)
 packages/hafas      typed ÖBB mgate client + normalizer, runs in browser (+ fixtures)
@@ -227,42 +252,43 @@ deploy/             Containerfile (node build stage → caddy:2-alpine), Caddyfi
 
 Use **all of Vite+** (VoidZero's unified toolchain, https://viteplus.dev) — no separate ESLint/Prettier/Husky/lint-staged/Turbo/tsup:
 
-| Concern | Vite+ command | Wraps |
-|---|---|---|
-| dev server / build / preview (`apps/web`) | `vp dev`, `vp build`, `vp preview` | Vite (Rolldown) |
-| unit tests | `vp test` | Vitest |
-| lint (type-aware) | `vp lint` | Oxlint + tsgolint |
-| format | `vp fmt` | Oxfmt |
-| all checks (fmt + lint + types) | `vp check` (`--fix` locally) | |
-| library builds (`packages/hafas`) | `vp pack` | tsdown |
-| monorepo tasks with caching | `vp run -r build`, `vp run --filter …` | Vite Task |
-| git hooks | `vp config` → `.vite-hooks/pre-commit` running `vp staged` | lint-staged |
-| deps | `vp install`, `vp add`, `vp outdated` → pnpm | |
-| Node + pnpm versions | global `vp` (`vp env`) | |
+| Concern                                   | Vite+ command                                              | Wraps             |
+| ----------------------------------------- | ---------------------------------------------------------- | ----------------- |
+| dev server / build / preview (`apps/web`) | `vp dev`, `vp build`, `vp preview`                         | Vite (Rolldown)   |
+| unit tests                                | `vp test`                                                  | Vitest            |
+| lint (type-aware)                         | `vp lint`                                                  | Oxlint + tsgolint |
+| format                                    | `vp fmt`                                                   | Oxfmt             |
+| all checks (fmt + lint + types)           | `vp check` (`--fix` locally)                               |                   |
+| library builds (`packages/hafas`)         | `vp pack`                                                  | tsdown            |
+| monorepo tasks with caching               | `vp run -r build`, `vp run --filter …`                     | Vite Task         |
+| git hooks                                 | `vp config` → `.vite-hooks/pre-commit` running `vp staged` | lint-staged       |
+| deps                                      | `vp install`, `vp add`, `vp outdated` → pnpm               |                   |
+| Node + pnpm versions                      | global `vp` (`vp env`)                                     |                   |
 
 - Always use the **latest** `vite-plus` and **pnpm**: `packageManager: "pnpm@<latest>"` in the root `package.json`, Node 24 LTS in `.node-version`; Renovate (or Dependabot) keeps `vite-plus`, pnpm and `voidzero-dev/setup-vp` current.
 - Scaffold with `vp create` (Vue template, monorepo) in M1 rather than hand-writing configs.
 - **One root `vite.config.ts`** holds shared `lint`, `check`, `staged` and `run.tasks`; **formatting uses Oxfmt defaults** (no `fmt` block, decided); per-package overrides via `overrides` in the root config (Vite+ recommends against package-level lint/fmt blocks). `apps/web/vite.config.ts` only has app-specific Vite config (Vue plugin, PWA, UnoCSS, `server.proxy` for `/api/mgate`).
   ```ts
   // vite.config.ts (root) — sketch
-  import { defineConfig } from 'vite-plus'
+  import { defineConfig } from "vite-plus";
   export default defineConfig({
-    defaultPackage: { dev: './apps/web', build: './apps/web' },
-    lint: { plugins: ['typescript', 'vue'], options: { typeAware: true, typeCheck: true } },
-    staged: { '*': 'vp check --fix' },
+    defaultPackage: { dev: "./apps/web", build: "./apps/web" },
+    lint: { plugins: ["typescript", "vue"], options: { typeAware: true, typeCheck: true } },
+    staged: { "*": "vp check --fix" },
     run: {
       tasks: {
-        'stations:build': { command: 'node packages/stations/build.ts', cache: false },
-        'trains:build': { command: 'node packages/trains/build.ts', cache: false },
+        "stations:build": { command: "node packages/stations/build.ts", cache: false },
+        "trains:build": { command: "node packages/trains/build.ts", cache: false },
       },
     },
-  })
+  });
   ```
   (Untested; exact keys checked against the docs when scaffolding.)
 - **CI**: `voidzero-dev/setup-vp@<pinned release>` (v1.22.0 as of 2026-11; pin an exact tag/SHA, not `v1`) with `cache: true`, then `vp check`, `vp test`, `vp build`; plus the Vite Task GitHub Actions cache. Containerfile build stage uses the same: install `vite-plus`, `vp install --frozen-lockfile`, `vp build`.
 - **To verify in M1 (Vue)**: how well Oxlint/tsgolint and Oxfmt handle `.vue` SFCs (template + `<script setup lang="ts">`). If type checks don't cover SFCs, add a `vue-tsc --noEmit` task to `vp run` and CI; if Oxfmt can't format `.vue` yet, accept that until it can.
 
 Sketch of `deploy/Caddyfile` (inside the container, plain HTTP on :8080):
+
 ```caddyfile
 {
 	admin off
@@ -300,6 +326,7 @@ Sketch of `deploy/Caddyfile` (inside the container, plain HTTP on :8080):
 ```
 
 `deploy/Caddyfile.host` (add to the existing host Caddy):
+
 ```caddyfile
 zugx.legner.me {
 	reverse_proxy 127.0.0.1:8080
@@ -307,6 +334,7 @@ zugx.legner.me {
 ```
 
 `deploy/zugx.container` (Quadlet → `~/.config/containers/systemd/` for rootless, or `/etc/containers/systemd/`):
+
 ```ini
 [Unit]
 Description=zugx timetable web app
@@ -326,6 +354,7 @@ Restart=always
 [Install]
 WantedBy=default.target
 ```
+
 Then `systemctl --user daemon-reload && systemctl --user start zugx`. Updates: `podman auto-update` (enable `podman-auto-update.timer`) pulls new images pushed by CI. Rootless + `loginctl enable-linger` so it runs without a login session. Alternative without a registry: `podman build -t localhost/zugx -f deploy/Containerfile .` on the server and `Image=localhost/zugx`.
 
 (Untested sketches — validate with `caddy validate` and a first deploy in M1. For local dev (`vp dev`), Vite's `server.proxy` does the same `/api/mgate` forwarding.)
@@ -338,13 +367,14 @@ Client sends deterministic JSON (fixed key order, "now" rounded to the minute) s
 Reference: **Netzgrafik-Editor (NGE)** by SBB, open source since 2024 (Angular/TS frontend, Java backend), now under the OpenRail Association; has JSON import/export. SNCF's OSRD integrates it.
 
 Approach options:
+
 - **A. Export to NGE JSON** – derive from GTFS: for each line pattern & hour, the departure/arrival **minutes** at nodes, frequency (Takt 30/60/120), travel times between nodes; generate NGE JSON → open in the public NGE demo. Lowest effort, great validation.
 - **B. Own read-only Netzgrafik renderer** – nodes = Knoten (Wien Hbf, St. Pölten, Linz, Salzburg, Graz, Villach, Innsbruck…), edges = Linien with minute labels at both ends, symmetry check (Symmetrieminute ≈ :00/:30), Knotenzeiten highlighting (Vollknoten vs Halbknoten), transfer quality at nodes.
 - **C. Live-ish overlay** – colour edges by today's realtime punctuality from sampled HAFAS boards.
 
 Data pipeline: GTFS → filter rail → cluster trips into line patterns → detect Takt per pattern/time window → compute node minutes → model. Prototype in a notebook/script first.
 
-Note: the ÖBB "Zielnetz 2040"/Taktfahrplan Österreich planning is published as documents, not data — so the Netzgrafik would be reconstructed from the *current* timetable.
+Note: the ÖBB "Zielnetz 2040"/Taktfahrplan Österreich planning is published as documents, not data — so the Netzgrafik would be reconstructed from the _current_ timetable.
 
 ---
 
@@ -353,35 +383,38 @@ Note: the ÖBB "Zielnetz 2040"/Taktfahrplan Österreich planning is published as
 A browsable, searchable list of **every train running in Austria** in the current timetable year (Fahrplanjahr 2026: 14.12.2025 – 12.12.2026), in the spirit of [vagonweb.cz](https://www.vagonweb.cz/razeni/index.php?rok=2026) — but focused on Austria, for all operators, and linked into our live views.
 
 ### 8.1 Scope
+
 - "Running in Austria" = at least one stop at an Austrian station (`81xxxxx` IDs / inside AT). Includes foreign operators on Austrian tracks (DB ICE, ČD/MÁV Railjets, SBB/FS EC, partner Nightjets, ...).
 - Operators: ÖBB, WESTbahn, CAT, GKB, StH (Steiermarkbahn), SLB, Zillertalbahn, NÖVOG, Montafonerbahn, Raaberbahn (GySEV), foreign operators as above.
 - Categories: RJX, RJ, NJ, EN, ICE, EC, IC, D, WB, CJX, REX, R, S, plus heritage/special trains if in the data. Buses excluded.
 
 ### 8.2 What it shows
+
 Per train, one row (dense, sortable, like vagonweb's lists):
 
-| Field | Example |
-|---|---|
-| category + number | `RJX 260` |
-| name | `»Transalpin«` |
-| operator | ÖBB |
-| route | Wien Hbf 07:30 → … → Zürich HB 15:20 (first/last stop, with times; key intermediate stops in a tooltip/expand) |
-| Verkehrstage (running days) | `täglich`, `Mo–Fr`, `nicht 24.–26.12.`, plus a small calendar heat-strip over the year |
-| validity | first/last running day in the timetable year |
-| links | our train run `/train/RJX-260?d=…` (live), vagonweb composition (later, §8.5) |
+| Field                       | Example                                                                                                        |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| category + number           | `RJX 260`                                                                                                      |
+| name                        | `»Transalpin«`                                                                                                 |
+| operator                    | ÖBB                                                                                                            |
+| route                       | Wien Hbf 07:30 → … → Zürich HB 15:20 (first/last stop, with times; key intermediate stops in a tooltip/expand) |
+| Verkehrstage (running days) | `täglich`, `Mo–Fr`, `nicht 24.–26.12.`, plus a small calendar heat-strip over the year                         |
+| validity                    | first/last running day in the timetable year                                                                   |
+| links                       | our train run `/train/RJX-260?d=…` (live), vagonweb composition (later, §8.5)                                  |
 
 Quick filters (one key/chip each): **all · long-distance** (RJX, RJ, NJ, EN, ICE, EC, IC, D, WB) **· regional** (CJX, REX, R) **· S-Bahn** (S) — regional and S-Bahn load the full file (§8.3) **· night trains** (NJ, EN). Further filters: operator, category, station ("all trains stopping at Linz Hbf"), "runs on date X / today", number range, name. Grouping like vagonweb: operator → category → number. Keyboard nav as everywhere else. Typing a train number (`260`, `rjx260`, `RJX 260`) or a train name (`transalpin`) in the global search jumps straight to the train.
 
 URLs:
 
-| Page | URL |
-|---|---|
-| Index (all operators) | `/trains` (`?y=2026`, `?d=2026-11-13` = runs on that day) |
-| Operator / category | `/trains/oebb`, `/trains/oebb/rjx` |
-| Trains at a station | `/trains?at=8103000` |
-| Single train | `/train/RJX-260` (existing train page, gains a "timetable year" tab: running days, route variants; vagonweb link later) |
+| Page                  | URL                                                                                                                     |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Index (all operators) | `/trains` (`?y=2026`, `?d=2026-11-13` = runs on that day)                                                               |
+| Operator / category   | `/trains/oebb`, `/trains/oebb/rjx`                                                                                      |
+| Trains at a station   | `/trains?at=8103000`                                                                                                    |
+| Single train          | `/train/RJX-260` (existing train page, gains a "timetable year" tab: running days, route variants; vagonweb link later) |
 
 ### 8.3 Data pipeline
+
 - **Source: static timetable open data**, not HAFAS crawling — Austria-wide GTFS / NeTEx Sollfahrplan from mobilitydata.gv.at (covers all operators) and/or data.oebb.at. Licence and whether train numbers (`trip_short_name`) and names are included — **to verify** in M0.
 - Build script `packages/trains` (Node, CI only, same pattern as `packages/stations`):
   1. Load GTFS, keep rail trips with ≥ 1 Austrian stop
@@ -394,7 +427,17 @@ URLs:
   - `packages/trains/trains-2026.full.json` — **full**: all trains (~10–15k → roughly 1–2 MB raw, a few hundred KB compressed)
   - `trains-2026.json` is a strict subset of `trains-2026.full.json`, generated from it in the same build step; a CI check verifies this.
   ```json
-  {"op":"oebb","cat":"RJX","nr":260,"name":"Transalpin","from":["8103000","07:30"],"to":["8503000","15:20"],"via":["8100013","8101001","8100108"],"days":"<base64 bitset>","text":"täglich"}
+  {
+    "op": "oebb",
+    "cat": "RJX",
+    "nr": 260,
+    "name": "Transalpin",
+    "from": ["8103000", "07:30"],
+    "to": ["8503000", "15:20"],
+    "via": ["8100013", "8101001", "8100108"],
+    "days": "<base64 bitset>",
+    "text": "täglich"
+  }
   ```
   (Illustrative.) Running days are a 365/366-bit set → ~62 chars base64 per train.
 - The full stop list for a train comes **live** from HAFAS (`JourneyMatch` by number + date → `JourneyDetails`) when the train page opens — no need to ship it statically.
@@ -403,12 +446,15 @@ URLs:
 - **`trains-<year>.json` loads by default.** `trains-<year>.full.json` is loaded on demand: when the regional/S-Bahn quick filter is picked, a regional category or `?all` is in the URL, a station filter is set, or a train-number search misses in the default file. Once the full file is loaded, it replaces the default one for the rest of the session (the service worker caches both).
 
 ### 8.4 Later extensions
+
 - Composition ("Wagenreihung"): whether ÖBB exposes planned/actual composition via HAFAS or another endpoint — **to verify**; if so, show it on the train page. Otherwise link to vagonweb (§8.5).
 - Diff between timetable years ("what changed in Fahrplan 2027": new/removed trains, new names, changed routes).
 - Train-number ranges reference (ÖBB numbering scheme by category/region).
 
 ### 8.5 Link to vagonweb (later — decided: not part of M5)
+
 vagonweb.cz is the reference for train compositions (Řazení vlaků); we **link to it, never scrape it** (it returns 403 to automated clients, and the composition data is their community's work).
+
 - Single train: `https://www.vagonweb.cz/razeni/vlak.php?zeme=<op>&kategorie=<cat>&cislo=<nr>&nazev=&rok=<year>&lang=de`
 - Operator/category list: `https://www.vagonweb.cz/razeni/razeni.php?zeme=<op>&kategorie=<cat>&rok=<year>&lang=de`
 - `rok` = timetable year (vagonweb's 2026 = 14.12.2025 – 12.12.2026, same as ours).
@@ -434,6 +480,7 @@ vagonweb.cz is the reference for train compositions (Řazení vlaků); we **link
 ---
 
 ## 10. Risks
+
 - Unofficial API: blocking / AID changes → adapter layer, caching, monitoring job that pings key methods daily.
 - Legal/ToS of scraping HAFAS → keep traffic low, consider contacting ÖBB (opendata@oebb.at); prefer open data where possible.
 - Station ID mismatch between GTFS and HAFAS → mapping table, verified by `LocMatch`.
@@ -443,6 +490,7 @@ vagonweb.cz is the reference for train compositions (Řazení vlaků); we **link
 ---
 
 ## 11. Decisions
+
 - Station index: **rail only, Austria** (≈1–2k stations; LocMatch fallback for everything else), built from **open data GTFS/NeTEx, mapped to HAFAS IDs** via `LocMatch`
 - Stack: **Vue 3 SPA**, no app backend — only a **Caddy** reverse proxy to the ÖBB API
 - Name: **zugx**, hosted at **zugx.legner.me**
@@ -467,6 +515,7 @@ None right now — all answered (see §11). Still **to verify** in M0: open data
 ---
 
 ## Sources
+
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
 - KDE KPublicTransport ÖBB network config: https://autoconfig.kde.org/kpublictransport/networks/at_oebb-26.04.0.json
 - hafas-client ÖBB profile: https://cdn.jsdelivr.net/npm/hafas-client@6.3.6/p/oebb/readme.md
