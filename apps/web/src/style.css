@@ -250,3 +250,49 @@ table.dense thead th {
   overflow: auto;
   color: var(--fg);
 }
+
+/* Top layer (dialog, popovers: toggletip, nav menu): short fade in/out, a slight scale unless reduced
+   motion is preferred. display + overlay transition so the exit animation is visible
+   (modern-web-guidance: animate-to-from-top-layer) */
+dialog,
+[popover] {
+  opacity: 0;
+  transition-property: opacity, transform, display, overlay;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
+  transition-behavior: allow-discrete;
+  @media (prefers-reduced-motion: no-preference) {
+    transform: scale(0.97);
+  }
+}
+dialog[open],
+[popover]:popover-open {
+  opacity: 1;
+  @starting-style {
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    transform: scale(1);
+    @starting-style {
+      transform: scale(0.97);
+    }
+  }
+}
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0);
+  transition-property: background-color, display, overlay;
+  transition-duration: 0.15s;
+  transition-behavior: allow-discrete;
+}
+dialog[open]::backdrop {
+  background-color: rgb(0 0 0 / 0.5);
+  @starting-style {
+    background-color: rgb(0 0 0 / 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  dialog,
+  [popover] {
+    transition-duration: 0.05s;
+  }
+}

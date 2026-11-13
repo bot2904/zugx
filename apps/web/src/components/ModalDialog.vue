@@ -53,7 +53,6 @@ dialog:modal {
   overscroll-behavior: contain;
 }
 dialog::backdrop {
-  background: rgb(0 0 0 / 0.5);
   overflow: hidden;
   overscroll-behavior: contain;
 }
