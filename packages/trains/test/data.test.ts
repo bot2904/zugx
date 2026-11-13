@@ -43,7 +43,7 @@ describe.each(years)("trains-%s", (year) => {
     ["default", def],
     ["full", full],
   ])("%s file", (_label, { text, idx }) => {
-    const days = (Date.parse(idx.end) - Date.parse(idx.begin)) / 86_400_000 + 1;
+    const days = Temporal.PlainDate.from(idx.begin).until(idx.end).days + 1;
 
     it("has the header fields", () => {
       expect(idx.year).toBe(Number(year));
@@ -86,10 +86,7 @@ describe.each(years)("trains-%s", (year) => {
         const d = dayIndexes(e.days);
         expect(d.length, where).toBe(e.n);
         expect(d.at(-1)!, where).toBeLessThan(days);
-        const iso = (i: number) =>
-          new Date(Date.parse(`${idx.begin}T00:00:00Z`) + i * 86_400_000)
-            .toISOString()
-            .slice(0, 10);
+        const iso = (i: number) => Temporal.PlainDate.from(idx.begin).add({ days: i }).toString();
         expect(e.first, where).toBe(iso(d[0]!));
         expect(e.last, where).toBe(iso(d.at(-1)!));
         if (e.var !== undefined) expect(e.var, where).toBeGreaterThan(1);

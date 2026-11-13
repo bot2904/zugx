@@ -100,12 +100,13 @@ export function parseGtfsTime(s: string): number {
 
 /** `2026-03-10` → `20260310` */
 const gtfsDate = (day: string) => day.replaceAll("-", "");
-const WEEKDAYS = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+// GTFS calendar columns, indexed by ISO dayOfWeek - 1 (Monday first)
+const WEEKDAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
 
 /** Set of service_ids active on `day` (YYYY-MM-DD). */
 export function activeServices(src: TableSource, day: string): Set<string> {
   const d = gtfsDate(day);
-  const weekday = WEEKDAYS[new Date(`${day}T12:00:00Z`).getUTCDay()]!;
+  const weekday = WEEKDAYS[Temporal.PlainDate.from(day).dayOfWeek - 1]!;
   const active = new Set<string>();
   for (const r of csvRecords(src("calendar") ?? [])) {
     if (r[weekday] === "1" && r.start_date! <= d && d <= r.end_date!) active.add(r.service_id!);
@@ -154,14 +155,12 @@ export function serviceDays(
   begin: string,
   end: string,
 ): Map<string, Set<number>> {
-  const DAY = 86_400_000;
-  const b = Date.parse(`${begin}T00:00:00Z`);
-  const n = Math.round((Date.parse(`${end}T00:00:00Z`) - b) / DAY) + 1;
-  const iso = (i: number) => new Date(b + i * DAY).toISOString().slice(0, 10);
-  const days = Array.from({ length: n }, (_, i) => ({
-    d: gtfsDate(iso(i)),
-    wd: WEEKDAYS[new Date(b + i * DAY).getUTCDay()]!,
-  }));
+  const b = Temporal.PlainDate.from(begin);
+  const n = b.until(end).days + 1;
+  const days = Array.from({ length: n }, (_, i) => {
+    const d = b.add({ days: i });
+    return { d: gtfsDate(d.toString()), wd: WEEKDAYS[d.dayOfWeek - 1]! };
+  });
   const out = new Map<string, Set<number>>();
   const get = (id: string) => {
     let set = out.get(id);

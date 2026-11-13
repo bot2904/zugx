@@ -59,8 +59,6 @@ export interface TrainIndex {
   trains: TrainEntry[];
 }
 
-const DAY = 86_400_000;
-
 function decodeBase64(b64: string): Uint8Array {
   const bin = atob(b64);
   const out = new Uint8Array(bin.length);
@@ -88,7 +86,7 @@ export function dayIndexes(base64: string): number[] {
 }
 
 const isoAdd = (begin: string, days: number) =>
-  new Date(Date.parse(`${begin}T00:00:00Z`) + days * DAY).toISOString().slice(0, 10);
+  Temporal.PlainDate.from(begin).add({ days }).toString();
 
 /** Decode a running-days bitset into ISO dates. */
 export function decodeDays(base64: string, begin: string): Set<string> {
@@ -97,10 +95,13 @@ export function decodeDays(base64: string, begin: string): Set<string> {
 
 /** Does the train run on `isoDate` (service day, "YYYY-MM-DD")? */
 export function runsOn(entry: Pick<TrainEntry, "days">, isoDate: string, begin: string): boolean {
-  const i = Math.round(
-    (Date.parse(`${isoDate}T00:00:00Z`) - Date.parse(`${begin}T00:00:00Z`)) / DAY,
-  );
-  if (!Number.isFinite(i) || i < 0) return false;
+  let i: number;
+  try {
+    i = Temporal.PlainDate.from(begin).until(isoDate).days;
+  } catch {
+    return false; // not a date
+  }
+  if (i < 0) return false;
   const bytes = decodeBase64(entry.days);
   if (i >= bytes.length * 8) return false;
   return ((bytes[i >> 3]! >> (7 - (i & 7))) & 1) === 1;

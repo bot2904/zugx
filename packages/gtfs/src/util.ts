@@ -9,11 +9,10 @@ export function stationGroup(g: Gtfs, stopId: string): string {
   return s?.parent || stopId;
 }
 
-/** ISO date of the n-th weekday (0 = Sunday) in a month. */
-function nthWeekday(year: number, month: number, weekday: number, n: number): string {
-  const first = new Date(Date.UTC(year, month - 1, 1)).getUTCDay();
-  const day = 1 + ((weekday - first + 7) % 7) + (n - 1) * 7;
-  return new Date(Date.UTC(year, month - 1, day)).toISOString().slice(0, 10);
+/** The n-th weekday (ISO: 1 = Monday … 7 = Sunday) in a month. */
+function nthWeekday(year: number, month: number, weekday: number, n: number): Temporal.PlainDate {
+  const first = Temporal.PlainDate.from({ year, month, day: 1 });
+  return first.add({ days: ((weekday - first.dayOfWeek + 7) % 7) + (n - 1) * 7 });
 }
 
 /**
@@ -21,11 +20,13 @@ function nthWeekday(year: number, month: number, weekday: number, n: number): st
  * ends the day before the second Sunday of December, e.g. 2026 = 2025-12-14 … 2026-12-12.
  */
 export function timetableYear(year: number): { begin: string; end: string; days: number } {
-  const begin = nthWeekday(year - 1, 12, 0, 2);
-  const nextBegin = nthWeekday(year, 12, 0, 2);
-  const end = new Date(Date.parse(nextBegin) - 86_400_000).toISOString().slice(0, 10);
-  const days = (Date.parse(nextBegin) - Date.parse(begin)) / 86_400_000;
-  return { begin, end, days };
+  const begin = nthWeekday(year - 1, 12, 7, 2);
+  const nextBegin = nthWeekday(year, 12, 7, 2);
+  return {
+    begin: begin.toString(),
+    end: nextBegin.subtract({ days: 1 }).toString(),
+    days: begin.until(nextBegin).days,
+  };
 }
 
 /**

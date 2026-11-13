@@ -6,6 +6,7 @@
  * GTFS source: env GTFS_DIR (unzipped) or GTFS_ZIP, else `<repo>/.cache/`
  * (downloaded if missing).
  */
+import "temporal-polyfill/global"; // Node < 26: no native Temporal
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
@@ -102,9 +103,7 @@ async function main() {
   console.log(
     `${period.begin} – ${period.end}: ${year.feed.trips.length} rail trips (${Date.now() - t0} ms)`,
   );
-  const dayIdx = Math.round(
-    (Date.parse(`${day}T00:00:00Z`) - Date.parse(`${period.begin}T00:00:00Z`)) / 86_400_000,
-  );
+  const dayIdx = Temporal.PlainDate.from(period.begin).until(day).days;
   const runsOnDay = (b64: string) => {
     const b = Buffer.from(b64, "base64")[dayIdx >> 3] ?? 0;
     return ((b >> (7 - (dayIdx & 7))) & 1) === 1;

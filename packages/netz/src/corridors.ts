@@ -983,11 +983,9 @@ export function buildCorridor(
 ): Corridor {
   const stations = corridorStations(feed, def, names);
   const idx = new Map(stations.map((s, i) => [s.id, i]));
-  const DAY = 86_400_000;
   const begin = year?.begin ?? day;
   const end = year?.end ?? day;
-  const n =
-    Math.round((Date.parse(`${end}T00:00:00Z`) - Date.parse(`${begin}T00:00:00Z`)) / DAY) + 1;
+  const n = Temporal.PlainDate.from(begin).until(end).days + 1;
   const merged = new Map<string, { t: CorridorRun; days: Set<number> }>();
   for (const trip of (year ?? { feed }).feed.trips) {
     const tripDays = year ? year.days.get(trip.service) : new Set([0]);

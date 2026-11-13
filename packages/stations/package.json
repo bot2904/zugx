@@ -20,6 +20,7 @@
     "@types/node": "catalog:",
     "@zugx/gtfs": "workspace:*",
     "@zugx/hafas": "workspace:*",
+    "temporal-polyfill": "catalog:",
     "vite-plus": "catalog:"
   }
 }

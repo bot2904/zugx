@@ -318,6 +318,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 24.19.2
+      temporal-polyfill:
+        specifier: 'catalog:'
+        version: 1.0.8
       vite-plus:
         specifier: 'catalog:'
         version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
@@ -342,6 +345,9 @@ importers:
       fflate:
         specifier: 'catalog:'
         version: 0.8.3
+      temporal-polyfill:
+        specifier: 'catalog:'
+        version: 1.0.8
       vite-plus:
         specifier: 'catalog:'
         version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
@@ -357,6 +363,9 @@ importers:
       '@zugx/hafas':
         specifier: workspace:*
         version: link:../hafas
+      temporal-polyfill:
+        specifier: 'catalog:'
+        version: 1.0.8
       vite-plus:
         specifier: 'catalog:'
         version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
@@ -376,6 +385,9 @@ importers:
       '@zugx/stations':
         specifier: workspace:*
         version: link:../stations
+      temporal-polyfill:
+        specifier: 'catalog:'
+        version: 1.0.8
       vite-plus:
         specifier: 'catalog:'
         version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))

@@ -1,5 +1,6 @@
 // Build data/stations.json: rail stations in Austria from open data GTFS, mapped to HAFAS ids.
 // Run: vp run stations:build   (env: GTFS_ZIP, REMAP=1 to redo all HAFAS lookups)
+import "temporal-polyfill/global"; // Node < 26: no native Temporal
 import { join } from "node:path";
 import {
   compareCategories,
@@ -137,8 +138,9 @@ export async function updateMap(
   log: (msg: string) => void = console.log,
 ): Promise<GtfsHafasMap> {
   const old = readJson<GtfsHafasMap>(MAP_PATH, {});
-  const today = new Date().toISOString().slice(0, 10);
-  const retryBefore = new Date(Date.now() - RETRY_DAYS * 86_400_000).toISOString().slice(0, 10);
+  const todayDate = Temporal.Now.plainDateISO("Europe/Vienna");
+  const today = todayDate.toString();
+  const retryBefore = todayDate.subtract({ days: RETRY_DAYS }).toString();
   const map: GtfsHafasMap = {};
   const todo: GroupStats[] = [];
   for (const s of groups) {

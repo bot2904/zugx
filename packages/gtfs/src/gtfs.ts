@@ -69,10 +69,27 @@ export interface LoadOptions {
 /** GTFS route_type for rail: 2 plus the extended rail types 100–117. */
 export const isRailRouteType = (t: number) => t === 2 || (t >= 100 && t <= 117);
 
-export const dayNumber = (yyyymmdd: string) =>
-  Date.UTC(+yyyymmdd.slice(0, 4), +yyyymmdd.slice(4, 6) - 1, +yyyymmdd.slice(6, 8)) / 86_400_000;
+// service days as day numbers since 1970-01-01 (compact bitsets); cached, called in hot loops
+const EPOCH = Temporal.PlainDate.from("1970-01-01");
+const dayNumbers = new Map<string, number>();
+const isoDays = new Map<number, string>();
 
-export const isoDay = (day: number) => new Date(day * 86_400_000).toISOString().slice(0, 10);
+export const dayNumber = (yyyymmdd: string) => {
+  let n = dayNumbers.get(yyyymmdd);
+  if (n === undefined) {
+    const d = Temporal.PlainDate.from(
+      `${yyyymmdd.slice(0, 4)}-${yyyymmdd.slice(4, 6)}-${yyyymmdd.slice(6, 8)}`,
+    );
+    dayNumbers.set(yyyymmdd, (n = EPOCH.until(d).days));
+  }
+  return n;
+};
+
+export const isoDay = (day: number) => {
+  let s = isoDays.get(day);
+  if (s === undefined) isoDays.set(day, (s = EPOCH.add({ days: day }).toString()));
+  return s;
+};
 
 export const dayFromIso = (iso: string) => dayNumber(iso.replaceAll("-", ""));
 

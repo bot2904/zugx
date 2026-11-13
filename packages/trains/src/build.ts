@@ -1,6 +1,7 @@
 // Build data/trains-<year>.json (long-distance + night) and data/trains-<year>.full.json (all trains)
 // from open data GTFS. Run after stations:build (uses its GTFS → HAFAS station map).
 // Run: vp run trains:build   (env: GTFS_ZIP, TRAINS_YEAR, NAMES=0 to skip HAFAS name lookups)
+import "temporal-polyfill/global"; // Node < 26: no native Temporal
 import { join } from "node:path";
 import {
   dayFromIso,
@@ -116,7 +117,10 @@ function feedYear(g: Gtfs): number {
       if (iso >= timetableYear(y + 1).begin) y++;
       votes.set(y, (votes.get(y) ?? 0) + 1);
     }
-  return [...votes].sort((a, b) => b[1] - a[1])[0]?.[0] ?? new Date().getFullYear();
+  return (
+    [...votes].sort((a, b) => b[1] - a[1])[0]?.[0] ??
+    Temporal.Now.plainDateISO("Europe/Vienna").year
+  );
 }
 
 interface Train {
@@ -147,7 +151,7 @@ async function fetchNames(
   if (!todo.length || process.env.NAMES === "0") return cache;
   const polite = politeClient({ log });
   const t = timer();
-  const today = new Date().toISOString().slice(0, 10);
+  const today = Temporal.Now.plainDateISO("Europe/Vienna").toString();
   let done = 0;
   let found = 0;
   await mapPool(todo, 3, async (tr) => {
@@ -391,7 +395,7 @@ async function main() {
   log(`trains: ${entries.length} trains with Austrian stops (${noAustria} without, skipped)`);
 
   // ---- names (long-distance only) ----
-  const today = new Date().toISOString().slice(0, 10);
+  const today = Temporal.Now.plainDateISO("Europe/Vienna").toString();
   const namesPath = join(DATA, `names-${year}.json`);
   const ldTodo = entries.filter(isLongDistance);
   const names = await fetchNames(
