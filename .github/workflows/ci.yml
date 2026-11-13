@@ -23,8 +23,19 @@ jobs:
       - run: vp run -r test
       - run: vp run --filter @zugx/web build
 
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: voidzero-dev/setup-vp@v1.22.0
+        with:
+          node-version: "24"
+          cache: true
+      - run: pnpm --filter @zugx/e2e exec playwright install --with-deps chromium
+      - run: vp run --filter @zugx/e2e e2e
+
   image:
-    needs: check
+    needs: [check, e2e]
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:

@@ -22,6 +22,7 @@ export default defineConfig({
       "stations:build": { command: "vpx packages/stations/src/build.ts", cache: false },
       "trains:build": { command: "vpx packages/trains/src/build.ts", cache: false },
       "netz:build": { command: "vpx packages/netz/src/build.ts", cache: false },
+      "hafas:canary": { command: "vpx packages/hafas/scripts/canary.ts", cache: false },
       "hafas:record": { command: "vpx packages/hafas/scripts/record-fixtures.ts", cache: false },
     },
   },
