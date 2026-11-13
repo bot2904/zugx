@@ -121,6 +121,14 @@ describe("client against fixtures", () => {
     expect(deps.some((x) => x.when.delay !== undefined)).toBe(true);
     expect(deps.some((x) => x.when.platform)).toBe(true);
   });
+  it("takes train numbers from the name when JourneyGeoPos omits num", async () => {
+    const { client } = fixtureClient();
+    const mv = await client.radar({ north: 48.3, west: 16.2, south: 48.1, east: 16.5 });
+    for (const m of mv) {
+      if (!m.line.trainNumber && /^[A-Z]+$/.test(m.line.category))
+        expect(m.line.name).toMatch(/\d/);
+    }
+  });
   it("keeps the train number of S-Bahn lines", async () => {
     const { client } = fixtureClient();
     const deps = await client.board("8103000");

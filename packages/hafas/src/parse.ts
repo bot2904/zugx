@@ -122,7 +122,15 @@ export function parseLine(p: Raw, c: Common): Line {
   const op = p?.oprX !== undefined ? c.opL[p.oprX] : undefined;
   // local transport has a line ("Tram 18", "Bus 69A"); trains have a train number ("RJX 13474")
   const isLine = ctx.line !== undefined;
-  const number = String(isLine ? ctx.line : (ctx.num ?? p?.number ?? "")).trim();
+  // JourneyGeoPos products carry no num/number, only name ("IC 792") and matchId ("792")
+  const fromName = String(p?.name ?? "")
+    .trim()
+    .split(/\s+/)
+    .slice(1)
+    .join(" ");
+  const number = String(
+    isLine ? ctx.line : (ctx.num ?? p?.number ?? (fromName || ctx.matchId) ?? ""),
+  ).trim();
   const name = isLine
     ? String(p?.nameS ?? p?.name ?? `${category} ${number}`).trim()
     : `${category} ${number}`.trim() || String(p?.name ?? "").trim();
@@ -468,9 +476,14 @@ export function parseJourneyGeoPos(res: Raw, now = Date.now()): Movement[] {
     .filter((j: Raw) => j.pos)
     .map((j: Raw): Movement => {
       const stops = (j.stopL ?? []).map((s: Raw) => parseStopover(s, j.date, c));
+      const line = parseLine(c.prodL[j.prodX], c);
+      // JourneyGeoPos omits the train number of line trains (S 2): it is in the jid ("#ZE#22734#")
+      const ze = /#ZE#([^#]+)#/.exec(j.jid ?? "")?.[1]?.trim();
+      if (ze && ze !== line.number && !line.trainNumber && !line.name.includes(ze))
+        line.trainNumber = ze;
       const m: Movement = {
         journeyId: j.jid,
-        line: parseLine(c.prodL[j.prodX], c),
+        line,
         direction: j.dirTxt ?? "",
         lat: j.pos.y / 1e6,
         lon: j.pos.x / 1e6,
