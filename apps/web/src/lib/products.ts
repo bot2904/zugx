@@ -1,4 +1,5 @@
-// Product colours & categories (dense, ÖBB-ish palette).
+// Product colours & categories (dense, ÖBB-ish palette). All colours keep ≥ 4.5:1 contrast with
+// white badge text (WCAG AA).
 import type { Line, ProductId } from "@zugx/hafas";
 
 export const LONG_DISTANCE = new Set([
@@ -26,29 +27,29 @@ export const NIGHT = new Set(["NJ", "EN"]);
 const CAT_COLORS: Record<string, string> = {
   RJX: "#c8102e",
   RJ: "#c8102e",
-  ICE: "#8c939b",
+  ICE: "#6e767e",
   EC: "#a6192e",
   IC: "#a6192e",
   NJ: "#3b3f8f",
   EN: "#3b3f8f",
   D: "#9e3d22",
-  WB: "#4a9c3c",
+  WB: "#3f8433",
   CJX: "#0060f0",
-  REX: "#2f7bd8",
-  R: "#5592d9",
+  REX: "#2773d1",
+  R: "#56708f",
   S: "#3367aa",
 };
 
 const PRODUCT_COLORS: Record<ProductId, string> = {
   highspeed: "#c8102e",
   night: "#3b3f8f",
-  replacement: "#b5651d",
+  replacement: "#ae611c",
   intercity: "#a6192e",
   interregional: "#9e3d22",
-  regional: "#2f7bd8",
+  regional: "#2773d1",
   suburban: "#3367aa",
-  bus: "#7a8a2e",
-  ferry: "#1d8a99",
+  bus: "#6c7b29",
+  ferry: "#1b808e",
   subway: "#a3529a",
   tram: "#d4433a",
   cable: "#6b6b6b",
@@ -63,7 +64,7 @@ export function lineColor(line?: Pick<Line, "category" | "product">): string {
 
 export function categoryColor(cat: string): string {
   return (
-    CAT_COLORS[cat] ?? (SUBURBAN.has(cat) ? "#3367aa" : REGIONAL.has(cat) ? "#2f7bd8" : "#6b6b6b")
+    CAT_COLORS[cat] ?? (SUBURBAN.has(cat) ? "#3367aa" : REGIONAL.has(cat) ? "#2773d1" : "#6b6b6b")
   );
 }
 
