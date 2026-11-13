@@ -120,6 +120,7 @@ export default {
     variants: "{n} varianti di percorso",
   },
   radar: {
+    loading: "Caricamento posizioni dei treni…",
     title: "Radar live",
     trains: "{n} treni visibili",
     hint: "Posizioni calcolate da ÖBB HAFAS.",

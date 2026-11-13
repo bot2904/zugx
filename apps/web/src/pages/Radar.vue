@@ -82,14 +82,23 @@ function toggle(cls: number) {
       </span>
     </div>
     <Status :error="error" @retry="refresh" />
-    <MapView
-      :points="points"
-      :fit="false"
-      height="calc(100vh - 170px)"
-      @ready="onReady"
-      @moveend="onMove"
-      @click-point="(jid) => router.push(`/train/${encodeURIComponent(jid)}`)"
-    />
+    <div class="relative">
+      <div
+        v-if="loading && !movements.length"
+        class="card absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 px-4 py-2 text-sm shadow"
+        role="status"
+      >
+        <span class="inline-block animate-spin">⟳</span> {{ $t("radar.loading") }}
+      </div>
+      <MapView
+        :points="points"
+        :fit="false"
+        height="calc(100vh - 170px)"
+        @ready="onReady"
+        @moveend="onMove"
+        @click-point="(jid) => router.push(`/train/${encodeURIComponent(jid)}`)"
+      />
+    </div>
     <p class="muted mt-1 text-xs">{{ $t("radar.hint") }}</p>
   </section>
 </template>

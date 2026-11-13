@@ -120,6 +120,7 @@ export default {
     variants: "{n} Laufwegvarianten",
   },
   radar: {
+    loading: "Lade Zugpositionen…",
     title: "Live-Radar",
     trains: "{n} Züge im Ausschnitt",
     hint: "Positionen werden von ÖBB HAFAS berechnet.",

@@ -112,3 +112,15 @@ test("bildfahrplan index filters by station", async ({ page }) => {
   await page.getByRole("link", { name: /Kamptalbahn/ }).click();
   await expect(page).toHaveURL(/\/bf\/kamptal/);
 });
+
+test("radar draws trains without map errors (worker loads in the production build)", async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
+  page.on("pageerror", (e) => errors.push(String(e)));
+  await page.goto("/radar");
+  await expect(page.getByText(/[1-9]\d* (trains|Züge)/)).toBeVisible();
+  await page.waitForTimeout(1000);
+  expect(errors.filter((e) => /worker/i.test(e))).toEqual([]);
+});

@@ -1,11 +1,15 @@
 <script setup lang="ts">
 // MapLibre map with OSM + OpenRailwayMap raster tiles; draws lines (legs) and points (stops/trains).
 import "maplibre-gl/dist/maplibre-gl.css";
+// MapLibre 6 runs a module worker; its URL must be set explicitly, otherwise the production
+// build has no worker and GeoJSON layers (lines, markers) are never drawn
+import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?url";
 import {
   LngLatBounds,
   Map as MlMap,
   NavigationControl,
   Popup,
+  setWorkerUrl,
   type GeoJSONSource,
   type MapGeoJSONFeature,
   type LayerSpecification,
@@ -27,6 +31,8 @@ export interface MapPoint {
   id?: string;
   big?: boolean;
 }
+
+setWorkerUrl(workerUrl);
 
 const props = withDefaults(
   defineProps<{
