@@ -140,8 +140,13 @@ export interface Movement {
   direction: string;
   lat: number;
   lon: number;
-  /** next stops (subset) */
+  /** stops around the current position (HAFAS sends a small window, usually 4) */
   nextStops: Stopover[];
+  /**
+   * current delay in minutes, from the realtime time of the stop closest to now
+   * (undefined if HAFAS has no realtime data for this train)
+   */
+  delay?: number;
 }
 
 export interface Warning {

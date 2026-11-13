@@ -447,18 +447,37 @@ export function parseJourneyMatch(res: Raw): TripMatch[] {
   });
 }
 
-export function parseJourneyGeoPos(res: Raw): Movement[] {
+/** Delay at the stop whose planned time is closest to `now` (only stops with realtime data). */
+export function currentDelay(stops: Stopover[], now = Date.now()): number | undefined {
+  let best: { d: number; dist: number } | undefined;
+  for (const s of stops) {
+    for (const ev of [s.arr, s.dep]) {
+      if (ev?.delay === undefined) continue;
+      const dist = Math.abs(Date.parse(ev.planned) - now);
+      if (!best || dist < best.dist) best = { d: ev.delay, dist };
+    }
+  }
+  return best?.d;
+}
+
+export function parseJourneyGeoPos(res: Raw, now = Date.now()): Movement[] {
   const c = common(res);
   return (res?.jnyL ?? [])
     .filter((j: Raw) => j.pos)
-    .map((j: Raw): Movement => ({
-      journeyId: j.jid,
-      line: parseLine(c.prodL[j.prodX], c),
-      direction: j.dirTxt ?? "",
-      lat: j.pos.y / 1e6,
-      lon: j.pos.x / 1e6,
-      nextStops: (j.stopL ?? []).slice(0, 3).map((s: Raw) => parseStopover(s, j.date, c)),
-    }));
+    .map((j: Raw): Movement => {
+      const stops = (j.stopL ?? []).map((s: Raw) => parseStopover(s, j.date, c));
+      const m: Movement = {
+        journeyId: j.jid,
+        line: parseLine(c.prodL[j.prodX], c),
+        direction: j.dirTxt ?? "",
+        lat: j.pos.y / 1e6,
+        lon: j.pos.x / 1e6,
+        nextStops: stops,
+      };
+      const delay = currentDelay(stops, now);
+      if (delay !== undefined) m.delay = delay;
+      return m;
+    });
 }
 
 export function parseHimSearch(res: Raw): Warning[] {

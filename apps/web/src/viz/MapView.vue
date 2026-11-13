@@ -28,6 +28,8 @@ export interface MapPoint {
   lon: number;
   label?: string;
   color?: string;
+  /** outline colour (default black) */
+  stroke?: string;
   id?: string;
   big?: boolean;
 }
@@ -67,6 +69,7 @@ function pointData() {
       properties: {
         label: p.label ?? "",
         color: p.color ?? "#e6e8eb",
+        stroke: p.stroke ?? "#000",
         id: p.id ?? "",
         big: p.big ? 1 : 0,
       },
@@ -148,8 +151,8 @@ onMounted(() => {
       paint: {
         "circle-radius": ["case", ["==", ["get", "big"], 1], 6, 4],
         "circle-color": ["get", "color"],
-        "circle-stroke-color": "#000",
-        "circle-stroke-width": 1,
+        "circle-stroke-color": ["get", "stroke"],
+        "circle-stroke-width": ["case", ["==", ["get", "stroke"], "#000"], 1, 2],
       },
     });
     // tooltip: hover on desktop; on touch the first tap shows it, a second tap on the same marker opens it

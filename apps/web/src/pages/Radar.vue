@@ -2,7 +2,7 @@
 // Live train positions (HAFAS JourneyGeoPos) for the visible map area.
 import type { Movement } from "@zugx/hafas";
 import type { Map as MlMap } from "maplibre-gl";
-import { computed, onBeforeUnmount, ref, shallowRef } from "vue";
+import { computed, onBeforeUnmount, ref, shallowRef, watch } from "vue";
 import { useRouter } from "vue-router";
 import Status from "../components/Status.vue";
 import { api } from "../lib/api.ts";
@@ -45,13 +45,40 @@ function onMove() {
 const timer = setInterval(() => document.visibilityState === "visible" && void refresh(), 15_000);
 onBeforeUnmount(() => clearInterval(timer));
 
+// colour by delay (scale like MÁV's vonatinfo) or by train category
+const mode = ref<"delay" | "category">(
+  localStorage.getItem("zugx:radar-mode") === "category" ? "category" : "delay",
+);
+watch(mode, (m) => localStorage.setItem("zugx:radar-mode", m));
+
+const DELAY_CLASSES = [
+  { id: "ontime", max: 5, color: "#2fb344" },
+  { id: "slight", max: 19, color: "#f2c94c" },
+  { id: "late", max: 59, color: "#f2994a" },
+  { id: "verylate", max: Infinity, color: "#e5383b" },
+] as const;
+const NO_DATA = "#9aa0a6";
+const delayColor = (d?: number) =>
+  d === undefined ? NO_DATA : (DELAY_CLASSES.find((c) => d <= c.max)?.color ?? NO_DATA);
+
+const counts = computed(() => {
+  const c: Record<string, number> = { nodata: 0, ontime: 0, slight: 0, late: 0, verylate: 0 };
+  for (const m of movements.value) {
+    const cls = m.delay === undefined ? "nodata" : DELAY_CLASSES.find((x) => m.delay! <= x.max)!.id;
+    c[cls]!++;
+  }
+  return c;
+});
+
+const fmtDelay = (d?: number) => (d === undefined ? "" : d > 0 ? ` · +${d}′` : " · ±0");
+
 const points = computed<MapPoint[]>(() =>
   movements.value.map((m) => ({
     lat: m.lat,
     lon: m.lon,
     id: m.journeyId,
-    color: lineColor(m.line),
-    label: `${m.line.name} → ${m.direction}`,
+    color: mode.value === "delay" ? delayColor(m.delay) : lineColor(m.line),
+    label: `${m.line.name} → ${m.direction}${fmtDelay(m.delay)}`,
   })),
 );
 
@@ -98,6 +125,46 @@ function toggle(cls: number) {
         @moveend="onMove"
         @click-point="(jid) => router.push(`/train/${encodeURIComponent(jid)}`)"
       />
+      <div
+        class="card absolute bottom-8 left-2 z-10 p-2 text-xs shadow"
+        role="group"
+        :aria-label="$t('radar.legend')"
+      >
+        <div class="mb-1 flex gap-1">
+          <button
+            class="btn chip py-0.5 text-xs"
+            :class="mode === 'delay' && 'btn-on'"
+            @click="mode = 'delay'"
+          >
+            {{ $t("radar.byDelay") }}
+          </button>
+          <button
+            class="btn chip py-0.5 text-xs"
+            :class="mode === 'category' && 'btn-on'"
+            @click="mode = 'category'"
+          >
+            {{ $t("radar.byCategory") }}
+          </button>
+        </div>
+        <ul v-if="mode === 'delay'" class="m-0 list-none p-0">
+          <li v-for="c in DELAY_CLASSES" :key="c.id" class="flex items-center gap-1.5">
+            <span
+              class="inline-block h-2.5 w-2.5 rounded-full border border-black"
+              :style="{ background: c.color }"
+            />
+            {{ $t(`radar.delay.${c.id}`) }}
+            <span class="muted ml-auto pl-2 mono">{{ counts[c.id] }}</span>
+          </li>
+          <li class="flex items-center gap-1.5">
+            <span
+              class="inline-block h-2.5 w-2.5 rounded-full border border-black"
+              :style="{ background: NO_DATA }"
+            />
+            {{ $t("radar.delay.nodata") }}
+            <span class="muted ml-auto pl-2 mono">{{ counts.nodata }}</span>
+          </li>
+        </ul>
+      </div>
     </div>
     <p class="muted mt-1 text-xs">{{ $t("radar.hint") }}</p>
   </section>

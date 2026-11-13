@@ -118,6 +118,16 @@ export default {
     variants: "{n} route variants",
   },
   radar: {
+    legend: "Legend",
+    byDelay: "Delay",
+    byCategory: "Category",
+    delay: {
+      ontime: "on time (≤ 5′)",
+      slight: "6–19′ late",
+      late: "20–59′ late",
+      verylate: "≥ 60′ late",
+      nodata: "no realtime data",
+    },
     loading: "Loading train positions…",
     title: "Live radar",
     trains: "{n} trains in view",

@@ -120,6 +120,16 @@ export default {
     variants: "{n} varianti di percorso",
   },
   radar: {
+    legend: "Legenda",
+    byDelay: "Ritardo",
+    byCategory: "Categoria",
+    delay: {
+      ontime: "in orario (≤ 5′)",
+      slight: "6–19′ di ritardo",
+      late: "20–59′ di ritardo",
+      verylate: "≥ 60′ di ritardo",
+      nodata: "nessun dato in tempo reale",
+    },
     loading: "Caricamento posizioni dei treni…",
     title: "Radar live",
     trains: "{n} treni visibili",

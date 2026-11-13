@@ -56,6 +56,30 @@ describe("time parsing", () => {
   });
 });
 
+describe("currentDelay", () => {
+  it("takes the realtime stop closest to now", async () => {
+    const { currentDelay } = await import("../src/index.ts");
+    const ev = (planned: string, delay?: number) => ({ planned, delay });
+    const stops = [
+      {
+        stop: { id: "1", name: "A", type: "station" as const },
+        dep: ev("2026-11-13T10:00:00+01:00", 2),
+      },
+      {
+        stop: { id: "2", name: "B", type: "station" as const },
+        arr: ev("2026-11-13T10:30:00+01:00", 7),
+      },
+      {
+        stop: { id: "3", name: "C", type: "station" as const },
+        arr: ev("2026-11-13T11:00:00+01:00"),
+      },
+    ];
+    expect(currentDelay(stops, Date.parse("2026-11-13T10:05:00+01:00"))).toBe(2);
+    expect(currentDelay(stops, Date.parse("2026-11-13T10:50:00+01:00"))).toBe(7);
+    expect(currentDelay([{ stop: stops[0]!.stop }])).toBeUndefined();
+  });
+});
+
 describe("polyline", () => {
   it("decodes the Google example", () => {
     expect(decodePolyline("_p~iF~ps|U_ulLnnqC_mqNvxq`@")).toEqual([
@@ -152,6 +176,8 @@ describe("client against fixtures", () => {
     const mv = await client.radar({ north: 48.3, west: 16.2, south: 48.1, east: 16.5 });
     expect(mv.length).toBeGreaterThan(0);
     expect(mv[0]!.lat).toBeGreaterThan(48);
+    // fixture recorded with realtime data: delays are derived for the trains
+    expect(mv.some((m) => m.delay !== undefined)).toBe(true);
   });
   it("warnings", async () => {
     const { client } = fixtureClient();

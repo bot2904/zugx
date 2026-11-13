@@ -120,6 +120,16 @@ export default {
     variants: "{n} Laufwegvarianten",
   },
   radar: {
+    legend: "Legende",
+    byDelay: "Verspätung",
+    byCategory: "Gattung",
+    delay: {
+      ontime: "pünktlich (≤ 5′)",
+      slight: "6–19′ verspätet",
+      late: "20–59′ verspätet",
+      verylate: "≥ 60′ verspätet",
+      nodata: "keine Echtzeitdaten",
+    },
     loading: "Lade Zugpositionen…",
     title: "Live-Radar",
     trains: "{n} Züge im Ausschnitt",

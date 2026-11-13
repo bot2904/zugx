@@ -1,6 +1,7 @@
 export * from "./types.ts";
 export * from "./client.ts";
 export {
+  currentDelay,
   ALL_PRODUCTS,
   PRODUCT_CLASSES,
   RAIL_PRODUCTS,
