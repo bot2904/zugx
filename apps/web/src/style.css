@@ -131,13 +131,15 @@ table.dense tbody tr:hover td {
     overflow-x: auto;
     width: 100%;
     scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
   }
   .chips > * {
     flex-shrink: 0;
   }
-  .chips::-webkit-scrollbar {
-    display: none;
+  /* legacy fallback only where scrollbar-width is missing (Safari < 18.2) */
+  @supports not (scrollbar-width: none) {
+    .chips::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
@@ -189,6 +191,12 @@ p {
 }
 :root {
   scrollbar-color: var(--muted) transparent;
+}
+/* high contrast: a solid thumb on a solid track (modern-web-guidance: adapt-scrollbar-to-contrast-preferences) */
+@media (prefers-contrast: more) {
+  :root {
+    scrollbar-color: var(--fg) var(--bg);
+  }
 }
 ::selection {
   background: color-mix(in oklab, var(--accent) 30%, transparent);
