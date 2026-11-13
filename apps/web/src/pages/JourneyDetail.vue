@@ -1,8 +1,9 @@
 <script setup lang="ts">
 // Permalink for one connection: refreshed via its reconstruction token.
+import { useClipboard } from "@vueuse/core";
 import { useAutoRefresh } from "../lib/refresh.ts";
 import type { Journey, Leg } from "@zugx/hafas";
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import CalendarButton from "../components/CalendarButton.vue";
 import EventTime from "../components/EventTime.vue";
@@ -57,13 +58,9 @@ const points = computed<MapPoint[]>(() =>
     .map((s) => ({ lat: s.lat!, lon: s.lon!, label: s.name, id: s.id, big: true })),
 );
 
-const copied = ref(false);
-let copiedTimer: ReturnType<typeof setTimeout> | undefined;
+const { copy: copyText, copied } = useClipboard({ copiedDuring: 2000 });
 async function copy() {
-  await navigator.clipboard?.writeText(location.href);
-  copied.value = true;
-  clearTimeout(copiedTimer);
-  copiedTimer = setTimeout(() => (copied.value = false), 2000);
+  await copyText(location.href);
 }
 
 function missed(leg: Leg) {

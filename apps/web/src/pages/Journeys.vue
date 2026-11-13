@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useClipboard } from "@vueuse/core";
 import type { Journey, JourneysResult, Leg } from "@zugx/hafas";
 import { computed, nextTick, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
@@ -41,8 +42,7 @@ const sel = ref(Number(route.hash.slice(1)) || 0);
 const expanded = ref<number | undefined>(route.hash ? Number(route.hash.slice(1)) : undefined);
 const compare = ref(new Set<number>());
 const names = ref({ from: "", to: "", via: "" });
-const copied = ref(false);
-let copiedTimer: ReturnType<typeof setTimeout> | undefined;
+const { copy: copyText, copied } = useClipboard({ copiedDuring: 2000 });
 
 const opts = () => ({
   when: (t.value && fromLocalInput(t.value)) || new Date(),
@@ -154,10 +154,7 @@ const permalink = (j: Journey) => (j.recon ? `/trip/${b64url(j.recon)}` : undefi
 async function share(j: Journey) {
   const p = permalink(j);
   if (!p) return;
-  await navigator.clipboard?.writeText(location.origin + p);
-  copied.value = true;
-  clearTimeout(copiedTimer);
-  copiedTimer = setTimeout(() => (copied.value = false), 2000);
+  await copyText(location.origin + p);
 }
 
 function missed(leg: Leg) {
