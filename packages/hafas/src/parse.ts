@@ -91,6 +91,30 @@ export function productOf(cls: number | undefined, category = ""): ProductId {
   return (cls !== undefined && PRODUCT_BY_CLS[cls]) || "other";
 }
 
+/** UIC company codes in `prodCtx.admin` ("81____") → operator, for HAFAS placeholder operators */
+const ADMIN_OPERATORS: Record<string, string> = {
+  "81": "ÖBB",
+  "80": "DB",
+  "85": "SBB",
+  "55": "MÁV",
+  "54": "ČD",
+  "56": "ZSSK",
+  "79": "SŽ",
+  "78": "HŽ",
+  "83": "Trenitalia",
+  "87": "SNCF",
+};
+
+/**
+ * ÖBB's HAFAS returns an id-less placeholder operator ("Nahreisezug", "Fernreisezug") for trains
+ * run by ÖBB itself, even for EC/RJ trains; derive the real operator from the admin code instead.
+ */
+function operatorName(op: Raw, admin: string | undefined): string | undefined {
+  const placeholder = !op || (!op.id && /^(nah|fern)reisezug$/i.test(String(op.name ?? "").trim()));
+  if (!placeholder) return op.name;
+  return admin ? ADMIN_OPERATORS[admin.slice(0, 2)] : undefined;
+}
+
 export function parseLine(p: Raw, c: Common): Line {
   const ctx = p?.prodCtx ?? {};
   const category =
@@ -109,7 +133,7 @@ export function parseLine(p: Raw, c: Common): Line {
     categoryLong: ctx.catOutL?.trim() || undefined,
     cls: p?.cls ?? 0,
     product: productOf(p?.cls, category),
-    operator: op?.name,
+    operator: operatorName(op, ctx.admin),
   };
 }
 

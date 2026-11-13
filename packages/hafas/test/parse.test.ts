@@ -97,6 +97,15 @@ describe("client against fixtures", () => {
     expect(deps.some((x) => x.when.delay !== undefined)).toBe(true);
     expect(deps.some((x) => x.when.platform)).toBe(true);
   });
+  it("replaces the ÖBB placeholder operator", async () => {
+    const { client } = fixtureClient();
+    const deps = await client.board("8103000");
+    expect(deps.some((d) => d.line.operator === "Nahreisezug")).toBe(false);
+    expect(deps.find((d) => d.line.name === "EC 140")?.line.operator).toBe("ÖBB");
+    expect(deps.find((d) => d.line.name.startsWith("Tram"))?.line.operator).toMatch(
+      /Wiener Linien/,
+    );
+  });
   it("arrivals", async () => {
     const { client } = fixtureClient();
     const arrs = await client.board("8100002", { arrivals: true });

@@ -205,7 +205,7 @@ watch(sel, (i) =>
                 >⚠</span
               >
               <span
-                v-if="e.line.operator && !/Nahreise|Fernreise/.test(e.line.operator)"
+                v-if="e.line.operator && e.line.operator !== 'ÖBB'"
                 class="muted ml-2 text-xs hide-sm"
                 >{{ e.line.operator }}</span
               >
