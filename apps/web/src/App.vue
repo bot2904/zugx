@@ -5,7 +5,7 @@ import { useRouter } from "vue-router";
 import CommandPalette from "./components/CommandPalette.vue";
 import ModalDialog from "./components/ModalDialog.vue";
 import DebugPanel from "./components/DebugPanel.vue";
-import { i18n, LOCALES, setLocale, type Locale } from "./i18n/index.ts";
+import { locale, LOCALES, setLocale, type Locale, type MessageKey } from "./i18n/index.ts";
 import { useKeys } from "./lib/keys.ts";
 import { state } from "./lib/store.ts";
 import { scheme, toggleScheme } from "./lib/theme.ts";
@@ -34,7 +34,7 @@ function closeMenu() {
 useResizeObserver(headerRow, () => void measureNav());
 // translations change the width of the links
 watch(
-  () => i18n.global.locale.value,
+  () => locale.value,
   () => {
     lastWidth = 0;
     void measureNav();
@@ -65,7 +65,7 @@ useKeys({
   },
 });
 
-const nav = [
+const nav: { to: string; key: MessageKey }[] = [
   { to: "/", key: "nav.search" },
   { to: "/trains", key: "nav.trains" },
   { to: "/radar", key: "nav.radar" },
@@ -149,7 +149,7 @@ const shortcuts: [string, string][] = [
         </button>
         <select
           class="input py-0.5 text-xs"
-          :value="$i18n.locale"
+          :value="locale"
           :aria-label="$t('common.language')"
           @change="setLocale(($event.target as HTMLSelectElement).value as Locale)"
         >

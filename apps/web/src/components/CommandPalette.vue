@@ -4,7 +4,7 @@ import { viennaDate } from "../lib/format.ts";
 import { isImeEnter } from "../lib/keys.ts";
 import { computed, nextTick, ref, shallowRef, watch } from "vue";
 import ModalDialog from "./ModalDialog.vue";
-import { useI18n } from "vue-i18n";
+import { useI18n } from "../i18n/index.ts";
 import { useRouter } from "vue-router";
 import { normalize } from "../lib/normalize.ts";
 import { loadStations, searchStations } from "../lib/stations.ts";

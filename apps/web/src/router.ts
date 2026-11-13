@@ -1,8 +1,8 @@
 import { nextTick } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
-import { i18n } from "./i18n/index.ts";
+import { t, type MessageKey } from "./i18n/index.ts";
 
-const TITLES: Record<string, string> = {
+const TITLES: Record<string, MessageKey> = {
   "/trains": "nav.trains",
   "/radar": "nav.radar",
   "/bf": "nav.bildfahrplan",
@@ -40,7 +40,7 @@ router.afterEach((to) => {
   const key = Object.entries(TITLES).find(
     ([p]) => to.path === p || to.path.startsWith(`${p}/`),
   )?.[1];
-  document.title = key ? `${i18n.global.t(key)} · zugx` : "zugx";
+  document.title = key ? `${t(key)} · zugx` : "zugx";
 });
 
 // Page changes as a short crossfade (View Transitions API), only when the user allows motion and only

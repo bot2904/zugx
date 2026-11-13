@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // "Add to calendar": builds an .ics for the journey with a deep link back to its permalink.
 import type { Journey } from "@zugx/hafas";
-import { useI18n } from "vue-i18n";
+import { useI18n } from "../i18n/index.ts";
 import { addToCalendar, buildIcs } from "../lib/ical.ts";
 import { b64url } from "../lib/url.ts";
 

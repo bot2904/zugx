@@ -3,7 +3,7 @@
 import { viennaDate } from "../lib/format.ts";
 import { useDebounceFn } from "@vueuse/core";
 import { computed, onMounted, ref, shallowRef, watch } from "vue";
-import { useI18n } from "vue-i18n";
+import { useI18n } from "../i18n/index.ts";
 import { useRoute, useRouter } from "vue-router";
 import LineBadge from "../components/LineBadge.vue";
 import ToggleTip from "../components/ToggleTip.vue";

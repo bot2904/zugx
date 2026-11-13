@@ -19,7 +19,6 @@
     "maplibre-gl": "catalog:",
     "temporal-polyfill": "catalog:",
     "vue": "catalog:",
-    "vue-i18n": "catalog:",
     "vue-router": "catalog:"
   },
   "devDependencies": {

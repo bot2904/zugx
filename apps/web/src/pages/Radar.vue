@@ -5,7 +5,7 @@ import type { Line, Movement } from "@zugx/hafas";
 import type { Map as MlMap } from "maplibre-gl";
 import { useDebounceFn, useLocalStorage } from "@vueuse/core";
 import { computed, ref, shallowRef } from "vue";
-import { useI18n } from "vue-i18n";
+import { useI18n } from "../i18n/index.ts";
 import { useRouter } from "vue-router";
 import Status from "../components/Status.vue";
 import { api } from "../lib/api.ts";

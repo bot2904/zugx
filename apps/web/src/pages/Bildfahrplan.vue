@@ -4,7 +4,7 @@ import { addDays, daysBetween, viennaDate, viennaMinutes, viennaNow } from "../l
 import { useDebounceFn, useIntervalFn } from "@vueuse/core";
 import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
 import { computed, onMounted, ref, shallowRef, watch } from "vue";
-import { useI18n } from "vue-i18n";
+import { useI18n } from "../i18n/index.ts";
 import { useRoute, useRouter } from "vue-router";
 import CorridorIndexView from "../components/CorridorIndex.vue";
 import { categoryColor } from "../lib/products.ts";

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Impressum / Offenlegung (§ 25 MedienG, § 5 ECG). German is authoritative; English as a courtesy.
-import { useI18n } from "vue-i18n";
+import { useI18n } from "../i18n/index.ts";
 import { setLocale } from "../i18n/index.ts";
 const { locale } = useI18n();
 const EMAIL = "simon.legner@gmail.com";

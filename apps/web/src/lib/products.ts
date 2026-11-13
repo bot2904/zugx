@@ -1,6 +1,7 @@
 // Product colours & categories (dense, ÖBB-ish palette). All colours keep ≥ 4.5:1 contrast with
 // white badge text (WCAG AA).
 import type { Line, ProductId } from "@zugx/hafas";
+import type en from "../i18n/en.ts";
 
 export const LONG_DISTANCE = new Set([
   "RJX",
@@ -69,7 +70,8 @@ export function categoryColor(cat: string): string {
 }
 
 /** product filter groups for UI chips → HAFAS class bitmask */
-export const PRODUCT_GROUPS: { id: string; cls: number }[] = [
+/** product filter groups; ids are message keys under `products` */
+export const PRODUCT_GROUPS: { id: keyof (typeof en)["products"]; cls: number }[] = [
   { id: "highspeed", cls: 1 },
   { id: "intercity", cls: 4 },
   { id: "interregional", cls: 8 | 4096 },

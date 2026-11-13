@@ -2,7 +2,7 @@
 // Datenschutzerklärung (DSGVO). German is authoritative; English as a courtesy.
 // Keep in sync with the actual data flows: deploy/Caddyfile (log, proxy), MapView (tile hosts),
 // lib/store.ts + useLocalStorage keys, StationInput (geolocation).
-import { useI18n } from "vue-i18n";
+import { useI18n } from "../i18n/index.ts";
 import { setLocale } from "../i18n/index.ts";
 const { locale } = useI18n();
 const EMAIL = "simon.legner@gmail.com";
