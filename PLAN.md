@@ -2,7 +2,7 @@
 
 **https://zugx.legner.me**
 
-> A fast, keyboard-first, information-dense timetable browser for Austrian (and neighbouring) public transport.
+> A fast, mobile-friendly, information-dense timetable browser for Austrian (and neighbouring) public transport.
 > Scotty's data, npmx.dev's feel. Later: Netzgrafik views of the Austrian integrated interval timetable (ITF / Taktfahrplan).
 
 Status: **M0–M7 implemented (2026-11-13)**, not yet deployed. Implementation notes and deviations in §13.
@@ -36,7 +36,7 @@ Considered names (German railway terms):
 - **Instant station search** from a local, pre-built station index (no network round trip per keystroke)
 - **Excellent visualization** of found connections (see §5)
 - Shareable, permalink-style URLs for everything
-- Keyboard-first (`/` to focus search, arrow keys, `j/k`, shortcuts for earlier/later)
+- Fast and mobile-friendly first; keyboard shortcuts on desktop as a bonus (`/` to focus search, arrow keys, `j/k`, shortcuts for earlier/later)
 - Dark/light mode, dense "geek" layout, monospace accents, no fluff
 - UI in **English, German, Italian** (i18n from day 1, `vue-i18n`; default from browser language)
 - Responsive: dense tables/timelines on desktop, collapsing to cards on mobile; station board + journey search must work well on a phone

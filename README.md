@@ -1,6 +1,6 @@
 # zugx
 
-Fast, keyboard-first, information-dense timetable browser for Austrian trains — **https://zugx.legner.me**
+Fast, mobile-friendly, information-dense timetable browser for Austrian trains (with keyboard shortcuts on desktop) — **https://zugx.legner.me**
 
 - Station boards with realtime delays, platforms, cancellations
 - Journey search with **timeline strips**, table view, earlier/later paging, compare, "what if I miss it?"

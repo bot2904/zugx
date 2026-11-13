@@ -1,7 +1,7 @@
 import type en from "./en.ts";
 
 export default {
-  app: { tagline: "Österreichs Züge, schnell. Tastatur-first Fahrplanbrowser." },
+  app: { tagline: "Österreichs Züge, schnell. Abfahrten, Verbindungen, Zugläufe – live." },
   nav: {
     search: "Suche",
     trains: "Züge",

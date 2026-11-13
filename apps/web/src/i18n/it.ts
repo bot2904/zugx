@@ -1,7 +1,7 @@
 import type en from "./en.ts";
 
 export default {
-  app: { tagline: "I treni austriaci, veloci. Orario da tastiera." },
+  app: { tagline: "I treni austriaci, veloci. Partenze, collegamenti, percorsi – in tempo reale." },
   nav: {
     search: "Cerca",
     trains: "Treni",

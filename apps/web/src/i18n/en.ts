@@ -1,5 +1,5 @@
 export default {
-  app: { tagline: "Austrian trains, fast. Keyboard-first timetable browser." },
+  app: { tagline: "Austrian trains, fast. Departures, connections, train runs – live." },
   nav: {
     search: "Search",
     trains: "Trains",

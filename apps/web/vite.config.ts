@@ -12,7 +12,7 @@ export default defineConfig({
       manifest: {
         name: "zugx",
         short_name: "zugx",
-        description: "Fast, keyboard-first timetable browser for Austrian trains",
+        description: "Austrian trains, fast: departures, connections, train runs, live",
         theme_color: "#0b0d10",
         background_color: "#0b0d10",
         display: "standalone",
