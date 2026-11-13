@@ -67,6 +67,7 @@ export default {
     compare: "Confronta",
     stops: "{n} fermate",
   },
+  calendar: { add: "Aggiungi al calendario", realtime: "tempo reale", open: "Apri in zugx" },
   trip: {
     title: "Percorso del treno",
     stops: "Fermate",

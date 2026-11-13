@@ -65,6 +65,7 @@ export default {
     compare: "Compare",
     stops: "{n} stops",
   },
+  calendar: { add: "Add to calendar", realtime: "realtime", open: "Open in zugx" },
   trip: {
     title: "Train run",
     stops: "Stops",

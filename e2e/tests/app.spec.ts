@@ -87,3 +87,21 @@ test("train index search matches intermediate stops", async ({ page }) => {
   await page.goto("/trains?q=zell%20am%20see");
   await expect(page.getByText("EC 164").first()).toBeVisible();
 });
+
+test("add to calendar downloads an .ics with deep link", async ({ page }) => {
+  await page.goto("/j/8103000/8100173#1");
+  const [download] = await Promise.all([
+    page.waitForEvent("download"),
+    page.getByRole("button", { name: /calendar|Kalender|calendario/i }).click(),
+  ]);
+  expect(download.suggestedFilename()).toMatch(/\.ics$/);
+  const ics = await (
+    await download.createReadStream()
+  )
+    .toArray()
+    .then((c) => Buffer.concat(c).toString("utf8"));
+  const unfolded = ics.replace(/\r\n /g, "");
+  expect(unfolded).toContain("BEGIN:VEVENT");
+  expect(unfolded).toMatch(/^SUMMARY:.+→.+·/m);
+  expect(unfolded).toMatch(/^URL:http:\/\/127\.0\.0\.1:5188\/trip\/[\w-]+$/m);
+});

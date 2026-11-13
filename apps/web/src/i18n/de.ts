@@ -67,6 +67,7 @@ export default {
     compare: "Vergleichen",
     stops: "{n} Halte",
   },
+  calendar: { add: "Zum Kalender", realtime: "Echtzeit", open: "In zugx öffnen" },
   trip: {
     title: "Zuglauf",
     stops: "Halte",

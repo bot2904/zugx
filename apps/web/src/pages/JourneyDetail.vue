@@ -1,8 +1,9 @@
 <script setup lang="ts">
 // Permalink for one connection: refreshed via its reconstruction token.
 import type { Journey, Leg } from "@zugx/hafas";
-import { computed, onBeforeUnmount, onMounted } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import CalendarButton from "../components/CalendarButton.vue";
 import EventTime from "../components/EventTime.vue";
 import LegList from "../components/LegList.vue";
 import Status from "../components/Status.vue";
@@ -51,6 +52,13 @@ const points = computed<MapPoint[]>(() =>
     .map((s) => ({ lat: s.lat!, lon: s.lon!, label: s.name, id: s.id, big: true })),
 );
 
+const copied = ref(false);
+async function copy() {
+  await navigator.clipboard?.writeText(location.href);
+  copied.value = true;
+  setTimeout(() => (copied.value = false), 1500);
+}
+
 function missed(leg: Leg) {
   const dest = j.data.value?.legs.at(-1)?.destination.id;
   if (!dest) return;
@@ -75,6 +83,12 @@ function missed(leg: Leg) {
         {{ fmtDuration(j.data.value.duration) }} · {{ j.data.value.transfers }}× ·
         {{ j.data.value.dep.planned.slice(0, 10) }}
       </p>
+      <div class="mb-2 flex gap-1">
+        <button class="btn text-xs" @click="copy">
+          🔗 {{ copied ? $t("journeys.copied") : $t("journeys.share") }}
+        </button>
+        <CalendarButton :journey="j.data.value" />
+      </div>
       <div class="grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         <div class="card p-3"><LegList :journey="j.data.value" @missed="missed" /></div>
         <MapView :lines="lines" :points="points" height="520px" />

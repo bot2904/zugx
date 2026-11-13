@@ -2,6 +2,7 @@
 import type { Journey, JourneysResult, Leg } from "@zugx/hafas";
 import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import CalendarButton from "../components/CalendarButton.vue";
 import EventTime from "../components/EventTime.vue";
 import LegList from "../components/LegList.vue";
 import LineBadge from "../components/LineBadge.vue";
@@ -348,6 +349,7 @@ useKeys({
         <button class="btn text-xs" @click="share(journeys[expanded]!)">
           🔗 {{ copied ? $t("journeys.copied") : $t("journeys.share") }}
         </button>
+        <CalendarButton :journey="journeys[expanded]!" />
       </div>
       <LegList :journey="journeys[expanded]!" @missed="missed" />
     </article>
