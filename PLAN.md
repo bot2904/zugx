@@ -212,7 +212,7 @@ Repo layout (monorepo, pnpm workspace, Vite+):
 apps/web            Vue SPA (pages, components, viz)
 packages/hafas      typed ÖBB mgate client + normalizer, runs in browser (+ fixtures)
 packages/stations   build script (Node, CI only) + committed stations.json + schema
-packages/trains     train index build script (Node, CI only) + committed trains-<year>.json
+packages/trains     train index build script (Node, CI only) + committed trains-<year>.json (full) + trains-<year>.light.json (default)
 packages/netz       (later) GTFS → ITF analysis → Netzgrafik model
 deploy/             Containerfile (node build stage → caddy:2-alpine), Caddyfile (in-container),
                     zugx.container (Quadlet unit), Caddyfile.host (snippet for the host Caddy)
@@ -366,7 +366,7 @@ Per train, one row (dense, sortable, like vagonweb's lists):
 | validity | first/last running day in the timetable year |
 | links | our train run `/train/RJX-260?d=…` (live), **vagonweb composition** (§8.5) |
 
-Quick filters (one key/chip each): **all · long-distance** (RJX, RJ, NJ, EN, ICE, EC, IC, D, WB) **· regional** (CJX, REX, R) **· S-Bahn** (S) **· night trains** (NJ, EN). Further filters: operator, category, station ("all trains stopping at Linz Hbf"), "runs on date X / today", number range, name. Grouping like vagonweb: operator → category → number. Keyboard nav as everywhere else. Typing a train number (`260`, `rjx260`, `RJX 260`) or a train name (`transalpin`) in the global search jumps straight to the train.
+Quick filters (one key/chip each): **all · long-distance** (RJX, RJ, NJ, EN, ICE, EC, IC, D, WB) **· regional** (CJX, REX, R) **· S-Bahn** (S) — regional and S-Bahn load the full file (§8.3) **· night trains** (NJ, EN). Further filters: operator, category, station ("all trains stopping at Linz Hbf"), "runs on date X / today", number range, name. Grouping like vagonweb: operator → category → number. Keyboard nav as everywhere else. Typing a train number (`260`, `rjx260`, `RJX 260`) or a train name (`transalpin`) in the global search jumps straight to the train.
 
 URLs:
 
@@ -385,14 +385,18 @@ URLs:
   3. Map GTFS stop IDs → HAFAS IDs via `stations.json` (§4)
   4. Train names: from GTFS if present; otherwise enrich long-distance trains (a few hundred) via one HAFAS `JourneyMatch`/`JourneyDetails` each, cached and throttled
   5. Derive human-readable running days (`Mo–Fr`, `nicht 24.12.`) from the bitset
-- Output, **committed** like `stations.json`: `packages/trains/trains-2026.json`, one train per line, sorted by category + number → readable diffs. Fields kept to the summary (no full stop lists); estimate ~10–15k trains → roughly 1–2 MB raw, a few hundred KB compressed. If too large: split per operator/category into separate chunks.
+- Output, **committed** like `stations.json`, as **two files** per timetable year (decided), one train per line, sorted by category + number → readable diffs, fields kept to the summary (no full stop lists):
+  - `packages/trains/trains-2026.json` — **full**: all trains (~10–15k → roughly 1–2 MB raw, a few hundred KB compressed)
+  - `packages/trains/trains-2026.light.json` — **light**: without regional trains — no R, REX, CJX, S — i.e. long-distance + night only (RJX, RJ, NJ, EN, ICE, EC, IC, D, WB, …; a few hundred to ~2k trains, tens of KB compressed)
+  - The light file is a strict subset of the full file, generated from it in the same build step; a CI check verifies this.
   ```json
   {"op":"oebb","cat":"RJX","nr":260,"name":"Transalpin","from":["8103000","07:30"],"to":["8503000","15:20"],"via":["8100013","8101001","8100108"],"days":"<base64 bitset>","text":"täglich"}
   ```
   (Illustrative.) Running days are a 365/366-bit set → ~62 chars base64 per train.
 - The full stop list for a train comes **live** from HAFAS (`JourneyMatch` by number + date → `JourneyDetails`) when the train page opens — no need to ship it statically.
 - Weekly CI job opens a PR on changes (like stations). At the timetable change in December, a new `trains-<year>.json` is added; the previous year is kept for a while (`?y=2025`), since the new timetable is usually published weeks before it starts.
-- The index is a lazy, content-hashed chunk loaded only on `/trains*` pages and for train-number search; filtering/search runs in the same Web Worker as the station search.
+- Both files are lazy, content-hashed chunks, loaded only on `/trains*` pages and for train-number search; filtering/search runs in the same Web Worker as the station search.
+- **The light file loads by default.** The full file is loaded on demand: when the regional/S-Bahn quick filter is picked, a regional category or `?all` is in the URL, a station filter is set, or a train-number search misses in the light file. Once the full file is loaded, it replaces the light one for the rest of the session (the service worker caches both).
 
 ### 8.4 Later extensions
 - Composition ("Wagenreihung"): whether ÖBB exposes planned/actual composition via HAFAS or another endpoint — **to verify**; if so, show it on the train page. Until then, link to vagonweb.
@@ -417,7 +421,7 @@ vagonweb.cz is the reference for train compositions (Řazení vlaků); we **link
 - **M2 – Station index:** build script + client worker search + PWA caching.
 - **M3 – Journeys:** search form, results table + **timeline strips**, earlier/later paging, permalinks via `ctxRecon`.
 - **M4 – Detail, realtime & map:** Zuglauf, remarks/HIM, auto-refresh, **map + live radar** (`JourneyGeoPos`).
-- **M5 – Train index:** GTFS → `trains-<year>.json` build + weekly PR, `/trains` pages, train-number search, vagonweb links.
+- **M5 – Train index:** GTFS → `trains-<year>.json` + `trains-<year>.light.json` build + weekly PR, `/trains` pages, train-number search, vagonweb links.
 - **M6 – Bildfahrplan** for corridors (Westbahn, Südbahn first), keyboard command palette (`Ctrl+K`), compare connections.
 - **M7 – Netzgrafik:** GTFS → NGE JSON export, then own renderer.
 
