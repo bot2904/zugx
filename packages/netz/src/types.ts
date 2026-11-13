@@ -56,7 +56,10 @@ export interface NodeKnots {
   share: number;
 }
 
-/** A line's stop at a node. Minutes are 0–59 (for Takt < 60: the first slot of the hour). */
+/**
+ * A line's stop at a node. Minutes are 0–59; for a direction with Takt < 60
+ * they are the first slot of the hour (modulo the direction's takt).
+ */
 export interface LineStop {
   /** node id */
   node: string;
@@ -72,6 +75,8 @@ export interface LineStop {
 export interface LineDirection {
   /** headsign of the representative trip, e.g. `Salzburg Hbf` */
   to: string;
+  /** Takt of this direction (may differ from the opposite one, e.g. 30' one way, 60' back) */
+  takt: Takt;
   /** trips on the reference day in this direction (incl. partial runs) */
   trips: number;
   /** train numbers, e.g. `RJX 640–699` or `RJ 531, 533` */
@@ -93,6 +98,7 @@ export interface NetzLine {
   cat: string;
   /** `Wien Hbf – Salzburg Hbf` (forward direction) */
   name: string;
+  /** Takt of the forward direction */
   takt: Takt;
   /** forward direction (the one with more trips) */
   fwd: LineDirection;
@@ -101,7 +107,7 @@ export interface NetzLine {
   /**
    * Symmetry check: deviation (minutes) of this line's symmetry axis from the
    * standard Symmetrieminute (:00/:30, i.e. modulo 30 — modulo takt/2 for takt < 60).
-   * 0 = perfectly symmetric around :00/:30; ±7.5 = maximally off. `null` if not paired.
+   * 0 = perfectly symmetric around :00/:30; range [-15, 15) (± takt/4 for takt < 60). `null` if not paired.
    */
   symmetry: number | null;
 }

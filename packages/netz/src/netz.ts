@@ -4,7 +4,7 @@
  */
 import { haversineKm, type Feed, type Station, type Trip } from "./gtfs.ts";
 import type { NodeDef } from "./nodes.ts";
-import { circMedian, mod, taktFamilies, type TaktOptions } from "./takt.ts";
+import { circDist, circMedian, mod, taktFamilies, type TaktOptions } from "./takt.ts";
 import type {
   LineDirection,
   LineStop,
@@ -330,13 +330,17 @@ export function patternDirections(
     const hi = covered.lastIndexOf(true);
     if (lo < 0 || hi <= lo) continue;
     const seq = g.seq.slice(lo, hi + 1);
+    // minutes and travel times from through trains if there are any, so that
+    // short runs (other dwell / turnaround) do not skew the pattern
+    const full = members.filter((t) => t.offset <= lo && t.offset + t.nt.pts.length - 1 >= hi);
+    const basis = full.length ? full : members;
     const stops: LineStop[] = seq.map((node, j) => {
       const i = j + lo;
       const arrs: number[] = [];
       const deps: number[] = [];
       let passes = 0;
       let count = 0;
-      for (const t of members) {
+      for (const t of basis) {
         const p = t.nt.pts[i - t.offset];
         if (!p) continue;
         count++;
@@ -355,13 +359,39 @@ export function patternDirections(
     const travel = seq.slice(1).map((_, j) => {
       const i = j + lo;
       const xs: number[] = [];
-      for (const t of members) {
+      for (const t of basis) {
         const a = t.nt.pts[i - t.offset];
         const b = t.nt.pts[i + 1 - t.offset];
         if (a && b) xs.push(b.arr - a.dep);
       }
       return Math.round(median(xs));
     });
+    // Medoid: the through train closest to the per-stop medians defines the
+    // published minutes, so that arr/dep/travel stay mutually consistent even
+    // when trains of the family have different dwell times.
+    let rep: (typeof full)[number] | undefined;
+    let repCost = Infinity;
+    for (const t of full) {
+      let cost = 0;
+      stops.forEach((s, j) => {
+        const p = t.nt.pts[j + lo - t.offset]!;
+        if (s.arr !== null) cost += circDist(mod(p.arr, M), s.arr, M);
+        if (s.dep !== null) cost += circDist(mod(p.dep, M), s.dep, M);
+      });
+      if (cost < repCost) {
+        repCost = cost;
+        rep = t;
+      }
+    }
+    if (rep) {
+      const r = rep;
+      stops.forEach((s, j) => {
+        const p = r.nt.pts[j + lo - r.offset]!;
+        if (s.arr !== null) s.arr = mod(p.arr, M);
+        if (s.dep !== null) s.dep = mod(p.dep, M);
+        if (j > 0) travel[j - 1] = p.arr - r.nt.pts[j - 1 + lo - r.offset]!.dep;
+      });
+    }
     // first/last departure at the first stop (extrapolated for partial runs)
     let firstTimes = members.flatMap((t) => timeAt(t.nt, t.offset, lo) ?? []);
     if (!firstTimes.length) {
@@ -379,6 +409,7 @@ export function patternDirections(
       members: f.members.length,
       dir: {
         to,
+        takt: f.takt,
         trips: trips.length,
         numbers: formatNumbers(g.cat, trips),
         first: hhmm(Math.min(...firstTimes)),
@@ -391,9 +422,19 @@ export function patternDirections(
   return drafts;
 }
 
-/** Deviation of the symmetry axis from :00/:30 (mod takt/2 for takt < 60). */
-export function symmetryDeviation(fwd: LineStop[], back: LineStop[], takt: Takt): number | null {
-  const M = takt && takt < 60 ? takt : 60;
+/**
+ * Deviation of the symmetry axis from :00/:30 (mod takt/2 for takt < 60).
+ * Minutes of each direction are modulo its own takt; the check runs modulo the
+ * smaller one.
+ */
+export function symmetryDeviation(
+  fwd: LineStop[],
+  back: LineStop[],
+  takt: Takt,
+  taktBack: Takt = takt,
+): number | null {
+  const m = (t: Takt) => (t && t < 60 ? t : 60);
+  const M = Math.min(m(takt), m(taktBack));
   const devs: number[] = [];
   const byNode = new Map(back.map((s) => [s.node, s]));
   for (const s of fwd) {
@@ -533,7 +574,9 @@ export function buildNetz(feed: Feed, opts: NetzOptions): NetzModel {
       takt: d.takt,
       fwd: d.dir,
       ...(partner ? { back: partner.dir } : {}),
-      symmetry: partner ? symmetryDeviation(d.dir.stops, partner.dir.stops, d.takt) : null,
+      symmetry: partner
+        ? symmetryDeviation(d.dir.stops, partner.dir.stops, d.takt, partner.takt)
+        : null,
     });
   }
   lines.sort((a, b) => a.cat.localeCompare(b.cat) || a.id.localeCompare(b.id));
@@ -598,7 +641,7 @@ export function buildNetz(feed: Feed, opts: NetzOptions): NetzModel {
         const s = dir?.stops.find((z) => z.node === def.id);
         if (!s) continue;
         count++;
-        if (!s.pass) events.push({ arr: s.arr, dep: s.dep, takt: l.takt });
+        if (!s.pass) events.push({ arr: s.arr, dep: s.dep, takt: dir!.takt });
       }
     }
     const hafasId = opts.hafas?.get(def.id);

@@ -231,6 +231,41 @@ describe("NGE export", () => {
     expect(yz).toMatchObject({ sourceDeparture: { time: 32 }, targetArrival: { time: 58 } });
   });
 
+  it("splits a line with different Takt per direction into two one-way trainruns", () => {
+    const mixed = [];
+    for (let t = 360; t <= 1200; t += 30) {
+      mixed.push(
+        trip("REX", String(t), [
+          ["X", t + 5, t + 5, 0],
+          ["Y", t + 25, t + 25, 30],
+        ]),
+      );
+    }
+    for (let t = 360; t <= 1200; t += 60) {
+      mixed.push(
+        trip("REX", String(t + 1), [
+          ["Y", t + 35, t + 35, 0],
+          ["X", t + 55, t + 55, 30],
+        ]),
+      );
+    }
+    const m = buildNetz(feed(stations, mixed), {
+      day: "2026-03-10",
+      source: "test",
+      cats: ["REX"],
+      nodes: ["X", "Y"].map((id) => ({ id, code: id })),
+    });
+    expect(m.lines).toHaveLength(1);
+    expect(m.lines[0]!.fwd.takt).toBe(30);
+    expect(m.lines[0]!.back!.takt).toBe(60);
+    const d = toNge(m);
+    validateNge(d);
+    expect(d.trainruns.map((t) => [t.name, t.direction, t.frequencyId])).toEqual([
+      ["X–Y", "one_way", 2],
+      ["Y–X", "one_way", 3],
+    ]);
+  });
+
   it("fixes travel times to be consistent modulo 60", () => {
     expect(consistentTravel(10, 31, 20)).toBe(21);
     expect(consistentTravel(50, 5, 75)).toBe(75);

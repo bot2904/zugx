@@ -10,7 +10,7 @@
  * edge routing itself (`EditorToolsViewComponent.processNetzgrafikJSON3rdParty`).
  */
 import { mod } from "./takt.ts";
-import type { LineDirection, LineStop, NetzLine, NetzModel } from "./types.ts";
+import type { LineDirection, LineStop, NetzModel } from "./types.ts";
 
 // ---- DTO subset (field names as in NGE) ---------------------------------
 
@@ -321,14 +321,24 @@ function backTimes(fwd: LineStop[], back: LineDirection | undefined, seg: Timed[
   });
 }
 
-function frequencyId(line: NetzLine): number {
-  switch (line.takt) {
+/** minute of day near "HH:MM" `first` whose minute of the hour is `minute` */
+export function startMinute(first: string, minute: number): number {
+  const [h = 0, m = 0] = first.split(":").map(Number);
+  const f = h * 60 + m;
+  let t = h * 60 + mod(minute, 60);
+  if (t < f - 30) t += 60;
+  if (t > f + 30) t -= 60;
+  return t;
+}
+
+function frequencyId(dir: LineDirection): number {
+  switch (dir.takt) {
     case 15:
       return 0;
     case 30:
       return 2;
     case 120: {
-      const h = Number(line.fwd.first.slice(0, 2));
+      const h = Number(dir.first.slice(0, 2));
       return h % 2 === 0 ? 4 : 5;
     }
     default:
@@ -387,30 +397,37 @@ export function toNge(model: NetzModel, layout?: LayoutOptions): NgeDto {
   const trainruns: NgeTrainrunDto[] = [];
   const trainrunSections: NgeTrainrunSectionDto[] = [];
   const code = (id: string) => model.nodes[nodeIndex.get(id)!]?.code ?? id;
+  // a round trip needs one frequency for both directions; otherwise two one-way trainruns
+  const runs: { cat: string; fwd: LineDirection; back?: LineDirection }[] = [];
   for (const line of model.lines) {
-    const stops = line.fwd.stops;
+    if (line.back && line.back.takt !== line.fwd.takt) {
+      runs.push({ cat: line.cat, fwd: line.fwd }, { cat: line.cat, fwd: line.back });
+    } else runs.push(line);
+  }
+  for (const run of runs) {
+    const stops = run.fwd.stops;
     if (stops.some((s) => !nodeIndex.has(s.node))) continue;
     const trId = trainruns.length;
     trainruns.push({
       id: trId,
       name: `${code(stops[0]!.node)}–${code(stops[stops.length - 1]!.node)}`,
-      categoryId: catId.get(line.cat)!,
-      frequencyId: frequencyId(line),
-      trainrunTimeCategoryId: line.takt === null ? 2 : 0,
-      labelIds: [catId.get(line.cat)! + 1],
-      direction: line.back ? "round_trip" : "one_way",
+      categoryId: catId.get(run.cat)!,
+      frequencyId: frequencyId(run.fwd),
+      trainrunTimeCategoryId: run.fwd.takt === null ? 2 : 0,
+      labelIds: [catId.get(run.cat)! + 1],
+      direction: run.back ? "round_trip" : "one_way",
     });
-    const seg = segmentTimes(line.fwd);
-    const back = backTimes(stops, line.back, seg);
-    // consecutive (absolute) minutes: forward from the first departure, backward from the last
-    let c = seg[0]?.dep ?? 0;
+    const seg = segmentTimes(run.fwd);
+    const back = backTimes(stops, run.back, seg);
+    // consecutive (absolute) minutes, starting at the first train of the day in each direction
+    let c = startMinute(run.fwd.first, seg[0]?.dep ?? 0);
     const fwdC = seg.map((s, i) => {
       if (i > 0) c += mod(s.dep - seg[i - 1]!.arr, 60);
       const r = { dep: c, arr: c + s.travel };
       c += s.travel;
       return r;
     });
-    let cb = back[back.length - 1]?.dep ?? 0;
+    let cb = startMinute(run.back?.first ?? run.fwd.first, back[back.length - 1]?.dep ?? 0);
     const backC: { dep: number; arr: number }[] = [];
     for (let i = back.length - 1; i >= 0; i--) {
       const s = back[i]!;
