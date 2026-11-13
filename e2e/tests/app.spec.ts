@@ -44,8 +44,10 @@ test("disruptions", async ({ page }) => {
 
 test("command palette jumps to a train", async ({ page }) => {
   await page.goto("/");
+  await page.locator("#from").waitFor();
   await page.locator("body").click();
   await page.keyboard.press("Control+k");
+  await expect(page.locator("dialog[open] input")).toBeFocused();
   await page.keyboard.type("RJX 162");
   await page.keyboard.press("Enter");
   await expect(page).toHaveURL(/\/train\/RJX-162/);
@@ -198,6 +200,7 @@ test("footer links the open source licenses (production build, also with the ser
 
 test("command palette is a native modal dialog (Esc and backdrop close it)", async ({ page }) => {
   await page.goto("/");
+  await page.locator("#from").waitFor(); // app mounted, shortcuts registered
   await page.locator("body").click();
   await page.keyboard.press("Control+k");
   const dlg = page.locator("dialog[open]");

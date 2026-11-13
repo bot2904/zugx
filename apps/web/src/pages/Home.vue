@@ -16,7 +16,7 @@ const arrival = ref(false);
 const train = ref("");
 const toInput = ref<InstanceType<typeof StationInput>>();
 
-function search() {
+function submitSearch() {
   if (!from.value) return;
   addRecent(from.value);
   if (!to.value) {
@@ -54,7 +54,7 @@ const nowInput = () => (when.value = toLocalInput(new Date()));
         class="card mt-4 grid gap-2 p-3"
         data-search
         :aria-label="$t('search.go')"
-        @submit.prevent="search"
+        @submit.prevent="submitSearch"
       >
         <div class="grid items-end gap-2 sm:grid-cols-[1fr_auto_1fr]">
           <StationInput
