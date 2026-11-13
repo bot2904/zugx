@@ -126,6 +126,7 @@ export default {
     hint: "Positionen werden von ÖBB HAFAS berechnet.",
   },
   bf: {
+    wheelHint: "Im Diagramm scrollen verschiebt die Zeit, Strg/⌘ + scrollen zoomt",
     outside: "außerhalb des Fahrplanzeitraums {begin} – {end}",
     prevDay: "Vortag",
     nextDay: "Folgetag",

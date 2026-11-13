@@ -71,7 +71,10 @@ const H = 760;
 const M = { top: 110, right: 20, bottom: 20, left: 46 };
 const maxKm = computed(() => Math.max(1, ...(data.value?.stations.map((s) => s.km) ?? [1])));
 const x = (km: number) => M.left + (km / maxKm.value) * (W - M.left - M.right);
-const t0 = computed(() => from.value * 60);
+// window start in minutes; follows ?from= (hours, may be fractional), moved live by the wheel
+const startMin = ref(from.value * 60);
+watch(from, (f) => (startMin.value = f * 60));
+const t0 = computed(() => startMin.value);
 const t1 = computed(() => t0.value + span.value * 60);
 const y = (min: number) =>
   M.top + ((min - t0.value) / (t1.value - t0.value)) * (H - M.top - M.bottom);
@@ -169,6 +172,32 @@ const nowY = computed(() => {
   return n >= t0.value && n <= t1.value ? y(n) : undefined;
 });
 
+const hhmmOf = (min: number) =>
+  `${String(Math.floor(min / 60) % 24).padStart(2, "0")}:${String(Math.round(min % 60)).padStart(2, "0")}`;
+
+/**
+ * Mouse wheel / trackpad over the diagram scrolls the time axis (10 % of the window per notch);
+ * Ctrl/⌘ + wheel (incl. trackpad pinch) zooms between 1 and 24 hours.
+ */
+let wheelTimer: ReturnType<typeof setTimeout> | undefined;
+function onWheel(e: WheelEvent) {
+  if (e.shiftKey) return; // horizontal scrolling of a wide diagram
+  e.preventDefault();
+  const delta = e.deltaMode === 1 ? e.deltaY * 33 : e.deltaY; // lines → px
+  if (e.ctrlKey || e.metaKey) {
+    const h = Math.min(24, Math.max(1, span.value * Math.exp(delta / 300)));
+    setQuery({ h: Math.round(h * 4) / 4 });
+    return;
+  }
+  const maxStart = Math.max(0, 28 * 60 - span.value * 60); // trains after midnight run up to ~28:00
+  startMin.value = Math.min(maxStart, Math.max(0, startMin.value + (delta / 100) * span.value * 6));
+  clearTimeout(wheelTimer);
+  wheelTimer = setTimeout(
+    () => setQuery({ from: Math.round((startMin.value / 60) * 100) / 100 }),
+    300,
+  );
+}
+
 function openTrain(t: CorridorTrain) {
   void router.push({ path: `/train/${trainSlug(`${t.cat} ${t.nr}`)}`, query: { d: date.value } });
 }
@@ -228,9 +257,13 @@ function toggleCat(c: string) {
         </span>
       </span>
       <span class="ml-auto flex items-center gap-1 text-xs">
-        <button class="btn" @click="setQuery({ from: Math.max(0, from - 1) })">▲</button>
-        <span class="mono">{{ String(from).padStart(2, "0") }}:00</span>
-        <button class="btn" @click="setQuery({ from: Math.min(23, from + 1) })">▼</button>
+        <button class="btn" @click="setQuery({ from: Math.max(0, Math.floor(from) - 1) })">
+          ▲
+        </button>
+        <span class="mono" :title="$t('bf.wheelHint')">{{ hhmmOf(startMin) }}</span>
+        <button class="btn" @click="setQuery({ from: Math.min(23, Math.floor(from) + 1) })">
+          ▼
+        </button>
         <button
           v-for="h in [2, 4, 8, 24]"
           :key="h"
@@ -262,6 +295,7 @@ function toggleCat(c: string) {
       <svg
         :viewBox="`0 0 ${W} ${H}`"
         class="block w-full min-w-[800px]"
+        @wheel="onWheel"
         role="img"
         :aria-label="data.name"
       >

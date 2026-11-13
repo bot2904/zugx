@@ -126,6 +126,7 @@ export default {
     hint: "Posizioni calcolate da ÖBB HAFAS.",
   },
   bf: {
+    wheelHint: "Scorri nel diagramma per spostarti nel tempo, Ctrl/⌘ + scorrere per lo zoom",
     outside: "fuori dal periodo d'orario {begin} – {end}",
     prevDay: "Giorno precedente",
     nextDay: "Giorno successivo",

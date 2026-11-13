@@ -124,6 +124,7 @@ export default {
     hint: "Positions are calculated by ÖBB HAFAS.",
   },
   bf: {
+    wheelHint: "Scroll the diagram to move in time, Ctrl/⌘ + scroll to zoom",
     outside: "outside the timetable period {begin} – {end}",
     prevDay: "Previous day",
     nextDay: "Next day",
