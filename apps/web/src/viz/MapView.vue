@@ -93,7 +93,8 @@ function fitAll() {
 
 // ---- base map: OpenFreeMap vector styles (calm, railways included), optional OpenRailwayMap overlay ----
 const ORM_KEY = "zugx:map-orm";
-const orm = ref(localStorage.getItem(ORM_KEY) === "1");
+// railway overlay on by default; switching it off is remembered
+const orm = ref(localStorage.getItem(ORM_KEY) !== "0");
 const styleUrl = (): string | StyleSpecification =>
   props.base === "osm"
     ? {
