@@ -3,7 +3,7 @@
 import type { CorridorIndex, CorridorIndexEntry } from "@zugx/netz";
 import { computed, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { useKeys } from "../lib/keys.ts";
+import { isImeEnter, useKeys } from "../lib/keys.ts";
 import SortHeader from "./SortHeader.vue";
 import { normalize } from "../lib/normalize.ts";
 import { categoryColor } from "../lib/products.ts";
@@ -92,7 +92,7 @@ useKeys({
         :placeholder="$t('bf.filter')"
         :aria-label="$t('bf.filter')"
         autofocus
-        @keydown.enter="open(rows[0])"
+        @keydown.enter="(e: KeyboardEvent) => !isImeEnter(e) && open(rows[0])"
       />
     </div>
     <p class="muted my-1 text-xs">

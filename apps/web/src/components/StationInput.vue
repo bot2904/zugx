@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // Station combobox: instant local search, LocMatch fallback, recents/favourites when empty.
 import type { Location } from "@zugx/hafas";
+import { isImeEnter } from "../lib/keys.ts";
 import { computed, onMounted, ref, watch } from "vue";
 import { api } from "../lib/api.ts";
 import { loadStations, nearestStations, searchStations, type Station } from "../lib/stations.ts";
@@ -99,7 +100,7 @@ function onKey(e: KeyboardEvent) {
   } else if (e.key === "ArrowUp") {
     sel.value = n ? (sel.value - 1 + n) % n : 0;
     e.preventDefault();
-  } else if (e.key === "Enter") {
+  } else if (e.key === "Enter" && !isImeEnter(e)) {
     const o = options.value[sel.value];
     if (o && open.value) {
       pick(o);

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // Ctrl+K palette: pages, stations (→ board), train numbers (→ train page).
+import { isImeEnter } from "../lib/keys.ts";
 import { computed, nextTick, ref, shallowRef, watch } from "vue";
 import ModalDialog from "./ModalDialog.vue";
 import { useI18n } from "vue-i18n";
@@ -97,7 +98,7 @@ function onKey(e: KeyboardEvent) {
   } else if (e.key === "ArrowUp") {
     sel.value = (sel.value - 1 + n) % n;
     e.preventDefault();
-  } else if (e.key === "Enter") {
+  } else if (e.key === "Enter" && !isImeEnter(e)) {
     commands.value[sel.value]?.run();
     open.value = false;
   }

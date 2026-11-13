@@ -18,6 +18,7 @@ export function useKeys(
   opts: { whileTyping?: string[] } = {},
 ) {
   const handler = (e: KeyboardEvent) => {
+    if (e.isComposing || e.keyCode === 229) return; // IME composition: never trigger shortcuts
     const key = [
       e.ctrlKey || e.metaKey ? "mod" : "",
       e.altKey ? "alt" : "",
@@ -40,3 +41,9 @@ export function useKeys(
   onMounted(() => window.addEventListener("keydown", handler));
   onBeforeUnmount(() => window.removeEventListener("keydown", handler));
 }
+
+/**
+ * true while an IME is composing: the Enter that confirms a composition must not submit
+ * (isComposing, plus keyCode 229 for Safari's out-of-order compositionend; modern-web-guidance: ime-safe-enter-submit)
+ */
+export const isImeEnter = (e: KeyboardEvent) => e.isComposing || e.keyCode === 229;
