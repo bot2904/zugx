@@ -150,9 +150,9 @@ export default {
   },
   products: {
     highspeed: "RJX/RJ/ICE",
-    night: "Nacht",
     intercity: "EC/IC",
-    interregional: "D/WB",
+    interregional: "D/NJ/WB",
+    replacement: "SEV",
     regional: "Regional",
     suburban: "S-Bahn",
     bus: "Bus",

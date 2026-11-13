@@ -42,6 +42,7 @@ const CAT_COLORS: Record<string, string> = {
 const PRODUCT_COLORS: Record<ProductId, string> = {
   highspeed: "#c8102e",
   night: "#3b3f8f",
+  replacement: "#b5651d",
   intercity: "#a6192e",
   interregional: "#9e3d22",
   regional: "#2f7bd8",
@@ -69,11 +70,11 @@ export function categoryColor(cat: string): string {
 /** product filter groups for UI chips → HAFAS class bitmask */
 export const PRODUCT_GROUPS: { id: string; cls: number }[] = [
   { id: "highspeed", cls: 1 },
-  { id: "night", cls: 2 },
   { id: "intercity", cls: 4 },
   { id: "interregional", cls: 8 | 4096 },
   { id: "regional", cls: 16 },
   { id: "suburban", cls: 32 },
+  { id: "replacement", cls: 2 },
   { id: "bus", cls: 64 },
   { id: "subway", cls: 256 },
   { id: "tram", cls: 512 },

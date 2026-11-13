@@ -238,8 +238,13 @@ export function createClient(opts: ClientOptions = {}) {
     /** Find trains by name/number, e.g. "RJX 162" or "162". */
     async tripsByName(query: string, when: Date = new Date()): Promise<TripMatch[]> {
       const { date } = hafasDateTime(when);
-      const res = await request("JourneyMatch", { input: query, date, onlyCR: false });
-      return parseJourneyMatch(res);
+      try {
+        const res = await request("JourneyMatch", { input: query, date, onlyCR: false });
+        return parseJourneyMatch(res);
+      } catch (e) {
+        if (e instanceof HafasError && e.code === "NO_MATCH") return [];
+        throw e;
+      }
     },
 
     async radar(

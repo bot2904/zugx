@@ -40,6 +40,7 @@ const props = withDefaults(
 const emit = defineEmits<{ ready: [MlMap]; moveend: [MlMap]; clickPoint: [string] }>();
 const el = ref<HTMLDivElement>();
 let map: MlMap | undefined;
+let ro: ResizeObserver | undefined;
 
 const fc = (features: Feature[]): FeatureCollection => ({ type: "FeatureCollection", features });
 
@@ -112,6 +113,8 @@ onMounted(() => {
     attributionControl: { compact: true },
   });
   map = m;
+  ro = new ResizeObserver(() => m.resize());
+  ro.observe(el.value);
   m.addControl(new NavigationControl({ showCompass: false }), "top-right");
   m.on("load", () => {
     const map = m;
@@ -171,7 +174,10 @@ watch(
 );
 watch(() => props.lines, fitAll);
 
-onBeforeUnmount(() => map?.remove());
+onBeforeUnmount(() => {
+  ro?.disconnect();
+  map?.remove();
+});
 </script>
 
 <template>

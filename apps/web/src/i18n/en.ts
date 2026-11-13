@@ -148,9 +148,9 @@ export default {
   },
   products: {
     highspeed: "RJX/RJ/ICE",
-    night: "Night",
     intercity: "EC/IC",
-    interregional: "D/WB",
+    interregional: "D/NJ/WB",
+    replacement: "Rail replacement",
     regional: "Regional",
     suburban: "S-Bahn",
     bus: "Bus",

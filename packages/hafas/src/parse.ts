@@ -46,7 +46,7 @@ export function common(res: Raw): Common {
 
 const PRODUCT_BY_CLS: Record<number, ProductId> = {
   1: "highspeed",
-  2: "night",
+  2: "replacement",
   4: "intercity",
   8: "interregional",
   16: "regional",
@@ -62,7 +62,8 @@ const PRODUCT_BY_CLS: Record<number, ProductId> = {
 
 export const PRODUCT_CLASSES: Record<ProductId, number> = {
   highspeed: 1,
-  night: 2,
+  night: 0,
+  replacement: 2,
   intercity: 4,
   interregional: 8 | 4096,
   regional: 16,

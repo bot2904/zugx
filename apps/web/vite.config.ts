@@ -25,6 +25,8 @@ export default defineConfig({
       },
     }),
   ],
+  // maplibre-gl loads its worker via new URL(..., import.meta.url); pre-bundling breaks that
+  optimizeDeps: { exclude: ["maplibre-gl"] },
   server: {
     proxy: {
       "/api/mgate": {
