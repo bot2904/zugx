@@ -105,3 +105,10 @@ test("add to calendar downloads an .ics with deep link", async ({ page }) => {
   expect(unfolded).toMatch(/^SUMMARY:.+→.+·/m);
   expect(unfolded).toMatch(/^URL:http:\/\/127\.0\.0\.1:5188\/trip\/[\w-]+$/m);
 });
+
+test("bildfahrplan index filters by station", async ({ page }) => {
+  await page.goto("/bf?q=horn");
+  await expect(page.getByRole("link", { name: /Kamptalbahn/ })).toBeVisible();
+  await page.getByRole("link", { name: /Kamptalbahn/ }).click();
+  await expect(page).toHaveURL(/\/bf\/kamptal/);
+});

@@ -10,7 +10,23 @@
       "km": 315.2,
       "stations": 61,
       "trains": 1406,
-      "file": "westbahn.json"
+      "file": "westbahn.json",
+      "major": ["Wien Hbf", "Wien Meidling", "Tullnerfeld", "St. Pölten Hbf", "Amstetten", "St. Valentin", "Linz Hbf", "Wels Hbf", "Attnang-Puchheim", "Salzburg Hbf"],
+      "names": ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Tullnerfeld", "St. Pölten Hbf", "Prinzersdorf", "Markersdorf an der Pielach Bf.", "Groß Sierning", "Loosdorf/Melk", "Melk", "Pöchlarn", "Krummnußbaum", "Säusenstein", "Ybbs/Donau", "Neumarkt/Ybbs-Karlsbach Bf.", "Blindenmarkt", "Amstetten", "Mauer-Öhling", "Aschbach", "Krenstetten-Biberbach", "St. Peter-Seitenstetten Bhf.", "St. Johann-Weistrach", "Stadt Haag", "St. Valentin", "Ennsdorf", "Enns", "Asten-Fisching", "Linz/Donau Pichling", "Linz/Donau Ebelsberg", "Linz Hbf", "Leonding Westbahn", "Pasching b.Linz", "Hörsching", "Oftering", "Marchtrenk", "Wels Hbf", "Gunskirchen", "Lambach OÖ", "Lambach OÖ Markt", "Neukirchen b.Lambach", "Breitenschützing", "Schwanenstadt", "Attnang-Puchheim", "Vöcklabruck", "Timelkam", "Neukirchen-Gampern", "Redl-Zipf", "Vöcklamarkt", "Frankenmarkt", "Pöndorf", "Oberhofen-Zell am Moos", "Straßwalchen", "Neumarkt", "Köstendorf Weng S-Bahn", "Wallersee S-Bahn", "Seekirchen", "Seekirchen Stadt S-Bahn", "Eugendorf S-Bahn", "Hallwang-Elixhausen S-Bahn", "Salzburg Kasern S-Bahn", "Salzburg Hbf"],
+      "cats": {
+        "S": 612,
+        "REX": 282,
+        "R": 155,
+        "CJX": 111,
+        "RJX": 76,
+        "IC": 60,
+        "RJ": 38,
+        "EC": 31,
+        "NJ": 16,
+        "EN": 9,
+        "D": 8,
+        "ICE": 8
+      }
     },
     {
       "id": "suedbahn",
@@ -20,7 +36,24 @@
       "km": 210.4,
       "stations": 52,
       "trains": 1220,
-      "file": "suedbahn.json"
+      "file": "suedbahn.json",
+      "major": ["Wien Hbf", "Wien Meidling", "Baden", "Wiener Neustadt Hbf", "Gloggnitz", "Semmering", "Mürzzuschlag", "Bruck/Mur", "Graz Hbf"],
+      "names": ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wien Hetzendorf", "Wien Atzgersdorf", "Wien Liesing", "Perchtoldsdorf", "Brunn-Maria Enzersdorf", "Mödling", "Guntramsdorf Thallern", "Gumpoldskirchen", "Pfaffstätten", "Baden", "Bad Vöslau", "Kottingbrunn", "Leobersdorf", "Sollenau", "Felixdorf", "Theresienfeld", "Wiener Neustadt Nord", "Wiener Neustadt Hbf", "St. Egyden/Stfd", "Neunkirchen", "Ternitz", "Pottschach", "Gloggnitz", "Schlöglmühl", "Payerbach-Reichenau", "Klamm-Schottwien", "Breitenstein", "Semmering", "Steinhaus", "Spital am Semmering", "Mürzzuschlag", "Langenwang", "Krieglach", "Mitterdorf-Veitsch", "Wartberg", "Kindberg", "Allerheiligen-Mürzhofen", "St.Marein-St.Lorenzen", "Kapfenberg Fachhochschule", "Kapfenberg", "Bruck/Mur", "Pernegg", "Mixnitz-Bärenschützklamm", "Frohnleiten", "Peggau-Deutschfeistritz", "Stübing", "Gratwein-Gratkorn", "Judendorf-Straßengel", "Graz Hbf"],
+      "cats": {
+        "S": 591,
+        "REX": 171,
+        "R": 91,
+        "RJX": 76,
+        "CJX": 74,
+        "IC": 57,
+        "IR": 54,
+        "RJ": 36,
+        "EC": 31,
+        "NJ": 15,
+        "ICE": 8,
+        "D": 8,
+        "EN": 8
+      }
     },
     {
       "id": "koralm",
@@ -30,7 +63,10 @@
       "km": 164.5,
       "stations": 18,
       "trains": 189,
-      "file": "koralm.json"
+      "file": "koralm.json",
+      "major": ["Graz Hbf", "Weststeiermark", "St.Paul im Lavanttal", "Kühnsdorf-Klopeiner See", "Klagenfurt Hbf", "Villach Hbf"],
+      "names": ["Graz Hbf", "Weststeiermark", "St.Paul im Lavanttal", "Kühnsdorf-Klopeiner See", "Grafenstein", "Klagenfurt Ebenthal", "Klagenfurt Hbf", "Klagenfurt Lend", "Klagenfurt West", "Krumpendorf/Wörthersee", "Pritschitz", "Pörtschach/Wörthersee", "Töschling", "Velden/Wörthersee", "Lind-Rosegg", "Föderlach", "Villach Seebach", "Villach Hbf"],
+      "cats": { "S": 87, "RJ": 35, "REX": 27, "RJX": 22, "ICE": 9, "IC": 4, "NJ": 4, "EC": 1 }
     },
     {
       "id": "brenner",
@@ -40,7 +76,21 @@
       "km": 109.1,
       "stations": 25,
       "trains": 314,
-      "file": "brenner.json"
+      "file": "brenner.json",
+      "major": ["Kufstein", "Wörgl Hbf", "Jenbach", "Innsbruck Hbf", "Brennero/Brenner"],
+      "names": ["Kufstein", "Schaftenau", "Kirchbichl", "Wörgl Hbf", "Kundl", "Rattenberg-Kramsach", "Brixlegg", "Münster-Wiesing", "Jenbach", "Stans", "Schwaz", "Pill-Vomperbach", "Terfens-Weer", "Fritzens-Wattens", "Volders-Baumkirchen", "Hall in Tirol", "Hall-Thaur", "Rum", "Innsbruck Messe", "Innsbruck Hbf", "Matrei a. Br.", "Steinach a. Br.", "St. Jodok a. Br.", "Gries a. Br.", "Brennero/Brenner"],
+      "cats": {
+        "S": 147,
+        "REX": 72,
+        "RJX": 39,
+        "CJX": 17,
+        "IR": 14,
+        "RJ": 13,
+        "NJ": 5,
+        "EC": 4,
+        "ICE": 2,
+        "EN": 1
+      }
     },
     {
       "id": "arlberg",
@@ -50,7 +100,10 @@
       "km": 135.5,
       "stations": 24,
       "trains": 237,
-      "file": "arlberg.json"
+      "file": "arlberg.json",
+      "major": ["Innsbruck Hbf", "Landeck-Zams", "Bludenz"],
+      "names": ["Innsbruck Hbf", "Innsbruck Westbahnhof", "Völs", "Kematen i. T.", "Zirl", "Inzing", "Hatting", "Flaurling", "Oberhofen i. I.", "Telfs-Pfaffenhofen", "Rietz", "Stams", "Mötz", "Silz", "Haiming", "Ötztal-Bahnhof", "Roppen", "Imst-Pitztal", "Imsterberg", "Schönwies", "Landeck-Zams", "St. Anton a. A.", "Langen a. A.", "Bludenz"],
+      "cats": { "S": 128, "REX": 65, "RJX": 28, "NJ": 6, "EN": 4, "RJ": 3, "EC": 2, "CJX": 1 }
     },
     {
       "id": "rheintal",
@@ -60,7 +113,10 @@
       "km": 56.8,
       "stations": 23,
       "trains": 272,
-      "file": "rheintal.json"
+      "file": "rheintal.json",
+      "major": ["Bludenz", "Feldkirch", "Dornbirn", "Bregenz"],
+      "names": ["Bludenz", "Nüziders", "Ludesch", "Nenzing", "Schlins", "Frastanz", "Feldkirch", "Feldkirch Amberg", "Rankweil", "Sulz-Röthis", "Klaus", "Götzis", "Altach", "Hohenems", "Dornbirn Hatlerdorf", "Dornbirn Schoren", "Dornbirn", "Dornbirn Haselstauden", "Schwarzach", "Wolfurt", "Lauterach", "Bregenz Riedenburg", "Bregenz"],
+      "cats": { "S": 153, "REX": 49, "RJX": 28, "R": 27, "NJ": 6, "EN": 4, "RJ": 3, "EC": 2 }
     },
     {
       "id": "tauern",
@@ -70,7 +126,20 @@
       "km": 114.9,
       "stations": 13,
       "trains": 119,
-      "file": "tauern.json"
+      "file": "tauern.json",
+      "major": ["Schwarzach-St. Veit", "Bad Gastein", "Spittal-Millstätter See", "Villach Hbf"],
+      "names": ["Schwarzach-St. Veit", "Dorfgastein", "Bad Hofgastein", "Bad Gastein", "Mallnitz-Obervellach", "Spittal-Millstätter See", "Rothenthurn", "Ferndorf in Ktn", "Markt Paternion", "Paternion-Feistritz", "Weissenstein-Kellerberg", "Puch b.Villach", "Villach Hbf"],
+      "cats": {
+        "S": 68,
+        "IC": 16,
+        "RJ": 12,
+        "ICE": 6,
+        "EC": 4,
+        "REX": 4,
+        "NJ": 4,
+        "EN": 4,
+        "R": 1
+      }
     },
     {
       "id": "gisela",
@@ -80,7 +149,23 @@
       "km": 191.2,
       "stations": 49,
       "trains": 265,
-      "file": "gisela.json"
+      "file": "gisela.json",
+      "major": ["Salzburg Hbf", "Bischofshofen", "Schwarzach-St. Veit", "Zell am See", "Saalfelden", "Kitzbühel", "Wörgl Hbf"],
+      "names": ["Salzburg Hbf", "Salzburg Sam S-Bahn", "Salzburg Gnigl S-Bahn", "Salzburg Parsch S-Bahn", "Salzburg Aigen S-Bahn", "Salzburg-Süd S-Bahn", "Elsbethen S-Bahn", "Puch Urstein (FH)", "Puch S-Bahn", "Oberalm S-Bahn", "Hallein", "Hallein Burgfried S-Bahn", "Bad Vigaun S-Bahn", "Kuchl Garnei S-Bahn", "Kuchl S-Bahn", "Golling-Abtenau", "Tenneck", "Werfen", "Pfarrwerfen", "Bischofshofen", "Mitterberghütten", "St.Johann", "Schwarzach-St. Veit", "Lend", "Taxenbach-Rauris", "Gries", "Bruck-Fusch", "Zell am See", "Maishofen-Saalbach", "Saalfelden", "Leogang-Steinberge", "Leogang", "Hochfilzen", "Pfaffenschwendt", "Fieberbrunn", "St. Johann i. T. Grieswirt", "St. Johann i. T.", "Oberndorf i. T.", "Kitzbühel", "Kitzbühel Hahnenkamm", "Kitzbühel Schwarzsee", "Kirchberg i. T.", "Brixen i. Th.", "Westendorf", "Windau", "Hopfgarten i. Br. Berglift", "Hopfgarten i. Br.", "Wörgl Süd-Bruckhäusl", "Wörgl Hbf"],
+      "cats": {
+        "S": 119,
+        "R": 38,
+        "IR": 31,
+        "REX": 17,
+        "IC": 16,
+        "RJX": 13,
+        "RJ": 9,
+        "EC": 6,
+        "ICE": 6,
+        "D": 4,
+        "NJ": 3,
+        "EN": 3
+      }
     },
     {
       "id": "pyhrn",
@@ -90,7 +175,10 @@
       "km": 174.9,
       "stations": 33,
       "trains": 184,
-      "file": "pyhrn.json"
+      "file": "pyhrn.json",
+      "major": ["Linz Hbf", "Kirchdorf/Krems", "Spital am Pyhrn", "Selzthal", "Leoben Hbf"],
+      "names": ["Linz Hbf", "Linz/Donau Oed", "Linz/Donau Wegscheid", "Traun OÖ St.Martin", "Traun OÖ", "Ansfelden", "Nettingsdorf", "Nöstlbach-St.Marien", "Neuhofen/Krems", "Kematen/Krems-Piberbach", "Rohr-Bad Hall", "Kremsmünster", "Wartberg/Krems", "Nußbach", "Schlierbach/Krems", "Kirchdorf/Krems", "Micheldorf in OÖ", "Klaus an der Pyhrnbahn", "Hinterstoder", "Roßleithen", "Windischgarsten", "Spital am Pyhrn", "Ardning", "Selzthal", "Rottenmann", "Trieben", "Gaishorn", "Wald am Schoberpaß", "Kalwang", "Mautern", "Kammern", "St.Michael", "Leoben Hbf"],
+      "cats": { "S": 101, "IR": 34, "R": 29, "REX": 18, "EC": 2 }
     },
     {
       "id": "ennstal",
@@ -100,7 +188,10 @@
       "km": 98.4,
       "stations": 21,
       "trains": 80,
-      "file": "ennstal.json"
+      "file": "ennstal.json",
+      "major": ["Selzthal", "Liezen", "Stainach-Irdning", "Bischofshofen"],
+      "names": ["Selzthal", "Liezen", "Wörschach Schwefelbad", "Stainach-Irdning", "Niederöblarn", "Öblarn", "Stein an der Enns", "Gröbming", "Pruggern", "Aich-Assach", "Haus", "Schladming", "Pichl bei Schladming", "Mandling", "Radstadt", "Altenmarkt", "Eben", "Niedernfritz-St.Martin", "Hüttau", "Pöham", "Bischofshofen"],
+      "cats": { "R": 37, "REX": 22, "IR": 19, "EC": 2 }
     },
     {
       "id": "stammstrecke",
@@ -110,7 +201,23 @@
       "km": 13.3,
       "stations": 10,
       "trains": 1073,
-      "file": "stammstrecke.json"
+      "file": "stammstrecke.json",
+      "major": ["Wien Floridsdorf", "Wien Praterstern", "Wien Mitte-Landstraße", "Wien Rennweg", "Wien Quartier Belvedere", "Wien Hbf", "Wien Meidling"],
+      "names": ["Wien Floridsdorf", "Wien Handelskai", "Wien Traisengasse", "Wien Praterstern", "Wien Mitte-Landstraße", "Wien Rennweg", "Wien Quartier Belvedere", "Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling"],
+      "cats": {
+        "S": 545,
+        "REX": 225,
+        "RJX": 76,
+        "IC": 57,
+        "CJX": 52,
+        "RJ": 36,
+        "EC": 31,
+        "NJ": 15,
+        "R": 12,
+        "ICE": 8,
+        "D": 8,
+        "EN": 8
+      }
     },
     {
       "id": "nordbahn",
@@ -120,7 +227,10 @@
       "km": 78.4,
       "stations": 21,
       "trains": 297,
-      "file": "nordbahn.json"
+      "file": "nordbahn.json",
+      "major": ["Wien Floridsdorf", "Gänserndorf", "Bernhardsthal", "Břeclav"],
+      "names": ["Wien Floridsdorf", "Wien Siemensstraße", "Wien Leopoldau", "Wien Süßenbrunn", "Deutsch-Wagram", "Helmahof", "Strasshof", "Silberwald", "Gänserndorf", "Weikendorf-Dörfles", "Tallesbrunn", "Angern/March", "Stillfried", "Dürnkrut", "Jedenspeigen", "Sierndorf an der March", "Drösing", "Hohenau/March", "Rabensburg", "Bernhardsthal", "Břeclav"],
+      "cats": { "S": 199, "REX": 89, "CJX": 5, "R": 4 }
     },
     {
       "id": "ostbahn",
@@ -130,7 +240,10 @@
       "km": 72.2,
       "stations": 15,
       "trains": 342,
-      "file": "ostbahn.json"
+      "file": "ostbahn.json",
+      "major": ["Wien Hbf", "Kledering", "Gramatneusiedl", "Bruck/Leitha", "Parndorf", "Hegyeshalom"],
+      "names": ["Wien Hbf", "Wien Grillgasse", "Kledering", "Lanzendorf-Rannersdorf", "Gramatneusiedl", "Götzendorf", "Trautmannsdorf/Leitha Bhf.", "Sarasdorf", "Wilfleinsdorf", "Bruck/Leitha", "Parndorf Ort", "Parndorf", "Zurndorf", "Nickelsdorf", "Hegyeshalom"],
+      "cats": { "REX": 170, "S": 74, "R": 50, "EC": 16, "RJX": 15, "ER": 7, "D": 6, "EN": 4 }
     },
     {
       "id": "westbahn-alt",
@@ -140,7 +253,10 @@
       "km": 60.3,
       "stations": 23,
       "trains": 510,
-      "file": "westbahn-alt.json"
+      "file": "westbahn-alt.json",
+      "major": ["Wien Westbf", "Purkersdorf Sanatorium Bhf.", "Rekawinkel", "Neulengbach", "St. Pölten Hbf"],
+      "names": ["Wien Westbf", "Wien Penzing", "Wien Hütteldorf", "Wien Wolf in der Au", "Wien Hadersdorf", "Wien Weidlingau", "Purkersdorf Sanatorium Bhf.", "Unterpurkersdorf", "Purkersdorf Zentrum", "Untertullnerbach", "Tullnerbach-Pressbaum", "Pressbaum", "Dürrwien", "Rekawinkel", "Eichgraben-Altlengbach", "Maria Anzbach", "Neulengbach Stadt", "Neulengbach", "Ollersbach", "Kirchstetten", "Böheimkirchen", "Pottenbrunn", "St. Pölten Hbf"],
+      "cats": { "S": 369, "REX": 81, "CJX": 58, "IC": 2 }
     },
     {
       "id": "summerau",
@@ -150,7 +266,10 @@
       "km": 62.3,
       "stations": 15,
       "trains": 88,
-      "file": "summerau.json"
+      "file": "summerau.json",
+      "major": ["Linz Hbf", "Pregarten", "Summerau"],
+      "names": ["Linz Hbf", "Linz/Donau Franckstraße", "Steyregg", "Pulgarn", "St.Georgen/Gusen", "St.Georgen/Gusen Ort", "Lungitz/Gusen", "Katsdorf", "Gaisbach-Wartberg", "Schloss Haus", "Pregarten", "Kefermarkt", "Lasberg-St.Oswald", "Freistadt", "Summerau"],
+      "cats": { "S": 60, "R": 19, "EC": 8, "REX": 1 }
     },
     {
       "id": "fjb",
@@ -160,7 +279,10 @@
       "km": 161.9,
       "stations": 19,
       "trains": 121,
-      "file": "fjb.json"
+      "file": "fjb.json",
+      "major": ["Wien Franz-Josefs-Bahnhof", "Tulln", "Absdorf-Hippersdorf", "Sigmundsherberg", "Gmünd NÖ"],
+      "names": ["Wien Franz-Josefs-Bahnhof", "Wien Spittelau", "Wien Heiligenstadt", "Tulln", "Absdorf-Hippersdorf", "Großweikersdorf", "Ziersdorf", "Limberg-Maissau", "Eggenburg", "Sigmundsherberg", "Hötzelsdorf-Geras", "Irnfritz", "Göpfritz an der Wild", "Allentsteig", "Schwarzenau", "Vitis", "Hirschbach bei Gmünd", "Pürbach-Schrems", "Gmünd NÖ"],
+      "cats": { "REX": 121 }
     },
     {
       "id": "kamptal",
@@ -170,7 +292,10 @@
       "km": 53.3,
       "stations": 18,
       "trains": 173,
-      "file": "kamptal.json"
+      "file": "kamptal.json",
+      "major": ["Krems", "Hadersdorf/Kamp", "Langenlois", "Gars-Thunau", "Horn", "Sigmundsherberg"],
+      "names": ["Krems", "Rohrendorf bei Krems", "Gedersdorf", "Hadersdorf/Kamp", "Gobelsburg", "Langenlois", "Zöbing", "Schönberg/Kamp", "Stiefern", "Altenhof/Kamp", "Plank am Kamp", "Buchberg/Kamp", "Gars-Thunau", "Kamegg", "Rosenburg", "Horn", "Breiteneich bei Horn", "Sigmundsherberg"],
+      "cats": { "R": 93, "REX": 80 }
     },
     {
       "id": "innviertel",
@@ -180,7 +305,10 @@
       "km": 81.1,
       "stations": 16,
       "trains": 72,
-      "file": "innviertel.json"
+      "file": "innviertel.json",
+      "major": ["Wels Hbf", "Neumarkt-Kallham", "Schärding", "Passau Hbf"],
+      "names": ["Wels Hbf", "Haiding", "Bad Schallerbach-Wallern", "Schlüßlberg", "Grieskirchen-Gallspach", "Obertrattnach-Markt Hofkirchen", "Neumarkt-Kallham", "Kimpling", "Kumpfmühl", "Riedau", "Zell/Pram", "Andorf", "Taufkirchen/Pram", "Schärding", "Wernstein/Inn", "Passau Hbf"],
+      "cats": { "R": 41, "REX": 22, "ICE": 7, "NJ": 2 }
     },
     {
       "id": "aspang",
@@ -190,7 +318,10 @@
       "km": 132.5,
       "stations": 30,
       "trains": 70,
-      "file": "aspang.json"
+      "file": "aspang.json",
+      "major": ["Wiener Neustadt Hbf", "Pitten", "Edlitz-Grimmenstein", "Aspang Markt", "Friedberg", "Hartberg", "Fehring"],
+      "names": ["Wiener Neustadt Hbf", "Lanzenkirchen", "Bad Erlach", "Brunn an der Pitten", "Pitten", "Sautern-Schiltern", "Seebenstein", "Gleißenfeld", "Scheiblingkirchen-Warth Bhf.", "Petersbaumgarten", "Edlitz-Grimmenstein", "Aspang Markt", "Ausschlag-Zöbern", "Tauchen-Schaueregg", "Pinggau Markt", "Friedberg", "Dechantskirchen", "Rohrbach-Vorau", "Grafendorf", "St.Johann in der Haide", "Hartberg", "Sebersdorf", "Bad Waltersdorf", "Bad Blumau", "Bierbaum/Safen", "Fürstenfeld", "Übersbach", "Söchau", "Hatzendorf", "Fehring"],
+      "cats": { "R": 44, "REX": 26 }
     }
   ]
 }

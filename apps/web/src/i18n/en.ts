@@ -123,6 +123,12 @@ export default {
     hint: "Positions are calculated by ÖBB HAFAS.",
   },
   bf: {
+    subtitle: "{n} corridors, time–distance diagrams of one weekday",
+    filter: "Corridor or station…",
+    stations: "Stations",
+    trains: "Trains/day",
+    mix: "Train mix",
+    mixTip: "Share of train categories on the reference day",
     title: "Bildfahrplan",
     corridor: "Corridor",
     noData: "Corridor data not built yet.",

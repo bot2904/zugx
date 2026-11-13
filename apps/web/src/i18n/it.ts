@@ -125,6 +125,12 @@ export default {
     hint: "Posizioni calcolate da ÖBB HAFAS.",
   },
   bf: {
+    subtitle: "{n} linee, diagrammi spazio-tempo di un giorno feriale",
+    filter: "Linea o stazione…",
+    stations: "Stazioni",
+    trains: "Treni/giorno",
+    mix: "Composizione",
+    mixTip: "Quota delle categorie di treni nel giorno di riferimento",
     title: "Orario grafico",
     corridor: "Linea",
     noData: "Dati della linea non ancora generati.",

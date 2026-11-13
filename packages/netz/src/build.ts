@@ -96,6 +96,16 @@ async function main() {
       stations: c.stations.length,
       trains: c.trains.length,
       file,
+      major: c.stations.filter((st) => st.major).map((st) => st.name),
+      names: c.stations.map((st) => st.name),
+      cats: Object.fromEntries(
+        Object.entries(
+          c.trains.reduce<Record<string, number>>(
+            (acc, t) => ((acc[t.cat] = (acc[t.cat] ?? 0) + 1), acc),
+            {},
+          ),
+        ).sort((a, b) => b[1] - a[1]),
+      ),
     });
     console.log(`corridors/${file}: ${c.stations.length} stations, ${c.trains.length} trains`);
   }

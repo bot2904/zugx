@@ -125,6 +125,12 @@ export default {
     hint: "Positionen werden von ÖBB HAFAS berechnet.",
   },
   bf: {
+    subtitle: "{n} Strecken, Zeit-Weg-Diagramme eines Werktags",
+    filter: "Strecke oder Bahnhof…",
+    stations: "Bahnhöfe",
+    trains: "Züge/Tag",
+    mix: "Zugmix",
+    mixTip: "Anteil der Zuggattungen am Referenztag",
     title: "Bildfahrplan",
     corridor: "Strecke",
     noData: "Streckendaten noch nicht erzeugt.",

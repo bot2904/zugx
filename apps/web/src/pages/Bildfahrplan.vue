@@ -3,6 +3,7 @@
 import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import CorridorIndexView from "../components/CorridorIndex.vue";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
 
@@ -18,12 +19,11 @@ const indexFile = Object.entries(files).find(([p]) => p.endsWith("/index.json"))
 const route = useRoute();
 const router = useRouter();
 const list = shallowRef<CorridorRef[]>([]);
+const indexData = shallowRef<CorridorIndex>();
 const data = shallowRef<Corridor>();
 const loading = ref(false);
 
-const id = computed(() =>
-  route.params.corridor ? String(route.params.corridor) : list.value[0]?.id,
-);
+const id = computed(() => (route.params.corridor ? String(route.params.corridor) : undefined));
 const from = computed(() => Number(route.query.from ?? Math.max(0, new Date().getHours() - 1)));
 const span = computed(() => Number(route.query.h ?? 4));
 const hover = ref<CorridorTrain>();
@@ -33,7 +33,8 @@ onBeforeUnmount(() => clearInterval(clock));
 
 onMounted(async () => {
   if (indexFile) {
-    list.value = (await indexFile()).default.corridors;
+    indexData.value = (await indexFile()).default;
+    list.value = indexData.value.corridors;
   } else {
     list.value = Object.keys(files)
       .map((p) => /corridors\/([^/]+)\.json$/.exec(p)?.[1])
@@ -143,9 +144,12 @@ function toggleCat(c: string) {
 </script>
 
 <template>
-  <section>
+  <CorridorIndexView v-if="!id && indexData" :index="indexData" />
+  <section v-else-if="id">
     <div class="flex flex-wrap items-center gap-2">
-      <h1 class="m-0 text-xl">{{ $t("bf.title") }}</h1>
+      <h1 class="m-0 text-xl">
+        <RouterLink to="/bf" class="text-[var(--fg)]">{{ $t("bf.title") }}</RouterLink>
+      </h1>
       <select
         class="input text-sm"
         :value="id"

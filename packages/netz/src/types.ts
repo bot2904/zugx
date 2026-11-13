@@ -190,6 +190,12 @@ export interface CorridorIndexEntry {
   stations: number;
   trains: number;
   file: string;
+  /** names of the major (anchor) stations, in corridor order */
+  major: string[];
+  /** all station names, in corridor order (for search) */
+  names: string[];
+  /** trains per category on the reference day, most frequent first */
+  cats: Record<string, number>;
 }
 
 export interface CorridorIndex {
