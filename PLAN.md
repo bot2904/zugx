@@ -551,10 +551,11 @@ Still to do:
 - Checked, deliberately not changed: responsive-table (tables already fit on phones by hiding secondary columns; a scroll wrapper would break the page-level sticky headers), visually-stable-font-fallbacks (no web fonts are loaded).
 - Still open (low priority): interest-triggered-tooltips (some info only in `title`, e.g. running-days details — `interestfor` has limited browser support), scroll-target-on-load (`/j/…#3` could scroll the expanded connection into view), container queries for the board + station-map layout.
 
-### Adopt VueUse
+### Adopt VueUse — done
 
-- Replace hand-rolled composables with [VueUse](https://vueuse.org/) where it simplifies code: `useLocalStorage` (store, theme override, delay palette, ORM toggle, station-map open state), `useIntervalFn` + `useDocumentVisibility` (board/radar/train auto-refresh), `useEventListener` / `onKeyStroke` (`lib/keys.ts`), `useMediaQuery` / `usePreferredDark` (theme), `useResizeObserver` (TimelineStrips, MapView), `useClipboard` (copy link), `useDebounceFn` (filters), `useGeolocation` (near me).
-- Tree-shakeable; check bundle size before/after, keep behaviour identical (e2e tests).
+- `useLocalStorage` (store via `toReactive`, delay palette, ORM toggle, radar mode, station-map state; same storage formats, now synced across tabs), `usePreferredDark` (theme), `useIntervalFn` + `useDocumentVisibility` (`lib/refresh.ts` `useAutoRefresh`: board/radar/train/journey refresh, paused while hidden, catches up when visible again), `useEventListener` (`lib/keys.ts`, toggletip), `useResizeObserver` (App nav, TimelineStrips, MapView), `useClipboard` (copy link), `useDebounceFn` (station lookup, train index query, radar moves, Bildfahrplan wheel).
+- Kept native: one-shot `getCurrentPosition` for "near me" (`useGeolocation` watches continuously), `matchMedia` one-off reads.
+- Bundle: index chunk 143.15 → 152.35 kB (52.84 → 56.23 kB gzip). All e2e tests green.
 
 ### Vue lint pass (eslint-plugin-vue "recommended")
 
