@@ -1,14 +1,14 @@
 {"id":"513","name":"Leobersdorf – Berndorf – Weissenbach-Neuhaus","day":"2026-03-10","begin":"2025-12-14","end":"2026-12-12","source":"ÖBB GTFS 2026 (CC BY 4.0)",
   "stations": [
-    {"id":"Pat:43:4084","name":"Leobersdorf","km":0,"major":true},
-    {"id":"Pat:43:5255","name":"Wittmannsdorf","km":2.6,"major":false},
-    {"id":"Pat:43:3401","name":"Enzesfeld-Lindabrunn","km":5.2,"major":false},
-    {"id":"Pat:43:3766","name":"Hirtenberg","km":6.5,"major":false},
-    {"id":"Pat:43:4849","name":"St. Veit an der Triesting Bhf.","km":8.6,"major":false},
-    {"id":"Pat:43:3155","name":"Berndorf/Triesting Fabrik","km":10.2,"major":false},
-    {"id":"Pat:43:3160","name":"Berndorf Stadt","km":12.2,"major":true},
-    {"id":"Pat:43:4565","name":"Pottenstein an der Triesting Bhf.","km":14.8,"major":false},
-    {"id":"Pat:43:5195","name":"Weissenbach-Neuhaus","km":19.1,"major":true}
+    {"id":"Pat:43:4084","name":"Leobersdorf","km":0,"major":true,"hafasId":"8101163"},
+    {"id":"Pat:43:5255","name":"Wittmannsdorf","km":2.6,"major":false,"hafasId":"8101788"},
+    {"id":"Pat:43:3401","name":"Enzesfeld-Lindabrunn","km":5.2,"major":false,"hafasId":"8100757"},
+    {"id":"Pat:43:3766","name":"Hirtenberg","km":6.5,"major":false,"hafasId":"8100983"},
+    {"id":"Pat:43:4849","name":"St. Veit an der Triesting Bhf.","km":8.6,"major":false,"hafasId":"8101623"},
+    {"id":"Pat:43:3155","name":"Berndorf/Triesting Fabrik","km":10.2,"major":false,"hafasId":"8100650"},
+    {"id":"Pat:43:3160","name":"Berndorf Stadt","km":12.2,"major":true,"hafasId":"8100652"},
+    {"id":"Pat:43:4565","name":"Pottenstein an der Triesting Bhf.","km":14.8,"major":false,"hafasId":"8101401"},
+    {"id":"Pat:43:5195","name":"Weissenbach-Neuhaus","km":19.1,"major":true,"hafasId":"8101755"}
   ],
   "trains": [
     {"cat":"R","nr":"7279","dir":1,"headsign":"Weissenbach-Neuhaus","pts":[[0,null,14],[1,17,17],[2,21,21],[3,23,24],[4,26,27],[5,29,31],[6,33,34],[7,37,37],[8,42,null]],"days":"////////////////////////////////////////////////////////////8A=="},

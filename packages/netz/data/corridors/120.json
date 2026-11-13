@@ -1,16 +1,16 @@
 {"id":"120","name":"Pöchlarn – Scheibbs","day":"2026-03-10","begin":"2025-12-14","end":"2026-12-12","source":"ÖBB GTFS 2026 (CC BY 4.0)",
   "stations": [
-    {"id":"Pat:43:7227","name":"Pöchlarn","km":0,"major":true},
-    {"id":"Pat:43:7435","name":"Erlauf","km":4.4,"major":false},
-    {"id":"Pat:43:7442","name":"Petzenkirchen","km":9.8,"major":false},
-    {"id":"Pat:43:7443","name":"Wieselburg","km":11.5,"major":false},
-    {"id":"Pat:43:7444","name":"Mühling","km":14,"major":false},
-    {"id":"Pat:43:7445","name":"Mühling-Plaika","km":14.9,"major":false},
-    {"id":"Pat:43:7446","name":"Schauboden","km":17.8,"major":false},
-    {"id":"Pat:43:7447","name":"Purgstall/Erlauf","km":20.2,"major":false},
-    {"id":"Pat:43:7448","name":"Sölling","km":22.6,"major":false},
-    {"id":"Pat:43:7449","name":"Saffen","km":24.9,"major":false},
-    {"id":"Pat:43:7450","name":"Scheibbs","km":26.9,"major":true}
+    {"id":"Pat:43:7227","name":"Pöchlarn","km":0,"major":true,"hafasId":"8100006"},
+    {"id":"Pat:43:7435","name":"Erlauf","km":4.4,"major":false,"hafasId":"8100764"},
+    {"id":"Pat:43:7442","name":"Petzenkirchen","km":9.8,"major":false,"hafasId":"8101414"},
+    {"id":"Pat:43:7443","name":"Wieselburg","km":11.5,"major":false,"hafasId":"8100355"},
+    {"id":"Pat:43:7444","name":"Mühling","km":14,"major":false,"hafasId":"8101225"},
+    {"id":"Pat:43:7445","name":"Mühling-Plaika","km":14.9,"major":false,"hafasId":"8101841"},
+    {"id":"Pat:43:7446","name":"Schauboden","km":17.8,"major":false,"hafasId":"8101480"},
+    {"id":"Pat:43:7447","name":"Purgstall/Erlauf","km":20.2,"major":false,"hafasId":"8101391"},
+    {"id":"Pat:43:7448","name":"Sölling","km":22.6,"major":false,"hafasId":"8101851"},
+    {"id":"Pat:43:7449","name":"Saffen","km":24.9,"major":false,"hafasId":"8101463"},
+    {"id":"Pat:43:7450","name":"Scheibbs","km":26.9,"major":true,"hafasId":"8100485"}
   ],
   "trains": [
     {"cat":"R","nr":"7001","dir":-1,"headsign":"Pöchlarn","pts":[[10,null,221],[9,223,224],[8,227,227],[7,231,232],[6,235,235],[5,239,239],[4,241,241],[3,245,246],[2,248,248],[1,255,256],[0,263,null]],"days":"fOHS58+fPnz58+fPnz48+fPHzp8edPnz58+fPnz58+fPnz58+fPnx58+fPny4A=="},

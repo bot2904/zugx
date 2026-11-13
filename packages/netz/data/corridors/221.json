@@ -1,14 +1,14 @@
 {"id":"221","name":"Villach – Rosenbach – Jesenice","day":"2026-03-10","begin":"2025-12-14","end":"2026-12-12","source":"ÖBB GTFS 2026 (CC BY 4.0)",
   "stations": [
-    {"id":"Pat:42:3654","name":"Villach Hbf","km":0,"major":true},
-    {"id":"Pat:42:3656","name":"Villach Westbahnhof","km":1.6,"major":false},
-    {"id":"Pat:42:3657","name":"Villach Warmbad","km":3.9,"major":false},
-    {"id":"Pat:42:2137","name":"Gödersdorf","km":6.9,"major":false},
-    {"id":"Pat:42:2138","name":"Finkenstein am Faaker See","km":8.5,"major":false},
-    {"id":"Pat:42:2139","name":"Faak am See","km":12.1,"major":false},
-    {"id":"Pat:42:2149","name":"Ledenitzen","km":16.3,"major":false},
-    {"id":"Pat:42:2143","name":"Rosenbach","km":24.2,"major":true},
-    {"id":"Psi:63:5948","name":"Jesenice (SI) železniška posta","km":36.3,"major":true}
+    {"id":"Pat:42:3654","name":"Villach Hbf","km":0,"major":true,"hafasId":"8100147"},
+    {"id":"Pat:42:3656","name":"Villach Westbahnhof","km":1.6,"major":false,"hafasId":"8100148"},
+    {"id":"Pat:42:3657","name":"Villach Warmbad","km":3.9,"major":false,"hafasId":"8100382"},
+    {"id":"Pat:42:2137","name":"Gödersdorf","km":6.9,"major":false,"hafasId":"8100861"},
+    {"id":"Pat:42:2138","name":"Finkenstein am Faaker See","km":8.5,"major":false,"hafasId":"8100788"},
+    {"id":"Pat:42:2139","name":"Faak am See","km":12.1,"major":false,"hafasId":"8100084"},
+    {"id":"Pat:42:2149","name":"Ledenitzen","km":16.3,"major":false,"hafasId":"8102149"},
+    {"id":"Pat:42:2143","name":"Rosenbach","km":24.2,"major":true,"hafasId":"8100083"},
+    {"id":"Psi:63:5948","name":"Jesenice (SI) železniška posta","km":36.3,"major":true,"hafasId":"7900001"}
   ],
   "trains": [
     {"cat":"S","nr":"4940","dir":-1,"headsign":"Villach Hbf","pts":[[6,null,44],[5,48,50],[4,53,54],[3,56,57],[2,60,61],[1,63,64],[0,67,null]],"days":"AAYsAAAAAYMAAAAAAMGAAAA4AWDACwYMGDBgwb8GDBgwYMAAAAAAMGAAAAAAAA=="},

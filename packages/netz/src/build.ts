@@ -118,6 +118,10 @@ async function main() {
   };
   for (const def of CORRIDORS) {
     const c = buildCorridor(feed, def, day, SOURCE, names, year);
+    for (const st of c.stations) {
+      const h = hafas?.get(st.id);
+      if (h) st.hafasId = h;
+    }
     const onDay = c.trains.filter((t) => runsOnDay(t.days));
     const file = `${c.id}.json`;
     writeFileSync(join(out, "corridors", file), corridorJson(c));

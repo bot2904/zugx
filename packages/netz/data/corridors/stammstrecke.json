@@ -1,15 +1,15 @@
 {"id":"stammstrecke","name":"S-Bahn-Stammstrecke Wien Floridsdorf – Meidling","day":"2026-03-10","begin":"2025-12-14","end":"2026-12-12","source":"ÖBB GTFS 2026 (CC BY 4.0)",
   "stations": [
-    {"id":"Pat:49:334","name":"Wien Floridsdorf","km":0,"major":true},
-    {"id":"Pat:49:1705","name":"Wien Handelskai","km":2,"major":false},
-    {"id":"Pat:49:1385","name":"Wien Traisengasse","km":3,"major":false},
-    {"id":"Pat:49:1040","name":"Wien Praterstern","km":4.9,"major":true},
-    {"id":"Pat:49:743","name":"Wien Mitte-Landstraße","km":6.6,"major":true},
-    {"id":"Pat:49:1091","name":"Wien Rennweg","km":7.7,"major":true},
-    {"id":"Pat:49:1346","name":"Wien Quartier Belvedere","km":9.4,"major":true},
-    {"id":"Pat:49:1349","name":"Wien Hbf","km":10,"major":true},
-    {"id":"Pat:49:849","name":"Wien Matzleinsdorfer Platz","km":11.4,"major":false},
-    {"id":"Pat:49:1015","name":"Wien Meidling","km":13.3,"major":true}
+    {"id":"Pat:49:334","name":"Wien Floridsdorf","km":0,"major":true,"hafasId":"8100236"},
+    {"id":"Pat:49:1705","name":"Wien Handelskai","km":2,"major":false,"hafasId":"8101934"},
+    {"id":"Pat:49:1385","name":"Wien Traisengasse","km":3,"major":false,"hafasId":"8101641"},
+    {"id":"Pat:49:1040","name":"Wien Praterstern","km":4.9,"major":true,"hafasId":"8100349"},
+    {"id":"Pat:49:743","name":"Wien Mitte-Landstraße","km":6.6,"major":true,"hafasId":"8100449"},
+    {"id":"Pat:49:1091","name":"Wien Rennweg","km":7.7,"major":true,"hafasId":"8101433"},
+    {"id":"Pat:49:1346","name":"Wien Quartier Belvedere","km":9.4,"major":true,"hafasId":"8101473"},
+    {"id":"Pat:49:1349","name":"Wien Hbf","km":10,"major":true,"hafasId":"8103000"},
+    {"id":"Pat:49:849","name":"Wien Matzleinsdorfer Platz","km":11.4,"major":false,"hafasId":"8101227"},
+    {"id":"Pat:49:1015","name":"Wien Meidling","km":13.3,"major":true,"hafasId":"8100514"}
   ],
   "trains": [
     {"cat":"REX","nr":"2274","dir":-1,"headsign":"Retz","pts":[[3,null,1],[2,3,4],[1,5,6],[0,9,null]],"days":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADz58+fPnx58+fPny4A=="},

@@ -398,14 +398,22 @@ function toggleCat(c: string) {
             :stroke="s.major ? 'var(--muted)' : 'var(--line)'"
             :stroke-width="s.major ? 1 : 0.6"
           />
-          <text
-            :transform="`translate(${x(s.km) + 3} ${M.top - 8}) rotate(-60)`"
-            font-size="10"
-            :fill="s.major ? 'var(--fg)' : 'var(--muted)'"
-            :font-weight="s.major ? 600 : 400"
+          <!-- station name → live departure board -->
+          <a
+            :href="s.hafasId ? `/station/${s.hafasId}` : undefined"
+            class="bf-station"
+            @click.prevent="s.hafasId && router.push(`/station/${s.hafasId}`)"
           >
-            {{ s.name }}
-          </text>
+            <title>{{ s.name }}{{ s.hafasId ? ` → ${$t("search.board")}` : "" }}</title>
+            <text
+              :transform="`translate(${x(s.km) + 3} ${M.top - 8}) rotate(-60)`"
+              font-size="10"
+              :fill="s.major ? 'var(--fg)' : 'var(--muted)'"
+              :font-weight="s.major ? 600 : 400"
+            >
+              {{ s.name }}
+            </text>
+          </a>
         </g>
         <!-- time -->
         <g class="mono" font-size="10">
@@ -489,3 +497,13 @@ function toggleCat(c: string) {
     </p>
   </section>
 </template>
+
+<style scoped>
+.bf-station[href] {
+  cursor: pointer;
+}
+.bf-station[href]:hover text {
+  fill: var(--link);
+  text-decoration: underline;
+}
+</style>

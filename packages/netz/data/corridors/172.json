@@ -1,11 +1,11 @@
 {"id":"172","name":"Vöcklabruck – Kammer-Schörfling","day":"2026-03-10","begin":"2025-12-14","end":"2026-12-12","source":"ÖBB GTFS 2026 (CC BY 4.0)",
   "stations": [
-    {"id":"Pat:44:47000","name":"Vöcklabruck","km":0,"major":true},
-    {"id":"Pat:44:47060","name":"Oberthalheim-Timelkam","km":3.3,"major":false},
-    {"id":"Pat:44:47270","name":"Lenzing OÖ","km":5.7,"major":false},
-    {"id":"Pat:44:47271","name":"Lenzing OÖ Ort","km":7.2,"major":false},
-    {"id":"Pat:44:47300","name":"Siebenmühlen-Rosenau","km":8.6,"major":false},
-    {"id":"Pat:44:47301","name":"Kammer-Schörfling","km":10.3,"major":true}
+    {"id":"Pat:44:47000","name":"Vöcklabruck","km":0,"major":true,"hafasId":"8100507"},
+    {"id":"Pat:44:47060","name":"Oberthalheim-Timelkam","km":3.3,"major":false,"hafasId":"8101324"},
+    {"id":"Pat:44:47270","name":"Lenzing OÖ","km":5.7,"major":false,"hafasId":"8101141"},
+    {"id":"Pat:44:47271","name":"Lenzing OÖ Ort","km":7.2,"major":false,"hafasId":"8101135"},
+    {"id":"Pat:44:47300","name":"Siebenmühlen-Rosenau","km":8.6,"major":false,"hafasId":"8101478"},
+    {"id":"Pat:44:47301","name":"Kammer-Schörfling","km":10.3,"major":true,"hafasId":"8100283"}
   ],
   "trains": [
     {"cat":"R","nr":"3258","dir":1,"headsign":"Kammer-Schörfling","pts":[[0,null,299],[1,302,302],[2,305,306],[3,308,308],[4,311,311],[5,314,null]],"days":"fOHS58+fPnz58+fPnz48+fPHzp8edPnz58+fPnz58+fPnz58+fPnx58+fPny4A=="},

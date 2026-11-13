@@ -1,14 +1,14 @@
 {"id":"917","name":"Wien Mitte CAT – Flughafen Wien CAT","day":"2026-03-10","begin":"2025-12-14","end":"2026-12-12","source":"ÖBB GTFS 2026 (CC BY 4.0)",
   "stations": [
-    {"id":"Pat:49:743","name":"Wien Mitte-Landstraße","km":0,"major":true},
-    {"id":"Pat:49:1091","name":"Wien Rennweg","km":1.2,"major":false},
-    {"id":"Pat:49:1425","name":"Wien St. Marx","km":2.4,"major":false},
-    {"id":"Pat:49:484","name":"Wien Geiselbergstraße","km":4.1,"major":false},
-    {"id":"Pat:49:1519","name":"Wien Zentralfriedhof","km":6.9,"major":false},
-    {"id":"Pat:49:1780","name":"Wien Kaiserebersdorf","km":11.2,"major":false},
-    {"id":"Pat:43:4710","name":"Schwechat","km":12.7,"major":false},
-    {"id":"Pat:43:4875","name":"Mannswörth","km":14.9,"major":false},
-    {"id":"Pat:43:4708","name":"Flughafen Wien","km":19.5,"major":true}
+    {"id":"Pat:49:743","name":"Wien Mitte-Landstraße","km":0,"major":true,"hafasId":"8100449"},
+    {"id":"Pat:49:1091","name":"Wien Rennweg","km":1.2,"major":false,"hafasId":"8101433"},
+    {"id":"Pat:49:1425","name":"Wien St. Marx","km":2.4,"major":false,"hafasId":"8101818"},
+    {"id":"Pat:49:484","name":"Wien Geiselbergstraße","km":4.1,"major":false,"hafasId":"8101555"},
+    {"id":"Pat:49:1519","name":"Wien Zentralfriedhof","km":6.9,"major":false,"hafasId":"8101820"},
+    {"id":"Pat:49:1780","name":"Wien Kaiserebersdorf","km":11.2,"major":false,"hafasId":"8100374"},
+    {"id":"Pat:43:4710","name":"Schwechat","km":12.7,"major":false,"hafasId":"8100259"},
+    {"id":"Pat:43:4875","name":"Mannswörth","km":14.9,"major":false,"hafasId":"8101871"},
+    {"id":"Pat:43:4708","name":"Flughafen Wien","km":19.5,"major":true,"hafasId":"8100353"}
   ],
   "trains": [
     {"cat":"REX","nr":"22792","dir":-1,"headsign":"Wien Hbf","pts":[[8,null,16],[6,21,22],[5,24,null]],"days":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH///////////////8A=="},

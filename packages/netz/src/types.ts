@@ -156,6 +156,8 @@ export interface CorridorStation {
   km: number;
   /** major node (labelled prominently) */
   major: boolean;
+  /** HAFAS station id (for links to the live board), if known */
+  hafasId?: string;
 }
 
 /**

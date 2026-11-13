@@ -1,14 +1,14 @@
 {"id":"420","name":"Bludenz – Schruns","day":"2026-03-10","begin":"2025-12-14","end":"2026-12-12","source":"ÖBB GTFS 2026 (CC BY 4.0)",
   "stations": [
     {"id":"Pat:48:130","name":"Bludenz","km":0,"major":true},
-    {"id":"Pat:48:413","name":"Bludenz Moos","km":1.9,"major":false},
-    {"id":"Pat:48:511","name":"Bludenz Brunnenfeld","km":2.8,"major":false},
-    {"id":"Pat:48:1303","name":"Lorüns","km":4.1,"major":false},
-    {"id":"Pat:48:187","name":"St. Anton im Montafon","km":6.9,"major":false},
-    {"id":"Pat:48:326","name":"Vandans","km":8.2,"major":false},
-    {"id":"Pat:48:139","name":"Kaltenbrunnen","km":10.3,"major":false},
-    {"id":"Pat:48:892","name":"Tschagguns","km":11.7,"major":false},
-    {"id":"Pat:48:134","name":"Schruns","km":12.7,"major":true}
+    {"id":"Pat:48:413","name":"Bludenz Moos","km":1.9,"major":false,"hafasId":"8100667"},
+    {"id":"Pat:48:511","name":"Bludenz Brunnenfeld","km":2.8,"major":false,"hafasId":"8100699"},
+    {"id":"Pat:48:1303","name":"Lorüns","km":4.1,"major":false,"hafasId":"8101175"},
+    {"id":"Pat:48:187","name":"St. Anton im Montafon","km":6.9,"major":false,"hafasId":"8100497"},
+    {"id":"Pat:48:326","name":"Vandans","km":8.2,"major":false,"hafasId":"8100380"},
+    {"id":"Pat:48:139","name":"Kaltenbrunnen","km":10.3,"major":false,"hafasId":"8100282"},
+    {"id":"Pat:48:892","name":"Tschagguns","km":11.7,"major":false,"hafasId":"8100118"},
+    {"id":"Pat:48:134","name":"Schruns","km":12.7,"major":true,"hafasId":"8100117"}
   ],
   "trains": [
     {"cat":"S","nr":"5602","dir":-1,"headsign":"Bludenz","pts":[[8,null,18],[7,19,19],[6,21,22],[5,24,24],[4,27,28],[3,31,31],[2,32,33],[1,34,34],[0,37,null]],"days":"gx4tGDBgwYMGDBgwYMHDBgw4MWDhiwYMGDBgwYMGDBgwYMGDBgwYOGDBgwYNEA=="},

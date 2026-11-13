@@ -1,15 +1,15 @@
 {"id":"945","name":"Wien Handelskai – Wien Heiligenstadt – Wien Hütteldorf","day":"2026-03-10","begin":"2025-12-14","end":"2026-12-12","source":"ÖBB GTFS 2026 (CC BY 4.0)",
   "stations": [
-    {"id":"Pat:49:1705","name":"Wien Handelskai","km":0,"major":true},
-    {"id":"Pat:49:491","name":"Wien Heiligenstadt","km":2.8,"major":true},
-    {"id":"Pat:49:959","name":"Wien Oberdöbling","km":4.9,"major":false},
-    {"id":"Pat:49:723","name":"Wien Krottenbachstraße","km":5.5,"major":false},
-    {"id":"Pat:49:393","name":"Wien Gersthof","km":6.9,"major":false},
-    {"id":"Pat:49:505","name":"Wien Hernals","km":8.5,"major":false},
-    {"id":"Pat:49:981","name":"Wien Ottakring","km":9.8,"major":false},
-    {"id":"Pat:49:166","name":"Wien Breitensee","km":11.4,"major":false},
-    {"id":"Pat:49:1003","name":"Wien Penzing","km":12.3,"major":false},
-    {"id":"Pat:49:560","name":"Wien Hütteldorf","km":15.5,"major":true}
+    {"id":"Pat:49:1705","name":"Wien Handelskai","km":0,"major":true,"hafasId":"8101934"},
+    {"id":"Pat:49:491","name":"Wien Heiligenstadt","km":2.8,"major":true,"hafasId":"8100269"},
+    {"id":"Pat:49:959","name":"Wien Oberdöbling","km":4.9,"major":false,"hafasId":"8100441"},
+    {"id":"Pat:49:723","name":"Wien Krottenbachstraße","km":5.5,"major":false,"hafasId":"8100297"},
+    {"id":"Pat:49:393","name":"Wien Gersthof","km":6.9,"major":false,"hafasId":"8100249"},
+    {"id":"Pat:49:505","name":"Wien Hernals","km":8.5,"major":false,"hafasId":"8100271"},
+    {"id":"Pat:49:981","name":"Wien Ottakring","km":9.8,"major":false,"hafasId":"8100512"},
+    {"id":"Pat:49:166","name":"Wien Breitensee","km":11.4,"major":false,"hafasId":"8100395"},
+    {"id":"Pat:49:1003","name":"Wien Penzing","km":12.3,"major":false,"hafasId":"8100450"},
+    {"id":"Pat:49:560","name":"Wien Hütteldorf","km":15.5,"major":true,"hafasId":"8100447"}
   ],
   "trains": [
     {"cat":"S","nr":"20800","dir":1,"headsign":"Wien Hütteldorf","pts":[[0,null,14],[1,19,20],[2,22,23],[3,24,25],[4,27,27],[5,29,30],[6,32,32],[7,34,35],[8,36,37],[9,40,null]],"days":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////////////////////////8A=="},

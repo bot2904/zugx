@@ -1,13 +1,13 @@
 {"id":"100","name":"Flughafen Wien – Wien – St. Pölten – Linz","day":"2026-03-10","begin":"2025-12-14","end":"2026-12-12","source":"ÖBB GTFS 2026 (CC BY 4.0)",
   "stations": [
-    {"id":"Pat:43:4708","name":"Flughafen Wien","km":0,"major":true},
-    {"id":"Pat:49:1349","name":"Wien Hbf","km":17.6,"major":true},
-    {"id":"Pat:49:1015","name":"Wien Meidling","km":21.2,"major":false},
-    {"id":"Pat:43:5759","name":"Tullnerfeld","km":51.3,"major":false},
-    {"id":"Pat:43:4848","name":"St. Pölten Hbf","km":81.7,"major":true},
-    {"id":"Pat:43:7234","name":"Amstetten","km":142.5,"major":false},
-    {"id":"Pat:43:7242","name":"St. Valentin","km":179.7,"major":false},
-    {"id":"Pat:44:41164","name":"Linz Hbf","km":203.8,"major":true}
+    {"id":"Pat:43:4708","name":"Flughafen Wien","km":0,"major":true,"hafasId":"8100353"},
+    {"id":"Pat:49:1349","name":"Wien Hbf","km":17.6,"major":true,"hafasId":"8103000"},
+    {"id":"Pat:49:1015","name":"Wien Meidling","km":21.2,"major":false,"hafasId":"8100514"},
+    {"id":"Pat:43:5759","name":"Tullnerfeld","km":51.3,"major":false,"hafasId":"8102059"},
+    {"id":"Pat:43:4848","name":"St. Pölten Hbf","km":81.7,"major":true,"hafasId":"8100008"},
+    {"id":"Pat:43:7234","name":"Amstetten","km":142.5,"major":false,"hafasId":"8100012"},
+    {"id":"Pat:43:7242","name":"St. Valentin","km":179.7,"major":false,"hafasId":"8100009"},
+    {"id":"Pat:44:41164","name":"Linz Hbf","km":203.8,"major":true,"hafasId":"8100013"}
   ],
   "trains": [
     {"cat":"RJ","nr":"820","dir":1,"headsign":"Wels Hbf","pts":[[0,null,2],[1,17,28],[2,33,35],[3,47,49],[4,61,63],[5,87,89],[6,103,104],[7,117,null]],"days":"///f////////////////////////////////////////////////////////8A=="},
