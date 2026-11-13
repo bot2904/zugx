@@ -177,7 +177,7 @@ function goDay(delta: number) {
             <li
               v-for="(s, i) in trip.stopovers"
               :key="i"
-              class="relative grid grid-cols-[1.25rem_3.6rem_3.6rem_1fr_auto] items-center gap-x-2 py-0.5 text-sm"
+              class="relative grid grid-cols-[1.25rem_4.4rem_4.4rem_1fr_auto] items-center gap-x-2 py-0.5 text-sm"
               :class="[s.cancelled && 'line-through muted', i <= position && 'opacity-60']"
             >
               <span class="relative flex h-full justify-center">
@@ -202,8 +202,9 @@ function goDay(delta: number) {
                   }"
                 />
               </span>
-              <EventTime :ev="s.arr" />
-              <EventTime :ev="s.dep" />
+              <!-- wrappers keep the grid columns when arr (origin) or dep (destination) is missing -->
+              <span><EventTime :ev="s.arr" /></span>
+              <span><EventTime :ev="s.dep" /></span>
               <RouterLink :to="`/station/${s.stop.id}`" class="text-[var(--fg)]">
                 {{ s.stop.name }}
                 <span v-if="s.additional" class="text-xs text-[var(--warn)]">+</span>
