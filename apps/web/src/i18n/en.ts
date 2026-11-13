@@ -120,6 +120,11 @@ export default {
     variants: "{n} route variants",
   },
   radar: {
+    palette: "Colours",
+    paletteBlue: "Colour-blind safe",
+    paletteBlueTip:
+      "Blue instead of green for 'on time' (ColorBrewer RdYlBu): distinguishable with red–green colour blindness",
+    paletteGreen: "Green",
     colour: "Colour",
     legend: "Legend",
     byDelay: "Delay",

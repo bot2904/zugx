@@ -122,6 +122,11 @@ export default {
     variants: "{n} Laufwegvarianten",
   },
   radar: {
+    palette: "Farben",
+    paletteBlue: "Farbenblind-freundlich",
+    paletteBlueTip:
+      "Blau statt Grün für „pünktlich“ (ColorBrewer RdYlBu): auch bei Rot-Grün-Schwäche unterscheidbar",
+    paletteGreen: "Grün",
     colour: "Farbe",
     legend: "Legende",
     byDelay: "Verspätung",

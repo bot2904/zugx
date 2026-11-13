@@ -8,7 +8,14 @@ import { useRouter } from "vue-router";
 import Status from "../components/Status.vue";
 import { api } from "../lib/api.ts";
 import { lineColor, PRODUCT_GROUPS, RAIL_CLS } from "../lib/products.ts";
-import { DELAY_CLASSES, delayColor, NO_DATA } from "../lib/delay.ts";
+import {
+  classColor,
+  DELAY_CLASSES,
+  delayClass,
+  delayColor,
+  delayPalette,
+  NO_DATA,
+} from "../lib/delay.ts";
 import MapView, { type MapPoint } from "../viz/MapView.vue";
 
 const router = useRouter();
@@ -67,7 +74,7 @@ const counts = computed(() => {
     verylate: 0,
   };
   for (const m of movements.value) {
-    const cls = m.delay === undefined ? "nodata" : DELAY_CLASSES.find((x) => m.delay! <= x.max)!.id;
+    const cls = delayClass(m.delay);
     c[cls]!++;
   }
   return c;
@@ -178,7 +185,7 @@ function toggle(cls: number) {
           <li v-for="c in DELAY_CLASSES" :key="c.id" class="flex items-center gap-1.5">
             <span
               class="inline-block h-2.5 w-2.5 rounded-full border border-black"
-              :style="{ background: c.color }"
+              :style="{ background: classColor(c.id) }"
             />
             {{ $t(`radar.delay.${c.id}`) }}
             <span class="muted ml-auto pl-2 mono">{{ counts[c.id] }}</span>
@@ -192,6 +199,32 @@ function toggle(cls: number) {
             <span class="muted ml-auto pl-2 mono">{{ counts.nodata }}</span>
           </li>
         </ul>
+        <div
+          v-if="mode === 'delay'"
+          class="mt-1 flex gap-1"
+          role="radiogroup"
+          :aria-label="$t('radar.palette')"
+        >
+          <button
+            class="btn chip py-0 text-xs"
+            role="radio"
+            :aria-checked="delayPalette === 'blue'"
+            :class="delayPalette === 'blue' && 'btn-on'"
+            :title="$t('radar.paletteBlueTip')"
+            @click="delayPalette = 'blue'"
+          >
+            {{ $t("radar.paletteBlue") }}
+          </button>
+          <button
+            class="btn chip py-0 text-xs"
+            role="radio"
+            :aria-checked="delayPalette === 'green'"
+            :class="delayPalette === 'green' && 'btn-on'"
+            @click="delayPalette = 'green'"
+          >
+            {{ $t("radar.paletteGreen") }}
+          </button>
+        </div>
         <ul v-else class="m-0 list-none p-0">
           <li v-for="c in catCounts" :key="c.cat" class="flex items-center gap-1.5">
             <span

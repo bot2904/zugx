@@ -122,6 +122,11 @@ export default {
     variants: "{n} varianti di percorso",
   },
   radar: {
+    palette: "Colori",
+    paletteBlue: "Adatto ai daltonici",
+    paletteBlueTip:
+      "Blu invece di verde per «in orario» (ColorBrewer RdYlBu): distinguibile anche con daltonismo rosso-verde",
+    paletteGreen: "Verde",
     colour: "Colore",
     legend: "Legenda",
     byDelay: "Ritardo",
