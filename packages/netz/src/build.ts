@@ -9,7 +9,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
-import { buildCorridor, corridorJson, CORRIDORS } from "./corridors.ts";
+import { buildCorridor, corridorJson, CORRIDOR_ALIASES, CORRIDORS } from "./corridors.ts";
 import { feedPeriod, loadFeed, openFeed, serviceDays } from "./gtfs.ts";
 import { buildNetz } from "./netz.ts";
 import { toNge } from "./nge.ts";
@@ -109,7 +109,13 @@ async function main() {
     const b = Buffer.from(b64, "base64")[dayIdx >> 3] ?? 0;
     return ((b >> (7 - (dayIdx & 7))) & 1) === 1;
   };
-  const index: CorridorIndex = { day, ...period, source: SOURCE, corridors: [] };
+  const index: CorridorIndex = {
+    day,
+    ...period,
+    source: SOURCE,
+    aliases: CORRIDOR_ALIASES,
+    corridors: [],
+  };
   for (const def of CORRIDORS) {
     const c = buildCorridor(feed, def, day, SOURCE, names, year);
     const onDay = c.trains.filter((t) => runsOnDay(t.days));
@@ -118,6 +124,7 @@ async function main() {
     index.corridors.push({
       id: c.id,
       name: c.name,
+      ...(def.oebb ? { oebb: def.oebb } : {}),
       from: c.stations[0]?.name ?? "",
       to: c.stations[c.stations.length - 1]?.name ?? "",
       km: c.stations[c.stations.length - 1]?.km ?? 0,

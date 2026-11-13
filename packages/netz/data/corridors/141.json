@@ -1,4 +1,4 @@
-{"id":"summerau","name":"Summerauer Bahn Linz – Summerau","day":"2026-03-10","begin":"2025-12-14","end":"2026-12-12","source":"ÖBB GTFS 2026 (CC BY 4.0)",
+{"id":"141","name":"Linz Hbf – Pregarten – Freistadt – Summerau","day":"2026-03-10","begin":"2025-12-14","end":"2026-12-12","source":"ÖBB GTFS 2026 (CC BY 4.0)",
   "stations": [
     {"id":"Pat:44:41164","name":"Linz Hbf","km":0,"major":true},
     {"id":"Pat:44:41060","name":"Linz/Donau Franckstraße","km":3.2,"major":false},
@@ -13,7 +13,7 @@
     {"id":"Pat:44:45090","name":"Pregarten","km":32.3,"major":true},
     {"id":"Pat:44:45450","name":"Kefermarkt","km":43.1,"major":false},
     {"id":"Pat:44:49759","name":"Lasberg-St.Oswald","km":46.2,"major":false},
-    {"id":"Pat:44:45000","name":"Freistadt","km":52.8,"major":false},
+    {"id":"Pat:44:45000","name":"Freistadt","km":52.8,"major":true},
     {"id":"Pat:44:45260","name":"Summerau","km":62.3,"major":true}
   ],
   "trains": [

@@ -13,6 +13,8 @@ import type { Corridor, CorridorStation, CorridorTrain } from "./types.ts";
 export interface CorridorDef {
   id: string;
   name: string;
+  /** ÖBB Fahrplanbild number(s), e.g. "101" or "100/101" (https://www.oebb.at/de/fahrplan/fahrplanbilder) */
+  oebb?: string;
   /** anchor station DHIDs in corridor order (all are `major`) */
   anchors: string[];
   /** additional major stations (labelled prominently) */
@@ -26,9 +28,11 @@ export interface CorridorDef {
   detour?: number;
 }
 
-export const CORRIDORS: CorridorDef[] = [
+/** Corridors spanning several Fahrplanbilder (or none), defined by zugx. */
+const ZUGX_CORRIDORS: CorridorDef[] = [
   {
     id: "westbahn",
+    oebb: "100/101",
     name: "Westbahn Wien – Salzburg",
     anchors: [
       "Pat:49:1349", // Wien Hbf
@@ -47,6 +51,7 @@ export const CORRIDORS: CorridorDef[] = [
   },
   {
     id: "suedbahn",
+    oebb: "510/500/501",
     name: "Südbahn Wien – Semmering – Graz",
     anchors: [
       "Pat:49:1349", // Wien Hbf
@@ -62,6 +67,7 @@ export const CORRIDORS: CorridorDef[] = [
   },
   {
     id: "koralm",
+    oebb: "501",
     name: "Koralmbahn Graz – Klagenfurt – Villach",
     anchors: [
       "Pat:46:3040", // Graz Hbf
@@ -75,26 +81,6 @@ export const CORRIDORS: CorridorDef[] = [
     nonstop: ["Pat:42:3721"],
   },
   {
-    id: "brenner",
-    name: "Unterinntal/Brenner Kufstein – Innsbruck – Brenner",
-    anchors: [
-      "Pat:47:2184", // Kufstein
-      "Pat:47:1170", // Wörgl Hbf
-      "Pat:47:61321", // Jenbach
-      "Pat:47:1187", // Innsbruck Hbf
-      "Pit:22021:1389", // Brennero/Brenner
-    ],
-  },
-  {
-    id: "arlberg",
-    name: "Arlbergbahn Innsbruck – Landeck – Bludenz",
-    anchors: [
-      "Pat:47:1187", // Innsbruck Hbf
-      "Pat:47:1212", // Landeck-Zams
-      "Pat:48:130", // Bludenz
-    ],
-  },
-  {
     id: "rheintal",
     name: "Rheintal Bludenz – Feldkirch – Bregenz",
     anchors: [
@@ -105,17 +91,8 @@ export const CORRIDORS: CorridorDef[] = [
     ],
   },
   {
-    id: "tauern",
-    name: "Tauernbahn Schwarzach – Bad Gastein – Villach",
-    anchors: [
-      "Pat:45:52197", // Schwarzach-St. Veit
-      "Pat:45:52204", // Bad Gastein
-      "Pat:42:2128", // Spittal-Millstätter See
-      "Pat:42:3654", // Villach Hbf
-    ],
-  },
-  {
     id: "gisela",
+    oebb: "200/201",
     name: "Giselabahn Salzburg – Zell am See – Wörgl",
     anchors: [
       "Pat:45:50002", // Salzburg Hbf
@@ -128,28 +105,8 @@ export const CORRIDORS: CorridorDef[] = [
     ],
   },
   {
-    id: "pyhrn",
-    name: "Pyhrnbahn Linz – Selzthal – Leoben",
-    anchors: [
-      "Pat:44:41164", // Linz Hbf
-      "Pat:44:43500", // Kirchdorf/Krems
-      "Pat:44:43660", // Spital am Pyhrn
-      "Pat:46:6938", // Selzthal
-      "Pat:46:6344", // Leoben Hbf
-    ],
-  },
-  {
-    id: "ennstal",
-    name: "Ennstalbahn Selzthal – Bischofshofen",
-    anchors: [
-      "Pat:46:6938", // Selzthal
-      "Pat:46:7437", // Liezen
-      "Pat:46:6892", // Stainach-Irdning
-      "Pat:45:52099", // Bischofshofen
-    ],
-  },
-  {
     id: "stammstrecke",
+    oebb: "900",
     name: "S-Bahn-Stammstrecke Wien Floridsdorf – Meidling",
     anchors: [
       "Pat:49:334", // Wien Floridsdorf
@@ -161,95 +118,694 @@ export const CORRIDORS: CorridorDef[] = [
       "Pat:49:1015", // Wien Meidling
     ],
   },
+];
+
+/** ÖBB Fahrplanbilder (https://www.oebb.at/de/fahrplan/fahrplanbilder), as far as they are trains in the ÖBB GTFS. */
+export const OEBB_CORRIDORS: CorridorDef[] = [
   {
-    id: "nordbahn",
-    name: "Nordbahn Wien – Gänserndorf – Břeclav",
+    id: "100",
+    oebb: "100",
+    name: "Flughafen Wien – Wien – St. Pölten – Linz",
     anchors: [
-      "Pat:49:334", // Wien Floridsdorf
-      "Pat:43:3622", // Gänserndorf
-      "Pat:43:3162", // Bernhardsthal
-      "Pcz:0:5433425", // Břeclav
+      "Pat:43:4708", // Flughafen Wien
+      "Pat:49:1349", // Wien
+      "Pat:43:4848", // St. Pölten
+      "Pat:44:41164", // Linz
     ],
   },
   {
-    id: "ostbahn",
-    name: "Ostbahn Wien – Bruck/Leitha – Hegyeshalom",
+    id: "101",
+    oebb: "101",
+    name: "Linz – Wels – Attnang-Puchheim – Salzburg",
     anchors: [
-      "Pat:49:1349", // Wien Hbf
-      "Pat:43:3895", // Kledering
-      "Pat:43:3538", // Gramatneusiedl
-      "Pat:43:3209", // Bruck/Leitha
-      "Pat:41:4469", // Parndorf
-      "Phu:17905:27000493", // Hegyeshalom
+      "Pat:44:41164", // Linz
+      "Pat:44:42107", // Wels
+      "Pat:44:47200", // Attnang-Puchheim
+      "Pat:45:50002", // Salzburg
     ],
   },
   {
-    id: "westbahn-alt",
-    name: "Alte Westbahn Wien Westbf – Wienerwald – St. Pölten",
+    id: "110",
+    oebb: "110",
+    name: "Wien Westbf – Neulengbach – St. Pölten",
     anchors: [
-      "Pat:49:1468", // Wien Westbahnhof
-      "Pat:43:4601", // Purkersdorf Sanatorium
-      "Pat:43:4651", // Rekawinkel
+      "Pat:49:1468", // Wien Westbf
       "Pat:43:4337", // Neulengbach
-      "Pat:43:4848", // St. Pölten Hbf
+      "Pat:43:4848", // St. Pölten
     ],
   },
   {
-    id: "summerau",
-    name: "Summerauer Bahn Linz – Summerau",
+    id: "112",
+    oebb: "112",
+    name: "St. Pölten – Traismauer – Tullnerfeld – Tulln – Wien Franz-Josefs-Bahnhof",
+    anchors: [
+      "Pat:43:4848", // St. Pölten
+      "Pat:43:5005", // Traismauer
+      "Pat:43:5759", // Tullnerfeld
+      "Pat:43:5034", // Tulln
+      "Pat:49:345", // Wien Franz-Josefs-Bahnhof
+    ],
+  },
+  {
+    id: "113",
+    oebb: "113",
+    name: "St. Pölten Hbf – Traisen – Hainfeld / Lilienfeld – Schrambach",
+    anchors: [
+      "Pat:43:4848", // St. Pölten Hbf
+      "Pat:43:7381", // Traisen
+      "Pat:43:7403", // Hainfeld
+      "Pat:43:7386", // Schrambach
+    ],
+  },
+  {
+    id: "120",
+    oebb: "120",
+    name: "Pöchlarn – Scheibbs",
+    anchors: [
+      "Pat:43:7227", // Pöchlarn
+      "Pat:43:7450", // Scheibbs
+    ],
+  },
+  {
+    id: "130",
+    oebb: "130",
+    name: "Amstetten – Waidhofen a.d.Ybbs – Kleinreifling – Selzthal",
+    anchors: [
+      "Pat:43:7234", // Amstetten
+      "Pat:43:7900", // Waidhofen/Ybbs
+      "Pat:44:46950", // Kleinreifling
+      "Pat:46:6938", // Selzthal
+    ],
+  },
+  {
+    id: "131",
+    oebb: "131",
+    name: "St. Valentin – Steyr – Kleinreifling – Selzthal",
+    anchors: [
+      "Pat:43:7242", // St. Valentin
+      "Pat:44:43005", // Steyr
+      "Pat:44:46950", // Kleinreifling
+      "Pat:46:6938", // Selzthal
+    ],
+  },
+  {
+    id: "133",
+    oebb: "133",
+    name: "St. Valentin – Perg – St. Nikola-Struden",
+    anchors: [
+      "Pat:43:7242", // St. Valentin
+      "Pat:44:44500", // Perg
+      "Pat:44:44900", // St. Nikola-Struden
+    ],
+  },
+  {
+    id: "140",
+    oebb: "140",
+    name: "Linz Hbf – Kirchdorf a.d. Krems – Selzthal",
+    anchors: [
+      "Pat:44:41164", // Linz Hbf
+      "Pat:44:43500", // Kirchdorf/Krems
+      "Pat:46:6938", // Selzthal
+    ],
+  },
+  {
+    id: "141",
+    oebb: "141",
+    name: "Linz Hbf – Pregarten – Freistadt – Summerau",
     anchors: [
       "Pat:44:41164", // Linz Hbf
       "Pat:44:45090", // Pregarten
+      "Pat:44:45000", // Freistadt
       "Pat:44:45260", // Summerau
     ],
   },
   {
-    id: "fjb",
-    name: "Franz-Josefs-Bahn Wien – Tulln – Gmünd",
+    id: "142",
+    oebb: "142",
+    name: "Linz Urfahr – Rottenegg – Aigen-Schlägl",
     anchors: [
-      "Pat:49:345", // Wien Franz-Josefs-Bahnhof
-      "Pat:43:5034", // Tulln
-      "Pat:43:3004", // Absdorf-Hippersdorf
-      "Pat:43:4789", // Sigmundsherberg
-      "Pat:43:7169", // Gmünd NÖ
+      "Pat:44:41272", // Linz Urfahr
+      "Pat:44:44040", // Rottenegg
+      "Pat:44:49844", // Aigen-Schlägl
     ],
   },
   {
-    id: "kamptal",
-    name: "Kamptalbahn Krems – Horn – Sigmundsherberg",
+    id: "150",
+    oebb: "150",
+    name: "Linz Hbf – Wels – Neumarkt-Kallham – Passau",
     anchors: [
-      "Pat:43:3993", // Krems
-      "Pat:43:3660", // Hadersdorf/Kamp
-      "Pat:43:4036", // Langenlois
-      "Pat:43:3486", // Gars-Thunau
-      "Pat:43:3784", // Horn
-      "Pat:43:4789", // Sigmundsherberg
+      "Pat:44:41164", // Linz Hbf
+      "Pat:44:42107", // Wels
+      "Pat:44:40156", // Neumarkt-Kallham
+      "Pde:09262:156", // Passau
     ],
   },
   {
-    id: "innviertel",
-    name: "Wels – Schärding – Passau",
+    id: "151",
+    oebb: "151",
+    name: "Linz Hbf – Wels – Ried im Innkreis – Braunau – Simbach",
+    anchors: [
+      "Pat:44:41164", // Linz Hbf
+      "Pat:44:42107", // Wels
+      "Pat:44:48000", // Ried im Innkreis
+      "Pat:44:49000", // Braunau
+      "Pde:09277:80490", // Simbach
+    ],
+  },
+  {
+    id: "153",
+    oebb: "153",
+    name: "Wels Hbf – Sattledt – Grünau im Almtal",
     anchors: [
       "Pat:44:42107", // Wels Hbf
-      "Pat:44:40156", // Neumarkt-Kallham
-      "Pat:44:48500", // Schärding
-      "Pde:09262:156", // Passau Hbf
+      "Pat:44:42431", // Sattledt
+      "Pat:44:46340", // Grünau im Almtal
     ],
   },
   {
-    id: "aspang",
-    name: "Aspangbahn Wiener Neustadt – Aspang – Hartberg – Fehring",
+    id: "170",
+    oebb: "170",
+    name: "Attnang-Puchheim – Gmunden – Bad Ischl – Hallstatt – Bad Aussee – Stainach-Irdning – Selzthal",
+    anchors: [
+      "Pat:44:47200", // Attnang-Puchheim
+      "Pat:44:46010", // Gmunden
+      "Pat:44:46500", // Bad Ischl
+      "Pat:44:46631", // Hallstatt
+      "Pat:46:7063", // Bad Aussee
+      "Pat:46:6892", // Stainach-Irdning
+      "Pat:46:6938", // Selzthal
+    ],
+  },
+  {
+    id: "171",
+    oebb: "171",
+    name: "Attnang-Puchheim – Ried im Innkreis – Schärding",
+    anchors: [
+      "Pat:44:47200", // Attnang-Puchheim
+      "Pat:44:48000", // Ried im Innkreis
+      "Pat:44:48500", // Schärding
+    ],
+  },
+  {
+    id: "172",
+    oebb: "172",
+    name: "Vöcklabruck – Kammer-Schörfling",
+    anchors: [
+      "Pat:44:47000", // Vöcklabruck
+      "Pat:44:47301", // Kammer-Schörfling
+    ],
+  },
+  {
+    id: "190",
+    oebb: "190",
+    name: "Freilassing – Salzburg – Neumarkt am Wallersee – Straßwalchen/Mattighofen – Braunau am Inn",
+    anchors: [
+      "Pde:09172:42293", // Freilassing
+      "Pat:45:50002", // Salzburg
+      "Pat:45:50290", // Straßwalchen
+      "Pat:44:49650", // Mattighofen
+      "Pat:44:49000", // Braunau
+    ],
+  },
+  {
+    id: "200",
+    oebb: "200",
+    name: "Freilassing – Salzburg – Schwarzach-St. Veit – Saalfelden",
+    anchors: [
+      "Pde:09172:42293", // Freilassing
+      "Pat:45:50002", // Salzburg
+      "Pat:45:52197", // Schwarzach-St. Veit
+      "Pat:45:54001", // Saalfelden
+    ],
+  },
+  {
+    id: "201",
+    oebb: "201",
+    name: "Saalfelden – Wörgl – Innsbruck Hbf",
+    anchors: [
+      "Pat:45:54001", // Saalfelden
+      "Pat:47:1170", // Wörgl
+      "Pat:47:1187", // Innsbruck Hbf
+    ],
+  },
+  {
+    id: "220",
+    oebb: "220",
+    name: "Salzburg – Bischofshofen – Mallnitz-Obervellach – Spittal-Millstättersee – Villach – Klagenfurt – Graz",
+    anchors: [
+      "Pat:45:50002", // Salzburg
+      "Pat:45:52099", // Bischofshofen
+      "Pat:42:2121", // Mallnitz-Obervellach
+      "Pat:42:2128", // Spittal-Millstätter See
+      "Pat:42:3654", // Villach
+      "Pat:42:3642", // Klagenfurt
+      "Pat:46:3040", // Graz
+    ],
+  },
+  {
+    id: "221",
+    oebb: "221",
+    name: "Villach – Rosenbach – Jesenice",
+    anchors: [
+      "Pat:42:3654", // Villach
+      "Pat:42:2143", // Rosenbach
+      "Psi:63:5948", // Jesenice
+    ],
+  },
+  {
+    id: "223",
+    oebb: "223",
+    name: "Spittal-Millstättersee – Lienz – Sillian – San Candido/ Innichen",
+    anchors: [
+      "Pat:42:2128", // Spittal-Millstätter See
+      "Pat:47:3873", // Lienz
+      "Pat:47:3879", // Sillian
+      "Pit:22021:1980", // San Candido
+    ],
+  },
+  {
+    id: "250",
+    oebb: "250",
+    name: "Bischofshofen – Schladming – Liezen – Selzthal – Leoben – Bruck/Mur",
+    anchors: [
+      "Pat:45:52099", // Bischofshofen
+      "Pat:46:7208", // Schladming
+      "Pat:46:7437", // Liezen
+      "Pat:46:6938", // Selzthal
+      "Pat:46:6344", // Leoben
+      "Pat:46:2065", // Bruck
+    ],
+  },
+  {
+    id: "300",
+    oebb: "300",
+    name: "Salzburg Hbf – Kufstein – Innsbruck Hbf – Brennero/ Brenner",
+    anchors: [
+      "Pat:45:50002", // Salzburg Hbf
+      "Pat:47:2184", // Kufstein
+      "Pat:47:1187", // Innsbruck Hbf
+      "Pit:22021:1389", // Brennero
+    ],
+  },
+  {
+    id: "400",
+    oebb: "400",
+    name: "Innsbruck – Ötztal – Landeck-Zams – Bludenz",
+    anchors: [
+      "Pat:47:1187", // Innsbruck
+      "Pat:47:1204", // Ötztal
+      "Pat:47:1212", // Landeck-Zams
+      "Pat:48:130", // Bludenz
+    ],
+  },
+  {
+    id: "420",
+    oebb: "420",
+    name: "Bludenz – Schruns",
+    anchors: [
+      "Pat:48:130", // Bludenz
+      "Pat:48:134", // Schruns
+    ],
+  },
+  {
+    id: "500",
+    oebb: "500",
+    name: "Wiener Neustadt Hbf – Semmering – Mürzzuschlag",
     anchors: [
       "Pat:43:5210", // Wiener Neustadt Hbf
-      "Pat:43:7034", // Pitten
-      "Pat:43:7040", // Edlitz-Grimmenstein
-      "Pat:43:7041", // Aspang Markt
+      "Pat:43:8769", // Semmering
+      "Pat:46:7426", // Mürzzuschlag
+    ],
+  },
+  {
+    id: "501",
+    oebb: "501",
+    name: "Flughafen Wien – Mürzzuschlag – Bruck/Mur – Graz – Klagenfurt – Villach",
+    anchors: [
+      "Pat:43:4708", // Flughafen Wien
+      "Pat:46:7426", // Mürzzuschlag
+      "Pat:46:2065", // Bruck
+      "Pat:46:3040", // Graz
+      "Pat:42:3642", // Klagenfurt
+      "Pat:42:3654", // Villach
+    ],
+  },
+  {
+    id: "502",
+    oebb: "502",
+    name: "Graz – Leibnitz – Spielfeld-Straß – Bad Radkersburg",
+    anchors: [
+      "Pat:46:3040", // Graz
+      "Pat:46:1827", // Leibnitz
+      "Pat:46:1839", // Spielfeld-Straß
+      "Pat:46:1891", // Bad Radkersburg
+    ],
+  },
+  {
+    id: "510",
+    oebb: "510",
+    name: "Wien – Baden – Wiener Neustadt – Payerbach-Reichenau",
+    anchors: [
+      "Pat:49:1349", // Wien
+      "Pat:43:3101", // Baden
+      "Pat:43:5210", // Wiener Neustadt
+      "Pat:43:8763", // Payerbach-Reichenau
+    ],
+  },
+  {
+    id: "511",
+    oebb: "511",
+    name: "Wien – Pottendorf-Landegg – Ebenfurth – Wiener Neustadt",
+    anchors: [
+      "Pat:49:1349", // Wien
+      "Pat:43:4562", // Pottendorf-Landegg
+      "Pat:43:3318", // Ebenfurth
+      "Pat:43:5210", // Wiener Neustadt
+    ],
+  },
+  {
+    id: "512",
+    oebb: "512",
+    name: "Wien – Ebenfurth – Sopron – Deutschkreutz",
+    anchors: [
+      "Pat:49:1349", // Wien
+      "Pat:43:3318", // Ebenfurth
+      "Phu:08518:27001898", // Sopron
+      "Pat:41:3294", // Deutschkreutz
+    ],
+  },
+  {
+    id: "513",
+    oebb: "513",
+    name: "Leobersdorf – Berndorf – Weissenbach-Neuhaus",
+    anchors: [
+      "Pat:43:4084", // Leobersdorf
+      "Pat:43:3160", // Berndorf
+      "Pat:43:5195", // Weissenbach-Neuhaus
+    ],
+  },
+  {
+    id: "520",
+    oebb: "520",
+    name: "Wiener Neustadt Hbf – Aspang – Friedberg – Hartberg – Fehring",
+    anchors: [
+      "Pat:43:5210", // Wiener Neustadt Hbf
+      "Pat:43:7041", // Aspang
       "Pat:46:7543", // Friedberg
       "Pat:46:2022", // Hartberg
       "Pat:46:1960", // Fehring
     ],
   },
+  {
+    id: "521",
+    oebb: "521",
+    name: "Wiener Neustadt Hbf – Waldegg – Gutenstein",
+    anchors: [
+      "Pat:43:5210", // Wiener Neustadt Hbf
+      "Pat:43:7099", // Waldegg
+      "Pat:43:7105", // Gutenstein
+    ],
+  },
+  {
+    id: "522",
+    oebb: "522",
+    name: "Wiener Neustadt Hbf – Grünbach – Puchberg am Schneeberg",
+    anchors: [
+      "Pat:43:5210", // Wiener Neustadt Hbf
+      "Pat:43:7116", // Grünbach
+      "Pat:43:7120", // Puchberg am Schneeberg
+    ],
+  },
+  {
+    id: "530",
+    oebb: "530",
+    name: "Graz – Feldbach – Fehring – Szentgotthárd",
+    anchors: [
+      "Pat:46:3040", // Graz
+      "Pat:46:1923", // Feldbach
+      "Pat:46:1960", // Fehring
+      "Phu:31583:27000652", // Szentgotthárd
+    ],
+  },
+  {
+    id: "600",
+    oebb: "600",
+    name: "Graz – Bruck/Mur – Unzmarkt – Klagenfurt",
+    anchors: [
+      "Pat:46:3040", // Graz
+      "Pat:46:2065", // Bruck
+      "Pat:46:5511", // Unzmarkt
+      "Pat:42:3642", // Klagenfurt
+    ],
+  },
+  {
+    id: "601",
+    oebb: "601",
+    name: "Friesach – St. Veit a. d. Glan – Klagenfurt Hbf",
+    anchors: [
+      "Pat:42:3625", // Friesach
+      "Pat:42:3633", // St. Veit a. d. Glan
+      "Pat:42:3642", // Klagenfurt Hbf
+    ],
+  },
+  {
+    id: "620",
+    oebb: "620",
+    name: "Pusarnitz – Spittal-Millstättersee – Villach – Klagenfurt – Bleiburg – Wolfsberg",
+    anchors: [
+      "Pat:42:2127", // Pusarnitz
+      "Pat:42:2128", // Spittal-Millstätter See
+      "Pat:42:3654", // Villach
+      "Pat:42:3642", // Klagenfurt
+      "Pat:42:3825", // Bleiburg
+      "Pat:42:3715", // Wolfsberg
+    ],
+  },
+  {
+    id: "650",
+    oebb: "650",
+    name: "St. Veit a. d. Glan – Feldkirchen in Kärnten – Villach",
+    anchors: [
+      "Pat:42:3633", // St. Veit a. d. Glan
+      "Pat:42:3807", // Feldkirchen in Kärnten
+      "Pat:42:3654", // Villach
+    ],
+  },
+  {
+    id: "660",
+    oebb: "660",
+    name: "Klagenfurt – Weizelsdorf",
+    anchors: [
+      "Pat:42:3642", // Klagenfurt
+      "Pat:42:3844", // Weizelsdorf
+    ],
+  },
+  {
+    id: "670",
+    oebb: "670",
+    name: "Villach – Arnoldstein – Hermagor/ Tarvisio",
+    anchors: [
+      "Pat:42:3654", // Villach
+      "Pat:42:3662", // Arnoldstein
+      "Pat:42:3907", // Hermagor
+    ],
+  },
+  {
+    id: "700",
+    oebb: "700",
+    name: "Wien Hbf – Bruck a.d. Leitha – Pamhagen/ Eisenstadt/ Hegyeshalom",
+    anchors: [
+      "Pat:49:1349", // Wien Hbf
+      "Pat:43:3209", // Bruck/Leitha
+      "Phu:17905:27000493", // Hegyeshalom
+    ],
+  },
+  {
+    id: "701",
+    oebb: "701",
+    name: "Wien Hbf – Bruck a.d. Leitha – Kittsee – Bratislava hl.st.",
+    anchors: [
+      "Pat:49:1349", // Wien Hbf
+      "Pat:43:3209", // Bruck/Leitha
+      "Pat:41:5972", // Kittsee
+      "Psk:56:2", // Bratislava-Petržalka
+    ],
+  },
+  {
+    id: "720",
+    oebb: "720",
+    name: "Wien Hbf – Kledering – Traiskirchen Aspangbahn – Wiener Neustadt",
+    anchors: [
+      "Pat:49:1349", // Wien Hbf
+      "Pat:43:3895", // Kledering
+      "Pat:43:4995", // Traiskirchen Aspangbahn
+      "Pat:43:5210", // Wiener Neustadt
+    ],
+  },
+  {
+    id: "730",
+    oebb: "730",
+    name: "Wien Hbf – Neusiedl am See – Eisenstadt – Wulkaprodersdorf",
+    anchors: [
+      "Pat:49:1349", // Wien Hbf
+      "Pat:41:4351", // Neusiedl am See
+      "Pat:41:3351", // Eisenstadt
+      "Pat:41:5286", // Wulkaprodersdorf
+    ],
+  },
+  {
+    id: "731",
+    oebb: "731",
+    name: "Wien Hbf – Neusiedl am See – Pamhagen – Fertöszentmiklós",
+    anchors: [
+      "Pat:49:1349", // Wien Hbf
+      "Pat:41:4351", // Neusiedl am See
+      "Pat:41:4464", // Pamhagen
+      "Phu:15343:27001902", // Fertőszentmiklós
+    ],
+  },
+  {
+    id: "800",
+    oebb: "800",
+    name: "Wien Franz-Josefs-Bahnhof – Tulln – Sigmundsherberg – Gmünd NÖ – Ceské Velenice",
+    anchors: [
+      "Pat:49:345", // Wien Franz-Josefs-Bahnhof
+      "Pat:43:5034", // Tulln
+      "Pat:43:4789", // Sigmundsherberg
+      "Pat:43:7169", // Gmünd NÖ
+      "Pcz:0:5473632", // Ceské Velenice
+    ],
+  },
+  {
+    id: "810",
+    oebb: "810",
+    name: "Wien Franz-Josefs-Bahnhof – Tulln – Krems a.d. Donau",
+    anchors: [
+      "Pat:49:345", // Wien Franz-Josefs-Bahnhof
+      "Pat:43:5034", // Tulln
+      "Pat:43:3993", // Krems a.d. Donau
+    ],
+  },
+  {
+    id: "820",
+    oebb: "820",
+    name: "St. Pölten – Herzogenburg – Krems a.d. Donau – Hadersdorf am Kamp – Horn – Sigmundsherberg",
+    anchors: [
+      "Pat:43:4848", // St. Pölten
+      "Pat:43:8003", // Herzogenburg
+      "Pat:43:3993", // Krems
+      "Pat:43:3660", // Hadersdorf/Kamp
+      "Pat:43:3784", // Horn
+      "Pat:43:4789", // Sigmundsherberg
+    ],
+  },
+  {
+    id: "900",
+    oebb: "900",
+    name: "Wien S-Bahn (Gesamtverkehr Mödling – Meidling – Floridsdorf – Strebersdorf)",
+    anchors: [
+      "Pat:43:4239", // Mödling
+      "Pat:49:1015", // Wien Meidling
+      "Pat:49:1349", // Wien Hbf
+      "Pat:49:1040", // Wien Praterstern
+      "Pat:49:334", // Wien Floridsdorf
+      "Pat:49:1333", // Wien Strebersdorf
+    ],
+  },
+  {
+    id: "901",
+    oebb: "901",
+    name: "Wien – Gänserndorf – Hohenau – Břeclav/ Marchegg",
+    anchors: [
+      "Pat:49:1349", // Wien
+      "Pat:43:3622", // Gänserndorf
+      "Pat:43:3778", // Hohenau
+      "Pcz:0:5433425", // Břeclav
+    ],
+  },
+  {
+    id: "902",
+    oebb: "902",
+    name: "Wien – Wolkersdorf – Mistelbach – Laa a.d. Thaya",
+    anchors: [
+      "Pat:49:1349", // Wien
+      "Pat:43:5274", // Wolkersdorf
+      "Pat:43:4202", // Mistelbach
+      "Pat:43:4015", // Laa/Thaya
+    ],
+  },
+  {
+    id: "903",
+    oebb: "903",
+    name: "Wien – Stockerau – Tullnerfeld/ Hollabrunn – Retz – Znojmo",
+    anchors: [
+      "Pat:49:1349", // Wien
+      "Pat:43:4884", // Stockerau
+      "Pat:43:3780", // Hollabrunn
+      "Pat:43:4656", // Retz
+    ],
+  },
+  {
+    id: "907",
+    oebb: "907",
+    name: "Wien Floridsdorf/ Wien Meidling – Flughafen Wien – Wolfsthal",
+    anchors: [
+      "Pat:49:334", // Wien Floridsdorf
+      "Pat:43:4708", // Flughafen Wien
+      "Pat:43:5271", // Wolfsthal
+    ],
+  },
+  {
+    id: "910",
+    oebb: "910",
+    name: "Wien Hütteldorf – Wien Hbf – Wien Hirschstetten – Marchegg – Bratislava",
+    anchors: [
+      "Pat:49:560", // Wien Hütteldorf
+      "Pat:49:1349", // Wien Hbf
+      "Pat:49:532", // Wien Hirschstetten
+      "Pat:43:4132", // Marchegg
+      "Psk:56:1", // Bratislava
+    ],
+  },
+  {
+    id: "917",
+    oebb: "917",
+    name: "Wien Mitte CAT – Flughafen Wien CAT",
+    anchors: [
+      "Pat:49:743", // Wien Mitte
+      "Pat:43:4708", // Flughafen Wien
+    ],
+  },
+  {
+    id: "945",
+    oebb: "945",
+    name: "Wien Handelskai – Wien Heiligenstadt – Wien Hütteldorf",
+    anchors: [
+      "Pat:49:1705", // Wien Handelskai
+      "Pat:49:491", // Wien Heiligenstadt
+      "Pat:49:560", // Wien Hütteldorf
+    ],
+  },
 ];
+
+export const CORRIDORS: CorridorDef[] = [...OEBB_CORRIDORS, ...ZUGX_CORRIDORS];
+
+/** ids of zugx corridors replaced by ÖBB Fahrplanbilder (old links keep working) */
+export const CORRIDOR_ALIASES: Record<string, string> = {
+  brenner: "300",
+  arlberg: "400",
+  tauern: "220",
+  pyhrn: "140",
+  ennstal: "250",
+  nordbahn: "901",
+  ostbahn: "700",
+  "westbahn-alt": "110",
+  summerau: "141",
+  fjb: "800",
+  kamptal: "820",
+  innviertel: "150",
+  aspang: "520",
+};
 
 const median = (xs: number[]) => {
   const s = [...xs].sort((a, b) => a - b);

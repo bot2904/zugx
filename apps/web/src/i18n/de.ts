@@ -138,6 +138,8 @@ export default {
     hint: "Positionen werden von ÖBB HAFAS berechnet.",
   },
   bf: {
+    oebbTip: "Nummer des ÖBB-Fahrplanbilds",
+    oebbLink: "ÖBB-Fahrplanbild {n} (PDF-Liste auf oebb.at)",
     wheelHint: "Im Diagramm scrollen verschiebt die Zeit, Strg/⌘ + scrollen zoomt",
     outside: "außerhalb des Fahrplanzeitraums {begin} – {end}",
     prevDay: "Vortag",

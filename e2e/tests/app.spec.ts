@@ -108,9 +108,13 @@ test("add to calendar downloads an .ics with deep link", async ({ page }) => {
 
 test("bildfahrplan index filters by station", async ({ page }) => {
   await page.goto("/bf?q=horn");
-  await expect(page.getByRole("link", { name: /Kamptalbahn/ })).toBeVisible();
-  await page.getByRole("link", { name: /Kamptalbahn/ }).click();
-  await expect(page).toHaveURL(/\/bf\/kamptal/);
+  const link = page.getByRole("link", { name: /Krems.*Horn.*Sigmundsherberg/ });
+  await expect(link).toBeVisible();
+  await link.click();
+  await expect(page).toHaveURL(/\/bf\/820/);
+  // old corridor ids redirect to their ÖBB Fahrplanbild
+  await page.goto("/bf/kamptal");
+  await expect(page).toHaveURL(/\/bf\/820/);
 });
 
 test("radar draws trains without map errors (worker loads in the production build)", async ({

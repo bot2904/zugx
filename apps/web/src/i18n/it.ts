@@ -138,6 +138,8 @@ export default {
     hint: "Posizioni calcolate da ÖBB HAFAS.",
   },
   bf: {
+    oebbTip: "Numero del quadro orario ÖBB (Fahrplanbild)",
+    oebbLink: "Fahrplanbild ÖBB {n} (elenco PDF su oebb.at)",
     wheelHint: "Scorri nel diagramma per spostarti nel tempo, Ctrl/⌘ + scorrere per lo zoom",
     outside: "fuori dal periodo d'orario {begin} – {end}",
     prevDay: "Giorno precedente",

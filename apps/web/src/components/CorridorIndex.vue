@@ -12,8 +12,8 @@ const route = useRoute();
 const router = useRouter();
 
 const q = ref(typeof route.query.q === "string" ? route.query.q : "");
-type SortKey = "name" | "km" | "stations" | "trains";
-const sort = ref<SortKey>("name");
+type SortKey = "oebb" | "name" | "km" | "stations" | "trains";
+const sort = ref<SortKey>("oebb");
 const desc = ref(false);
 const sel = ref(-1);
 
@@ -23,14 +23,18 @@ const rows = computed<CorridorIndexEntry[]>(() => {
   const tokens = normalize(q.value).split(" ").filter(Boolean);
   const list = props.index.corridors.filter((c) => {
     if (!tokens.length) return true;
-    const hay = normalize(`${c.name} ${c.names.join(" ")}`);
+    const hay = normalize(`${c.oebb ?? ""} ${c.name} ${c.names.join(" ")}`);
     return tokens.every((tok) => hay.includes(tok));
   });
   const dir = desc.value ? -1 : 1;
+  // corridors without an ÖBB number sort after the numbered ones
+  const oebbKey = (c: CorridorIndexEntry) => (c.oebb ? c.oebb.padStart(3, "0") : "zzz") + c.name;
   return list.sort((a, b) =>
-    sort.value === "name"
-      ? dir * a.name.localeCompare(b.name)
-      : dir * (a[sort.value] - b[sort.value]),
+    sort.value === "oebb"
+      ? dir * oebbKey(a).localeCompare(oebbKey(b))
+      : sort.value === "name"
+        ? dir * a.name.localeCompare(b.name)
+        : dir * (a[sort.value] - b[sort.value]),
   );
 });
 
@@ -45,7 +49,7 @@ function sortBy(k: SortKey) {
   if (sort.value === k) desc.value = !desc.value;
   else {
     sort.value = k;
-    desc.value = k !== "name";
+    desc.value = k !== "name" && k !== "oebb";
   }
 }
 
@@ -88,6 +92,9 @@ const arrow = (k: SortKey) => (sort.value === k ? (desc.value ? " ↓" : " ↑")
     <table class="dense mt-1">
       <thead>
         <tr>
+          <th class="cursor-pointer" :title="$t('bf.oebbTip')" @click="sortBy('oebb')">
+            ÖBB{{ arrow("oebb") }}
+          </th>
           <th class="cursor-pointer" @click="sortBy('name')">
             {{ $t("bf.corridor") }}{{ arrow("name") }}
           </th>
@@ -111,6 +118,18 @@ const arrow = (k: SortKey) => (sort.value === k ? (desc.value ? " ↓" : " ↑")
           :class="i === sel && 'sel'"
           @click="open(c)"
         >
+          <td class="mono whitespace-nowrap">
+            <a
+              v-if="c.oebb && !c.oebb.includes('/')"
+              href="https://www.oebb.at/de/fahrplan/fahrplanbilder"
+              target="_blank"
+              rel="external noopener"
+              :title="$t('bf.oebbLink', { n: c.oebb })"
+              @click.stop
+              >{{ c.oebb }}</a
+            >
+            <span v-else class="muted">{{ c.oebb ?? "–" }}</span>
+          </td>
           <td>
             <RouterLink :to="`/bf/${c.id}`" class="font-medium text-[var(--fg)]" @click.stop>{{
               c.name

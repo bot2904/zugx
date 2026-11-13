@@ -193,6 +193,8 @@ export interface Corridor {
 export interface CorridorIndexEntry {
   id: string;
   name: string;
+  /** ÖBB Fahrplanbild number(s), e.g. "101" or "100/101" */
+  oebb?: string;
   from: string;
   to: string;
   km: number;
@@ -208,6 +210,8 @@ export interface CorridorIndexEntry {
 }
 
 export interface CorridorIndex {
+  /** old corridor ids → current id (e.g. "brenner" → "300") */
+  aliases?: Record<string, string>;
   /** reference day (station lists, train counts, category mix) */
   day: string;
   begin: string;

@@ -8,7 +8,7 @@ import CorridorIndexView from "../components/CorridorIndex.vue";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
 
-type CorridorRef = Pick<CorridorIndexEntry, "id" | "name">;
+type CorridorRef = Pick<CorridorIndexEntry, "id" | "name" | "oebb">;
 
 const files = import.meta.glob<{ default: Corridor }>(
   "../../../../packages/netz/data/corridors/*.json",
@@ -37,6 +37,9 @@ onMounted(async () => {
   if (indexFile) {
     indexData.value = (await indexFile()).default;
     list.value = indexData.value.corridors;
+    // old corridor ids (e.g. /bf/brenner) now live under their ÖBB number
+    const alias = id.value ? indexData.value.aliases?.[id.value] : undefined;
+    if (alias) void router.replace({ path: `/bf/${alias}`, query: route.query });
   } else {
     list.value = Object.keys(files)
       .map((p) => /corridors\/([^/]+)\.json$/.exec(p)?.[1])
@@ -230,7 +233,9 @@ function toggleCat(c: string) {
           })
         "
       >
-        <option v-for="c in list" :key="c.id" :value="c.id">{{ c.name }}</option>
+        <option v-for="c in list" :key="c.id" :value="c.id">
+          {{ c.oebb ? `${c.oebb} · ` : "" }}{{ c.name }}
+        </option>
       </select>
       <span v-if="data" class="flex items-center gap-1 text-xs">
         <button class="btn" :title="$t('bf.prevDay')" @click="shiftDay(-1)">‹</button>
