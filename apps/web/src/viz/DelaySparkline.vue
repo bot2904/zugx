@@ -2,6 +2,7 @@
 // Delay along a train run: one point per stop (departure delay, else arrival delay).
 import type { Stopover } from "@zugx/hafas";
 import { computed } from "vue";
+import { delayColor } from "../lib/delay.ts";
 
 const props = defineProps<{ stops: Stopover[]; height?: number }>();
 const H = computed(() => props.height ?? 60);
@@ -26,8 +27,8 @@ const path = computed(() =>
     .map((p, k) => `${k ? "L" : "M"}${x(p.i).toFixed(1)},${y(p.d!).toFixed(1)}`)
     .join(""),
 );
-const color = (d?: number) =>
-  d === undefined ? "var(--muted)" : d >= 5 ? "var(--bad)" : d >= 1 ? "var(--warn)" : "var(--good)";
+// same scale as the radar and the train map
+const color = (d?: number) => delayColor(d);
 const hasData = computed(() => pts.value.some((p) => p.d !== undefined));
 </script>
 

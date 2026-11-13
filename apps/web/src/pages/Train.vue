@@ -10,6 +10,7 @@ import Remarks from "../components/Remarks.vue";
 import Status from "../components/Status.vue";
 import { api } from "../lib/api.ts";
 import { fromLocalInput, hhmm, ms } from "../lib/format.ts";
+import { delayColor, fmtSignedDelay } from "../lib/delay.ts";
 import { lineColor } from "../lib/products.ts";
 import { isJourneyId, slugToTrain, trainSlug } from "../lib/url.ts";
 import DelaySparkline from "../viz/DelaySparkline.vue";
@@ -94,15 +95,21 @@ const lines = computed<MapLine[]>(() => {
       .map((s) => [s.stop.lat!, s.stop.lon!] as [number, number]);
   return [{ coords, color: lineColor(tr.line) }];
 });
+/** delay at a stop: departure, else arrival (undefined = no realtime data) */
+const delayOf = (s: Stopover) => (s.cancelled ? undefined : (s.dep?.delay ?? s.arr?.delay));
+
 const points = computed<MapPoint[]>(() =>
   (trip.value?.stopovers ?? [])
     .filter((s) => s.stop.lat)
     .map((s, i) => ({
       lat: s.stop.lat!,
       lon: s.stop.lon!,
-      label: `${s.stop.name} ${hhmm(s.arr?.planned ?? s.dep?.planned)}`,
+      label: `${s.stop.name} ${hhmm(s.arr?.planned ?? s.dep?.planned)}${delayOf(s) === undefined ? "" : ` · ${fmtSignedDelay(delayOf(s)!)}`}`,
       id: s.stop.id,
-      color: i <= position.value ? "#8a929c" : "#e6e8eb",
+      // delay colours as on the radar; passed stops slightly smaller via no "big"
+      color: delayColor(delayOf(s)),
+      stroke: "#fff", // stands out on the (category-coloured) route line
+      big: i > position.value,
     })),
 );
 

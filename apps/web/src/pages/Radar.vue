@@ -8,6 +8,7 @@ import { useRouter } from "vue-router";
 import Status from "../components/Status.vue";
 import { api } from "../lib/api.ts";
 import { lineColor, PRODUCT_GROUPS, RAIL_CLS } from "../lib/products.ts";
+import { DELAY_CLASSES, delayColor, NO_DATA } from "../lib/delay.ts";
 import MapView, { type MapPoint } from "../viz/MapView.vue";
 
 const router = useRouter();
@@ -52,16 +53,6 @@ const mode = ref<"delay" | "category">(
   localStorage.getItem("zugx:radar-mode") === "category" ? "category" : "delay",
 );
 watch(mode, (m) => localStorage.setItem("zugx:radar-mode", m));
-
-const DELAY_CLASSES = [
-  { id: "ontime", max: 5, color: "#2fb344" },
-  { id: "slight", max: 19, color: "#f2c94c" },
-  { id: "late", max: 59, color: "#f2994a" },
-  { id: "verylate", max: Infinity, color: "#e5383b" },
-] as const;
-const NO_DATA = "#9aa0a6";
-const delayColor = (d?: number) =>
-  d === undefined ? NO_DATA : (DELAY_CLASSES.find((c) => d <= c.max)?.color ?? NO_DATA);
 
 const counts = computed(() => {
   const c: Record<string, number> = { nodata: 0, ontime: 0, slight: 0, late: 0, verylate: 0 };
