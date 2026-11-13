@@ -65,7 +65,7 @@ podman run -d --name zugx --restart=always -p 127.0.0.1:9849:8080 \
   --read-only --tmpfs /data --tmpfs /config ghcr.io/simon04/zugx:latest
 ```
 
-Hardening (Containerfile + Quadlet): unprivileged user (65532), read-only root filesystem with small `noexec` tmpfs mounts, all capabilities dropped, `no-new-privileges`, memory/PID limits, healthcheck, port bound to `127.0.0.1`; Caddy sends a strict CSP (no inline scripts) and `nosniff`/`Referrer-Policy`/`Permissions-Policy`/COOP headers, the `/api/mgate` proxy only allows small `POST`s to the fixed ÖBB upstream.
+Hardening (Containerfile + Quadlet): unprivileged user (65532), read-only root filesystem with small `noexec` tmpfs mounts, own user namespace (`UserNS=auto`), all capabilities dropped, `no-new-privileges`, memory (no swap)/CPU/PID/file limits, healthcheck on `/healthz` that kills (and so restarts) an unhealthy container, port bound to `127.0.0.1`; Caddy sends a strict CSP (no inline scripts) and `nosniff`/`Referrer-Policy`/`Permissions-Policy`/COOP headers, the `/api/mgate` proxy only allows small `POST`s to the fixed ÖBB upstream.
 
 Local image instead of GHCR: `podman build -t localhost/zugx -f deploy/Containerfile .`, then set `Image=localhost/zugx` and `AutoUpdate=local` in the unit.
 

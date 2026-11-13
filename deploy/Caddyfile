@@ -10,6 +10,12 @@
 :8080 {
 	encode zstd gzip
 
+	# container healthcheck (not in the access log)
+	handle /healthz {
+		log_skip
+		respond "ok" 200
+	}
+
 	header {
 		# strict CSP: no inline scripts; map tiles from OpenFreeMap / OpenRailwayMap
 		Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://tiles.openfreemap.org https://a.tiles.openrailwaymap.org; worker-src 'self' blob:; font-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'"

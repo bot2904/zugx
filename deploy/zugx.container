@@ -16,11 +16,19 @@ ReadOnly=true
 Tmpfs=/data:rw,noexec,nosuid,nodev,size=16m,mode=1777
 Tmpfs=/config:rw,noexec,nosuid,nodev,size=4m,mode=1777
 User=65532:65532
+UserNS=auto
 DropCapability=ALL
 NoNewPrivileges=true
-PodmanArgs=--memory=256m --pids-limit=128
-HealthCmd=wget -q -O /dev/null http://127.0.0.1:8080/
-HealthInterval=5m
+Memory=256m
+PidsLimit=128
+Ulimit=nofile=4096:4096
+PodmanArgs=--cpus=1 --memory-swap=256m
+# unhealthy → killed → restarted by Restart=always
+HealthCmd=wget -q -O /dev/null http://127.0.0.1:8080/healthz
+HealthInterval=30s
+HealthTimeout=3s
+HealthRetries=3
+HealthOnFailure=kill
 
 [Service]
 Restart=always
