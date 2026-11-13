@@ -235,6 +235,9 @@ importers:
       '@zugx/hafas':
         specifier: workspace:*
         version: link:../../packages/hafas
+      '@zugx/netz':
+        specifier: workspace:*
+        version: link:../../packages/netz
       maplibre-gl:
         specifier: 'catalog:'
         version: 6.18.0

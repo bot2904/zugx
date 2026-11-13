@@ -1,40 +1,18 @@
 <script setup lang="ts">
 // Bildfahrplan (time–distance diagram) for a corridor: x = km, y = time (downwards).
+import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
 
-interface CorridorStation {
-  name: string;
-  km: number;
-  major?: boolean;
-}
-interface CorridorTrain {
-  cat: string;
-  nr: string;
-  dir?: number;
-  headsign?: string;
-  /** [stationIndex, arr minutes since midnight | null, dep minutes | null] */
-  pts: [number, number | null, number | null][];
-}
-interface Corridor {
-  id: string;
-  name: string;
-  day: string;
-  stations: CorridorStation[];
-  trains: CorridorTrain[];
-}
-interface CorridorRef {
-  id: string;
-  name: string;
-}
+type CorridorRef = Pick<CorridorIndexEntry, "id" | "name">;
 
 const files = import.meta.glob<{ default: Corridor }>(
   "../../../../packages/netz/data/corridors/*.json",
 );
 const indexFile = Object.entries(files).find(([p]) => p.endsWith("/index.json"))?.[1] as
-  | (() => Promise<{ default: CorridorRef[] | { corridors: CorridorRef[] } }>)
+  | (() => Promise<{ default: CorridorIndex }>)
   | undefined;
 
 const route = useRoute();
@@ -55,8 +33,7 @@ onBeforeUnmount(() => clearInterval(clock));
 
 onMounted(async () => {
   if (indexFile) {
-    const m = (await indexFile()).default;
-    list.value = Array.isArray(m) ? m : m.corridors;
+    list.value = (await indexFile()).default.corridors;
   } else {
     list.value = Object.keys(files)
       .map((p) => /corridors\/([^/]+)\.json$/.exec(p)?.[1])

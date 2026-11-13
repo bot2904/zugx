@@ -1,39 +1,10 @@
 <script setup lang="ts">
 // Read-only Netzgrafik: nodes (Knoten) + line sections with departure/arrival minutes at both ends.
+import type { EdgeLine, NetzLine, NetzModel, NetzNode } from "@zugx/netz";
 import { computed, onMounted, ref, shallowRef } from "vue";
 import { categoryColor } from "../lib/products.ts";
 
-interface NetzNode {
-  id: string;
-  name: string;
-  lat: number;
-  lon: number;
-  /** minutes where many trains meet, e.g. [0, 30] */
-  knoten?: number[];
-}
-interface NetzStop {
-  node: string;
-  arr: number | null;
-  dep: number | null;
-}
-interface NetzLine {
-  id: string;
-  cat: string;
-  name: string;
-  takt: number | null;
-  trips: number;
-  numbers?: string;
-  stops: NetzStop[];
-  symmetry?: number | null;
-}
-interface Netz {
-  day: string;
-  source: string;
-  nodes: NetzNode[];
-  lines: NetzLine[];
-}
-
-const files = import.meta.glob<{ default: Netz }>("../../../../packages/netz/data/netz.json");
+const files = import.meta.glob<{ default: NetzModel }>("../../../../packages/netz/data/netz.json");
 const ngeUrl = Object.values(
   import.meta.glob("../../../../packages/netz/data/nge.json", {
     query: "?url",
@@ -42,12 +13,12 @@ const ngeUrl = Object.values(
   }),
 )[0] as string | undefined;
 
-const netz = shallowRef<Netz>();
+const netz = shallowRef<NetzModel>();
 const loading = ref(true);
 const selLine = ref<string>();
 const selNode = ref<string>();
 const hiddenCats = ref(new Set<string>());
-const minTakt = ref(0);
+const maxTakt = ref(0);
 
 onMounted(async () => {
   const loader = Object.values(files)[0];
@@ -55,78 +26,48 @@ onMounted(async () => {
   loading.value = false;
 });
 
-// projection: equirectangular around Austria, fitted to the viewBox
+// schematic x/y (km) from the build, fitted to the viewBox
 const W = 1200;
-const H = 640;
-const PAD = 50;
-const bounds = computed(() => {
-  const ns = netz.value?.nodes ?? [];
-  const lats = ns.map((n) => n.lat);
-  const lons = ns.map((n) => n.lon);
-  return {
-    minLat: Math.min(...lats),
-    maxLat: Math.max(...lats),
-    minLon: Math.min(...lons),
-    maxLon: Math.max(...lons),
-  };
-});
-const k = computed(() => {
-  const b = bounds.value;
-  const cos = Math.cos((((b.minLat + b.maxLat) / 2) * Math.PI) / 180);
-  return Math.min(
-    (W - 2 * PAD) / ((b.maxLon - b.minLon) * cos || 1),
-    (H - 2 * PAD) / (b.maxLat - b.minLat || 1),
-  );
-});
+const H = 620;
+const PAD = 60;
 const pos = computed(() => {
-  const b = bounds.value;
-  const cos = Math.cos((((b.minLat + b.maxLat) / 2) * Math.PI) / 180);
-  const m = new Map<string, { x: number; y: number }>();
-  for (const n of netz.value?.nodes ?? []) {
-    m.set(n.id, {
-      x: PAD + (n.lon - b.minLon) * cos * k.value,
-      y: H - PAD - (n.lat - b.minLat) * k.value,
-    });
-  }
-  return m;
+  const ns = netz.value?.nodes ?? [];
+  const xs = ns.map((n) => n.x);
+  const ys = ns.map((n) => n.y);
+  const [x0, x1, y0, y1] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];
+  const k = Math.min((W - 2 * PAD) / (x1 - x0 || 1), (H - 2 * PAD) / (y1 - y0 || 1));
+  const ox = (W - (x1 - x0) * k) / 2;
+  const oy = (H - (y1 - y0) * k) / 2;
+  return new Map(ns.map((n) => [n.id, { x: ox + (n.x - x0) * k, y: oy + (n.y - y0) * k }]));
 });
 
-const visibleLines = computed(() =>
-  (netz.value?.lines ?? []).filter(
-    (l) =>
-      !hiddenCats.value.has(l.cat) &&
-      (!minTakt.value || (l.takt !== null && l.takt <= minTakt.value)),
-  ),
-);
+const lineById = computed(() => new Map((netz.value?.lines ?? []).map((l) => [l.id, l])));
+const visible = (l?: NetzLine) =>
+  !!l &&
+  !hiddenCats.value.has(l.cat) &&
+  (!maxTakt.value || (l.takt !== null && l.takt <= maxTakt.value));
 
-interface Section {
+interface Seg {
+  el: EdgeLine;
   line: NetzLine;
   a: string;
   b: string;
-  dep: number | null;
-  arr: number | null;
   offset: number;
+  n: number;
 }
 
-/** consecutive node pairs per line, with parallel offsets for lines sharing an edge */
-const sections = computed<Section[]>(() => {
-  const out: Section[] = [];
-  const count = new Map<string, number>();
-  for (const l of visibleLines.value) {
-    for (let i = 1; i < l.stops.length; i++) {
-      const s = l.stops[i - 1]!;
-      const t = l.stops[i]!;
-      if (!pos.value.has(s.node) || !pos.value.has(t.node)) continue;
-      const key = [s.node, t.node].sort().join("|");
-      const n = count.get(key) ?? 0;
-      count.set(key, n + 1);
-      out.push({ line: l, a: s.node, b: t.node, dep: s.dep, arr: t.arr, offset: n });
-    }
+const segs = computed<Seg[]>(() => {
+  const out: Seg[] = [];
+  for (const e of netz.value?.edges ?? []) {
+    const ls = e.lines.filter((el) => visible(lineById.value.get(el.line)));
+    ls.forEach((el, i) =>
+      out.push({ el, line: lineById.value.get(el.line)!, a: e.a, b: e.b, offset: i, n: ls.length }),
+    );
   }
   return out;
 });
 
-function geom(s: Section) {
+function geom(s: Seg) {
   const p = pos.value.get(s.a)!;
   const q = pos.value.get(s.b)!;
   const dx = q.x - p.x;
@@ -134,19 +75,20 @@ function geom(s: Section) {
   const len = Math.hypot(dx, dy) || 1;
   const nx = -dy / len;
   const ny = dx / len;
-  const o = (s.offset % 2 ? 1 : -1) * Math.ceil(s.offset / 2) * 5;
+  const o = (s.offset - (s.n - 1) / 2) * 6;
   const ax = p.x + nx * o;
   const ay = p.y + ny * o;
-  const bx = q.x + nx * o;
-  const by = q.y + ny * o;
-  const lab = (f: number) => ({ x: ax + dx * f + nx * 7, y: ay + dy * f + ny * 7 });
+  const f = Math.min(0.3, 26 / len);
+  const at = (t: number) => ({ x: ax + dx * t, y: ay + dy * t });
   return {
     ax,
     ay,
-    bx,
-    by,
-    depAt: lab(Math.min(0.22, 22 / len)),
-    arrAt: lab(1 - Math.min(0.22, 22 / len)),
+    bx: q.x + nx * o,
+    by: q.y + ny * o,
+    nearA: at(f),
+    nearB: at(1 - f),
+    mid: at(0.5),
+    len,
   };
 }
 
@@ -158,12 +100,29 @@ function toggleCat(c: string) {
   else s.add(c);
   hiddenCats.value = s;
 }
-const node = computed(() => netz.value?.nodes.find((n) => n.id === selNode.value));
-const nodeLines = computed(() =>
-  visibleLines.value.filter((l) => l.stops.some((s) => s.node === selNode.value)),
+const node = computed<NetzNode | undefined>(() =>
+  netz.value?.nodes.find((n) => n.id === selNode.value),
 );
-const line = computed(() => netz.value?.lines.find((l) => l.id === selLine.value));
+const nodeLines = computed(() =>
+  (netz.value?.lines ?? []).filter(
+    (l) =>
+      visible(l) &&
+      [...l.fwd.stops, ...(l.back?.stops ?? [])].some((s) => s.node === selNode.value),
+  ),
+);
+const line = computed(() => (selLine.value ? lineById.value.get(selLine.value) : undefined));
 const nodeName = (id: string) => netz.value?.nodes.find((n) => n.id === id)?.name ?? id;
+const knotColor = (n: NetzNode) =>
+  n.knots.type === "voll"
+    ? "var(--accent)"
+    : n.knots.type === "halb"
+      ? "var(--warn)"
+      : n.knots.type
+        ? "var(--link)"
+        : "var(--bg2)";
+const knotLabel = (n: NetzNode) =>
+  n.knots.minutes.map((m) => `:${String(m).padStart(2, "0")}`).join(" ");
+const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ? 2 : 1.3);
 </script>
 
 <template>
@@ -194,7 +153,7 @@ const nodeName = (id: string) => netz.value?.nodes.find((n) => n.id === id)?.nam
         </button>
         <label class="ml-2 flex items-center gap-1">
           {{ $t("netz.takt") }} ≤
-          <select v-model.number="minTakt" class="input text-xs">
+          <select v-model.number="maxTakt" class="input text-xs">
             <option :value="0">*</option>
             <option :value="30">30′</option>
             <option :value="60">60′</option>
@@ -203,117 +162,190 @@ const nodeName = (id: string) => netz.value?.nodes.find((n) => n.id === id)?.nam
         </label>
         <span class="muted ml-auto">{{ netz.day }} · {{ netz.source }}</span>
       </div>
-      <div class="grid gap-3 xl:grid-cols-[1fr_280px]">
+      <div class="grid gap-3 2xl:grid-cols-[1fr_300px]">
         <div class="card overflow-x-auto p-1">
           <svg
             :viewBox="`0 0 ${W} ${H}`"
-            class="block w-full min-w-[900px]"
+            class="block w-full min-w-[640px]"
             role="img"
             :aria-label="$t('netz.title')"
           >
             <g
-              v-for="(s, i) in sections"
+              v-for="(s, i) in segs"
               :key="i"
               class="cursor-pointer"
-              :opacity="selLine && selLine !== s.line.id ? 0.15 : 1"
+              :opacity="
+                selLine
+                  ? selLine === s.line.id
+                    ? 1
+                    : 0.12
+                  : selNode && !nodeLines.includes(s.line)
+                    ? 0.25
+                    : 1
+              "
               @click="selLine = selLine === s.line.id ? undefined : s.line.id"
             >
+              <title>{{ s.line.cat }} {{ s.line.name }} ({{ s.line.takt ?? "–" }}′)</title>
               <line
                 :x1="geom(s).ax"
                 :y1="geom(s).ay"
                 :x2="geom(s).bx"
                 :y2="geom(s).by"
                 :stroke="categoryColor(s.line.cat)"
-                :stroke-width="
-                  s.line.takt && s.line.takt <= 30 ? 3 : s.line.takt && s.line.takt <= 60 ? 2 : 1.2
-                "
-                :stroke-dasharray="s.line.takt && s.line.takt > 60 ? '5 3' : undefined"
+                :stroke-width="lineWidth(s.line)"
+                :stroke-dasharray="!s.line.takt || s.line.takt > 60 ? '5 3' : undefined"
               />
-              <text
-                :x="geom(s).depAt.x"
-                :y="geom(s).depAt.y"
-                font-size="9"
-                text-anchor="middle"
-                class="mono"
-                fill="var(--fg)"
+              <template
+                v-if="geom(s).len > 60 && (selLine === s.line.id || segs.length < 140 || s.n === 1)"
               >
-                {{ mm(s.dep) }}
-              </text>
-              <text
-                :x="geom(s).arrAt.x"
-                :y="geom(s).arrAt.y"
-                font-size="9"
-                text-anchor="middle"
-                class="mono"
-                fill="var(--muted)"
-              >
-                {{ mm(s.arr) }}
-              </text>
+                <text
+                  :x="geom(s).nearA.x"
+                  :y="geom(s).nearA.y - 2"
+                  font-size="8"
+                  text-anchor="middle"
+                  class="mono"
+                  fill="var(--fg)"
+                >
+                  {{ mm(s.el.aDep)
+                  }}<tspan fill="var(--muted)">{{
+                    s.el.aArr !== null ? "/" + mm(s.el.aArr) : ""
+                  }}</tspan>
+                </text>
+                <text
+                  :x="geom(s).nearB.x"
+                  :y="geom(s).nearB.y - 2"
+                  font-size="8"
+                  text-anchor="middle"
+                  class="mono"
+                  fill="var(--fg)"
+                >
+                  <tspan fill="var(--muted)">{{ mm(s.el.bArr) }}</tspan
+                  >{{ s.el.bDep !== null ? "/" + mm(s.el.bDep) : "" }}
+                </text>
+                <text
+                  v-if="s.el.travel !== null && geom(s).len > 110"
+                  :x="geom(s).mid.x"
+                  :y="geom(s).mid.y + 9"
+                  font-size="8"
+                  text-anchor="middle"
+                  class="mono"
+                  fill="var(--muted)"
+                >
+                  {{ s.el.travel }}′
+                </text>
+              </template>
             </g>
             <g
               v-for="n in netz.nodes"
               :key="n.id"
               class="cursor-pointer"
-              @click="selNode = selNode === n.id ? undefined : n.id"
+              @click="
+                selNode = selNode === n.id ? undefined : n.id;
+                selLine = undefined;
+              "
             >
+              <title>{{ n.name }}{{ n.knots.minutes.length ? " · " + knotLabel(n) : "" }}</title>
               <rect
-                :x="pos.get(n.id)!.x - 7"
-                :y="pos.get(n.id)!.y - 7"
-                width="14"
-                height="14"
-                rx="3"
-                :fill="n.knoten?.length ? 'var(--fg)' : 'var(--bg2)'"
+                :x="pos.get(n.id)!.x - 9"
+                :y="pos.get(n.id)!.y - 9"
+                width="18"
+                height="18"
+                rx="4"
+                :fill="knotColor(n)"
                 :stroke="selNode === n.id ? 'var(--accent)' : 'var(--fg)'"
-                stroke-width="1.5"
+                :stroke-width="selNode === n.id ? 2.5 : 1.2"
               />
               <text
                 :x="pos.get(n.id)!.x"
-                :y="pos.get(n.id)!.y - 11"
+                :y="pos.get(n.id)!.y + 3"
+                font-size="7"
+                text-anchor="middle"
+                class="mono"
+                :fill="n.knots.type ? '#fff' : 'var(--fg)'"
+                font-weight="700"
+              >
+                {{ n.code }}
+              </text>
+              <text
+                :x="pos.get(n.id)!.x"
+                :y="pos.get(n.id)!.y - 13"
                 font-size="10"
                 text-anchor="middle"
                 fill="var(--fg)"
-                font-weight="600"
               >
                 {{ n.name }}
               </text>
-              <text
-                v-if="n.knoten?.length"
-                :x="pos.get(n.id)!.x"
-                :y="pos.get(n.id)!.y + 19"
-                font-size="9"
-                text-anchor="middle"
-                class="mono"
-                fill="var(--accent)"
-              >
-                {{ n.knoten.map((m) => ":" + String(m).padStart(2, "0")).join(" ") }}
-              </text>
             </g>
           </svg>
+          <p class="muted m-1 flex flex-wrap gap-3 text-xs">
+            <span><b class="text-[var(--accent)]">■</b> :00 Vollknoten</span>
+            <span><b class="text-[var(--warn)]">■</b> :30 Halbknoten</span>
+            <span><b class="text-[var(--link)]">■</b> :15/:45</span>
+            <span>━ 30′ · ── 60′ · ╌ 120′/–</span>
+            <span class="mono">dep/arr</span>
+          </p>
         </div>
         <aside class="card p-2 text-sm">
           <template v-if="line">
             <b :style="{ color: categoryColor(line.cat) }">{{ line.cat }}</b> {{ line.name }}
             <div class="muted text-xs">
-              {{ $t("netz.takt") }} {{ line.takt ? line.takt + "′" : "–" }} · {{ line.trips }}× ·
-              {{ line.numbers }}
-              <template v-if="line.symmetry !== undefined && line.symmetry !== null">
-                · {{ $t("netz.symmetry") }} {{ line.symmetry }}</template
+              {{ $t("netz.takt") }} {{ line.takt ? line.takt + "′" : "–" }}
+              <template v-if="line.symmetry !== null">
+                · {{ $t("netz.symmetry") }} {{ line.symmetry > 0 ? "+" : ""
+                }}{{ line.symmetry }}′</template
               >
             </div>
-            <ol class="m-0 mt-2 list-none p-0 mono text-xs">
-              <li v-for="(s, i) in line.stops" :key="i" class="flex gap-2">
-                <span class="w-6 text-right muted">{{ mm(s.arr) }}</span>
-                <span class="w-6 text-right">{{ mm(s.dep) }}</span>
-                <span class="font-sans">{{ nodeName(s.node) }}</span>
-              </li>
-            </ol>
+            <div v-for="d in [line.fwd, line.back].filter(Boolean)" :key="d!.to" class="mt-2">
+              <div class="text-xs">
+                → {{ d!.to }} · {{ d!.trips }}× · {{ d!.first }}–{{ d!.last }}
+                <div class="muted">{{ d!.numbers }}</div>
+              </div>
+              <ol class="m-0 mt-1 list-none p-0 mono text-xs">
+                <li
+                  v-for="(s, i) in d!.stops"
+                  :key="i"
+                  class="flex gap-2"
+                  :class="s.pass && 'muted italic'"
+                >
+                  <span class="w-6 text-right muted">{{ mm(s.arr) }}</span>
+                  <span class="w-6 text-right">{{ mm(s.dep) }}</span>
+                  <span class="font-sans">{{ nodeName(s.node) }}</span>
+                </li>
+              </ol>
+            </div>
           </template>
           <template v-else-if="node">
             <b>{{ node.name }}</b>
-            <div v-if="node.knoten?.length" class="text-xs">
-              {{ $t("netz.knoten") }}:
-              {{ node.knoten.map((m) => ":" + String(m).padStart(2, "0")).join(" ") }}
+            <RouterLink v-if="node.hafasId" :to="`/station/${node.hafasId}`" class="ml-2 text-xs"
+              >{{ $t("search.board") }} →</RouterLink
+            >
+            <div class="text-xs">
+              {{ $t("netz.knoten") }}: {{ knotLabel(node) || "–" }} ({{
+                Math.round(node.knots.share * 100)
+              }}
+              %)
             </div>
+            <svg viewBox="0 0 120 30" class="mt-1 block w-full" aria-hidden="true">
+              <rect
+                v-for="(c, m) in node.knots.arr"
+                :key="'a' + m"
+                :x="m * 2"
+                :y="15 - c * 4"
+                width="1.6"
+                :height="c * 4"
+                fill="var(--muted)"
+              />
+              <rect
+                v-for="(c, m) in node.knots.dep"
+                :key="'d' + m"
+                :x="m * 2"
+                y="15"
+                width="1.6"
+                :height="c * 4"
+                fill="var(--accent)"
+              />
+              <line x1="0" x2="120" y1="15" y2="15" stroke="var(--line)" stroke-width="0.3" />
+            </svg>
             <ul class="m-0 mt-2 list-none p-0 text-xs">
               <li v-for="l in nodeLines" :key="l.id" class="cursor-pointer" @click="selLine = l.id">
                 <b :style="{ color: categoryColor(l.cat) }">{{ l.cat }}</b> {{ l.name }}
@@ -322,7 +354,7 @@ const nodeName = (id: string) => netz.value?.nodes.find((n) => n.id === id)?.nam
             </ul>
           </template>
           <p v-else class="muted text-xs">
-            {{ $t("netz.knoten") }} · {{ $t("netz.takt") }} — click a node or line.
+            {{ netz.nodes.length }} Knoten · {{ netz.lines.length }} lines · click a node or line.
           </p>
         </aside>
       </div>
