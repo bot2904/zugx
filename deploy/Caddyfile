@@ -1,10 +1,30 @@
 {
 	admin off
 	auto_https off
+	servers {
+		# the host Caddy forwards from a private address: take the client IP from X-Forwarded-For
+		trusted_proxies static private_ranges
+	}
 }
 
 :8080 {
 	encode zstd gzip
+
+	# access log on stdout → `journalctl --user -u zugx` (stock console format, headers dropped)
+	log {
+		output stdout
+		format filter {
+			wrap console {
+				level_format upper
+			}
+			fields {
+				request>headers delete
+				request>tls delete
+				resp_headers delete
+				user_id delete
+			}
+		}
+	}
 
 	handle /api/mgate {
 		@notPost not method POST
