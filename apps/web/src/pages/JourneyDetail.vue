@@ -59,10 +59,12 @@ const points = computed<MapPoint[]>(() =>
 );
 
 const copied = ref(false);
+let copiedTimer: ReturnType<typeof setTimeout> | undefined;
 async function copy() {
   await navigator.clipboard?.writeText(location.href);
   copied.value = true;
-  setTimeout(() => (copied.value = false), 1500);
+  clearTimeout(copiedTimer);
+  copiedTimer = setTimeout(() => (copied.value = false), 2000);
 }
 
 function missed(leg: Leg) {
@@ -90,9 +92,8 @@ function missed(leg: Leg) {
         {{ j.data.value.dep.planned.slice(0, 10) }}
       </p>
       <div class="mb-2 flex gap-1">
-        <button class="btn text-xs" @click="copy">
-          🔗 {{ copied ? $t("journeys.copied") : $t("journeys.share") }}
-        </button>
+        <button class="btn text-xs" @click="copy">🔗 {{ $t("journeys.share") }}</button>
+        <span role="status" class="muted text-xs">{{ copied ? $t("journeys.copied") : "" }}</span>
         <CalendarButton :journey="j.data.value" />
       </div>
       <div class="grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">

@@ -42,6 +42,7 @@ const expanded = ref<number | undefined>(route.hash ? Number(route.hash.slice(1)
 const compare = ref(new Set<number>());
 const names = ref({ from: "", to: "", via: "" });
 const copied = ref(false);
+let copiedTimer: ReturnType<typeof setTimeout> | undefined;
 
 const opts = () => ({
   when: (t.value && fromLocalInput(t.value)) || new Date(),
@@ -145,7 +146,8 @@ async function share(j: Journey) {
   if (!p) return;
   await navigator.clipboard?.writeText(location.origin + p);
   copied.value = true;
-  setTimeout(() => (copied.value = false), 1500);
+  clearTimeout(copiedTimer);
+  copiedTimer = setTimeout(() => (copied.value = false), 2000);
 }
 
 function missed(leg: Leg) {
@@ -363,8 +365,9 @@ useKeys({
           🗺 {{ $t("trip.map") }}
         </RouterLink>
         <button class="btn text-xs" @click="share(journeys[expanded]!)">
-          🔗 {{ copied ? $t("journeys.copied") : $t("journeys.share") }}
+          🔗 {{ $t("journeys.share") }}
         </button>
+        <span role="status" class="muted text-xs">{{ copied ? $t("journeys.copied") : "" }}</span>
         <CalendarButton :journey="journeys[expanded]!" />
       </div>
       <LegList :journey="journeys[expanded]!" @missed="missed" />
