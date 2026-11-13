@@ -163,3 +163,9 @@ table.dense tbody tr:hover td {
 .skip-link:focus {
   top: 0.5rem;
 }
+
+/* long lists: skip layout/paint of items until they scroll near the viewport (not used above the fold) */
+.defer-render {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 9rem;
+}

@@ -37,7 +37,12 @@ const d = (iso?: string) =>
       />
     </div>
     <Status :loading="msgs.loading.value" :error="msgs.error.value" @retry="msgs.run" />
-    <article v-for="m in shown" :key="m.id" class="card my-2 p-3">
+    <article
+      v-for="(m, i) in shown"
+      :key="m.id"
+      class="card my-2 p-3"
+      :class="i >= 8 && 'defer-render'"
+    >
       <div class="flex flex-wrap items-baseline gap-2">
         <b>{{ m.title }}</b>
         <span v-if="m.affectedFrom" class="text-sm">
