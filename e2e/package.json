@@ -1,0 +1,13 @@
+{
+  "name": "@zugx/e2e",
+  "version": "0.0.0",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "catalog:"
+  }
+}

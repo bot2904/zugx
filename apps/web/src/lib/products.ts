@@ -80,3 +80,6 @@ export const PRODUCT_GROUPS: { id: string; cls: number }[] = [
   { id: "other", cls: 128 | 1024 | 2048 },
 ];
 export const ALL_CLS = PRODUCT_GROUPS.reduce((a, g) => a | g.cls, 0);
+
+/** default for station boards: trains only */
+export const RAIL_CLS = 1 | 2 | 4 | 8 | 16 | 32 | 4096;

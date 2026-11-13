@@ -6,7 +6,7 @@ defineProps<{ ev?: StopEvent }>();
 <template>
   <span
     v-if="ev?.platform"
-    class="mono"
+    class="mono whitespace-nowrap"
     :class="
       ev.plannedPlatform && ev.platform !== ev.plannedPlatform
         ? 'text-[var(--warn)] font-semibold'

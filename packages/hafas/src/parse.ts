@@ -81,21 +81,28 @@ export const RAIL_PRODUCTS = 1 | 2 | 4 | 8 | 16 | 32 | 4096;
 
 const NIGHT_CATEGORIES = new Set(["NJ", "EN", "ECN"]);
 
+const BUS_CATEGORIES = new Set(["BUS", "BSV", "SEV", "OBU", "O-BUS", "AST"]);
+
 export function productOf(cls: number | undefined, category = ""): ProductId {
-  if (NIGHT_CATEGORIES.has(category.toUpperCase())) return "night";
+  const cat = category.toUpperCase();
+  if (NIGHT_CATEGORIES.has(cat)) return "night";
+  if (BUS_CATEGORIES.has(cat)) return "bus";
   return (cls !== undefined && PRODUCT_BY_CLS[cls]) || "other";
 }
 
 export function parseLine(p: Raw, c: Common): Line {
   const ctx = p?.prodCtx ?? {};
-  const category = (ctx.catOutS ?? ctx.catOut ?? "").trim() || (p?.name ?? "").split(" ")[0] || "";
-  const number = String(ctx.num ?? p?.number ?? "").trim();
-  const name = (
-    p?.nameS && p.nameS !== number ? p.nameS : (p?.name ?? `${category} ${number}`)
-  ).trim();
+  const category =
+    String(ctx.catOutS ?? ctx.catOut ?? "").trim() || String(p?.name ?? "").split(" ")[0] || "";
   const op = p?.oprX !== undefined ? c.opL[p.oprX] : undefined;
+  // local transport has a line ("Tram 18", "Bus 69A"); trains have a train number ("RJX 13474")
+  const isLine = ctx.line !== undefined;
+  const number = String(isLine ? ctx.line : (ctx.num ?? p?.number ?? "")).trim();
+  const name = isLine
+    ? String(p?.nameS ?? p?.name ?? `${category} ${number}`).trim()
+    : `${category} ${number}`.trim() || String(p?.name ?? "").trim();
   return {
-    name: name || `${category} ${number}`.trim(),
+    name,
     category,
     number,
     categoryLong: ctx.catOutL?.trim() || undefined,

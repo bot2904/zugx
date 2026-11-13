@@ -1,6 +1,7 @@
 packages:
   - apps/*
   - packages/*
+  - e2e
 
 catalogMode: prefer
 
@@ -19,6 +20,7 @@ catalog:
   vite-plugin-pwa: ^2.0.0
   vue-tsc: ^3.3.14
   "@types/geojson": ^7946.0.16
+  "@playwright/test": ^1.65.0
 
 overrides:
   vite@*: "catalog:"

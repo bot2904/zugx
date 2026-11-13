@@ -11,7 +11,7 @@ import { api } from "../lib/api.ts";
 import { useAsync } from "../lib/async.ts";
 import { fromLocalInput, hhmm, toLocalInput } from "../lib/format.ts";
 import { useKeys } from "../lib/keys.ts";
-import { ALL_CLS, PRODUCT_GROUPS } from "../lib/products.ts";
+import { PRODUCT_GROUPS, RAIL_CLS } from "../lib/products.ts";
 import { loadStations, stationById } from "../lib/stations.ts";
 import { addRecent, isFavourite, toggleFavourite } from "../lib/store.ts";
 
@@ -22,7 +22,7 @@ const id = computed(() => String(route.params.id));
 const arrivals = computed(() => route.query.arr !== undefined);
 const t = computed(() => (typeof route.query.t === "string" ? route.query.t : ""));
 const products = computed(() =>
-  typeof route.query.p === "string" ? Number(route.query.p) : ALL_CLS,
+  typeof route.query.p === "string" ? Number(route.query.p) : RAIL_CLS,
 );
 const name = ref("");
 const sel = ref(-1);
@@ -83,7 +83,7 @@ function shift(min: number) {
 
 function toggleProduct(cls: number) {
   const p = products.value ^ cls;
-  setQuery({ p: p === ALL_CLS ? undefined : String(p || ALL_CLS) });
+  setQuery({ p: p === RAIL_CLS ? undefined : String(p || RAIL_CLS) });
 }
 
 const rows = computed(() => board.data.value ?? []);

@@ -164,6 +164,9 @@ settings:
 
 catalogs:
   default:
+    '@playwright/test':
+      specifier: ^1.65.0
+      version: 1.65.0
     '@types/geojson':
       specifier: ^7946.0.16
       version: 7946.0.16
@@ -222,7 +225,7 @@ importers:
         version: 7.0.2
       vite-plus:
         specifier: 'catalog:'
-        version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
+        version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
 
   apps/web:
     dependencies:
@@ -265,10 +268,16 @@ importers:
         version: 2.0.0(@voidzero-dev/vite-plus-core@1.6.0(@types/node@24.19.2)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3)))(workbox-build@7.4.1)(workbox-window@7.4.1)
       vite-plus:
         specifier: 'catalog:'
-        version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3))
+        version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3))
       vue-tsc:
         specifier: 'catalog:'
         version: 3.3.14(typescript@6.0.3)
+
+  e2e:
+    devDependencies:
+      '@playwright/test':
+        specifier: 'catalog:'
+        version: 1.65.0
 
   packages/hafas:
     devDependencies:
@@ -277,7 +286,7 @@ importers:
         version: 24.19.2
       vite-plus:
         specifier: 'catalog:'
-        version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
+        version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
 
 packages:
 
@@ -1313,6 +1322,11 @@ packages:
   '@oxlint/plugins@1.93.0':
     resolution: {integrity: sha512-bKWQI1g9jn8bWUZsvhbOLfgva576Fbp1KwoTNSUCMdT9tlTAvQS2JkifX1UrhPPdyN4GHvM20HhvIMqqU1yotQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  '@playwright/test@1.65.0':
+    resolution: {integrity: sha512-iGURLGuKDLakSEl7Pgfv8h7f+XLT+V861Wfhz0zlEl5nyFuKUopdkFBPKqTllTUp06aOwPuH8iuUEb3yp3MpbQ==}
+    engines: {node: '>=20'}
+    hasBin: true
 
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
@@ -3072,6 +3086,16 @@ packages:
   pkg-types@2.4.0:
     resolution: {integrity: sha512-07Fys7iVx0X6TcviMOgogM1Lk33ZyqOezMnU79S+kffWqwolG/5W9V8EgQSeYCIfFTYVgssRbnH630Oa2+soBA==}
 
+  playwright-core@1.65.0:
+    resolution: {integrity: sha512-vNSKgH6YqtN7cdT/L334zo0a+YwkrpicyrHJlWWPIm/Q+Nn2SWInil01oT0mbu96U4GgoRtCYQD9CzJQgju+lA==}
+    engines: {node: '>=20'}
+    hasBin: true
+
+  playwright@1.65.0:
+    resolution: {integrity: sha512-F3AMWcR44qMBt4kq+6Kb6mX7bjGXshktKFOPULd7reED6ZJWevjbNRqysP7q+AATE9kdPEZBibex1BYsvpVoeA==}
+    engines: {node: '>=20'}
+    hasBin: true
+
   pngjs@7.0.0:
     resolution: {integrity: sha512-LKWqWJRhstyYo9pGvgor/ivk2w94eSjE3RGVuzLGlr3NmD8bf7RcYGze1mNdEHRP6TRP6rMuDHk5t44hnTRyow==}
     engines: {node: '>=14.19.0'}
@@ -4700,6 +4724,10 @@ snapshots:
     optional: true
 
   '@oxlint/plugins@1.93.0': {}
+
+  '@playwright/test@1.65.0':
+    dependencies:
+      playwright: 1.65.0
 
   '@polka/url@1.0.0-next.29': {}
 
@@ -6360,7 +6388,7 @@ snapshots:
       oxc-parser: 0.153.0
       rolldown: 1.2.19
 
-  oxfmt@0.78.0(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3))):
+  oxfmt@0.78.0(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3))):
     dependencies:
       tinypool: 2.2.0
     optionalDependencies:
@@ -6383,9 +6411,9 @@ snapshots:
       '@oxfmt/binding-win32-arm64-msvc': 0.78.0
       '@oxfmt/binding-win32-ia32-msvc': 0.78.0
       '@oxfmt/binding-win32-x64-msvc': 0.78.0
-      vite-plus: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3))
+      vite-plus: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3))
 
-  oxfmt@0.78.0(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))):
+  oxfmt@0.78.0(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))):
     dependencies:
       tinypool: 2.2.0
     optionalDependencies:
@@ -6408,7 +6436,7 @@ snapshots:
       '@oxfmt/binding-win32-arm64-msvc': 0.78.0
       '@oxfmt/binding-win32-ia32-msvc': 0.78.0
       '@oxfmt/binding-win32-x64-msvc': 0.78.0
-      vite-plus: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
+      vite-plus: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
 
   oxlint-tsgolint@7.0.2006:
     optionalDependencies:
@@ -6419,7 +6447,7 @@ snapshots:
       '@oxlint-tsgolint/win32-arm64': 7.0.2006
       '@oxlint-tsgolint/win32-x64': 7.0.2006
 
-  oxlint@1.93.0(oxlint-tsgolint@7.0.2006)(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3))):
+  oxlint@1.93.0(oxlint-tsgolint@7.0.2006)(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3))):
     optionalDependencies:
       '@oxlint/binding-android-arm-eabi': 1.93.0
       '@oxlint/binding-android-arm64': 1.93.0
@@ -6441,9 +6469,9 @@ snapshots:
       '@oxlint/binding-win32-ia32-msvc': 1.93.0
       '@oxlint/binding-win32-x64-msvc': 1.93.0
       oxlint-tsgolint: 7.0.2006
-      vite-plus: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3))
+      vite-plus: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3))
 
-  oxlint@1.93.0(oxlint-tsgolint@7.0.2006)(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))):
+  oxlint@1.93.0(oxlint-tsgolint@7.0.2006)(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))):
     optionalDependencies:
       '@oxlint/binding-android-arm-eabi': 1.93.0
       '@oxlint/binding-android-arm64': 1.93.0
@@ -6465,7 +6493,7 @@ snapshots:
       '@oxlint/binding-win32-ia32-msvc': 1.93.0
       '@oxlint/binding-win32-x64-msvc': 1.93.0
       oxlint-tsgolint: 7.0.2006
-      vite-plus: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
+      vite-plus: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
 
   package-json-from-dist@1.0.1: {}
 
@@ -6505,6 +6533,12 @@ snapshots:
       confbox: 0.3.2
       exsolve: 1.2.0
       pathe: 2.0.3
+
+  playwright-core@1.65.0: {}
+
+  playwright@1.65.0:
+    dependencies:
+      playwright-core: 1.65.0
 
   pngjs@7.0.0: {}
 
@@ -7013,7 +7047,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3)):
+  vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3)):
     dependencies:
       '@oxc-project/runtime': 0.158.0
       '@oxc-project/types': 0.158.0
@@ -7025,8 +7059,8 @@ snapshots:
       '@vitest/snapshot': 5.1.0
       '@vitest/spy': 5.1.0
       '@vitest/utils': 5.1.0
-      oxfmt: 0.78.0(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3)))
-      oxlint: 1.93.0(oxlint-tsgolint@7.0.2006)(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3)))
+      oxfmt: 0.78.0(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3)))
+      oxlint: 1.93.0(oxlint-tsgolint@7.0.2006)(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3)))
       oxlint-tsgolint: 7.0.2006
       vite: '@voidzero-dev/vite-plus-core@1.6.0(@types/node@24.19.2)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3))'
       vitest: 5.1.0(@types/node@24.19.2)(@vitest/browser-preview@5.1.0)(@vitest/ui@5.1.0)(@voidzero-dev/vite-plus-core@1.6.0(@types/node@24.19.2)(@volar/typescript@2.4.30(typescript@6.0.3))(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@6.0.3)(vue-tsc@3.3.14(typescript@6.0.3)))
@@ -7039,6 +7073,7 @@ snapshots:
       '@voidzero-dev/vite-plus-linux-x64-musl': 1.6.0
       '@voidzero-dev/vite-plus-win32-arm64-msvc': 1.6.0
       '@voidzero-dev/vite-plus-win32-x64-msvc': 1.6.0
+      playwright: 1.65.0
     transitivePeerDependencies:
       - '@arethetypeswrong/core'
       - '@astrojs/compiler-rs'
@@ -7074,7 +7109,7 @@ snapshots:
       - vue-tsc
       - yaml
 
-  vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2)):
+  vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2)):
     dependencies:
       '@oxc-project/runtime': 0.158.0
       '@oxc-project/types': 0.158.0
@@ -7086,8 +7121,8 @@ snapshots:
       '@vitest/snapshot': 5.1.0
       '@vitest/spy': 5.1.0
       '@vitest/utils': 5.1.0
-      oxfmt: 0.78.0(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2)))
-      oxlint: 1.93.0(oxlint-tsgolint@7.0.2006)(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2)))
+      oxfmt: 0.78.0(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2)))
+      oxlint: 1.93.0(oxlint-tsgolint@7.0.2006)(vite-plus@1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2)))
       oxlint-tsgolint: 7.0.2006
       vite: '@voidzero-dev/vite-plus-core@1.6.0(@types/node@24.19.2)(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))'
       vitest: 5.1.0(@types/node@24.19.2)(@vitest/browser-preview@5.1.0)(@vitest/ui@5.1.0)(@voidzero-dev/vite-plus-core@1.6.0(@types/node@24.19.2)(@vue/language-core@3.3.14)(jiti@2.7.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2)))
@@ -7100,6 +7135,7 @@ snapshots:
       '@voidzero-dev/vite-plus-linux-x64-musl': 1.6.0
       '@voidzero-dev/vite-plus-win32-arm64-msvc': 1.6.0
       '@voidzero-dev/vite-plus-win32-x64-msvc': 1.6.0
+      playwright: 1.65.0
     transitivePeerDependencies:
       - '@arethetypeswrong/core'
       - '@astrojs/compiler-rs'
