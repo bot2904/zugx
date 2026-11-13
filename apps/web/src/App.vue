@@ -109,7 +109,9 @@ const shortcuts: [string, string][] = [
   </main>
   <DebugPanel v-if="state.debug" />
   <footer class="muted mx-auto max-w-6xl px-3 py-6 text-xs">
-    {{ $t("common.source") }} · AGPL-3.0 ·
+    {{ $t("common.source") }} ·
+    <a href="https://github.com/simon04/zugx">zugx</a>
+    (<a href="https://github.com/simon04/zugx/blob/master/LICENSE">AGPL-3.0</a>) ·
     <button
       class="cursor-pointer border-0 bg-transparent p-0 text-xs text-[var(--link)]"
       @click="help = true"

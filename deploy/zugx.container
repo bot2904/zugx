@@ -6,7 +6,7 @@ Description=zugx timetable web app
 
 [Container]
 ContainerName=zugx
-Image=ghcr.io/OWNER/zugx:latest
+Image=ghcr.io/simon04/zugx:latest
 PublishPort=127.0.0.1:8080:8080
 AutoUpdate=registry
 ReadOnly=true
