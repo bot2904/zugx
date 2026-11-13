@@ -161,6 +161,13 @@ test("station board columns are sortable", async ({ page }) => {
   await page.locator("table.dense tbody tr[data-row]").first().waitFor();
   await page.getByRole("columnheader", { name: /^(Pl\.|Bst\.|Bin\.)/ }).click();
   await expect(page).toHaveURL(/sort=platform/);
+  await expect(page.getByRole("columnheader", { name: /^(Pl\.|Bst\.|Bin\.)/ })).toHaveAttribute(
+    "aria-sort",
+    "ascending",
+  );
+  await expect(
+    page.getByRole("columnheader", { name: /^(Pl\.|Bst\.|Bin\.)/ }).getByRole("button"),
+  ).toBeFocused();
   const platforms = await page
     .locator("table.dense tbody tr[data-row] td:last-child")
     .allInnerTexts();

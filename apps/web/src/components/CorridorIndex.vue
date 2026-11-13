@@ -4,6 +4,7 @@ import type { CorridorIndex, CorridorIndexEntry } from "@zugx/netz";
 import { computed, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useKeys } from "../lib/keys.ts";
+import SortHeader from "./SortHeader.vue";
 import { normalize } from "../lib/normalize.ts";
 import { categoryColor } from "../lib/products.ts";
 
@@ -78,7 +79,6 @@ useKeys({
   k: () => (sel.value = Math.max(0, sel.value - 1)),
   Enter: () => open(rows.value[sel.value] ?? (rows.value.length === 1 ? rows.value[0] : undefined)),
 });
-const arrow = (k: SortKey) => (sort.value === k ? (desc.value ? " ↓" : " ↑") : "");
 </script>
 
 <template>
@@ -100,21 +100,35 @@ const arrow = (k: SortKey) => (sort.value === k ? (desc.value ? " ↓" : " ↑")
     <table class="dense mt-1">
       <thead>
         <tr>
-          <th class="cursor-pointer" :title="$t('bf.oebbTip')" @click="sortBy('oebb')">
-            ÖBB{{ arrow("oebb") }}
-          </th>
-          <th class="cursor-pointer" @click="sortBy('name')">
-            {{ $t("bf.corridor") }}{{ arrow("name") }}
-          </th>
-          <th class="hide-sm">{{ $t("trains.route") }}</th>
-          <th class="cursor-pointer text-right" @click="sortBy('km')">km{{ arrow("km") }}</th>
-          <th class="hide-sm cursor-pointer text-right" @click="sortBy('stations')">
-            {{ $t("bf.stations") }}{{ arrow("stations") }}
-          </th>
-          <th class="cursor-pointer text-right" @click="sortBy('trains')">
-            {{ $t("bf.trains") }}{{ arrow("trains") }}
-          </th>
-          <th class="hide-sm" :title="$t('bf.mixTip')">{{ $t("bf.mix") }}</th>
+          <SortHeader
+            :title="$t('bf.oebbTip')"
+            :active="sort === 'oebb'"
+            :desc="desc"
+            @sort="sortBy('oebb')"
+            >ÖBB</SortHeader
+          >
+          <SortHeader :active="sort === 'name'" :desc="desc" @sort="sortBy('name')">{{
+            $t("bf.corridor")
+          }}</SortHeader>
+          <th scope="col" class="hide-sm">{{ $t("trains.route") }}</th>
+          <SortHeader class="text-right" :active="sort === 'km'" :desc="desc" @sort="sortBy('km')"
+            >km</SortHeader
+          >
+          <SortHeader
+            class="hide-sm text-right"
+            :active="sort === 'stations'"
+            :desc="desc"
+            @sort="sortBy('stations')"
+            >{{ $t("bf.stations") }}</SortHeader
+          >
+          <SortHeader
+            class="text-right"
+            :active="sort === 'trains'"
+            :desc="desc"
+            @sort="sortBy('trains')"
+            >{{ $t("bf.trains") }}</SortHeader
+          >
+          <th scope="col" class="hide-sm" :title="$t('bf.mixTip')">{{ $t("bf.mix") }}</th>
         </tr>
       </thead>
       <tbody>

@@ -6,6 +6,7 @@ import EventTime from "../components/EventTime.vue";
 import LineBadge from "../components/LineBadge.vue";
 import Platform from "../components/Platform.vue";
 import Remarks from "../components/Remarks.vue";
+import SortHeader from "../components/SortHeader.vue";
 import Status from "../components/Status.vue";
 import MapView from "../viz/MapView.vue";
 import { api } from "../lib/api.ts";
@@ -116,7 +117,6 @@ function sortBy(k: SortKey) {
   const d = sort.value === k ? !desc.value : false;
   setQuery({ sort: k === "time" && !d ? undefined : k, desc: d ? "1" : undefined });
 }
-const arrow = (k: SortKey) => (sort.value === k ? (desc.value ? " ↓" : " ↑") : "");
 
 const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
 const sortValue = (e: BoardEntry, k: SortKey): string => {
@@ -230,18 +230,23 @@ watch(sel, (i) =>
         <table v-if="rows.length" class="dense">
           <thead>
             <tr>
-              <th class="cursor-pointer select-none" @click="sortBy('time')">
-                {{ $t("board.time") }}{{ arrow("time") }}
-              </th>
-              <th class="cursor-pointer select-none" @click="sortBy('line')">
-                {{ $t("board.line") }}{{ arrow("line") }}
-              </th>
-              <th class="cursor-pointer select-none" @click="sortBy('direction')">
-                {{ arrivals ? $t("board.from") : $t("board.direction") }}{{ arrow("direction") }}
-              </th>
-              <th class="cursor-pointer select-none text-right" @click="sortBy('platform')">
-                {{ $t("board.platform") }}{{ arrow("platform") }}
-              </th>
+              <SortHeader :active="sort === 'time'" :desc="desc" @sort="sortBy('time')">
+                {{ $t("board.time") }}
+              </SortHeader>
+              <SortHeader :active="sort === 'line'" :desc="desc" @sort="sortBy('line')">
+                {{ $t("board.line") }}
+              </SortHeader>
+              <SortHeader :active="sort === 'direction'" :desc="desc" @sort="sortBy('direction')">
+                {{ arrivals ? $t("board.from") : $t("board.direction") }}
+              </SortHeader>
+              <SortHeader
+                class="text-right"
+                :active="sort === 'platform'"
+                :desc="desc"
+                @sort="sortBy('platform')"
+              >
+                {{ $t("board.platform") }}
+              </SortHeader>
             </tr>
           </thead>
           <tbody>
