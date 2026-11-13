@@ -130,5 +130,7 @@ export default defineConfig({
   },
   test: {
     include: ["src/**/*.test.ts"],
+    // Node < 26 has no native Temporal (the app entry loads the polyfill the same way)
+    setupFiles: ["temporal-polyfill/global"],
   },
 });

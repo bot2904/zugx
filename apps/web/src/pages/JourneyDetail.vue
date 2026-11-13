@@ -11,7 +11,7 @@ import LegList from "../components/LegList.vue";
 import Status from "../components/Status.vue";
 import { api } from "../lib/api.ts";
 import { useAsync } from "../lib/async.ts";
-import { fmtDuration, toLocalInput } from "../lib/format.ts";
+import { fmtDuration, instant, toLocalInput } from "../lib/format.ts";
 import { lineColor } from "../lib/products.ts";
 import { unb64url } from "../lib/url.ts";
 import MapView, { type MapLine, type MapPoint } from "../viz/MapView.vue";
@@ -68,7 +68,7 @@ function missed(leg: Leg) {
   if (!dest) return;
   void router.push({
     path: `/j/${leg.origin.id}/${dest}`,
-    query: { t: toLocalInput(new Date(Date.parse(leg.dep.planned) + 60_000)) },
+    query: { t: toLocalInput(instant(leg.dep.planned).add({ minutes: 1 })) },
   });
 }
 </script>

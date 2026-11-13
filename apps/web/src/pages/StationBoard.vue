@@ -13,7 +13,7 @@ import Status from "../components/Status.vue";
 import MapView from "../viz/MapView.vue";
 import { api } from "../lib/api.ts";
 import { useAsync } from "../lib/async.ts";
-import { fromLocalInput, hhmm, toLocalInput } from "../lib/format.ts";
+import { fromLocalInput, hhmm, toLocalInput, viennaNow } from "../lib/format.ts";
 import { useKeys } from "../lib/keys.ts";
 import { PRODUCT_GROUPS, RAIL_CLS } from "../lib/products.ts";
 import { catRank } from "../lib/trains.ts";
@@ -39,7 +39,7 @@ let background = false;
 const board = useAsync<BoardEntry[]>(() =>
   api(background).board(id.value, {
     arrivals: arrivals.value,
-    when: (t.value && fromLocalInput(t.value)) || new Date(),
+    when: (t.value && fromLocalInput(t.value)) || Temporal.Now.instant(),
     duration: 90,
     results: 60,
     products: products.value,
@@ -100,8 +100,8 @@ function setQuery(q: Record<string, string | undefined>) {
 }
 
 function shift(min: number) {
-  const base = (t.value && fromLocalInput(t.value)) || new Date();
-  setQuery({ t: toLocalInput(new Date(base.getTime() + min * 60_000)) });
+  const base = (t.value && fromLocalInput(t.value)) || viennaNow();
+  setQuery({ t: toLocalInput(base.add({ minutes: min })) });
 }
 
 function toggleProduct(cls: number) {
@@ -209,7 +209,7 @@ watch(sel, (i) =>
           type="datetime-local"
           class="input text-xs"
           :aria-label="$t('board.time')"
-          :value="t || toLocalInput(new Date())"
+          :value="t || toLocalInput()"
           @change="setQuery({ t: ($event.target as HTMLInputElement).value || undefined })"
         />
         <button v-if="t" class="btn" @click="setQuery({ t: undefined })">

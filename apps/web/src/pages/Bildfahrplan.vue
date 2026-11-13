@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Bildfahrplan (time–distance diagram) for a corridor: x = km, y = time (downwards).
-import { viennaDate, viennaMinutes } from "../lib/format.ts";
+import { addDays, daysBetween, viennaDate, viennaMinutes, viennaNow } from "../lib/format.ts";
 import { useDebounceFn, useIntervalFn } from "@vueuse/core";
 import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
 import { computed, onMounted, ref, shallowRef, watch } from "vue";
@@ -33,8 +33,8 @@ const from = computed(() =>
 );
 const span = computed(() => Number(route.query.h ?? 4));
 const hover = ref<CorridorTrain>();
-const now = ref(new Date());
-useIntervalFn(() => (now.value = new Date()), 30_000);
+const now = shallowRef(viennaNow());
+useIntervalFn(() => (now.value = viennaNow()), 30_000);
 
 onMounted(async () => {
   if (indexFile) {
@@ -160,14 +160,7 @@ const date = computed(() => {
   if (c?.begin && today >= c.begin && today <= c.end) return today;
   return c?.day ?? today;
 });
-const dayIdx = computed(() =>
-  data.value?.begin
-    ? Math.round(
-        (Date.parse(`${date.value}T00:00:00Z`) - Date.parse(`${data.value.begin}T00:00:00Z`)) /
-          86_400_000,
-      )
-    : -1,
-);
+const dayIdx = computed(() => (data.value?.begin ? daysBetween(data.value.begin, date.value) : -1));
 const bitsCache = new WeakMap<CorridorTrain, Uint8Array>();
 function runsOnDate(t: CorridorTrain): boolean {
   if (!t.days) return true;
@@ -178,15 +171,11 @@ function runsOnDate(t: CorridorTrain): boolean {
 }
 const trainsOnDate = computed(() => (data.value?.trains ?? []).filter(runsOnDate));
 function shiftDay(delta: number) {
-  const d = new Date(`${date.value}T12:00:00Z`);
-  d.setUTCDate(d.getUTCDate() + delta);
-  setQuery({ d: d.toISOString().slice(0, 10) });
+  setQuery({ d: addDays(date.value, delta) });
 }
 const isToday = computed(() => date.value === today);
 const weekday = computed(() =>
-  new Intl.DateTimeFormat(locale.value, { weekday: "short", timeZone: "UTC" }).format(
-    new Date(`${date.value}T12:00:00Z`),
-  ),
+  Temporal.PlainDate.from(date.value).toLocaleString(locale.value, { weekday: "short" }),
 );
 
 const drawn = computed<Drawn[]>(() => {

@@ -188,6 +188,9 @@ catalogs:
     maplibre-gl:
       specifier: ^6.18.0
       version: 6.18.0
+    temporal-polyfill:
+      specifier: 1.0.8
+      version: 1.0.8
     typescript:
       specifier: ^7.0.2
       version: 7.0.2
@@ -253,6 +256,9 @@ importers:
       maplibre-gl:
         specifier: 'catalog:'
         version: 6.18.0
+      temporal-polyfill:
+        specifier: 'catalog:'
+        version: 1.0.8
       vue:
         specifier: 'catalog:'
         version: 3.5.45(typescript@6.0.3)
@@ -321,6 +327,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 24.19.2
+      temporal-polyfill:
+        specifier: 'catalog:'
+        version: 1.0.8
       vite-plus:
         specifier: 'catalog:'
         version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
@@ -3425,6 +3434,15 @@ packages:
   temp-dir@2.0.0:
     resolution: {integrity: sha512-aoBAniQmmwtcKp/7BzsH8Cxzv8OL736p7v1ihGb5e9DJ9kTwGWHrQrVB5+lfVDzfGrdRzXch+ig7LHaY1JTOrg==}
     engines: {node: '>=8'}
+
+  temporal-polyfill@1.0.8:
+    resolution: {integrity: sha512-RCCGa0GddT099XG49ijdD0tDf86L8vfuZun1+JyJiO4Y2NP9PACQsG0OnvNPXwVLisdvhr/zqL2nhKQmXXx08A==}
+
+  temporal-spec@1.0.1:
+    resolution: {integrity: sha512-wxVoanmDeavXie1vu2JaQ3WIc3JZnWAOYFBsJyATaVsXsycKYUflGsyBmrRSnoCpZJpwPyr38VpgSUlQ8CbFxg==}
+
+  temporal-utils@1.0.4:
+    resolution: {integrity: sha512-4mAcgbWlaxe+gn23gk8g0iHxCVGVOhKzSCfF5HM3lfvH8BdT+/pBmH/R/E4CrIse+koUgs8ThkPzCLnui6Fi8w==}
 
   tempy@0.6.0:
     resolution: {integrity: sha512-G13vtMYPT/J8A4X2SjdtBTphZlrp1gKv6hZiOjw14RCWg6GbHuQBGtjlx75xLbYV/wEc0D7G5K4rxKP/cXk8Bw==}
@@ -6964,6 +6982,15 @@ snapshots:
   supports-preserve-symlinks-flag@1.0.0: {}
 
   temp-dir@2.0.0: {}
+
+  temporal-polyfill@1.0.8:
+    dependencies:
+      temporal-spec: 1.0.1
+      temporal-utils: 1.0.4
+
+  temporal-spec@1.0.1: {}
+
+  temporal-utils@1.0.4: {}
 
   tempy@0.6.0:
     dependencies:

@@ -10,7 +10,7 @@ import LineBadge from "../components/LineBadge.vue";
 import Platform from "../components/Platform.vue";
 import Status from "../components/Status.vue";
 import { api } from "../lib/api.ts";
-import { fmtDuration, fromLocalInput, toLocalInput } from "../lib/format.ts";
+import { fmtDuration, fromLocalInput, instant, toLocalInput } from "../lib/format.ts";
 import { useKeys } from "../lib/keys.ts";
 import { ALL_CLS, PRODUCT_GROUPS } from "../lib/products.ts";
 import { loadStations, stationById } from "../lib/stations.ts";
@@ -45,7 +45,7 @@ const names = ref({ from: "", to: "", via: "" });
 const { copy: copyText, copied } = useClipboard({ copiedDuring: 2000 });
 
 const opts = () => ({
-  when: (t.value && fromLocalInput(t.value)) || new Date(),
+  when: (t.value && fromLocalInput(t.value)) || Temporal.Now.instant(),
   arrival: arrival.value,
   via: via.value,
   products: products.value,
@@ -160,7 +160,7 @@ async function share(j: Journey) {
 function missed(leg: Leg) {
   // re-plan from the transfer station after the planned departure of the connection
   const q: Record<string, string> = {
-    t: toLocalInput(new Date(Date.parse(leg.dep.planned) + 60_000)),
+    t: toLocalInput(instant(leg.dep.planned).add({ minutes: 1 })),
   };
   void router.push({ path: `/j/${leg.origin.id}/${to.value}`, query: q });
 }
@@ -249,7 +249,7 @@ useKeys({
           type="datetime-local"
           class="input text-xs"
           :aria-label="$t('board.time')"
-          :value="t || toLocalInput(new Date())"
+          :value="t || toLocalInput()"
           @change="setQuery({ t: ($event.target as HTMLInputElement).value || undefined })"
         />
         <select

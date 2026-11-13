@@ -49,6 +49,11 @@ describe("time parsing", () => {
   });
   it("falls back to Europe/Vienna offset (summer)", () => {
     expect(parseTime("20260701", "080000")).toBe("2026-07-01T08:00:00+02:00");
+    // night of the switch to winter time: 02:30 exists twice ("compatible" = the earlier, CEST)
+    expect(parseTime("20261025", "023000")).toBe("2026-10-25T02:30:00+02:00");
+    expect(parseTime("20261025", "033000")).toBe("2026-10-25T03:30:00+01:00");
+    // day offset across the end of a month
+    expect(parseTime("20261130", "01003000")).toBe("2026-12-01T00:30:00+01:00");
   });
   it("parses durations", () => {
     expect(parseDuration("023600")).toBe(156);
@@ -74,8 +79,8 @@ describe("currentDelay", () => {
         arr: ev("2026-11-13T11:00:00+01:00"),
       },
     ];
-    expect(currentDelay(stops, Date.parse("2026-11-13T10:05:00+01:00"))).toBe(2);
-    expect(currentDelay(stops, Date.parse("2026-11-13T10:50:00+01:00"))).toBe(7);
+    expect(currentDelay(stops, Temporal.Instant.from("2026-11-13T10:05:00+01:00"))).toBe(2);
+    expect(currentDelay(stops, Temporal.Instant.from("2026-11-13T10:50:00+01:00"))).toBe(7);
     expect(currentDelay([{ stop: stops[0]!.stop }])).toBeUndefined();
   });
 });
@@ -93,6 +98,7 @@ describe("polyline", () => {
 describe("running days", () => {
   it("decodes the bitmap", () => {
     expect(runningDays("C", "20251214")).toEqual(["2025-12-14", "2025-12-15"]);
+    expect(runningDays("0001", "20251229")).toEqual(["2026-01-13"]);
   });
 });
 

@@ -10,7 +10,7 @@ import Platform from "../components/Platform.vue";
 import Remarks from "../components/Remarks.vue";
 import Status from "../components/Status.vue";
 import { api } from "../lib/api.ts";
-import { fromLocalInput, hhmm, ms } from "../lib/format.ts";
+import { addDays, fromLocalInput, hhmm, ms } from "../lib/format.ts";
 import { delayColor, fmtSignedDelay } from "../lib/delay.ts";
 import { lineColor } from "../lib/products.ts";
 import { isJourneyId, slugToTrain, trainSlug } from "../lib/url.ts";
@@ -35,7 +35,7 @@ async function load(background = false) {
     let jid = id.value;
     if (!isJourneyId(jid)) {
       const name = slugToTrain(jid);
-      const when = (date.value && fromLocalInput(date.value)) || new Date();
+      const when = (date.value && fromLocalInput(date.value)) || Temporal.Now.instant();
       const found = await api().tripsByName(name, when);
       const [cat, nr] = name.includes(" ") ? name.split(" ") : ["", name];
       const exact = found.filter(
@@ -127,11 +127,9 @@ const tripDate = computed(() => {
 
 function goDay(delta: number) {
   if (!trip.value) return;
-  const base = new Date(`${tripDate.value}T12:00:00Z`);
-  base.setUTCDate(base.getUTCDate() + delta);
   void router.push({
     path: `/train/${trainSlug(trainName.value)}`,
-    query: { d: base.toISOString().slice(0, 10) },
+    query: { d: addDays(tripDate.value, delta) },
   });
 }
 </script>

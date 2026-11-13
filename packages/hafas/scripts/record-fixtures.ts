@@ -1,8 +1,10 @@
 // M0 spike: call the ÖBB mgate API directly and record raw responses as test fixtures.
 // Run: vp run hafas:record
+import "temporal-polyfill/global"; // Node < 26: no native Temporal
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { hafasDateTime } from "../src/client.ts";
 
 const ENDPOINT = "https://fahrplan.oebb.at/bin/mgate.exe";
 const out = join(dirname(fileURLToPath(import.meta.url)), "..", "fixtures");
@@ -30,10 +32,7 @@ async function call(meth: string, req: unknown): Promise<any> {
   return { request: body, response: json };
 }
 
-const pad = (n: number) => String(n).padStart(2, "0");
-const now = new Date();
-const date = `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}`;
-const time = `${pad(now.getHours())}${pad(now.getMinutes())}00`;
+const { date, time } = hafasDateTime(); // now, in Europe/Vienna
 const wien = { type: "S", lid: "A=1@L=8103000@" };
 const salzburg = { type: "S", lid: "A=1@L=8100002@" };
 

@@ -41,7 +41,7 @@ function goTrain() {
   if (train.value.trim()) void router.push(`/train/${trainSlug(train.value.toUpperCase())}`);
 }
 
-const nowInput = () => (when.value = toLocalInput(new Date()));
+const nowInput = () => (when.value = toLocalInput());
 </script>
 
 <template>

@@ -66,10 +66,13 @@ export function runsOnDay(e: TrainEntry, i: number): boolean {
 }
 
 export const dayIndex = (begin: string, iso: string) =>
-  Math.round((Date.parse(`${iso}T00:00:00Z`) - Date.parse(`${begin}T00:00:00Z`)) / 86_400_000);
+  Temporal.PlainDate.from(begin).until(Temporal.PlainDate.from(iso)).days;
 
 export const dayIso = (begin: string, i: number) =>
-  new Date(Date.parse(`${begin}T00:00:00Z`) + i * 86_400_000).toISOString().slice(0, 10);
+  Temporal.PlainDate.from(begin).add({ days: i }).toString();
+
+/** weekday, Mo = 0 */
+export const weekdayOf = (iso: string) => Temporal.PlainDate.from(iso).dayOfWeek - 1;
 
 export function totalDays(idx: Pick<TrainIndex, "begin" | "end">): number {
   return dayIndex(idx.begin, idx.end) + 1;
@@ -90,7 +93,7 @@ export interface DaysAnalysis {
 export function analyzeDays(e: TrainEntry, idx: Pick<TrainIndex, "begin" | "end">): DaysAnalysis {
   const firstI = Math.max(0, dayIndex(idx.begin, e.first));
   const lastI = Math.min(totalDays(idx) - 1, dayIndex(idx.begin, e.last));
-  const beginWd = (new Date(`${idx.begin}T00:00:00Z`).getUTCDay() + 6) % 7; // Mo = 0
+  const beginWd = weekdayOf(idx.begin);
   const wd = (i: number) => (beginWd + i) % 7;
   const per = Array<number>(7).fill(0);
   const possible = Array<number>(7).fill(0);
@@ -131,12 +134,11 @@ export function daysSummary(
 
 /** Merge consecutive day indexes into date ranges: "20.12.–4.1., 3.5." */
 export function dayRanges(days: number[], begin: string, locale: string, max = 12): string {
-  const fmt = new Intl.DateTimeFormat(locale, {
-    day: "numeric",
-    month: "numeric",
-    timeZone: "UTC",
-  });
-  const d = (i: number) => fmt.format(new Date(Date.parse(`${begin}T00:00:00Z`) + i * 86_400_000));
+  const d = (i: number) =>
+    Temporal.PlainDate.from(dayIso(begin, i)).toLocaleString(locale, {
+      day: "numeric",
+      month: "numeric",
+    });
   const ranges: string[] = [];
   for (let k = 0; k < days.length;) {
     let j = k;
@@ -166,13 +168,12 @@ export function daysTooltip(
   t: DaysTooltipLabels,
 ): string {
   const a = analyzeDays(e, idx);
-  const full = new Intl.DateTimeFormat(locale, {
-    day: "numeric",
-    month: "numeric",
-    year: "numeric",
-    timeZone: "UTC",
-  });
-  const fd = (iso: string) => full.format(new Date(`${iso}T00:00:00Z`));
+  const fd = (iso: string) =>
+    Temporal.PlainDate.from(iso).toLocaleString(locale, {
+      day: "numeric",
+      month: "numeric",
+      year: "numeric",
+    });
   const lines = [t.period(e.n, fd(e.first), fd(e.last))];
   if (!a.on.some(Boolean)) {
     lines.unshift(t.irregular);

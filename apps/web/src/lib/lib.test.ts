@@ -46,20 +46,22 @@ describe("station search", () => {
 describe("time inputs", () => {
   it("round-trips Vienna local time", () => {
     const d = fromLocalInput("2026-07-01T08:30")!;
-    expect(d.toISOString()).toBe("2026-07-01T06:30:00.000Z");
+    expect(d.toInstant().toString()).toBe("2026-07-01T06:30:00Z");
     expect(toLocalInput(d)).toBe("2026-07-01T08:30");
-    expect(fromLocalInput("2026-01-10T08:30")!.toISOString()).toBe("2026-01-10T07:30:00.000Z");
+    expect(fromLocalInput("2026-01-10T08:30")!.toInstant().toString()).toBe("2026-01-10T07:30:00Z");
+    expect(fromLocalInput("2026-02-30T08:30")).toBeUndefined();
+    expect(fromLocalInput("garbage")).toBeUndefined();
   });
 });
 
 describe("Vienna wall-clock (independent of the browser time zone)", () => {
   it("date and minutes", () => {
     // 2026-12-31 23:30 UTC = 2027-01-01 00:30 CET
-    const d = new Date(Date.UTC(2026, 11, 31, 23, 30));
+    const d = Temporal.Instant.from("2026-12-31T23:30:00Z");
     expect(viennaDate(d)).toBe("2027-01-01");
     expect(viennaMinutes(d)).toBe(30);
     // summer time: 06:15 UTC = 08:15 CEST
-    expect(viennaMinutes(new Date(Date.UTC(2026, 6, 1, 6, 15)))).toBe(8 * 60 + 15);
+    expect(viennaMinutes(Temporal.Instant.from("2026-07-01T06:15:00Z"))).toBe(8 * 60 + 15);
   });
 });
 

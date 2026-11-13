@@ -1,5 +1,6 @@
 // Daily canary: verify the unofficial ÖBB mgate API still answers all methods we use.
 // Exits non-zero if any call fails (AID/version changes, blocking, schema drift).
+import "temporal-polyfill/global"; // Node < 26: no native Temporal
 import { createClient, OEBB_ENDPOINT } from "../src/index.ts";
 
 const c = createClient({

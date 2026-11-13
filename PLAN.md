@@ -551,7 +551,7 @@ Still to do:
 - Checked, deliberately not changed: responsive-table (tables already fit on phones by hiding secondary columns; a scroll wrapper would break the page-level sticky headers), visually-stable-font-fallbacks (no web fonts are loaded).
 - Also done later: interest-triggered-tooltips (`ToggleTip`), scroll-target-on-load (`/j/…#n`).
 - Second sweep over the whole catalogue (2026-11-14):
-  - coordinate-global-events: times are always Europe/Vienna (`viennaDate`/`viennaMinutes`), not the browser's zone. Fixed the Bildfahrplan start hour and now-line, "today" in the train index and palette, and the timeline ticks. Temporal itself is deferred: Safari doesn't support it yet, and a polyfill would cost ~15 KB.
+  - coordinate-global-events: times are always Europe/Vienna (`viennaDate`/`viennaMinutes`), not the browser's zone. Fixed the Bildfahrplan start hour and now-line, "today" in the train index and palette, and the timeline ticks. Since then all date/time logic uses Temporal: native where available, else `temporal-polyfill` 1.0.8 as a separate chunk loaded before the app (19.5 kB gzip, only for browsers without Temporal, e.g. Safari).
   - viewport-aware-dropdowns: toggletip uses CSS anchor positioning where supported, with the JS placement as fallback.
   - privacy: the access log masks client IPs (Caddy `ip_mask`, /24 and /48).
   - animate-to-from-top-layer: short fade/scale for dialogs and popovers.

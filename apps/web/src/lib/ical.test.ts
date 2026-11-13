@@ -38,7 +38,7 @@ describe("ical", () => {
       j,
       "https://zugx.legner.me/trip/abc",
       labels,
-      new Date("2026-11-13T12:00:00Z"),
+      Temporal.Instant.from("2026-11-13T12:00:00Z"),
     );
     const unfolded = ics.replace(/\r\n /g, "");
     expect(ics.startsWith("BEGIN:VCALENDAR\r\n")).toBe(true);

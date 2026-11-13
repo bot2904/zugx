@@ -172,25 +172,15 @@ export const stationLid = (id: string) => `A=1@L=${id}@`;
 
 // ---------- time ----------
 
-const pad = (n: number, w = 2) => String(Math.abs(n)).padStart(w, "0");
+// Temporal (native or polyfilled globally by the app entry / test setup)
+export const VIENNA = "Europe/Vienna";
 
-const viennaFmt = new Intl.DateTimeFormat("en-US", {
-  timeZone: "Europe/Vienna",
-  timeZoneName: "longOffset",
-});
-
-/** Offset of Europe/Vienna in minutes at the given UTC instant. */
-export function viennaOffset(utcMs: number): number {
-  const part =
-    viennaFmt.formatToParts(new Date(utcMs)).find((p) => p.type === "timeZoneName")?.value ?? "";
-  const m = /GMT([+-])(\d{2}):?(\d{2})?/.exec(part);
-  if (!m) return 60;
-  return (m[1] === "-" ? -1 : 1) * (Number(m[2]) * 60 + Number(m[3] ?? 0));
-}
+const pad = (n: number) => String(Math.abs(n)).padStart(2, "0");
 
 /**
  * Parse a HAFAS time ("HHMMSS" or "DDHHMMSS" with day offset) relative to a date "YYYYMMDD".
- * Returns ISO 8601 with UTC offset, e.g. "2026-11-13T12:24:00+01:00".
+ * Returns ISO 8601 with UTC offset, e.g. "2026-11-13T12:24:00+01:00". Without an explicit offset
+ * (minutes) from HAFAS, the wall-clock time is in Europe/Vienna (DST gaps/overlaps: "compatible").
  */
 export function parseTime(
   date: string,
@@ -201,26 +191,19 @@ export function parseTime(
   const t = time.padStart(6, "0");
   const dayOff = t.length > 6 ? Number(t.slice(0, -6)) : 0;
   const hms = t.slice(-6);
-  const y = Number(date.slice(0, 4));
-  const mo = Number(date.slice(4, 6));
-  const d = Number(date.slice(6, 8));
-  const h = Number(hms.slice(0, 2));
-  const mi = Number(hms.slice(2, 4));
-  const s = Number(hms.slice(4, 6));
-  const localAsUtc = Date.UTC(y, mo - 1, d + dayOff, h, mi, s);
-  const off = tzOffset ?? viennaOffset(localAsUtc - 60 * 60_000);
-  return formatIso(localAsUtc - off * 60_000, off);
-}
-
-/** Format a UTC instant as local ISO time with the given offset (minutes). */
-export function formatIso(utcMs: number, offsetMin: number): string {
-  const l = new Date(utcMs + offsetMin * 60_000);
-  const sign = offsetMin < 0 ? "-" : "+";
-  return (
-    `${l.getUTCFullYear()}-${pad(l.getUTCMonth() + 1)}-${pad(l.getUTCDate())}` +
-    `T${pad(l.getUTCHours())}:${pad(l.getUTCMinutes())}:${pad(l.getUTCSeconds())}` +
-    `${sign}${pad(Math.floor(Math.abs(offsetMin) / 60))}:${pad(Math.abs(offsetMin) % 60)}`
-  );
+  const local = Temporal.PlainDate.from(
+    `${date.slice(0, 4)}-${date.slice(4, 6)}-${date.slice(6, 8)}`,
+  )
+    .add({ days: dayOff })
+    .toPlainDateTime({
+      hour: Number(hms.slice(0, 2)),
+      minute: Number(hms.slice(2, 4)),
+      second: Number(hms.slice(4, 6)),
+    });
+  if (tzOffset === undefined)
+    return local.toZonedDateTime(VIENNA).toString({ timeZoneName: "never" });
+  const sign = tzOffset < 0 ? "-" : "+";
+  return `${local.toString()}${sign}${pad(Math.trunc(tzOffset / 60))}:${pad(tzOffset % 60)}`;
 }
 
 /** Parse a HAFAS duration "HHMMSS" or "DDHHMMSS" into minutes. */
@@ -233,7 +216,7 @@ export function parseDuration(d: string | undefined): number {
 }
 
 const minutesBetween = (a: string, b: string) =>
-  Math.round((Date.parse(b) - Date.parse(a)) / 60_000);
+  Math.round(Temporal.Instant.from(b).since(Temporal.Instant.from(a)).total("minutes"));
 
 function event(s: Raw, kind: "a" | "d", date: string): StopEvent | undefined {
   const planned = parseTime(date, s?.[`${kind}TimeS`], s?.[`${kind}TZOffset`]);
@@ -458,19 +441,22 @@ export function parseJourneyMatch(res: Raw): TripMatch[] {
 }
 
 /** Delay at the stop whose planned time is closest to `now` (only stops with realtime data). */
-export function currentDelay(stops: Stopover[], now = Date.now()): number | undefined {
+export function currentDelay(
+  stops: Stopover[],
+  now: Temporal.Instant = Temporal.Now.instant(),
+): number | undefined {
   let best: { d: number; dist: number } | undefined;
   for (const s of stops) {
     for (const ev of [s.arr, s.dep]) {
       if (ev?.delay === undefined) continue;
-      const dist = Math.abs(Date.parse(ev.planned) - now);
+      const dist = Math.abs(now.until(ev.planned).total("seconds"));
       if (!best || dist < best.dist) best = { d: ev.delay, dist };
     }
   }
   return best?.d;
 }
 
-export function parseJourneyGeoPos(res: Raw, now = Date.now()): Movement[] {
+export function parseJourneyGeoPos(res: Raw, now = Temporal.Now.instant()): Movement[] {
   const c = common(res);
   return (res?.jnyL ?? [])
     .filter((j: Raw) => j.pos)

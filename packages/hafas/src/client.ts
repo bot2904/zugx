@@ -12,6 +12,7 @@ import {
   parseStationBoard,
   parseTripSearch,
   stationLid,
+  VIENNA,
 } from "./parse.ts";
 import type {
   BoardEntry,
@@ -60,29 +61,22 @@ export class HafasError extends Error {
   }
 }
 
-/** Split a Date into HAFAS date/time strings in Europe/Vienna. */
-export function hafasDateTime(d: Date): { date: string; time: string } {
-  const parts = Object.fromEntries(
-    new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Europe/Vienna",
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hourCycle: "h23",
-    })
-      .formatToParts(d)
-      .map((p) => [p.type, p.value]),
-  );
+/** Point in time for a query: an instant, or a wall-clock time in any zone (converted to Vienna). */
+export type When = Temporal.Instant | Temporal.ZonedDateTime;
+
+/** Split a point in time into HAFAS date/time strings in Europe/Vienna. */
+export function hafasDateTime(when: When = Temporal.Now.instant()): { date: string; time: string } {
+  const z =
+    when instanceof Temporal.Instant ? when.toZonedDateTimeISO(VIENNA) : when.withTimeZone(VIENNA);
+  const p = (n: number) => String(n).padStart(2, "0");
   return {
-    date: `${parts.year}${parts.month}${parts.day}`,
-    time: `${parts.hour}${parts.minute}00`,
+    date: `${z.year}${p(z.month)}${p(z.day)}`,
+    time: `${p(z.hour)}${p(z.minute)}00`,
   };
 }
 
 export interface JourneysOptions {
-  when?: Date;
+  when?: When;
   /** true = `when` is the arrival time */
   arrival?: boolean;
   via?: string;
@@ -97,7 +91,7 @@ export interface JourneysOptions {
 }
 
 export interface BoardOptions {
-  when?: Date;
+  when?: When;
   arrivals?: boolean;
   /** minutes */
   duration?: number;
@@ -184,7 +178,7 @@ export function createClient(opts: ClientOptions = {}) {
 
     async board(stationId: string, o: BoardOptions = {}): Promise<BoardEntry[]> {
       const type = o.arrivals ? "ARR" : "DEP";
-      const { date, time } = hafasDateTime(o.when ?? new Date());
+      const { date, time } = hafasDateTime(o.when);
       const res = await request("StationBoard", {
         type,
         date,
@@ -198,7 +192,7 @@ export function createClient(opts: ClientOptions = {}) {
     },
 
     async journeys(from: string, to: string, o: JourneysOptions = {}): Promise<JourneysResult> {
-      const { date, time } = hafasDateTime(o.when ?? new Date());
+      const { date, time } = hafasDateTime(o.when);
       const req: Record<string, unknown> = {
         depLocL: [loc(from)],
         arrLocL: [loc(to)],
@@ -239,7 +233,7 @@ export function createClient(opts: ClientOptions = {}) {
     },
 
     /** Find trains by name/number, e.g. "RJX 162" or "162". */
-    async tripsByName(query: string, when: Date = new Date()): Promise<TripMatch[]> {
+    async tripsByName(query: string, when?: When): Promise<TripMatch[]> {
       const { date } = hafasDateTime(when);
       try {
         const res = await request("JourneyMatch", { input: query, date, onlyCR: false });
@@ -252,9 +246,9 @@ export function createClient(opts: ClientOptions = {}) {
 
     async radar(
       bbox: { north: number; west: number; south: number; east: number },
-      o: { results?: number; products?: number; when?: Date } = {},
+      o: { results?: number; products?: number; when?: When } = {},
     ): Promise<Movement[]> {
-      const { date, time } = hafasDateTime(o.when ?? new Date());
+      const { date, time } = hafasDateTime(o.when);
       const res = await request("JourneyGeoPos", {
         maxJny: o.results ?? 200,
         onlyRT: false,

@@ -13,11 +13,8 @@ export interface IcsLabels {
 }
 
 /** UTC timestamp in iCalendar form: 20261113T122400Z */
-const icsDate = (iso: string) =>
-  new Date(iso)
-    .toISOString()
-    .replace(/[-:]/g, "")
-    .replace(/\.\d{3}/, "");
+const icsDate = (t: string | Temporal.Instant) =>
+  Temporal.Instant.from(t).toString({ smallestUnit: "second" }).replace(/[-:]/g, "");
 
 /** Escape TEXT values (RFC 5545 §3.3.11). */
 export const icsEscape = (s: string) =>
@@ -76,7 +73,9 @@ export function icsDescription(j: Journey, url: string, l: IcsLabels): string {
       continue;
     }
     if (prevArr) {
-      const min = Math.round((Date.parse(leg.dep.planned) - Date.parse(prevArr.planned)) / 60_000);
+      const min = Math.round(
+        Temporal.Instant.from(prevArr.planned).until(leg.dep.planned).total("minutes"),
+      );
       parts.push(`⇄ ${l.transfer(min)}`);
     }
     parts.push(legText(leg, l));
@@ -87,7 +86,12 @@ export function icsDescription(j: Journey, url: string, l: IcsLabels): string {
   return parts.join("\n\n");
 }
 
-export function buildIcs(j: Journey, url: string, l: IcsLabels, now = new Date()): string {
+export function buildIcs(
+  j: Journey,
+  url: string,
+  l: IcsLabels,
+  now = Temporal.Now.instant(),
+): string {
   const first = vehicleLegs(j)[0] ?? j.legs[0];
   const uidSrc = j.legs.map((x) => `${x.journeyId ?? x.origin.id}@${x.dep.planned}`).join("|");
   let h = 0;
@@ -100,7 +104,7 @@ export function buildIcs(j: Journey, url: string, l: IcsLabels, now = new Date()
     "METHOD:PUBLISH",
     "BEGIN:VEVENT",
     `UID:${(h >>> 0).toString(36)}-${icsDate(j.dep.planned)}@zugx.legner.me`,
-    `DTSTAMP:${icsDate(now.toISOString())}`,
+    `DTSTAMP:${icsDate(now)}`,
     `DTSTART:${icsDate(j.dep.planned)}`,
     `DTEND:${icsDate(j.arr.planned)}`,
     `SUMMARY:${icsEscape(icsSummary(j))}`,

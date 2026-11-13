@@ -25,50 +25,50 @@ export function fmtDelay(ev?: StopEvent): string {
   return ev.delay > 0 ? `+${ev.delay}` : ev.delay < 0 ? String(ev.delay) : "±0";
 }
 
-/** Local datetime-input value (YYYY-MM-DDTHH:MM) in Europe/Vienna for a Date. */
-export function toLocalInput(d: Date): string {
-  const p = Object.fromEntries(
-    new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Europe/Vienna",
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hourCycle: "h23",
-    })
-      .formatToParts(d)
-      .map((x) => [x.type, x.value]),
-  );
-  return `${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}`;
-}
+export { VIENNA } from "@zugx/hafas";
+import { VIENNA } from "@zugx/hafas";
 
-/** Today's date (YYYY-MM-DD) in Europe/Vienna — not the browser's time zone, not UTC. */
-export const viennaDate = (d = new Date()) => toLocalInput(d).slice(0, 10);
+/** Now, as a wall-clock time in Europe/Vienna. */
+export const viennaNow = () => Temporal.Now.zonedDateTimeISO(VIENNA);
 
-/** Minutes since midnight in Europe/Vienna wall-clock time. */
-export const viennaMinutes = (d = new Date()) => minutesOfDay(toLocalInput(d));
+type When = Temporal.Instant | Temporal.ZonedDateTime;
+const inVienna = (t: When = Temporal.Now.instant()) =>
+  t instanceof Temporal.Instant ? t.toZonedDateTimeISO(VIENNA) : t.withTimeZone(VIENNA);
 
-/** Parse a "YYYY-MM-DDTHH:MM" Vienna local value into a Date. */
-export function fromLocalInput(v: string): Date | undefined {
-  const m = /^(\d{4})-(\d\d)-(\d\d)(?:T(\d\d):(\d\d))?$/.exec(v);
-  if (!m) return undefined;
-  const utc = Date.UTC(+m[1]!, +m[2]! - 1, +m[3]!, +(m[4] ?? 0), +(m[5] ?? 0));
-  // offset at that instant (try CET, then correct)
-  let off = 60;
-  for (let i = 0; i < 2; i++) {
-    const d = new Date(utc - off * 60_000);
-    const s = new Intl.DateTimeFormat("en-US", {
-      timeZone: "Europe/Vienna",
-      timeZoneName: "longOffset",
-    })
-      .formatToParts(d)
-      .find((p) => p.type === "timeZoneName")?.value;
-    const mm = /GMT([+-])(\d\d):(\d\d)/.exec(s ?? "");
-    off = mm ? (mm[1] === "-" ? -1 : 1) * (+mm[2]! * 60 + +mm[3]!) : 60;
+/** Local datetime-input value (YYYY-MM-DDTHH:MM) in Europe/Vienna. */
+export const toLocalInput = (t?: When) =>
+  inVienna(t).toPlainDateTime().toString({ smallestUnit: "minute" });
+
+/** The date (YYYY-MM-DD) in Europe/Vienna — not the browser's time zone, not UTC. Default: today. */
+export const viennaDate = (t?: When) => inVienna(t).toPlainDate().toString();
+
+/** Minutes since midnight in Europe/Vienna wall-clock time. Default: now. */
+export const viennaMinutes = (t?: When) => {
+  const z = inVienna(t);
+  return z.hour * 60 + z.minute;
+};
+
+/** Parse a "YYYY-MM-DD[THH:MM]" Vienna wall-clock value (URL parameter, input). */
+export function fromLocalInput(v: string): Temporal.ZonedDateTime | undefined {
+  if (!/^\d{4}-\d\d-\d\d(T\d\d:\d\d)?$/.test(v)) return undefined;
+  try {
+    return Temporal.PlainDateTime.from(v).toZonedDateTime(VIENNA);
+  } catch {
+    return undefined; // e.g. 2026-02-30
   }
-  return new Date(utc - off * 60_000);
 }
+
+/** An ISO time from HAFAS (with offset) as an instant. */
+export const instant = (iso: string) => Temporal.Instant.from(iso);
+
+/** Shift an ISO date (YYYY-MM-DD) by whole days. */
+export const addDays = (iso: string, days: number) =>
+  Temporal.PlainDate.from(iso).add({ days }).toString();
+
+/** Whole days from ISO date a to b. */
+export const daysBetween = (a: string, b: string) =>
+  Temporal.PlainDate.from(a).until(Temporal.PlainDate.from(b)).days;
 
 export const minutesOfDay = (iso: string) => +iso.slice(11, 13) * 60 + +iso.slice(14, 16);
-export const ms = (iso?: string) => (iso ? Date.parse(iso) : NaN);
+/** Epoch milliseconds (for chart scales), NaN if missing. */
+export const ms = (iso?: string) => (iso ? instant(iso).epochMilliseconds : NaN);

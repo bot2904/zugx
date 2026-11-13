@@ -22,6 +22,7 @@ import {
   needsFull,
   runsOnDay,
   totalDays,
+  weekdayOf,
   yearFor,
   years,
   type QuickFilter,
@@ -183,9 +184,7 @@ function trainLink(x: TrainEntry) {
 
 /** 53 weeks × 7 days mini heat strip */
 // year strip: one column per week (Mon–Sun top to bottom), timetable year left to right
-const beginWd = computed(() =>
-  index.value ? (new Date(`${index.value.begin}T00:00:00Z`).getUTCDay() + 6) % 7 : 0,
-);
+const beginWd = computed(() => (index.value ? weekdayOf(index.value.begin) : 0));
 const cell = (i: number) => {
   const p = i + beginWd.value;
   return { x: Math.floor(p / 7) * 2, y: (p % 7) * 2 };
@@ -214,16 +213,13 @@ const monthTicks = computed(() => {
 });
 
 const tip = ref<{ text: string; x: number; y: number }>();
-const dayFmt = computed(
-  () =>
-    new Intl.DateTimeFormat(locale.value, {
-      weekday: "short",
-      day: "numeric",
-      month: "numeric",
-      year: "numeric",
-      timeZone: "UTC",
-    }),
-);
+const fmtDay = (iso: string) =>
+  Temporal.PlainDate.from(iso).toLocaleString(locale.value, {
+    weekday: "short",
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+  });
 function stripMove(ev: MouseEvent, x: TrainEntry) {
   const idx = index.value;
   if (!idx) return;
@@ -235,7 +231,7 @@ function stripMove(ev: MouseEvent, x: TrainEntry) {
     tip.value = undefined;
     return;
   }
-  const date = dayFmt.value.format(new Date(`${dayIso(idx.begin, i)}T00:00:00Z`));
+  const date = fmtDay(dayIso(idx.begin, i));
   const runs = runsOnDay(x, i);
   tip.value = {
     text: `${date} · ${runs ? t("trains.tip.runsOn") : t("trains.tip.notOn")}`,
