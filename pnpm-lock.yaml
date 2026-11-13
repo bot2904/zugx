@@ -179,6 +179,9 @@ catalogs:
     '@vitejs/plugin-vue':
       specifier: ^6.0.11
       version: 6.0.11
+    fflate:
+      specifier: ^0.8.3
+      version: 0.8.3
     maplibre-gl:
       specifier: ^6.18.0
       version: 6.18.0
@@ -287,6 +290,18 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 24.19.2
+      vite-plus:
+        specifier: 'catalog:'
+        version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
+
+  packages/netz:
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 24.19.2
+      fflate:
+        specifier: 'catalog:'
+        version: 0.8.3
       vite-plus:
         specifier: 'catalog:'
         version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))

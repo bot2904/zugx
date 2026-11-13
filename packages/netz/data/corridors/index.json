@@ -1,0 +1,46 @@
+{
+  "day": "2026-03-10",
+  "source": "ÖBB GTFS 2026 (CC BY 4.0)",
+  "corridors": [
+    {
+      "id": "westbahn",
+      "name": "Westbahn Wien – Salzburg",
+      "from": "Wien Hbf",
+      "to": "Salzburg Hbf",
+      "km": 315.2,
+      "stations": 61,
+      "trains": 1406,
+      "file": "westbahn.json"
+    },
+    {
+      "id": "suedbahn",
+      "name": "Südbahn Wien – Semmering – Graz",
+      "from": "Wien Hbf",
+      "to": "Graz Hbf",
+      "km": 210.4,
+      "stations": 52,
+      "trains": 1220,
+      "file": "suedbahn.json"
+    },
+    {
+      "id": "koralm",
+      "name": "Koralmbahn Graz – Klagenfurt – Villach",
+      "from": "Graz Hbf",
+      "to": "Villach Hbf",
+      "km": 164.5,
+      "stations": 18,
+      "trains": 189,
+      "file": "koralm.json"
+    },
+    {
+      "id": "brenner",
+      "name": "Unterinntal/Brenner Kufstein – Innsbruck – Brenner",
+      "from": "Kufstein",
+      "to": "Brennero/Brenner",
+      "km": 109.1,
+      "stations": 25,
+      "trains": 314,
+      "file": "brenner.json"
+    }
+  ]
+}
