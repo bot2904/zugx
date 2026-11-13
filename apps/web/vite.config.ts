@@ -1,7 +1,21 @@
 import vue from "@vitejs/plugin-vue";
 import UnoCSS from "unocss/vite";
 import { VitePWA } from "vite-plugin-pwa";
+import { execFileSync } from "node:child_process";
 import { defineConfig } from "vite-plus";
+
+/** last commit as `<hash> <YYYY-MM-DD>`, empty without a git checkout (e.g. container build) */
+function gitVersion(): string {
+  try {
+    return execFileSync("git", ["log", "-1", "--format=%h %cs"], { encoding: "utf8" }).trim();
+  } catch {
+    return "";
+  }
+}
+const [commitHash = "", commitDate = ""] = gitVersion().split(" ");
+// exposed as import.meta.env.VITE_*, unless already set in the environment (CI build args)
+process.env.VITE_COMMIT_HASH ??= commitHash;
+process.env.VITE_COMMIT_DATE ??= commitDate;
 
 export default defineConfig({
   plugins: [

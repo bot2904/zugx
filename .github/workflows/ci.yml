@@ -40,9 +40,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+      - id: version
+        run: |
+          echo "hash=$(git log -1 --format=%h)" >> "$GITHUB_OUTPUT"
+          echo "date=$(git log -1 --format=%cs)" >> "$GITHUB_OUTPUT"
       - uses: redhat-actions/buildah-build@v2
         id: build
         with:
+          build-args: |
+            VITE_COMMIT_HASH=${{ steps.version.outputs.hash }}
+            VITE_COMMIT_DATE=${{ steps.version.outputs.date }}
           image: zugx
           tags: latest ${{ github.sha }}
           containerfiles: deploy/Containerfile

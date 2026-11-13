@@ -14,6 +14,10 @@ COPY e2e/package.json e2e/
 ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
 RUN pnpm install --frozen-lockfile
 COPY . .
+# .git is not in the build context: CI passes the commit as build args (footer version)
+ARG VITE_COMMIT_HASH=""
+ARG VITE_COMMIT_DATE=""
+ENV VITE_COMMIT_HASH=$VITE_COMMIT_HASH VITE_COMMIT_DATE=$VITE_COMMIT_DATE
 RUN pnpm run build
 
 FROM docker.io/library/caddy:2-alpine

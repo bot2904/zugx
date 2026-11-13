@@ -8,6 +8,8 @@ import { useKeys } from "./lib/keys.ts";
 import { state } from "./lib/store.ts";
 
 const router = useRouter();
+const commitHash = import.meta.env.VITE_COMMIT_HASH;
+const commitDate = import.meta.env.VITE_COMMIT_DATE;
 const palette = ref(false);
 const help = ref(false);
 
@@ -122,6 +124,12 @@ const shortcuts: [string, string][] = [
     (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>) ·
     <a href="https://github.com/simon04/zugx">zugx</a>
     (<a href="https://github.com/simon04/zugx/blob/master/LICENSE">AGPL-3.0</a>)
+    <template v-if="commitHash">
+      ·
+      <a :href="`https://github.com/simon04/zugx/commit/${commitHash}`" class="mono"
+        >{{ commitHash }} ({{ commitDate }})</a
+      >
+    </template>
     <span class="keys-only"> · </span>
     <button
       class="keys-only cursor-pointer border-0 bg-transparent p-0 text-xs text-[var(--link)]"
