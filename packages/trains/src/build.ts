@@ -39,6 +39,9 @@ const MAX_VIA = 6;
 const HUBS_ALL = 60;
 const HUBS_LD = 40;
 const HUBS_ABROAD = 25;
+/** product names HAFAS sometimes puts in the train name remark — not train names */
+const GENERIC_NAMES =
+  /^(railjet( xpress)?|nightjet|euronight|eurocity|intercity(.express)?|interregio|westbahn|ice)$/i;
 
 const OPERATORS: [RegExp, string][] = [
   [/^(OEBB|ÖBB)/i, "oebb"],
@@ -395,7 +398,8 @@ async function main() {
     log,
   );
   const all = entries.map((e): TrainEntry => {
-    const name = isLongDistance(e) ? names[`${e.cat} ${e.nr}`]?.name : undefined;
+    const raw = isLongDistance(e) ? names[`${e.cat} ${e.nr}`]?.name : undefined;
+    const name = raw && !GENERIC_NAMES.test(raw) ? raw : undefined;
     if (!name) return e;
     const { op, cat, nr, ...rest } = e;
     return { op, cat, nr, name, ...rest }; // keep name right after nr
