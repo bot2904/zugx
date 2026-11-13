@@ -1,7 +1,7 @@
 // Delay classes shared by the radar, train maps and delay profile (classes based on MÁV's vonatinfo,
 // with on time and 1–5′ split). Two ColorBrewer palettes, user-selectable (remembered):
-// - "blue":  RdYlBu, colour-blind safe (default) — blue = on time, red = very late
-// - "green": RdYlGn, more intuitive for most people, but not colour-blind safe
+// - "green": RdYlGn, more intuitive for most people (default), but not colour-blind safe
+// - "blue":  RdYlBu, colour-blind safe — blue = on time, red = very late
 // In both, the palest middle step is skipped (it vanishes on light maps).
 import { ref, watch } from "vue";
 
@@ -38,7 +38,7 @@ export const NO_DATA = "#6e7681";
 
 const KEY = "zugx:delay-palette";
 export const delayPalette = ref<DelayPalette>(
-  localStorage.getItem(KEY) === "green" ? "green" : "blue",
+  localStorage.getItem(KEY) === "blue" ? "blue" : "green",
 );
 watch(delayPalette, (p) => localStorage.setItem(KEY, p));
 
