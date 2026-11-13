@@ -193,3 +193,50 @@ p {
 ::selection {
   background: color-mix(in oklab, var(--accent) 30%, transparent);
 }
+
+/* long tables: header row stays visible while scrolling the page (modern-web-guidance: state-aware-sticky-headers) */
+table.dense thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bg);
+}
+
+/* horizontally scrolling chip rows (touch): shadow at an edge while there is more to scroll
+   (modern-web-guidance: scrollability-affordance-hints; progressive enhancement via scroll-state queries) */
+@media (pointer: coarse) {
+  .chips {
+    container-type: scroll-state;
+  }
+  .chips::before,
+  .chips::after {
+    content: "";
+    position: sticky;
+    flex: 0 0 0.75rem;
+    align-self: stretch;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .chips::before {
+    inset-inline-start: 0;
+    margin-inline-end: -0.75rem;
+    background: radial-gradient(farthest-side at 0 50%, rgb(0 0 0 / 0.25), transparent);
+  }
+  .chips::after {
+    inset-inline-end: 0;
+    margin-inline-start: -0.75rem;
+    background: radial-gradient(farthest-side at 100% 50%, rgb(0 0 0 / 0.25), transparent);
+  }
+  @container scroll-state(scrollable: inline-start) {
+    .chips::before {
+      opacity: 1;
+    }
+  }
+  @container scroll-state(scrollable: inline-end) {
+    .chips::after {
+      opacity: 1;
+    }
+  }
+}

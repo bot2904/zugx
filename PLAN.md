@@ -540,6 +540,16 @@ Station pages show a minimap with OSM Carto raster tiles (zoom 17–19: station 
   2. Self-host for Austria: the project is open source (osm2pgsql + PostGIS + Martin tile server); an Austria extract is small enough for a container next to zugx, plus a weekly OSM update.
 - Overpass (live queries for platforms/entrances) was considered and rejected: too slow and unreliable.
 
+## 15. Open: modern-web-guidance pass (paused 2026-11-13)
+
+Working through https://github.com/GoogleChrome/modern-web-guidance (clone in `modern-web-guidance/`, local only, never commit). One commit per guide; done so far: dark-mode(-toggle)/browser-ui-theming, dialog (+ light dismiss, no scroll under modal), sortable-table, accessibility + respect-os-text-scale, ime-safe-enter-submit, deprioritize-background-fetches, defer-rendering-heavy-content, same-document-transitions, install-web-app (+ smaller SW precache), security/trusted-types headers, typography/scrollbar-color, forms (`<search>`, type=search, enterkeyhint), copy-button, state-aware-sticky-headers + scrollability-affordance-hints.
+
+Still to do:
+
+- **Flaky e2e test** "command palette is a native modal dialog": the second `Ctrl+K` after `Esc` sometimes doesn't reopen the dialog (`app.spec.ts`, `toBeVisible` after the 2nd open; ~1 in 10 runs, both projects). Check focus after `dialog.close()` and the `open` watcher in `ModalDialog.vue`.
+- Remaining guides worth checking: responsive-table (tables on narrow screens), interest-triggered-tooltips / position-aware-tooltips (we use `title`), spinner/progress (loading states), navbar/navigation-drawer (header on phones), visually-stable-font-fallbacks (we name Inter/JetBrains Mono without loading them), color/contrast-color, css-layout/responsive-design (container queries for board + map layout), privacy (geolocation is on demand already), scroll-target-on-load, performance (optimize-script/preload-priority, break-up-long-tasks for the 8k-row train filter).
+- Re-run `pnpx modern-web-guidance@latest legacy-scan apps/web --json` at the end.
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
