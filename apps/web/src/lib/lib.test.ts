@@ -75,6 +75,7 @@ describe("train running days", () => {
   };
   const entry = (pred: (i: number) => boolean): TrainEntry => ({
     via: [],
+    stops: [],
     op: "oebb",
     cat: "RJ",
     nr: "1",

@@ -30,6 +30,8 @@ export interface TrainEntry {
   to: StopRef;
   /** key intermediate stops (major hubs) of the main route, in route order, max 6 */
   via: string[];
+  /** all intermediate stops of the main route, in route order (superset of `via`) */
+  stops: string[];
   /**
    * running days: base64 bitset over the timetable year, bit i = day `begin + i`;
    * bit i is `(byte[i >> 3] >> (7 - (i & 7))) & 1` (MSB first, like HAFAS sDaysB)

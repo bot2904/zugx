@@ -14,7 +14,21 @@ const load = (file: string) => {
   return { text, idx: JSON.parse(text) as TrainIndex };
 };
 
-const KEYS = ["op", "cat", "nr", "name", "from", "to", "via", "days", "n", "first", "last", "var"];
+const KEYS = [
+  "op",
+  "cat",
+  "nr",
+  "name",
+  "from",
+  "to",
+  "via",
+  "stops",
+  "days",
+  "n",
+  "first",
+  "last",
+  "var",
+];
 const key = (e: TrainEntry) => `${e.op} ${e.cat} ${e.nr}`;
 
 it("has data files", () => {
@@ -65,6 +79,8 @@ describe.each(years)("trains-%s", (year) => {
         }
         for (const v of e.via) expect(idx.stations[v], where).toBeTruthy();
         expect(e.via.length, where).toBeLessThanOrEqual(6);
+        for (const v of e.stops) expect(idx.stations[v], where).toBeTruthy();
+        for (const v of e.via) expect(e.stops, where).toContain(v);
         // bitset length matches the timetable year
         expect(atob(e.days).length, where).toBe(bytes);
         const d = dayIndexes(e.days);
@@ -81,7 +97,7 @@ describe.each(years)("trains-%s", (year) => {
     });
 
     it("lists only referenced stations", () => {
-      const used = new Set(idx.trains.flatMap((e) => [e.from[0], e.to[0], ...e.via]));
+      const used = new Set(idx.trains.flatMap((e) => [e.from[0], e.to[0], ...e.stops]));
       expect(Object.keys(idx.stations).sort()).toEqual([...used].sort());
     });
   });

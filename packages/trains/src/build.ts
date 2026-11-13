@@ -364,6 +364,12 @@ async function main() {
       const id = hafasId(s.g);
       if (id !== fromId && id !== toId && !via.includes(id)) via.push(id);
     });
+    // all intermediate stops of the main route (for "trains stopping at X" and text search)
+    const stops: string[] = [];
+    for (const s of mids) {
+      const id = hafasId(s.g);
+      if (id !== fromId && id !== toId && stops.at(-1) !== id) stops.push(id);
+    }
     const dayIdx = [...byDay.keys()].sort((a, b) => a - b);
     const e: TrainEntry = {
       op: t.op,
@@ -372,6 +378,7 @@ async function main() {
       from: stopRef(fromId, first.dep),
       to: stopRef(toId, last.arr),
       via,
+      stops,
       days: encodeDays(dayIdx, nDays),
       n: dayIdx.length,
       first: isoDay(begin + dayIdx[0]!),
@@ -416,7 +423,7 @@ async function main() {
     for (const e of list) {
       ids.add(e.from[0]);
       ids.add(e.to[0]);
-      for (const v of e.via) ids.add(v);
+      for (const v of e.stops) ids.add(v);
     }
     const stations: Record<string, string> = {};
     for (const id of [...ids].sort()) stations[id] = stationNames.get(id) ?? id;

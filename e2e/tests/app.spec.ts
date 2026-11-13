@@ -82,3 +82,8 @@ test("bildfahrplan and netzgrafik render", async ({ page }) => {
   await page.goto("/netz");
   await expect(page.locator("svg text", { hasText: "Salzburg Hbf" }).first()).toBeVisible();
 });
+
+test("train index search matches intermediate stops", async ({ page }) => {
+  await page.goto("/trains?q=zell%20am%20see");
+  await expect(page.getByText("EC 164").first()).toBeVisible();
+});

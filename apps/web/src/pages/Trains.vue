@@ -110,7 +110,7 @@ const filtered = computed<TrainEntry[]>(() => {
     if (op.value && x.op !== op.value) return false;
     if (cat.value && x.cat !== cat.value) return false;
     if (!cat.value && !inGroup(x.cat, quick.value)) return false;
-    if (at.value && x.from[0] !== at.value && x.to[0] !== at.value && !x.via?.includes(at.value))
+    if (at.value && x.from[0] !== at.value && x.to[0] !== at.value && !x.stops.includes(at.value))
       return false;
     if (di >= 0 && !runsOnDay(x, di)) return false;
     if (query) {
@@ -119,7 +119,7 @@ const filtered = computed<TrainEntry[]>(() => {
         return x.nr.startsWith(num[2]!);
       }
       const hay = normalize(
-        `${x.cat} ${x.nr} ${x.name ?? ""} ${stationName(x.from[0])} ${stationName(x.to[0])} ${(x.via ?? []).map(stationName).join(" ")}`,
+        `${x.cat} ${x.nr} ${x.name ?? ""} ${stationName(x.from[0])} ${stationName(x.to[0])} ${x.stops.map(stationName).join(" ")}`,
       );
       return query.split(" ").every((tok) => hay.includes(tok));
     }
