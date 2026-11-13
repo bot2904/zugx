@@ -378,7 +378,7 @@ watch(sel, (i) =>
                 ><LineBadge :cat="x.cat" :nr="x.nr"
               /></RouterLink>
               <div v-if="x.name" class="text-xs italic">»{{ x.name }}«</div>
-              <div v-if="x.op !== 'oebb'" class="muted text-[11px]">{{ x.op }}</div>
+              <div v-if="x.op !== 'oebb'" class="muted text-[0.6875rem]">{{ x.op }}</div>
             </td>
             <td>
               <span class="mono muted mr-1"
@@ -406,7 +406,7 @@ watch(sel, (i) =>
               :title="daysTooltip(x, index, locale, tipT)"
             >
               {{ daysSummary(x, index, daysT) }}
-              <div class="muted text-[11px]">
+              <div class="muted text-[0.6875rem]">
                 {{ x.first.slice(5) }} – {{ x.last.slice(5)
                 }}<template v-if="x.var && x.var > 1">
                   · {{ $t("trains.variants", { n: x.var }) }}</template

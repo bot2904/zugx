@@ -54,7 +54,7 @@ function transferBefore(i: number): number | undefined {
           ⇄ {{ $t("journeys.transfer", { min: transferBefore(i) }) }}
           <template v-if="(transferBefore(i) ?? 99) < 5"> · {{ $t("journeys.tight") }}</template>
         </span>
-        <button class="btn ml-2 py-0 text-[11px]" @click="emit('missed', l, i)">
+        <button class="btn ml-2 py-0 text-[0.6875rem]" @click="emit('missed', l, i)">
           {{ $t("journeys.missed") }}
         </button>
       </div>
@@ -91,7 +91,7 @@ function transferBefore(i: number): number | undefined {
           }}</span>
           <button
             v-if="(l.stopovers?.length ?? 0) > 2"
-            class="btn ml-2 py-0 text-[11px]"
+            class="btn ml-2 py-0 text-[0.6875rem]"
             @click="toggle(i)"
           >
             {{ $t("journeys.stops", { n: (l.stopovers?.length ?? 2) - 2 }) }}

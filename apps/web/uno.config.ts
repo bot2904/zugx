@@ -18,6 +18,6 @@ export default defineConfig({
       "rounded border border-[var(--line)] bg-[var(--bg)] px-2 py-1 text-[var(--fg)] outline-none focus:border-[var(--accent)]",
     muted: "text-[var(--muted)]",
     mono: "font-mono tabular-nums",
-    kbd: "font-mono text-[11px] rounded border border-[var(--line)] px-1 py-px muted",
+    kbd: "font-mono text-[0.6875rem] rounded border border-[var(--line)] px-1 py-px muted",
   },
 });

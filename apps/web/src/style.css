@@ -49,7 +49,7 @@ table.dense th {
   text-align: left;
   font-weight: 500;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 0.75rem;
   border-bottom: 1px solid var(--line);
   padding: 4px 6px;
   white-space: nowrap;
@@ -66,7 +66,7 @@ table.dense tbody tr:hover td {
 .maplibregl-popup-content {
   background: var(--bg2) !important;
   color: var(--fg) !important;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 @media (max-width: 640px) {
   .hide-sm {
@@ -76,7 +76,7 @@ table.dense tbody tr:hover td {
 .zugx-tip .maplibregl-popup-content {
   padding: 3px 7px;
   font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 12px;
+  font-size: 0.75rem;
   border: 1px solid var(--line);
   pointer-events: none;
 }
@@ -100,12 +100,12 @@ table.dense tbody tr:hover td {
     min-height: 40px;
     min-width: 40px;
     padding: 6px 12px !important;
-    font-size: 14px !important;
+    font-size: 0.875rem !important;
     justify-content: center;
   }
   .input {
     min-height: 40px;
-    font-size: 16px !important;
+    font-size: 1rem !important;
   }
   input[type="checkbox"] {
     width: 20px;
@@ -121,7 +121,7 @@ table.dense tbody tr:hover td {
     min-height: 34px;
     min-width: 0;
     padding: 4px 10px !important;
-    font-size: 13px !important;
+    font-size: 0.8125rem !important;
   }
   .btn {
     white-space: nowrap;
@@ -175,4 +175,21 @@ table.dense tbody tr:hover td {
   ::view-transition-new(root) {
     animation-duration: 120ms;
   }
+}
+
+/* typography & browser UI (modern-web-guidance: typography, customize-scrollbar-color-and-thickness) */
+h1,
+h2,
+h3,
+th {
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+:root {
+  scrollbar-color: var(--muted) transparent;
+}
+::selection {
+  background: color-mix(in oklab, var(--accent) 30%, transparent);
 }

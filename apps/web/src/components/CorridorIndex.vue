@@ -189,7 +189,7 @@ useKeys({
               </rect>
             </svg>
             <div
-              class="muted mono overflow-hidden text-ellipsis whitespace-nowrap text-[10px]"
+              class="muted mono overflow-hidden text-ellipsis whitespace-nowrap text-[0.625rem]"
               style="max-width: 170px"
             >
               {{

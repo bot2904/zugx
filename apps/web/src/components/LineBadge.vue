@@ -23,7 +23,7 @@ const color = computed(() => (props.line ? lineColor(props.line) : categoryColor
 <template>
   <span
     class="mono inline-block whitespace-nowrap rounded px-1.5 font-semibold text-white"
-    :class="small ? 'text-[11px] leading-4' : 'text-xs leading-5'"
+    :class="small ? 'text-[0.6875rem] leading-4' : 'text-xs leading-5'"
     :style="{ background: color }"
     :title="title"
     >{{ label }}</span
