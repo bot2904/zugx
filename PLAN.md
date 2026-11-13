@@ -36,9 +36,12 @@ Considered names (German railway terms):
 - Shareable, permalink-style URLs for everything
 - Keyboard-first (`/` to focus search, arrow keys, `j/k`, shortcuts for earlier/later)
 - Dark/light mode, dense "geek" layout, monospace accents, no fluff
+- UI in **English, German, Italian** (i18n from day 1, `vue-i18n`; default from browser language)
+- Responsive: dense tables/timelines on desktop, collapsing to cards on mobile; station board + journey search must work well on a phone
 
 **Non-goals (for now)**
-- Ticket sales / prices (maybe "Sparschiene" price display later, if the API exposes it)
+- Ticket sales / prices (decided: ignored; at most a deep link to the ÖBB ticket shop per journey)
+- Delay history / punctuality statistics (decided: out of scope for now, idea kept — see §7, option C, and §11)
 - Native apps (PWA is enough)
 - User accounts
 
@@ -152,7 +155,7 @@ The host Caddy only terminates TLS and forwards; everything app-specific is insi
 Goal: station autocomplete returns results in < 5 ms after first load, works offline.
 
 **Build step (CI, e.g. weekly cron)**
-1. Source stations from GTFS/NeTEx (data.oebb.at) and/or by crawling HAFAS (`LocGeoPos` grid over AT + `LocMatch` for names) to get **HAFAS IDs** (what the API needs).
+1. Source stations from **open data** GTFS/NeTEx (mobilitydata.gv.at / data.oebb.at — the same feed as the train index, §8) (decided), then map/verify each to its **HAFAS ID** (what the API needs) via `LocMatch` in CI. No HAFAS grid crawl.
 2. Merge + dedupe; keep: `id`, `name`, `lat`, `lon`, product mask, "weight" (importance — e.g. number of departures/day or product class, so "Wien Hbf" beats "Wiener Neustadt Hbf" for `wien`), aliases/abbrev (e.g. `Wien Hbf`, `Wien Hauptbahnhof`, Betriebsstellen-Kürzel like `Wbf`?).
 3. Write **`packages/stations/stations.json` — committed to the repo** (decided). Pretty-printed, one station per line, sorted by ID → readable, small `git diff`s show exactly which stations changed. Rail-only AT ≈ 1–2k stations → ~100–200 KB raw, a few tens of KB compressed.
 4. A scheduled GitHub Action reruns the build weekly and **opens a PR** if the JSON changed (review the diff, merge). The build is never run at deploy time, so deploys are reproducible and don't depend on ÖBB being up.
@@ -192,6 +195,8 @@ Tech: SVG via D3 scales (or plain Vue + computed SVG) for 1–3, 5; Canvas/WebGL
 | Concern | Choice | Notes |
 |---|---|---|
 | Framework | **Vue 3 + Vite + TS, SPA** (decided) | Vue Router, Pinia only if needed; no SSR/Nuxt since there's no backend |
+| i18n | `vue-i18n` | en, de, it (decided) |
+| Licence | **AGPL-3.0** (decided) | hafas-client (ISC) code reusable; PTE (GPL) usable as reference |
 | Styling | UnoCSS | dense utility styling; CSS vars for theme (npmx-like) |
 | Viz | D3 (scales/shapes only) + SVG | no heavy chart lib |
 | Map | MapLibre GL | open tiles, OpenRailwayMap overlay |
@@ -199,7 +204,7 @@ Tech: SVG via D3 scales (or plain Vue + computed SVG) for 1–3, 5; Canvas/WebGL
 | Offline | `vite-plugin-pwa` | precache station index + shell |
 | Hosting | **zugx.legner.me**, own server, **Podman** (decided): one container (Caddy serving `dist/` + `/api/mgate` proxy) run as a systemd service via Quadlet; host Caddy in front for TLS | |
 | Testing | Vitest (unit, recorded HAFAS fixtures), Playwright (e2e) | |
-| CI | GitHub Actions: build image → push to `ghcr.io/<you>/zugx`; weekly job regenerating `stations.json` → PR | |
+| CI | GitHub Actions: build image → push to `ghcr.io/<you>/zugx` (decided), server pulls via `podman auto-update`; weekly job regenerating `stations.json` + `trains-<year>.json` → PR | |
 
 Repo layout (monorepo, pnpm):
 ```
@@ -320,7 +325,7 @@ Per train, one row (dense, sortable, like vagonweb's lists):
 | validity | first/last running day in the timetable year |
 | links | our train run `/train/RJX-260?d=…` (live), **vagonweb composition** (§8.5) |
 
-Filters: operator, category, station ("all trains stopping at Linz Hbf"), "runs on date X / today", number range, name. Grouping like vagonweb: operator → category → number. Keyboard nav as everywhere else. Typing a train number (`260`, `rjx260`, `RJX 260`) or a train name (`transalpin`) in the global search jumps straight to the train.
+Quick filters (one key/chip each): **all · long-distance** (RJX, RJ, NJ, EN, ICE, EC, IC, D, WB) **· regional** (CJX, REX, R) **· S-Bahn** (S) **· night trains** (NJ, EN). Further filters: operator, category, station ("all trains stopping at Linz Hbf"), "runs on date X / today", number range, name. Grouping like vagonweb: operator → category → number. Keyboard nav as everywhere else. Typing a train number (`260`, `rjx260`, `RJX 260`) or a train name (`transalpin`) in the global search jumps straight to the train.
 
 URLs:
 
@@ -386,26 +391,25 @@ vagonweb.cz is the reference for train compositions (Řazení vlaků); we **link
 
 ---
 
-## 11. Decisions so far
-- Station index: **rail only, Austria** (≈1–2k stations; LocMatch fallback for everything else)
+## 11. Decisions
+- Station index: **rail only, Austria** (≈1–2k stations; LocMatch fallback for everything else), built from **open data GTFS/NeTEx, mapped to HAFAS IDs** via `LocMatch`
 - Stack: **Vue 3 SPA**, no app backend — only a **Caddy** reverse proxy to the ÖBB API
 - Name: **zugx**, hosted at **zugx.legner.me**
 - Hosting: **own server, Podman** (Quadlet systemd service), host Caddy for TLS
 - Station cache: **committed `stations.json`**, refreshed by a weekly CI PR
 - First geek features: **timeline strips, Bildfahrplan, map + live radar, raw API JSON view** (all four)
+- UI language: **en + de + it**, i18n from day 1
+- Images: **GitHub Actions → GHCR**, `podman auto-update` on the server
+- Licence: **AGPL-3.0**
+- Netzgrafik: **export to NGE JSON first** (option A), own renderer later
+- Layout: **responsive, desktop-dense**
+- Prices: **ignored** (at most a link to the ÖBB ticket shop)
+- Delay history/statistics: **out of scope for now**, idea kept for later (would need a sampling service + DB)
+- Train index: **all trains** incl. regional/S-Bahn, with quick filters (long-distance / regional / S-Bahn / night); source **open data GTFS/NeTEx**, HAFAS only to enrich names
 
-## 12. Open questions (please answer / decide)
+## 12. Open questions
 
-1. **Language:** German UI, English UI, or both (i18n from day 1)? (Name is German → German default?)
-2. **Image source:** build in GitHub Actions → GHCR + `podman auto-update`, or build locally on the server? Is the host Caddy already running there (assumed: yes)?
-3. **Licence** for the repo (MIT/AGPL)? Matters if we reuse hafas-client (ISC) or PTE (GPL) code.
-4. **Netzgrafik:** happy to start with "export to NGE JSON" (option A), or own renderer from the start?
-5. **Mobile:** mobile-first or desktop-first (dense tables favour desktop)?
-6. **Prices:** show Sparschiene prices if obtainable, or ignore tickets entirely?
-7. **Delay history/statistics:** out of scope for now (would need a sampling service + DB, against the "proxy only" idea) — agree?
-8. **Station index source:** OK to build it by crawling HAFAS in CI (gives the exact IDs the API needs), or prefer open data (data.oebb.at GTFS) only, mapped to HAFAS IDs?
-9. **Train index scope:** all trains incl. regional/S-Bahn (≈10–15k), or long-distance + REX/CJX first?
-10. **Train index source:** OK to rely on the Austria-wide GTFS/NeTEx open data (mobilitydata.gv.at), with HAFAS only to enrich names?
+None right now — all answered (see §11). Still **to verify** in M0: open data licence and whether train numbers/names are in the GTFS, vagonweb `cislo` links for ÖBB trains, ÖBB composition data, Souin caching on POST bodies.
 
 ---
 
