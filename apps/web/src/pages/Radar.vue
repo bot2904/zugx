@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Live train positions (HAFAS JourneyGeoPos) for the visible map area.
-import type { Movement } from "@zugx/hafas";
+import type { Line, Movement } from "@zugx/hafas";
 import type { Map as MlMap } from "maplibre-gl";
 import { computed, onBeforeUnmount, ref, shallowRef, watch } from "vue";
 import { useRouter } from "vue-router";
@@ -70,6 +70,8 @@ const counts = computed(() => {
   return c;
 });
 
+/** "RJX 162", "S 2 (22734)" — always show the train number */
+const trainLabel = (l: Line) => (l.trainNumber ? `${l.name} (${l.trainNumber})` : l.name);
 const fmtDelay = (d?: number) => (d === undefined ? "" : d > 0 ? ` · +${d}′` : " · ±0");
 
 const points = computed<MapPoint[]>(() =>
@@ -78,7 +80,7 @@ const points = computed<MapPoint[]>(() =>
     lon: m.lon,
     id: m.journeyId,
     color: mode.value === "delay" ? delayColor(m.delay) : lineColor(m.line),
-    label: `${m.line.name} → ${m.direction}${fmtDelay(m.delay)}`,
+    label: `${trainLabel(m.line)} → ${m.direction}${fmtDelay(m.delay)}`,
   })),
 );
 

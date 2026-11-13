@@ -38,8 +38,10 @@ export interface Line {
   name: string;
   /** e.g. "RJX" */
   category: string;
-  /** e.g. "162" */
+  /** e.g. "162"; for lines (S-Bahn, buses) the line number, e.g. "2" for "S 2" */
   number: string;
+  /** train number if it differs from `number`, e.g. "22734" for "S 2" */
+  trainNumber?: string;
   /** e.g. "railjet xpress" */
   categoryLong?: string;
   cls: number;

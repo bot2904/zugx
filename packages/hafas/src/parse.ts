@@ -126,10 +126,12 @@ export function parseLine(p: Raw, c: Common): Line {
   const name = isLine
     ? String(p?.nameS ?? p?.name ?? `${category} ${number}`).trim()
     : `${category} ${number}`.trim() || String(p?.name ?? "").trim();
+  const trainNumber = isLine && ctx.num ? String(ctx.num).trim() : undefined;
   return {
     name,
     category,
     number,
+    ...(trainNumber && trainNumber !== number ? { trainNumber } : {}),
     categoryLong: ctx.catOutL?.trim() || undefined,
     cls: p?.cls ?? 0,
     product: productOf(p?.cls, category),

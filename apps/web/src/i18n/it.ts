@@ -69,6 +69,7 @@ export default {
   },
   calendar: { add: "Aggiungi al calendario", realtime: "tempo reale", open: "Apri in zugx" },
   trip: {
+    trainNumber: "Treno n.",
     title: "Percorso del treno",
     stops: "Fermate",
     map: "Mappa",

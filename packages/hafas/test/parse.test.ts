@@ -121,6 +121,12 @@ describe("client against fixtures", () => {
     expect(deps.some((x) => x.when.delay !== undefined)).toBe(true);
     expect(deps.some((x) => x.when.platform)).toBe(true);
   });
+  it("keeps the train number of S-Bahn lines", async () => {
+    const { client } = fixtureClient();
+    const deps = await client.board("8103000");
+    const s = deps.find((d) => d.line.name === "S 2");
+    expect(s?.line).toMatchObject({ number: "2", trainNumber: "22734" });
+  });
   it("replaces the ÖBB placeholder operator", async () => {
     const { client } = fixtureClient();
     const deps = await client.board("8103000");

@@ -67,6 +67,7 @@ export default {
   },
   calendar: { add: "Add to calendar", realtime: "realtime", open: "Open in zugx" },
   trip: {
+    trainNumber: "Train no.",
     title: "Train run",
     stops: "Stops",
     map: "Map",

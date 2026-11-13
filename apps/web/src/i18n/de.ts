@@ -69,6 +69,7 @@ export default {
   },
   calendar: { add: "Zum Kalender", realtime: "Echtzeit", open: "In zugx öffnen" },
   trip: {
+    trainNumber: "Zug-Nr.",
     title: "Zuglauf",
     stops: "Halte",
     map: "Karte",

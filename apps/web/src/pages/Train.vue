@@ -38,7 +38,8 @@ async function load() {
       const [cat, nr] = name.includes(" ") ? name.split(" ") : ["", name];
       const exact = found.filter(
         (m) =>
-          m.line.number === nr && (!cat || m.line.category.toUpperCase() === cat!.toUpperCase()),
+          (m.line.trainNumber ?? m.line.number) === nr &&
+          (!cat || m.line.category.toUpperCase() === cat!.toUpperCase()),
       );
       matches.value = exact.length ? exact : found;
       if (matches.value.length !== 1) {
@@ -105,6 +106,13 @@ const points = computed<MapPoint[]>(() =>
     })),
 );
 
+/** "RJX 162" or, for S-Bahn lines, category + train number ("S 22734") */
+const trainName = computed(() => {
+  const l = trip.value?.line;
+  if (!l) return "";
+  return l.trainNumber ? `${l.category.toUpperCase()} ${l.trainNumber}` : l.name;
+});
+
 const tripDate = computed(() => {
   const d = trip.value?.date;
   return d ? `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}` : "";
@@ -115,7 +123,7 @@ function goDay(delta: number) {
   const base = new Date(`${tripDate.value}T12:00:00Z`);
   base.setUTCDate(base.getUTCDate() + delta);
   void router.push({
-    path: `/train/${trainSlug(trip.value.line.name)}`,
+    path: `/train/${trainSlug(trainName.value)}`,
     query: { d: base.toISOString().slice(0, 10) },
   });
 }
@@ -150,6 +158,9 @@ function goDay(delta: number) {
     <template v-if="trip">
       <div class="flex flex-wrap items-center gap-2">
         <LineBadge :line="trip.line" />
+        <span v-if="trip.line.trainNumber" class="mono muted text-sm"
+          >{{ $t("trip.trainNumber") }} {{ trip.line.trainNumber }}</span
+        >
         <h1 class="m-0 text-xl">→ {{ trip.direction }}</h1>
         <span class="muted text-sm"
           >{{ trip.line.categoryLong
@@ -159,7 +170,7 @@ function goDay(delta: number) {
           <button class="btn" @click="goDay(-1)">‹</button>
           <span class="mono">{{ tripDate }}</span>
           <button class="btn" @click="goDay(1)">›</button>
-          <RouterLink :to="`/trains?q=${encodeURIComponent(trip.line.name)}`" class="btn">{{
+          <RouterLink :to="`/trains?q=${encodeURIComponent(trainName)}`" class="btn">{{
             $t("nav.trains")
           }}</RouterLink>
         </span>
