@@ -1,5 +1,6 @@
 // Tiny persisted state: recents, favourites, settings.
-import { reactive, watch } from "vue";
+import { toReactive, useLocalStorage } from "@vueuse/core";
+import type { Ref } from "vue";
 
 export interface SavedStation {
   id: string;
@@ -16,30 +17,13 @@ interface State {
 
 const KEY = "zugx:state";
 
-function load(): State {
-  const def: State = {
-    recents: [],
-    favourites: [],
-    recentJourneys: [],
-    debug: false,
-    view: "timeline",
-  };
-  try {
-    return { ...def, ...JSON.parse(localStorage.getItem(KEY) ?? "{}") };
-  } catch {
-    return def;
-  }
-}
-
-export const state = reactive<State>(load());
-
-watch(
-  state,
-  (s) => {
-    localStorage.setItem(KEY, JSON.stringify(s));
-  },
-  { deep: true },
+// persisted + synced across tabs; missing fields fall back to the defaults
+const stored = useLocalStorage<State>(
+  KEY,
+  { recents: [], favourites: [], recentJourneys: [], debug: false, view: "timeline" },
+  { mergeDefaults: true },
 );
+export const state = toReactive(stored as Ref<State>);
 
 export function addRecent(s: SavedStation) {
   state.recents = [s, ...state.recents.filter((r) => r.id !== s.id)].slice(0, 8);

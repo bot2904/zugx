@@ -15,6 +15,7 @@ import {
   type StyleSpecification,
 } from "maplibre-gl";
 import type { Feature, FeatureCollection } from "geojson";
+import { useLocalStorage } from "@vueuse/core";
 import { onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { scheme } from "../lib/theme.ts";
 
@@ -94,7 +95,9 @@ function fitAll() {
 // ---- base map: OpenFreeMap vector styles (calm, railways included), optional OpenRailwayMap overlay ----
 const ORM_KEY = "zugx:map-orm";
 // railway overlay on by default; switching it off is remembered
-const orm = ref(localStorage.getItem(ORM_KEY) !== "0");
+const orm = useLocalStorage(ORM_KEY, true, {
+  serializer: { read: (v) => v !== "0", write: (v) => (v ? "1" : "0") },
+});
 const styleUrl = (): string | StyleSpecification =>
   props.base === "osm"
     ? {
@@ -189,8 +192,7 @@ function setOrm(m: MlMap) {
   }
 }
 
-watch(orm, (v) => {
-  localStorage.setItem(ORM_KEY, v ? "1" : "0");
+watch(orm, () => {
   if (map) setOrm(map);
 });
 watch(

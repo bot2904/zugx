@@ -3,7 +3,7 @@
 // - "green": RdYlGn, more intuitive for most people (default), but not colour-blind safe
 // - "blue":  RdYlBu, colour-blind safe — blue = on time, red = very late
 // In both, the palest middle step is skipped (it vanishes on light maps).
-import { ref, watch } from "vue";
+import { useLocalStorage } from "@vueuse/core";
 
 export type DelayPalette = "blue" | "green";
 
@@ -37,10 +37,7 @@ const PALETTES: Record<DelayPalette, Record<DelayClassId, string>> = {
 export const NO_DATA = "#6e7681";
 
 const KEY = "zugx:delay-palette";
-export const delayPalette = ref<DelayPalette>(
-  localStorage.getItem(KEY) === "blue" ? "blue" : "green",
-);
-watch(delayPalette, (p) => localStorage.setItem(KEY, p));
+export const delayPalette = useLocalStorage<DelayPalette>(KEY, "green");
 
 export const classColor = (id: DelayClassId) => PALETTES[delayPalette.value][id];
 

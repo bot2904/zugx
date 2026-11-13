@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { BoardEntry } from "@zugx/hafas";
+import { useLocalStorage } from "@vueuse/core";
 import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import EventTime from "../components/EventTime.vue";
@@ -45,14 +46,11 @@ const board = useAsync<BoardEntry[]>(() =>
 );
 
 // minimap open by default on wide screens, collapsed on phones; the choice is remembered
-const mapOpen = ref(
-  localStorage.getItem("zugx:station-map") === null
-    ? matchMedia("(min-width: 1280px)").matches
-    : localStorage.getItem("zugx:station-map") === "1",
-);
+const mapOpen = useLocalStorage("zugx:station-map", matchMedia("(min-width: 1280px)").matches, {
+  serializer: { read: (v) => v === "1", write: (v) => (v ? "1" : "0") },
+});
 function onMapToggle(e: Event) {
   mapOpen.value = (e.target as HTMLDetailsElement).open;
-  localStorage.setItem("zugx:station-map", mapOpen.value ? "1" : "0");
 }
 
 /** station coordinates for the minimap (local index, else HAFAS) */

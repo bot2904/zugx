@@ -2,7 +2,8 @@
 // Live train positions (HAFAS JourneyGeoPos) for the visible map area.
 import type { Line, Movement } from "@zugx/hafas";
 import type { Map as MlMap } from "maplibre-gl";
-import { computed, onBeforeUnmount, ref, shallowRef, watch } from "vue";
+import { useLocalStorage } from "@vueuse/core";
+import { computed, onBeforeUnmount, ref, shallowRef } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 import Status from "../components/Status.vue";
@@ -59,10 +60,7 @@ const timer = setInterval(
 onBeforeUnmount(() => clearInterval(timer));
 
 // colour by delay (scale like MÁV's vonatinfo) or by train category
-const mode = ref<"delay" | "category">(
-  localStorage.getItem("zugx:radar-mode") === "category" ? "category" : "delay",
-);
-watch(mode, (m) => localStorage.setItem("zugx:radar-mode", m));
+const mode = useLocalStorage<"delay" | "category">("zugx:radar-mode", "delay");
 
 const counts = computed(() => {
   const c: Record<string, number> = {
