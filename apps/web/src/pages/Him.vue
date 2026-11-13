@@ -29,12 +29,16 @@ const d = (iso?: string) =>
     <div class="flex items-center gap-2">
       <h1 class="m-0 text-xl">{{ $t("him.title") }}</h1>
       <span class="muted text-xs">{{ shown.length }}</span>
-      <input
-        v-model="q"
-        class="input ml-auto"
-        :placeholder="$t('him.filter')"
-        :aria-label="$t('him.filter')"
-      />
+      <search class="contents">
+        <input
+          v-model="q"
+          type="search"
+          enterkeyhint="search"
+          class="input ml-auto"
+          :placeholder="$t('him.filter')"
+          :aria-label="$t('him.filter')"
+        />
+      </search>
     </div>
     <Status :loading="msgs.loading.value" :error="msgs.error.value" @retry="msgs.run" />
     <article

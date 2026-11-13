@@ -322,12 +322,16 @@ watch(sel, (i) =>
       >
         {{ $t("trains.today") }}
       </button>
-      <input
-        v-model="q"
-        class="input ml-auto min-w-48 text-sm"
-        :placeholder="$t('trains.filter')"
-        :aria-label="$t('trains.filter')"
-      />
+      <search class="contents">
+        <input
+          v-model="q"
+          type="search"
+          enterkeyhint="search"
+          class="input ml-auto min-w-48 text-sm"
+          :placeholder="$t('trains.filter')"
+          :aria-label="$t('trains.filter')"
+        />
+      </search>
     </div>
 
     <p v-if="at" class="text-sm">

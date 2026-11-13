@@ -33,13 +33,17 @@ const onlineOnly = computed(() =>
 
 <template>
   <section>
-    <input
-      v-model="q"
-      class="input w-full text-base"
-      :placeholder="$t('search.placeholder')"
-      :aria-label="$t('search.placeholder')"
-      autofocus
-    />
+    <search class="contents">
+      <input
+        v-model="q"
+        type="search"
+        enterkeyhint="search"
+        class="input w-full text-base"
+        :placeholder="$t('search.placeholder')"
+        :aria-label="$t('search.placeholder')"
+        autofocus
+      />
+    </search>
     <table class="dense mt-3">
       <tbody>
         <tr v-for="s in local" :key="s.id">

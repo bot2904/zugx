@@ -49,56 +49,65 @@ const nowInput = () => (when.value = toLocalInput(new Date()));
     <h1 class="mono m-0 text-2xl"><span class="text-[var(--accent)]">z</span>ugx</h1>
     <p class="muted mt-1">{{ $t("app.tagline") }}</p>
 
-    <form class="card mt-4 grid gap-2 p-3" data-search @submit.prevent="search">
-      <div class="grid items-end gap-2 sm:grid-cols-[1fr_auto_1fr]">
-        <StationInput
-          id="from"
-          v-model="from"
-          :label="$t('search.from')"
-          autofocus
-          @pick="toInput?.focus()"
-        />
-        <button
-          type="button"
-          class="btn mb-0.5 justify-center"
-          :title="$t('search.swap')"
-          :aria-label="$t('search.swap')"
-          @click="swap"
-        >
-          ⇄
-        </button>
-        <StationInput id="to" ref="toInput" v-model="to" :label="$t('search.to')" />
-      </div>
-      <StationInput v-if="showVia" id="via" v-model="via" :label="$t('search.via')" />
-      <div class="flex flex-wrap items-center gap-2 text-sm">
-        <button v-if="!showVia" type="button" class="btn" @click="showVia = true">
-          + {{ $t("search.via") }}
-        </button>
-        <label class="flex items-center gap-1">
-          <input v-model="arrival" type="checkbox" /> {{ $t("search.arrival") }}
-        </label>
-        <input
-          v-model="when"
-          type="datetime-local"
-          class="input text-sm"
-          :aria-label="$t('board.time')"
-        />
-        <button type="button" class="btn" @click="nowInput">{{ $t("search.now") }}</button>
-        <button type="submit" class="btn btn-on ml-auto px-4" :disabled="!from">
-          {{ to ? $t("search.go") : $t("search.board") }} ↵
-        </button>
-      </div>
-    </form>
+    <search>
+      <form
+        class="card mt-4 grid gap-2 p-3"
+        data-search
+        :aria-label="$t('search.go')"
+        @submit.prevent="search"
+      >
+        <div class="grid items-end gap-2 sm:grid-cols-[1fr_auto_1fr]">
+          <StationInput
+            id="from"
+            v-model="from"
+            :label="$t('search.from')"
+            autofocus
+            @pick="toInput?.focus()"
+          />
+          <button
+            type="button"
+            class="btn mb-0.5 justify-center"
+            :title="$t('search.swap')"
+            :aria-label="$t('search.swap')"
+            @click="swap"
+          >
+            ⇄
+          </button>
+          <StationInput id="to" ref="toInput" v-model="to" :label="$t('search.to')" />
+        </div>
+        <StationInput v-if="showVia" id="via" v-model="via" :label="$t('search.via')" />
+        <div class="flex flex-wrap items-center gap-2 text-sm">
+          <button v-if="!showVia" type="button" class="btn" @click="showVia = true">
+            + {{ $t("search.via") }}
+          </button>
+          <label class="flex items-center gap-1">
+            <input v-model="arrival" type="checkbox" /> {{ $t("search.arrival") }}
+          </label>
+          <input
+            v-model="when"
+            type="datetime-local"
+            class="input text-sm"
+            :aria-label="$t('board.time')"
+          />
+          <button type="button" class="btn" @click="nowInput">{{ $t("search.now") }}</button>
+          <button type="submit" class="btn btn-on ml-auto px-4" :disabled="!from">
+            {{ to ? $t("search.go") : $t("search.board") }} ↵
+          </button>
+        </div>
+      </form>
 
-    <form class="mt-3 flex gap-2" @submit.prevent="goTrain">
-      <input
-        v-model="train"
-        class="input mono flex-1"
-        :placeholder="$t('search.trainHint')"
-        :aria-label="$t('search.trainHint')"
-      />
-      <button class="btn" type="submit" :aria-label="$t('trip.title')">🚆</button>
-    </form>
+      <form class="mt-3 flex gap-2" :aria-label="$t('search.trainHint')" @submit.prevent="goTrain">
+        <input
+          v-model="train"
+          enterkeyhint="go"
+          autocomplete="off"
+          class="input mono flex-1"
+          :placeholder="$t('search.trainHint')"
+          :aria-label="$t('search.trainHint')"
+        />
+        <button class="btn" type="submit" :aria-label="$t('trip.title')">🚆</button>
+      </form>
+    </search>
 
     <div class="mt-6 grid gap-6 sm:grid-cols-2">
       <div v-if="state.recentJourneys.length">

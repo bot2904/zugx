@@ -86,14 +86,18 @@ useKeys({
     <div class="flex flex-wrap items-baseline gap-2">
       <h1 class="m-0 text-xl">{{ $t("bf.title") }}</h1>
       <span class="muted text-sm">{{ $t("bf.subtitle", { n: index.corridors.length }) }}</span>
-      <input
-        v-model="q"
-        class="input ml-auto min-w-56 text-sm"
-        :placeholder="$t('bf.filter')"
-        :aria-label="$t('bf.filter')"
-        autofocus
-        @keydown.enter="(e: KeyboardEvent) => !isImeEnter(e) && open(rows[0])"
-      />
+      <search class="contents">
+        <input
+          v-model="q"
+          type="search"
+          enterkeyhint="search"
+          class="input ml-auto min-w-56 text-sm"
+          :placeholder="$t('bf.filter')"
+          :aria-label="$t('bf.filter')"
+          autofocus
+          @keydown.enter="(e: KeyboardEvent) => !isImeEnter(e) && open(rows[0])"
+        />
+      </search>
     </div>
     <p class="muted my-1 text-xs">
       {{ rows.length }} / {{ index.corridors.length }} · {{ index.day }} · {{ index.source }}
