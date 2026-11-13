@@ -5,7 +5,7 @@
 > A fast, mobile-friendly, information-dense timetable browser for Austrian (and neighbouring) public transport.
 > Scotty's data, npmx.dev's feel. Later: Netzgrafik views of the Austrian integrated interval timetable (ITF / Taktfahrplan).
 
-Status: **M0–M7 implemented (2026-11-13)**, not yet deployed. Implementation notes and deviations in §13.
+Status: **M0–M7 implemented (2026-11-13), live at zugx.legner.me** (Quadlet container behind a Cloudflare Tunnel, CI on GitHub). Implementation notes and deviations in §13; what is still open in §16.
 
 Name: **zugx** (decided).
 
@@ -510,13 +510,13 @@ vagonweb.cz is the reference for train compositions (Řazení vlaků); we **link
 
 ## 12. Open questions
 
-None right now — all answered (see §11). Still **to verify** in M0: open data licence and whether train numbers/names are in the GTFS, ÖBB composition data, Souin caching on POST bodies.
+None right now — all answered (see §11). Verified since: the ÖBB GTFS is CC BY 4.0 and has train numbers (`trip_short_name`) but no train names (those come from HAFAS, §13). Dropped: Souin/proxy caching of POST bodies (the client caches requests itself). Still **to verify**: whether ÖBB exposes composition data (§8.4).
 
 ---
 
 ## 13. Implementation status & findings (2026-11-13)
 
-All milestones M0–M7 are implemented on `master`; `vp check`, unit tests (hafas, gtfs, stations, trains, netz, web), `vue-tsc` and 22 Playwright e2e tests (desktop + mobile, API mocked from fixtures) pass; the container image was built and verified locally (SPA + live `/api/mgate`). **Not done:** deploying to zugx.legner.me (needs the GHCR owner in `deploy/zugx.container` and the host Caddy snippet), running CI on GitHub (no remote yet).
+All milestones M0–M7 are implemented on `master` and deployed to zugx.legner.me (image `ghcr.io/simon04/zugx`, Quadlet, Cloudflare Tunnel; see `deploy/`). `vp check`, unit tests (hafas, gtfs, stations, trains, netz, web), `vue-tsc` and 52 Playwright e2e tests (26 tests × desktop + mobile, API mocked from fixtures, against the production build) pass and run in GitHub CI. Since then: Node 26 (LTS), Temporal API for all date/time logic (polyfill only for browsers without it), VueUse, a self-written i18n module instead of vue-i18n, imprint and privacy policy (§15).
 
 Findings from the API and data, and deviations from the plan:
 
@@ -524,7 +524,7 @@ Findings from the API and data, and deviations from the plan:
 - **Product classes:** `cls 2` is rail replacement (SEV/Bsv), **not** night trains — NJ/EN come as `cls 8` and are detected by category. Boards default to rail classes only (the Wien Hbf meta-station otherwise lists trams/buses).
 - **Train names** (e.g. »Transalpin«) are not in the GTFS; HAFAS has them as a remark with code `ZN` in `JourneyMatch` (cached in `packages/trains/data/names-<year>.json`).
 - **Open data:** the ÖBB GTFS (CC BY 4.0) is freely downloadable and has train numbers in `trip_short_name`, but covers only ÖBB-PV, CAT and Montafonerbahn; the Austria-wide GTFS on mobilitydata.gv.at needs registration and a licence agreement, so it is not used (builds accept `GTFS_ZIP=` to merge more feeds later). It is the December snapshot, so mid-year changes are missing, and foreign termini are cut at ÖBB's part of the run.
-- **Data built:** 1016 stations (1142/1146 GTFS stations mapped to HAFAS ids), train index 715 default / 7938 full trains (16 KB / 113 KB gzip), Netzgrafik 44 nodes / 63 lines (+ NGE export, not yet test-imported into NGE), 4 Bildfahrplan corridors (Westbahn, Südbahn, Koralmbahn, Brenner).
+- **Data built:** 1016 stations (1142/1146 GTFS stations mapped to HAFAS ids), train index 715 default / 7938 full trains (16 KB / 113 KB gzip), Netzgrafik 44 nodes / 63 lines (+ NGE export, not yet test-imported into NGE), 68 Bildfahrplan corridors (all ÖBB Fahrplanbilder, plus the original Westbahn, Südbahn, Koralmbahn, Brenner).
 - **Station search** runs on the main thread (2–5 ms for 1k stations), no Web Worker needed. Extra package `packages/gtfs` holds shared GTFS/CSV/zip/HAFAS-throttling code.
 - **Type checking:** tsgolint (TypeScript 7) can't read `.vue` files, so the web app additionally runs `vue-tsc` (pinned to TypeScript 6 in `apps/web`, since TS 7 has no JS API yet) via `vp run -r typecheck`.
 - **Running-days bitsets** are MSB-first per byte (like HAFAS `sDaysB`).
@@ -580,6 +580,22 @@ Still to do:
 - `src/i18n/index.ts` (~90 lines): reactive `locale`, `t(key, params)` with `{name}` interpolation and English fallback, `tm()`, `$t` plugin, `useI18n()` with the same shape, `setLocale` / `hafasLang` unchanged.
 - Keys are type-checked against the English messages (`MessageKey`); dynamic keys are typed too (`PRODUCT_GROUPS` ids, nav entries). Unit tests: de/it have exactly the keys (and array lengths) of en, interpolation, locale switching.
 - The vue-i18n chunk (57 kB, 18.9 kB gzip) is gone; the remaining i18n chunk is the three message files (6.4 kB gzip).
+
+## 16. Open items (2026-11-14)
+
+Optional features, roughly by value/effort:
+
+1. **vagonweb links** (§8.5) — first verify by hand that `cislo` links resolve for ÖBB trains.
+2. **Train index extensions** (§8.4) — composition data (if ÖBB exposes it), timetable-year diff, train-number ranges.
+3. **Netzgrafik** (§7) — test-import the NGE export into the Netzgrafik-Editor; option C (colour by today's punctuality).
+4. **Custom station plans** (§14) — blocked by the OpenRailwayMap vector tile 403: ask the maintainer or self-host for Austria.
+5. **Delay statistics** — out of scope for now; idea kept (ÖBB's weekly "Zugfahrten" CSV, §3.5, §11).
+
+To watch:
+
+- **SIRI4AT** (06/2026 – 11/2027): may bring open realtime feeds for Austrian rail; until then realtime only via HAFAS.
+- **Neighbours' GTFS** (DB, SBB) if cross-border trains matter.
+- **TypeScript 7 for `apps/web`** once `vue-tsc` supports it (needs a JS API or a Go-based Vue language tool).
 
 ## Sources
 
