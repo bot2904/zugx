@@ -308,7 +308,7 @@ Sketch of `deploy/Caddyfile` (inside the container, plain HTTP on :8080):
 
 		rewrite * /bin/mgate.exe
 		reverse_proxy https://fahrplan.oebb.at {
-			header_up Host {upstream_hostport}
+			header_up Host fahrplan.oebb.at
 			header_up User-Agent "zugx (https://zugx.legner.me)"
 			header_up -Cookie
 			header_down -Set-Cookie

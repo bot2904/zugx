@@ -9,6 +9,9 @@ COPY packages/hafas/package.json packages/hafas/
 COPY packages/stations/package.json packages/stations/
 COPY packages/trains/package.json packages/trains/
 COPY packages/netz/package.json packages/netz/
+COPY packages/gtfs/package.json packages/gtfs/
+COPY e2e/package.json e2e/
+ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
 RUN pnpm install --frozen-lockfile
 COPY . .
 RUN pnpm run build
