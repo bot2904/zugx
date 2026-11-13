@@ -30,6 +30,7 @@ Considered names (German railway terms):
 - Station boards (departures / arrivals) with realtime delays, platforms, cancellations
 - Train detail ("Zuglauf"): all stops, times, delays, platform, composition if available
 - Disruption info (HIM messages)
+- **Train index**: every train running in Austria this timetable year, vagonweb-style, with links to vagonweb compositions (see §8)
 - **Instant station search** from a local, pre-built station index (no network round trip per keystroke)
 - **Excellent visualization** of found connections (see §5)
 - Shareable, permalink-style URLs for everything
@@ -63,6 +64,7 @@ Proposed URL structure:
 | Journey detail (one result) | `/j/…/#3` or `/trip/<recon-token>` |
 | Train run | `/train/<journeyId>` and friendly `/train/RJX-260?d=2026-11-13` |
 | Disruptions | `/him` |
+| Train index | `/trains` (see §8) |
 | Netzgrafik (later) | `/netz/<region>` |
 
 Station IDs = HAFAS/UIC "EVA"/IBNR numbers (Austrian stations are `81xxxxx`, e.g. Wien Hbf `8103000`).
@@ -204,6 +206,7 @@ Repo layout (monorepo, pnpm):
 apps/web            Vue SPA (pages, components, viz)
 packages/hafas      typed ÖBB mgate client + normalizer, runs in browser (+ fixtures)
 packages/stations   build script (Node, CI only) + committed stations.json + schema
+packages/trains     train index build script (Node, CI only) + committed trains-<year>.json
 packages/netz       (later) GTFS → ITF analysis → Netzgrafik model
 deploy/             Containerfile (node build stage → caddy:2-alpine), Caddyfile (in-container),
                     zugx.container (Quadlet unit), Caddyfile.host (snippet for the host Caddy)
@@ -295,27 +298,95 @@ Note: the ÖBB "Zielnetz 2040"/Taktfahrplan Österreich planning is published as
 
 ---
 
-## 8. Milestones
+## 8. Train index ("Zugindex", vagonweb-style)
+
+A browsable, searchable list of **every train running in Austria** in the current timetable year (Fahrplanjahr 2026: 14.12.2025 – 12.12.2026), in the spirit of [vagonweb.cz](https://www.vagonweb.cz/razeni/index.php?rok=2026) — but focused on Austria, for all operators, and linked into our live views.
+
+### 8.1 Scope
+- "Running in Austria" = at least one stop at an Austrian station (`81xxxxx` IDs / inside AT). Includes foreign operators on Austrian tracks (DB ICE, ČD/MÁV Railjets, SBB/FS EC, partner Nightjets, ...).
+- Operators: ÖBB, WESTbahn, CAT, GKB, StH (Steiermarkbahn), SLB, Zillertalbahn, NÖVOG, Montafonerbahn, Raaberbahn (GySEV), foreign operators as above.
+- Categories: RJX, RJ, NJ, EN, ICE, EC, IC, D, WB, CJX, REX, R, S, plus heritage/special trains if in the data. Buses excluded.
+
+### 8.2 What it shows
+Per train, one row (dense, sortable, like vagonweb's lists):
+
+| Field | Example |
+|---|---|
+| category + number | `RJX 260` |
+| name | `»Transalpin«` |
+| operator | ÖBB |
+| route | Wien Hbf 07:30 → … → Zürich HB 15:20 (first/last stop, with times; key intermediate stops in a tooltip/expand) |
+| Verkehrstage (running days) | `täglich`, `Mo–Fr`, `nicht 24.–26.12.`, plus a small calendar heat-strip over the year |
+| validity | first/last running day in the timetable year |
+| links | our train run `/train/RJX-260?d=…` (live), **vagonweb composition** (§8.5) |
+
+Filters: operator, category, station ("all trains stopping at Linz Hbf"), "runs on date X / today", number range, name. Grouping like vagonweb: operator → category → number. Keyboard nav as everywhere else. Typing a train number (`260`, `rjx260`, `RJX 260`) or a train name (`transalpin`) in the global search jumps straight to the train.
+
+URLs:
+
+| Page | URL |
+|---|---|
+| Index (all operators) | `/trains` (`?y=2026`, `?d=2026-11-13` = runs on that day) |
+| Operator / category | `/trains/oebb`, `/trains/oebb/rjx` |
+| Trains at a station | `/trains?at=8103000` |
+| Single train | `/train/RJX-260` (existing train page, gains a "timetable year" tab: running days, route variants, vagonweb link) |
+
+### 8.3 Data pipeline
+- **Source: static timetable open data**, not HAFAS crawling — Austria-wide GTFS / NeTEx Sollfahrplan from mobilitydata.gv.at (covers all operators) and/or data.oebb.at. Licence and whether train numbers (`trip_short_name`) and names are included — **to verify** in M0.
+- Build script `packages/trains` (Node, CI only, same pattern as `packages/stations`):
+  1. Load GTFS, keep rail trips with ≥ 1 Austrian stop
+  2. Group by (operator, category, number) → one train; collect route variants (different stop patterns over the year) and service days (`calendar` + `calendar_dates` → bitset over the timetable year)
+  3. Map GTFS stop IDs → HAFAS IDs via `stations.json` (§4)
+  4. Train names: from GTFS if present; otherwise enrich long-distance trains (a few hundred) via one HAFAS `JourneyMatch`/`JourneyDetails` each, cached and throttled
+  5. Derive human-readable running days (`Mo–Fr`, `nicht 24.12.`) from the bitset
+- Output, **committed** like `stations.json`: `packages/trains/trains-2026.json`, one train per line, sorted by category + number → readable diffs. Fields kept to the summary (no full stop lists); estimate ~10–15k trains → roughly 1–2 MB raw, a few hundred KB compressed. If too large: split per operator/category into separate chunks.
+  ```json
+  {"op":"oebb","cat":"RJX","nr":260,"name":"Transalpin","from":["8103000","07:30"],"to":["8503000","15:20"],"via":["8100013","8101001","8100108"],"days":"<base64 bitset>","text":"täglich"}
+  ```
+  (Illustrative.) Running days are a 365/366-bit set → ~62 chars base64 per train.
+- The full stop list for a train comes **live** from HAFAS (`JourneyMatch` by number + date → `JourneyDetails`) when the train page opens — no need to ship it statically.
+- Weekly CI job opens a PR on changes (like stations). At the timetable change in December, a new `trains-<year>.json` is added; the previous year is kept for a while (`?y=2025`), since the new timetable is usually published weeks before it starts.
+- The index is a lazy, content-hashed chunk loaded only on `/trains*` pages and for train-number search; filtering/search runs in the same Web Worker as the station search.
+
+### 8.4 Later extensions
+- Composition ("Wagenreihung"): whether ÖBB exposes planned/actual composition via HAFAS or another endpoint — **to verify**; if so, show it on the train page. Until then, link to vagonweb.
+- Diff between timetable years ("what changed in Fahrplan 2027": new/removed trains, new names, changed routes).
+- Train-number ranges reference (ÖBB numbering scheme by category/region).
+
+### 8.5 Link to vagonweb
+vagonweb.cz is the reference for train compositions (Řazení vlaků); we **link to it, never scrape it** (it returns 403 to automated clients, and the composition data is their community's work).
+- Single train: `https://www.vagonweb.cz/razeni/vlak.php?zeme=<op>&kategorie=<cat>&cislo=<nr>&nazev=&rok=<year>&lang=de`
+- Operator/category list: `https://www.vagonweb.cz/razeni/razeni.php?zeme=<op>&kategorie=<cat>&rok=<year>&lang=de`
+- `rok` = timetable year (vagonweb's 2026 = 14.12.2025 – 12.12.2026, same as ours).
+- Operator codes (`zeme`) seen on vagonweb for Austria: `ÖBB`, `WSTBA` (WESTbahn, category `WEST`), `CAT`, `SLB`, `StB`, `ZB`, `NÖVOG`, `ÖGEG`, `A-` (other operators); foreign ones e.g. `ČD`, `DB`, `MÁV`, `SBB`. Their ÖBB categories: RJX, RJ, ICE, EC, NJ, EN, IC, D, IR, CJX, REX, R, SB (= S-Bahn), ASTB.
+- Keep a small mapping table `vagonwebOperator(op)` / `vagonwebCategory(cat)` (e.g. our `S` → `SB`, our `WB` → `WEST`) with unit tests. The `cislo` form was only seen for non-Austrian trains (vagonweb also uses `?id=` internally) — **verify by hand** in a browser that it resolves for ÖBB trains; if not, fall back to linking the operator/category list.
+- Link shown on: train page, each row in the train index, journey legs (small "Wagenreihung ↗" link).
+
+---
+
+## 9. Milestones
 
 - **M0 – Spike (1–2 days):** script calling `LocMatch`, `TripSearch`, `StationBoard`, `JourneyDetails`; record fixtures; confirm current `ver`/client values work.
 - **M1 – Skeleton:** Vite/Vue SPA, theme, layout, `/` search, Podman/Quadlet container (Caddy) with `/api/mgate` proxy, live on zugx.legner.me, client-side request cache, station board page, **raw JSON view** toggle (request + response, from day 1 — doubles as debug tool).
 - **M2 – Station index:** build script + client worker search + PWA caching.
 - **M3 – Journeys:** search form, results table + **timeline strips**, earlier/later paging, permalinks via `ctxRecon`.
 - **M4 – Detail, realtime & map:** Zuglauf, remarks/HIM, auto-refresh, **map + live radar** (`JourneyGeoPos`).
-- **M5 – Bildfahrplan** for corridors (Westbahn, Südbahn first), keyboard command palette (`Ctrl+K`), compare connections.
-- **M6 – Netzgrafik:** GTFS → NGE JSON export, then own renderer.
+- **M5 – Train index:** GTFS → `trains-<year>.json` build + weekly PR, `/trains` pages, train-number search, vagonweb links.
+- **M6 – Bildfahrplan** for corridors (Westbahn, Südbahn first), keyboard command palette (`Ctrl+K`), compare connections.
+- **M7 – Netzgrafik:** GTFS → NGE JSON export, then own renderer.
 
 ---
 
-## 9. Risks
+## 10. Risks
 - Unofficial API: blocking / AID changes → adapter layer, caching, monitoring job that pings key methods daily.
 - Legal/ToS of scraping HAFAS → keep traffic low, consider contacting ÖBB (opendata@oebb.at); prefer open data where possible.
 - Station ID mismatch between GTFS and HAFAS → mapping table, verified by `LocMatch`.
+- Train numbers/names missing or inconsistent in GTFS → HAFAS enrichment, manual overrides file.
 - Realtime data only via HAFAS (no public GTFS-RT for ÖBB that I'm aware of — to verify).
 
 ---
 
-## 10. Decisions so far
+## 11. Decisions so far
 - Station index: **rail only, Austria** (≈1–2k stations; LocMatch fallback for everything else)
 - Stack: **Vue 3 SPA**, no app backend — only a **Caddy** reverse proxy to the ÖBB API
 - Name: **zugx**, hosted at **zugx.legner.me**
@@ -323,7 +394,7 @@ Note: the ÖBB "Zielnetz 2040"/Taktfahrplan Österreich planning is published as
 - Station cache: **committed `stations.json`**, refreshed by a weekly CI PR
 - First geek features: **timeline strips, Bildfahrplan, map + live radar, raw API JSON view** (all four)
 
-## 11. Open questions (please answer / decide)
+## 12. Open questions (please answer / decide)
 
 1. **Language:** German UI, English UI, or both (i18n from day 1)? (Name is German → German default?)
 2. **Image source:** build in GitHub Actions → GHCR + `podman auto-update`, or build locally on the server? Is the host Caddy already running there (assumed: yes)?
@@ -333,6 +404,8 @@ Note: the ÖBB "Zielnetz 2040"/Taktfahrplan Österreich planning is published as
 6. **Prices:** show Sparschiene prices if obtainable, or ignore tickets entirely?
 7. **Delay history/statistics:** out of scope for now (would need a sampling service + DB, against the "proxy only" idea) — agree?
 8. **Station index source:** OK to build it by crawling HAFAS in CI (gives the exact IDs the API needs), or prefer open data (data.oebb.at GTFS) only, mapped to HAFAS IDs?
+9. **Train index scope:** all trains incl. regional/S-Bahn (≈10–15k), or long-distance + REX/CJX first?
+10. **Train index source:** OK to rely on the Austria-wide GTFS/NeTEx open data (mobilitydata.gv.at), with HAFAS only to enrich names?
 
 ---
 
@@ -343,6 +416,8 @@ Note: the ÖBB "Zielnetz 2040"/Taktfahrplan Österreich planning is published as
 - hafas-client readme: https://cdn.jsdelivr.net/npm/hafas-client@6.3.6/readme.md
 - ÖBB Scotty mgate API notes (agent skill): https://tessl.io/registry/skills/github/mitsuhiko/agent-stuff/oebb-scotty
 - ÖBB open data portal: https://data.oebb.at/
+- vagonweb.cz train compositions (index 2026): https://www.vagonweb.cz/razeni/index.php?rok=2026
+- Austrian open transport data (national access point): https://mobilitydata.gv.at/
 - npmx.dev repo: https://github.com/npmx-dev/npmx.dev
 - Netzgrafik-Editor: https://github.com/OpenRailAssociation/netzgrafik-editor-frontend
 - FOSDEM 2025 NGE talk: https://fosdem.org/schedule/event/fosdem-2025-5023-netzgrafik-editor-a-human-centric-timetable-planning-approach
