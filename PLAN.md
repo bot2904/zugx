@@ -5,7 +5,7 @@
 > A fast, keyboard-first, information-dense timetable browser for Austrian (and neighbouring) public transport.
 > Scotty's data, npmx.dev's feel. Later: Netzgrafik views of the Austrian integrated interval timetable (ITF / Taktfahrplan).
 
-Status: **draft plan, open questions at the bottom**.
+Status: **M0–M7 implemented (2026-11-13)**, not yet deployed. Implementation notes and deviations in §13.
 
 Name: **zugx** (decided).
 
@@ -513,6 +513,21 @@ vagonweb.cz is the reference for train compositions (Řazení vlaků); we **link
 None right now — all answered (see §11). Still **to verify** in M0: open data licence and whether train numbers/names are in the GTFS, ÖBB composition data, Souin caching on POST bodies.
 
 ---
+
+## 13. Implementation status & findings (2026-11-13)
+
+All milestones M0–M7 are implemented on `master`; `vp check`, unit tests (hafas, gtfs, stations, trains, netz, web), `vue-tsc` and 22 Playwright e2e tests (desktop + mobile, API mocked from fixtures) pass; the container image was built and verified locally (SPA + live `/api/mgate`). **Not done:** deploying to zugx.legner.me (needs the GHCR owner in `deploy/zugx.container` and the host Caddy snippet), running CI on GitHub (no remote yet).
+
+Findings from the API and data, and deviations from the plan:
+
+- **mgate:** `ver 1.67` + `vs_webapp` client works for all methods. Reconstruction takes `outReconL: [{ ctx }]` (from `con.recon.ctx`), not `ctxRecon`. HAFAS rejects any `Host` other than exactly `fahrplan.oebb.at` (Caddy sets it explicitly and drops `X-Forwarded-*`). TripSearch takes ~3–5 s.
+- **Product classes:** `cls 2` is rail replacement (SEV/Bsv), **not** night trains — NJ/EN come as `cls 8` and are detected by category. Boards default to rail classes only (the Wien Hbf meta-station otherwise lists trams/buses).
+- **Train names** (e.g. »Transalpin«) are not in the GTFS; HAFAS has them as a remark with code `ZN` in `JourneyMatch` (cached in `packages/trains/data/names-<year>.json`).
+- **Open data:** the ÖBB GTFS (CC BY 4.0) is freely downloadable and has train numbers in `trip_short_name`, but covers only ÖBB-PV, CAT and Montafonerbahn; the Austria-wide GTFS on mobilitydata.gv.at needs registration and a licence agreement, so it is not used (builds accept `GTFS_ZIP=` to merge more feeds later). It is the December snapshot, so mid-year changes are missing, and foreign termini are cut at ÖBB's part of the run.
+- **Data built:** 1016 stations (1142/1146 GTFS stations mapped to HAFAS ids), train index 715 default / 7938 full trains (16 KB / 113 KB gzip), Netzgrafik 44 nodes / 63 lines (+ NGE export, not yet test-imported into NGE), 4 Bildfahrplan corridors (Westbahn, Südbahn, Koralmbahn, Brenner).
+- **Station search** runs on the main thread (2–5 ms for 1k stations), no Web Worker needed. Extra package `packages/gtfs` holds shared GTFS/CSV/zip/HAFAS-throttling code.
+- **Type checking:** tsgolint (TypeScript 7) can't read `.vue` files, so the web app additionally runs `vue-tsc` (pinned to TypeScript 6 in `apps/web`, since TS 7 has no JS API yet) via `vp run -r typecheck`.
+- **Running-days bitsets** are MSB-first per byte (like HAFAS `sDaysB`).
 
 ## Sources
 
