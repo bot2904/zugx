@@ -30,6 +30,8 @@ const SYNONYMS: [RegExp, string][] = [
   [/\bst\b/g, "sankt"],
   [/\bsankt\b/g, "st"],
   [/\bwestbf\b/g, "westbahnhof"],
+  [/\bwr\b/g, "wiener"],
+  [/\bwiener\b/g, "wr"],
 ];
 
 /** all normalized search keys for a name: normalized, digraph variant, synonyms */
