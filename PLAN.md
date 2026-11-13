@@ -242,14 +242,13 @@ Use **all of Vite+** (VoidZero's unified toolchain, https://viteplus.dev) — no
 
 - Always use the **latest** `vite-plus` and **pnpm**: `packageManager: "pnpm@<latest>"` in the root `package.json`, Node 24 LTS in `.node-version`; Renovate (or Dependabot) keeps `vite-plus`, pnpm and `voidzero-dev/setup-vp` current.
 - Scaffold with `vp create` (Vue template, monorepo) in M1 rather than hand-writing configs.
-- **One root `vite.config.ts`** holds shared `lint`, `fmt`, `check`, `staged` and `run.tasks`; per-package overrides via `overrides` in the root config (Vite+ recommends against package-level lint/fmt blocks). `apps/web/vite.config.ts` only has app-specific Vite config (Vue plugin, PWA, UnoCSS, `server.proxy` for `/api/mgate`).
+- **One root `vite.config.ts`** holds shared `lint`, `check`, `staged` and `run.tasks`; **formatting uses Oxfmt defaults** (no `fmt` block, decided); per-package overrides via `overrides` in the root config (Vite+ recommends against package-level lint/fmt blocks). `apps/web/vite.config.ts` only has app-specific Vite config (Vue plugin, PWA, UnoCSS, `server.proxy` for `/api/mgate`).
   ```ts
   // vite.config.ts (root) — sketch
   import { defineConfig } from 'vite-plus'
   export default defineConfig({
     defaultPackage: { dev: './apps/web', build: './apps/web' },
     lint: { plugins: ['typescript', 'vue'], options: { typeAware: true, typeCheck: true } },
-    fmt: { singleQuote: true, semi: false },
     staged: { '*': 'vp check --fix' },
     run: {
       tasks: {
