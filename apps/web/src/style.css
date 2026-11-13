@@ -304,3 +304,28 @@ dialog[open]::backdrop {
     transition-duration: 0.05s;
   }
 }
+
+/* legal pages: readable prose */
+.legal {
+  line-height: 1.55;
+}
+.legal h1 {
+  margin-block: 0.2em 0.6em;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.legal h2 {
+  margin-block: 1.4em 0.4em;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.legal p {
+  margin-block: 0.6em;
+}
+.legal ul {
+  list-style: disc;
+  padding-inline-start: 1.4em;
+}
+.legal li {
+  margin-block: 0.3em;
+}

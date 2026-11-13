@@ -8,6 +8,8 @@ const TITLES: Record<string, string> = {
   "/bf": "nav.bildfahrplan",
   "/netz": "nav.netz",
   "/him": "nav.him",
+  "/imprint": "common.imprint",
+  "/privacy": "common.privacy",
 };
 
 export const router = createRouter({
@@ -25,6 +27,10 @@ export const router = createRouter({
     { path: "/radar", component: () => import("./pages/Radar.vue") },
     { path: "/bf/:corridor?", component: () => import("./pages/Bildfahrplan.vue") },
     { path: "/netz/:region?", component: () => import("./pages/Netz.vue") },
+    { path: "/imprint", component: () => import("./pages/Imprint.vue") },
+    { path: "/impressum", redirect: "/imprint" },
+    { path: "/privacy", component: () => import("./pages/Privacy.vue") },
+    { path: "/datenschutz", redirect: "/privacy" },
     { path: "/:rest(.*)*", component: () => import("./pages/NotFound.vue") },
   ],
 });

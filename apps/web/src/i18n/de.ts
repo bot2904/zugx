@@ -191,6 +191,8 @@ export default {
   },
   common: {
     skip: "Zum Inhalt springen",
+    imprint: "Impressum",
+    privacy: "Datenschutz",
     ossLicenses: "Open-Source-Lizenzen",
     loading: "Lädt…",
     error: "Fehler",

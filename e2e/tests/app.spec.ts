@@ -260,3 +260,20 @@ test("running-days toggletip opens next to its button and stays anchored while s
   await page.waitForTimeout(200);
   if (await tip.isVisible()) expect(await gap()).toBeLessThan(12);
 });
+
+test("footer links imprint and privacy policy (German version authoritative)", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("link", { name: /^(Imprint|Impressum|Note legali)$/ }).click();
+  await expect(page).toHaveURL(/\/imprint$/);
+  await expect(page.locator("h1")).toHaveText(/Imprint|Impressum/);
+  await expect(page.getByText("Innsbruck")).toBeVisible();
+  await page
+    .getByRole("link", { name: /^(Privacy|Datenschutz)/ })
+    .first()
+    .click();
+  await expect(page).toHaveURL(/\/privacy$/);
+  await page.getByRole("link", { name: "German version" }).click();
+  await expect(page.locator("h1")).toHaveText("Datenschutzerklärung");
+  await page.goto("/impressum");
+  await expect(page).toHaveURL(/\/imprint$/);
+});

@@ -189,6 +189,8 @@ export default {
   },
   common: {
     skip: "Skip to content",
+    imprint: "Imprint",
+    privacy: "Privacy",
     ossLicenses: "open source licenses",
     loading: "Loading…",
     error: "Error",
