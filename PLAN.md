@@ -203,10 +203,11 @@ Tech: SVG via D3 scales (or plain Vue + computed SVG) for 1–3, 5; Canvas/WebGL
 | Station search | Web Worker + uFuzzy / custom prefix index | |
 | Offline | `vite-plugin-pwa` | precache station index + shell |
 | Hosting | **zugx.legner.me**, own server, **Podman** (decided): one container (Caddy serving `dist/` + `/api/mgate` proxy) run as a systemd service via Quadlet; host Caddy in front for TLS | |
-| Testing | Vitest (unit, recorded HAFAS fixtures), Playwright (e2e) | |
+| Toolchain | **Vite+ (`vite-plus`, latest — 1.6.0 as of 2026-11) + pnpm (latest — 12.18.0)** (decided) | one `vp` CLI for dev/build/test/lint/fmt/typecheck/pack/tasks/hooks, see §6.1 |
+| Testing | Vitest via `vp test` (unit, recorded HAFAS fixtures), Playwright (e2e) | |
 | CI | GitHub Actions: build image → push to `ghcr.io/<you>/zugx` (decided), server pulls via `podman auto-update`; weekly job regenerating `stations.json` + `trains-<year>.json` → PR | |
 
-Repo layout (monorepo, pnpm):
+Repo layout (monorepo, pnpm workspace, Vite+):
 ```
 apps/web            Vue SPA (pages, components, viz)
 packages/hafas      typed ÖBB mgate client + normalizer, runs in browser (+ fixtures)
@@ -216,6 +217,46 @@ packages/netz       (later) GTFS → ITF analysis → Netzgrafik model
 deploy/             Containerfile (node build stage → caddy:2-alpine), Caddyfile (in-container),
                     zugx.container (Quadlet unit), Caddyfile.host (snippet for the host Caddy)
 ```
+
+### 6.1 Tooling: full Vite+ with pnpm (decided)
+
+Use **all of Vite+** (VoidZero's unified toolchain, https://viteplus.dev) — no separate ESLint/Prettier/Husky/lint-staged/Turbo/tsup:
+
+| Concern | Vite+ command | Wraps |
+|---|---|---|
+| dev server / build / preview (`apps/web`) | `vp dev`, `vp build`, `vp preview` | Vite (Rolldown) |
+| unit tests | `vp test` | Vitest |
+| lint (type-aware) | `vp lint` | Oxlint + tsgolint |
+| format | `vp fmt` | Oxfmt |
+| all checks (fmt + lint + types) | `vp check` (`--fix` locally) | |
+| library builds (`packages/hafas`) | `vp pack` | tsdown |
+| monorepo tasks with caching | `vp run -r build`, `vp run --filter …` | Vite Task |
+| git hooks | `vp config` → `.vite-hooks/pre-commit` running `vp staged` | lint-staged |
+| deps | `vp install`, `vp add`, `vp outdated` → pnpm | |
+| Node + pnpm versions | global `vp` (`vp env`) | |
+
+- Always use the **latest** `vite-plus` and **pnpm**: `packageManager: "pnpm@<latest>"` in the root `package.json`, Node 24 LTS in `.node-version`; Renovate (or Dependabot) keeps `vite-plus`, pnpm and `voidzero-dev/setup-vp` current.
+- Scaffold with `vp create` (Vue template, monorepo) in M1 rather than hand-writing configs.
+- **One root `vite.config.ts`** holds shared `lint`, `fmt`, `check`, `staged` and `run.tasks`; per-package overrides via `overrides` in the root config (Vite+ recommends against package-level lint/fmt blocks). `apps/web/vite.config.ts` only has app-specific Vite config (Vue plugin, PWA, UnoCSS, `server.proxy` for `/api/mgate`).
+  ```ts
+  // vite.config.ts (root) — sketch
+  import { defineConfig } from 'vite-plus'
+  export default defineConfig({
+    defaultPackage: { dev: './apps/web', build: './apps/web' },
+    lint: { plugins: ['typescript', 'vue'], options: { typeAware: true, typeCheck: true } },
+    fmt: { singleQuote: true, semi: false },
+    staged: { '*': 'vp check --fix' },
+    run: {
+      tasks: {
+        'stations:build': { command: 'node packages/stations/build.ts', cache: false },
+        'trains:build': { command: 'node packages/trains/build.ts', cache: false },
+      },
+    },
+  })
+  ```
+  (Untested; exact keys checked against the docs when scaffolding.)
+- **CI**: `voidzero-dev/setup-vp@<pinned release>` (v1.22.0 as of 2026-11; pin an exact tag/SHA, not `v1`) with `cache: true`, then `vp check`, `vp test`, `vp build`; plus the Vite Task GitHub Actions cache. Containerfile build stage uses the same: install `vite-plus`, `vp install --frozen-lockfile`, `vp build`.
+- **To verify in M1 (Vue)**: how well Oxlint/tsgolint and Oxfmt handle `.vue` SFCs (template + `<script setup lang="ts">`). If type checks don't cover SFCs, add a `vue-tsc --noEmit` task to `vp run` and CI; if Oxfmt can't format `.vue` yet, accept that until it can.
 
 Sketch of `deploy/Caddyfile` (inside the container, plain HTTP on :8080):
 ```caddyfile
@@ -283,7 +324,7 @@ WantedBy=default.target
 ```
 Then `systemctl --user daemon-reload && systemctl --user start zugx`. Updates: `podman auto-update` (enable `podman-auto-update.timer`) pulls new images pushed by CI. Rootless + `loginctl enable-linger` so it runs without a login session. Alternative without a registry: `podman build -t localhost/zugx -f deploy/Containerfile .` on the server and `Image=localhost/zugx`.
 
-(Untested sketches — validate with `caddy validate` and a first deploy in M1. For local dev, Vite's `server.proxy` does the same `/api/mgate` forwarding.)
+(Untested sketches — validate with `caddy validate` and a first deploy in M1. For local dev (`vp dev`), Vite's `server.proxy` does the same `/api/mgate` forwarding.)
 Client sends deterministic JSON (fixed key order, "now" rounded to the minute) so its own cache — and a proxy cache later — gets hits for equal searches.
 
 ---
@@ -405,6 +446,7 @@ vagonweb.cz is the reference for train compositions (Řazení vlaků); we **link
 - Layout: **responsive, desktop-dense**
 - Prices: **ignored** (at most a link to the ÖBB ticket shop)
 - Delay history/statistics: **out of scope for now**, idea kept for later (would need a sampling service + DB)
+- Tooling: **full Vite+ (latest) + pnpm (latest)**, no separate ESLint/Prettier/Husky/Turbo
 - Train index: **all trains** incl. regional/S-Bahn, with quick filters (long-distance / regional / S-Bahn / night); source **open data GTFS/NeTEx**, HAFAS only to enrich names
 
 ## 12. Open questions
@@ -420,6 +462,7 @@ None right now — all answered (see §11). Still **to verify** in M0: open data
 - hafas-client readme: https://cdn.jsdelivr.net/npm/hafas-client@6.3.6/readme.md
 - ÖBB Scotty mgate API notes (agent skill): https://tessl.io/registry/skills/github/mitsuhiko/agent-stuff/oebb-scotty
 - ÖBB open data portal: https://data.oebb.at/
+- Vite+ docs: https://viteplus.dev/guide (config: https://viteplus.dev/config/, CI: https://viteplus.dev/guide/ci)
 - vagonweb.cz train compositions (index 2026): https://www.vagonweb.cz/razeni/index.php?rok=2026
 - Austrian open transport data (national access point): https://mobilitydata.gv.at/
 - npmx.dev repo: https://github.com/npmx-dev/npmx.dev
