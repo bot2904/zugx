@@ -575,6 +575,14 @@ Still to do:
 - Deliberately not followed: `multi-word-component-names`. Route pages (`Home`, `Radar`, `Train`, `Netz`, …) and small components (`Platform`, `Status`) keep their single-word names; there's no clash with HTML elements.
 - Index-as-key on static lists (not a recommended rule) is fine.
 
+### Replace vue-i18n with a small self-written module (later)
+
+- Actual usage is tiny: `$t(key)` / `t(key, { named })` with `{name}` interpolation (216 template calls), one `tm("weekdays")` (array message), a reactive `locale`, fallback to English, `i18n.global.t` / `i18n.global.locale` outside components. No plurals, linked messages (`@:`), `$d`/`$n` formats, `<i18n-t>` components or custom-block SFC messages.
+- vue-i18n costs a 57 kB chunk (18.9 kB gzip) incl. its message compiler.
+- Replacement (~50 lines, `src/i18n/index.ts`): `locale = ref<Locale>()`; `t(key, params?)` = dotted-path lookup in `messages[locale] ?? messages.en`, then `{x}` replace; `tm(key)` returns the raw value; a Vue plugin sets `app.config.globalProperties.$t` (+ `declare module "vue"` typing for `$t`); `useI18n()` shim returning `{ t, tm, locale }` so call sites stay unchanged; keep `setLocale` / `hafasLang` as they are.
+- Bonus: type-safe keys (`t` typed against the `en` message tree), and a unit test that de/it have exactly the keys of en.
+- Check: e2e "language switch", reactivity of `$t` after a locale change (templates re-render because `t` reads `locale.value`), bundle size before/after.
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
