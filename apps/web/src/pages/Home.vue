@@ -45,7 +45,7 @@ const nowInput = () => (when.value = toLocalInput(new Date()));
 </script>
 
 <template>
-  <section class="mx-auto max-w-3xl py-6">
+  <section class="max-w-3xl py-6">
     <h1 class="mono m-0 text-2xl"><span class="text-[var(--accent)]">z</span>ugx</h1>
     <p class="muted mt-1">{{ $t("app.tagline") }}</p>
 
