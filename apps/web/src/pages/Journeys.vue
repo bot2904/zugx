@@ -309,8 +309,10 @@ useKeys({
             <td><EventTime :ev="j.arr" show-actual /></td>
             <td class="mono">{{ fmtDuration(j.duration) }}</td>
             <td class="mono">{{ j.transfers }}</td>
-            <td class="flex flex-wrap gap-1">
-              <LineBadge v-for="(l, k) in products_(j)" :key="k" :line="l.line" small />
+            <td>
+              <div class="flex flex-wrap gap-1">
+                <LineBadge v-for="(l, k) in products_(j)" :key="k" :line="l.line" small />
+              </div>
             </td>
             <td class="text-right">
               <Platform :ev="j.legs.find((l) => l.kind === 'journey')?.dep" />
