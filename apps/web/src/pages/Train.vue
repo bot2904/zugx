@@ -1,7 +1,8 @@
 <script setup lang="ts">
 // Train run ("Zuglauf"): by journey id, or friendly /train/RJX-260?d=2026-11-13.
+import { useAutoRefresh } from "../lib/refresh.ts";
 import type { Stopover, Trip, TripMatch } from "@zugx/hafas";
-import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from "vue";
+import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import EventTime from "../components/EventTime.vue";
 import LineBadge from "../components/LineBadge.vue";
@@ -61,11 +62,10 @@ async function load(background = false) {
 
 watch([id, date], () => load());
 onMounted(() => load());
-const timer = setInterval(() => {
+useAutoRefresh(() => {
   now.value = Date.now();
-  if (trip.value && document.visibilityState === "visible") void load(true);
+  if (trip.value) void load(true);
 }, 30_000);
-onBeforeUnmount(() => clearInterval(timer));
 
 const t = (s: Stopover) => ms(s.dep?.actual ?? s.dep?.planned ?? s.arr?.actual ?? s.arr?.planned);
 const tArr = (s: Stopover) =>

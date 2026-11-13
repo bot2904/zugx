@@ -1,9 +1,10 @@
 <script setup lang="ts">
 // Live train positions (HAFAS JourneyGeoPos) for the visible map area.
+import { useAutoRefresh } from "../lib/refresh.ts";
 import type { Line, Movement } from "@zugx/hafas";
 import type { Map as MlMap } from "maplibre-gl";
 import { useLocalStorage } from "@vueuse/core";
-import { computed, onBeforeUnmount, ref, shallowRef } from "vue";
+import { computed, ref, shallowRef } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 import Status from "../components/Status.vue";
@@ -53,11 +54,7 @@ function onMove() {
   clearTimeout(debounce);
   debounce = setTimeout(refresh, 400);
 }
-const timer = setInterval(
-  () => document.visibilityState === "visible" && void refresh(true),
-  15_000,
-);
-onBeforeUnmount(() => clearInterval(timer));
+useAutoRefresh(() => void refresh(true), 15_000);
 
 // colour by delay (scale like MÁV's vonatinfo) or by train category
 const mode = useLocalStorage<"delay" | "category">("zugx:radar-mode", "delay");

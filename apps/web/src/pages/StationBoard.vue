@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { useAutoRefresh } from "../lib/refresh.ts";
 import type { BoardEntry } from "@zugx/hafas";
 import { useLocalStorage } from "@vueuse/core";
-import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import EventTime from "../components/EventTime.vue";
 import LineBadge from "../components/LineBadge.vue";
@@ -82,17 +83,15 @@ onMounted(() => {
   void resolveName();
 });
 
-let timer: ReturnType<typeof setInterval> | undefined;
-onMounted(() => {
-  timer = setInterval(() => {
-    if (auto.value && !t.value && document.visibilityState === "visible") {
-      background = true;
-      void board.run();
-      background = false;
-    }
-  }, 30_000);
-});
-onBeforeUnmount(() => clearInterval(timer));
+useAutoRefresh(
+  () => {
+    background = true; // low fetch priority
+    void board.run();
+    background = false;
+  },
+  30_000,
+  () => auto.value && !t.value,
+);
 
 function setQuery(q: Record<string, string | undefined>) {
   const next = { ...route.query, ...q };

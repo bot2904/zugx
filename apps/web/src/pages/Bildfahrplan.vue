@@ -1,7 +1,8 @@
 <script setup lang="ts">
 // Bildfahrplan (time–distance diagram) for a corridor: x = km, y = time (downwards).
+import { useIntervalFn } from "@vueuse/core";
 import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
-import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from "vue";
+import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
 import CorridorIndexView from "../components/CorridorIndex.vue";
@@ -30,8 +31,7 @@ const from = computed(() => Number(route.query.from ?? Math.max(0, new Date().ge
 const span = computed(() => Number(route.query.h ?? 4));
 const hover = ref<CorridorTrain>();
 const now = ref(new Date());
-const clock = setInterval(() => (now.value = new Date()), 30_000);
-onBeforeUnmount(() => clearInterval(clock));
+useIntervalFn(() => (now.value = new Date()), 30_000);
 
 onMounted(async () => {
   if (indexFile) {

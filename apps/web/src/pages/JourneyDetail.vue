@@ -1,7 +1,8 @@
 <script setup lang="ts">
 // Permalink for one connection: refreshed via its reconstruction token.
+import { useAutoRefresh } from "../lib/refresh.ts";
 import type { Journey, Leg } from "@zugx/hafas";
-import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import CalendarButton from "../components/CalendarButton.vue";
 import EventTime from "../components/EventTime.vue";
@@ -27,13 +28,11 @@ const recon = computed(() => {
 let background = false;
 const j = useAsync<Journey | undefined>(() => api(background).refreshJourney(recon.value, true));
 onMounted(j.run);
-const timer = setInterval(() => {
-  if (document.visibilityState !== "visible") return;
+useAutoRefresh(() => {
   background = true; // periodic refresh: low fetch priority
   void j.run();
   background = false;
 }, 60_000);
-onBeforeUnmount(() => clearInterval(timer));
 
 const lines = computed<MapLine[]>(() =>
   (j.data.value?.legs ?? []).map((l) => ({
