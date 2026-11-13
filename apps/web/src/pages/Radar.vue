@@ -68,15 +68,17 @@ function toggle(cls: number) {
       <span class="muted text-sm">{{ $t("radar.trains", { n: movements.length }) }}</span>
       <span v-if="loading" class="muted animate-pulse text-xs">●</span>
       <span class="ml-auto flex flex-wrap gap-1">
-        <button
-          v-for="g in PRODUCT_GROUPS.slice(0, 7)"
-          :key="g.id"
-          class="btn py-0.5 text-xs"
-          :class="products & g.cls ? 'btn-on' : 'muted line-through'"
-          @click="toggle(g.cls)"
-        >
-          {{ $t(`products.${g.id}`) }}
-        </button>
+        <span class="chips flex flex-wrap gap-1">
+          <button
+            v-for="g in PRODUCT_GROUPS.slice(0, 7)"
+            :key="g.id"
+            class="btn chip py-0.5 text-xs"
+            :class="products & g.cls ? 'btn-on' : 'muted line-through'"
+            @click="toggle(g.cls)"
+          >
+            {{ $t(`products.${g.id}`) }}
+          </button>
+        </span>
       </span>
     </div>
     <Status :error="error" @retry="refresh" />

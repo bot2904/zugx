@@ -180,16 +180,18 @@ function toggleCat(c: string) {
       </span>
     </div>
     <div class="my-2 flex flex-wrap gap-1 text-xs">
-      <button
-        v-for="c in cats"
-        :key="c"
-        class="btn py-0.5 text-xs"
-        :class="hidden.has(c) && 'muted line-through'"
-        :style="{ borderColor: categoryColor(c) }"
-        @click="toggleCat(c)"
-      >
-        {{ c }}
-      </button>
+      <span class="chips flex flex-wrap gap-1">
+        <button
+          v-for="c in cats"
+          :key="c"
+          class="btn chip py-0.5 text-xs"
+          :class="hidden.has(c) && 'muted line-through'"
+          :style="{ borderColor: categoryColor(c) }"
+          @click="toggleCat(c)"
+        >
+          {{ c }}
+        </button>
+      </span>
     </div>
 
     <p v-if="!list.length && !loading" class="muted">{{ $t("bf.noData") }}</p>

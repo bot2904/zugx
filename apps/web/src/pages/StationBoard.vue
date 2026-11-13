@@ -131,15 +131,17 @@ watch(sel, (i) =>
     </div>
 
     <div class="my-2 flex flex-wrap items-center gap-1 text-xs">
-      <button
-        v-for="g in PRODUCT_GROUPS"
-        :key="g.id"
-        class="btn py-0.5 text-xs"
-        :class="products & g.cls ? 'btn-on' : 'muted line-through'"
-        @click="toggleProduct(g.cls)"
-      >
-        {{ $t(`products.${g.id}`) }}
-      </button>
+      <span class="chips flex flex-wrap gap-1">
+        <button
+          v-for="g in PRODUCT_GROUPS"
+          :key="g.id"
+          class="btn chip py-0.5 text-xs"
+          :class="products & g.cls ? 'btn-on' : 'muted line-through'"
+          @click="toggleProduct(g.cls)"
+        >
+          {{ $t(`products.${g.id}`) }}
+        </button>
+      </span>
       <span class="ml-auto flex items-center gap-1">
         <button class="btn" @click="shift(-60)">
           ‹ {{ $t("board.earlier") }} <span class="kbd">h</span>

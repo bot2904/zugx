@@ -277,15 +277,17 @@ watch(sel, (i) =>
     </div>
 
     <div class="my-2 flex flex-wrap items-center gap-1 text-xs">
-      <button
-        v-for="g in quickFilters"
-        :key="g"
-        class="btn py-0.5 text-xs"
-        :class="!cat && quick === g && 'btn-on'"
-        @click="setQuick(g)"
-      >
-        {{ quickLabel(g) }}
-      </button>
+      <span class="chips flex flex-wrap gap-1">
+        <button
+          v-for="g in quickFilters"
+          :key="g"
+          class="btn chip py-0.5 text-xs"
+          :class="!cat && quick === g && 'btn-on'"
+          @click="setQuick(g)"
+        >
+          {{ quickLabel(g) }}
+        </button>
+      </span>
       <select
         class="input ml-2 text-xs"
         :value="op"

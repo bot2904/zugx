@@ -101,3 +101,49 @@ table.dense tbody tr:hover td {
     display: none !important;
   }
 }
+/* touch devices: comfortable tap targets (≈ 40 px), 16 px inputs (no iOS zoom on focus) */
+@media (pointer: coarse) {
+  .btn {
+    min-height: 40px;
+    min-width: 40px;
+    padding: 6px 12px !important;
+    font-size: 14px !important;
+    justify-content: center;
+  }
+  .input {
+    min-height: 40px;
+    font-size: 16px !important;
+  }
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
+  header nav a {
+    padding: 6px 2px;
+  }
+}
+/* touch devices: filter chips stay compact and scroll horizontally in one row */
+@media (pointer: coarse) {
+  .btn.chip {
+    min-height: 34px;
+    min-width: 0;
+    padding: 4px 10px !important;
+    font-size: 13px !important;
+  }
+  .btn {
+    white-space: nowrap;
+  }
+  .chips {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    width: 100%;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .chips > * {
+    flex-shrink: 0;
+  }
+  .chips::-webkit-scrollbar {
+    display: none;
+  }
+}

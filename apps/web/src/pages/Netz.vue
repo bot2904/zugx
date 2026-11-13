@@ -141,16 +141,18 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
     <p v-if="!loading && !netz" class="muted">{{ $t("netz.noData") }}</p>
     <template v-if="netz">
       <div class="my-2 flex flex-wrap items-center gap-1 text-xs">
-        <button
-          v-for="c in cats"
-          :key="c"
-          class="btn py-0.5 text-xs"
-          :class="hiddenCats.has(c) && 'muted line-through'"
-          :style="{ borderColor: categoryColor(c) }"
-          @click="toggleCat(c)"
-        >
-          {{ c }}
-        </button>
+        <span class="chips flex flex-wrap gap-1">
+          <button
+            v-for="c in cats"
+            :key="c"
+            class="btn chip py-0.5 text-xs"
+            :class="hiddenCats.has(c) && 'muted line-through'"
+            :style="{ borderColor: categoryColor(c) }"
+            @click="toggleCat(c)"
+          >
+            {{ c }}
+          </button>
+        </span>
         <label class="ml-2 flex items-center gap-1">
           {{ $t("netz.takt") }} ≤
           <select v-model.number="maxTakt" class="input text-xs">
