@@ -326,6 +326,7 @@ watch(sel, (i) =>
         v-model="q"
         class="input ml-auto min-w-48 text-sm"
         :placeholder="$t('trains.filter')"
+        :aria-label="$t('trains.filter')"
       />
     </div>
 
@@ -350,6 +351,9 @@ watch(sel, (i) =>
         >
       </p>
       <table class="dense">
+        <caption class="sr-only">
+          {{ $t("trains.title") }}
+        </caption>
         <thead>
           <tr>
             <th>{{ $t("board.line") }}</th>

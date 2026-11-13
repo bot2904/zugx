@@ -170,6 +170,7 @@ watch(sel, (i) =>
         class="btn border-0 text-lg"
         :class="isFavourite(id) ? 'text-[var(--warn)]' : 'muted'"
         :title="$t('search.favourites') + ' (f)'"
+        :aria-label="$t('search.favourites') + ' (f)'"
         @click="toggleFavourite({ id, name })"
       >
         ★
@@ -204,6 +205,7 @@ watch(sel, (i) =>
         <input
           type="datetime-local"
           class="input text-xs"
+          :aria-label="$t('board.time')"
           :value="t || toLocalInput(new Date())"
           @change="setQuery({ t: ($event.target as HTMLInputElement).value || undefined })"
         />
@@ -228,6 +230,10 @@ watch(sel, (i) =>
     <div class="grid items-start gap-3 xl:grid-cols-[minmax(0,1fr)_380px]">
       <div class="min-w-0">
         <table v-if="rows.length" class="dense">
+          <caption class="sr-only">
+            {{ arrivals ? $t("board.arrivals") : $t("board.departures") }}
+            {{ name }}
+          </caption>
           <thead>
             <tr>
               <SortHeader :active="sort === 'time'" :desc="desc" @sort="sortBy('time')">

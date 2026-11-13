@@ -29,7 +29,12 @@ const d = (iso?: string) =>
     <div class="flex items-center gap-2">
       <h1 class="m-0 text-xl">{{ $t("him.title") }}</h1>
       <span class="muted text-xs">{{ shown.length }}</span>
-      <input v-model="q" class="input ml-auto" :placeholder="$t('him.filter')" />
+      <input
+        v-model="q"
+        class="input ml-auto"
+        :placeholder="$t('him.filter')"
+        :aria-label="$t('him.filter')"
+      />
     </div>
     <Status :loading="msgs.loading.value" :error="msgs.error.value" @retry="msgs.run" />
     <article v-for="m in shown" :key="m.id" class="card my-2 p-3">

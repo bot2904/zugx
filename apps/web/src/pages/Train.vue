@@ -174,9 +174,23 @@ function goDay(delta: number) {
           }}<template v-if="trip.line.operator"> · {{ trip.line.operator }}</template></span
         >
         <span class="ml-auto flex items-center gap-1 text-sm">
-          <button class="btn" @click="goDay(-1)">‹</button>
+          <button
+            class="btn"
+            :aria-label="$t('bf.prevDay')"
+            :title="$t('bf.prevDay')"
+            @click="goDay(-1)"
+          >
+            ‹
+          </button>
           <span class="mono">{{ tripDate }}</span>
-          <button class="btn" @click="goDay(1)">›</button>
+          <button
+            class="btn"
+            :aria-label="$t('bf.nextDay')"
+            :title="$t('bf.nextDay')"
+            @click="goDay(1)"
+          >
+            ›
+          </button>
           <RouterLink :to="`/trains?q=${encodeURIComponent(trainName)}`" class="btn">{{
             $t("nav.trains")
           }}</RouterLink>

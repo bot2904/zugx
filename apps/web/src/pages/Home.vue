@@ -62,6 +62,7 @@ const nowInput = () => (when.value = toLocalInput(new Date()));
           type="button"
           class="btn mb-0.5 justify-center"
           :title="$t('search.swap')"
+          :aria-label="$t('search.swap')"
           @click="swap"
         >
           ⇄
@@ -90,8 +91,13 @@ const nowInput = () => (when.value = toLocalInput(new Date()));
     </form>
 
     <form class="mt-3 flex gap-2" @submit.prevent="goTrain">
-      <input v-model="train" class="input mono flex-1" :placeholder="$t('search.trainHint')" />
-      <button class="btn" type="submit">🚆</button>
+      <input
+        v-model="train"
+        class="input mono flex-1"
+        :placeholder="$t('search.trainHint')"
+        :aria-label="$t('search.trainHint')"
+      />
+      <button class="btn" type="submit" :aria-label="$t('trip.title')">🚆</button>
     </form>
 
     <div class="mt-6 grid gap-6 sm:grid-cols-2">

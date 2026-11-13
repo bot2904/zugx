@@ -58,6 +58,7 @@ const shortcuts: [string, string][] = [
 </script>
 
 <template>
+  <a href="#main" class="skip-link">{{ $t("common.skip") }}</a>
   <header class="border-b border-[var(--line)] bg-[var(--bg2)]">
     <div class="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-1 px-3 py-2">
       <RouterLink
@@ -90,6 +91,7 @@ const shortcuts: [string, string][] = [
           class="btn"
           :class="state.debug && 'btn-on'"
           :title="$t('debug.show')"
+          :aria-label="$t('debug.show')"
           @click="state.debug = !state.debug"
         >
           {}
@@ -102,13 +104,18 @@ const shortcuts: [string, string][] = [
         >
           <option v-for="l in LOCALES" :key="l" :value="l">{{ l.toUpperCase() }}</option>
         </select>
-        <button class="btn" :title="$t('common.theme')" @click="toggleScheme">
+        <button
+          class="btn"
+          :title="$t('common.theme')"
+          :aria-label="$t('common.theme')"
+          @click="toggleScheme"
+        >
           {{ scheme === "dark" ? "☾" : "☀" }}
         </button>
       </div>
     </div>
   </header>
-  <main class="mx-auto max-w-6xl px-3 py-3">
+  <main id="main" tabindex="-1" class="mx-auto max-w-6xl px-3 py-3 outline-none">
     <RouterView />
   </main>
   <DebugPanel v-if="state.debug" />

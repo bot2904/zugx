@@ -1,4 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { i18n } from "./i18n/index.ts";
+
+const TITLES: Record<string, string> = {
+  "/trains": "nav.trains",
+  "/radar": "nav.radar",
+  "/bf": "nav.bildfahrplan",
+  "/netz": "nav.netz",
+  "/him": "nav.him",
+};
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -17,4 +26,12 @@ export const router = createRouter({
     { path: "/netz/:region?", component: () => import("./pages/Netz.vue") },
     { path: "/:rest(.*)*", component: () => import("./pages/NotFound.vue") },
   ],
+});
+
+// document title per page (detail pages set a more specific title themselves)
+router.afterEach((to) => {
+  const key = Object.entries(TITLES).find(
+    ([p]) => to.path === p || to.path.startsWith(`${p}/`),
+  )?.[1];
+  document.title = key ? `${i18n.global.t(key)} · zugx` : "zugx";
 });

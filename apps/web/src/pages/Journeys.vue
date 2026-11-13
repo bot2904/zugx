@@ -190,7 +190,11 @@ useKeys({
         }}</RouterLink>
       </h1>
       <span v-if="via" class="muted text-sm">{{ $t("search.via") }} {{ names.via || via }}</span>
-      <RouterLink :to="`/j/${to}/${from}`" class="btn text-xs" :title="$t('search.swap') + ' (s)'"
+      <RouterLink
+        :to="`/j/${to}/${from}`"
+        class="btn text-xs"
+        :title="$t('search.swap') + ' (s)'"
+        :aria-label="$t('search.swap') + ' (s)'"
         >⇄</RouterLink
       >
       <div class="ml-auto flex gap-1">
@@ -235,6 +239,7 @@ useKeys({
         <input
           type="datetime-local"
           class="input text-xs"
+          :aria-label="$t('board.time')"
           :value="t || toLocalInput(new Date())"
           @change="setQuery({ t: ($event.target as HTMLInputElement).value || undefined })"
         />
@@ -274,6 +279,7 @@ useKeys({
               type="checkbox"
               :checked="compare.has(i)"
               :title="$t('journeys.compare') + ' (x)'"
+              :aria-label="$t('journeys.compare')"
               @click.stop="toggleCompare(i)"
             />
             <EventTime :ev="j.dep" />
@@ -286,6 +292,9 @@ useKeys({
       </div>
 
       <table v-else class="dense">
+        <caption class="sr-only">
+          {{ $t("journeys.title") }}
+        </caption>
         <thead>
           <tr>
             <th />
@@ -306,7 +315,12 @@ useKeys({
             @click="select(i)"
           >
             <td>
-              <input type="checkbox" :checked="compare.has(i)" @click.stop="toggleCompare(i)" />
+              <input
+                type="checkbox"
+                :checked="compare.has(i)"
+                :aria-label="$t('journeys.compare')"
+                @click.stop="toggleCompare(i)"
+              />
             </td>
             <td><EventTime :ev="j.dep" show-actual /></td>
             <td><EventTime :ev="j.arr" show-actual /></td>

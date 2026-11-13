@@ -16,9 +16,12 @@ function initialLocale(): Locale {
   return "en";
 }
 
+const locale = initialLocale();
+document.documentElement.lang = locale;
+
 export const i18n = createI18n({
   legacy: false,
-  locale: initialLocale(),
+  locale,
   fallbackLocale: "en",
   messages: { en, de, it },
 });

@@ -144,7 +144,15 @@ defineExpose({ focus: () => input.value?.focus() });
         @blur="onBlur"
         @keydown="onKey"
       />
-      <button class="btn ml-1" type="button" :title="$t('search.nearby')" @click="nearMe">⌖</button>
+      <button
+        class="btn ml-1"
+        type="button"
+        :title="$t('search.nearby')"
+        :aria-label="$t('search.nearby')"
+        @click="nearMe"
+      >
+        ⌖
+      </button>
     </div>
     <ul
       v-if="open && options.length"

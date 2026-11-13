@@ -180,6 +180,7 @@ export default {
     cached: "cached",
   },
   common: {
+    skip: "Skip to content",
     ossLicenses: "open source licenses",
     loading: "Loading…",
     error: "Error",

@@ -182,6 +182,7 @@ export default {
     cached: "Cache",
   },
   common: {
+    skip: "Zum Inhalt springen",
     ossLicenses: "Open-Source-Lizenzen",
     loading: "Lädt…",
     error: "Fehler",

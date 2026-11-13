@@ -135,7 +135,9 @@ test("bildfahrplan section and direction are adjustable", async ({ page }) => {
   const pickers = page.locator("select.input.max-w-56");
   await pickers.nth(0).selectOption({ label: "Attnang-Puchheim" });
   await expect(page).toHaveURL(/a=Pat/);
-  await page.getByRole("button", { name: "⇄" }).click();
+  await page
+    .getByRole("button", { name: /Swap direction|Richtung tauschen|Inverti direzione/ })
+    .click();
   await expect(page).toHaveURL(/rev=1/);
   await expect(pickers.nth(0)).toHaveValue(
     (await pickers.nth(0).locator("option").first().getAttribute("value")) as string,
@@ -207,4 +209,25 @@ test("command palette is a native modal dialog (Esc and backdrop close it)", asy
   await expect(page.locator("dialog[open]")).toBeVisible();
   await page.mouse.click(5, 5); // backdrop
   await expect(page.locator("dialog[open]")).toHaveCount(0);
+});
+
+test("accessibility basics: lang, skip link, named controls", async ({ page }) => {
+  await page.goto("/station/8103000");
+  await expect(page.locator("html")).toHaveAttribute("lang", /^(en|de|it)$/);
+  await page.keyboard.press("Tab");
+  await expect(page.locator(".skip-link")).toBeFocused();
+  // every button and text input has an accessible name
+  for (const el of await page
+    .locator("button, input:not([type=checkbox]):not([type=hidden])")
+    .all()) {
+    if (!(await el.isVisible())) continue;
+    const name = await el.evaluate(
+      (e) =>
+        (e as HTMLElement).ariaLabel ||
+        e.textContent?.trim() ||
+        (e as HTMLInputElement).labels?.[0]?.textContent?.trim() ||
+        e.getAttribute("title"),
+    );
+    expect(name, await el.evaluate((e) => e.outerHTML.slice(0, 120))).toBeTruthy();
+  }
 });

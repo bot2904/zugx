@@ -90,6 +90,7 @@ useKeys({
         v-model="q"
         class="input ml-auto min-w-56 text-sm"
         :placeholder="$t('bf.filter')"
+        :aria-label="$t('bf.filter')"
         autofocus
         @keydown.enter="open(rows[0])"
       />
@@ -98,6 +99,9 @@ useKeys({
       {{ rows.length }} / {{ index.corridors.length }} · {{ index.day }} · {{ index.source }}
     </p>
     <table class="dense mt-1">
+      <caption class="sr-only">
+        {{ $t("bf.title") }}
+      </caption>
       <thead>
         <tr>
           <SortHeader

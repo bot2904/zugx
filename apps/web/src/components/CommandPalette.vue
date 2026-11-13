@@ -113,6 +113,7 @@ watch(q, () => (sel.value = 0));
       autofocus
       class="input w-full text-base"
       :placeholder="`${$t('search.placeholder')} · ${$t('search.trainHint')}`"
+      :aria-label="`${$t('search.placeholder')} · ${$t('search.trainHint')}`"
       @keydown="onKey"
     />
     <ul class="m-0 mt-2 max-h-[50vh] list-none overflow-auto p-0">

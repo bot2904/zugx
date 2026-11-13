@@ -37,6 +37,7 @@ const onlineOnly = computed(() =>
       v-model="q"
       class="input w-full text-base"
       :placeholder="$t('search.placeholder')"
+      :aria-label="$t('search.placeholder')"
       autofocus
     />
     <table class="dense mt-3">

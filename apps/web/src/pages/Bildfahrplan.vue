@@ -288,7 +288,14 @@ function toggleCat(c: string) {
         </option>
       </select>
       <span v-if="data" class="flex items-center gap-1 text-xs">
-        <button class="btn" :title="$t('bf.prevDay')" @click="shiftDay(-1)">‹</button>
+        <button
+          class="btn"
+          :title="$t('bf.prevDay')"
+          :aria-label="$t('bf.prevDay')"
+          @click="shiftDay(-1)"
+        >
+          ‹
+        </button>
         <input
           type="date"
           class="input text-xs"
@@ -299,7 +306,14 @@ function toggleCat(c: string) {
           @change="setQuery({ d: ($event.target as HTMLInputElement).value || undefined })"
         />
         <span class="mono muted">{{ weekday }}</span>
-        <button class="btn" :title="$t('bf.nextDay')" @click="shiftDay(1)">›</button>
+        <button
+          class="btn"
+          :title="$t('bf.nextDay')"
+          :aria-label="$t('bf.nextDay')"
+          @click="shiftDay(1)"
+        >
+          ›
+        </button>
         <button v-if="!isToday" class="btn" @click="setQuery({ d: undefined })">
           {{ $t("trains.today") }}
         </button>
@@ -341,7 +355,9 @@ function toggleCat(c: string) {
           <option v-for="st in orderedStations" :key="st.id" :value="st.id">{{ st.name }}</option>
         </select>
       </label>
-      <button class="btn" :title="$t('bf.swap')" @click="swap">⇄</button>
+      <button class="btn" :title="$t('bf.swap')" :aria-label="$t('bf.swap')" @click="swap">
+        ⇄
+      </button>
       <label class="flex items-center gap-1">
         {{ $t("search.to") }}
         <select
