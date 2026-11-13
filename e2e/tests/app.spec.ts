@@ -172,3 +172,17 @@ test("station board columns are sortable", async ({ page }) => {
   await page.getByRole("columnheader", { name: /^(Pl\.|Bst\.|Bin\.)/ }).click();
   await expect(page).toHaveURL(/desc=1/);
 });
+
+test("footer links the open source licenses (production build, also with the service worker active)", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(
+    page.getByRole("link", {
+      name: /open source licenses|Open-Source-Lizenzen|licenze open source/,
+    }),
+  ).toHaveAttribute("href", "/licenses.txt");
+  await page.evaluate(() => navigator.serviceWorker?.ready);
+  await page.goto("/licenses.txt");
+  await expect(page.locator("body")).toContainText("maplibre-gl");
+});

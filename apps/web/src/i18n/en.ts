@@ -179,6 +179,7 @@ export default {
     cached: "cached",
   },
   common: {
+    ossLicenses: "open source licenses",
     loading: "Loading…",
     error: "Error",
     retry: "Retry",

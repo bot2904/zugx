@@ -123,7 +123,8 @@ const shortcuts: [string, string][] = [
     }}</a>
     (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>) ·
     <a href="https://github.com/simon04/zugx">zugx</a>
-    (<a href="https://github.com/simon04/zugx/blob/master/LICENSE">AGPL-3.0</a>)
+    (<a href="https://github.com/simon04/zugx/blob/master/LICENSE" rel="license">AGPL-3.0</a>,
+    <a href="/licenses.txt" target="_blank">{{ $t("common.ossLicenses") }}</a>)
     <template v-if="commitHash">
       ·
       <a :href="`https://github.com/simon04/zugx/commit/${commitHash}`" class="mono"

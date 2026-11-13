@@ -38,7 +38,7 @@ export default defineConfig({
       workbox: {
         globPatterns: ["**/*.{js,mjs,css,html,svg,json,woff2}"],
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
-        navigateFallbackDenylist: [/^\/api\//],
+        navigateFallbackDenylist: [/^\/api\//, /\.txt$/],
       },
     }),
   ],
@@ -55,6 +55,9 @@ export default defineConfig({
     },
   },
   build: {
+    // third-party licenses of the bundled dependencies (production build only); not under /assets/,
+    // which is served as immutable
+    license: { fileName: "licenses.txt" },
     target: "es2023",
     chunkSizeWarningLimit: 1200,
   },

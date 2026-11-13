@@ -181,6 +181,7 @@ export default {
     cached: "Cache",
   },
   common: {
+    ossLicenses: "Open-Source-Lizenzen",
     loading: "Lädt…",
     error: "Fehler",
     retry: "Nochmal",
