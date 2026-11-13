@@ -10,7 +10,7 @@ Fast, mobile-friendly, information-dense timetable browser for Austrian trains (
 - **Bildfahrplan** (time–distance diagrams) for corridors, **Netzgrafik** of the integrated interval timetable (+ export for SBB's Netzgrafik-Editor)
 - Raw API JSON view (`d`), command palette (`Ctrl/⌘ K`), UI in English, German, Italian
 
-See [PLAN.md](PLAN.md) for the design and decisions.
+See [docs/](docs/README.md) for how each feature works (data source, computation, display) and [PLAN.md](PLAN.md) for the design and decisions.
 
 ## Layout
 
