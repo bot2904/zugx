@@ -242,3 +242,21 @@ test("connection permalink with #n scrolls the opened connection into view", asy
   await expect(details).toBeVisible();
   await expect(details).toBeInViewport();
 });
+
+test("running-days toggletip opens next to its button and stays anchored while scrolling", async ({
+  page,
+}) => {
+  await page.goto("/trains?q=transalpin");
+  const btn = page.locator(".toggletip-btn").first();
+  await btn.click();
+  const tip = page.locator(".toggletip:popover-open");
+  await expect(tip).toBeVisible();
+  const gap = async () => {
+    const [b, t] = await Promise.all([btn.boundingBox(), tip.boundingBox()]);
+    return Math.min(Math.abs(t!.y - (b!.y + b!.height)), Math.abs(b!.y - (t!.y + t!.height)));
+  };
+  expect(await gap()).toBeLessThan(12);
+  await page.mouse.wheel(0, 120);
+  await page.waitForTimeout(200);
+  if (await tip.isVisible()) expect(await gap()).toBeLessThan(12);
+});

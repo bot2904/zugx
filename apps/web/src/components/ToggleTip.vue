@@ -18,7 +18,12 @@ const kind = (() => {
   return el.popover === "hint" ? "hint" : "auto";
 })();
 
+// CSS anchor positioning (implicit anchor via popovertarget) keeps the tip tethered while scrolling
+// and flips it at the viewport edges; without it, place it once with JS
+// (modern-web-guidance: viewport-aware-dropdowns, progressive enhancement via @supports)
+const anchored = CSS.supports("position-area: block-end");
 function place() {
+  if (anchored) return;
   const b = btn.value?.getBoundingClientRect();
   const t = tip.value;
   if (!b || !t) return;
@@ -70,5 +75,16 @@ useEventListener(tip, "toggle", (e) => {
   white-space: pre-line;
   color: var(--fg);
   box-shadow: 0 4px 16px rgb(0 0 0 / 0.25);
+}
+@supports (position-area: block-end) {
+  .toggletip:popover-open {
+    inset: auto;
+    margin-block: 6px;
+    position-area: block-end span-inline-end;
+    position-try-fallbacks:
+      flip-block,
+      flip-inline,
+      flip-block flip-inline;
+  }
 }
 </style>
