@@ -287,9 +287,13 @@ function toggleCat(c: string) {
         </g>
       </svg>
     </div>
-    <p v-if="hover" class="mono my-1 text-sm">
-      {{ hover.cat }} {{ hover.nr }}
-      <span v-if="hover.headsign" class="muted">→ {{ hover.headsign }}</span>
+    <!-- always rendered (nbsp when empty) so hovering doesn't shift the layout -->
+    <p class="mono my-1 min-h-[1.4em] text-sm">
+      <template v-if="hover">
+        {{ hover.cat }} {{ hover.nr }}
+        <span v-if="hover.headsign" class="muted">→ {{ hover.headsign }}</span>
+      </template>
+      <template v-else>&nbsp;</template>
     </p>
   </section>
 </template>
