@@ -550,6 +550,14 @@ Still to do:
 - Remaining guides worth checking: responsive-table (tables on narrow screens), interest-triggered-tooltips / position-aware-tooltips (we use `title`), spinner/progress (loading states), navbar/navigation-drawer (header on phones), visually-stable-font-fallbacks (we name Inter/JetBrains Mono without loading them), color/contrast-color, css-layout/responsive-design (container queries for board + map layout), privacy (geolocation is on demand already), scroll-target-on-load, performance (optimize-script/preload-priority, break-up-long-tasks for the 8k-row train filter).
 - Re-run `pnpx modern-web-guidance@latest legacy-scan apps/web --json` at the end.
 
+### Vue lint pass (eslint-plugin-vue "recommended")
+
+- Goal: catch Vue-specific issues (prop/emit typing, `v-for` keys, `v-if`+`v-for`, mutating props, template naming/order, a11y-ish template rules) that tsgolint + vue-tsc don't.
+- Approach, in this order:
+  1. Enable all of Oxlint's built-in `vue/*` rules (already `plugins: ["typescript", "vue"]` in `vite.config.ts`) — Oxlint ports a subset of eslint-plugin-vue; turn on the ones matching the "recommended" preset and fix findings.
+  2. Try `lint.jsPlugins` (Oxlint JS plugins, used e.g. in bldrwnsch) with `eslint-plugin-vue` for the rules Oxlint lacks — only if it understands `.vue` SFCs; otherwise skip (no separate ESLint setup, per §6.1).
+  3. For what's still uncovered: read the eslint-plugin-vue rules list (https://eslint.vuejs.org/rules/) for `essential` / `strongly-recommended` / `recommended` and fix by inspecting the ~30 components by hand.
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
