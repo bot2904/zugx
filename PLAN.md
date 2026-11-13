@@ -529,6 +529,17 @@ Findings from the API and data, and deviations from the plan:
 - **Type checking:** tsgolint (TypeScript 7) can't read `.vue` files, so the web app additionally runs `vue-tsc` (pinned to TypeScript 6 in `apps/web`, since TS 7 has no JS API yet) via `vp run -r typecheck`.
 - **Running-days bitsets** are MSB-first per byte (like HAFAS `sDaysB`).
 
+## 14. Later: custom station plans from OpenRailwayMap vector tiles
+
+Station pages show a minimap with OSM Carto raster tiles (zoom 17–19: station building, platforms with numbers, entrances, lifts). A custom, calmer rendering would be nicer:
+
+- **OpenRailwayMap-vector** (github.com/hiddewie/OpenRailwayMap-vector, live at openrailwaymap.app) has exactly the needed vector layers: `standard_railway_platforms`, `standard_railway_platform_edges`, `standard_station_entrances`, `standard_railway_stop_positions`, `standard_railway_grouped_station_areas`, `railway_line_high` (tracks), switches, signals. Its style is at `https://openrailwaymap.app/style.json` (TileJSON sources such as `/standard_railway_platforms,standard_railway_platform_edges`).
+- **Blocker:** the tile endpoints answer `403 Forbidden` to other sites (referer-restricted). Do **not** work around that.
+- **Options:**
+  1. Ask the maintainer (issue on hiddewie/OpenRailwayMap-vector) whether zugx.legner.me may use the tiles.
+  2. Self-host for Austria: the project is open source (osm2pgsql + PostGIS + Martin tile server); an Austria extract is small enough for a container next to zugx, plus a weekly OSM update.
+- Overpass (live queries for platforms/entrances) was considered and rejected: too slow and unreliable.
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java

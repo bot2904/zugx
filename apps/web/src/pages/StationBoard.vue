@@ -7,6 +7,7 @@ import LineBadge from "../components/LineBadge.vue";
 import Platform from "../components/Platform.vue";
 import Remarks from "../components/Remarks.vue";
 import Status from "../components/Status.vue";
+import MapView from "../viz/MapView.vue";
 import { api } from "../lib/api.ts";
 import { useAsync } from "../lib/async.ts";
 import { fromLocalInput, hhmm, toLocalInput } from "../lib/format.ts";
@@ -40,14 +41,31 @@ const board = useAsync<BoardEntry[]>(() =>
   }),
 );
 
+// minimap open by default on wide screens, collapsed on phones; the choice is remembered
+const mapOpen = ref(
+  localStorage.getItem("zugx:station-map") === null
+    ? matchMedia("(min-width: 1280px)").matches
+    : localStorage.getItem("zugx:station-map") === "1",
+);
+function onMapToggle(e: Event) {
+  mapOpen.value = (e.target as HTMLDetailsElement).open;
+  localStorage.setItem("zugx:station-map", mapOpen.value ? "1" : "0");
+}
+
+/** station coordinates for the minimap (local index, else HAFAS) */
+const coords = ref<[number, number]>();
+
 async function resolveName() {
   await loadStations();
-  name.value = stationById(id.value)?.name ?? "";
-  if (!name.value) {
+  const local = stationById(id.value);
+  name.value = local?.name ?? "";
+  coords.value = local ? [local.lat, local.lon] : undefined;
+  if (!name.value || !coords.value) {
     const r = await api()
       .locations(id.value, 1)
       .catch(() => []);
-    name.value = r[0]?.name ?? id.value;
+    name.value ||= r[0]?.name ?? id.value;
+    if (!coords.value && r[0]?.lat !== undefined) coords.value = [r[0].lat, r[0].lon!];
   }
   addRecent({ id: id.value, name: name.value });
   document.title = `${name.value} · zugx`;
@@ -207,78 +225,95 @@ watch(sel, (i) =>
       @retry="board.run"
     />
 
-    <table v-if="rows.length" class="dense">
-      <thead>
-        <tr>
-          <th class="cursor-pointer select-none" @click="sortBy('time')">
-            {{ $t("board.time") }}{{ arrow("time") }}
-          </th>
-          <th class="cursor-pointer select-none" @click="sortBy('line')">
-            {{ $t("board.line") }}{{ arrow("line") }}
-          </th>
-          <th class="cursor-pointer select-none" @click="sortBy('direction')">
-            {{ arrivals ? $t("board.from") : $t("board.direction") }}{{ arrow("direction") }}
-          </th>
-          <th class="cursor-pointer select-none text-right" @click="sortBy('platform')">
-            {{ $t("board.platform") }}{{ arrow("platform") }}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <template v-for="(e, i) in rows" :key="e.journeyId + e.when.planned">
-          <tr
-            :data-row="i"
-            class="cursor-pointer"
-            :class="[i === sel && 'sel', e.cancelled && 'opacity-60']"
-            @click="expanded = expanded === e.journeyId ? undefined : e.journeyId"
-            @dblclick="open(e)"
-          >
-            <td class="w-20"><EventTime :ev="e.when" show-actual /></td>
-            <td class="w-28"><LineBadge :line="e.line" /></td>
-            <td>
-              <RouterLink
-                :to="`/train/${encodeURIComponent(e.journeyId)}`"
-                class="text-[var(--fg)]"
-                @click.stop
-                >{{ e.direction }}</RouterLink
+    <div class="grid items-start gap-3 xl:grid-cols-[minmax(0,1fr)_380px]">
+      <div class="min-w-0">
+        <table v-if="rows.length" class="dense">
+          <thead>
+            <tr>
+              <th class="cursor-pointer select-none" @click="sortBy('time')">
+                {{ $t("board.time") }}{{ arrow("time") }}
+              </th>
+              <th class="cursor-pointer select-none" @click="sortBy('line')">
+                {{ $t("board.line") }}{{ arrow("line") }}
+              </th>
+              <th class="cursor-pointer select-none" @click="sortBy('direction')">
+                {{ arrivals ? $t("board.from") : $t("board.direction") }}{{ arrow("direction") }}
+              </th>
+              <th class="cursor-pointer select-none text-right" @click="sortBy('platform')">
+                {{ $t("board.platform") }}{{ arrow("platform") }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <template v-for="(e, i) in rows" :key="e.journeyId + e.when.planned">
+              <tr
+                :data-row="i"
+                class="cursor-pointer"
+                :class="[i === sel && 'sel', e.cancelled && 'opacity-60']"
+                @click="expanded = expanded === e.journeyId ? undefined : e.journeyId"
+                @dblclick="open(e)"
               >
-              <span v-if="e.cancelled" class="ml-2 text-xs text-[var(--bad)]">{{
-                $t("board.cancelled")
-              }}</span>
-              <span
-                v-if="e.remarks.some((r) => r.kind === 'warning')"
-                class="ml-1 text-[var(--warn)]"
-                title="!"
-                >⚠</span
-              >
-              <span
-                v-if="e.line.operator && e.line.operator !== 'ÖBB'"
-                class="muted ml-2 text-xs hide-sm"
-                >{{ e.line.operator }}</span
-              >
-            </td>
-            <td class="w-12 text-right"><Platform :ev="e.when" /></td>
-          </tr>
-          <tr v-if="expanded === e.journeyId">
-            <td colspan="4" class="bg-[var(--bg2)]">
-              <Remarks :remarks="e.remarks" />
-              <RouterLink :to="`/train/${encodeURIComponent(e.journeyId)}`" class="text-xs"
-                >{{ $t("trip.title") }} →</RouterLink
-              >
-            </td>
-          </tr>
-        </template>
-      </tbody>
-    </table>
-    <p v-else-if="!board.loading.value && !board.error.value" class="muted">
-      {{ $t("board.empty") }}
-    </p>
-    <p v-if="rows.length" class="muted mt-2 text-xs">
-      {{ hhmm(rows[0]?.when.planned) }} – {{ hhmm(rows.at(-1)?.when.planned) }} · {{ rows.length }}
-      <span class="keys-only">·</span> <span class="kbd">j</span>/<span class="kbd">k</span> <span
-        class="kbd"
-        >↵</span
+                <td class="w-20"><EventTime :ev="e.when" show-actual /></td>
+                <td class="w-28"><LineBadge :line="e.line" /></td>
+                <td>
+                  <RouterLink
+                    :to="`/train/${encodeURIComponent(e.journeyId)}`"
+                    class="text-[var(--fg)]"
+                    @click.stop
+                    >{{ e.direction }}</RouterLink
+                  >
+                  <span v-if="e.cancelled" class="ml-2 text-xs text-[var(--bad)]">{{
+                    $t("board.cancelled")
+                  }}</span>
+                  <span
+                    v-if="e.remarks.some((r) => r.kind === 'warning')"
+                    class="ml-1 text-[var(--warn)]"
+                    title="!"
+                    >⚠</span
+                  >
+                  <span
+                    v-if="e.line.operator && e.line.operator !== 'ÖBB'"
+                    class="muted ml-2 text-xs hide-sm"
+                    >{{ e.line.operator }}</span
+                  >
+                </td>
+                <td class="w-12 text-right"><Platform :ev="e.when" /></td>
+              </tr>
+              <tr v-if="expanded === e.journeyId">
+                <td colspan="4" class="bg-[var(--bg2)]">
+                  <Remarks :remarks="e.remarks" />
+                  <RouterLink :to="`/train/${encodeURIComponent(e.journeyId)}`" class="text-xs"
+                    >{{ $t("trip.title") }} →</RouterLink
+                  >
+                </td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+        <p v-else-if="!board.loading.value && !board.error.value" class="muted">
+          {{ $t("board.empty") }}
+        </p>
+        <p v-if="rows.length" class="muted mt-2 text-xs">
+          {{ hhmm(rows[0]?.when.planned) }} – {{ hhmm(rows.at(-1)?.when.planned) }} ·
+          {{ rows.length }} <span class="keys-only">·</span> <span class="kbd">j</span>/<span
+            class="kbd"
+            >k</span
+          > <span class="kbd">↵</span>
+        </p>
+      </div>
+      <!-- station plan: OSM Carto at high zoom shows building, platforms (numbers), entrances, lifts -->
+      <details
+        v-if="coords"
+        :key="id"
+        class="xl:sticky xl:top-2 xl:order-last"
+        :open="mapOpen"
+        @toggle="onMapToggle"
       >
-    </p>
+        <summary class="muted cursor-pointer py-1 text-xs select-none">
+          {{ $t("board.stationMap") }}
+        </summary>
+        <MapView :center="coords" :zoom="17" base="osm" :fit="false" height="380px" />
+      </details>
+    </div>
   </section>
 </template>

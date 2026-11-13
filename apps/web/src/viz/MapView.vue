@@ -12,6 +12,7 @@ import {
   setWorkerUrl,
   type GeoJSONSource,
   type MapGeoJSONFeature,
+  type StyleSpecification,
 } from "maplibre-gl";
 import type { Feature, FeatureCollection } from "geojson";
 import { onBeforeUnmount, onMounted, ref, watch } from "vue";
@@ -42,8 +43,13 @@ const props = withDefaults(
     fit?: boolean;
     height?: string;
     railway?: boolean;
+    /** "vector": calm OpenFreeMap style; "osm": OSM Carto raster (platforms, entrances, buildings in detail) */
+    base?: "vector" | "osm";
+    /** initial view (lat, lon) and zoom, instead of Austria */
+    center?: [number, number];
+    zoom?: number;
   }>(),
-  { lines: () => [], points: () => [], fit: true, height: "420px", railway: true },
+  { lines: () => [], points: () => [], fit: true, height: "420px", railway: true, base: "vector" },
 );
 const emit = defineEmits<{ ready: [MlMap]; moveend: [MlMap]; clickPoint: [string] }>();
 const el = ref<HTMLDivElement>();
@@ -88,8 +94,34 @@ function fitAll() {
 // ---- base map: OpenFreeMap vector styles (calm, railways included), optional OpenRailwayMap overlay ----
 const ORM_KEY = "zugx:map-orm";
 const orm = ref(localStorage.getItem(ORM_KEY) === "1");
-const styleUrl = () =>
-  `https://tiles.openfreemap.org/styles/${state.theme === "dark" ? "dark" : "positron"}`;
+const styleUrl = (): string | StyleSpecification =>
+  props.base === "osm"
+    ? {
+        version: 8,
+        sources: {
+          osm: {
+            type: "raster",
+            tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+            tileSize: 256,
+            maxzoom: 19,
+            attribution:
+              "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors",
+          },
+        },
+        layers: [
+          {
+            id: "osm",
+            type: "raster",
+            source: "osm",
+            // slightly dimmed in the dark theme
+            paint:
+              state.theme === "dark"
+                ? { "raster-brightness-max": 0.8, "raster-saturation": -0.3 }
+                : {},
+          },
+        ],
+      }
+    : `https://tiles.openfreemap.org/styles/${state.theme === "dark" ? "dark" : "positron"}`;
 
 function addOverlays(m: MlMap) {
   if (!m.getSource("lines")) {
@@ -170,8 +202,9 @@ onMounted(() => {
   const m = new MlMap({
     container: el.value,
     style: styleUrl(),
-    center: [14.5, 47.6],
-    zoom: 6.3,
+    center: props.center ? [props.center[1], props.center[0]] : [14.5, 47.6],
+    zoom: props.zoom ?? 6.3,
+    maxZoom: 19,
     attributionControl: { compact: true },
   });
   map = m;

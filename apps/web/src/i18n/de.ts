@@ -30,6 +30,7 @@ export default {
     trainHint: "Zugnummer, z. B. RJX 260",
   },
   board: {
+    stationMap: "Bahnhofsplan",
     departures: "Abfahrten",
     arrivals: "Ankünfte",
     time: "Zeit",
