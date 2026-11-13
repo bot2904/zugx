@@ -186,3 +186,18 @@ test("footer links the open source licenses (production build, also with the ser
   await page.goto("/licenses.txt");
   await expect(page.locator("body")).toContainText("maplibre-gl");
 });
+
+test("command palette is a native modal dialog (Esc and backdrop close it)", async ({ page }) => {
+  await page.goto("/");
+  await page.locator("body").click();
+  await page.keyboard.press("Control+k");
+  const dlg = page.locator("dialog[open]");
+  await expect(dlg).toBeVisible();
+  await expect(dlg.locator("input")).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(dlg).toHaveCount(0);
+  await page.keyboard.press("Control+k");
+  await expect(page.locator("dialog[open]")).toBeVisible();
+  await page.mouse.click(5, 5); // backdrop
+  await expect(page.locator("dialog[open]")).toHaveCount(0);
+});

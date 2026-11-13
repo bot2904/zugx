@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import CommandPalette from "./components/CommandPalette.vue";
+import ModalDialog from "./components/ModalDialog.vue";
 import DebugPanel from "./components/DebugPanel.vue";
 import { LOCALES, setLocale, type Locale } from "./i18n/index.ts";
 import { useKeys } from "./lib/keys.ts";
@@ -137,12 +138,8 @@ const shortcuts: [string, string][] = [
     </button>
   </footer>
   <CommandPalette v-model="palette" />
-  <div
-    v-if="help"
-    class="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
-    @click.self="help = false"
-  >
-    <div class="card w-[min(420px,92vw)] p-4">
+  <ModalDialog v-model="help" :label="$t('common.keyboard')">
+    <div class="p-2">
       <h2 class="mt-0 text-base">{{ $t("common.keyboard") }}</h2>
       <table class="dense">
         <tbody>
@@ -152,6 +149,7 @@ const shortcuts: [string, string][] = [
           </tr>
         </tbody>
       </table>
+      <button class="btn mt-3" autofocus @click="help = false">{{ $t("common.close") }}</button>
     </div>
-  </div>
+  </ModalDialog>
 </template>

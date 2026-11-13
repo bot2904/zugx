@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // Ctrl+K palette: pages, stations (→ board), train numbers (→ train page).
 import { computed, nextTick, ref, shallowRef, watch } from "vue";
+import ModalDialog from "./ModalDialog.vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 import { normalize } from "../lib/normalize.ts";
@@ -99,46 +100,35 @@ function onKey(e: KeyboardEvent) {
   } else if (e.key === "Enter") {
     commands.value[sel.value]?.run();
     open.value = false;
-  } else if (e.key === "Escape") {
-    open.value = false;
   }
 }
 watch(q, () => (sel.value = 0));
 </script>
 
 <template>
-  <div
-    v-if="open"
-    class="fixed inset-0 z-50 flex items-start justify-center bg-black/50 pt-[12vh]"
-    @click.self="open = false"
-  >
-    <div
-      class="card w-[min(560px,92vw)] p-2 shadow-2xl"
-      role="dialog"
-      :aria-label="$t('common.commandPalette')"
-    >
-      <input
-        ref="input"
-        v-model="q"
-        class="input w-full text-base"
-        :placeholder="`${$t('search.placeholder')} · ${$t('search.trainHint')}`"
-        @keydown="onKey"
-      />
-      <ul class="m-0 mt-2 max-h-[50vh] list-none overflow-auto p-0">
-        <li
-          v-for="(c, i) in commands"
-          :key="i"
-          class="flex cursor-pointer gap-2 rounded px-2 py-1"
-          :class="i === sel && 'bg-[var(--bg3)]'"
-          @mouseenter="sel = i"
-          @click="
-            c.run();
-            open = false;
-          "
-        >
-          <span>{{ c.label }}</span><span class="muted ml-auto text-xs mono">{{ c.hint }}</span>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <ModalDialog v-model="open" :label="$t('common.commandPalette')">
+    <input
+      ref="input"
+      v-model="q"
+      autofocus
+      class="input w-full text-base"
+      :placeholder="`${$t('search.placeholder')} · ${$t('search.trainHint')}`"
+      @keydown="onKey"
+    />
+    <ul class="m-0 mt-2 max-h-[50vh] list-none overflow-auto p-0">
+      <li
+        v-for="(c, i) in commands"
+        :key="i"
+        class="flex cursor-pointer gap-2 rounded px-2 py-1"
+        :class="i === sel && 'bg-[var(--bg3)]'"
+        @mouseenter="sel = i"
+        @click="
+          c.run();
+          open = false;
+        "
+      >
+        <span>{{ c.label }}</span><span class="muted ml-auto text-xs mono">{{ c.hint }}</span>
+      </li>
+    </ul>
+  </ModalDialog>
 </template>
