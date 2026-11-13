@@ -549,7 +549,17 @@ Still to do:
 - ~~Flaky e2e test~~ fixed: a stale async `close` event closed a quickly reopened `<dialog>`.
 - Also done: navbar (popover menu when the links don't fit), break-up-long-tasks (train index filter), color/contrast (badges ≥ 4.5:1). `legacy-scan` now reports 0 findings.
 - Checked, deliberately not changed: responsive-table (tables already fit on phones by hiding secondary columns; a scroll wrapper would break the page-level sticky headers), visually-stable-font-fallbacks (no web fonts are loaded).
-- Still open (low priority): interest-triggered-tooltips (some info only in `title`, e.g. running-days details — `interestfor` has limited browser support), scroll-target-on-load (`/j/…#3` could scroll the expanded connection into view), container queries for the board + station-map layout.
+- Also done later: interest-triggered-tooltips (`ToggleTip`), scroll-target-on-load (`/j/…#n`).
+- Second sweep over the whole catalogue (2026-11-14):
+  - coordinate-global-events: times are always Europe/Vienna (`viennaDate`/`viennaMinutes`), not the browser's zone. Fixed the Bildfahrplan start hour and now-line, "today" in the train index and palette, and the timeline ticks. Temporal itself is deferred: Safari doesn't support it yet, and a polyfill would cost ~15 KB.
+  - viewport-aware-dropdowns: toggletip uses CSS anchor positioning where supported, with the JS placement as fallback.
+  - privacy: the access log masks client IPs (Caddy `ip_mask`, /24 and /48).
+  - animate-to-from-top-layer: short fade/scale for dialogs and popovers.
+  - adapt-scrollbar-to-contrast-preferences: `prefers-contrast: more` scrollbar; `-webkit-scrollbar` only as an `@supports` fallback.
+  - Checked, already fine: platform-controls-dismiss-dialog / declarative-dialog-popover-control (native modal `<dialog closedby=any>`), accessible-error-announcement (no validated forms), restrict-outbound-connections / secure-external-subresources / sanitize-untrusted-html (strict CSP connect-src, no third-party scripts, no `v-html`), text layout (`text-wrap` balance/pretty), copy-button status, single-line-overflow (only the corridor category hint, full data in the SVG title).
+  - Not applicable: passkeys/auth, autofill, payments, built-in AI, WebMCP, web components, carousels, analytics/A-B testing, speculation rules (SPA), detect-initial-visibility-state (no metrics).
+  - Design choice: page transitions stay a crossfade (no directional slides).
+- Container queries for the board + station-map layout: not needed.
 
 ### Adopt VueUse — done
 
