@@ -1,0 +1,23 @@
+{
+  "name": "@zugx/gtfs",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Shared code for the static data pipelines: GTFS download + streaming reader, polite HAFAS client",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./categories": "./src/categories.ts"
+  },
+  "scripts": {
+    "test": "vp test run"
+  },
+  "dependencies": {
+    "@zugx/hafas": "workspace:*",
+    "fflate": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "vite-plus": "catalog:"
+  }
+}
