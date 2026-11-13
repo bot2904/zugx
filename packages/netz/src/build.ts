@@ -6,7 +6,6 @@
  * GTFS source: env GTFS_DIR (unzipped) or GTFS_ZIP, else `<repo>/.cache/`
  * (downloaded if missing).
  */
-import "temporal-polyfill/global"; // Node < 26: no native Temporal
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseArgs } from "node:util";

@@ -13,7 +13,6 @@
   "devDependencies": {
     "@types/node": "catalog:",
     "fflate": "catalog:",
-    "temporal-polyfill": "catalog:",
     "vite-plus": "catalog:"
   }
 }

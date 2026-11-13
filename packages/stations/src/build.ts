@@ -1,6 +1,5 @@
 // Build data/stations.json: rail stations in Austria from open data GTFS, mapped to HAFAS ids.
 // Run: vp run stations:build   (env: GTFS_ZIP, REMAP=1 to redo all HAFAS lookups)
-import "temporal-polyfill/global"; // Node < 26: no native Temporal
 import { join } from "node:path";
 import {
   compareCategories,

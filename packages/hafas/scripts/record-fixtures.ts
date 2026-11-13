@@ -1,6 +1,5 @@
 // M0 spike: call the ÖBB mgate API directly and record raw responses as test fixtures.
 // Run: vp run hafas:record
-import "temporal-polyfill/global"; // Node < 26: no native Temporal
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";

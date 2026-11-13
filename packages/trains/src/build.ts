@@ -1,7 +1,6 @@
 // Build data/trains-<year>.json (long-distance + night) and data/trains-<year>.full.json (all trains)
 // from open data GTFS. Run after stations:build (uses its GTFS → HAFAS station map).
 // Run: vp run trains:build   (env: GTFS_ZIP, TRAINS_YEAR, NAMES=0 to skip HAFAS name lookups)
-import "temporal-polyfill/global"; // Node < 26: no native Temporal
 import { join } from "node:path";
 import {
   dayFromIso,
