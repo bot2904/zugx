@@ -11,7 +11,7 @@
 
 - **Stop list**: arrival and departure times with delays, platform; cancelled stops struck through, additional stops marked `+`. Stops already passed are faded; the current position is the filled dot (pulsing while the train stands at a station) — computed from realtime times vs. now.
 - **Delay profile**: delay per stop (departure delay, else arrival delay) as a line; dots in the same delay colours.
-- **Map**: HAFAS route polyline (falls back to straight lines between stops); stops as markers coloured by their delay with the same scale as the radar (green on time, light green 1–5′, yellow 6–19′, orange 20–59′, red ≥ 60′, grey = no realtime data), stops still ahead slightly larger; tooltip with time and delay.
+- **Map**: HAFAS route polyline (falls back to straight lines between stops); stops as markers coloured by their delay with the same scale as the radar (dark blue on time, light blue 1–5′, yellow 6–19′, orange 20–59′, red ≥ 60′, grey = no realtime data), stops still ahead slightly larger; tooltip with time and delay.
 - **Running days**: HAFAS' own text (e.g. "not every day: 13 Nov until 12 Dec 2026").
 - **Operator**: see [station-board.md](station-board.md) for the "Nahreisezug" placeholder.
 - ‹ › moves to the previous/next day by train number.
