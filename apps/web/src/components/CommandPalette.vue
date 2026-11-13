@@ -1,9 +1,11 @@
 <script setup lang="ts">
 // Ctrl+K palette: pages, stations (→ board), train numbers (→ train page).
-import { computed, nextTick, ref, watch } from "vue";
+import { computed, nextTick, ref, shallowRef, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
+import { normalize } from "../lib/normalize.ts";
 import { loadStations, searchStations } from "../lib/stations.ts";
+import { loadTrains, yearFor, type TrainIndex } from "../lib/trains.ts";
 import { state } from "../lib/store.ts";
 import { trainSlug } from "../lib/url.ts";
 
@@ -13,12 +15,15 @@ const router = useRouter();
 const q = ref("");
 const sel = ref(0);
 const input = ref<HTMLInputElement>();
+const trains = shallowRef<TrainIndex>();
 
 watch(open, async (o) => {
   if (o) {
     q.value = "";
     sel.value = 0;
     await loadStations();
+    const y = yearFor(new Date().toISOString().slice(0, 10));
+    if (y && !trains.value) void loadTrains(y, false).then((t) => (trains.value = t));
     await nextTick();
     input.value?.focus();
   }
@@ -59,6 +64,19 @@ const commands = computed<Cmd[]>(() => {
     });
   }
   out.push(...pages.filter((p) => p.label.toLowerCase().includes(query)));
+  if (query.length >= 3 && trains.value) {
+    const nq = normalize(query);
+    for (const x of trains.value.trains
+      .filter((x) => x.name && normalize(x.name).includes(nq))
+      .slice(0, 6)) {
+      const name = `${x.cat} ${x.nr}`;
+      out.push({
+        label: `🚆 ${name} »${x.name}«`,
+        hint: t("trip.title"),
+        run: () => router.push(`/train/${trainSlug(name)}`),
+      });
+    }
+  }
   for (const s of searchStations(q.value, 8)) {
     out.push({
       label: s.name,
