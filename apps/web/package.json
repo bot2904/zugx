@@ -19,6 +19,7 @@
     "vue-router": "catalog:"
   },
   "devDependencies": {
+    "@types/geojson": "catalog:",
     "@unocss/preset-wind4": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
     "typescript": "^6.0.3",
