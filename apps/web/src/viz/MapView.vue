@@ -7,6 +7,7 @@ import {
   NavigationControl,
   Popup,
   type GeoJSONSource,
+  type MapGeoJSONFeature,
   type LayerSpecification,
   type StyleSpecification,
 } from "maplibre-gl";
@@ -145,20 +146,51 @@ onMounted(() => {
         "circle-stroke-width": 1,
       },
     });
+    // tooltip: hover on desktop; on touch the first tap shows it, a second tap on the same marker opens it
+    const tip = new Popup({
+      closeButton: false,
+      closeOnClick: false,
+      offset: 10,
+      className: "zugx-tip",
+    });
+    let tipId: string | undefined;
+    const showTip = (f: MapGeoJSONFeature | undefined) => {
+      if (!f || f.geometry.type !== "Point" || !f.properties?.label) return;
+      tip
+        .setLngLat(f.geometry.coordinates as [number, number])
+        .setText(String(f.properties.label))
+        .addTo(map);
+      tipId = String(f.properties.id ?? f.properties.label);
+    };
+    const hideTip = () => {
+      tip.remove();
+      tipId = undefined;
+    };
+    map.on("mousemove", "points", (e) => {
+      map.getCanvas().style.cursor = "pointer";
+      showTip(e.features?.[0]);
+    });
+    map.on("mouseleave", "points", () => {
+      map.getCanvas().style.cursor = "";
+      hideTip();
+    });
     map.on("click", "points", (e) => {
       const f = e.features?.[0];
-      const id = f?.properties?.id;
-      const label = f?.properties?.label;
-      if (label && f?.geometry.type === "Point") {
-        new Popup({ closeButton: false })
-          .setLngLat(f.geometry.coordinates as [number, number])
-          .setText(String(label))
-          .addTo(map);
+      const id = f?.properties?.id ? String(f.properties.id) : undefined;
+      const touch = (e.originalEvent as PointerEvent).pointerType === "touch";
+      if (touch && tipId !== (id ?? f?.properties?.label)) {
+        showTip(f);
+        return;
       }
-      if (id) emit("clickPoint", String(id));
+      if (id) emit("clickPoint", id);
     });
-    map.on("mouseenter", "points", () => (map.getCanvas().style.cursor = "pointer"));
-    map.on("mouseleave", "points", () => (map.getCanvas().style.cursor = ""));
+    map.on("click", (e) => {
+      if (!map.queryRenderedFeatures(e.point, { layers: ["points"] }).length) hideTip();
+    });
+    // markers move under a static cursor when data refreshes (radar)
+    map.on("data", (e) => {
+      if ((e as { sourceId?: string }).sourceId === "points" && tipId) hideTip();
+    });
     fitAll();
     emit("ready", map);
   });

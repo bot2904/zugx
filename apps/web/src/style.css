@@ -80,3 +80,17 @@ table.dense tbody tr:hover td {
     display: none !important;
   }
 }
+.zugx-tip .maplibregl-popup-content {
+  padding: 3px 7px;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  border: 1px solid var(--line);
+  pointer-events: none;
+}
+.zugx-tip {
+  pointer-events: none;
+}
+.zugx-tip .maplibregl-popup-tip {
+  border-top-color: var(--bg2) !important;
+  border-bottom-color: var(--bg2) !important;
+}
