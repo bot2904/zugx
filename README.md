@@ -43,15 +43,29 @@ vp run hafas:canary         # check the live API still works
 
 ## Deployment
 
-One container (Caddy serving `dist/` + a strict `/api/mgate` reverse proxy to ÖBB), run via Podman Quadlet behind the host Caddy:
+One container (Caddy serving `dist/` + a strict `/api/mgate` reverse proxy to ÖBB). CI builds and pushes the public image `ghcr.io/simon04/zugx:latest` on every push to `master`. The container listens on host port **9849** ("zugx" on a T9 keypad).
+
+Linux, rootless Podman + Quadlet:
 
 ```sh
-podman build -t localhost/zugx -f deploy/Containerfile .
-cp deploy/zugx.container ~/.config/containers/systemd/   # set Image=
-systemctl --user daemon-reload && systemctl --user start zugx
+cp deploy/zugx.container ~/.config/containers/systemd/
+systemctl --user daemon-reload
+systemctl --user start zugx
+systemctl --user enable --now podman-auto-update.timer   # pulls new images CI pushes
+loginctl enable-linger                                   # keep running without a login session
+curl -s localhost:9849 | head -3                         # smoke test
 ```
 
-CI builds and pushes `ghcr.io/<owner>/zugx`; `podman auto-update` pulls new images.
+TLS: add `deploy/Caddyfile.host` to the host Caddy (`reverse_proxy 127.0.0.1:9849`) and reload it.
+
+macOS (no Quadlet):
+
+```sh
+podman run -d --name zugx --restart=always -p 127.0.0.1:9849:8080 \
+  --read-only --tmpfs /data --tmpfs /config ghcr.io/simon04/zugx:latest
+```
+
+Local image instead of GHCR: `podman build -t localhost/zugx -f deploy/Containerfile .`, then set `Image=localhost/zugx` and `AutoUpdate=local` in the unit.
 
 ## Data & licences
 
