@@ -550,6 +550,11 @@ Still to do:
 - Remaining guides worth checking: responsive-table (tables on narrow screens), interest-triggered-tooltips / position-aware-tooltips (we use `title`), spinner/progress (loading states), navbar/navigation-drawer (header on phones), visually-stable-font-fallbacks (we name Inter/JetBrains Mono without loading them), color/contrast-color, css-layout/responsive-design (container queries for board + map layout), privacy (geolocation is on demand already), scroll-target-on-load, performance (optimize-script/preload-priority, break-up-long-tasks for the 8k-row train filter).
 - Re-run `pnpx modern-web-guidance@latest legacy-scan apps/web --json` at the end.
 
+### Adopt VueUse
+
+- Replace hand-rolled composables with [VueUse](https://vueuse.org/) where it simplifies code: `useLocalStorage` (store, theme override, delay palette, ORM toggle, station-map open state), `useIntervalFn` + `useDocumentVisibility` (board/radar/train auto-refresh), `useEventListener` / `onKeyStroke` (`lib/keys.ts`), `useMediaQuery` / `usePreferredDark` (theme), `useResizeObserver` (TimelineStrips, MapView), `useClipboard` (copy link), `useDebounceFn` (filters), `useGeolocation` (near me).
+- Tree-shakeable; check bundle size before/after, keep behaviour identical (e2e tests).
+
 ### Vue lint pass (eslint-plugin-vue "recommended")
 
 - Goal: catch Vue-specific issues (prop/emit typing, `v-for` keys, `v-if`+`v-for`, mutating props, template naming/order, a11y-ish template rules) that tsgolint + vue-tsc don't.
