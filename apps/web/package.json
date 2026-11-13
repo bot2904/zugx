@@ -1,0 +1,31 @@
+{
+  "name": "@zugx/web",
+  "version": "0.0.0",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "build": "vp build",
+    "preview": "vp preview",
+    "test": "vp test run",
+    "typecheck": "vue-tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@zugx/hafas": "workspace:*",
+    "maplibre-gl": "catalog:",
+    "vue": "catalog:",
+    "vue-i18n": "catalog:",
+    "vue-router": "catalog:"
+  },
+  "devDependencies": {
+    "@unocss/preset-wind4": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "typescript": "^6.0.3",
+    "unocss": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-pwa": "catalog:",
+    "vite-plus": "catalog:",
+    "vue-tsc": "catalog:"
+  }
+}

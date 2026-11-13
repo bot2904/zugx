@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="zugx – fast, keyboard-first timetable browser for Austrian trains"
+    />
+    <meta name="theme-color" content="#0b0d10" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <title>zugx</title>
+    <script>
+      try {
+        const t = localStorage.getItem("zugx:theme");
+        if (t) document.documentElement.dataset.theme = t;
+        else if (matchMedia("(prefers-color-scheme: light)").matches)
+          document.documentElement.dataset.theme = "light";
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

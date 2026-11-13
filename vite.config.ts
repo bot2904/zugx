@@ -1,7 +1,6 @@
 import { defineConfig } from "vite-plus";
 
 export default defineConfig({
-  defaultPackage: { dev: "./apps/web", build: "./apps/web", preview: "./apps/web" },
   // default Oxfmt style; only generated data is excluded
   fmt: {
     ignorePatterns: [

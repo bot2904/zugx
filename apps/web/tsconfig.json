@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "types": ["vite-plus/client", "vite-plugin-pwa/client"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.vue", "vite.config.ts", "uno.config.ts"]
+}

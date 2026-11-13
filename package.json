@@ -5,9 +5,9 @@
   "license": "AGPL-3.0-only",
   "type": "module",
   "scripts": {
-    "ready": "vp check && vp run -r test && vp run -r build",
-    "dev": "vp dev",
-    "build": "vp build"
+    "ready": "vp check && vp run -r typecheck && vp run -r test && vp run -r build",
+    "dev": "vp run --filter @zugx/web dev",
+    "build": "vp run --filter @zugx/web build"
   },
   "devDependencies": {
     "@types/node": "catalog:",
