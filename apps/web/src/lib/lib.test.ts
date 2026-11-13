@@ -106,6 +106,34 @@ describe("train running days", () => {
   });
   it("weekends with exceptions", () => {
     const e = entry((i) => (i % 7 === 0 || i % 7 === 6) && i !== 7);
-    expect(daysSummary(e, idx, t)).toBe("Sa, Su (-1)");
+    expect(daysSummary(e, idx, t)).toBe("Sa, Su −1");
+  });
+});
+
+describe("running days tooltip", () => {
+  it("explains pattern, period and exceptions with real data", async () => {
+    const { readFileSync } = await import("node:fs");
+    const { join } = await import("node:path");
+    const { daysTooltip, daysSummary } = await import("./trains.ts");
+    const idx = JSON.parse(
+      readFileSync(
+        join(import.meta.dirname, "../../../../packages/trains/data/trains-2026.json"),
+        "utf8",
+      ),
+    );
+    const labels = {
+      weekdays: ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
+      daily: "täglich",
+      runs: (p: string) => `Verkehrt ${p}`,
+      irregular: "Unregelmäßig",
+      period: (n: number, a: string, b: string) => `${n} Tage, ${a} – ${b}`,
+      except: (l: string) => `Nicht am: ${l}`,
+      extra: (l: string) => `Auch am: ${l}`,
+      variants: (n: number) => `${n} Varianten`,
+    };
+    const ec164 = idx.trains.find((x: TrainEntry) => x.cat === "EC" && x.nr === "164");
+    const tip = daysTooltip(ec164, idx, "de-AT", labels);
+    expect(tip).toMatch(/^Verkehrt täglich\n\d+ Tage, 14\.12\.2025 – 12\.12\.2026\nNicht am: /);
+    expect(daysSummary(ec164, idx, labels)).toMatch(/^täglich −\d+$/);
   });
 });

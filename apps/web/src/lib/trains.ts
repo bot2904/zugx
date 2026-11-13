@@ -75,29 +75,117 @@ export function totalDays(idx: Pick<TrainIndex, "begin" | "end">): number {
   return dayIndex(idx.begin, idx.end) + 1;
 }
 
-/** Short running-days summary: weekday pattern + exception count. */
+export interface DaysAnalysis {
+  /** weekday (Mo = 0) belongs to the regular pattern */
+  on: boolean[];
+  /** day indexes within [first, last] where the pattern says yes but the train doesn't run */
+  except: number[];
+  /** day indexes where the train runs outside its weekday pattern */
+  extra: number[];
+  firstI: number;
+  lastI: number;
+}
+
+/** Weekday pattern within the train's own period (first…last running day) plus exceptions. */
+export function analyzeDays(e: TrainEntry, idx: Pick<TrainIndex, "begin" | "end">): DaysAnalysis {
+  const firstI = Math.max(0, dayIndex(idx.begin, e.first));
+  const lastI = Math.min(totalDays(idx) - 1, dayIndex(idx.begin, e.last));
+  const beginWd = (new Date(`${idx.begin}T00:00:00Z`).getUTCDay() + 6) % 7; // Mo = 0
+  const wd = (i: number) => (beginWd + i) % 7;
+  const per = Array<number>(7).fill(0);
+  const possible = Array<number>(7).fill(0);
+  for (let i = firstI; i <= lastI; i++) {
+    possible[wd(i)]!++;
+    if (runsOnDay(e, i)) per[wd(i)]!++;
+  }
+  // a weekday belongs to the pattern if the train runs on most of its occurrences
+  const on = per.map((c, i) => c > 0 && c >= possible[i]! * 0.5);
+  const except: number[] = [];
+  const extra: number[] = [];
+  for (let i = firstI; i <= lastI; i++) {
+    const runs = runsOnDay(e, i);
+    if (on[wd(i)] && !runs) except.push(i);
+    else if (!on[wd(i)] && runs) extra.push(i);
+  }
+  return { on, except, extra, firstI, lastI };
+}
+
+export interface DaysLabels {
+  weekdays: string[];
+  daily: string;
+}
+
+/** Short running-days summary: weekday pattern within the period, with −/+ exception counts. */
 export function daysSummary(
   e: TrainEntry,
   idx: Pick<TrainIndex, "begin" | "end">,
-  t: { weekdays: string[]; daily: string; except: (n: number) => string },
+  t: DaysLabels,
 ): string {
-  const total = totalDays(idx);
-  if (e.n >= total) return t.daily;
-  const perWd = Array<number>(7).fill(0);
-  const possible = Array<number>(7).fill(0);
-  const beginWd = (new Date(`${idx.begin}T00:00:00Z`).getUTCDay() + 6) % 7; // Mo = 0
-  for (let i = 0; i < total; i++) {
-    const wd = (beginWd + i) % 7;
-    possible[wd]!++;
-    if (runsOnDay(e, i)) perWd[wd]!++;
+  const a = analyzeDays(e, idx);
+  if (!a.on.some(Boolean)) return `${e.n}×`;
+  let s = a.on.every(Boolean) ? t.daily : weekdayRanges(a.on, t.weekdays);
+  if (a.except.length) s += ` −${a.except.length}`;
+  if (a.extra.length) s += ` +${a.extra.length}`;
+  return s;
+}
+
+/** Merge consecutive day indexes into date ranges: "20.12.–4.1., 3.5." */
+export function dayRanges(days: number[], begin: string, locale: string, max = 12): string {
+  const fmt = new Intl.DateTimeFormat(locale, {
+    day: "numeric",
+    month: "numeric",
+    timeZone: "UTC",
+  });
+  const d = (i: number) => fmt.format(new Date(Date.parse(`${begin}T00:00:00Z`) + i * 86_400_000));
+  const ranges: string[] = [];
+  for (let k = 0; k < days.length;) {
+    let j = k;
+    while (j + 1 < days.length && days[j + 1] === days[j]! + 1) j++;
+    ranges.push(j > k ? `${d(days[k]!)}–${d(days[j]!)}` : d(days[k]!));
+    k = j + 1;
   }
-  // a weekday "counts" if the train runs on most of its occurrences
-  const on = perWd.map((c, i) => c >= possible[i]! * 0.5 && c > 0);
-  const missing = on.reduce((acc, o, i) => acc + (o ? possible[i]! - perWd[i]! : 0), 0);
-  const label = weekdayRanges(on, t.weekdays);
-  if (!label) return `${e.n}×`;
-  const base = on.every(Boolean) ? t.daily : label;
-  return missing > 0 ? `${base} ${t.except(missing)}` : base;
+  return ranges.length > max
+    ? `${ranges.slice(0, max).join(", ")}, … (+${ranges.length - max})`
+    : ranges.join(", ");
+}
+
+export interface DaysTooltipLabels extends DaysLabels {
+  runs: (pattern: string) => string;
+  irregular: string;
+  period: (n: number, from: string, to: string) => string;
+  except: (list: string) => string;
+  extra: (list: string) => string;
+  variants: (n: number) => string;
+}
+
+/** Multi-line explanation for the running-days column. */
+export function daysTooltip(
+  e: TrainEntry,
+  idx: Pick<TrainIndex, "begin" | "end">,
+  locale: string,
+  t: DaysTooltipLabels,
+): string {
+  const a = analyzeDays(e, idx);
+  const full = new Intl.DateTimeFormat(locale, {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+  const fd = (iso: string) => full.format(new Date(`${iso}T00:00:00Z`));
+  const lines = [t.period(e.n, fd(e.first), fd(e.last))];
+  if (!a.on.some(Boolean)) {
+    lines.unshift(t.irregular);
+    const all: number[] = [];
+    for (let i = a.firstI; i <= a.lastI; i++) if (runsOnDay(e, i)) all.push(i);
+    lines.push(dayRanges(all, idx.begin, locale, 20));
+  } else {
+    lines.unshift(t.runs(a.on.every(Boolean) ? t.daily : weekdayRanges(a.on, t.weekdays)));
+    if (a.except.length) lines.push(t.except(dayRanges(a.except, idx.begin, locale)));
+    if (a.extra.length) lines.push(t.extra(dayRanges(a.extra, idx.begin, locale)));
+  }
+  if (e.var && e.var > 1) lines.push(t.variants(e.var));
+  return lines.join("\n");
 }
 
 function weekdayRanges(on: boolean[], names: string[]): string {

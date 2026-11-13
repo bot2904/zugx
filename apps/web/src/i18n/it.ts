@@ -104,6 +104,19 @@ export default {
     category: "Categoria",
     noData: "Indice dei treni non ancora generato.",
     daily: "giornaliero",
+    tip: {
+      runs: "Circola {pattern}",
+      irregular: "Giorni di circolazione irregolari",
+      period: "{n} giorni di circolazione, {from} – {to}",
+      except: "Non il: {list}",
+      extra: "Anche il: {list}",
+      runsOn: "circola",
+      notOn: "non circola",
+      strip:
+        "Giorni di circolazione nell'anno d'orario: una colonna per settimana (lun in alto, dom in basso), i trattini segnano il primo del mese. Passa sopra per la data.",
+      column:
+        "Schema settimanale nel periodo del treno; −n = giorni in cui non circola nonostante lo schema, +n = giorni aggiuntivi. Passa sopra per le date.",
+    },
     variants: "{n} varianti di percorso",
   },
   radar: {

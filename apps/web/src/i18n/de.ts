@@ -104,6 +104,19 @@ export default {
     category: "Gattung",
     noData: "Zugindex noch nicht erzeugt.",
     daily: "täglich",
+    tip: {
+      runs: "Verkehrt {pattern}",
+      irregular: "Unregelmäßige Verkehrstage",
+      period: "{n} Verkehrstage, {from} – {to}",
+      except: "Nicht am: {list}",
+      extra: "Auch am: {list}",
+      runsOn: "verkehrt",
+      notOn: "verkehrt nicht",
+      strip:
+        "Verkehrstage im Fahrplanjahr: eine Spalte pro Woche (Mo oben, So unten), Striche markieren den Monatsersten. Für das Datum darüberfahren.",
+      column:
+        "Wochentagsmuster innerhalb des eigenen Verkehrszeitraums; −n = Tage, an denen der Zug trotz Muster nicht fährt, +n = zusätzliche Tage. Für die Daten darüberfahren.",
+    },
     variants: "{n} Laufwegvarianten",
   },
   radar: {

@@ -12,6 +12,8 @@ import {
   dayIndex,
   dayIso,
   daysSummary,
+  daysTooltip,
+  type DaysTooltipLabels,
   inGroup,
   loadTrains,
   needsFull,
@@ -25,7 +27,7 @@ import {
 } from "../lib/trains.ts";
 import { trainSlug } from "../lib/url.ts";
 
-const { t, tm } = useI18n();
+const { t, tm, locale } = useI18n();
 const route = useRoute();
 const router = useRouter();
 
@@ -138,7 +140,15 @@ const shown = computed(() => sorted.value.slice(0, limit.value));
 const daysT = computed(() => ({
   weekdays: tm("weekdays") as string[],
   daily: t("trains.daily"),
-  except: (n: number) => `(−${n})`,
+}));
+const tipT = computed<DaysTooltipLabels>(() => ({
+  ...daysT.value,
+  runs: (pattern) => t("trains.tip.runs", { pattern }),
+  irregular: t("trains.tip.irregular"),
+  period: (n, from, to) => t("trains.tip.period", { n, from, to }),
+  except: (list) => t("trains.tip.except", { list }),
+  extra: (list) => t("trains.tip.extra", { list }),
+  variants: (n) => t("trains.variants", { n }),
 }));
 
 /** next running day ≥ today, for the live train link */
@@ -156,13 +166,66 @@ function trainLink(x: TrainEntry) {
 }
 
 /** 53 weeks × 7 days mini heat strip */
+// year strip: one column per week (Mon–Sun top to bottom), timetable year left to right
+const beginWd = computed(() =>
+  index.value ? (new Date(`${index.value.begin}T00:00:00Z`).getUTCDay() + 6) % 7 : 0,
+);
+const cell = (i: number) => {
+  const p = i + beginWd.value;
+  return { x: Math.floor(p / 7) * 2, y: (p % 7) * 2 };
+};
+
 function strip(x: TrainEntry): string {
   const idx = index.value!;
   const n = totalDays(idx);
   let d = "";
   for (let i = 0; i < n; i++)
-    if (runsOnDay(x, i)) d += `M${Math.floor(i / 7) * 2},${(i % 7) * 2}h2v2h-2z`;
+    if (runsOnDay(x, i)) {
+      const c = cell(i);
+      d += `M${c.x},${c.y}h2v2h-2z`;
+    }
   return d;
+}
+
+/** tick at the first day of each month (below the strip) */
+const monthTicks = computed(() => {
+  const idx = index.value;
+  if (!idx) return "";
+  let d = "";
+  for (let i = 0; i < totalDays(idx); i++)
+    if (dayIso(idx.begin, i).endsWith("-01")) d += `M${cell(i).x},14v2`;
+  return d;
+});
+
+const tip = ref<{ text: string; x: number; y: number }>();
+const dayFmt = computed(
+  () =>
+    new Intl.DateTimeFormat(locale.value, {
+      weekday: "short",
+      day: "numeric",
+      month: "numeric",
+      year: "numeric",
+      timeZone: "UTC",
+    }),
+);
+function stripMove(ev: MouseEvent, x: TrainEntry) {
+  const idx = index.value;
+  if (!idx) return;
+  const r = (ev.currentTarget as SVGElement).getBoundingClientRect();
+  const col = Math.floor(((ev.clientX - r.left) / r.width) * 54);
+  const row = Math.floor(((ev.clientY - r.top) / r.height) * 8);
+  const i = col * 7 + row - beginWd.value;
+  if (row > 6 || i < 0 || i >= totalDays(idx)) {
+    tip.value = undefined;
+    return;
+  }
+  const date = dayFmt.value.format(new Date(`${dayIso(idx.begin, i)}T00:00:00Z`));
+  const runs = runsOnDay(x, i);
+  tip.value = {
+    text: `${date} · ${runs ? t("trains.tip.runsOn") : t("trains.tip.notOn")}`,
+    x: ev.clientX,
+    y: ev.clientY,
+  };
 }
 
 function goFilter(o: string, c: string) {
@@ -289,8 +352,12 @@ watch(sel, (i) =>
           <tr>
             <th>{{ $t("board.line") }}</th>
             <th>{{ $t("trains.route") }}</th>
-            <th class="hide-sm">{{ $t("trains.days") }}</th>
-            <th class="hide-sm" />
+            <th class="hide-sm cursor-help" :title="$t('trains.tip.column')">
+              {{ $t("trains.days") }} ⓘ
+            </th>
+            <th class="hide-sm cursor-help" :title="$t('trains.tip.strip')">
+              {{ index.begin.slice(0, 7) }} → {{ index.end.slice(0, 7) }}
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -328,7 +395,10 @@ watch(sel, (i) =>
                 </template>
               </div>
             </td>
-            <td class="hide-sm whitespace-nowrap text-xs">
+            <td
+              class="hide-sm cursor-help whitespace-nowrap text-xs"
+              :title="daysTooltip(x, index, locale, tipT)"
+            >
               {{ daysSummary(x, index, daysT) }}
               <div class="muted text-[11px]">
                 {{ x.first.slice(5) }} – {{ x.last.slice(5)
@@ -338,14 +408,30 @@ watch(sel, (i) =>
               </div>
             </td>
             <td class="hide-sm w-[110px]">
-              <svg viewBox="0 0 108 14" width="108" height="14" :aria-label="$t('trains.days')">
+              <svg
+                viewBox="0 0 108 16"
+                width="108"
+                height="16"
+                class="cursor-crosshair"
+                :aria-label="daysTooltip(x, index, locale, tipT)"
+                @mousemove="stripMove($event, x)"
+                @mouseleave="tip = undefined"
+              >
                 <rect width="108" height="14" fill="var(--bg3)" />
                 <path :d="strip(x)" fill="var(--good)" />
+                <path :d="monthTicks" stroke="var(--muted)" stroke-width="0.6" />
               </svg>
             </td>
           </tr>
         </tbody>
       </table>
+      <div
+        v-if="tip"
+        class="card mono pointer-events-none fixed z-50 px-2 py-0.5 text-xs shadow"
+        :style="{ left: `${tip.x + 12}px`, top: `${tip.y + 12}px` }"
+      >
+        {{ tip.text }}
+      </div>
       <button
         v-if="filtered.length > limit"
         class="btn mt-2 w-full justify-center"

@@ -102,6 +102,19 @@ export default {
     category: "Category",
     noData: "Train index not built yet.",
     daily: "daily",
+    tip: {
+      runs: "Runs {pattern}",
+      irregular: "Irregular running days",
+      period: "{n} running days, {from} – {to}",
+      except: "Not on: {list}",
+      extra: "Also on: {list}",
+      runsOn: "runs",
+      notOn: "does not run",
+      strip:
+        "Running days over the timetable year: one column per week (Mon at the top, Sun at the bottom), ticks mark the first of each month. Hover for the date.",
+      column:
+        "Weekday pattern within the train's own period; −n = days it doesn't run despite the pattern, +n = extra days. Hover for the dates.",
+    },
     variants: "{n} route variants",
   },
   radar: {
