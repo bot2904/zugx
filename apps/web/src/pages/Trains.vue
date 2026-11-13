@@ -48,7 +48,8 @@ const q = ref(typeof route.query.q === "string" ? route.query.q : "");
 const index = shallowRef<TrainIndex>();
 const loading = ref(false);
 const isFull = ref(false);
-const limit = ref(300);
+const PAGE = 100; // rows rendered per page: keeps filtering responsive on phones
+const limit = ref(PAGE);
 const sel = ref(-1);
 
 /** full file needed: quick filter, regional category, station filter, or ?all */
@@ -86,7 +87,7 @@ let qTimer: ReturnType<typeof setTimeout> | undefined;
 watch(q, (v) => {
   clearTimeout(qTimer);
   qTimer = setTimeout(() => setQuery({ q: v || undefined }), 250);
-  limit.value = 300;
+  limit.value = PAGE;
 });
 
 const stationName = (id: string) => index.value?.stations[id] ?? id;
@@ -102,10 +103,25 @@ const categories = computed(() =>
 
 const TRAIN_RE = /^([a-z]{1,4})?\s*(\d{1,6})$/i;
 
+// normalized search text per train, computed once (normalizing ~8k trains per keystroke was a
+// 60–90 ms long task; modern-web-guidance: break-up-long-tasks)
+const hayCache = new WeakMap<TrainEntry, string>();
+function haystack(x: TrainEntry): string {
+  let h = hayCache.get(x);
+  if (h === undefined) {
+    h = normalize(
+      `${x.cat} ${x.nr} ${x.name ?? ""} ${stationName(x.from[0])} ${stationName(x.to[0])} ${x.stops.map(stationName).join(" ")}`,
+    );
+    hayCache.set(x, h);
+  }
+  return h;
+}
+
 const filtered = computed<TrainEntry[]>(() => {
   const idx = index.value;
   if (!idx) return [];
   const query = normalize(q.value);
+  const tokens = query.split(" ");
   const num = TRAIN_RE.exec(q.value.trim());
   const di = day.value ? dayIndex(idx.begin, day.value) : -1;
   return idx.trains.filter((x) => {
@@ -120,10 +136,8 @@ const filtered = computed<TrainEntry[]>(() => {
         if (num[1] && x.cat.toLowerCase() !== num[1].toLowerCase()) return false;
         return x.nr.startsWith(num[2]!);
       }
-      const hay = normalize(
-        `${x.cat} ${x.nr} ${x.name ?? ""} ${stationName(x.from[0])} ${stationName(x.to[0])} ${x.stops.map(stationName).join(" ")}`,
-      );
-      return query.split(" ").every((tok) => hay.includes(tok));
+      const hay = haystack(x);
+      return tokens.every((tok) => hay.includes(tok));
     }
     return true;
   });
@@ -236,6 +250,24 @@ function goFilter(o: string, c: string) {
 function setQuick(g: QuickFilter) {
   const query = { ...route.query, g: g === "long" ? undefined : g };
   void router.push({ path: op.value ? `/trains/${op.value}` : "/trains", query });
+}
+
+/** per-train derived display data, cached per index + language (rows re-render on every filter change) */
+type RowInfo = { summary: string; tip: string; strip: string };
+let rowCache = new WeakMap<TrainEntry, RowInfo>();
+watch([index, locale], () => (rowCache = new WeakMap()));
+function rowInfo(x: TrainEntry): RowInfo {
+  let r = rowCache.get(x);
+  if (!r) {
+    const idx = index.value!;
+    r = {
+      summary: daysSummary(x, idx, daysT.value),
+      tip: daysTooltip(x, idx, locale.value, tipT.value),
+      strip: strip(x),
+    };
+    rowCache.set(x, r);
+  }
+  return r;
 }
 
 const quickFilters: QuickFilter[] = ["long", "regional", "suburban", "night", "all"];
@@ -405,11 +437,8 @@ watch(sel, (i) =>
                 </template>
               </div>
             </td>
-            <td
-              class="hide-sm cursor-help whitespace-nowrap text-xs"
-              :title="daysTooltip(x, index, locale, tipT)"
-            >
-              {{ daysSummary(x, index, daysT) }}
+            <td class="hide-sm cursor-help whitespace-nowrap text-xs" :title="rowInfo(x).tip">
+              {{ rowInfo(x).summary }}
               <div class="muted text-[0.6875rem]">
                 {{ x.first.slice(5) }} – {{ x.last.slice(5)
                 }}<template v-if="x.var && x.var > 1">
@@ -423,12 +452,12 @@ watch(sel, (i) =>
                 width="108"
                 height="16"
                 class="cursor-crosshair"
-                :aria-label="daysTooltip(x, index, locale, tipT)"
+                :aria-label="rowInfo(x).tip"
                 @mousemove="stripMove($event, x)"
                 @mouseleave="tip = undefined"
               >
                 <rect width="108" height="14" fill="var(--bg3)" />
-                <path :d="strip(x)" fill="var(--good)" />
+                <path :d="rowInfo(x).strip" fill="var(--good)" />
                 <path :d="monthTicks" stroke="var(--muted)" stroke-width="0.6" />
               </svg>
             </td>
@@ -445,9 +474,9 @@ watch(sel, (i) =>
       <button
         v-if="filtered.length > limit"
         class="btn mt-2 w-full justify-center"
-        @click="limit += 500"
+        @click="limit += PAGE"
       >
-        +{{ Math.min(500, filtered.length - limit) }} ({{ filtered.length - limit }})
+        +{{ Math.min(PAGE, filtered.length - limit) }} ({{ filtered.length - limit }})
       </button>
     </template>
   </section>
