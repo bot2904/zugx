@@ -27,7 +27,7 @@ const loading = ref(false);
 const error = ref<string>();
 const now = ref(Date.now());
 
-async function load() {
+async function load(background = false) {
   loading.value = true;
   error.value = undefined;
   try {
@@ -50,7 +50,7 @@ async function load() {
       }
       jid = matches.value[0]!.journeyId;
     }
-    trip.value = await api().trip(jid, true);
+    trip.value = await api(background).trip(jid, true);
     document.title = `${trip.value.line.name} → ${trip.value.direction} · zugx`;
   } catch (e) {
     error.value = e instanceof Error ? e.message : String(e);
@@ -59,11 +59,11 @@ async function load() {
   }
 }
 
-watch([id, date], load);
-onMounted(load);
+watch([id, date], () => load());
+onMounted(() => load());
 const timer = setInterval(() => {
   now.value = Date.now();
-  if (trip.value && document.visibilityState === "visible") void load();
+  if (trip.value && document.visibilityState === "visible") void load(true);
 }, 30_000);
 onBeforeUnmount(() => clearInterval(timer));
 

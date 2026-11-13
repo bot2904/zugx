@@ -19,12 +19,12 @@ const loading = ref(false);
 const products = ref(RAIL_CLS);
 let map: MlMap | undefined;
 
-async function refresh() {
+async function refresh(background = false) {
   if (!map) return;
   const b = map.getBounds();
   loading.value = true;
   try {
-    movements.value = await api().radar(
+    movements.value = await api(background).radar(
       { north: b.getNorth(), south: b.getSouth(), west: b.getWest(), east: b.getEast() },
       { results: 1000, products: products.value },
     );
@@ -45,7 +45,10 @@ function onMove() {
   clearTimeout(debounce);
   debounce = setTimeout(refresh, 400);
 }
-const timer = setInterval(() => document.visibilityState === "visible" && void refresh(), 15_000);
+const timer = setInterval(
+  () => document.visibilityState === "visible" && void refresh(true),
+  15_000,
+);
 onBeforeUnmount(() => clearInterval(timer));
 
 // colour by delay (scale like MÁV's vonatinfo) or by train category

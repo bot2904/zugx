@@ -32,8 +32,10 @@ const sel = ref(-1);
 const expanded = ref<string>();
 const auto = ref(true);
 
+/** true while a periodic auto-refresh request is started (low fetch priority) */
+let background = false;
 const board = useAsync<BoardEntry[]>(() =>
-  api().board(id.value, {
+  api(background).board(id.value, {
     arrivals: arrivals.value,
     when: (t.value && fromLocalInput(t.value)) || new Date(),
     duration: 90,
@@ -85,7 +87,11 @@ onMounted(() => {
 let timer: ReturnType<typeof setInterval> | undefined;
 onMounted(() => {
   timer = setInterval(() => {
-    if (auto.value && !t.value && document.visibilityState === "visible") void board.run();
+    if (auto.value && !t.value && document.visibilityState === "visible") {
+      background = true;
+      void board.run();
+      background = false;
+    }
   }, 30_000);
 });
 onBeforeUnmount(() => clearInterval(timer));

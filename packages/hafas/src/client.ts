@@ -29,6 +29,8 @@ export const OEBB_ENDPOINT = "https://fahrplan.oebb.at/bin/mgate.exe";
 export interface ClientOptions {
   /** mgate URL; in the browser use the same-origin proxy "/api/mgate" */
   endpoint?: string;
+  /** fetch priority, e.g. "low" for background refreshes (Fetch Priority API) */
+  priority?: RequestPriority;
   fetch?: typeof fetch;
   /** cache TTL in ms for identical requests (default 30 s, 0 disables) */
   ttl?: number;
@@ -133,6 +135,7 @@ export function createClient(opts: ClientOptions = {}) {
         method: "POST",
         headers: { "Content-Type": "application/json", ...opts.headers },
         body: key,
+        ...(opts.priority ? { priority: opts.priority } : {}),
       });
       if (!res.ok) throw new HafasError(`HTTP ${res.status}`, `HTTP_${res.status}`, meth);
       return res.json();

@@ -24,9 +24,15 @@ const recon = computed(() => {
   }
 });
 
-const j = useAsync<Journey | undefined>(() => api().refreshJourney(recon.value, true));
+let background = false;
+const j = useAsync<Journey | undefined>(() => api(background).refreshJourney(recon.value, true));
 onMounted(j.run);
-const timer = setInterval(() => document.visibilityState === "visible" && void j.run(), 60_000);
+const timer = setInterval(() => {
+  if (document.visibilityState !== "visible") return;
+  background = true; // periodic refresh: low fetch priority
+  void j.run();
+  background = false;
+}, 60_000);
 onBeforeUnmount(() => clearInterval(timer));
 
 const lines = computed<MapLine[]>(() =>
