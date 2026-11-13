@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // Ctrl+K palette: pages, stations (→ board), train numbers (→ train page).
+import { viennaDate } from "../lib/format.ts";
 import { isImeEnter } from "../lib/keys.ts";
 import { computed, nextTick, ref, shallowRef, watch } from "vue";
 import ModalDialog from "./ModalDialog.vue";
@@ -25,7 +26,7 @@ watch(open, async (o) => {
     q.value = "";
     sel.value = 0;
     await loadStations();
-    const y = yearFor(new Date().toISOString().slice(0, 10));
+    const y = yearFor(viennaDate());
     if (y && !trains.value) void loadTrains(y, false).then((t) => (trains.value = t));
     await nextTick();
     input.value?.focus();

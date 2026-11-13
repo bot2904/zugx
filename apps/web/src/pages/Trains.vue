@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // Train index ("Zugindex"), vagonweb-style: every train running in Austria in a timetable year.
+import { viennaDate } from "../lib/format.ts";
 import { useDebounceFn } from "@vueuse/core";
 import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useI18n } from "vue-i18n";
@@ -33,7 +34,7 @@ const { t, tm, locale } = useI18n();
 const route = useRoute();
 const router = useRouter();
 
-const todayIso = new Date().toLocaleDateString("sv-SE", { timeZone: "Europe/Vienna" });
+const todayIso = viennaDate();
 const year = computed(() => Number(route.query.y) || yearFor(todayIso) || years[0] || 0);
 const quick = computed<QuickFilter>(() => {
   const q = route.query.g;

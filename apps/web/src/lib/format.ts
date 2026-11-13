@@ -43,6 +43,12 @@ export function toLocalInput(d: Date): string {
   return `${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}`;
 }
 
+/** Today's date (YYYY-MM-DD) in Europe/Vienna — not the browser's time zone, not UTC. */
+export const viennaDate = (d = new Date()) => toLocalInput(d).slice(0, 10);
+
+/** Minutes since midnight in Europe/Vienna wall-clock time. */
+export const viennaMinutes = (d = new Date()) => minutesOfDay(toLocalInput(d));
+
 /** Parse a "YYYY-MM-DDTHH:MM" Vienna local value into a Date. */
 export function fromLocalInput(v: string): Date | undefined {
   const m = /^(\d{4})-(\d\d)-(\d\d)(?:T(\d\d):(\d\d))?$/.exec(v);

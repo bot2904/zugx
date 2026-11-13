@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vite-plus/test";
-import { fromLocalInput, toLocalInput } from "./format.ts";
+import { fromLocalInput, toLocalInput, viennaDate, viennaMinutes } from "./format.ts";
 import { normalize, searchKeys } from "./normalize.ts";
 import { _setStations, searchStations } from "./stations.ts";
 import { dayIndex, daysSummary, runsOnDay, type TrainEntry } from "./trains.ts";
@@ -49,6 +49,17 @@ describe("time inputs", () => {
     expect(d.toISOString()).toBe("2026-07-01T06:30:00.000Z");
     expect(toLocalInput(d)).toBe("2026-07-01T08:30");
     expect(fromLocalInput("2026-01-10T08:30")!.toISOString()).toBe("2026-01-10T07:30:00.000Z");
+  });
+});
+
+describe("Vienna wall-clock (independent of the browser time zone)", () => {
+  it("date and minutes", () => {
+    // 2026-12-31 23:30 UTC = 2027-01-01 00:30 CET
+    const d = new Date(Date.UTC(2026, 11, 31, 23, 30));
+    expect(viennaDate(d)).toBe("2027-01-01");
+    expect(viennaMinutes(d)).toBe(30);
+    // summer time: 06:15 UTC = 08:15 CEST
+    expect(viennaMinutes(new Date(Date.UTC(2026, 6, 1, 6, 15)))).toBe(8 * 60 + 15);
   });
 });
 

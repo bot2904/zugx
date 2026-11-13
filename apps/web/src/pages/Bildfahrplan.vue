@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // Bildfahrplan (time–distance diagram) for a corridor: x = km, y = time (downwards).
+import { viennaDate, viennaMinutes } from "../lib/format.ts";
 import { useDebounceFn, useIntervalFn } from "@vueuse/core";
 import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
 import { computed, onMounted, ref, shallowRef, watch } from "vue";
@@ -27,7 +28,9 @@ const data = shallowRef<Corridor>();
 const loading = ref(false);
 
 const id = computed(() => (route.params.corridor ? String(route.params.corridor) : undefined));
-const from = computed(() => Number(route.query.from ?? Math.max(0, new Date().getHours() - 1)));
+const from = computed(() =>
+  Number(route.query.from ?? Math.max(0, Math.floor(viennaMinutes() / 60) - 1)),
+);
 const span = computed(() => Number(route.query.h ?? 4));
 const hover = ref<CorridorTrain>();
 const now = ref(new Date());
@@ -149,7 +152,7 @@ interface Drawn {
 }
 
 // ---- date: any day of the timetable period (trains carry running-day bitsets) ----
-const today = new Date().toLocaleDateString("sv-SE", { timeZone: "Europe/Vienna" });
+const today = viennaDate();
 const date = computed(() => {
   const q = typeof route.query.d === "string" ? route.query.d : "";
   const c = data.value;
@@ -221,7 +224,7 @@ const drawn = computed<Drawn[]>(() => {
 
 const nowY = computed(() => {
   if (!isToday.value) return undefined;
-  const n = now.value.getHours() * 60 + now.value.getMinutes();
+  const n = viennaMinutes(now.value);
   return n >= t0.value && n <= t1.value ? y(n) : undefined;
 });
 

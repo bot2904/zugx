@@ -4,7 +4,7 @@
 import type { Journey, Leg } from "@zugx/hafas";
 import { useResizeObserver } from "@vueuse/core";
 import { computed, ref } from "vue";
-import { fmtDuration, hhmm, ms } from "../lib/format.ts";
+import { fmtDuration, hhmm, ms, viennaMinutes } from "../lib/format.ts";
 import { lineColor } from "../lib/products.ts";
 
 const props = defineProps<{ journeys: Journey[]; selected?: number }>();
@@ -42,8 +42,11 @@ const ticks = computed(() => {
   const step =
     [15, 30, 60, 120, 180, 360].map((m) => m * 60_000).find((s) => span / s <= 12) ?? 720 * 60_000;
   const out: { x: number; label: string }[] = [];
-  // align to local quarter hours (Vienna offset is whole hours → UTC alignment ok)
-  for (let v = Math.ceil(lo / step) * step; v <= hi; v += step) {
+  // align to Vienna wall-clock: shift by the UTC offset (whole hours), so 2/3/6 h steps hit 06:00, 12:00 …
+  const off = Number.isFinite(lo)
+    ? ((((viennaMinutes(new Date(lo)) - Math.floor(lo / 60_000)) % 1440) + 1440) % 1440) * 60_000
+    : 0;
+  for (let v = Math.ceil((lo + off) / step) * step - off; v <= hi; v += step) {
     const d = new Date(v);
     const label = new Intl.DateTimeFormat("de-AT", {
       timeZone: "Europe/Vienna",
