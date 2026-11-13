@@ -33,10 +33,47 @@ export default defineConfig({
         // opening a zugx link while the installed app is open: navigate it to the link
         // (default may just focus the existing window, staying on e.g. /radar)
         launch_handler: { client_mode: ["navigate-existing", "auto"] },
-        icons: [{ src: "/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any maskable" }],
+        id: "/",
+        start_url: "/",
+        scope: "/",
+        lang: "de",
+        categories: ["travel", "navigation", "utilities"],
+        icons: [
+          { src: "/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },
+          { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+          { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+          {
+            src: "/icons/maskable-512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
+          },
+        ],
+        shortcuts: [
+          {
+            name: "Radar",
+            url: "/radar",
+            icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }],
+          },
+          {
+            name: "Züge / Trains",
+            url: "/trains",
+            icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }],
+          },
+          {
+            name: "Bildfahrplan",
+            url: "/bf",
+            icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }],
+          },
+          {
+            name: "Störungen / Disruptions",
+            url: "/him",
+            icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }],
+          },
+        ],
       },
       workbox: {
-        globPatterns: ["**/*.{js,mjs,css,html,svg,json,woff2}"],
+        globPatterns: ["**/*.{js,mjs,css,html,svg,png,json,woff2}"],
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         navigateFallbackDenylist: [/^\/api\//, /\.txt$/],
       },
