@@ -213,3 +213,8 @@ for a synthetic model and for the generated file.
   Innsbruck and to Bregenz every 2 h) appear as separate 120' lines.
 - Westbahn corridor follows the Neue Westbahn via Tullnerfeld; Wien Westbf / old line trains join
   at St. Pölten. Private operators (WESTbahn) are not in the ÖBB GTFS.
+
+## Day types and running days
+
+- **Netzgrafik** is built for three day types from reference days of the same regular week: Mon–Fri (`--day`, default Tue 2026-03-10) → `netz.json` / `nge.json`, Saturday 2026-03-14 → `netz-saturday.json` / `nge-saturday.json`, Sunday 2026-03-15 → `netz-sunday.json` / `nge-sunday.json` (`DAY_TYPES` in `src/build.ts`).
+- **Corridors** take their station list from the reference day, but their trains from the **whole timetable year** (`loadFeed(src, null)` + `serviceDays()`): runs with identical times are merged, and each carries `days`, a base64 bitset over `begin…end` (bit i = day `begin + i`, MSB first — same as the train index). The UI filters by date. Corridor/index `trains` counts and `cats` refer to the reference day.

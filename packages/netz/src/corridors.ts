@@ -357,8 +357,10 @@ export function corridorStations(feed: Feed, def: CorridorDef, names?: Map<strin
  * are corridor stations in monotonic order. A non-corridor stop in between
  * (train left the corridor) or a direction change splits the run.
  */
-export function corridorRuns(trip: Trip, stationIdx: Map<string, number>): CorridorTrain[] {
-  const out: CorridorTrain[] = [];
+export type CorridorRun = Omit<CorridorTrain, "days">;
+
+export function corridorRuns(trip: Trip, stationIdx: Map<string, number>): CorridorRun[] {
+  const out: CorridorRun[] = [];
   let cur: [number, number | null, number | null][] = [];
   let dir: 1 | -1 | 0 = 0;
   const flush = () => {
@@ -395,25 +397,71 @@ export function corridorRuns(trip: Trip, stationIdx: Map<string, number>): Corri
   return out;
 }
 
+/** Base64 bitset, bit i = day i, MSB first. */
+export function encodeDays(days: Iterable<number>, n: number): string {
+  const bytes = new Uint8Array(Math.ceil(n / 8));
+  for (const i of days) if (i >= 0 && i < n) bytes[i >> 3]! |= 0x80 >> (i & 7);
+  return Buffer.from(bytes).toString("base64");
+}
+
+export interface YearTrips {
+  /** all rail trips of the feed */
+  feed: Feed;
+  /** running days per service_id (day indexes from `begin`) */
+  days: Map<string, Set<number>>;
+  begin: string;
+  end: string;
+}
+
+/**
+ * Builds a corridor: stations from the reference-day feed, trains from the whole
+ * timetable year; runs with identical times are merged and carry their running days.
+ */
 export function buildCorridor(
   feed: Feed,
   def: CorridorDef,
   day: string,
   source: string,
   names?: Map<string, string>,
+  year?: YearTrips,
 ): Corridor {
   const stations = corridorStations(feed, def, names);
   const idx = new Map(stations.map((s, i) => [s.id, i]));
-  const trains: CorridorTrain[] = [];
-  for (const trip of feed.trips) trains.push(...corridorRuns(trip, idx));
+  const DAY = 86_400_000;
+  const begin = year?.begin ?? day;
+  const end = year?.end ?? day;
+  const n =
+    Math.round((Date.parse(`${end}T00:00:00Z`) - Date.parse(`${begin}T00:00:00Z`)) / DAY) + 1;
+  const merged = new Map<string, { t: CorridorRun; days: Set<number> }>();
+  for (const trip of (year ?? { feed }).feed.trips) {
+    const tripDays = year ? year.days.get(trip.service) : new Set([0]);
+    if (!tripDays?.size) continue;
+    for (const t of corridorRuns(trip, idx)) {
+      const key = JSON.stringify(t);
+      let m = merged.get(key);
+      if (!m) merged.set(key, (m = { t, days: new Set() }));
+      for (const d of tripDays) m.days.add(d);
+    }
+  }
+  const trains: CorridorTrain[] = [...merged.values()].map(({ t, days }) => ({
+    ...t,
+    days: encodeDays(days, n),
+  }));
   const t0 = (t: CorridorTrain) => t.pts[0]![2] ?? t.pts[0]![1] ?? 0;
   trains.sort((a, b) => t0(a) - t0(b) || a.nr.localeCompare(b.nr));
-  return { id: def.id, name: def.name, day, source, stations, trains };
+  return { id: def.id, name: def.name, day, begin, end, source, stations, trains };
 }
 
 /** Compact JSON: one station / train per line. */
 export function corridorJson(c: Corridor): string {
-  const head = JSON.stringify({ id: c.id, name: c.name, day: c.day, source: c.source });
+  const head = JSON.stringify({
+    id: c.id,
+    name: c.name,
+    day: c.day,
+    begin: c.begin,
+    end: c.end,
+    source: c.source,
+  });
   const st = c.stations.map((s) => `    ${JSON.stringify(s)}`).join(",\n");
   const tr = c.trains.map((t) => `    ${JSON.stringify(t)}`).join(",\n");
   return `${head.slice(0, -1)},\n  "stations": [\n${st}\n  ],\n  "trains": [\n${tr}\n  ]\n}\n`;

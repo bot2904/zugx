@@ -2,6 +2,7 @@
 // Bildfahrplan (time–distance diagram) for a corridor: x = km, y = time (downwards).
 import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from "vue";
+import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
 import CorridorIndexView from "../components/CorridorIndex.vue";
 import { categoryColor } from "../lib/products.ts";
@@ -16,6 +17,7 @@ const indexFile = Object.entries(files).find(([p]) => p.endsWith("/index.json"))
   | (() => Promise<{ default: CorridorIndex }>)
   | undefined;
 
+const { locale } = useI18n();
 const route = useRoute();
 const router = useRouter();
 const list = shallowRef<CorridorRef[]>([]);
@@ -93,11 +95,49 @@ interface Drawn {
   label?: { x: number; y: number };
 }
 
+// ---- date: any day of the timetable period (trains carry running-day bitsets) ----
+const today = new Date().toLocaleDateString("sv-SE", { timeZone: "Europe/Vienna" });
+const date = computed(() => {
+  const q = typeof route.query.d === "string" ? route.query.d : "";
+  const c = data.value;
+  if (/^\d{4}-\d\d-\d\d$/.test(q)) return q;
+  if (c?.begin && today >= c.begin && today <= c.end) return today;
+  return c?.day ?? today;
+});
+const dayIdx = computed(() =>
+  data.value?.begin
+    ? Math.round(
+        (Date.parse(`${date.value}T00:00:00Z`) - Date.parse(`${data.value.begin}T00:00:00Z`)) /
+          86_400_000,
+      )
+    : -1,
+);
+const bitsCache = new WeakMap<CorridorTrain, Uint8Array>();
+function runsOnDate(t: CorridorTrain): boolean {
+  if (!t.days) return true;
+  let b = bitsCache.get(t);
+  if (!b) bitsCache.set(t, (b = Uint8Array.from(atob(t.days), (ch) => ch.charCodeAt(0))));
+  const i = dayIdx.value;
+  return i >= 0 && ((b[i >> 3] ?? 0) >> (7 - (i & 7))) % 2 === 1;
+}
+const trainsOnDate = computed(() => (data.value?.trains ?? []).filter(runsOnDate));
+function shiftDay(delta: number) {
+  const d = new Date(`${date.value}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + delta);
+  setQuery({ d: d.toISOString().slice(0, 10) });
+}
+const isToday = computed(() => date.value === today);
+const weekday = computed(() =>
+  new Intl.DateTimeFormat(locale.value, { weekday: "short", timeZone: "UTC" }).format(
+    new Date(`${date.value}T12:00:00Z`),
+  ),
+);
+
 const drawn = computed<Drawn[]>(() => {
   const c = data.value;
   if (!c) return [];
   const out: Drawn[] = [];
-  for (const t of c.trains) {
+  for (const t of trainsOnDate.value) {
     const coords: [number, number][] = [];
     for (const [i, a, d] of t.pts) {
       const st = c.stations[i];
@@ -124,16 +164,16 @@ const drawn = computed<Drawn[]>(() => {
 });
 
 const nowY = computed(() => {
+  if (!isToday.value) return undefined;
   const n = now.value.getHours() * 60 + now.value.getMinutes();
   return n >= t0.value && n <= t1.value ? y(n) : undefined;
 });
 
-const today = new Date().toLocaleDateString("sv-SE", { timeZone: "Europe/Vienna" });
 function openTrain(t: CorridorTrain) {
-  void router.push({ path: `/train/${trainSlug(`${t.cat} ${t.nr}`)}`, query: { d: today } });
+  void router.push({ path: `/train/${trainSlug(`${t.cat} ${t.nr}`)}`, query: { d: date.value } });
 }
 
-const cats = computed(() => [...new Set(data.value?.trains.map((t) => t.cat) ?? [])]);
+const cats = computed(() => [...new Set(trainsOnDate.value.map((t) => t.cat))]);
 const hidden = ref(new Set<string>());
 function toggleCat(c: string) {
   const s = new Set(hidden.value);
@@ -163,7 +203,30 @@ function toggleCat(c: string) {
       >
         <option v-for="c in list" :key="c.id" :value="c.id">{{ c.name }}</option>
       </select>
-      <span v-if="data" class="muted text-xs">{{ data.day }} · {{ data.trains.length }}</span>
+      <span v-if="data" class="flex items-center gap-1 text-xs">
+        <button class="btn" :title="$t('bf.prevDay')" @click="shiftDay(-1)">‹</button>
+        <input
+          type="date"
+          class="input text-xs"
+          :value="date"
+          :min="data.begin"
+          :max="data.end"
+          :aria-label="$t('trains.runsOn')"
+          @change="setQuery({ d: ($event.target as HTMLInputElement).value || undefined })"
+        />
+        <span class="mono muted">{{ weekday }}</span>
+        <button class="btn" :title="$t('bf.nextDay')" @click="shiftDay(1)">›</button>
+        <button v-if="!isToday" class="btn" @click="setQuery({ d: undefined })">
+          {{ $t("trains.today") }}
+        </button>
+        <span class="muted">{{ $t("bf.trainsOnDay", { n: trainsOnDate.length }) }}</span>
+        <span
+          v-if="data.begin && (date < data.begin || date > data.end)"
+          class="text-[var(--warn)]"
+        >
+          {{ $t("bf.outside", { begin: data.begin, end: data.end }) }}
+        </span>
+      </span>
       <span class="ml-auto flex items-center gap-1 text-xs">
         <button class="btn" @click="setQuery({ from: Math.max(0, from - 1) })">▲</button>
         <span class="mono">{{ String(from).padStart(2, "0") }}:00</span>

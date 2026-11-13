@@ -19,7 +19,7 @@ export function trip(
   headsign = stops[stops.length - 1]![0],
 ): Trip {
   const st: StopTime[] = stops.map(([s, arr, dep, km]) => ({ st: s, arr, dep, dist: km * 1000 }));
-  return { id: `${cat}${nr}`, cat, nr, headsign, routeId: "r", stops: st };
+  return { id: `${cat}${nr}`, cat, nr, headsign, routeId: "r", service: "s", stops: st };
 }
 
 export function feed(stations: Map<string, Station>, trips: Trip[]): Feed {

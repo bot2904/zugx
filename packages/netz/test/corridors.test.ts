@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vite-plus/test";
-import { buildCorridor, corridorJson, corridorRuns, corridorStations } from "../src/corridors.ts";
+import {
+  buildCorridor,
+  corridorJson,
+  corridorRuns,
+  corridorStations,
+  encodeDays,
+} from "../src/corridors.ts";
 import { feed, lineStations, trip } from "./helpers.ts";
 
 // A —10— a1 —10— B —20— C, plus a parallel line B — x1 — C (longer) and a branch y1
@@ -107,5 +113,12 @@ describe("buildCorridor", () => {
     const json = corridorJson(c);
     expect(JSON.parse(json)).toEqual(c);
     expect(json.split("\n").filter((l) => l.includes('"cat"'))).toHaveLength(4);
+  });
+});
+
+describe("encodeDays", () => {
+  it("sets bits MSB first", () => {
+    expect(encodeDays([0], 8)).toBe(Buffer.from([0x80]).toString("base64"));
+    expect(encodeDays([7, 8], 16)).toBe(Buffer.from([0x01, 0x80]).toString("base64"));
   });
 });

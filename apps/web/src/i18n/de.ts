@@ -125,6 +125,10 @@ export default {
     hint: "Positionen werden von ÖBB HAFAS berechnet.",
   },
   bf: {
+    outside: "außerhalb des Fahrplanzeitraums {begin} – {end}",
+    prevDay: "Vortag",
+    nextDay: "Folgetag",
+    trainsOnDay: "{n} Züge",
     subtitle: "{n} Strecken, Zeit-Weg-Diagramme eines Werktags",
     filter: "Strecke oder Bahnhof…",
     stations: "Bahnhöfe",
@@ -138,6 +142,10 @@ export default {
     live: "Live-Overlay",
   },
   netz: {
+    weekday: "Mo–Fr",
+    saturday: "Sa",
+    sunday: "So/Feiertag",
+    dayType: "Tagesart",
     title: "Netzgrafik",
     subtitle: "Integrierter Taktfahrplan (ITF), rekonstruiert aus dem Fahrplan",
     noData: "Netzgrafik noch nicht erzeugt.",

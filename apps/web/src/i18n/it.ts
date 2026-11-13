@@ -125,6 +125,10 @@ export default {
     hint: "Posizioni calcolate da ÖBB HAFAS.",
   },
   bf: {
+    outside: "fuori dal periodo d'orario {begin} – {end}",
+    prevDay: "Giorno precedente",
+    nextDay: "Giorno successivo",
+    trainsOnDay: "{n} treni",
     subtitle: "{n} linee, diagrammi spazio-tempo di un giorno feriale",
     filter: "Linea o stazione…",
     stations: "Stazioni",
@@ -138,6 +142,10 @@ export default {
     live: "Sovrapposizione live",
   },
   netz: {
+    weekday: "lun–ven",
+    saturday: "sab",
+    sunday: "dom/festivi",
+    dayType: "Tipo di giorno",
     title: "Grafico di rete",
     subtitle: "Orario cadenzato integrato, ricostruito dall'orario",
     noData: "Grafico di rete non ancora generato.",

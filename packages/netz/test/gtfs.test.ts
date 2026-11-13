@@ -2,7 +2,9 @@ import { describe, expect, it } from "vite-plus/test";
 import { csvRecords, csvRows } from "../src/csv.ts";
 import {
   activeServices,
+  feedPeriod,
   loadFeed,
+  serviceDays,
   parentDhid,
   parseGtfsTime,
   type TableSource,
@@ -83,6 +85,22 @@ describe("gtfs", () => {
     expect([...activeServices(src, "2026-03-10")].sort()).toEqual(["daily", "extra"]);
     expect([...activeServices(src, "2026-03-11")]).toEqual([]);
     expect([...activeServices(src, "2026-03-14")].sort()).toEqual(["daily", "weekend"]);
+  });
+
+  it("computes running days per service over the period", () => {
+    expect(feedPeriod(src)).toEqual({ begin: "2025-12-14", end: "2026-12-12" });
+    const d = serviceDays(src, "2026-03-09", "2026-03-15"); // Mon … Sun
+    expect([...d.get("daily")!].sort()).toEqual([0, 1, 3, 4, 5, 6]); // not Wed 11th
+    expect([...d.get("weekend")!].sort()).toEqual([5, 6]);
+    expect([...d.get("extra")!]).toEqual([1]);
+  });
+
+  it("loads all trips of the feed when no day is given", () => {
+    const f = loadFeed(src, null);
+    const ids = f.trips.map((t) => t.id);
+    expect(ids).toContain("t1");
+    expect(ids).toContain("t4"); // runs only on the "extra" day, but no day filter here
+    expect(f.trips.every((t) => t.service)).toBe(true);
   });
 
   it("loads rail trips of the day with sorted stops and parent stations", () => {

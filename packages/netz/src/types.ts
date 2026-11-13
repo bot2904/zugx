@@ -170,12 +170,21 @@ export interface CorridorTrain {
   dir: 1 | -1;
   headsign: string;
   pts: [number, number | null, number | null][];
+  /**
+   * running days over the timetable year (see {@link Corridor.begin}): base64 bitset,
+   * bit i = day `begin + i`, MSB first (like HAFAS sDaysB and the train index)
+   */
+  days: string;
 }
 
 export interface Corridor {
   id: string;
   name: string;
+  /** reference day used to derive the station list */
   day: string;
+  /** timetable period covered by the trains' running days */
+  begin: string;
+  end: string;
   source: string;
   stations: CorridorStation[];
   trains: CorridorTrain[];
@@ -199,7 +208,10 @@ export interface CorridorIndexEntry {
 }
 
 export interface CorridorIndex {
+  /** reference day (station lists, train counts, category mix) */
   day: string;
+  begin: string;
+  end: string;
   source: string;
   corridors: CorridorIndexEntry[];
 }

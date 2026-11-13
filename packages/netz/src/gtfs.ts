@@ -37,6 +37,8 @@ export interface Trip {
   nr: string;
   headsign: string;
   routeId: string;
+  /** GTFS service_id (running days via {@link serviceDays}) */
+  service: string;
   stops: StopTime[];
 }
 
@@ -131,8 +133,59 @@ export function parentDhid(stopId: string): string {
   return m ? `P${m[1]}` : stopId;
 }
 
-/** Loads all rail trips running on `day`. */
-export function loadFeed(src: TableSource, day: string): Feed {
+/** First and last day (YYYY-MM-DD) covered by calendar.txt / calendar_dates.txt. */
+export function feedPeriod(src: TableSource): { begin: string; end: string } {
+  let lo = "99999999";
+  let hi = "00000000";
+  for (const r of csvRecords(src("calendar") ?? [])) {
+    if (r.start_date! < lo) lo = r.start_date!;
+    if (r.end_date! > hi) hi = r.end_date!;
+  }
+  const iso = (d: string) => `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}`;
+  return { begin: iso(lo), end: iso(hi) };
+}
+
+/**
+ * Running days per service_id within [begin, end] (YYYY-MM-DD, inclusive), as day
+ * indexes counted from `begin`.
+ */
+export function serviceDays(
+  src: TableSource,
+  begin: string,
+  end: string,
+): Map<string, Set<number>> {
+  const DAY = 86_400_000;
+  const b = Date.parse(`${begin}T00:00:00Z`);
+  const n = Math.round((Date.parse(`${end}T00:00:00Z`) - b) / DAY) + 1;
+  const iso = (i: number) => new Date(b + i * DAY).toISOString().slice(0, 10);
+  const days = Array.from({ length: n }, (_, i) => ({
+    d: gtfsDate(iso(i)),
+    wd: WEEKDAYS[new Date(b + i * DAY).getUTCDay()]!,
+  }));
+  const out = new Map<string, Set<number>>();
+  const get = (id: string) => {
+    let set = out.get(id);
+    if (!set) out.set(id, (set = new Set()));
+    return set;
+  };
+  for (const r of csvRecords(src("calendar") ?? [])) {
+    const set = get(r.service_id!);
+    days.forEach(({ d, wd }, i) => {
+      if (r[wd] === "1" && r.start_date! <= d && d <= r.end_date!) set.add(i);
+    });
+  }
+  const index = new Map(days.map(({ d }, i) => [d, i]));
+  for (const r of csvRecords(src("calendar_dates") ?? [])) {
+    const i = index.get(r.date!);
+    if (i === undefined) continue;
+    if (r.exception_type === "1") get(r.service_id!).add(i);
+    else if (r.exception_type === "2") get(r.service_id!).delete(i);
+  }
+  return out;
+}
+
+/** Loads all rail trips running on `day`, or all rail trips of the feed if `day` is null. */
+export function loadFeed(src: TableSource, day: string | null): Feed {
   const stations = new Map<string, Station>();
   const parentOf = new Map<string, string>();
   const orphans: Station[] = [];
@@ -167,10 +220,10 @@ export function loadFeed(src: TableSource, day: string): Feed {
     }
   }
 
-  const services = activeServices(src, day);
+  const services = day === null ? null : activeServices(src, day);
   const trips = new Map<string, Trip>();
   for (const r of csvRecords(src("trips") ?? [])) {
-    if (!services.has(r.service_id!) || busRoutes.has(r.route_id!)) continue;
+    if ((services && !services.has(r.service_id!)) || busRoutes.has(r.route_id!)) continue;
     const short = (r.trip_short_name ?? "").trim();
     if (!short) continue;
     const m = /^(\S+)\s+(.+)$/.exec(short);
@@ -180,6 +233,7 @@ export function loadFeed(src: TableSource, day: string): Feed {
       nr: m ? m[2]! : "",
       headsign: shortStationName(r.trip_headsign ?? ""),
       routeId: r.route_id!,
+      service: r.service_id!,
       stops: [],
     });
   }

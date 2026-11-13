@@ -1,17 +1,27 @@
 <script setup lang="ts">
 // Read-only Netzgrafik: nodes (Knoten) + line sections with departure/arrival minutes at both ends.
 import type { EdgeLine, NetzLine, NetzModel, NetzNode } from "@zugx/netz";
-import { computed, onMounted, ref, shallowRef } from "vue";
+import { computed, onMounted, ref, shallowRef, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import { categoryColor } from "../lib/products.ts";
 
-const files = import.meta.glob<{ default: NetzModel }>("../../../../packages/netz/data/netz.json");
-const ngeUrl = Object.values(
-  import.meta.glob("../../../../packages/netz/data/nge.json", {
-    query: "?url",
-    import: "default",
-    eager: true,
-  }),
-)[0] as string | undefined;
+// one model per day type: netz.json (Mon–Fri), netz-saturday.json, netz-sunday.json
+const files = import.meta.glob<{ default: NetzModel }>("../../../../packages/netz/data/netz*.json");
+const ngeUrls = import.meta.glob<string>("../../../../packages/netz/data/nge*.json", {
+  query: "?url",
+  import: "default",
+  eager: true,
+});
+const DAY_TYPES = [
+  { id: "weekday", suffix: "" },
+  { id: "saturday", suffix: "-saturday" },
+  { id: "sunday", suffix: "-sunday" },
+] as const;
+type DayType = (typeof DAY_TYPES)[number]["id"];
+const pathFor = (prefix: string, t: DayType, keys: string[]) => {
+  const suffix = DAY_TYPES.find((d) => d.id === t)!.suffix;
+  return keys.find((k) => k.endsWith(`/${prefix}${suffix}.json`));
+};
 
 const netz = shallowRef<NetzModel>();
 const loading = ref(true);
@@ -20,11 +30,31 @@ const selNode = ref<string>();
 const hiddenCats = ref(new Set<string>());
 const maxTakt = ref(0);
 
-onMounted(async () => {
-  const loader = Object.values(files)[0];
-  if (loader) netz.value = (await loader()).default;
-  loading.value = false;
+const route = useRoute();
+const router = useRouter();
+const dayType = computed<DayType>(() =>
+  route.query.day === "saturday" || route.query.day === "sunday" ? route.query.day : "weekday",
+);
+const availableTypes = computed(() =>
+  DAY_TYPES.filter((d) => pathFor("netz", d.id, Object.keys(files))),
+);
+const ngeUrl = computed(() => {
+  const p = pathFor("nge", dayType.value, Object.keys(ngeUrls));
+  return p ? ngeUrls[p] : undefined;
 });
+
+async function load() {
+  loading.value = true;
+  const p = pathFor("netz", dayType.value, Object.keys(files));
+  const loader = p ? files[p] : undefined;
+  netz.value = loader ? (await loader()).default : undefined;
+  selLine.value = undefined;
+  loading.value = false;
+}
+onMounted(load);
+watch(dayType, load);
+const setDayType = (t: DayType) =>
+  void router.replace({ query: t === "weekday" ? {} : { day: t } });
 
 // schematic x/y (km) from the build, fitted to the viewBox
 const W = 1200;
@@ -130,10 +160,21 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
     <div class="flex flex-wrap items-baseline gap-2">
       <h1 class="m-0 text-xl">{{ $t("netz.title") }}</h1>
       <span class="muted text-sm">{{ $t("netz.subtitle") }}</span>
+      <span class="chips flex gap-1" role="group" :aria-label="$t('netz.dayType')">
+        <button
+          v-for="d in availableTypes"
+          :key="d.id"
+          class="btn chip py-0.5 text-xs"
+          :class="dayType === d.id && 'btn-on'"
+          @click="setDayType(d.id)"
+        >
+          {{ $t(`netz.${d.id}`) }}
+        </button>
+      </span>
       <a
         v-if="ngeUrl"
         :href="ngeUrl"
-        download="zugx-netzgrafik-nge.json"
+        :download="`zugx-netzgrafik-${dayType}-nge.json`"
         class="btn ml-auto text-xs"
         >⤓ {{ $t("netz.export") }}</a
       >

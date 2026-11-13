@@ -123,6 +123,10 @@ export default {
     hint: "Positions are calculated by ÖBB HAFAS.",
   },
   bf: {
+    outside: "outside the timetable period {begin} – {end}",
+    prevDay: "Previous day",
+    nextDay: "Next day",
+    trainsOnDay: "{n} trains",
     subtitle: "{n} corridors, time–distance diagrams of one weekday",
     filter: "Corridor or station…",
     stations: "Stations",
@@ -136,6 +140,10 @@ export default {
     live: "Live overlay",
   },
   netz: {
+    weekday: "Mon–Fri",
+    saturday: "Sat",
+    sunday: "Sun/holiday",
+    dayType: "Day type",
     title: "Netzgrafik",
     subtitle: "Integrated interval timetable (ITF), reconstructed from the timetable",
     noData: "Netzgrafik data not built yet.",

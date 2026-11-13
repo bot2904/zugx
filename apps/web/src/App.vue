@@ -122,7 +122,7 @@ const shortcuts: [string, string][] = [
     (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>) ·
     <a href="https://github.com/simon04/zugx">zugx</a>
     (<a href="https://github.com/simon04/zugx/blob/master/LICENSE">AGPL-3.0</a>)
-    <span class="keys-only">·</span>
+    <span class="keys-only"> · </span>
     <button
       class="keys-only cursor-pointer border-0 bg-transparent p-0 text-xs text-[var(--link)]"
       @click="help = true"

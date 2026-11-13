@@ -11,8 +11,8 @@ One page per feature: where the data comes from and how it is shown or computed.
 | Live radar      | `/radar`                          | HAFAS `JourneyGeoPos` (live)                               | [radar.md](radar.md)                 |
 | Disruptions     | `/him`                            | HAFAS `HimSearch` (live)                                   | [disruptions.md](disruptions.md)     |
 | Train index     | `/trains`                         | ÖBB GTFS (static) + HAFAS train names                      | [train-index.md](train-index.md)     |
-| Bildfahrplan    | `/bf`, `/bf/<corridor>`           | ÖBB GTFS (static, one weekday)                             | [bildfahrplan.md](bildfahrplan.md)   |
-| Netzgrafik      | `/netz`                           | ÖBB GTFS (static, one weekday)                             | [netzgrafik.md](netzgrafik.md)       |
+| Bildfahrplan    | `/bf`, `/bf/<corridor>?d=`        | ÖBB GTFS (static, any day of the timetable year)           | [bildfahrplan.md](bildfahrplan.md)   |
+| Netzgrafik      | `/netz?day=`                      | ÖBB GTFS (static, per day type: Mon–Fri, Sat, Sun)         | [netzgrafik.md](netzgrafik.md)       |
 | Add to calendar | journey details                   | the journey shown                                          | [calendar.md](calendar.md)           |
 | Raw API view    | `{}` button / `d`                 | the app's own HAFAS requests                               | [raw-api.md](raw-api.md)             |
 
