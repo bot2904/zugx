@@ -399,9 +399,9 @@ function toggleCat(c: string) {
       <svg
         :viewBox="`0 0 ${W} ${H}`"
         class="block w-full min-w-[800px]"
-        @wheel="onWheel"
         role="img"
         :aria-label="data.name"
+        @wheel="onWheel"
       >
         <!-- stations -->
         <g v-for="s in shownStations" :key="s.id">

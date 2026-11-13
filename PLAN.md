@@ -557,13 +557,13 @@ Still to do:
 - Kept native: one-shot `getCurrentPosition` for "near me" (`useGeolocation` watches continuously), `matchMedia` one-off reads.
 - Bundle: index chunk 143.15 → 152.35 kB (52.84 → 56.23 kB gzip). All e2e tests green.
 
-### Vue lint pass (eslint-plugin-vue "recommended")
+### Vue lint pass (eslint-plugin-vue "recommended") — done
 
-- Goal: catch Vue-specific issues (prop/emit typing, `v-for` keys, `v-if`+`v-for`, mutating props, template naming/order, a11y-ish template rules) that tsgolint + vue-tsc don't.
-- Approach, in this order:
-  1. Enable all of Oxlint's built-in `vue/*` rules (already `plugins: ["typescript", "vue"]` in `vite.config.ts`) — Oxlint ports a subset of eslint-plugin-vue; turn on the ones matching the "recommended" preset and fix findings.
-  2. Try `lint.jsPlugins` (Oxlint JS plugins, used e.g. in bldrwnsch) with `eslint-plugin-vue` for the rules Oxlint lacks — only if it understands `.vue` SFCs; otherwise skip (no separate ESLint setup, per §6.1).
-  3. For what's still uncovered: read the eslint-plugin-vue rules list (https://eslint.vuejs.org/rules/) for `essential` / `strongly-recommended` / `recommended` and fix by inspecting the ~30 components by hand.
+- Oxlint 1.93 ports 46 eslint-plugin-vue rules, all script-level. The recommended-set ones plus type-based `defineProps`/`defineEmits`, `prefer-import-from-vue` and `require-typed-ref` are enabled as errors in `vite.config.ts`. Findings: MapView `center`/`zoom` needed explicit defaults.
+- Template rules can't run: Oxlint only parses the `<script>` blocks of SFCs, and JS plugins can't use `vue-eslint-parser`. A separate ESLint setup is out of scope (§6.1).
+- Manual template review against essential / strongly-recommended / recommended: `require-v-for-key`, `no-use-v-if-with-v-for`, `no-v-html`, `no-mutating-props` (readonly props, vue-tsc), `require-explicit-emits`, `attribute-hyphenation`, `v-bind`/`v-on`/`v-slot` shorthand, `this-in-template`, `no-template-shadow`, `no-unused-vars`/`no-unused-components` (one-off `vue-tsc --noUnusedLocals`), `attributes-order` (one fix in the Bildfahrplan svg). Formatting rules are left to Oxfmt.
+- Deliberately not followed: `multi-word-component-names`. Route pages (`Home`, `Radar`, `Train`, `Netz`, …) and small components (`Platform`, `Status`) keep their single-word names; there's no clash with HTML elements.
+- Index-as-key on static lists (not a recommended rule) is fine.
 
 ## Sources
 
