@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Journey, JourneysResult, Leg } from "@zugx/hafas";
-import { computed, onMounted, ref, shallowRef, watch } from "vue";
+import { computed, nextTick, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import CalendarButton from "../components/CalendarButton.vue";
 import EventTime from "../components/EventTime.vue";
@@ -113,7 +113,17 @@ async function resolveNames() {
 }
 
 watch([from, to, via, t, arrival, products, transferTime], () => void search().then(resolveNames));
-onMounted(() => void search().then(resolveNames));
+// a permalink with #n opens connection n: once loaded, bring its details into view (content is async,
+// so neither the URL fragment nor scroll-initial-target can do it)
+const details = ref<HTMLElement>();
+onMounted(async () => {
+  await search();
+  void resolveNames();
+  if (route.hash && expanded.value !== undefined) {
+    await nextTick();
+    details.value?.scrollIntoView({ block: "start" });
+  }
+});
 
 function setQuery(q: Record<string, string | undefined>) {
   const next = { ...route.query, ...q };
@@ -350,7 +360,11 @@ useKeys({
     </div>
     <p v-else-if="!loading && !error" class="muted">{{ $t("journeys.empty") }}</p>
 
-    <article v-if="expanded !== undefined && journeys[expanded]" class="card mt-3 p-3">
+    <article
+      v-if="expanded !== undefined && journeys[expanded]"
+      ref="details"
+      class="card mt-3 scroll-mt-2 p-3"
+    >
       <div class="mb-2 flex items-center gap-2 text-sm">
         <b>{{ $t("journeys.details") }}</b>
         <span class="mono muted"

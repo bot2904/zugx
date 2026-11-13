@@ -234,3 +234,11 @@ test("accessibility basics: lang, skip link, named controls", async ({ page }) =
     expect(name, await el.evaluate((e) => e.outerHTML.slice(0, 120))).toBeTruthy();
   }
 });
+
+test("connection permalink with #n scrolls the opened connection into view", async ({ page }) => {
+  await page.setViewportSize({ width: 800, height: 500 });
+  await page.goto("/j/8103000/8100173#2");
+  const details = page.locator("article.card");
+  await expect(details).toBeVisible();
+  await expect(details).toBeInViewport();
+});
