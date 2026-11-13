@@ -546,7 +546,7 @@ Working through https://github.com/GoogleChrome/modern-web-guidance (clone in `m
 
 Still to do:
 
-- **Flaky e2e test** "command palette is a native modal dialog": the second `Ctrl+K` after `Esc` sometimes doesn't reopen the dialog (`app.spec.ts`, `toBeVisible` after the 2nd open; ~1 in 10 runs, both projects). Check focus after `dialog.close()` and the `open` watcher in `ModalDialog.vue`.
+- ~~Flaky e2e test~~ fixed: a stale async `close` event closed a quickly reopened `<dialog>`.
 - Remaining guides worth checking: responsive-table (tables on narrow screens), interest-triggered-tooltips / position-aware-tooltips (we use `title`), spinner/progress (loading states), navbar/navigation-drawer (header on phones), visually-stable-font-fallbacks (we name Inter/JetBrains Mono without loading them), color/contrast-color, css-layout/responsive-design (container queries for board + map layout), privacy (geolocation is on demand already), scroll-target-on-load, performance (optimize-script/preload-priority, break-up-long-tasks for the 8k-row train filter).
 - Re-run `pnpx modern-web-guidance@latest legacy-scan apps/web --json` at the end.
 
