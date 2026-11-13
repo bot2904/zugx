@@ -35,10 +35,14 @@ jobs:
       - name: Build train index
         run: vp run trains:build
 
+      - name: Build Netzgrafik + corridors
+        run: vp run netz:build
+
       - name: Test data
         run: |
           vp test run --root packages/stations
           vp test run --root packages/trains
+          vp test run --root packages/netz
 
       - name: Open PR
         uses: peter-evans/create-pull-request@v8.1.3
