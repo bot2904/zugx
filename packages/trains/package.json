@@ -1,0 +1,27 @@
+{
+  "name": "@zugx/trains",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Train index per timetable year (from ÖBB open data GTFS, CC BY 4.0)",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./data/*": "./data/*",
+    "./trains-2026.json": "./data/trains-2026.json",
+    "./trains-2026.full.json": "./data/trains-2026.full.json"
+  },
+  "scripts": {
+    "build:data": "vpx src/build.ts",
+    "test": "vp test run"
+  },
+  "dependencies": {
+    "@zugx/gtfs": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@zugx/hafas": "workspace:*",
+    "@zugx/stations": "workspace:*",
+    "vite-plus": "catalog:"
+  }
+}

@@ -288,6 +288,22 @@ importers:
         specifier: 'catalog:'
         version: 24.19.2
 
+  packages/gtfs:
+    dependencies:
+      '@zugx/hafas':
+        specifier: workspace:*
+        version: link:../hafas
+      fflate:
+        specifier: 'catalog:'
+        version: 0.8.3
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 24.19.2
+      vite-plus:
+        specifier: 'catalog:'
+        version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
+
   packages/hafas:
     devDependencies:
       '@types/node':
@@ -305,6 +321,40 @@ importers:
       fflate:
         specifier: 'catalog:'
         version: 0.8.3
+      vite-plus:
+        specifier: 'catalog:'
+        version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
+
+  packages/stations:
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 24.19.2
+      '@zugx/gtfs':
+        specifier: workspace:*
+        version: link:../gtfs
+      '@zugx/hafas':
+        specifier: workspace:*
+        version: link:../hafas
+      vite-plus:
+        specifier: 'catalog:'
+        version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
+
+  packages/trains:
+    dependencies:
+      '@zugx/gtfs':
+        specifier: workspace:*
+        version: link:../gtfs
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 24.19.2
+      '@zugx/hafas':
+        specifier: workspace:*
+        version: link:../hafas
+      '@zugx/stations':
+        specifier: workspace:*
+        version: link:../stations
       vite-plus:
         specifier: 'catalog:'
         version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))

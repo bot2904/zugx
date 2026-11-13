@@ -1,0 +1,25 @@
+{
+  "name": "@zugx/stations",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Rail stations in Austria (from ÖBB open data GTFS, CC BY 4.0) mapped to HAFAS ids",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./match": "./src/match.ts",
+    "./stations.json": "./data/stations.json",
+    "./gtfs-hafas-map.json": "./data/gtfs-hafas-map.json",
+    "./stations.schema.json": "./stations.schema.json"
+  },
+  "scripts": {
+    "build:data": "vpx src/build.ts",
+    "test": "vp test run"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@zugx/gtfs": "workspace:*",
+    "@zugx/hafas": "workspace:*",
+    "vite-plus": "catalog:"
+  }
+}
