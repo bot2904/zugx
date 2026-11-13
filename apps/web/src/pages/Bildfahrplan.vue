@@ -72,8 +72,55 @@ function setQuery(patch: Record<string, string | number | undefined>) {
 const W = 1100;
 const H = 760;
 const M = { top: 110, right: 20, bottom: 20, left: 46 };
-const maxKm = computed(() => Math.max(1, ...(data.value?.stations.map((s) => s.km) ?? [1])));
-const x = (km: number) => M.left + (km / maxKm.value) * (W - M.left - M.right);
+// ---- section: first/last station (?a=, ?b= station ids) and direction (?rev=1) ----
+const stationIdx = (sid: unknown) =>
+  typeof sid === "string" ? (data.value?.stations.findIndex((st) => st.id === sid) ?? -1) : -1;
+const range = computed(() => {
+  const n = data.value?.stations.length ?? 0;
+  let lo = stationIdx(route.query.a);
+  let hi = stationIdx(route.query.b);
+  if (lo < 0) lo = 0;
+  if (hi < 0) hi = Math.max(0, n - 1);
+  if (lo > hi) [lo, hi] = [hi, lo];
+  return { lo, hi };
+});
+const reversed = computed(() => route.query.rev === "1");
+/** stations of the shown section, in display order (left → right) */
+const shownStations = computed(() => {
+  const all = data.value?.stations ?? [];
+  const part = all
+    .slice(range.value.lo, range.value.hi + 1)
+    .map((st, k) => ({ ...st, i: range.value.lo + k }));
+  return reversed.value ? part.reverse() : part;
+});
+const kmLo = computed(() => data.value?.stations[range.value.lo]?.km ?? 0);
+const kmHi = computed(() => data.value?.stations[range.value.hi]?.km ?? 1);
+const x = (km: number) => {
+  const span = Math.max(1, kmHi.value - kmLo.value);
+  const rel = reversed.value ? kmHi.value - km : km - kmLo.value;
+  return M.left + (rel / span) * (W - M.left - M.right);
+};
+const inRange = (i: number) => i >= range.value.lo && i <= range.value.hi;
+/** first/last station as shown (left/right): direction follows from their order on the corridor */
+function setSection(firstId: string, lastId: string) {
+  const ia = stationIdx(firstId);
+  const ib = stationIdx(lastId);
+  if (ia < 0 || ib < 0 || ia === ib) return;
+  const [lo, hi] = ia < ib ? [ia, ib] : [ib, ia];
+  const st = data.value?.stations ?? [];
+  setQuery({
+    a: lo > 0 ? st[lo]?.id : undefined,
+    b: hi < st.length - 1 ? st[hi]?.id : undefined,
+    rev: ia > ib ? "1" : undefined,
+  });
+}
+/** all corridor stations in display direction (for the from/to pickers) */
+const orderedStations = computed(() => {
+  const all = data.value?.stations ?? [];
+  return reversed.value ? [...all].reverse() : all;
+});
+const swap = () => setQuery({ rev: reversed.value ? undefined : "1" });
+const resetSection = () => setQuery({ a: undefined, b: undefined, rev: undefined });
 // window start in minutes; follows ?from= (hours, may be fractional), moved live by the wheel
 const startMin = ref(from.value * 60);
 watch(from, (f) => (startMin.value = f * 60));
@@ -147,12 +194,15 @@ const drawn = computed<Drawn[]>(() => {
     const coords: [number, number][] = [];
     for (const [i, a, d] of t.pts) {
       const st = c.stations[i];
-      if (!st) continue;
+      if (!st || !inRange(i)) continue;
       if (a !== null) coords.push([x(st.km), y(a)]);
       if (d !== null && d !== a) coords.push([x(st.km), y(d)]);
       else if (d !== null && a === null) coords.push([x(st.km), y(d)]);
     }
-    const times = t.pts.flatMap(([, a, d]) => [a, d]).filter((v): v is number => v !== null);
+    const times = t.pts
+      .filter(([i]) => inRange(i))
+      .flatMap(([, a, d]) => [a, d])
+      .filter((v): v is number => v !== null);
     if (!times.length || Math.max(...times) < t0.value || Math.min(...times) > t1.value) continue;
     if (coords.length < 2) continue;
     const path = coords
@@ -280,6 +330,40 @@ function toggleCat(c: string) {
         </button>
       </span>
     </div>
+    <div v-if="data" class="my-2 flex flex-wrap items-center gap-1 text-xs">
+      <label class="flex items-center gap-1">
+        {{ $t("search.from") }}
+        <select
+          class="input max-w-56 text-xs"
+          :value="shownStations[0]?.id"
+          @change="setSection(($event.target as HTMLSelectElement).value, shownStations.at(-1)!.id)"
+        >
+          <option v-for="st in orderedStations" :key="st.id" :value="st.id">{{ st.name }}</option>
+        </select>
+      </label>
+      <button class="btn" :title="$t('bf.swap')" @click="swap">⇄</button>
+      <label class="flex items-center gap-1">
+        {{ $t("search.to") }}
+        <select
+          class="input max-w-56 text-xs"
+          :value="shownStations.at(-1)?.id"
+          @change="setSection(shownStations[0]!.id, ($event.target as HTMLSelectElement).value)"
+        >
+          <option v-for="st in orderedStations" :key="st.id" :value="st.id">{{ st.name }}</option>
+        </select>
+      </label>
+      <button
+        v-if="route.query.a || route.query.b || route.query.rev"
+        class="btn"
+        @click="resetSection"
+      >
+        {{ $t("bf.fullRoute") }}
+      </button>
+      <span class="muted"
+        >{{ Math.round(Math.abs(kmHi - kmLo)) }} km · {{ shownStations.length }}
+        {{ $t("bf.stations") }}</span
+      >
+    </div>
     <div class="my-2 flex flex-wrap gap-1 text-xs">
       <span class="chips flex flex-wrap gap-1">
         <button
@@ -305,7 +389,7 @@ function toggleCat(c: string) {
         :aria-label="data.name"
       >
         <!-- stations -->
-        <g v-for="s in data.stations" :key="s.name + s.km">
+        <g v-for="s in shownStations" :key="s.id">
           <line
             :x1="x(s.km)"
             :x2="x(s.km)"

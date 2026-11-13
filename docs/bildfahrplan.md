@@ -12,6 +12,7 @@ Limits: planned timetable (December snapshot), no realtime; dates outside the ti
 
 - **Index** (`/bf`): all corridors (sorted by ÖBB Fahrplanbild number, searchable by number) with main stations, length, stations, trains/day (on the reference Tuesday) and the mix of train categories; filter by corridor or station name, sortable.
 - **Diagram**: x = km along the corridor (major stations bold), y = time downwards. Each train is a polyline through its stops (vertical segments = dwell time), coloured by category; steeper = slower. Regional/S-Bahn lines are thinner.
+- **Section and direction**: pick the first and last station (`?a=`, `?b=` station ids) to show only part of the route; ⇄ swaps the direction (`?rev=1`, the diagram is mirrored); "Whole route" resets.
 - **Date** (`?d=YYYY-MM-DD`, default today): date picker, ‹ › for previous/next day; only trains running on that date are drawn, with the train count.
 - Window: scroll (mouse wheel / trackpad) over the diagram to move in time (10 % of the window per notch), Ctrl/⌘ + scroll or pinch to zoom (1–24 h), Shift + scroll stays horizontal; or use start hour ▲▼ and 2/4/8/24 h; the dashed red line is the current time (only when today is shown). Category chips hide/show categories.
 - Hover highlights a train (number and destination below the chart); click opens its live train run on the selected date.

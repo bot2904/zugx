@@ -128,3 +128,16 @@ test("radar draws trains without map errors (worker loads in the production buil
   await page.waitForTimeout(1000);
   expect(errors.filter((e) => /worker/i.test(e))).toEqual([]);
 });
+
+test("bildfahrplan section and direction are adjustable", async ({ page }) => {
+  await page.goto("/bf/101?from=7&h=2&d=2026-03-10");
+  await page.locator("svg[role=img] path").first().waitFor();
+  const pickers = page.locator("select.input.max-w-56");
+  await pickers.nth(0).selectOption({ label: "Attnang-Puchheim" });
+  await expect(page).toHaveURL(/a=Pat/);
+  await page.getByRole("button", { name: "⇄" }).click();
+  await expect(page).toHaveURL(/rev=1/);
+  await expect(pickers.nth(0)).toHaveValue(
+    (await pickers.nth(0).locator("option").first().getAttribute("value")) as string,
+  );
+});

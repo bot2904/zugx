@@ -138,6 +138,8 @@ export default {
     hint: "Positionen werden von ÖBB HAFAS berechnet.",
   },
   bf: {
+    swap: "Richtung tauschen",
+    fullRoute: "Ganze Strecke",
     oebbTip: "Nummer des ÖBB-Fahrplanbilds",
     oebbLink: "ÖBB-Fahrplanbild {n} (PDF-Liste auf oebb.at)",
     wheelHint: "Im Diagramm scrollen verschiebt die Zeit, Strg/⌘ + scrollen zoomt",

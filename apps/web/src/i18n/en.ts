@@ -136,6 +136,8 @@ export default {
     hint: "Positions are calculated by ÖBB HAFAS.",
   },
   bf: {
+    swap: "Swap direction",
+    fullRoute: "Whole route",
     oebbTip: "ÖBB timetable diagram (Fahrplanbild) number",
     oebbLink: "ÖBB Fahrplanbild {n} (PDF list on oebb.at)",
     wheelHint: "Scroll the diagram to move in time, Ctrl/⌘ + scroll to zoom",
