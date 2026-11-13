@@ -109,7 +109,13 @@ const shortcuts: [string, string][] = [
   </main>
   <DebugPanel v-if="state.debug" />
   <footer class="muted mx-auto max-w-6xl px-3 py-6 text-xs">
-    {{ $t("common.source") }} ·
+    {{ $t("common.source.data") }}: <a href="https://fahrplan.oebb.at/">ÖBB HAFAS</a> ({{
+      $t("common.source.unofficial")
+    }}),
+    <a href="https://data.oebb.at/de/datensaetze~soll-fahrplan-gtfs~">{{
+      $t("common.source.openData")
+    }}</a>
+    (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>) ·
     <a href="https://github.com/simon04/zugx">zugx</a>
     (<a href="https://github.com/simon04/zugx/blob/master/LICENSE">AGPL-3.0</a>) ·
     <button

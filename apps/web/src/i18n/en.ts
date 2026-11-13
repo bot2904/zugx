@@ -158,7 +158,7 @@ export default {
     commandPalette: "Command palette",
     today: "today",
     tomorrow: "tomorrow",
-    source: "Data: ÖBB HAFAS (unofficial), ÖBB open data (CC BY 4.0)",
+    source: { data: "Data", unofficial: "unofficial", openData: "ÖBB open data" },
   },
   products: {
     highspeed: "RJX/RJ/ICE",
