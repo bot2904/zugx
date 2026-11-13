@@ -167,6 +167,9 @@ catalogs:
     '@types/node':
       specifier: ^24
       version: 24.19.2
+    fflate:
+      specifier: ^0.8.3
+      version: 0.8.3
     typescript:
       specifier: ^7.0.2
       version: 7.0.2
@@ -193,6 +196,18 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 24.19.2
+      vite-plus:
+        specifier: 'catalog:'
+        version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(typescript@7.0.2)
+
+  packages/netz:
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 24.19.2
+      fflate:
+        specifier: 'catalog:'
+        version: 0.8.3
       vite-plus:
         specifier: 'catalog:'
         version: 1.6.0(@types/node@24.19.2)(@vitest/ui@5.1.0)(typescript@7.0.2)
