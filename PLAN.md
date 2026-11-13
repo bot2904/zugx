@@ -135,7 +135,7 @@ The browser can't call `mgate.exe` directly (no CORS headers). Instead of an app
 
 ```
 browser ──► host Caddy (zugx.legner.me, TLS)
-             └─► 127.0.0.1:8080  podman container "zugx" (Caddy, HTTP only)
+             └─► 127.0.0.1:9849  podman container "zugx" (Caddy, HTTP only)
                    ├─ /            → static Vue SPA (dist/, incl. hashed stations chunk)
                    └─ /api/mgate   → reverse_proxy https://fahrplan.oebb.at/bin/mgate.exe
 ```
@@ -329,7 +329,7 @@ Sketch of `deploy/Caddyfile` (inside the container, plain HTTP on :8080):
 
 ```caddyfile
 zugx.legner.me {
-	reverse_proxy 127.0.0.1:8080
+	reverse_proxy 127.0.0.1:9849
 }
 ```
 
@@ -342,7 +342,7 @@ Description=zugx timetable web app
 [Container]
 ContainerName=zugx
 Image=ghcr.io/simon04/zugx:latest
-PublishPort=127.0.0.1:8080:8080
+PublishPort=127.0.0.1:9849:8080
 AutoUpdate=registry
 ReadOnly=true
 Tmpfs=/data

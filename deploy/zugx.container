@@ -7,7 +7,8 @@ Description=zugx timetable web app
 [Container]
 ContainerName=zugx
 Image=ghcr.io/simon04/zugx:latest
-PublishPort=127.0.0.1:8080:8080
+# host port 9849 = "zugx" on a T9 phone keypad
+PublishPort=127.0.0.1:9849:8080
 AutoUpdate=registry
 ReadOnly=true
 Tmpfs=/data
