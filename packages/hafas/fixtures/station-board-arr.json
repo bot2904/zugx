@@ -1,0 +1,2684 @@
+{
+ "request": {
+  "id": "1",
+  "ver": "1.67",
+  "lang": "deu",
+  "auth": {
+   "type": "AID",
+   "aid": "OWDL4fE4ixNiPBBm"
+  },
+  "client": {
+   "id": "OEBB",
+   "type": "WEB",
+   "name": "webapp",
+   "l": "vs_webapp"
+  },
+  "formatted": false,
+  "svcReqL": [
+   {
+    "meth": "StationBoard",
+    "req": {
+     "type": "ARR",
+     "date": "20261113",
+     "time": "123400",
+     "stbLoc": {
+      "type": "S",
+      "lid": "A=1@L=8100002@"
+     },
+     "dur": 60,
+     "maxJny": 15
+    }
+   }
+  ]
+ },
+ "response": {
+  "ver": "1.67",
+  "lang": "deu",
+  "id": "1",
+  "err": "OK",
+  "graph": {
+   "id": "standard",
+   "index": 0
+  },
+  "subGraph": {
+   "id": "global",
+   "index": 0
+  },
+  "view": {
+   "id": "standard",
+   "index": 0,
+   "type": "WGS84"
+  },
+  "svcResL": [
+   {
+    "meth": "StationBoard",
+    "err": "OK",
+    "res": {
+     "common": {
+      "locL": [
+       {
+        "lid": "A=1@O=Salzburg Hbf (Engelbert-Weiß-Weg)@X=13044571@Y=47814136@U=81@L=591028@",
+        "type": "S",
+        "name": "Salzburg Hbf (Engelbert-Weiß-Weg)",
+        "icoX": 0,
+        "extId": "591028",
+        "state": "F",
+        "crd": {
+         "x": 13044571,
+         "y": 47814136,
+         "floor": 0
+        },
+        "pCls": 66,
+        "pRefL": [
+         1,
+         2
+        ],
+        "entry": true,
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Kreuzstraße@X=13047447@Y=47820563@U=81@L=591084@",
+        "type": "S",
+        "name": "Salzburg Kreuzstraße",
+        "icoX": 0,
+        "extId": "591084",
+        "state": "F",
+        "crd": {
+         "x": 13047447,
+         "y": 47820563,
+         "floor": 0
+        },
+        "pCls": 64,
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Fadingerstraße@X=13067529@Y=47801407@U=81@L=591033@",
+        "type": "S",
+        "name": "Salzburg Fadingerstraße",
+        "icoX": 0,
+        "extId": "591033",
+        "state": "F",
+        "crd": {
+         "x": 13067529,
+         "y": 47801407,
+         "floor": 0
+        },
+        "pCls": 2112,
+        "pRefL": [
+         1,
+         3
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Hbf (Südtiroler Platz)@X=13044220@Y=47812940@U=81@L=591230@",
+        "type": "S",
+        "name": "Salzburg Hbf (Südtiroler Platz)",
+        "icoX": 0,
+        "extId": "591230",
+        "state": "F",
+        "crd": {
+         "x": 13044220,
+         "y": 47812940,
+         "floor": 0
+        },
+        "pCls": 2114,
+        "pRefL": [
+         1,
+         3,
+         2
+        ],
+        "entry": true,
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Kiesel (Rainerstraße)@X=13042467@Y=47810190@U=81@L=591171@",
+        "type": "S",
+        "name": "Salzburg Kiesel (Rainerstraße)",
+        "icoX": 0,
+        "extId": "591171",
+        "state": "F",
+        "crd": {
+         "x": 13042467,
+         "y": 47810190,
+         "floor": 0
+        },
+        "pCls": 2112,
+        "entry": true,
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Taxham Europark Bahnhst (Haupteingang)@X=13009180@Y=47815853@U=81@L=591124@",
+        "type": "S",
+        "name": "Salzburg Taxham Europark Bahnhst (Haupteingang)",
+        "icoX": 0,
+        "extId": "591124",
+        "state": "F",
+        "crd": {
+         "x": 13009180,
+         "y": 47815853,
+         "floor": 0
+        },
+        "pCls": 2112,
+        "pRefL": [
+         1,
+         3
+        ],
+        "entry": true,
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Hbf (Lastenstraße)@X=13046809@Y=47811871@U=81@L=591246@",
+        "type": "S",
+        "name": "Salzburg Hbf (Lastenstraße)",
+        "icoX": 0,
+        "extId": "591246",
+        "state": "F",
+        "crd": {
+         "x": 13046809,
+         "y": 47811871,
+         "floor": 0
+        },
+        "pCls": 64,
+        "pRefL": [
+         1
+        ],
+        "entry": true,
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Wirtschaftskammer@X=13045317@Y=47809228@U=81@L=591239@",
+        "type": "S",
+        "name": "Salzburg Wirtschaftskammer",
+        "icoX": 0,
+        "extId": "591239",
+        "state": "F",
+        "crd": {
+         "x": 13045317,
+         "y": 47809228,
+         "floor": 0
+        },
+        "pCls": 64,
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Josefiau (Alpenstraße)@X=13066459@Y=47786377@U=81@L=591188@",
+        "type": "S",
+        "name": "Salzburg Josefiau (Alpenstraße)",
+        "icoX": 0,
+        "extId": "591188",
+        "state": "F",
+        "crd": {
+         "x": 13066459,
+         "y": 47786377,
+         "floor": 0
+        },
+        "pCls": 2112,
+        "pRefL": [
+         1,
+         3
+        ],
+        "entry": true,
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg August-Gruber-Straße@X=13044562@Y=47817049@U=81@L=591011@",
+        "type": "S",
+        "name": "Salzburg August-Gruber-Straße",
+        "icoX": 0,
+        "extId": "591011",
+        "state": "F",
+        "crd": {
+         "x": 13044562,
+         "y": 47817049,
+         "floor": 0
+        },
+        "pCls": 2112,
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Landstraße (Bahnhofstraße)@X=13053452@Y=47825337@U=81@L=591314@",
+        "type": "S",
+        "name": "Salzburg Landstraße (Bahnhofstraße)",
+        "icoX": 0,
+        "extId": "591314",
+        "state": "F",
+        "crd": {
+         "x": 13053452,
+         "y": 47825337,
+         "floor": 0
+        },
+        "pCls": 64,
+        "pRefL": [
+         1
+        ],
+        "entry": true,
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Grödig Untersbergbahn Talstation (Busterminal)@X=13042800@Y=47726401@U=81@L=593478@",
+        "type": "S",
+        "name": "Grödig Untersbergbahn Talstation (Busterminal)",
+        "icoX": 0,
+        "extId": "593478",
+        "state": "F",
+        "crd": {
+         "x": 13042800,
+         "y": 47726401,
+         "floor": 0
+        },
+        "pCls": 64,
+        "pRefL": [
+         1
+        ],
+        "entry": true,
+        "chgTime": "000100",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Jahnstraße@X=13039096@Y=47814199@U=81@L=591066@",
+        "type": "S",
+        "name": "Salzburg Jahnstraße",
+        "icoX": 0,
+        "extId": "591066",
+        "state": "F",
+        "crd": {
+         "x": 13039096,
+         "y": 47814199,
+         "floor": 0
+        },
+        "pCls": 64,
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Salzburgarena@X=13026916@Y=47824429@U=81@L=591254@",
+        "type": "S",
+        "name": "Salzburg Salzburgarena",
+        "icoX": 0,
+        "extId": "591254",
+        "state": "F",
+        "crd": {
+         "x": 13026916,
+         "y": 47824429,
+         "floor": 0
+        },
+        "pCls": 64,
+        "pRefL": [
+         1
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Wals Walserfeld Schule@X=12981286@Y=47793668@U=81@L=593210@",
+        "type": "S",
+        "name": "Wals Walserfeld Schule",
+        "icoX": 0,
+        "extId": "593210",
+        "state": "F",
+        "crd": {
+         "x": 12981286,
+         "y": 47793668,
+         "floor": 0
+        },
+        "pCls": 64,
+        "pRefL": [
+         1
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Ludwig-Schmederer-Platz@X=13079736@Y=47803439@U=81@L=591121@",
+        "type": "S",
+        "name": "Salzburg Ludwig-Schmederer-Platz",
+        "icoX": 0,
+        "extId": "591121",
+        "state": "F",
+        "crd": {
+         "x": 13079736,
+         "y": 47803439,
+         "floor": 0
+        },
+        "pCls": 2112,
+        "pRefL": [
+         1,
+         3
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Hbf@X=13045856@Y=47813057@U=81@L=8100002@",
+        "type": "S",
+        "name": "Salzburg Hbf",
+        "icoX": 14,
+        "extId": "8100002",
+        "state": "F",
+        "crd": {
+         "x": 13045856,
+         "y": 47813057,
+         "floor": 0
+        },
+        "pCls": 4159,
+        "pRefL": [
+         13,
+         14,
+         15,
+         16,
+         17,
+         2,
+         18
+        ],
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 3,
+          "sty": "I",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 569638912
+         },
+         {
+          "type": "REM",
+          "remX": 4,
+          "sty": "I",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 572260352
+         }
+        ],
+        "globalIdL": [
+         {
+          "id": "8101114",
+          "type": "U"
+         },
+         {
+          "id": "Sb",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000700",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Vöcklabruck Bahnhof@X=13663783@Y=48010083@U=81@L=8100507@",
+        "type": "S",
+        "name": "Vöcklabruck Bahnhof",
+        "icoX": 14,
+        "extId": "8100507",
+        "state": "F",
+        "crd": {
+         "x": 13663783,
+         "y": 48010083,
+         "floor": 0
+        },
+        "pCls": 4157,
+        "entry": true,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 3,
+          "sty": "I",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 569638912
+         }
+        ],
+        "globalIdL": [
+         {
+          "id": "8101093",
+          "type": "U"
+         },
+         {
+          "id": "Vk",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Wien Westbahnhof@X=16337256@Y=48196753@U=81@L=8100003@",
+        "type": "S",
+        "name": "Wien Westbahnhof",
+        "icoX": 14,
+        "extId": "8100003",
+        "state": "F",
+        "crd": {
+         "x": 16337256,
+         "y": 48196753,
+         "floor": 0
+        },
+        "pCls": 4157,
+        "pRefL": [
+         13,
+         14,
+         15,
+         16,
+         17,
+         18
+        ],
+        "entry": true,
+        "globalIdL": [
+         {
+          "id": "8101001",
+          "type": "U"
+         },
+         {
+          "id": "Ws",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000600",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Ferdinand-Hanusch-Platz (Franz-Josef-Kai)@X=13041262@Y=47801317@U=81@L=591266@",
+        "type": "S",
+        "name": "Salzburg Ferdinand-Hanusch-Platz (Franz-Josef-Kai)",
+        "icoX": 0,
+        "extId": "591266",
+        "state": "F",
+        "crd": {
+         "x": 13041262,
+         "y": 47801317,
+         "floor": 0
+        },
+        "pCls": 64,
+        "pRefL": [
+         1
+        ],
+        "entry": true,
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Fanny-von-Lehnert-Straße@X=13044526@Y=47815988@U=81@L=591278@",
+        "type": "S",
+        "name": "Salzburg Fanny-von-Lehnert-Straße",
+        "icoX": 0,
+        "extId": "591278",
+        "state": "F",
+        "crd": {
+         "x": 13044526,
+         "y": 47815988,
+         "floor": 0
+        },
+        "pCls": 2112,
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Makartplatz (Schwarzstraße)@X=13042422@Y=47802891@U=81@L=591211@",
+        "type": "S",
+        "name": "Salzburg Makartplatz (Schwarzstraße)",
+        "icoX": 0,
+        "extId": "591211",
+        "state": "F",
+        "crd": {
+         "x": 13042422,
+         "y": 47802891,
+         "floor": 0
+        },
+        "pCls": 64,
+        "entry": true,
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Petersbrunnstraße@X=13052139@Y=47794351@U=81@L=591117@",
+        "type": "S",
+        "name": "Salzburg Petersbrunnstraße",
+        "icoX": 0,
+        "extId": "591117",
+        "state": "F",
+        "crd": {
+         "x": 13052139,
+         "y": 47794351,
+         "floor": 0
+        },
+        "pCls": 2112,
+        "pRefL": [
+         1,
+         3
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Kleßheim Kavalierhaus@X=12994599@Y=47815224@U=81@L=593518@",
+        "type": "S",
+        "name": "Kleßheim Kavalierhaus",
+        "icoX": 0,
+        "extId": "593518",
+        "state": "F",
+        "crd": {
+         "x": 12994599,
+         "y": 47815224,
+         "floor": 0
+        },
+        "pCls": 64,
+        "pRefL": [
+         1
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       }
+      ],
+      "prodL": [
+       {
+        "pid": "L::6::Bus::B4012229129::svv-2-23::*",
+        "name": "Bus 23",
+        "nameS": "Bus 23",
+        "number": "23",
+        "icoX": 0,
+        "cls": 64,
+        "oprX": 0,
+        "prodCtx": {
+         "name": "Bus 23  ",
+         "num": "908176",
+         "line": "23",
+         "lineId": "svv-2-23",
+         "matchId": "svv-2-23#231",
+         "catOut": "Bus     ",
+         "catOutS": "Bus",
+         "catOutL": "Bus",
+         "catIn": "Bus",
+         "catCode": "6",
+         "admin": "S16400"
+        }
+       },
+       {
+        "name": "",
+        "icoX": 0,
+        "cls": 64,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "name": "",
+        "icoX": 2,
+        "cls": 2,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "name": "",
+        "icoX": 5,
+        "cls": 2048,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "pid": "L::6::O-Bus::B2645904246::svv-1-1::*",
+        "name": "O-Bus 1",
+        "nameS": "O-Bus 1",
+        "number": "1",
+        "icoX": 0,
+        "cls": 64,
+        "oprX": 1,
+        "prodCtx": {
+         "name": "O-Bus 1 ",
+         "num": "903149",
+         "line": "1",
+         "lineId": "svv-1-1",
+         "matchId": "svv-1-1#282",
+         "catOut": "O-Bus   ",
+         "catOutS": "obu",
+         "catOutL": "Oberleitungsbus",
+         "catIn": "obu",
+         "catCode": "6",
+         "admin": "S32300"
+        }
+       },
+       {
+        "pid": "L::6::Bus::B4012229129::svv-2-22::*",
+        "name": "Bus 22",
+        "nameS": "Bus 22",
+        "number": "22",
+        "icoX": 0,
+        "cls": 64,
+        "oprX": 0,
+        "prodCtx": {
+         "name": "Bus 22  ",
+         "num": "906397",
+         "line": "22",
+         "lineId": "svv-2-22",
+         "matchId": "svv-2-22#192",
+         "catOut": "Bus     ",
+         "catOutS": "Bus",
+         "catOutL": "Bus",
+         "catIn": "Bus",
+         "catCode": "6",
+         "admin": "S16400"
+        }
+       },
+       {
+        "pid": "L::6::Bus::B0828865112::svv-4-170::*",
+        "name": "Bus 170",
+        "nameS": "Bus 170",
+        "number": "170",
+        "icoX": 0,
+        "cls": 64,
+        "oprX": 2,
+        "prodCtx": {
+         "name": "Bus 170 ",
+         "num": "903343",
+         "line": "170",
+         "lineId": "svv-4-170",
+         "matchId": "svv-4-170#132",
+         "catOut": "Bus     ",
+         "catOutS": "Bus",
+         "catOutL": "Bus",
+         "catIn": "Bus",
+         "catCode": "6",
+         "admin": "S10100"
+        }
+       },
+       {
+        "pid": "L::6::O-Bus::B2645904246::svv-1-3::*",
+        "name": "O-Bus 3",
+        "nameS": "O-Bus 3",
+        "number": "3",
+        "icoX": 0,
+        "cls": 64,
+        "oprX": 1,
+        "prodCtx": {
+         "name": "O-Bus 3 ",
+         "num": "913366",
+         "line": "3",
+         "lineId": "svv-1-3",
+         "matchId": "svv-1-3#299",
+         "catOut": "O-Bus   ",
+         "catOutS": "obu",
+         "catOutL": "Oberleitungsbus",
+         "catIn": "obu",
+         "catCode": "6",
+         "admin": "S32300"
+        },
+        "himIdL": [
+         "HIM_FREETEXT_925650"
+        ]
+       },
+       {
+        "pid": "L::6::O-Bus::B2645904246::svv-1-5::*",
+        "name": "O-Bus 5",
+        "nameS": "O-Bus 5",
+        "number": "5",
+        "icoX": 0,
+        "cls": 64,
+        "oprX": 1,
+        "prodCtx": {
+         "name": "O-Bus 5 ",
+         "num": "919599",
+         "line": "5",
+         "lineId": "svv-1-5",
+         "matchId": "svv-1-5#322",
+         "catOut": "O-Bus   ",
+         "catOutS": "obu",
+         "catOutL": "Oberleitungsbus",
+         "catIn": "obu",
+         "catCode": "6",
+         "admin": "S32300"
+        },
+        "himIdL": [
+         "HIM_FREETEXT_923683"
+        ]
+       },
+       {
+        "pid": "L::6::O-Bus::B2645904246::svv-1-1::*",
+        "name": "O-Bus 1",
+        "nameS": "O-Bus 1",
+        "number": "1",
+        "icoX": 0,
+        "cls": 64,
+        "oprX": 1,
+        "prodCtx": {
+         "name": "O-Bus 1 ",
+         "num": "902858",
+         "line": "1",
+         "lineId": "svv-1-1",
+         "matchId": "svv-1-1#299",
+         "catOut": "O-Bus   ",
+         "catOutS": "obu",
+         "catOutL": "Oberleitungsbus",
+         "catIn": "obu",
+         "catCode": "6",
+         "admin": "S32300"
+        }
+       },
+       {
+        "pid": "L::6::O-Bus::B2645904246::svv-1-2::*",
+        "name": "O-Bus 2",
+        "nameS": "O-Bus 2",
+        "number": "2",
+        "icoX": 0,
+        "cls": 64,
+        "oprX": 1,
+        "prodCtx": {
+         "name": "O-Bus 2 ",
+         "num": "910376",
+         "line": "2",
+         "lineId": "svv-1-2",
+         "matchId": "svv-1-2#286",
+         "catOut": "O-Bus   ",
+         "catOutS": "obu",
+         "catOutL": "Oberleitungsbus",
+         "catIn": "obu",
+         "catCode": "6",
+         "admin": "S32300"
+        },
+        "himIdL": [
+         "HIM_FREETEXT_925650"
+        ]
+       },
+       {
+        "pid": "L::6::O-Bus::B2645904246::svv-1-6::*",
+        "name": "O-Bus 6",
+        "nameS": "O-Bus 6",
+        "number": "6",
+        "icoX": 0,
+        "cls": 64,
+        "oprX": 1,
+        "prodCtx": {
+         "name": "O-Bus 6 ",
+         "num": "922853",
+         "line": "6",
+         "lineId": "svv-1-6",
+         "matchId": "svv-1-6#268",
+         "catOut": "O-Bus   ",
+         "catOutS": "obu",
+         "catOutL": "Oberleitungsbus",
+         "catIn": "obu",
+         "catCode": "6",
+         "admin": "S32300"
+        }
+       },
+       {
+        "pid": "L::12::WB::B3422329368::WB_3422329368::*",
+        "name": "WB 964",
+        "nameS": "WB 964",
+        "number": "964",
+        "icoX": 10,
+        "cls": 4096,
+        "oprX": 3,
+        "prodCtx": {
+         "name": "WB 964  ",
+         "num": "964",
+         "matchId": "964",
+         "catOut": "WB      ",
+         "catOutS": "WB",
+         "catOutL": "WESTbahn",
+         "catIn": "WB",
+         "catCode": "12",
+         "admin": "3236__"
+        },
+        "himIdL": [
+         "HIM_FREETEXT_922793",
+         "HIM_FREETEXT_926456",
+         "HIM_FREETEXT_926455",
+         "HIM_FREETEXT_925671"
+        ]
+       },
+       {
+        "name": "",
+        "icoX": 14,
+        "cls": 1,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "name": "",
+        "icoX": 15,
+        "cls": 4,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "name": "",
+        "icoX": 16,
+        "cls": 8,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "name": "",
+        "icoX": 10,
+        "cls": 16,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "name": "",
+        "icoX": 17,
+        "cls": 32,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "name": "",
+        "icoX": 10,
+        "cls": 4096,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "pid": "L::6::Bus::B4012229129::svv-2-23::*",
+        "name": "Bus 23",
+        "nameS": "Bus 23",
+        "number": "23",
+        "icoX": 0,
+        "cls": 64,
+        "oprX": 0,
+        "prodCtx": {
+         "name": "Bus 23  ",
+         "num": "908358",
+         "line": "23",
+         "lineId": "svv-2-23",
+         "matchId": "svv-2-23#244",
+         "catOut": "Bus     ",
+         "catOutS": "Bus",
+         "catOutL": "Bus",
+         "catIn": "Bus",
+         "catCode": "6",
+         "admin": "S16400"
+        }
+       },
+       {
+        "pid": "L::6::O-Bus::B2645904246::svv-1-5::*",
+        "name": "O-Bus 5",
+        "nameS": "O-Bus 5",
+        "number": "5",
+        "icoX": 0,
+        "cls": 64,
+        "oprX": 1,
+        "prodCtx": {
+         "name": "O-Bus 5 ",
+         "num": "919290",
+         "line": "5",
+         "lineId": "svv-1-5",
+         "matchId": "svv-1-5#341",
+         "catOut": "O-Bus   ",
+         "catOutS": "obu",
+         "catOutL": "Oberleitungsbus",
+         "catIn": "obu",
+         "catCode": "6",
+         "admin": "S32300"
+        },
+        "himIdL": [
+         "HIM_FREETEXT_923683"
+        ]
+       },
+       {
+        "pid": "L::6::Bus::B0828865112::svv-3-121-X::*",
+        "name": "Bus 121X",
+        "nameS": "Bus 121X",
+        "number": "121X",
+        "icoX": 0,
+        "cls": 64,
+        "oprX": 2,
+        "prodCtx": {
+         "name": "Bus 121X",
+         "num": "900817",
+         "line": "121X",
+         "lineId": "svv-3-121-X",
+         "matchId": "svv-3-121-X#111",
+         "catOut": "Bus     ",
+         "catOutS": "Bus",
+         "catOutL": "Bus",
+         "catIn": "Bus",
+         "catCode": "6",
+         "admin": "S10100"
+        },
+        "himIdL": [
+         "HIM_FREETEXT_926196"
+        ]
+       },
+       {
+        "pid": "L::6::O-Bus::B2645904246::svv-1-1::*",
+        "name": "O-Bus 1",
+        "nameS": "O-Bus 1",
+        "number": "1",
+        "icoX": 0,
+        "cls": 64,
+        "oprX": 1,
+        "prodCtx": {
+         "name": "O-Bus 1 ",
+         "num": "903309",
+         "line": "1",
+         "lineId": "svv-1-1",
+         "matchId": "svv-1-1#286",
+         "catOut": "O-Bus   ",
+         "catOutS": "obu",
+         "catOutL": "Oberleitungsbus",
+         "catIn": "obu",
+         "catCode": "6",
+         "admin": "S32300"
+        }
+       }
+      ],
+      "opL": [
+       {
+        "name": "Albus Salzburg Verkehrsbetrieb GmbH",
+        "url": "https://www.albus.at",
+        "icoX": 1,
+        "street": "Julius Welser Straße 8",
+        "town": "A-5020 Salzburg",
+        "phone": "+43 662 42400053",
+        "email": "linie@albus.at",
+        "id": "svv+164+00",
+        "matchId": "Albus Salzburg Verkehrsbetrieb GmbH"
+       },
+       {
+        "name": "Salzburg AG - O-Bus",
+        "url": "https://www.obus.at",
+        "icoX": 8,
+        "street": "Plainstraße 70",
+        "town": "A-5020 Salzburg",
+        "phone": "+43 800 220050",
+        "email": "kundenservice.verkehr@salzburg-ag.at",
+        "id": "svv+323+00",
+        "matchId": "Salzburg AG - O-Bus"
+       },
+       {
+        "name": "Österreichische Postbus Aktiengesellschaft",
+        "url": "https://www.postbus.at",
+        "icoX": 9,
+        "street": "Andreas-Hofer-Straße 9",
+        "town": "A-5020 Salzburg",
+        "phone": "+43 5 17 17",
+        "email": "kundenservice@oebb.at",
+        "addName": "Verkehrsstelle Salzburg",
+        "id": "svv+101+00",
+        "matchId": "Österreichische Postbus Aktiengesellschaft"
+       },
+       {
+        "name": "Westbahn Management GmbH",
+        "url": "https://www.westbahn.at",
+        "icoX": 11,
+        "street": "Europaplatz 3/Stiege 5",
+        "town": "A-1150 Wien",
+        "phone": "+43 1 89900",
+        "email": "meinenachricht@westbahn.at",
+        "id": "at:0:WB:3236__",
+        "matchId": "Westbahn Management GmbH"
+       }
+      ],
+      "remL": [
+       {
+        "type": "A",
+        "code": "OB",
+        "prio": 0,
+        "icoX": 4,
+        "txtN": "Niederflurfahrzeug"
+       },
+       {
+        "type": "A",
+        "code": "RO",
+        "prio": 150,
+        "icoX": 6,
+        "txtN": "Rollstuhlstellplatz"
+       },
+       {
+        "type": "A",
+        "code": "FK",
+        "prio": 250,
+        "icoX": 7,
+        "txtN": "Fahrradmitnahme begrenzt möglich"
+       },
+       {
+        "type": "A",
+        "code": "gi",
+        "prio": 250,
+        "icoX": 12,
+        "txtN": "Stationsinformation vorhanden"
+       },
+       {
+        "type": "A",
+        "code": "gc",
+        "prio": 270,
+        "icoX": 13,
+        "txtN": "Carsharing"
+       },
+       {
+        "type": "A",
+        "code": "eF",
+        "prio": 350,
+        "icoX": 18,
+        "txtN": "Weitere Infos und Tickets beim Betreiber erhältlich"
+       },
+       {
+        "type": "A",
+        "code": "BO",
+        "prio": 450,
+        "icoX": 19,
+        "txtN": "Mobiles Bordservice (Snacks und Getränke)"
+       },
+       {
+        "type": "A",
+        "code": "WV",
+        "prio": 710,
+        "icoX": 20,
+        "txtN": "WLAN verfügbar"
+       },
+       {
+        "type": "A",
+        "code": "fc",
+        "prio": 350,
+        "icoX": 18,
+        "txtN": "Fahrzeug: Rampe oder Lift vorhanden"
+       }
+      ],
+      "icoL": [
+       {
+        "res": "prod_bus",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 100,
+         "g": 100,
+         "b": 100
+        }
+       },
+       {
+        "res": "ABS",
+        "txt": "Albus Salzburg Verkehrsbetrieb GmbH"
+       },
+       {
+        "res": "prod_sev",
+        "fg": {
+         "r": 0,
+         "g": 0,
+         "b": 0
+        },
+        "bg": {
+         "r": 235,
+         "g": 200,
+         "b": 30
+        }
+       },
+       {
+        "res": "rt_cnf"
+       },
+       {
+        "res": "attr_low_floor"
+       },
+       {
+        "res": "prod_taxi_seilbahn",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 100,
+         "g": 100,
+         "b": 100
+        }
+       },
+       {
+        "res": "attr_wchair"
+       },
+       {
+        "res": "attr_bike"
+       },
+       {
+        "res": "SOB",
+        "txt": "Salzburg AG - O-Bus"
+       },
+       {
+        "res": "PBS",
+        "txt": "Österreichische Postbus Aktiengesellschaft"
+       },
+       {
+        "res": "prod_reg",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 0,
+         "g": 96,
+         "b": 240
+        }
+       },
+       {
+        "res": "WB",
+        "txt": "Westbahn Management GmbH"
+       },
+       {
+        "res": "attr_meta_info"
+       },
+       {
+        "res": "attr_meta_carsharing"
+       },
+       {
+        "res": "prod_ice",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 171,
+         "g": 0,
+         "b": 32
+        }
+       },
+       {
+        "res": "prod_ic",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 171,
+         "g": 0,
+         "b": 32
+        }
+       },
+       {
+        "res": "prod_nachtzug",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 34,
+         "g": 29,
+         "b": 71
+        }
+       },
+       {
+        "res": "prod_comm_t",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 0,
+         "g": 96,
+         "b": 240
+        }
+       },
+       {
+        "res": "attr_info"
+       },
+       {
+        "res": "attr_bordservice"
+       },
+       {
+        "res": "attr_wlan"
+       }
+      ],
+      "lDrawStyleL": [
+       {
+        "sIcoX": 0,
+        "type": "SOLID",
+        "bg": {
+         "r": 100,
+         "g": 100,
+         "b": 100
+        }
+       },
+       {
+        "type": "SOLID",
+        "bg": {
+         "r": 100,
+         "g": 100,
+         "b": 100
+        }
+       },
+       {
+        "sIcoX": 10,
+        "type": "SOLID",
+        "bg": {
+         "r": 0,
+         "g": 96,
+         "b": 240
+        }
+       },
+       {
+        "type": "SOLID",
+        "bg": {
+         "r": 0,
+         "g": 96,
+         "b": 240
+        }
+       }
+      ],
+      "timeStyleL": [
+       {
+        "mode": "ABS"
+       },
+       {
+        "mode": "DLT",
+        "fg": {
+         "r": 212,
+         "g": 12,
+         "b": 66
+        }
+       },
+       {
+        "mode": "CNT",
+        "icoX": 3
+       },
+       {
+        "mode": "DLT",
+        "fg": {
+         "r": 22,
+         "g": 121,
+         "b": 85
+        }
+       }
+      ]
+     },
+     "type": "ARR",
+     "jnyL": [
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#32434#TA#1#DA#131126#1S#591033#1T#1157#LS#591266#LT#1239#PU#81#RT#1#CA#Bus#ZE#23#ZB#Bus 23  #PC#6#FR#591033#FT#1157#TO#591266#TT#1239#",
+       "date": "20261113",
+       "prodX": 0,
+       "dirTxt": "Salzburg Fadingerstraße",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 0,
+        "idx": 27,
+        "aProdX": 0,
+        "aTimeS": "122600",
+        "aTimeR": "123600",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "10 Minuten später"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "pos": {
+        "x": 13046512,
+        "y": 47818469
+       },
+       "msgL": [
+        {
+         "type": "REM",
+         "remX": 0,
+         "sty": "I",
+         "fLocX": 2,
+         "tLocX": 0,
+         "tagL": [
+          "SUM_CON_FTR_H3",
+          "RES_JNY_H3"
+         ],
+         "sort": 268435456
+        },
+        {
+         "type": "REM",
+         "remX": 1,
+         "sty": "I",
+         "fLocX": 2,
+         "tLocX": 0,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 556531712
+        },
+        {
+         "type": "REM",
+         "remX": 2,
+         "sty": "I",
+         "fLocX": 2,
+         "tLocX": 0,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 569638912
+        }
+       ],
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 0,
+         "fLocX": 1,
+         "tLocX": 0,
+         "fIdx": 26,
+         "tIdx": 27
+        }
+       ],
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "trainStartDate": "20261113"
+      },
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#32434#TA#1#DA#131126#1S#591033#1T#1157#LS#591266#LT#1239#PU#81#RT#1#CA#Bus#ZE#23#ZB#Bus 23  #PC#6#FR#591033#FT#1157#TO#591266#TT#1239#",
+       "date": "20261113",
+       "prodX": 0,
+       "dirTxt": "Salzburg Fadingerstraße",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 3,
+        "idx": 28,
+        "aProdX": 0,
+        "aPltfS": {
+         "type": "ST",
+         "txt": "B"
+        },
+        "aTimeS": "122700",
+        "aTimeR": "123700",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "10 Minuten später"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "pos": {
+        "x": 13046512,
+        "y": 47818469
+       },
+       "msgL": [
+        {
+         "type": "REM",
+         "remX": 0,
+         "sty": "I",
+         "fLocX": 2,
+         "tLocX": 3,
+         "tagL": [
+          "SUM_CON_FTR_H3",
+          "RES_JNY_H3"
+         ],
+         "sort": 268435456
+        },
+        {
+         "type": "REM",
+         "remX": 1,
+         "sty": "I",
+         "fLocX": 2,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 556531712
+        },
+        {
+         "type": "REM",
+         "remX": 2,
+         "sty": "I",
+         "fLocX": 2,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 569638912
+        }
+       ],
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 0,
+         "fLocX": 0,
+         "tLocX": 3,
+         "fIdx": 27,
+         "tIdx": 28
+        }
+       ],
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "trainStartDate": "20261113"
+      },
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#813679#TA#5#DA#131126#1S#591124#1T#1155#LS#591254#LT#1245#PU#81#RT#1#CA#obu#ZE#1#ZB#O-Bus 1 #PC#6#FR#591124#FT#1155#TO#591254#TT#1245#",
+       "date": "20261113",
+       "prodX": 4,
+       "dirTxt": "Salzburg Taxham Europark Bahnhst (Haupteingang)",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 3,
+        "idx": 24,
+        "aProdX": 4,
+        "aPltfS": {
+         "type": "ST",
+         "txt": "D"
+        },
+        "aTimeS": "122900",
+        "aTimeR": "123500",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "6 Minuten später"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "pos": {
+        "x": 13043995,
+        "y": 47812590
+       },
+       "msgL": [
+        {
+         "type": "REM",
+         "remX": 0,
+         "sty": "I",
+         "fLocX": 5,
+         "tLocX": 3,
+         "tagL": [
+          "SUM_CON_FTR_H3",
+          "RES_JNY_H3"
+         ],
+         "sort": 268435456
+        },
+        {
+         "type": "REM",
+         "remX": 1,
+         "sty": "I",
+         "fLocX": 5,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 556531712
+        },
+        {
+         "type": "REM",
+         "remX": 2,
+         "sty": "I",
+         "fLocX": 5,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 569638912
+        }
+       ],
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 4,
+         "fLocX": 4,
+         "tLocX": 3,
+         "fIdx": 23,
+         "tIdx": 24
+        }
+       ],
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "trainStartDate": "20261113"
+      },
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#27106#TA#11#DA#131126#1S#591188#1T#1154#LS#591338#LT#1239#PU#81#RT#1#CA#Bus#ZE#22#ZB#Bus 22  #PC#6#FR#591188#FT#1154#TO#591338#TT#1239#",
+       "date": "20261113",
+       "prodX": 5,
+       "dirTxt": "Salzburg Josefiau (Alpenstraße)",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 6,
+        "idx": 31,
+        "aProdX": 5,
+        "aPltfS": {
+         "type": "ST",
+         "txt": "Z"
+        },
+        "aTimeS": "123200",
+        "aTimeR": "123600",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "4 Minuten später"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "pos": {
+        "x": 13045380,
+        "y": 47808787
+       },
+       "msgL": [
+        {
+         "type": "REM",
+         "remX": 0,
+         "sty": "I",
+         "fLocX": 8,
+         "tLocX": 6,
+         "tagL": [
+          "SUM_CON_FTR_H3",
+          "RES_JNY_H3"
+         ],
+         "sort": 268435456
+        },
+        {
+         "type": "REM",
+         "remX": 1,
+         "sty": "I",
+         "fLocX": 8,
+         "tLocX": 6,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 556531712
+        },
+        {
+         "type": "REM",
+         "remX": 2,
+         "sty": "I",
+         "fLocX": 8,
+         "tLocX": 6,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 569638912
+        }
+       ],
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 5,
+         "fLocX": 7,
+         "tLocX": 6,
+         "fIdx": 30,
+         "tIdx": 31
+        }
+       ],
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "trainStartDate": "20261113"
+      },
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#815132#TA#1#DA#131126#1S#592155#1T#1156#LS#591230#LT#1233#PU#81#RT#1#CA#Bus#ZE#170#ZB#Bus 170 #PC#6#FR#592155#FT#1156#TO#591230#TT#1233#",
+       "date": "20261113",
+       "prodX": 6,
+       "dirTxt": "Hallein Bahnhof (Löwensternstraße)",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 3,
+        "idx": 27,
+        "aProdX": 6,
+        "aPltfS": {
+         "type": "ST",
+         "txt": "F"
+        },
+        "aTimeS": "123300",
+        "aTimeR": "123500",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "2 Minuten später"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "pos": {
+        "x": 13043995,
+        "y": 47812590
+       },
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 6,
+         "fLocX": 4,
+         "tLocX": 3,
+         "fIdx": 26,
+         "tIdx": 27
+        }
+       ],
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "trainStartDate": "20261113"
+      },
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#43273#TA#20#DA#131126#1S#591314#1T#1226#LS#593192#LT#1259#PU#81#RT#1#CA#obu#ZE#3#ZB#O-Bus 3 #PC#6#FR#591314#FT#1226#TO#593192#TT#1259#",
+       "date": "20261113",
+       "prodX": 7,
+       "dirTxt": "Salzburg Landstraße (Bahnhofstraße)",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 0,
+        "idx": 6,
+        "aProdX": 7,
+        "aTimeS": "123400",
+        "aTimeR": "123500",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "1 Minuten später"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "pos": {
+        "x": 13044517,
+        "y": 47817786
+       },
+       "msgL": [
+        {
+         "type": "REM",
+         "remX": 0,
+         "sty": "I",
+         "fLocX": 10,
+         "tLocX": 0,
+         "tagL": [
+          "SUM_CON_FTR_H3",
+          "RES_JNY_H3"
+         ],
+         "sort": 268435456
+        },
+        {
+         "type": "REM",
+         "remX": 1,
+         "sty": "I",
+         "fLocX": 10,
+         "tLocX": 0,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 556531712
+        },
+        {
+         "type": "REM",
+         "remX": 2,
+         "sty": "I",
+         "fLocX": 10,
+         "tLocX": 0,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 569638912
+        }
+       ],
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 7,
+         "fLocX": 9,
+         "tLocX": 0,
+         "fIdx": 5,
+         "tIdx": 6
+        }
+       ],
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "trainStartDate": "20261113"
+      },
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#43273#TA#20#DA#131126#1S#591314#1T#1226#LS#593192#LT#1259#PU#81#RT#1#CA#obu#ZE#3#ZB#O-Bus 3 #PC#6#FR#591314#FT#1226#TO#593192#TT#1259#",
+       "date": "20261113",
+       "prodX": 7,
+       "dirTxt": "Salzburg Landstraße (Bahnhofstraße)",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 3,
+        "idx": 7,
+        "aProdX": 7,
+        "aPltfS": {
+         "type": "ST",
+         "txt": "C"
+        },
+        "aTimeS": "123500",
+        "aTimeR": "123600",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "1 Minuten später"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "pos": {
+        "x": 13044517,
+        "y": 47817786
+       },
+       "msgL": [
+        {
+         "type": "REM",
+         "remX": 0,
+         "sty": "I",
+         "fLocX": 10,
+         "tLocX": 3,
+         "tagL": [
+          "SUM_CON_FTR_H3",
+          "RES_JNY_H3"
+         ],
+         "sort": 268435456
+        },
+        {
+         "type": "REM",
+         "remX": 1,
+         "sty": "I",
+         "fLocX": 10,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 556531712
+        },
+        {
+         "type": "REM",
+         "remX": 2,
+         "sty": "I",
+         "fLocX": 10,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 569638912
+        }
+       ],
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 7,
+         "fLocX": 0,
+         "tLocX": 3,
+         "fIdx": 6,
+         "tIdx": 7
+        }
+       ],
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "trainStartDate": "20261113"
+      },
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#651627#TA#9#DA#131126#1S#593478#1T#1203#LS#591278#LT#1237#PU#81#RT#1#CA#obu#ZE#5#ZB#O-Bus 5 #PC#6#FR#593478#FT#1203#TO#591278#TT#1237#",
+       "date": "20261113",
+       "prodX": 8,
+       "dirTxt": "Grödig Untersbergbahn Talstation (Busterminal)",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 3,
+        "idx": 26,
+        "aProdX": 8,
+        "aPltfS": {
+         "type": "ST",
+         "txt": "D"
+        },
+        "aTimeS": "123500",
+        "aTimeR": "123700",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "2 Minuten später"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "pos": {
+        "x": 13042620,
+        "y": 47808922
+       },
+       "msgL": [
+        {
+         "type": "REM",
+         "remX": 0,
+         "sty": "I",
+         "fLocX": 11,
+         "tLocX": 3,
+         "tagL": [
+          "SUM_CON_FTR_H3",
+          "RES_JNY_H3"
+         ],
+         "sort": 268435456
+        },
+        {
+         "type": "REM",
+         "remX": 1,
+         "sty": "I",
+         "fLocX": 11,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 556531712
+        },
+        {
+         "type": "REM",
+         "remX": 2,
+         "sty": "I",
+         "fLocX": 11,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 569638912
+        }
+       ],
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 8,
+         "fLocX": 4,
+         "tLocX": 3,
+         "fIdx": 25,
+         "tIdx": 26
+        }
+       ],
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "trainStartDate": "20261113"
+      },
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#810686#TA#6#DA#131126#1S#591254#1T#1221#LS#591124#LT#1307#PU#81#RT#1#CA#obu#ZE#1#ZB#O-Bus 1 #PC#6#FR#591254#FT#1221#TO#591124#TT#1307#",
+       "date": "20261113",
+       "prodX": 9,
+       "dirTxt": "Salzburg Salzburgarena",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 3,
+        "idx": 11,
+        "aProdX": 9,
+        "aPltfS": {
+         "type": "ST",
+         "txt": "C"
+        },
+        "aTimeS": "123500",
+        "aTimeR": "123700",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "2 Minuten später"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "pos": {
+        "x": 13038961,
+        "y": 47811961
+       },
+       "msgL": [
+        {
+         "type": "REM",
+         "remX": 0,
+         "sty": "I",
+         "fLocX": 13,
+         "tLocX": 3,
+         "tagL": [
+          "SUM_CON_FTR_H3",
+          "RES_JNY_H3"
+         ],
+         "sort": 268435456
+        },
+        {
+         "type": "REM",
+         "remX": 1,
+         "sty": "I",
+         "fLocX": 13,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 556531712
+        },
+        {
+         "type": "REM",
+         "remX": 2,
+         "sty": "I",
+         "fLocX": 13,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 569638912
+        }
+       ],
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 9,
+         "fLocX": 12,
+         "tLocX": 3,
+         "fIdx": 10,
+         "tIdx": 11
+        }
+       ],
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "trainStartDate": "20261113"
+      },
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#38609#TA#18#DA#131126#1S#593210#1T#1209#LS#591119#LT#1256#PU#81#RT#1#CA#obu#ZE#2#ZB#O-Bus 2 #PC#6#FR#593210#FT#1209#TO#591119#TT#1256#",
+       "date": "20261113",
+       "prodX": 10,
+       "dirTxt": "Wals Walserfeld Schule",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 3,
+        "idx": 18,
+        "aProdX": 10,
+        "aPltfS": {
+         "type": "ST",
+         "txt": "C"
+        },
+        "aTimeS": "123700",
+        "aTimeR": "124000",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "3 Minuten später"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "pos": {
+        "x": 13034350,
+        "y": 47811143
+       },
+       "msgL": [
+        {
+         "type": "REM",
+         "remX": 0,
+         "sty": "I",
+         "fLocX": 14,
+         "tLocX": 3,
+         "tagL": [
+          "SUM_CON_FTR_H3",
+          "RES_JNY_H3"
+         ],
+         "sort": 268435456
+        },
+        {
+         "type": "REM",
+         "remX": 1,
+         "sty": "I",
+         "fLocX": 14,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 556531712
+        },
+        {
+         "type": "REM",
+         "remX": 2,
+         "sty": "I",
+         "fLocX": 14,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 569638912
+        }
+       ],
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 10,
+         "fLocX": 12,
+         "tLocX": 3,
+         "fIdx": 17,
+         "tIdx": 18
+        }
+       ],
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "trainStartDate": "20261113"
+      },
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#653163#TA#19#DA#131126#1S#591121#1T#1219#LS#591064#LT#1246#PU#81#RT#1#CA#obu#ZE#6#ZB#O-Bus 6 #PC#6#FR#591121#FT#1219#TO#591064#TT#1246#",
+       "date": "20261113",
+       "prodX": 11,
+       "dirTxt": "Salzburg Ludwig-Schmederer-Platz",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 3,
+        "idx": 12,
+        "aProdX": 11,
+        "aPltfS": {
+         "type": "ST",
+         "txt": "D"
+        },
+        "aTimeS": "123800",
+        "aTimeR": "123800",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 3,
+         "txtA": "pünktlich"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "pos": {
+        "x": 13042818,
+        "y": 47807160
+       },
+       "msgL": [
+        {
+         "type": "REM",
+         "remX": 0,
+         "sty": "I",
+         "fLocX": 15,
+         "tLocX": 3,
+         "tagL": [
+          "SUM_CON_FTR_H3",
+          "RES_JNY_H3"
+         ],
+         "sort": 268435456
+        },
+        {
+         "type": "REM",
+         "remX": 1,
+         "sty": "I",
+         "fLocX": 15,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 556531712
+        },
+        {
+         "type": "REM",
+         "remX": 2,
+         "sty": "I",
+         "fLocX": 15,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 569638912
+        }
+       ],
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 11,
+         "fLocX": 4,
+         "tLocX": 3,
+         "fIdx": 11,
+         "tIdx": 12
+        }
+       ],
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "trainStartDate": "20261113"
+      },
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#673986#TA#0#DA#131126#1S#8100003#1T#1008#LS#8000261#LT#1428#PU#81#RT#1#CA#WB#ZE#964#ZB#WB 964  #PC#12#FR#8100003#FT#1008#TO#8000261#TT#1428#",
+       "date": "20261113",
+       "prodX": 12,
+       "dirTxt": "Wien Westbahnhof",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 16,
+        "idx": 8,
+        "aProdX": 12,
+        "aPltfS": {
+         "type": "PL",
+         "txt": "3"
+        },
+        "aPltfR": {
+         "type": "PL",
+         "txt": "3"
+        },
+        "aTimeS": "123800",
+        "aTimeR": "124000",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "2 Minuten später"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "pos": {
+        "x": 13095584,
+        "y": 47861365
+       },
+       "msgL": [
+        {
+         "type": "REM",
+         "remX": 1,
+         "sty": "I",
+         "fLocX": 18,
+         "tLocX": 16,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 556531712
+        },
+        {
+         "type": "REM",
+         "remX": 2,
+         "sty": "I",
+         "fLocX": 18,
+         "tLocX": 16,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 569638912
+        },
+        {
+         "type": "REM",
+         "remX": 5,
+         "sty": "I",
+         "fLocX": 18,
+         "tLocX": 16,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 582746112
+        },
+        {
+         "type": "REM",
+         "remX": 6,
+         "sty": "I",
+         "fLocX": 18,
+         "tLocX": 16,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 595853312
+        },
+        {
+         "type": "REM",
+         "remX": 7,
+         "sty": "I",
+         "fLocX": 18,
+         "tLocX": 16,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 629932032
+        }
+       ],
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 12,
+         "fLocX": 17,
+         "tLocX": 16,
+         "fIdx": 7,
+         "tIdx": 8
+        }
+       ],
+       "sumLDrawStyleX": 2,
+       "resLDrawStyleX": 3,
+       "trainStartDate": "20261113"
+      },
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#33030#TA#5#DA#131126#1S#591266#1T#1227#LS#591033#LT#1310#PU#81#RT#1#CA#Bus#ZE#23#ZB#Bus 23  #PC#6#FR#591266#FT#1227#TO#591033#TT#1310#",
+       "date": "20261113",
+       "prodX": 19,
+       "dirTxt": "Salzburg Ferdinand-Hanusch-Platz (Franz-Josef-Kai)",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 3,
+        "idx": 8,
+        "aProdX": 19,
+        "aPltfS": {
+         "type": "ST",
+         "txt": "E"
+        },
+        "aTimeS": "123900",
+        "aTimeR": "123900",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 3,
+         "txtA": "pünktlich"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "pos": {
+        "x": 13038763,
+        "y": 47810145
+       },
+       "msgL": [
+        {
+         "type": "REM",
+         "remX": 0,
+         "sty": "I",
+         "fLocX": 19,
+         "tLocX": 3,
+         "tagL": [
+          "SUM_CON_FTR_H3",
+          "RES_JNY_H3"
+         ],
+         "sort": 268435456
+        },
+        {
+         "type": "REM",
+         "remX": 1,
+         "sty": "I",
+         "fLocX": 19,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 556531712
+        },
+        {
+         "type": "REM",
+         "remX": 2,
+         "sty": "I",
+         "fLocX": 19,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 569638912
+        }
+       ],
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 19,
+         "fLocX": 12,
+         "tLocX": 3,
+         "fIdx": 7,
+         "tIdx": 8
+        }
+       ],
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "trainStartDate": "20261113"
+      },
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#651450#TA#6#DA#131126#1S#591278#1T#1238#LS#593478#LT#1313#PU#81#RT#1#CA#obu#ZE#5#ZB#O-Bus 5 #PC#6#FR#591278#FT#1238#TO#593478#TT#1313#",
+       "date": "20261113",
+       "prodX": 20,
+       "dirTxt": "Salzburg Fanny-von-Lehnert-Straße",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 0,
+        "idx": 1,
+        "aProdX": 20,
+        "aTimeS": "123900",
+        "aTimeR": "123900",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 3,
+         "txtA": "pünktlich"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "msgL": [
+        {
+         "type": "REM",
+         "remX": 0,
+         "sty": "I",
+         "fLocX": 20,
+         "tLocX": 0,
+         "tagL": [
+          "SUM_CON_FTR_H3",
+          "RES_JNY_H3"
+         ],
+         "sort": 268435456
+        },
+        {
+         "type": "REM",
+         "remX": 1,
+         "sty": "I",
+         "fLocX": 20,
+         "tLocX": 0,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 556531712
+        },
+        {
+         "type": "REM",
+         "remX": 2,
+         "sty": "I",
+         "fLocX": 20,
+         "tLocX": 0,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 569638912
+        }
+       ],
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 20,
+         "fLocX": 20,
+         "tLocX": 0,
+         "fIdx": 0,
+         "tIdx": 1
+        }
+       ],
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "trainStartDate": "20261113"
+      },
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#727645#TA#5#DA#131126#1S#591117#1T#1229#LS#593469#LT#1314#PU#81#RT#1#CA#Bus#ZE#121X#ZB#Bus 121X#PC#6#FR#591117#FT#1229#TO#593469#TT#1314#",
+       "date": "20261113",
+       "prodX": 21,
+       "dirTxt": "Salzburg Petersbrunnstraße",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 0,
+        "idx": 4,
+        "aProdX": 21,
+        "aPltfS": {
+         "type": "ST",
+         "txt": "K"
+        },
+        "aTimeS": "123900",
+        "aTimeR": "123900",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 3,
+         "txtA": "pünktlich"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "pos": {
+        "x": 13042692,
+        "y": 47804293
+       },
+       "msgL": [
+        {
+         "type": "REM",
+         "remX": 8,
+         "sty": "I",
+         "fLocX": 22,
+         "tLocX": 0,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 582746112
+        }
+       ],
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 21,
+         "fLocX": 21,
+         "tLocX": 0,
+         "fIdx": 3,
+         "tIdx": 4
+        }
+       ],
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "trainStartDate": "20261113"
+      },
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#814878#TA#6#DA#131126#1S#593518#1T#1200#LS#591254#LT#1255#PU#81#RT#1#CA#obu#ZE#1#ZB#O-Bus 1 #PC#6#FR#593518#FT#1200#TO#591254#TT#1255#",
+       "date": "20261113",
+       "prodX": 22,
+       "dirTxt": "Kleßheim Kavalierhaus",
+       "status": "P",
+       "isRchbl": true,
+       "stbStop": {
+        "locX": 3,
+        "idx": 27,
+        "aProdX": 22,
+        "aPltfS": {
+         "type": "ST",
+         "txt": "D"
+        },
+        "aTimeS": "123900",
+        "aTimeR": "124200",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "3 Minuten später"
+        },
+        "aTimeFC": {
+         "styleX": 2
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       },
+       "pos": {
+        "x": 13043411,
+        "y": 47801228
+       },
+       "msgL": [
+        {
+         "type": "REM",
+         "remX": 0,
+         "sty": "I",
+         "fLocX": 23,
+         "tLocX": 3,
+         "tagL": [
+          "SUM_CON_FTR_H3",
+          "RES_JNY_H3"
+         ],
+         "sort": 268435456
+        },
+        {
+         "type": "REM",
+         "remX": 1,
+         "sty": "I",
+         "fLocX": 23,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 556531712
+        },
+        {
+         "type": "REM",
+         "remX": 2,
+         "sty": "I",
+         "fLocX": 23,
+         "tLocX": 3,
+         "tagL": [
+          "RES_JNY_DTL"
+         ],
+         "sort": 569638912
+        }
+       ],
+       "subscr": "F",
+       "prodL": [
+        {
+         "prodX": 22,
+         "fLocX": 4,
+         "tLocX": 3,
+         "fIdx": 26,
+         "tIdx": 27
+        }
+       ],
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "trainStartDate": "20261113"
+      }
+     ],
+     "fpB": "20260911",
+     "fpE": "20271211",
+     "planrtTS": "1794569666",
+     "sD": "20261113",
+     "sT": "123436",
+     "locRefL": [
+      0,
+      3,
+      6,
+      16
+     ]
+    }
+   }
+  ]
+ }
+}

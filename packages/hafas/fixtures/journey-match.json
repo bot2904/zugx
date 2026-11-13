@@ -1,0 +1,231 @@
+{
+ "request": {
+  "id": "1",
+  "ver": "1.67",
+  "lang": "deu",
+  "auth": {
+   "type": "AID",
+   "aid": "OWDL4fE4ixNiPBBm"
+  },
+  "client": {
+   "id": "OEBB",
+   "type": "WEB",
+   "name": "webapp",
+   "l": "vs_webapp"
+  },
+  "formatted": false,
+  "svcReqL": [
+   {
+    "meth": "JourneyMatch",
+    "req": {
+     "input": "RJX 162",
+     "date": "20261113",
+     "onlyCR": false
+    }
+   }
+  ]
+ },
+ "response": {
+  "ver": "1.67",
+  "lang": "deu",
+  "id": "1",
+  "err": "OK",
+  "graph": {
+   "id": "standard",
+   "index": 0
+  },
+  "subGraph": {
+   "id": "global",
+   "index": 0
+  },
+  "view": {
+   "id": "standard",
+   "index": 0,
+   "type": "WGS84"
+  },
+  "svcResL": [
+   {
+    "meth": "JourneyMatch",
+    "err": "OK",
+    "res": {
+     "common": {
+      "locL": [
+       {
+        "lid": "A=1@O=Budapest-Keleti@X=19085070@Y=47500386@U=81@L=5500003@",
+        "type": "S",
+        "name": "Budapest-Keleti",
+        "icoX": 2,
+        "extId": "5500003",
+        "state": "F",
+        "crd": {
+         "x": 19085070,
+         "y": 47500386,
+         "floor": 0
+        },
+        "pCls": 29,
+        "globalIdL": [
+         {
+          "id": "5510017",
+          "type": "U"
+         },
+         {
+          "id": "55BU KT",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000700",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Sargans@X=9446260@Y=47044821@U=81@L=8509411@",
+        "type": "S",
+        "name": "Sargans",
+        "icoX": 2,
+        "extId": "8509411",
+        "state": "F",
+        "crd": {
+         "x": 9446260,
+         "y": 47044821,
+         "floor": 0
+        },
+        "pCls": 61,
+        "globalIdL": [
+         {
+          "id": "8509411",
+          "type": "U"
+         },
+         {
+          "id": "85SARG",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000300",
+        "countryCodeL": [
+         "ch"
+        ]
+       }
+      ],
+      "prodL": [
+       {
+        "name": "RJX 162",
+        "nameS": "RJX 162",
+        "number": "162",
+        "icoX": 1,
+        "cls": 1,
+        "oprX": 0,
+        "prodCtx": {
+         "name": "RJX 162 ",
+         "num": "162",
+         "matchId": "162",
+         "catOut": "RJX",
+         "catOutS": "RJX",
+         "catOutL": "railjet xpress",
+         "catIn": "RJX",
+         "catCode": "0",
+         "admin": "55____"
+        }
+       }
+      ],
+      "opL": [
+       {
+        "name": "MAV",
+        "icoX": 0,
+        "id": "EFZ:55____:",
+        "matchId": "MAV"
+       }
+      ],
+      "icoL": [
+       {
+        "res": "ZUG",
+        "txt": "MAV"
+       },
+       {
+        "res": "",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 171,
+         "g": 0,
+         "b": 32
+        }
+       },
+       {
+        "res": "prod_ice",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 171,
+         "g": 0,
+         "b": 32
+        }
+       }
+      ],
+      "lDrawStyleL": [
+       {
+        "sIcoX": 1,
+        "type": "SOLID",
+        "bg": {
+         "r": 171,
+         "g": 0,
+         "b": 32
+        }
+       },
+       {
+        "type": "SOLID",
+        "bg": {
+         "r": 171,
+         "g": 0,
+         "b": 32
+        }
+       }
+      ]
+     },
+     "jnyL": [
+      {
+       "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#3905#TA#0#DA#131126#1S#5500003#1T#630#LS#8509411#LT#1649#PU#81#RT#1#CA#RJX#ZE#162#ZB#RJX 162 #PC#0#FR#5500003#FT#630#TO#8509411#TT#1649#",
+       "date": "20261113",
+       "prodX": 0,
+       "stopL": [
+        {
+         "locX": 0,
+         "dTimeS": "063000",
+         "dTZOffset": 60
+        },
+        {
+         "locX": 1,
+         "aTimeS": "164900",
+         "aTZOffset": 60
+        }
+       ],
+       "sDaysL": [
+        {
+         "sDaysR": "nicht täglich",
+         "sDaysI": "15. Okt bis 12. Dez 2026; nicht 27. bis 29. Okt 2026, 18. bis 22. Nov 2026",
+         "sDaysB": "000000003FFC7FFFF07FFFF800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+       ],
+       "pos": {
+        "x": 12394956,
+        "y": 47813911
+       },
+       "sumLDrawStyleX": 0,
+       "resLDrawStyleX": 1,
+       "durS": "101900"
+      }
+     ],
+     "fpB": "20260911",
+     "fpE": "20271211",
+     "planrtTS": "1794569666"
+    }
+   }
+  ]
+ }
+}

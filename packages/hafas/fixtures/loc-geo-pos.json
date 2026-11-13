@@ -1,0 +1,481 @@
+{
+ "request": {
+  "id": "1",
+  "ver": "1.67",
+  "lang": "deu",
+  "auth": {
+   "type": "AID",
+   "aid": "OWDL4fE4ixNiPBBm"
+  },
+  "client": {
+   "id": "OEBB",
+   "type": "WEB",
+   "name": "webapp",
+   "l": "vs_webapp"
+  },
+  "formatted": false,
+  "svcReqL": [
+   {
+    "meth": "LocGeoPos",
+    "req": {
+     "ring": {
+      "cCrd": {
+       "x": 16376413,
+       "y": 48185184
+      },
+      "maxDist": 1500
+     },
+     "getPOIs": false,
+     "getStops": true,
+     "maxLoc": 8
+    }
+   }
+  ]
+ },
+ "response": {
+  "ver": "1.67",
+  "lang": "deu",
+  "id": "1",
+  "err": "OK",
+  "graph": {
+   "id": "standard",
+   "index": 0
+  },
+  "subGraph": {
+   "id": "global",
+   "index": 0
+  },
+  "view": {
+   "id": "standard",
+   "index": 0,
+   "type": "WGS84"
+  },
+  "svcResL": [
+   {
+    "meth": "LocGeoPos",
+    "err": "OK",
+    "res": {
+     "common": {
+      "prodL": [
+       {
+        "name": "",
+        "icoX": 0,
+        "cls": 64,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "name": "",
+        "icoX": 1,
+        "cls": 1,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "name": "",
+        "icoX": 2,
+        "cls": 4,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "name": "",
+        "icoX": 3,
+        "cls": 8,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "name": "",
+        "icoX": 4,
+        "cls": 16,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "name": "",
+        "icoX": 5,
+        "cls": 32,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "name": "",
+        "icoX": 4,
+        "cls": 4096,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "name": "",
+        "icoX": 6,
+        "cls": 512,
+        "prodCtx": {
+         "name": ""
+        }
+       },
+       {
+        "name": "",
+        "icoX": 7,
+        "cls": 2,
+        "prodCtx": {
+         "name": ""
+        }
+       }
+      ],
+      "icoL": [
+       {
+        "res": "prod_bus",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 100,
+         "g": 100,
+         "b": 100
+        }
+       },
+       {
+        "res": "prod_ice",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 171,
+         "g": 0,
+         "b": 32
+        }
+       },
+       {
+        "res": "prod_ic",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 171,
+         "g": 0,
+         "b": 32
+        }
+       },
+       {
+        "res": "prod_nachtzug",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 34,
+         "g": 29,
+         "b": 71
+        }
+       },
+       {
+        "res": "prod_reg",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 0,
+         "g": 96,
+         "b": 240
+        }
+       },
+       {
+        "res": "prod_comm_t",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 0,
+         "g": 96,
+         "b": 240
+        }
+       },
+       {
+        "res": "prod_tram",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 100,
+         "g": 100,
+         "b": 100
+        }
+       },
+       {
+        "res": "prod_sev",
+        "fg": {
+         "r": 0,
+         "g": 0,
+         "b": 0
+        },
+        "bg": {
+         "r": 235,
+         "g": 200,
+         "b": 30
+        }
+       }
+      ]
+     },
+     "locL": [
+      {
+       "lid": "A=1@O=Wien Hbf Süd (Am Hauptbahnhof)@X=16376593@Y=48184375@U=81@L=904062@",
+       "type": "S",
+       "name": "Wien Hbf Süd (Am Hauptbahnhof)",
+       "icoX": 0,
+       "extId": "904062",
+       "state": "F",
+       "crd": {
+        "x": 16376593,
+        "y": 48184375,
+        "floor": 0
+       },
+       "pCls": 64,
+       "pRefL": [
+        0
+       ],
+       "wt": 94,
+       "dist": 90,
+       "dur": 228,
+       "entry": true,
+       "TZOffset": 60,
+       "chgTime": "000500",
+       "countryCodeL": [
+        "at"
+       ]
+      },
+      {
+       "lid": "A=1@O=Wien Hbf Süd (Sonnwendgasse)@X=16375514@Y=48184447@U=81@L=904054@",
+       "type": "S",
+       "name": "Wien Hbf Süd (Sonnwendgasse)",
+       "icoX": 0,
+       "extId": "904054",
+       "state": "F",
+       "crd": {
+        "x": 16375514,
+        "y": 48184447,
+        "floor": 0
+       },
+       "pCls": 64,
+       "pRefL": [
+        0
+       ],
+       "wt": 370,
+       "dist": 105,
+       "dur": 246,
+       "entry": true,
+       "TZOffset": 60,
+       "chgTime": "000500",
+       "countryCodeL": [
+        "at"
+       ]
+      },
+      {
+       "lid": "A=1@O=Wien Hbf (Bahnsteige 3-12)@X=16377950@Y=48184986@U=81@L=8103000@",
+       "type": "S",
+       "name": "Wien Hbf (Bahnsteige 3-12)",
+       "icoX": 1,
+       "extId": "8103000",
+       "state": "F",
+       "crd": {
+        "x": 16377950,
+        "y": 48184986,
+        "floor": 0
+       },
+       "pCls": 4157,
+       "pRefL": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+       ],
+       "wt": 26861,
+       "dist": 116,
+       "dur": 259,
+       "entry": true,
+       "globalIdL": [
+        {
+         "id": "8101003",
+         "type": "U"
+        },
+        {
+         "id": "Wbf",
+         "type": "B"
+        }
+       ],
+       "TZOffset": 60,
+       "chgTime": "000600",
+       "countryCodeL": [
+        "at"
+       ]
+      },
+      {
+       "lid": "A=1@O=Wien Hbf (Wiedner Gürtel)@X=16375047@Y=48185903@U=81@L=904007@",
+       "type": "S",
+       "name": "Wien Hbf (Wiedner Gürtel)",
+       "icoX": 6,
+       "extId": "904007",
+       "state": "F",
+       "crd": {
+        "x": 16375047,
+        "y": 48185903,
+        "floor": 0
+       },
+       "pCls": 576,
+       "pRefL": [
+        7,
+        0
+       ],
+       "wt": 2219,
+       "dist": 129,
+       "dur": 274,
+       "entry": true,
+       "TZOffset": 60,
+       "chgTime": "000500",
+       "countryCodeL": [
+        "at"
+       ]
+      },
+      {
+       "lid": "A=1@O=Wien Hbf (Bahnsteige 1-2)@X=16375119@Y=48185993@U=81@L=8101590@",
+       "type": "S",
+       "name": "Wien Hbf (Bahnsteige 1-2)",
+       "icoX": 4,
+       "extId": "8101590",
+       "state": "F",
+       "crd": {
+        "x": 16375119,
+        "y": 48185993,
+        "floor": 0
+       },
+       "pCls": 48,
+       "pRefL": [
+        4,
+        5
+       ],
+       "wt": 3110,
+       "dist": 131,
+       "dur": 277,
+       "entry": true,
+       "globalIdL": [
+        {
+         "id": "8103091",
+         "type": "U"
+        },
+        {
+         "id": "Wsp",
+         "type": "B"
+        }
+       ],
+       "TZOffset": 60,
+       "chgTime": "000500",
+       "countryCodeL": [
+        "at"
+       ]
+      },
+      {
+       "lid": "A=1@O=Wien Hbf (Busbahnhof Regional)@X=16374606@Y=48185022@U=81@L=904050@",
+       "type": "S",
+       "name": "Wien Hbf (Busbahnhof Regional)",
+       "icoX": 0,
+       "extId": "904050",
+       "state": "F",
+       "crd": {
+        "x": 16374606,
+        "y": 48185022,
+        "floor": 0
+       },
+       "pCls": 66,
+       "pRefL": [
+        0,
+        8
+       ],
+       "wt": 450,
+       "dist": 135,
+       "dur": 282,
+       "entry": true,
+       "TZOffset": 60,
+       "chgTime": "000500",
+       "countryCodeL": [
+        "at"
+       ]
+      },
+      {
+       "lid": "A=1@O=Wien Gertrude-Fröhlich-Sandner-Straße@X=16377915@Y=48185903@U=81@L=904056@",
+       "type": "S",
+       "name": "Wien Gertrude-Fröhlich-Sandner-Straße",
+       "icoX": 0,
+       "extId": "904056",
+       "state": "F",
+       "crd": {
+        "x": 16377915,
+        "y": 48185903,
+        "floor": 0
+       },
+       "pCls": 64,
+       "pRefL": [
+        0
+       ],
+       "wt": 370,
+       "dist": 137,
+       "dur": 284,
+       "TZOffset": 60,
+       "chgTime": "000500",
+       "countryCodeL": [
+        "at"
+       ]
+      },
+      {
+       "lid": "A=1@O=Wien Hbf (Tiefgeschoß Straßenbahn)@X=16373923@Y=48185939@U=81@L=904008@",
+       "type": "S",
+       "name": "Wien Hbf (Tiefgeschoß Straßenbahn)",
+       "icoX": 6,
+       "extId": "904008",
+       "state": "F",
+       "crd": {
+        "x": 16373923,
+        "y": 48185939,
+        "floor": 0
+       },
+       "pCls": 512,
+       "pRefL": [
+        7
+       ],
+       "wt": 1848,
+       "dist": 202,
+       "dur": 362,
+       "entry": true,
+       "TZOffset": 60,
+       "chgTime": "000500",
+       "countryCodeL": [
+        "at"
+       ]
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

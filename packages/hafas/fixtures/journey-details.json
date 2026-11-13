@@ -1,0 +1,1640 @@
+{
+ "request": {
+  "id": "1",
+  "ver": "1.67",
+  "lang": "deu",
+  "auth": {
+   "type": "AID",
+   "aid": "OWDL4fE4ixNiPBBm"
+  },
+  "client": {
+   "id": "OEBB",
+   "type": "WEB",
+   "name": "webapp",
+   "l": "vs_webapp"
+  },
+  "formatted": false,
+  "svcReqL": [
+   {
+    "meth": "JourneyDetails",
+    "req": {
+     "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#2316#TA#0#DA#131126#1S#5500061#1T#427#LS#8100003#LT#1200#PU#81#RT#1#CA#EC#ZE#140#ZB#EC 140  #PC#2#FR#5500061#FT#427#TO#8100003#TT#1200#",
+     "getPolyline": true,
+     "getPasslist": true
+    }
+   }
+  ]
+ },
+ "response": {
+  "ver": "1.67",
+  "lang": "deu",
+  "id": "1",
+  "err": "OK",
+  "graph": {
+   "id": "standard",
+   "index": 0
+  },
+  "subGraph": {
+   "id": "global",
+   "index": 0
+  },
+  "view": {
+   "id": "standard",
+   "index": 0,
+   "type": "WGS84"
+  },
+  "svcResL": [
+   {
+    "meth": "JourneyDetails",
+    "err": "OK",
+    "res": {
+     "common": {
+      "locL": [
+       {
+        "lid": "A=1@O=Nyiregyhaza@X=21705228@Y=47946349@U=81@L=5500061@",
+        "type": "S",
+        "name": "Nyiregyhaza",
+        "icoX": 0,
+        "extId": "5500061",
+        "state": "F",
+        "crd": {
+         "x": 21705228,
+         "y": 47946349,
+         "floor": 0
+        },
+        "pCls": 30,
+        "globalIdL": [
+         {
+          "id": "5514019",
+          "type": "U"
+         },
+         {
+          "id": "55Nyha",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000300",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Hegyeshalom@X=17147023@Y=47913503@U=81@L=5500017@",
+        "type": "S",
+        "name": "Hegyeshalom",
+        "icoX": 2,
+        "extId": "5500017",
+        "state": "F",
+        "crd": {
+         "x": 17145710,
+         "y": 47913943,
+         "floor": 0
+        },
+        "pCls": 4127,
+        "globalIdL": [
+         {
+          "id": "8102981",
+          "type": "U"
+         },
+         {
+          "id": "He",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000100",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Wien Westbahnhof@X=16337256@Y=48196753@U=81@L=8100003@",
+        "type": "S",
+        "name": "Wien Westbahnhof",
+        "icoX": 2,
+        "extId": "8100003",
+        "state": "F",
+        "crd": {
+         "x": 16337256,
+         "y": 48196753,
+         "floor": 0
+        },
+        "pCls": 4157,
+        "entry": true,
+        "globalIdL": [
+         {
+          "id": "8101001",
+          "type": "U"
+         },
+         {
+          "id": "Ws",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000600",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Debrecen@X=21628792@Y=47519631@U=81@L=5500058@",
+        "type": "S",
+        "name": "Debrecen",
+        "icoX": 0,
+        "extId": "5500058",
+        "state": "F",
+        "crd": {
+         "x": 21628792,
+         "y": 47519631,
+         "floor": 0
+        },
+        "pCls": 30,
+        "globalIdL": [
+         {
+          "id": "5513912",
+          "type": "U"
+         },
+         {
+          "id": "55Debr",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000300",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Hajduszoboszlo@X=21407793@Y=47429658@U=81@L=5500057@",
+        "type": "S",
+        "name": "Hajduszoboszlo",
+        "icoX": 0,
+        "extId": "5500057",
+        "state": "F",
+        "crd": {
+         "x": 21407793,
+         "y": 47429658,
+         "floor": 0
+        },
+        "pCls": 20,
+        "globalIdL": [
+         {
+          "id": "55Hajd",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000100",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Püspökladany@X=21128435@Y=47328089@U=81@L=5500055@",
+        "type": "S",
+        "name": "Püspökladany",
+        "icoX": 0,
+        "extId": "5500055",
+        "state": "F",
+        "crd": {
+         "x": 21128435,
+         "y": 47328089,
+         "floor": 0
+        },
+        "pCls": 30,
+        "globalIdL": [
+         {
+          "id": "55Püs",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000100",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Karcag@X=20929405@Y=47303360@U=81@L=5500054@",
+        "type": "S",
+        "name": "Karcag",
+        "icoX": 0,
+        "extId": "5500054",
+        "state": "F",
+        "crd": {
+         "x": 20929405,
+         "y": 47303360,
+         "floor": 0
+        },
+        "pCls": 30,
+        "globalIdL": [
+         {
+          "id": "55Karc",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000100",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Kisujszallas@X=20751643@Y=47223985@U=81@L=5500126@",
+        "type": "S",
+        "name": "Kisujszallas",
+        "icoX": 0,
+        "extId": "5500126",
+        "state": "F",
+        "crd": {
+         "x": 20751643,
+         "y": 47223985,
+         "floor": 0
+        },
+        "pCls": 28,
+        "globalIdL": [
+         {
+          "id": "55Kisu",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000100",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Törökszentmiklos@X=20412965@Y=47169933@U=81@L=5501381@",
+        "type": "S",
+        "name": "Törökszentmiklos",
+        "icoX": 0,
+        "extId": "5501381",
+        "state": "F",
+        "crd": {
+         "x": 20412965,
+         "y": 47169933,
+         "floor": 0
+        },
+        "pCls": 28,
+        "globalIdL": [
+         {
+          "id": "55Törö",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000100",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Szolnok@X=20175695@Y=47179561@U=81@L=5500053@",
+        "type": "S",
+        "name": "Szolnok",
+        "icoX": 0,
+        "extId": "5500053",
+        "state": "F",
+        "crd": {
+         "x": 20175695,
+         "y": 47179561,
+         "floor": 0
+        },
+        "pCls": 30,
+        "globalIdL": [
+         {
+          "id": "5513748",
+          "type": "U"
+         },
+         {
+          "id": "55Szol",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000300",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Budapest-Keleti@X=19085070@Y=47500386@U=81@L=5500003@",
+        "type": "S",
+        "name": "Budapest-Keleti",
+        "icoX": 2,
+        "extId": "5500003",
+        "state": "F",
+        "crd": {
+         "x": 19085070,
+         "y": 47500386,
+         "floor": 0
+        },
+        "pCls": 29,
+        "globalIdL": [
+         {
+          "id": "5510017",
+          "type": "U"
+         },
+         {
+          "id": "55BU KT",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000700",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Budapest-Kelenföld@X=19020455@Y=47464357@U=81@L=5500008@",
+        "type": "S",
+        "name": "Budapest-Kelenföld",
+        "icoX": 2,
+        "extId": "5500008",
+        "state": "F",
+        "crd": {
+         "x": 19020455,
+         "y": 47464357,
+         "floor": 0
+        },
+        "pCls": 31,
+        "globalIdL": [
+         {
+          "id": "5501024",
+          "type": "U"
+         },
+         {
+          "id": "55KL",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000300",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Tatabanya@X=18393611@Y=47584929@U=81@L=5500009@",
+        "type": "S",
+        "name": "Tatabanya",
+        "icoX": 2,
+        "extId": "5500009",
+        "state": "F",
+        "crd": {
+         "x": 18393611,
+         "y": 47584929,
+         "floor": 0
+        },
+        "pCls": 29,
+        "globalIdL": [
+         {
+          "id": "5501131",
+          "type": "U"
+         },
+         {
+          "id": "55Tata",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000100",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Györ@X=17634795@Y=47681986@U=81@L=5500080@",
+        "type": "S",
+        "name": "Györ",
+        "icoX": 2,
+        "extId": "5500080",
+        "state": "F",
+        "crd": {
+         "x": 17634624,
+         "y": 47682031,
+         "floor": 0
+        },
+        "pCls": 31,
+        "globalIdL": [
+         {
+          "id": "5501289",
+          "type": "U"
+         },
+         {
+          "id": "55Gyoe",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000300",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Mosonmagyarovar@X=17266426@Y=47850354@U=81@L=5500016@",
+        "type": "S",
+        "name": "Mosonmagyarovar",
+        "icoX": 2,
+        "extId": "5500016",
+        "state": "F",
+        "crd": {
+         "x": 17266426,
+         "y": 47850354,
+         "floor": 0
+        },
+        "pCls": 29,
+        "globalIdL": [
+         {
+          "id": "5501347",
+          "type": "U"
+         },
+         {
+          "id": "55Mosmo",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000100",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Hegyeshalom Országhatár/Staatsgrenze@X=17095847@Y=47938259@U=81@L=5501629@",
+        "type": "S",
+        "name": "Hegyeshalom Országhatár/Staatsgrenze",
+        "icoX": 4,
+        "extId": "5501629",
+        "state": "F",
+        "crd": {
+         "x": 17095847,
+         "y": 47938259,
+         "floor": 0
+        },
+        "pCls": 0,
+        "globalIdL": [
+         {
+          "id": "NIF G",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000300",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Wien Hbf (Bahnsteige 3-12)@X=16377950@Y=48184986@U=81@L=8103000@",
+        "type": "S",
+        "name": "Wien Hbf (Bahnsteige 3-12)",
+        "icoX": 2,
+        "extId": "8103000",
+        "state": "F",
+        "crd": {
+         "x": 16377950,
+         "y": 48184986,
+         "floor": 0
+        },
+        "pCls": 4157,
+        "entry": true,
+        "globalIdL": [
+         {
+          "id": "8101003",
+          "type": "U"
+         },
+         {
+          "id": "Wbf",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000600",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Wien Meidling Bahnhof@X=16333966@Y=48174532@U=81@L=8100514@",
+        "type": "S",
+        "name": "Wien Meidling Bahnhof",
+        "icoX": 2,
+        "extId": "8100514",
+        "state": "F",
+        "crd": {
+         "x": 16333966,
+         "y": 48174532,
+         "floor": 0
+        },
+        "pCls": 4157,
+        "entry": true,
+        "globalIdL": [
+         {
+          "id": "8103107",
+          "type": "U"
+         },
+         {
+          "id": "Mi",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000600",
+        "countryCodeL": [
+         "at"
+        ]
+       }
+      ],
+      "prodL": [
+       {
+        "pid": "L::2::EC::B3966323972::EC_3966323972::*",
+        "name": "EC 140",
+        "nameS": "EC 140",
+        "number": "140",
+        "icoX": 0,
+        "cls": 4,
+        "oprX": 0,
+        "prodCtx": {
+         "name": "EC 140  ",
+         "num": "140",
+         "matchId": "140",
+         "catOut": "EC      ",
+         "catOutS": "EC",
+         "catOutL": "Eurocity",
+         "catIn": "EC",
+         "catCode": "2",
+         "admin": "55____"
+        },
+        "himIdL": [
+         "HIM_FREETEXT_913794",
+         "HIM_FREETEXT_917780",
+         "HIM_FREETEXT_917781",
+         "HIM_FREETEXT_926900",
+         "HIM_FREETEXT_926901"
+        ]
+       },
+       {
+        "pid": "L::2::EC::B1146449194::EC_1146449194::*",
+        "name": "EC 140",
+        "nameS": "EC 140",
+        "number": "140",
+        "icoX": 0,
+        "cls": 4,
+        "oprX": 1,
+        "prodCtx": {
+         "name": "EC 140  ",
+         "num": "140",
+         "matchId": "140",
+         "catOut": "EC      ",
+         "catOutS": "EC",
+         "catOutL": "Eurocity",
+         "catIn": "EC",
+         "catCode": "2",
+         "admin": "81____"
+        },
+        "himIdL": [
+         "HIM_FREETEXT_836595",
+         "HIM_FREETEXT_836614",
+         "HIM_FREETEXT_836615",
+         "HIM_FREETEXT_894907",
+         "HIM_FREETEXT_894917",
+         "HIM_FREETEXT_894923",
+         "HIM_FREETEXT_894939",
+         "HIM_FREETEXT_903557",
+         "HIM_FREETEXT_904332",
+         "HIM_FREETEXT_907515",
+         "HIM_FREETEXT_907517",
+         "HIM_FREETEXT_907734",
+         "HIM_FREETEXT_907801",
+         "HIM_FREETEXT_908818",
+         "HIM_FREETEXT_911711",
+         "HIM_FREETEXT_916192",
+         "HIM_FREETEXT_919094",
+         "HIM_FREETEXT_920998",
+         "HIM_FREETEXT_921046",
+         "HIM_FREETEXT_921056",
+         "HIM_FREETEXT_922489",
+         "HIM_FREETEXT_922499",
+         "HIM_FREETEXT_922506",
+         "HIM_FREETEXT_923955",
+         "HIM_FREETEXT_923959",
+         "HIM_FREETEXT_925680",
+         "HIM_FREETEXT_925790",
+         "HIM_FREETEXT_925791",
+         "HIM_FREETEXT_925802",
+         "HIM_FREETEXT_926666",
+         "HIM_FREETEXT_926732",
+         "HIM_FREETEXT_926456",
+         "HIM_FREETEXT_925501",
+         "HIM_FREETEXT_926900",
+         "HIM_FREETEXT_926901"
+        ]
+       }
+      ],
+      "polyL": [
+       {
+        "delta": true,
+        "dim": 2,
+        "crdEncYX": "uoscHuhncCnqAyw@pLkDppByGxgB{D|SlBn{E~iAfK|ArbGaM????|l@y@hJ|@rl@rRxk@`Yvs@tK`yA|Zro@tDrrAfH`pD~ZpTfE??fIxD~m@dS`Hp@~K_@tMoAbR[dy@nK????rh@xHrlCrq@loBjW????jeBzO`xBzU`l@~FznAnK`lGhr@????`cAbKbIrDjI`HlJfOpE|IbJpZvN`e@??????hnCb_J~sE~kO????~lEbwN????vzJr`\\????z~DlnMzUf~@hPblA|Dbe@`PjmD????xpBh}a@xC~f@vDzT|GlSfThj@??????|hMbgZhYbcAzEzc@|C|dC????rAz{AlD~z@zGvw@|eD`i^????|xC~g[????hMjnAzAlThJdaK@d_@eAdWcB~TsZthD????al@xmHoH|d@g_@|mB{QfdA{Cpc@n@xbApBbi@zBnMbB~EzErJpGdJhZbc@????r\\rd@lJvNdDvGvB~GdCfQn@pMQtP}GlbA_D`g@}Cx_AqFr|BmSp_J|A|a@|Zj{D????hDhj@Mll@iAzZ_a@h}EsAjZwDpqAkDhd@yHh`AUpSDzt@kBhlC?hV`@zQtPrqDdAx]?`PiB`mCy@zs@cAdQcNdaAoVrvAs\\pmAebBrcG_Gd_@??n@pSpC|UhRvq@tDv^JxOcAxQk@jFkF~Vc^hyAkAjF??yAfKs@nIgAvO{B`k@gC`g@}@rIoBdJiO~_@??}gBb~FwGzOmNpVsQxT??ua@xg@_FhLwG`Wud@dgBuHlSsLtU}G`LeFlFsJzF{PpG}M|HwFdGgHpLiFbOiDxQaKbw@uFtTsGpKkQbR??ii@jn@eC`Ek`@t{@eFnKwq@ldAgGnFwRpKoExDiN~O??{GnMcSnk@oBhE_`Av~A_U~`@sLp\\mr@luBmHtMcY`V????}WtYmFfL_c@ftA}EjX_GxTeYrv@sT~Xk\\pl@????{jBtjDaGbO}BlJoAxJkBdh@????kPrgG_Az\\{ApW_DfSyApGiEpLm]l}@uBpIyApIqAxNKh^??_@jVcCpTcDjLwFzKeX|Z????e`DxrDwIrN??{f@r`A????ch@peAwHpXeDrSwEne@cBtR}DbW??qGjYaOpr@}Ov}@}Hhw@uR~t@_CtIc\\dx@i[lg@oCjEiAfCq@jC[jBM|DBrBVxD\\hBxB~EpHlMkIiKaMuJiIwCiW_CmD`@mCvA{BrCy@nBy@bDu@pDm@tG?lFv@|JHjGGlC[jDq@fE{D`LiCnEyFvGoj@~W{EjGeBdGo@jGWpKFvn@??Gwn@VqKn@kGdBeGzEkGnj@_XxFwGhCoEzDaLp@gEZkDFmCIkGw@}J?mFl@uGt@qDx@cDx@oBzBsClCwAlDa@hW~BhIvC`MtJjIhKfFhJbE|MvJ|c@tNpbAdAhM????l@dIPpFfA|k@iBxgCWrHaLneA_LtfAg@jGZvJdCve@p@`IbArDnA|BlArA~A`A~Bh@|BRz]fB??????dq@UbHz@~Cj@xD`E~C~Jh^d|CfAtMPzJo@ryA_Axl@????YvLk@~L_EtRaDlUuD|e@sDndAm@rOAlKXfKjF`x@z@pSg@ncA????VpHd@pS`AlOvBdJhC|JhBdMv@lNe@`QqAtLaFzN_GnKwGhGg_@vQiO`IsGzFw`@rn@{FbJaHnRuBnOILeFvg@eEp\\sDvW}EpNmJlNkOdNcOlP??a_@jb@wJvOkFbPcDxVmA`\\E`P|AlYbCfRvEbOxR|r@tFrXzBf[DjPo@rQuB|OgGjYk]xx@iF`LwGlSyChWs@t`A????uDzeCObd@^z_@hPn_GfCjt@rBbZ~DlXdKdh@zDfP??lF|TvCjQnBvRrAn[AxXOfOEnU??qBnWcAxRUvUdCxjHDdMv@dMlAnMjB~ThBhd@GfOqA`YiBvQkEr[}C~N??eHvNmHfMoKbL{H|DgGlEeIrGwHnJcFpJuGlJ}v@js@mKfJ}MtIad@jR????o`@rQoLzFgLfDmOdA}SdCcNnEoNbIuMjLwMbPyNvYqx@n|ByL|ZkL~S{IjU_FnYcCtYoAbUDbb@q@zq@????XbKs@nO}E~WwG|W}IpVsH`QoLnN{IhE_PtAeHA{Fz@wJ|EePxGcHdF??y\\vZaFlC}F|CkKfEuKr@sPm@gJE}LjByIzB{r@l_@iZ~R{HjG??sDrF_R~Vmz@fqAaKpPsIdHwLrG{d@tPaPzD??eEfA{GtBuGzGkCpH{CzPq@jMyBvLeEtLgLpMaNdKeJzEwRxE??a\\pIsOvHqK`IiyA|zAeMdMwQxNe|@lk@s]tViJrJaRp]cv@x~AqEnHeHbPwIr\\??wJjc@uClSgBbQgDbiAcAjn@_IhjA????cVdbEy@rSRnNg@fP??_BzNaExS{d@j{BaR`}@wEzc@iExe@kIzdB????_@re@`AbOlFbQjI`VBHj{CrgKfHvXpElZlC|]vArc@pCtlA????zd@|}OtAjh@hBp\\|HpeAvRhoC????~gBbpW????|UnqDxG~kAZva@eExlCa@fWw@reAYfTk@v^Uj_@f@tTbEzYtKdd@??????dMlg@xZxmAnGfZ~Fjb@zCjd@t@fd@Klf@aE|m@qJxn@iHt\\iNba@y_@dy@ci@tfA????yuDbfI????ucFbjK????qkHrkO????emEbbJmm@`eA{Xvf@sEzG??_]bg@iOj[}iExdK????ymCbtGwFdN??c_@`~@oH|QaW`o@oRdh@yaAfkC??sY~v@eAtC??aCnGwK|YmRzg@iIpTuC~HqKlYkMd]uObb@qSjj@cJnVoD~Kw@tCwC`MiBjJwA|I}A~LaIdt@??}BfTwDj]kAzKmChVwGvm@sBhRyOdxA?BaCtTqApK}@`GcBfKqBfK{@xDqDvNeDzLyh@peBmCtImCtJmAnFy@xEsArJk@lG_@dFe@~JOvH?`JLpKzHv~Ed@hYD|BtAf}@b@fXv@pk@BdA@rJ??K`IK~Cm@fLo@fHa@lDo@xEq@~DgBbI_AjDgNbe@uCnMOZ??gAdCsApDaAhDmJl[?DcQhl@{E|O{AnEaA`CaDfHeBdD{BpDoC`Ee_@`f@sTdYgE~FyBpDaBdD}AjDsAnD}AzEeBxGaBpIy@rFk@rFSlC}AvWS|DmDjn@{AtUWtEiAbWUzF]dM??IpBGvC]pL_DhfA?H_Bbi@GpDElReA~_@KpF{Aj~@Y~ZMtNq@zv@QvQ??_@lb@?HQnREnFKdKsBb_Cw@xz@AlB??]``@q@lz@}@v}@QtNg@fm@???ZIlG?Fi@zm@MhP]nk@q@dv@_AjgAe@fl@IbJUpUC~FQdQ??_@fe@QrQw@r`AWh[{@zbAU|YQrQ]dd@ElCk@`t@MxFQ`Ee@nH]nDg@~E{@xGsItn@eD`ViIfm@yCzToFp_@qApIyAtH??kCjKeCpHgBtEcDhHiAzBmDrFaArAcFhGeErEeHzGkHvG}XdWqJzIwQnPcWnUcP~NmMnLkLlKcVxT}FfFuUhTuCfCcD|B}L~Gm]nP??kUxK{FxBsDbAyE~@uEd@oERyBBsDEuE[aFq@wFeAy^}HiEcAyVgFo\\cHiDk@cLiA??}F]yECmCDkGXmJhA_Ev@cEdA}EvAoCbAiGtCeIvEyD|B_IrFo[zQ??wXfPsBrAkC`CwCdEk@|@kBtDcErLoArC}@nAaCbCcCfBiXvO{C`BwChAuAVqE`@_F|@_Bp@w@b@gBxA{BdCwGbIk[z_@a\\p`@_RlU??oDdFiGlJoMnToLlR}@fBsFpJqAbCm@rAm@bBi@dBYrA}@pCu@rBu@bBiAxBaDxEo@r@{EjEmJxGcCdCeBjC}AxCiAtCy@~Cu@tE[dDkBfV??QzCEvB?xBHvCBfAZpCr@fDf]xwAn@hCfAtDjKt[n@|Bj@tC^vBxA|KVjCPpCJrCNlJAdDXpK\\~Gh@tHzClYBP??@LdDfWv@vEXzAtBzIhBxGzCnLv@~DJjAJjCE|CEbAs@vHOdCGjC@fCThFrCvXb@~ChB~JZbC\\`GDfC?|@EdCMjCU`C_C~RwIlu@]dEaE~]??m@vFKr@a@hBSp@q@`B{@zAcBnBmBrAkAd@aBXu@FsDG_k@aC{Qq@_BOyBe@kAm@cBuAqBeCoImL}AcCu@gBc@aBi@oCQwAQcEEaF?oGp@_j@BgCRoMAeCVyN??DgCd@wWPyN`@aSNuM?}AKkCWqCc@mCcJie@w@kEo@aJ_BkMu@yE[_G_@oDyB{O",
+        "crdEncS": "NNNNNNMNINNNNNNNNHNNNNMNNLLNNNGNNNNHMJMNNNHNNNLNHNNNNJNNJNNKNNJNNNNNNNMNNLNNNNNNNNNNNNLKNNKNNMNNNLNNNNNNMNNNNNLNGNNGLNMNNNNINNNNNINNNNNNLNHNNNLNMMNJNNNNNINNNNNNNNKNMHNNMINJMNNNNNNNNNNNHNNNMNMMNMNNMNNNNNNLINNNNLNNNKNLNLNNGNNNNNNNNNGNNNNMNGNNINNKNJNNMNNNNNNNGNNNNNHNNNNNINNNINNNNNNGNKNKNJLNKNNNNNMNKNHNMNLNJLNNLNNNMNMNNMNMNNNLNNLJNLNMNHNKNMNNNNNNNNMNNNJMNNMGJNJLNLNJMNHNNNNNHNNNLNMNGNNJNMNNGNLNLNGNNHLNHNMNMNNNNJNNGNNIMMJNNNMNNNNNNMNNNKNNNNNNNJNNNGNNMNNNNNNLNNNMNNJINNKNNINKGNNNMNMNNLNNMINMLNINNGNNINNKNNNNNNMNNNNLNMGNNNNNNLNNNMLNJNNNNNKNNJNLNNLNNINJNMNMNNGNNNNNNNNNNNNNMNHNNLNNMMNNNNNKNMNGNNNMMNNMNHNKNNNNNNJNJMNNNKGNNJNMIHNNJNNMNNNJNGKNNNNNNNHNNNNNNNNNNLHNNJNNJNNJNNNJLNNNNJNNNNNHNMINNGNNGGHHHHIILKNHMININNIIIIGHHHNJGNGMHNHJNHMJNIMJNIINGGHGKNNGKNGKGNHLLNNNHMHGGHNGJNJGNGINJHMHNJNJHNGGIGNJGNNHHGHHNHMLGNGGHNNIIIHHHINNGHGGNNGGGGHIHGHHHINNIIHGHIHGGLHNHLGNGGGHNINNKNINJGMHNHGGIGGHHHGGINJMNNMJNJNJGNKHNGGGMINNKGNKNGKGNJNIKNNGNKNHLMJNJMNJNHJNGKNHGGINNHLHNHIGNHGGMGJNHNKNNIMJNILNNHLHNHLNHNHLHNGINGKJLINJNNNNJNGJNLINJMGGMHNLNGHNLIINHLGJINNJGNGJNKNJGNIGHNJNJNHNHLHNKGNGGINNNNHHMKGNILGNLILILN",
+        "crdEncF": "??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????",
+        "ppLocRefL": [
+         {
+          "ppIdx": 0,
+          "locX": 0
+         },
+         {
+          "ppIdx": 50,
+          "locX": 3
+         },
+         {
+          "ppIdx": 57,
+          "locX": 4
+         },
+         {
+          "ppIdx": 68,
+          "locX": 5
+         },
+         {
+          "ppIdx": 75,
+          "locX": 6
+         },
+         {
+          "ppIdx": 82,
+          "locX": 7
+         },
+         {
+          "ppIdx": 91,
+          "locX": 8
+         },
+         {
+          "ppIdx": 113,
+          "locX": 9
+         },
+         {
+          "ppIdx": 315,
+          "locX": 10
+         },
+         {
+          "ppIdx": 368,
+          "locX": 11
+         },
+         {
+          "ppIdx": 530,
+          "locX": 12
+         },
+         {
+          "ppIdx": 639,
+          "locX": 13
+         },
+         {
+          "ppIdx": 669,
+          "locX": 14
+         },
+         {
+          "ppIdx": 677,
+          "locX": 1
+         },
+         {
+          "ppIdx": 683,
+          "locX": 15
+         },
+         {
+          "ppIdx": 971,
+          "locX": 16
+         },
+         {
+          "ppIdx": 997,
+          "locX": 17
+         },
+         {
+          "ppIdx": 1081,
+          "locX": 2
+         }
+        ],
+        "lDrawStyleX": 0
+       }
+      ],
+      "opL": [
+       {
+        "name": "MAV",
+        "icoX": 1,
+        "id": "EFZ:55____:",
+        "matchId": "MAV"
+       },
+       {
+        "name": "Nahreisezug",
+        "icoX": 3,
+        "matchId": "Nahreisezug"
+       }
+      ],
+      "remL": [
+       {
+        "type": "R",
+        "code": "text.realtime.stop.entry.exit.disabled",
+        "icoX": 5,
+        "txtN": "Kein Halt zum Ein- oder Aussteigen"
+       },
+       {
+        "type": "A",
+        "code": "RO",
+        "prio": 150,
+        "icoX": 6,
+        "txtN": "Rollstuhlstellplatz"
+       },
+       {
+        "type": "A",
+        "code": "OA",
+        "prio": 150,
+        "icoX": 7,
+        "txtN": "Rollstuhlstellplatz - Voranmeldung unter +43 5 1717"
+       },
+       {
+        "type": "A",
+        "code": "EF",
+        "prio": 150,
+        "icoX": 8,
+        "txtN": "Fahrzeuggebundene Einstiegshilfe"
+       },
+       {
+        "type": "A",
+        "code": "OC",
+        "prio": 150,
+        "icoX": 9,
+        "txtN": "rollstuhltaugliches WC"
+       },
+       {
+        "type": "A",
+        "code": "FR",
+        "prio": 250,
+        "icoX": 10,
+        "txtN": "Fahrradmitnahme reservierungspflichtig"
+       },
+       {
+        "type": "A",
+        "code": "FK",
+        "prio": 250,
+        "icoX": 11,
+        "txtN": "Fahrradmitnahme begrenzt möglich"
+       },
+       {
+        "type": "A",
+        "code": "BR",
+        "prio": 450,
+        "icoX": 12,
+        "txtN": "Bordrestaurant"
+       },
+       {
+        "type": "A",
+        "code": "KK",
+        "prio": 610,
+        "icoX": 13,
+        "txtN": "Kleinkindabteil (Nyiregyhaza - Hegyeshalom)"
+       },
+       {
+        "type": "A",
+        "code": "KK",
+        "prio": 610,
+        "icoX": 13,
+        "txtN": "<s>Kleinkindabteil</s> (Hegyeshalom - Wien Westbahnhof)",
+        "rtDeactivated": true
+       },
+       {
+        "type": "I",
+        "code": "ZN",
+        "icoX": 14,
+        "txtN": "Hortobágy"
+       },
+       {
+        "type": "R",
+        "code": "text.realtime.journey.attribute.change",
+        "icoX": 5,
+        "txtN": "Bei Ihrer Verbindung hat sich die Zugausstattung geändert."
+       }
+      ],
+      "himL": [
+       {
+        "hid": "926900",
+        "act": true,
+        "head": "Verspätung",
+        "text": "EC 140: Wegen einer Verzögerung auf der ungarischen Strecke ist dieser Zug verspätet. Wir bitten um Entschuldigung.",
+        "icoX": 15,
+        "prio": 100,
+        "fLocX": 0,
+        "tLocX": 2,
+        "prod": 4,
+        "src": 99,
+        "lModDate": "20261113",
+        "lModTime": "122518",
+        "sDate": "20261113",
+        "sTime": "042700",
+        "eDate": "20261113",
+        "eTime": "120000",
+        "sDaily": "000000",
+        "eDaily": "235900",
+        "comp": "VL KI HIM ADHOC",
+        "catRefL": [
+         0
+        ],
+        "pubChL": [
+         {
+          "name": "TIMETABLE",
+          "fDate": "20261113",
+          "fTime": "122400",
+          "tDate": "20261113",
+          "tTime": "130000"
+         }
+        ]
+       }
+      ],
+      "icoL": [
+       {
+        "res": "prod_ic",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 171,
+         "g": 0,
+         "b": 32
+        }
+       },
+       {
+        "res": "ZUG",
+        "txt": "MAV"
+       },
+       {
+        "res": "prod_ice",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 171,
+         "g": 0,
+         "b": 32
+        }
+       },
+       {
+        "res": "DPN",
+        "txt": "Nahreisezug"
+       },
+       {
+        "res": "loc_stop"
+       },
+       {
+        "res": "rt_warn"
+       },
+       {
+        "res": "attr_wchair"
+       },
+       {
+        "res": "attr_wchair_aviso"
+       },
+       {
+        "res": "attr_wchair_ramp"
+       },
+       {
+        "res": "attr_wchair_wc"
+       },
+       {
+        "res": "attr_bike_r"
+       },
+       {
+        "res": "attr_bike"
+       },
+       {
+        "res": "attr_resto"
+       },
+       {
+        "res": "attr_baby"
+       },
+       {
+        "res": "attr_info"
+       },
+       {
+        "res": "HIM4"
+       }
+      ],
+      "himMsgCatL": [
+       {
+        "id": 4
+       }
+      ],
+      "dirL": [
+       {
+        "txt": "Wien Westbahnhof"
+       }
+      ],
+      "lDrawStyleL": [
+       {
+        "sIcoX": 0,
+        "type": "SOLID",
+        "bg": {
+         "r": 171,
+         "g": 0,
+         "b": 32
+        }
+       },
+       {
+        "type": "SOLID",
+        "bg": {
+         "r": 171,
+         "g": 0,
+         "b": 32
+        }
+       }
+      ],
+      "timeStyleL": [
+       {
+        "mode": "ABS"
+       },
+       {
+        "mode": "DLT",
+        "fg": {
+         "r": 212,
+         "g": 12,
+         "b": 66
+        }
+       },
+       {
+        "mode": "DLT",
+        "fg": {
+         "r": 22,
+         "g": 121,
+         "b": 85
+        }
+       },
+       {
+        "mode": "ABS",
+        "fg": {
+         "r": 212,
+         "g": 12,
+         "b": 66
+        }
+       }
+      ]
+     },
+     "journey": {
+      "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#2316#TA#0#DA#131126#1S#5500061#1T#427#LS#8100003#LT#1200#PU#81#RT#1#CA#EC#ZE#140#ZB#EC 140  #PC#2#FR#5500061#FT#427#TO#8100003#TT#1200#",
+      "date": "20261113",
+      "prodX": 0,
+      "dirTxt": "Wien Westbahnhof",
+      "status": "P",
+      "isRchbl": true,
+      "stopL": [
+       {
+        "locX": 0,
+        "idx": 0,
+        "dProdX": 0,
+        "dTimeS": "042700",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dProgType": "PROGNOSED",
+        "dDirTxt": "Wien Westbahnhof",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 3,
+        "idx": 1,
+        "aProdX": 0,
+        "aTimeS": "045800",
+        "aTimeR": "050000",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "2 Minuten später"
+        },
+        "aProgType": "REPORTED",
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "050000",
+        "dTimeR": "050200",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTimeFR": {
+         "styleX": 1,
+         "txtA": "2 Minuten später"
+        },
+        "dProgType": "REPORTED",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 4,
+        "idx": 2,
+        "aProdX": 0,
+        "aTimeS": "051200",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aProgType": "CALCULATED",
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "051300",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dProgType": "CALCULATED",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 5,
+        "idx": 3,
+        "aProdX": 0,
+        "aTimeS": "052700",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aProgType": "CALCULATED",
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "052800",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dProgType": "CALCULATED",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 6,
+        "idx": 4,
+        "aProdX": 0,
+        "aTimeS": "053800",
+        "aTimeR": "054200",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "4 Minuten später"
+        },
+        "aProgType": "REPORTED",
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "053900",
+        "dTimeR": "054300",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTimeFR": {
+         "styleX": 1,
+         "txtA": "4 Minuten später"
+        },
+        "dProgType": "REPORTED",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 7,
+        "idx": 5,
+        "aProdX": 0,
+        "aTimeS": "054900",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aProgType": "CALCULATED",
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "055000",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dProgType": "CALCULATED",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 8,
+        "idx": 6,
+        "aProdX": 0,
+        "aTimeS": "060600",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aProgType": "CALCULATED",
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "060700",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dProgType": "CALCULATED",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 9,
+        "idx": 7,
+        "aProdX": 0,
+        "aTimeS": "062300",
+        "aTimeR": "062900",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "6 Minuten später"
+        },
+        "aProgType": "REPORTED",
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "062400",
+        "dTimeR": "063000",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTimeFR": {
+         "styleX": 1,
+         "txtA": "6 Minuten später"
+        },
+        "dProgType": "REPORTED",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 10,
+        "idx": 8,
+        "aProdX": 0,
+        "aTimeS": "075500",
+        "aTimeR": "075700",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 1,
+         "txtA": "2 Minuten später"
+        },
+        "aProgType": "REPORTED",
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "083000",
+        "dTimeR": "083000",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTimeFR": {
+         "styleX": 2,
+         "txtA": "pünktlich"
+        },
+        "dProgType": "REPORTED",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 11,
+        "idx": 9,
+        "aProdX": 0,
+        "aTimeS": "084700",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aProgType": "CALCULATED",
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "085500",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dProgType": "CALCULATED",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 12,
+        "idx": 10,
+        "aProdX": 0,
+        "aTimeS": "092500",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aProgType": "CALCULATED",
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "092600",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dProgType": "CALCULATED",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 13,
+        "idx": 11,
+        "aProdX": 0,
+        "aTimeS": "100000",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aProgType": "CALCULATED",
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "100200",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dProgType": "CALCULATED",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 14,
+        "idx": 12,
+        "aProdX": 0,
+        "aTimeS": "101900",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aProgType": "CALCULATED",
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "102000",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dProgType": "CALCULATED",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 1,
+        "idx": 13,
+        "aProdX": 0,
+        "aTimeS": "102900",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aProgType": "CALCULATED",
+        "aTZOffset": 60,
+        "dProdX": 1,
+        "dPltfS": {
+         "type": "PL",
+         "txt": "-"
+        },
+        "dTimeS": "103200",
+        "dTimeR": "140900",
+        "dTimeFS": {
+         "styleX": 0,
+         "txtA": "Abfahrt 10:32 Uhr ist verspätet"
+        },
+        "dTimeFR": {
+         "styleX": 3,
+         "txtA": ", neue Abfahrt 14:09 Uhr bestätigt"
+        },
+        "dProgType": "PROGNOSED",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 15,
+        "idx": 14,
+        "aProdX": 1,
+        "aOutS": false,
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 0
+        },
+        "aProgType": "CALCULATED",
+        "aTZOffset": 60,
+        "dProdX": 1,
+        "dInS": false,
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTimeFR": {
+         "styleX": 0
+        },
+        "dProgType": "CALCULATED",
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N",
+        "border": true
+       },
+       {
+        "locX": 16,
+        "idx": 15,
+        "aProdX": 1,
+        "aPltfS": {
+         "type": "PL",
+         "txt": "5A-B"
+        },
+        "aPltfR": {
+         "type": "PL",
+         "txt": "5A-B"
+        },
+        "aTimeS": "112000",
+        "aTimeR": "144600",
+        "aTimeFS": {
+         "styleX": 0,
+         "txtA": "Ankunft 11:20 Uhr ist verspätet"
+        },
+        "aTimeFR": {
+         "styleX": 3,
+         "txtA": ", neue Ankunft 14:46 Uhr bestätigt"
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "dProdX": 1,
+        "dPltfS": {
+         "type": "PL",
+         "txt": "5A-B"
+        },
+        "dPltfR": {
+         "type": "PL",
+         "txt": "5A-B"
+        },
+        "dTimeS": "113000",
+        "dTimeR": "144900",
+        "dTimeFS": {
+         "styleX": 0,
+         "txtA": "Abfahrt 11:30 Uhr ist verspätet"
+        },
+        "dTimeFR": {
+         "styleX": 3,
+         "txtA": ", neue Abfahrt 14:49 Uhr bestätigt"
+        },
+        "dProgType": "PROGNOSED",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 17,
+        "idx": 16,
+        "aProdX": 1,
+        "aPltfS": {
+         "type": "PL",
+         "txt": "7"
+        },
+        "aPltfR": {
+         "type": "PL",
+         "txt": "7"
+        },
+        "aTimeS": "113600",
+        "aTimeR": "145300",
+        "aTimeFS": {
+         "styleX": 0,
+         "txtA": "Ankunft 11:36 Uhr ist verspätet"
+        },
+        "aTimeFR": {
+         "styleX": 3,
+         "txtA": ", neue Ankunft 14:53 Uhr bestätigt"
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "dProdX": 1,
+        "dPltfS": {
+         "type": "PL",
+         "txt": "7"
+        },
+        "dPltfR": {
+         "type": "PL",
+         "txt": "7"
+        },
+        "dTimeS": "113800",
+        "dTimeR": "145400",
+        "dTimeFS": {
+         "styleX": 0,
+         "txtA": "Abfahrt 11:38 Uhr ist verspätet"
+        },
+        "dTimeFR": {
+         "styleX": 3,
+         "txtA": ", neue Abfahrt 14:54 Uhr bestätigt"
+        },
+        "dProgType": "PROGNOSED",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 2,
+        "idx": 17,
+        "aProdX": 1,
+        "aPltfS": {
+         "type": "PL",
+         "txt": "1"
+        },
+        "aPltfR": {
+         "type": "PL",
+         "txt": "1"
+        },
+        "aTimeS": "120000",
+        "aTimeR": "150500",
+        "aTimeFS": {
+         "styleX": 0,
+         "txtA": "Ankunft 12:00 Uhr ist verspätet"
+        },
+        "aTimeFR": {
+         "styleX": 3,
+         "txtA": ", neue Ankunft 15:05 Uhr bestätigt"
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       }
+      ],
+      "sDaysL": [
+       {
+        "sDaysR": "nicht täglich",
+        "sDaysI": "13. Nov bis 11. Dez 2026 Mo - Fr; auch 21., 22. Nov 2026, 12. Dez",
+        "sDaysB": "9FFFFCFBF3E078073FFCF9F800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "fLocX": 0,
+        "tLocX": 2,
+        "fLocIdx": 0,
+        "tLocIdx": 17
+       }
+      ],
+      "polyG": {
+       "polyXL": [
+        0
+       ]
+      },
+      "pos": {
+       "x": 17145710,
+       "y": 47913943
+      },
+      "msgL": [
+       {
+        "type": "REM",
+        "remX": 1,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 2,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 556531712
+       },
+       {
+        "type": "REM",
+        "remX": 2,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 2,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 556531712
+       },
+       {
+        "type": "REM",
+        "remX": 3,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 2,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 556531712
+       },
+       {
+        "type": "REM",
+        "remX": 4,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 2,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 556531712
+       },
+       {
+        "type": "REM",
+        "remX": 5,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 2,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 569638912
+       },
+       {
+        "type": "REM",
+        "remX": 6,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 2,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 569638912
+       },
+       {
+        "type": "REM",
+        "remX": 7,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 2,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 595853312
+       },
+       {
+        "type": "REM",
+        "remX": 8,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 1,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 616824832
+       },
+       {
+        "type": "REM",
+        "remX": 9,
+        "sty": "I",
+        "fLocX": 1,
+        "tLocX": 2,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 616824832
+       },
+       {
+        "type": "REM",
+        "remX": 10,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 2,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 549978112
+       },
+       {
+        "type": "HIM",
+        "himX": 0,
+        "sty": "M",
+        "fLocX": 0,
+        "tLocX": 2,
+        "tagL": [
+         "RES_SEC_HDR_H2",
+         "SUM_CON_HDR_H2",
+         "RES_JNY_H3"
+        ],
+        "sort": 791150591
+       },
+       {
+        "type": "REM",
+        "remX": 11,
+        "sty": "M",
+        "tagL": [
+         "SUM_CON_HDR_H3",
+         "RES_SEC_HDR_H3"
+        ],
+        "sort": 13107200,
+        "persist": false
+       }
+      ],
+      "subscr": "F",
+      "prodL": [
+       {
+        "prodX": 0,
+        "fLocX": 0,
+        "tLocX": 1,
+        "fIdx": 0,
+        "tIdx": 13
+       },
+       {
+        "prodX": 1,
+        "fLocX": 1,
+        "tLocX": 2,
+        "fIdx": 13,
+        "tIdx": 17
+       }
+      ],
+      "dirL": [
+       {
+        "dirX": 0,
+        "fLocX": 0,
+        "tLocX": 2,
+        "fIdx": 0,
+        "tIdx": 17
+       }
+      ],
+      "sumLDrawStyleX": 0,
+      "resLDrawStyleX": 1,
+      "trainStartDate": "20261113"
+     },
+     "fpB": "20260911",
+     "fpE": "20271211",
+     "planrtTS": "1794569666"
+    }
+   }
+  ]
+ }
+}
