@@ -227,8 +227,9 @@ watch(sel, (i) =>
       {{ $t("board.empty") }}
     </p>
     <p v-if="rows.length" class="muted mt-2 text-xs">
-      {{ hhmm(rows[0]?.when.planned) }} – {{ hhmm(rows.at(-1)?.when.planned) }} ·
-      {{ rows.length }} · <span class="kbd">j</span>/<span class="kbd">k</span> <span class="kbd"
+      {{ hhmm(rows[0]?.when.planned) }} – {{ hhmm(rows.at(-1)?.when.planned) }} · {{ rows.length }}
+      <span class="keys-only">·</span> <span class="kbd">j</span>/<span class="kbd">k</span> <span
+        class="kbd"
         >↵</span
       >
     </p>

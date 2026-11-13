@@ -75,7 +75,11 @@ const shortcuts: [string, string][] = [
         >
       </nav>
       <div class="ml-auto flex items-center gap-2 text-xs">
-        <button class="btn hide-sm" :title="$t('common.commandPalette')" @click="palette = true">
+        <button
+          class="btn hide-sm keys-only"
+          :title="$t('common.commandPalette')"
+          @click="palette = true"
+        >
           <span class="kbd">⌘K</span>
         </button>
         <button
@@ -117,9 +121,10 @@ const shortcuts: [string, string][] = [
     }}</a>
     (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>) ·
     <a href="https://github.com/simon04/zugx">zugx</a>
-    (<a href="https://github.com/simon04/zugx/blob/master/LICENSE">AGPL-3.0</a>) ·
+    (<a href="https://github.com/simon04/zugx/blob/master/LICENSE">AGPL-3.0</a>)
+    <span class="keys-only">·</span>
     <button
-      class="cursor-pointer border-0 bg-transparent p-0 text-xs text-[var(--link)]"
+      class="keys-only cursor-pointer border-0 bg-transparent p-0 text-xs text-[var(--link)]"
       @click="help = true"
     >
       {{ $t("common.keyboard") }} <span class="kbd">?</span>

@@ -94,3 +94,10 @@ table.dense tbody tr:hover td {
   border-top-color: var(--bg2) !important;
   border-bottom-color: var(--bg2) !important;
 }
+/* touch devices without a physical keyboard: hide shortcut hints */
+@media (hover: none) and (pointer: coarse) {
+  .kbd,
+  .keys-only {
+    display: none !important;
+  }
+}
