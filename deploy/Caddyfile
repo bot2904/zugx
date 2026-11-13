@@ -28,7 +28,7 @@
 		-Server
 	}
 
-	# access log on stdout → `journalctl --user -u zugx` (stock console format, headers dropped)
+	# access log on stdout → `journalctl --user -u zugx` (stock console format, headers dropped, IPs masked)
 	log {
 		output stdout
 		format filter {
@@ -37,6 +37,9 @@
 			}
 			fields {
 				request>headers delete
+				# no full client IPs in the log (personal data): keep /24 resp. /48 for abuse analysis
+				request>remote_ip ip_mask 24 48
+				request>client_ip ip_mask 24 48
 				request>tls delete
 				resp_headers delete
 				user_id delete
