@@ -1,5 +1,6 @@
 # zugx: static Vue SPA + /api/mgate reverse proxy, served by Caddy (plain HTTP :8080).
 # Build: podman build -t localhost/zugx -f deploy/Containerfile .
+# base images pinned to a minor version (Renovate/Dependabot bump them)
 FROM docker.io/library/node:24-alpine AS build
 WORKDIR /app
 RUN npm install -g pnpm@12.18.0
@@ -20,7 +21,11 @@ ARG VITE_COMMIT_DATE=""
 ENV VITE_COMMIT_HASH=$VITE_COMMIT_HASH VITE_COMMIT_DATE=$VITE_COMMIT_DATE
 RUN cd apps/web && pnpm exec vp build
 
-FROM docker.io/library/caddy:2-alpine
-COPY deploy/Caddyfile /etc/caddy/Caddyfile
-COPY --from=build /app/apps/web/dist /srv
+FROM docker.io/library/caddy:2.11-alpine
+# run unprivileged; Caddy only needs (tmpfs-backed) /data and /config to be writable
+RUN chown -R 65532:65532 /data /config
+COPY --chown=root:root deploy/Caddyfile /etc/caddy/Caddyfile
+COPY --chown=root:root --from=build /app/apps/web/dist /srv
+USER 65532:65532
 EXPOSE 8080
+HEALTHCHECK --interval=5m --timeout=5s CMD wget -q -O /dev/null http://127.0.0.1:8080/ || exit 1

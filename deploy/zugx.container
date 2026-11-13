@@ -10,9 +10,17 @@ Image=ghcr.io/simon04/zugx:latest
 # host port 9849 = "zugx" on a T9 phone keypad
 PublishPort=127.0.0.1:9849:8080
 AutoUpdate=registry
+# hardening: read-only root fs, unprivileged user (image USER 65532), no capabilities,
+# no privilege escalation, small writable tmpfs, memory/PID limits
 ReadOnly=true
-Tmpfs=/data
-Tmpfs=/config
+Tmpfs=/data:rw,noexec,nosuid,nodev,size=16m,mode=1777
+Tmpfs=/config:rw,noexec,nosuid,nodev,size=4m,mode=1777
+User=65532:65532
+DropCapability=ALL
+NoNewPrivileges=true
+PodmanArgs=--memory=256m --pids-limit=128
+HealthCmd=wget -q -O /dev/null http://127.0.0.1:8080/
+HealthInterval=5m
 
 [Service]
 Restart=always
