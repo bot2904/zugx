@@ -3,6 +3,7 @@
 import type { Line, Movement } from "@zugx/hafas";
 import type { Map as MlMap } from "maplibre-gl";
 import { computed, onBeforeUnmount, ref, shallowRef, watch } from "vue";
+import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 import Status from "../components/Status.vue";
 import { api } from "../lib/api.ts";
@@ -10,6 +11,7 @@ import { lineColor, PRODUCT_GROUPS, RAIL_CLS } from "../lib/products.ts";
 import MapView, { type MapPoint } from "../viz/MapView.vue";
 
 const router = useRouter();
+const { t } = useI18n();
 const movements = shallowRef<Movement[]>([]);
 const error = ref<string>();
 const loading = ref(false);
@@ -72,7 +74,9 @@ const counts = computed(() => {
 
 /** "RJX 162", "S 2 (22734)" — always show the train number */
 const trainLabel = (l: Line) => (l.trainNumber ? `${l.name} (${l.trainNumber})` : l.name);
-const fmtDelay = (d?: number) => (d === undefined ? "" : d > 0 ? ` · +${d}′` : " · ±0");
+/** " · +7′", " · −2′" (early), " · ±0′", or " · no realtime data" */
+const fmtDelay = (d?: number) =>
+  ` · ${d === undefined ? t("radar.delay.nodata") : d > 0 ? `+${d}′` : d < 0 ? `−${-d}′` : "±0′"}`;
 
 const points = computed<MapPoint[]>(() =>
   movements.value.map((m) => ({
