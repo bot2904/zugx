@@ -49,7 +49,7 @@ describe("data/stations.json", () => {
     const s = stations.find((x) => x.id === id);
     expect(s?.name).toBe(name);
     expect(s?.p).toContain("RJX");
-    expect(s?.w).toBeGreaterThan(800);
+    expect(s?.w).toBeGreaterThan(700);
   });
 
   it("ranks Wien Hbf above Wiener Neustadt", () => {

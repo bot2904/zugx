@@ -3,6 +3,7 @@
 import { join } from "node:path";
 import {
   compareCategories,
+  LONG_DISTANCE_CATEGORIES,
   fetchFeeds,
   isRailRouteType,
   loadGtfs,
@@ -41,6 +42,8 @@ export interface GroupStats {
   lon: number;
   /** rail departures over the whole feed */
   deps: number;
+  /** long-distance departures (counted extra for the weight) */
+  ldDeps: number;
   cats: Set<string>;
 }
 
@@ -52,6 +55,7 @@ export function railGroups(g: Gtfs): Map<string, GroupStats> {
     if (!sts) continue;
     const days = g.services.get(trip.serviceId)?.length ?? 0;
     const cat = parseTrainName(trip.shortName)?.cat;
+    const ld = LONG_DISTANCE_CATEGORIES.includes(cat ?? "");
     for (const [i, st] of sts.entries()) {
       if (st.pickup === 1 && st.dropoff === 1) continue;
       const gid = stationGroup(g, st.stopId);
@@ -64,6 +68,7 @@ export function railGroups(g: Gtfs): Map<string, GroupStats> {
           lat: 0,
           lon: 0,
           deps: 0,
+          ldDeps: 0,
           cats: new Set(),
           n: 0,
           sLat: 0,
@@ -78,7 +83,10 @@ export function railGroups(g: Gtfs): Map<string, GroupStats> {
         s.sLon += stop.lon;
       }
       if (cat) s.cats.add(cat);
-      if (i < sts.length - 1 && st.pickup !== 1) s.deps += days;
+      if (i < sts.length - 1 && st.pickup !== 1) {
+        s.deps += days;
+        if (ld) s.ldDeps += days;
+      }
     }
   }
   // coordinates: centroid of the rail platforms actually used (the parent may include bus stops)
@@ -173,27 +181,36 @@ export async function updateMap(
 export function buildStations(groups: Map<string, GroupStats>, map: GtfsHafasMap): Station[] {
   const byId = new Map<
     string,
-    { e: GtfsHafasEntry; deps: number; cats: Set<string>; gtfsNames: Set<string> }
+    { e: GtfsHafasEntry; deps: number; ldDeps: number; cats: Set<string>; gtfsNames: Set<string> }
   >();
   for (const s of groups.values()) {
     if (dhidCountry(s.id) !== "at") continue;
     const e = map[s.id];
     if (!e?.id) continue;
     let x = byId.get(e.id);
-    if (!x) byId.set(e.id, (x = { e, deps: 0, cats: new Set(), gtfsNames: new Set() }));
+    if (!x) byId.set(e.id, (x = { e, deps: 0, ldDeps: 0, cats: new Set(), gtfsNames: new Set() }));
     x.deps += s.deps;
+    x.ldDeps += s.ldDeps;
     for (const c of s.cats) x.cats.add(c);
     x.gtfsNames.add(s.name);
   }
-  const maxLog = Math.log1p(Math.max(1, ...[...byId.values()].map((x) => x.deps)));
+  // weight: departures, long-distance ones counted 5×; log scale, cubed to spread the top end
+  const score = (x: { deps: number; ldDeps: number }) => x.deps + 4 * x.ldDeps;
+  const maxLog = Math.log1p(Math.max(1, ...[...byId.values()].map(score)));
   const out: Station[] = [];
   for (const [id, x] of byId) {
     const name = cleanHafasName(x.e.name ?? "");
-    const key = normalizeName(name);
+    // aliases: GTFS names that the client search wouldn't find via the HAFAS name anyway
+    const words = new Set(normalizeName(name).split(" "));
     const alias = new Set<string>();
     for (const n of x.gtfsNames) {
       const a = cleanGtfsName(n);
-      if (normalizeName(a) !== key) alias.add(a);
+      if (
+        !normalizeName(a)
+          .split(" ")
+          .every((w) => words.has(w))
+      )
+        alias.add(a);
     }
     const st: Station = {
       id,
@@ -201,7 +218,7 @@ export function buildStations(groups: Map<string, GroupStats>, map: GtfsHafasMap
       lat: x.e.lat!,
       lon: x.e.lon!,
       p: [...x.cats].sort(compareCategories),
-      w: Math.max(1, Math.round((1000 * Math.log1p(x.deps)) / maxLog)),
+      w: Math.max(1, Math.round(1000 * (Math.log1p(score(x)) / maxLog) ** 3)),
     };
     if (alias.size) st.alias = [...alias].sort();
     out.push(st);

@@ -104,8 +104,14 @@ export interface Scored {
   score: number;
 }
 
+/** rail product classes without 2 (night), which some HAFAS bus stops carry */
+const RAIL_DAY = RAIL_PRODUCTS & ~2;
+
 export const servesRail = (l: Location) =>
-  l.type === "station" && ((l.products ?? 0) & RAIL_PRODUCTS) !== 0;
+  l.type === "station" && ((l.products ?? 0) & RAIL_DAY) !== 0;
+
+/** UIC-style station id (country code + 5 digits); HAFAS also has local transit meta stops like 1290401. */
+export const isUicId = (id: string) => /^[2578]\d{6}$/.test(id);
 
 export function distanceMetres(aLat: number, aLon: number, bLat: number, bLon: number): number {
   const r = 6_371_000;
@@ -130,16 +136,20 @@ export function scoreCandidates(
   const seen = new Set<string>();
   const out: Scored[] = [];
   for (const loc of cands) {
-    if (!servesRail(loc) || seen.has(loc.id) || loc.lat === undefined || loc.lon === undefined)
-      continue;
-    seen.add(loc.id);
+    if (seen.has(loc.id) || loc.lat === undefined || loc.lon === undefined) continue;
     const dist = distanceMetres(gtfs.lat, gtfs.lon, loc.lat, loc.lon);
     const sim = Math.max(
       nameSimilarity(gtfs.name, loc.name),
       nameSimilarity(cleanGtfsName(gtfs.name), cleanHafasName(loc.name)),
     );
+    // HAFAS product classes are sometimes incomplete (e.g. Wien Quartier Belvedere: tram + bus only),
+    // so a station of the expected country with (nearly) the same name is fine, too
+    const sameName = sim >= 0.9 && !!uic && loc.id.startsWith(uic) && loc.type === "station";
+    if (!servesRail(loc) && !sameName) continue;
+    seen.add(loc.id);
     let score = dist + (1 - sim) * 400 - popcount((loc.products ?? 0) & RAIL_PRODUCTS) * 25;
-    if (!/^\d{7}$/.test(loc.id)) score += 2000;
+    // prefer UIC ids; some (new) S-Bahn stations only exist as local transit stops (e.g. 1232406)
+    if (!isUicId(loc.id)) score += 2000;
     else if (uic && loc.id.startsWith(uic)) score += 0;
     else if (/^[578]/.test(loc.id)) score += 150;
     else score += 1000;
