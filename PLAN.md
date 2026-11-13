@@ -144,8 +144,13 @@ The host Caddy only terminates TLS and forwards; everything app-specific is insi
 - Option: use `hafas-client` with the ÖBB profile in the browser vs. our own minimal typed client. Leaning towards **own small client** (only ~8 methods, no Node deps, tree-shakeable), using hafas-client as reference + test oracle.
 
 ### 3.5 Alternative / complementary sources
-- **data.oebb.at** – ÖBB open data portal (has timetable data incl. GTFS / NeTEx sets and the Kursbuch PDFs). Use for the **station index** and later for **Netzgrafik/ITF analysis** (static schedule).
-- Austria-wide GTFS/NeTEx from the Mobilitätsverbünde / national access point (mobilitydata.gv.at) – to verify coverage & licence.
+- **data.oebb.at** – ÖBB open data portal (checked 2026-11-13):
+  - [GTFS Fahrplan ÖBB 2026](https://data.oebb.at/de/datensaetze~soll-fahrplan-gtfs~): static GTFS ZIP, valid 14.12.2025 – 12.12.2026, updated yearly, **CC BY 4.0**, download after accepting terms (no API key). Covers **ÖBB-Personenverkehr, CAT, Montafonerbahn only** — not WESTbahn, GKB, StH, …
+  - [NeTEx 2026 (EU 2024/490 / MMTIS)](https://data.oebb.at/de/datensaetze~datenbereitstellung_delegierte_verordnung_eu_2024-490~) by ÖBB-Infrastruktur, CC BY 3.0 AT ("Datenquelle: ÖBB-Infrastruktur AG").
+  - **"Zugfahrten" CSV** (same page; also on mobilitydata.gv.at as "Zugfahrten" and "Verspätungen von Zugfahrten"): planned **and actual** times of train runs incl. cancellations, updated at least weekly. Not live, but the ready-made basis for **delay statistics later** (§11) — no sampling service needed.
+  - Use for the **station index**, the **train index**, and later **Netzgrafik/ITF analysis** (static schedule).
+- **mobilitydata.gv.at** (national access point): Austria-wide "Soll-Fahrplandaten (GTFS)" / "(NeTEx)" for **all operators** → preferred source for the train index (§8) since the ÖBB GTFS misses other operators. Licence, coverage and train numbers — to verify in M0.
+- **Realtime: no open GTFS-RT / SIRI / VDV feed for Austrian rail exists** (checked 2026-11-13: data.oebb.at, mobilitydata.gv.at "Echtzeit" filter, MobilityDatabase). The FFG project **SIRI4AT** (06/2026 – 11/2027) is building an Austrian SIRI profile with open-source converters incl. to GTFS-RT → watch it; until then **realtime only via HAFAS**.
 - Neighbours later (DB, SBB opentransportdata.swiss GTFS) if cross-border matters.
 
 ---
@@ -434,7 +439,7 @@ vagonweb.cz is the reference for train compositions (Řazení vlaků); we **link
 - Legal/ToS of scraping HAFAS → keep traffic low, consider contacting ÖBB (opendata@oebb.at); prefer open data where possible.
 - Station ID mismatch between GTFS and HAFAS → mapping table, verified by `LocMatch`.
 - Train numbers/names missing or inconsistent in GTFS → HAFAS enrichment, manual overrides file.
-- Realtime data only via HAFAS (no public GTFS-RT for ÖBB that I'm aware of — to verify).
+- Realtime data only via HAFAS: confirmed, there is no open GTFS-RT/SIRI feed for Austrian rail (2026-11); SIRI4AT may change that from late 2027.
 
 ---
 
@@ -452,7 +457,7 @@ vagonweb.cz is the reference for train compositions (Řazení vlaků); we **link
 - Netzgrafik: **export to NGE JSON first** (option A), own renderer later
 - Layout: **responsive, desktop-dense**
 - Prices: **ignored** (at most a link to the ÖBB ticket shop)
-- Delay history/statistics: **out of scope for now**, idea kept for later (would need a sampling service + DB)
+- Delay history/statistics: **out of scope for now**, idea kept for later — ÖBB's weekly "Zugfahrten" CSV (planned + actual times) could feed it without a sampling service
 - Tooling: **full Vite+ (latest) + pnpm (latest)**, no separate ESLint/Prettier/Husky/Turbo
 - Train index: **all trains** incl. regional/S-Bahn, with quick filters (long-distance / regional / S-Bahn / night); source **open data GTFS/NeTEx**, HAFAS only to enrich names
 
@@ -471,7 +476,10 @@ None right now — all answered (see §11). Still **to verify** in M0: open data
 - ÖBB open data portal: https://data.oebb.at/
 - Vite+ docs: https://viteplus.dev/guide (config: https://viteplus.dev/config/, CI: https://viteplus.dev/guide/ci)
 - vagonweb.cz train compositions (index 2026): https://www.vagonweb.cz/razeni/index.php?rok=2026
-- Austrian open transport data (national access point): https://mobilitydata.gv.at/
+- Austrian open transport data (national access point): https://mobilitydata.gv.at/ (realtime filter: https://mobilitydata.gv.at/daten?filter=122)
+- ÖBB GTFS 2026: https://data.oebb.at/de/datensaetze~soll-fahrplan-gtfs~
+- ÖBB NeTEx + Zugfahrten CSV: https://data.oebb.at/de/datensaetze~datenbereitstellung_delegierte_verordnung_eu_2024-490~
+- SIRI4AT (FFG project, Austrian SIRI profile): https://projekte.ffg.at/projekt/cd1b483e-f36b-1410-8654-00d3c07d99bb
 - npmx.dev repo: https://github.com/npmx-dev/npmx.dev
 - Netzgrafik-Editor: https://github.com/OpenRailAssociation/netzgrafik-editor-frontend
 - FOSDEM 2025 NGE talk: https://fosdem.org/schedule/event/fosdem-2025-5023-netzgrafik-editor-a-human-centric-timetable-planning-approach
