@@ -3,7 +3,7 @@
 import { useAutoRefresh } from "../lib/refresh.ts";
 import type { Line, Movement } from "@zugx/hafas";
 import type { Map as MlMap } from "maplibre-gl";
-import { useLocalStorage } from "@vueuse/core";
+import { useDebounceFn, useLocalStorage } from "@vueuse/core";
 import { computed, ref, shallowRef } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
@@ -49,11 +49,7 @@ function onReady(m: MlMap) {
   map = m;
   void refresh();
 }
-let debounce: ReturnType<typeof setTimeout> | undefined;
-function onMove() {
-  clearTimeout(debounce);
-  debounce = setTimeout(refresh, 400);
-}
+const onMove = useDebounceFn(() => void refresh(), 400);
 useAutoRefresh(() => void refresh(true), 15_000);
 
 // colour by delay (scale like MÁV's vonatinfo) or by train category

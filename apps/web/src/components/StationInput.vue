@@ -2,6 +2,7 @@
 // Station combobox: instant local search, LocMatch fallback, recents/favourites when empty.
 import type { Location } from "@zugx/hafas";
 import { isImeEnter } from "../lib/keys.ts";
+import { useDebounceFn } from "@vueuse/core";
 import { computed, onMounted, ref, watch } from "vue";
 import { api } from "../lib/api.ts";
 import { loadStations, nearestStations, searchStations, type Station } from "../lib/stations.ts";
@@ -65,22 +66,20 @@ const options = computed<Option[]>(() => {
   return [...l, ...o].slice(0, 12);
 });
 
-let timer: ReturnType<typeof setTimeout> | undefined;
+// online fallback only if the local index has few hits (debounced: always the latest text)
+const lookupOnline = useDebounceFn(async (q: string) => {
+  if (q.trim().length < 2 || local.value.length >= 5) return;
+  try {
+    const res = await api().locations(q, 8);
+    if (q === text.value) online.value = res.filter((r) => r.type === "station");
+  } catch {
+    /* ignore */
+  }
+}, 250);
 watch(text, (q) => {
   sel.value = 0;
   online.value = [];
-  clearTimeout(timer);
-  if (q.trim().length < 2) return;
-  // online fallback only if the local index has few hits
-  timer = setTimeout(async () => {
-    if (local.value.length >= 5) return;
-    try {
-      const res = await api().locations(q, 8);
-      if (q === text.value) online.value = res.filter((r) => r.type === "station");
-    } catch {
-      /* ignore */
-    }
-  }, 250);
+  void lookupOnline(q);
 });
 
 function pick(o: Option) {

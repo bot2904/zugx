@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // Train index ("Zugindex"), vagonweb-style: every train running in Austria in a timetable year.
+import { useDebounceFn } from "@vueuse/core";
 import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
@@ -84,10 +85,9 @@ function setQuery(patch: Record<string, string | undefined>) {
     if (typeof v === "string") next[k] = v;
   void router.replace({ query: next });
 }
-let qTimer: ReturnType<typeof setTimeout> | undefined;
+const syncQ = useDebounceFn((v: string) => setQuery({ q: v || undefined }), 250);
 watch(q, (v) => {
-  clearTimeout(qTimer);
-  qTimer = setTimeout(() => setQuery({ q: v || undefined }), 250);
+  void syncQ(v);
   limit.value = PAGE;
 });
 

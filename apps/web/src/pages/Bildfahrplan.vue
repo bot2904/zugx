@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Bildfahrplan (time–distance diagram) for a corridor: x = km, y = time (downwards).
-import { useIntervalFn } from "@vueuse/core";
+import { useDebounceFn, useIntervalFn } from "@vueuse/core";
 import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
 import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useI18n } from "vue-i18n";
@@ -232,7 +232,10 @@ const hhmmOf = (min: number) =>
  * Mouse wheel / trackpad over the diagram scrolls the time axis (10 % of the window per notch);
  * Ctrl/⌘ + wheel (incl. trackpad pinch) zooms between 1 and 24 hours.
  */
-let wheelTimer: ReturnType<typeof setTimeout> | undefined;
+const syncFrom = useDebounceFn(
+  () => setQuery({ from: Math.round((startMin.value / 60) * 100) / 100 }),
+  300,
+);
 function onWheel(e: WheelEvent) {
   if (e.shiftKey) return; // horizontal scrolling of a wide diagram
   e.preventDefault();
@@ -244,11 +247,7 @@ function onWheel(e: WheelEvent) {
   }
   const maxStart = Math.max(0, 28 * 60 - span.value * 60); // trains after midnight run up to ~28:00
   startMin.value = Math.min(maxStart, Math.max(0, startMin.value + (delta / 100) * span.value * 6));
-  clearTimeout(wheelTimer);
-  wheelTimer = setTimeout(
-    () => setQuery({ from: Math.round((startMin.value / 60) * 100) / 100 }),
-    300,
-  );
+  void syncFrom();
 }
 
 function openTrain(t: CorridorTrain) {
