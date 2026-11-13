@@ -58,7 +58,6 @@ export class HafasError extends Error {
   }
 }
 
-
 /** Split a Date into HAFAS date/time strings in Europe/Vienna. */
 export function hafasDateTime(d: Date): { date: string; time: string } {
   const parts = Object.fromEntries(
