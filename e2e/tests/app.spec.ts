@@ -64,3 +64,21 @@ test("language switch", async ({ page }) => {
   await page.getByLabel(/Language|Sprache|Lingua/).selectOption("de");
   await expect(page.getByText("Abfahrten").first()).toBeVisible();
 });
+
+test("station autocomplete uses the local index", async ({ page }) => {
+  await page.goto("/");
+  await page.locator("#from").fill("innsbr");
+  await expect(page.getByRole("option").first()).toContainText("Innsbruck Hbf");
+});
+
+test("train index lists trains and filters", async ({ page }) => {
+  await page.goto("/trains?q=transalpin");
+  await expect(page.getByText("»Transalpin«").first()).toBeVisible();
+});
+
+test("bildfahrplan and netzgrafik render", async ({ page }) => {
+  await page.goto("/bf/westbahn?from=7&h=2");
+  await expect(page.locator("svg[role=img] path").first()).toBeVisible();
+  await page.goto("/netz");
+  await expect(page.getByText("Salzburg Hbf").first()).toBeVisible();
+});

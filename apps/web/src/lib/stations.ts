@@ -19,11 +19,6 @@ interface Indexed {
   names: string[];
 }
 
-// import.meta.glob → no build error while the data file doesn't exist yet
-const loaders = import.meta.glob<{ default: Station[] }>(
-  "../../../../packages/stations/data/stations.json",
-);
-
 let index: Indexed[] | undefined;
 let byId = new Map<string, Station>();
 let loading: Promise<Indexed[]> | undefined;
