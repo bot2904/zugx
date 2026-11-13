@@ -169,3 +169,10 @@ table.dense tbody tr:hover td {
   content-visibility: auto;
   contain-intrinsic-size: auto 9rem;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 120ms;
+  }
+}

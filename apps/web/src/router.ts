@@ -1,3 +1,4 @@
+import { nextTick } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
 import { i18n } from "./i18n/index.ts";
 
@@ -34,4 +35,28 @@ router.afterEach((to) => {
     ([p]) => to.path === p || to.path.startsWith(`${p}/`),
   )?.[1];
   document.title = key ? `${i18n.global.t(key)} · zugx` : "zugx";
+});
+
+// Page changes as a short crossfade (View Transitions API), only when the user allows motion and only
+// for real page changes (not query/hash updates such as sorting or filters).
+const noMotion = matchMedia("(prefers-reduced-motion: reduce)");
+router.beforeResolve((to, from) => {
+  if (
+    !document.startViewTransition ||
+    noMotion.matches ||
+    !from.matched.length ||
+    to.path === from.path
+  )
+    return;
+  return new Promise<void>((resolve) => {
+    document.startViewTransition(async () => {
+      resolve(); // let the navigation commit …
+      await new Promise<void>((done) => {
+        const stop = router.afterEach(() => {
+          stop();
+          void nextTick(done); // … and snapshot once Vue rendered the new page
+        });
+      });
+    });
+  });
 });
