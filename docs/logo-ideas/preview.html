@@ -1,0 +1,25 @@
+<!doctype html>
+<body
+  style="
+    background: #f4f4f2;
+    font-family: system-ui;
+    display: flex;
+    gap: 28px;
+    padding: 24px;
+    flex-wrap: wrap;
+  "
+>
+  <script>
+    for (const f of [
+      "0-current.svg",
+      "1-bildfahrplan.svg",
+      "2-andreaskreuz.svg",
+      "3-taktknoten.svg",
+      "4-splitflap.svg",
+      "5-radar.svg",
+    ])
+      document.write(
+        `<figure style="margin:0;text-align:center"><img src="${f}" width="128"><br><img src="${f}" width="32"> <img src="${f}" width="16"><figcaption style="font-size:12px">${f.split("/").pop()}</figcaption></figure>`,
+      );
+  </script>
+</body>
