@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zugx.legner.me/schema/stations.schema.json",
+  "title": "zugx station index",
+  "description": "Rail stations in Austria with their HAFAS ids, one station per line, sorted by id.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "name", "lat", "lon", "p", "w"],
+    "properties": {
+      "id": {
+        "description": "HAFAS station id (extId / IBNR)",
+        "type": "string",
+        "pattern": "^[0-9]{6,9}$"
+      },
+      "name": { "description": "HAFAS station name, cleaned", "type": "string", "minLength": 1 },
+      "lat": { "type": "number", "minimum": 46.3, "maximum": 49.1 },
+      "lon": { "type": "number", "minimum": 9.4, "maximum": 17.2 },
+      "p": {
+        "description": "categories of trains stopping here, long-distance → regional",
+        "type": "array",
+        "items": { "type": "string", "pattern": "^[A-ZÄÖÜ]{1,5}$" },
+        "uniqueItems": true
+      },
+      "w": {
+        "description": "importance 1–1000 (log scale of rail departures per year)",
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 1000
+      },
+      "alias": {
+        "description": "other names",
+        "type": "array",
+        "items": { "type": "string", "minLength": 1 },
+        "minItems": 1,
+        "uniqueItems": true
+      }
+    }
+  }
+}
