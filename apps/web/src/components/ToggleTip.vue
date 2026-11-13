@@ -2,7 +2,8 @@
 // Toggletip: a button that reveals extra information on click/tap (and on hover/focus where
 // `interestfor` is supported), so it also works on touch devices and with screen readers.
 // (modern-web-guidance: interest-triggered-tooltips)
-import { onMounted, ref, useId } from "vue";
+import { useEventListener } from "@vueuse/core";
+import { ref, useId } from "vue";
 
 defineProps<{ label: string }>();
 const id = `tip-${useId()}`;
@@ -27,11 +28,9 @@ function place() {
   t.style.top = `${below ? b.bottom + 6 : b.top - t.offsetHeight - 6}px`;
 }
 
-onMounted(() => {
-  tip.value?.addEventListener("toggle", (e) => {
-    expanded.value = (e as ToggleEvent).newState === "open";
-    if (expanded.value) place();
-  });
+useEventListener(tip, "toggle", (e) => {
+  expanded.value = (e as ToggleEvent).newState === "open";
+  if (expanded.value) place();
 });
 </script>
 

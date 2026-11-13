@@ -1,5 +1,5 @@
 // Global keyboard shortcuts.
-import { onBeforeUnmount, onMounted } from "vue";
+import { useEventListener } from "@vueuse/core";
 
 export const isTyping = (e: KeyboardEvent) => {
   const t = e.target as HTMLElement | null;
@@ -38,8 +38,7 @@ export function useKeys(
     e.preventDefault();
     fn(e);
   };
-  onMounted(() => window.addEventListener("keydown", handler));
-  onBeforeUnmount(() => window.removeEventListener("keydown", handler));
+  useEventListener(window, "keydown", handler);
 }
 
 /**
