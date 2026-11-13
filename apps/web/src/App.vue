@@ -6,6 +6,7 @@ import DebugPanel from "./components/DebugPanel.vue";
 import { LOCALES, setLocale, type Locale } from "./i18n/index.ts";
 import { useKeys } from "./lib/keys.ts";
 import { state } from "./lib/store.ts";
+import { scheme, toggleScheme } from "./lib/theme.ts";
 
 const router = useRouter();
 const commitHash = import.meta.env.VITE_COMMIT_HASH;
@@ -100,12 +101,8 @@ const shortcuts: [string, string][] = [
         >
           <option v-for="l in LOCALES" :key="l" :value="l">{{ l.toUpperCase() }}</option>
         </select>
-        <button
-          class="btn"
-          :title="$t('common.theme')"
-          @click="state.theme = state.theme === 'dark' ? 'light' : 'dark'"
-        >
-          {{ state.theme === "dark" ? "☾" : "☀" }}
+        <button class="btn" :title="$t('common.theme')" @click="toggleScheme">
+          {{ scheme === "dark" ? "☾" : "☀" }}
         </button>
       </div>
     </div>

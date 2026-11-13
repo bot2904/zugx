@@ -1,31 +1,24 @@
-:root,
-[data-theme="dark"] {
-  --bg: #0b0d10;
-  --bg2: #12151a;
-  --bg3: #1b2027;
-  --fg: #e6e8eb;
-  --muted: #8a929c;
-  --line: #262c34;
-  --accent: #e5484d;
-  --good: #3fb950;
-  --warn: #e3b341;
-  --bad: #f85149;
-  --link: #79b8ff;
-  color-scheme: dark;
-}
-[data-theme="light"] {
-  --bg: #fbfbfa;
-  --bg2: #ffffff;
-  --bg3: #f0f1f2;
-  --fg: #16181c;
-  --muted: #646b74;
-  --line: #dfe2e6;
-  --accent: #c8102e;
-  --good: #1a7f37;
-  --warn: #9a6700;
-  --bad: #cf222e;
-  --link: #0b5cad;
-  color-scheme: light;
+:root {
+  /* follows the system; <meta name="color-scheme"> pins an override (see lib/theme.ts) */
+  color-scheme: light dark;
+  &:has(> head > meta[name="color-scheme"][content="dark"]) {
+    color-scheme: dark;
+  }
+  &:has(> head > meta[name="color-scheme"][content="light"]) {
+    color-scheme: light;
+  }
+  --bg: light-dark(#fbfbfa, #0b0d10);
+  --bg2: light-dark(#ffffff, #12151a);
+  --bg3: light-dark(#f0f1f2, #1b2027);
+  --fg: light-dark(#16181c, #e6e8eb);
+  --muted: light-dark(#646b74, #8a929c);
+  --line: light-dark(#dfe2e6, #262c34);
+  --accent: light-dark(#c8102e, #e5484d);
+  --good: light-dark(#1a7f37, #3fb950);
+  --warn: light-dark(#9a6700, #e3b341);
+  --bad: light-dark(#cf222e, #f85149);
+  --link: light-dark(#0b5cad, #79b8ff);
+  accent-color: var(--accent);
 }
 html,
 body {

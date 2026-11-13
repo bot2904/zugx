@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,10 +7,12 @@
       name="description"
       content="zugx – Austrian trains, fast: departures, connections, train runs, live"
     />
-    <meta name="theme-color" content="#0b0d10" />
+    <meta name="color-scheme" content="light dark" />
+    <script src="/theme.js"></script>
+    <meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
     <title>zugx</title>
-    <script src="/theme.js"></script>
   </head>
   <body>
     <div id="app"></div>

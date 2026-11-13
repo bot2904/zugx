@@ -16,7 +16,7 @@ import {
 } from "maplibre-gl";
 import type { Feature, FeatureCollection } from "geojson";
 import { onBeforeUnmount, onMounted, ref, watch } from "vue";
-import { state } from "../lib/store.ts";
+import { scheme } from "../lib/theme.ts";
 
 export interface MapLine {
   coords: [lat: number, lon: number][];
@@ -115,13 +115,13 @@ const styleUrl = (): string | StyleSpecification =>
             source: "osm",
             // slightly dimmed in the dark theme
             paint:
-              state.theme === "dark"
+              scheme.value === "dark"
                 ? { "raster-brightness-max": 0.8, "raster-saturation": -0.3 }
                 : {},
           },
         ],
       }
-    : `https://tiles.openfreemap.org/styles/${state.theme === "dark" ? "dark" : "positron"}`;
+    : `https://tiles.openfreemap.org/styles/${scheme.value === "dark" ? "dark" : "positron"}`;
 
 function addOverlays(m: MlMap) {
   if (!m.getSource("lines")) {
@@ -156,7 +156,7 @@ function addOverlays(m: MlMap) {
   // make the base map's railway lines a bit more prominent (still calm grey)
   for (const l of m.getStyle().layers ?? []) {
     if (l.type === "line" && l.id.startsWith("railway")) {
-      m.setPaintProperty(l.id, "line-color", state.theme === "dark" ? "#7d8590" : "#7a7f87");
+      m.setPaintProperty(l.id, "line-color", scheme.value === "dark" ? "#7d8590" : "#7a7f87");
     }
   }
   setOrm(m);
@@ -193,7 +193,7 @@ watch(orm, (v) => {
   if (map) setOrm(map);
 });
 watch(
-  () => state.theme,
+  () => scheme.value,
   () => map?.setStyle(styleUrl()),
 );
 

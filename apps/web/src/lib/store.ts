@@ -11,7 +11,6 @@ interface State {
   favourites: SavedStation[];
   recentJourneys: { from: SavedStation; to: SavedStation }[];
   debug: boolean;
-  theme: "dark" | "light";
   view: "timeline" | "table";
 }
 
@@ -23,7 +22,6 @@ function load(): State {
     favourites: [],
     recentJourneys: [],
     debug: false,
-    theme: (document.documentElement.dataset.theme as State["theme"]) ?? "dark",
     view: "timeline",
   };
   try {
@@ -39,8 +37,6 @@ watch(
   state,
   (s) => {
     localStorage.setItem(KEY, JSON.stringify(s));
-    document.documentElement.dataset.theme = s.theme;
-    localStorage.setItem("zugx:theme", s.theme);
   },
   { deep: true },
 );

@@ -7,6 +7,7 @@ import { normalize } from "../lib/normalize.ts";
 import { loadStations, searchStations } from "../lib/stations.ts";
 import { loadTrains, yearFor, type TrainIndex } from "../lib/trains.ts";
 import { state } from "../lib/store.ts";
+import { scheme, toggleScheme } from "../lib/theme.ts";
 import { trainSlug } from "../lib/url.ts";
 
 const open = defineModel<boolean>({ default: false });
@@ -47,8 +48,8 @@ const commands = computed<Cmd[]>(() => {
     { label: t("nav.him"), hint: "/him", run: () => router.push("/him") },
     { label: t("debug.show"), hint: "d", run: () => (state.debug = !state.debug) },
     {
-      label: `${t("common.theme")}: ${state.theme === "dark" ? "light" : "dark"}`,
-      run: () => (state.theme = state.theme === "dark" ? "light" : "dark"),
+      label: `${t("common.theme")}: ${scheme.value === "dark" ? "light" : "dark"}`,
+      run: toggleScheme,
     },
   ];
   const query = q.value.trim().toLowerCase();
