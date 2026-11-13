@@ -16,6 +16,9 @@ export default defineConfig({
         theme_color: "#0b0d10",
         background_color: "#0b0d10",
         display: "standalone",
+        // opening a zugx link while the installed app is open: navigate it to the link
+        // (default may just focus the existing window, staying on e.g. /radar)
+        launch_handler: { client_mode: ["navigate-existing", "auto"] },
         icons: [{ src: "/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any maskable" }],
       },
       workbox: {
