@@ -1,0 +1,20 @@
+# Quadlet unit: copy to ~/.config/containers/systemd/ (rootless) or /etc/containers/systemd/
+# then: systemctl --user daemon-reload && systemctl --user start zugx
+# updates: systemctl --user enable --now podman-auto-update.timer
+[Unit]
+Description=zugx timetable web app
+
+[Container]
+ContainerName=zugx
+Image=ghcr.io/OWNER/zugx:latest
+PublishPort=127.0.0.1:8080:8080
+AutoUpdate=registry
+ReadOnly=true
+Tmpfs=/data
+Tmpfs=/config
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

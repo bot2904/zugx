@@ -1,0 +1,19 @@
+# zugx: static Vue SPA + /api/mgate reverse proxy, served by Caddy (plain HTTP :8080).
+# Build: podman build -t localhost/zugx -f deploy/Containerfile .
+FROM docker.io/library/node:24-alpine AS build
+WORKDIR /app
+RUN npm install -g pnpm@12.18.0
+COPY pnpm-lock.yaml pnpm-workspace.yaml package.json ./
+COPY apps/web/package.json apps/web/
+COPY packages/hafas/package.json packages/hafas/
+COPY packages/stations/package.json packages/stations/
+COPY packages/trains/package.json packages/trains/
+COPY packages/netz/package.json packages/netz/
+RUN pnpm install --frozen-lockfile
+COPY . .
+RUN pnpm run build
+
+FROM docker.io/library/caddy:2-alpine
+COPY deploy/Caddyfile /etc/caddy/Caddyfile
+COPY --from=build /app/apps/web/dist /srv
+EXPOSE 8080

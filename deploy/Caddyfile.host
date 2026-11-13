@@ -1,0 +1,4 @@
+# Add to the host Caddy (TLS termination); the container listens on 127.0.0.1:8080.
+zugx.legner.me {
+	reverse_proxy 127.0.0.1:8080
+}

@@ -1,0 +1,37 @@
+{
+	admin off
+	auto_https off
+}
+
+:8080 {
+	encode zstd gzip
+
+	handle /api/mgate {
+		@notPost not method POST
+		respond @notPost 405
+
+		request_body {
+			max_size 8KB
+		}
+
+		rewrite * /bin/mgate.exe
+		reverse_proxy https://fahrplan.oebb.at {
+			header_up Host {upstream_hostport}
+			header_up User-Agent "zugx (https://zugx.legner.me)"
+			header_up -Cookie
+			header_up -Origin
+			header_up -Referer
+			header_down -Set-Cookie
+		}
+	}
+
+	handle {
+		root * /srv
+		@hashed path /assets/*
+		header @hashed Cache-Control "public, max-age=31536000, immutable"
+		@sw path /sw.js /registerSW.js /index.html /manifest.webmanifest
+		header @sw Cache-Control "no-cache"
+		try_files {path} /index.html
+		file_server
+	}
+}
