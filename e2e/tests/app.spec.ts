@@ -141,3 +141,17 @@ test("bildfahrplan section and direction are adjustable", async ({ page }) => {
     (await pickers.nth(0).locator("option").first().getAttribute("value")) as string,
   );
 });
+
+test("bildfahrplan index keeps its sort order after visiting a corridor", async ({ page }) => {
+  await page.goto("/bf");
+  await page.getByRole("columnheader", { name: /^km/ }).click();
+  await expect(page).toHaveURL(/sort=km/);
+  const first = (
+    await page.locator("tbody tr").first().getByRole("link").nth(1).innerText()
+  ).trim();
+  await page.locator("tbody tr").first().getByRole("link").nth(1).click();
+  await expect(page).toHaveURL(/\/bf\/[^?]/);
+  await page.goBack();
+  await expect(page).toHaveURL(/sort=km/);
+  await expect(page.locator("tbody tr").first().getByRole("link").nth(1)).toHaveText(first);
+});

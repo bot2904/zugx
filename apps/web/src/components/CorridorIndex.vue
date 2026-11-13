@@ -13,11 +13,22 @@ const router = useRouter();
 
 const q = ref(typeof route.query.q === "string" ? route.query.q : "");
 type SortKey = "oebb" | "name" | "km" | "stations" | "trains";
-const sort = ref<SortKey>("oebb");
-const desc = ref(false);
+// sort order lives in the URL (?sort=km&desc=1), so it survives navigating to a corridor and back
+const SORT_KEYS: SortKey[] = ["oebb", "name", "km", "stations", "trains"];
+const sort = computed<SortKey>(() =>
+  SORT_KEYS.includes(route.query.sort as SortKey) ? (route.query.sort as SortKey) : "oebb",
+);
+const desc = computed(() => route.query.desc === "1");
 const sel = ref(-1);
 
-watch(q, (v) => void router.replace({ query: v ? { q: v } : {} }));
+function setQuery(patch: Record<string, string | undefined>) {
+  const next: Record<string, string> = {};
+  for (const [k, v] of Object.entries({ ...route.query, ...patch }))
+    if (typeof v === "string" && v) next[k] = v;
+  void router.replace({ query: next });
+}
+
+watch(q, (v) => setQuery({ q: v || undefined }));
 
 const rows = computed<CorridorIndexEntry[]>(() => {
   const tokens = normalize(q.value).split(" ").filter(Boolean);
@@ -46,11 +57,8 @@ function hits(c: CorridorIndexEntry): string[] {
 }
 
 function sortBy(k: SortKey) {
-  if (sort.value === k) desc.value = !desc.value;
-  else {
-    sort.value = k;
-    desc.value = k !== "name" && k !== "oebb";
-  }
+  const d = sort.value === k ? !desc.value : k !== "name" && k !== "oebb";
+  setQuery({ sort: k === "oebb" ? undefined : k, desc: d ? "1" : undefined });
 }
 
 const catBar = (c: CorridorIndexEntry) => {
