@@ -119,6 +119,7 @@ export default {
     variants: "{n} route variants",
   },
   radar: {
+    colour: "Colour",
     legend: "Legend",
     byDelay: "Delay",
     byCategory: "Category",

@@ -75,6 +75,18 @@ const counts = computed(() => {
 /** "RJX 162", "S 2 (22734)" — always show the train number */
 const trainLabel = (l: Line) => (l.trainNumber ? `${l.name} (${l.trainNumber})` : l.name);
 /** " · +7′", " · −2′" (early), " · ±0′", or " · no realtime data" */
+/** category legend: categories in view, most frequent first (max. 10) */
+const catCounts = computed(() => {
+  const m = new Map<string, { cat: string; n: number; color: string }>();
+  for (const mv of movements.value) {
+    const cat = mv.line.category.toUpperCase() || "?";
+    const e = m.get(cat) ?? { cat, n: 0, color: lineColor(mv.line) };
+    e.n++;
+    m.set(cat, e);
+  }
+  return [...m.values()].sort((a, b) => b.n - a.n).slice(0, 10);
+});
+
 const fmtDelay = (d?: number) =>
   ` · ${d === undefined ? t("radar.delay.nodata") : d > 0 ? `+${d}′` : d < 0 ? `−${-d}′` : "±0′"}`;
 
@@ -100,6 +112,31 @@ function toggle(cls: number) {
       <h1 class="m-0 text-xl">{{ $t("radar.title") }}</h1>
       <span class="muted text-sm">{{ $t("radar.trains", { n: movements.length }) }}</span>
       <span v-if="loading" class="muted animate-pulse text-xs">●</span>
+      <span
+        class="flex items-center gap-1 text-xs"
+        role="radiogroup"
+        :aria-label="$t('radar.colour')"
+      >
+        <span class="muted">{{ $t("radar.colour") }}:</span>
+        <button
+          class="btn chip py-0.5 text-xs"
+          role="radio"
+          :aria-checked="mode === 'delay'"
+          :class="mode === 'delay' && 'btn-on'"
+          @click="mode = 'delay'"
+        >
+          {{ $t("radar.byDelay") }}
+        </button>
+        <button
+          class="btn chip py-0.5 text-xs"
+          role="radio"
+          :aria-checked="mode === 'category'"
+          :class="mode === 'category' && 'btn-on'"
+          @click="mode = 'category'"
+        >
+          {{ $t("radar.byCategory") }}
+        </button>
+      </span>
       <span class="ml-auto flex flex-wrap gap-1">
         <span class="chips flex flex-wrap gap-1">
           <button
@@ -136,22 +173,6 @@ function toggle(cls: number) {
         role="group"
         :aria-label="$t('radar.legend')"
       >
-        <div class="mb-1 flex gap-1">
-          <button
-            class="btn chip py-0.5 text-xs"
-            :class="mode === 'delay' && 'btn-on'"
-            @click="mode = 'delay'"
-          >
-            {{ $t("radar.byDelay") }}
-          </button>
-          <button
-            class="btn chip py-0.5 text-xs"
-            :class="mode === 'category' && 'btn-on'"
-            @click="mode = 'category'"
-          >
-            {{ $t("radar.byCategory") }}
-          </button>
-        </div>
         <ul v-if="mode === 'delay'" class="m-0 list-none p-0">
           <li v-for="c in DELAY_CLASSES" :key="c.id" class="flex items-center gap-1.5">
             <span
@@ -168,6 +189,16 @@ function toggle(cls: number) {
             />
             {{ $t("radar.delay.nodata") }}
             <span class="muted ml-auto pl-2 mono">{{ counts.nodata }}</span>
+          </li>
+        </ul>
+        <ul v-else class="m-0 list-none p-0">
+          <li v-for="c in catCounts" :key="c.cat" class="flex items-center gap-1.5">
+            <span
+              class="inline-block h-2.5 w-2.5 rounded-full border border-black"
+              :style="{ background: c.color }"
+            />
+            {{ c.cat }}
+            <span class="muted ml-auto pl-2 mono">{{ c.n }}</span>
           </li>
         </ul>
       </div>

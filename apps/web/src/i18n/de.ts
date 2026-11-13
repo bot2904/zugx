@@ -121,6 +121,7 @@ export default {
     variants: "{n} Laufwegvarianten",
   },
   radar: {
+    colour: "Farbe",
     legend: "Legende",
     byDelay: "Verspätung",
     byCategory: "Gattung",

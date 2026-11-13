@@ -121,6 +121,7 @@ export default {
     variants: "{n} varianti di percorso",
   },
   radar: {
+    colour: "Colore",
     legend: "Legenda",
     byDelay: "Ritardo",
     byCategory: "Categoria",
