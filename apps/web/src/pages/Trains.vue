@@ -4,6 +4,7 @@ import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
 import LineBadge from "../components/LineBadge.vue";
+import ToggleTip from "../components/ToggleTip.vue";
 import Status from "../components/Status.vue";
 import { useKeys } from "../lib/keys.ts";
 import { normalize } from "../lib/normalize.ts";
@@ -394,9 +395,7 @@ watch(sel, (i) =>
           <tr>
             <th>{{ $t("board.line") }}</th>
             <th>{{ $t("trains.route") }}</th>
-            <th class="hide-sm cursor-help" :title="$t('trains.tip.column')">
-              {{ $t("trains.days") }} ⓘ
-            </th>
+            <th class="cursor-help" :title="$t('trains.tip.column')">{{ $t("trains.days") }} ⓘ</th>
             <th class="hide-sm cursor-help" :title="$t('trains.tip.strip')">
               {{ index.begin.slice(0, 7) }} → {{ index.end.slice(0, 7) }}
             </th>
@@ -437,8 +436,15 @@ watch(sel, (i) =>
                 </template>
               </div>
             </td>
-            <td class="hide-sm cursor-help whitespace-nowrap text-xs" :title="rowInfo(x).tip">
-              {{ rowInfo(x).summary }}
+            <td class="whitespace-nowrap text-xs">
+              <!-- summary as a toggletip: the exact dates are reachable on touch and by screen readers too -->
+              <ToggleTip :label="`${$t('trains.days')}: ${rowInfo(x).summary}`">
+                <template #trigger
+                  >{{ rowInfo(x).summary }}
+                  <span class="muted" aria-hidden="true">ⓘ</span></template
+                >
+                {{ rowInfo(x).tip }}
+              </ToggleTip>
               <div class="muted text-[0.6875rem]">
                 {{ x.first.slice(5) }} – {{ x.last.slice(5)
                 }}<template v-if="x.var && x.var > 1">
