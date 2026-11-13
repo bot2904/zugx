@@ -58,6 +58,16 @@ export default defineConfig({
     target: "es2023",
     chunkSizeWarningLimit: 1200,
   },
+  run: {
+    tasks: {
+      // the footer version comes from env (CI/container) or from git: never replay a cached
+      // build (git HEAD is not a tracked input), and pass the variables through
+      build: {
+        command: "vp build",
+        cache: false,
+      },
+    },
+  },
   test: {
     include: ["src/**/*.test.ts"],
   },
