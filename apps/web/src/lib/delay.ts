@@ -1,6 +1,8 @@
-// Delay colour scale shared by the radar, train maps and delay profile (like MÁV's vonatinfo).
+// Delay colour scale shared by the radar, train maps and delay profile (based on MÁV's vonatinfo,
+// with on time and 1–5′ split).
 export const DELAY_CLASSES = [
-  { id: "ontime", max: 5, color: "#2fb344" },
+  { id: "ontime", max: 0, color: "#1e9e3e" }, // exactly on time (or early)
+  { id: "minor", max: 5, color: "#9ad97c" }, // 1–5′: light green
   { id: "slight", max: 19, color: "#f2c94c" },
   { id: "late", max: 59, color: "#f2994a" },
   { id: "verylate", max: Infinity, color: "#e5383b" },

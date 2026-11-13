@@ -58,7 +58,14 @@ const mode = ref<"delay" | "category">(
 watch(mode, (m) => localStorage.setItem("zugx:radar-mode", m));
 
 const counts = computed(() => {
-  const c: Record<string, number> = { nodata: 0, ontime: 0, slight: 0, late: 0, verylate: 0 };
+  const c: Record<string, number> = {
+    nodata: 0,
+    ontime: 0,
+    minor: 0,
+    slight: 0,
+    late: 0,
+    verylate: 0,
+  };
   for (const m of movements.value) {
     const cls = m.delay === undefined ? "nodata" : DELAY_CLASSES.find((x) => m.delay! <= x.max)!.id;
     c[cls]!++;

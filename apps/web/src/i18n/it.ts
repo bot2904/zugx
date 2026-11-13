@@ -127,7 +127,8 @@ export default {
     byDelay: "Ritardo",
     byCategory: "Categoria",
     delay: {
-      ontime: "in orario (≤ 5′)",
+      ontime: "in orario",
+      minor: "1–5′ di ritardo",
       slight: "6–19′ di ritardo",
       late: "20–59′ di ritardo",
       verylate: "≥ 60′ di ritardo",

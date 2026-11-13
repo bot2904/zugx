@@ -127,7 +127,8 @@ export default {
     byDelay: "Verspätung",
     byCategory: "Gattung",
     delay: {
-      ontime: "pünktlich (≤ 5′)",
+      ontime: "pünktlich",
+      minor: "1–5′ verspätet",
       slight: "6–19′ verspätet",
       late: "20–59′ verspätet",
       verylate: "≥ 60′ verspätet",
