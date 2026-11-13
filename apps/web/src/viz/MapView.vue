@@ -50,7 +50,16 @@ const props = withDefaults(
     center?: [number, number];
     zoom?: number;
   }>(),
-  { lines: () => [], points: () => [], fit: true, height: "420px", railway: true, base: "vector" },
+  {
+    lines: () => [],
+    points: () => [],
+    fit: true,
+    height: "420px",
+    railway: true,
+    base: "vector",
+    center: () => [47.6, 14.5], // Austria
+    zoom: 6.3,
+  },
 );
 const emit = defineEmits<{ ready: [MlMap]; moveend: [MlMap]; clickPoint: [string] }>();
 const el = ref<HTMLDivElement>();
@@ -204,8 +213,8 @@ onMounted(() => {
   const m = new MlMap({
     container: el.value,
     style: styleUrl(),
-    center: props.center ? [props.center[1], props.center[0]] : [14.5, 47.6],
-    zoom: props.zoom ?? 6.3,
+    center: [props.center[1], props.center[0]],
+    zoom: props.zoom,
     maxZoom: 19,
     attributionControl: { compact: true },
   });
