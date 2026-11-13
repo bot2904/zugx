@@ -30,7 +30,7 @@ Considered names (German railway terms):
 - Station boards (departures / arrivals) with realtime delays, platforms, cancellations
 - Train detail ("Zuglauf"): all stops, times, delays, platform, composition if available
 - Disruption info (HIM messages)
-- **Train index**: every train running in Austria this timetable year, vagonweb-style, with links to vagonweb compositions (see §8)
+- **Train index**: every train running in Austria this timetable year, vagonweb-style (see §8); links to vagonweb compositions later (§8.5)
 - **Instant station search** from a local, pre-built station index (no network round trip per keystroke)
 - **Excellent visualization** of found connections (see §5)
 - Shareable, permalink-style URLs for everything
@@ -364,7 +364,7 @@ Per train, one row (dense, sortable, like vagonweb's lists):
 | route | Wien Hbf 07:30 → … → Zürich HB 15:20 (first/last stop, with times; key intermediate stops in a tooltip/expand) |
 | Verkehrstage (running days) | `täglich`, `Mo–Fr`, `nicht 24.–26.12.`, plus a small calendar heat-strip over the year |
 | validity | first/last running day in the timetable year |
-| links | our train run `/train/RJX-260?d=…` (live), **vagonweb composition** (§8.5) |
+| links | our train run `/train/RJX-260?d=…` (live), vagonweb composition (later, §8.5) |
 
 Quick filters (one key/chip each): **all · long-distance** (RJX, RJ, NJ, EN, ICE, EC, IC, D, WB) **· regional** (CJX, REX, R) **· S-Bahn** (S) — regional and S-Bahn load the full file (§8.3) **· night trains** (NJ, EN). Further filters: operator, category, station ("all trains stopping at Linz Hbf"), "runs on date X / today", number range, name. Grouping like vagonweb: operator → category → number. Keyboard nav as everywhere else. Typing a train number (`260`, `rjx260`, `RJX 260`) or a train name (`transalpin`) in the global search jumps straight to the train.
 
@@ -375,7 +375,7 @@ URLs:
 | Index (all operators) | `/trains` (`?y=2026`, `?d=2026-11-13` = runs on that day) |
 | Operator / category | `/trains/oebb`, `/trains/oebb/rjx` |
 | Trains at a station | `/trains?at=8103000` |
-| Single train | `/train/RJX-260` (existing train page, gains a "timetable year" tab: running days, route variants, vagonweb link) |
+| Single train | `/train/RJX-260` (existing train page, gains a "timetable year" tab: running days, route variants; vagonweb link later) |
 
 ### 8.3 Data pipeline
 - **Source: static timetable open data**, not HAFAS crawling — Austria-wide GTFS / NeTEx Sollfahrplan from mobilitydata.gv.at (covers all operators) and/or data.oebb.at. Licence and whether train numbers (`trip_short_name`) and names are included — **to verify** in M0.
@@ -399,17 +399,18 @@ URLs:
 - **The light file loads by default.** The full file is loaded on demand: when the regional/S-Bahn quick filter is picked, a regional category or `?all` is in the URL, a station filter is set, or a train-number search misses in the light file. Once the full file is loaded, it replaces the light one for the rest of the session (the service worker caches both).
 
 ### 8.4 Later extensions
-- Composition ("Wagenreihung"): whether ÖBB exposes planned/actual composition via HAFAS or another endpoint — **to verify**; if so, show it on the train page. Until then, link to vagonweb.
+- Composition ("Wagenreihung"): whether ÖBB exposes planned/actual composition via HAFAS or another endpoint — **to verify**; if so, show it on the train page. Otherwise link to vagonweb (§8.5).
 - Diff between timetable years ("what changed in Fahrplan 2027": new/removed trains, new names, changed routes).
 - Train-number ranges reference (ÖBB numbering scheme by category/region).
 
-### 8.5 Link to vagonweb
+### 8.5 Link to vagonweb (later — decided: not part of M5)
 vagonweb.cz is the reference for train compositions (Řazení vlaků); we **link to it, never scrape it** (it returns 403 to automated clients, and the composition data is their community's work).
 - Single train: `https://www.vagonweb.cz/razeni/vlak.php?zeme=<op>&kategorie=<cat>&cislo=<nr>&nazev=&rok=<year>&lang=de`
 - Operator/category list: `https://www.vagonweb.cz/razeni/razeni.php?zeme=<op>&kategorie=<cat>&rok=<year>&lang=de`
 - `rok` = timetable year (vagonweb's 2026 = 14.12.2025 – 12.12.2026, same as ours).
 - Operator codes (`zeme`) seen on vagonweb for Austria: `ÖBB`, `WSTBA` (WESTbahn, category `WEST`), `CAT`, `SLB`, `StB`, `ZB`, `NÖVOG`, `ÖGEG`, `A-` (other operators); foreign ones e.g. `ČD`, `DB`, `MÁV`, `SBB`. Their ÖBB categories: RJX, RJ, ICE, EC, NJ, EN, IC, D, IR, CJX, REX, R, SB (= S-Bahn), ASTB.
 - Keep a small mapping table `vagonwebOperator(op)` / `vagonwebCategory(cat)` (e.g. our `S` → `SB`, our `WB` → `WEST`) with unit tests. The `cislo` form was only seen for non-Austrian trains (vagonweb also uses `?id=` internally) — **verify by hand** in a browser that it resolves for ÖBB trains; if not, fall back to linking the operator/category list.
+- Before building it: verify by hand that `cislo` links resolve for ÖBB trains.
 - Link shown on: train page, each row in the train index, journey legs (small "Wagenreihung ↗" link).
 
 ---
@@ -421,7 +422,8 @@ vagonweb.cz is the reference for train compositions (Řazení vlaků); we **link
 - **M2 – Station index:** build script + client worker search + PWA caching.
 - **M3 – Journeys:** search form, results table + **timeline strips**, earlier/later paging, permalinks via `ctxRecon`.
 - **M4 – Detail, realtime & map:** Zuglauf, remarks/HIM, auto-refresh, **map + live radar** (`JourneyGeoPos`).
-- **M5 – Train index:** GTFS → `trains-<year>.json` + `trains-<year>.light.json` build + weekly PR, `/trains` pages, train-number search, vagonweb links.
+- **M5 – Train index:** GTFS → `trains-<year>.json` + `trains-<year>.light.json` build + weekly PR, `/trains` pages, train-number search.
+- **Later (after M5, no fixed slot):** vagonweb links (§8.5).
 - **M6 – Bildfahrplan** for corridors (Westbahn, Südbahn first), keyboard command palette (`Ctrl+K`), compare connections.
 - **M7 – Netzgrafik:** GTFS → NGE JSON export, then own renderer.
 
@@ -446,6 +448,7 @@ vagonweb.cz is the reference for train compositions (Řazení vlaků); we **link
 - UI language: **en + de + it**, i18n from day 1
 - Images: **GitHub Actions → GHCR**, `podman auto-update` on the server
 - Licence: **AGPL-3.0**
+- vagonweb links: **later**, not part of the first train index (M5)
 - Netzgrafik: **export to NGE JSON first** (option A), own renderer later
 - Layout: **responsive, desktop-dense**
 - Prices: **ignored** (at most a link to the ÖBB ticket shop)
@@ -455,7 +458,7 @@ vagonweb.cz is the reference for train compositions (Řazení vlaků); we **link
 
 ## 12. Open questions
 
-None right now — all answered (see §11). Still **to verify** in M0: open data licence and whether train numbers/names are in the GTFS, vagonweb `cislo` links for ÖBB trains, ÖBB composition data, Souin caching on POST bodies.
+None right now — all answered (see §11). Still **to verify** in M0: open data licence and whether train numbers/names are in the GTFS, ÖBB composition data, Souin caching on POST bodies.
 
 ---
 
