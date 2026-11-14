@@ -1,15 +1,16 @@
 /**
- * Build: ÖBB GTFS → data/netz.json, data/nge.json, data/corridors/*.json
+ * Build: ÖBB GTFS → data/netz.toml, data/nge.json (Netzgrafik-Editor), data/corridors/*.toml
  *
  *   vpx packages/netz/src/build.ts [--day=2026-03-10] [--cats=RJX,RJ,…]
  *
  * GTFS source: env GTFS_DIR (unzipped) or GTFS_ZIP, else `<repo>/.cache/`
  * (downloaded if missing).
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
-import { buildCorridor, corridorJson, CORRIDOR_ALIASES, CORRIDORS } from "./corridors.ts";
+import { readToml, toToml } from "@zugx/toml";
+import { buildCorridor, corridorToml, CORRIDOR_ALIASES, CORRIDORS } from "./corridors.ts";
 import { feedPeriod, loadFeed, openFeed, serviceDays } from "./gtfs.ts";
 import { buildNetz } from "./netz.ts";
 import { toNge } from "./nge.ts";
@@ -32,22 +33,10 @@ const pkg = join(import.meta.dirname, "..");
 const root = join(pkg, "..", "..");
 const out = join(pkg, "data");
 
-/** Pretty JSON with short arrays / small objects collapsed onto one line. */
-export function prettyJson(v: unknown): string {
-  return `${JSON.stringify(v, null, 2)
-    .replace(
-      /\[\s+([^[\]{}]*?)\s+\]/g,
-      (_, inner: string) => `[${inner.replace(/\s*\n\s*/g, " ")}]`,
-    )
-    .replace(/\{\s+([^{}[\]]*?)\s+\}/g, (m, inner: string) =>
-      inner.length < 140 ? `{ ${inner.replace(/\s*\n\s*/g, " ")} }` : m,
-    )}\n`;
-}
-
 function loadHafasMap(): Map<string, string> | undefined {
-  const p = join(root, "packages", "stations", "data", "gtfs-hafas-map.json");
+  const p = join(root, "packages", "stations", "data", "gtfs-hafas-map.toml");
   if (!existsSync(p)) return undefined;
-  const raw = JSON.parse(readFileSync(p, "utf8")) as Record<string, unknown>;
+  const raw = readToml<Record<string, unknown>>(p, {});
   const map = new Map<string, string>();
   for (const [k, v] of Object.entries(raw)) {
     if (typeof v === "string") map.set(k, v);
@@ -84,10 +73,10 @@ async function main() {
     const d = dt.type === "weekday" ? day : dt.day;
     const f = d === day ? feed : loadFeed(src, d);
     const model = buildNetz(f, { day: d, source: SOURCE, cats, nodes: NODES, hafas });
-    writeFileSync(join(out, `netz${dt.suffix}.json`), prettyJson(model));
+    writeFileSync(join(out, `netz${dt.suffix}.toml`), toToml(model));
     writeFileSync(join(out, `nge${dt.suffix}.json`), `${JSON.stringify(toNge(model))}\n`);
     console.log(
-      `netz${dt.suffix}.json (${dt.type} ${d}): ${model.nodes.length} nodes, ${model.lines.length} lines, ${model.edges.length} edges (+ nge${dt.suffix}.json)`,
+      `netz${dt.suffix}.toml (${dt.type} ${d}): ${model.nodes.length} nodes, ${model.lines.length} lines, ${model.edges.length} edges (+ nge${dt.suffix}.json)`,
     );
   }
 
@@ -121,8 +110,8 @@ async function main() {
       if (h) st.hafasId = h;
     }
     const onDay = c.trains.filter((t) => runsOnDay(t.days));
-    const file = `${c.id}.json`;
-    writeFileSync(join(out, "corridors", file), corridorJson(c));
+    const file = `${c.id}.toml`;
+    writeFileSync(join(out, "corridors", file), corridorToml(c));
     index.corridors.push({
       id: c.id,
       name: c.name,
@@ -148,7 +137,7 @@ async function main() {
       `corridors/${file}: ${c.stations.length} stations, ${c.trains.length} distinct runs (${onDay.length} on ${day})`,
     );
   }
-  writeFileSync(join(out, "corridors", "index.json"), prettyJson(index));
+  writeFileSync(join(out, "corridors", "index.toml"), toToml(index));
 }
 
 if (import.meta.main) await main();

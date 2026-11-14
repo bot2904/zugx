@@ -12,3 +12,9 @@ declare module "*.vue" {
   const component: DefineComponent<object, object, unknown>;
   export default component;
 }
+
+// prebuilt data, parsed at build time by the TOML plugin (@zugx/toml/vite)
+declare module "*.toml" {
+  const data: Record<string, unknown>;
+  export default data;
+}

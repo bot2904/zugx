@@ -1,5 +1,6 @@
-// Build data/stations.json: rail stations in Austria from open data GTFS, mapped to HAFAS ids.
+// Build data/stations.toml: rail stations in Austria from open data GTFS, mapped to HAFAS ids.
 // Run: vp run stations:build   (env: GTFS_ZIP, REMAP=1 to redo all HAFAS lookups)
+import { readToml, sortKeys, writeToml } from "@zugx/toml";
 import { join } from "node:path";
 import {
   compareCategories,
@@ -11,11 +12,8 @@ import {
   parseTrainName,
   politeClient,
   isFinalHafasError,
-  readJson,
   stationGroup,
   timer,
-  writeJsonArray,
-  writeJsonMap,
   type Gtfs,
 } from "@zugx/gtfs";
 import type { Location } from "@zugx/hafas";
@@ -30,8 +28,8 @@ import {
 } from "./match.ts";
 
 const DATA = join(import.meta.dirname, "..", "data");
-export const MAP_PATH = join(DATA, "gtfs-hafas-map.json");
-const STATIONS_PATH = join(DATA, "stations.json");
+export const MAP_PATH = join(DATA, "gtfs-hafas-map.toml");
+const STATIONS_PATH = join(DATA, "stations.toml");
 /** retry unmatched stations after this many days */
 const RETRY_DAYS = 14;
 
@@ -136,7 +134,7 @@ export async function updateMap(
   groups: Iterable<GroupStats>,
   log: (msg: string) => void = console.log,
 ): Promise<GtfsHafasMap> {
-  const old = readJson<GtfsHafasMap>(MAP_PATH, {});
+  const old = readToml<GtfsHafasMap>(MAP_PATH, {});
   const todayDate = Temporal.Now.plainDateISO("Europe/Vienna");
   const today = todayDate.toString();
   const retryBefore = todayDate.subtract({ days: RETRY_DAYS }).toString();
@@ -171,11 +169,11 @@ export async function updateMap(
       log(`map: no match for ${s.id} "${s.name}" (${s.lat.toFixed(5)}, ${s.lon.toFixed(5)})`);
     if (++done % 50 === 0) {
       log(`map: ${done}/${todo.length} (${polite.count} requests, ${t()})`);
-      await writeJsonMap(MAP_PATH, map);
+      writeToml(MAP_PATH, sortKeys(map));
     }
   });
   log(`map: looked up ${todo.length} stations with ${polite.count} requests in ${t()}`);
-  await writeJsonMap(MAP_PATH, map);
+  writeToml(MAP_PATH, sortKeys(map));
   return map;
 }
 
@@ -245,7 +243,7 @@ async function main() {
       `far match: ${s.id} "${s.name}" → ${map[s.id]!.id} "${map[s.id]!.name}" ${map[s.id]!.d} m`,
     );
   const stations = buildStations(groups, map);
-  const text = await writeJsonArray(STATIONS_PATH, stations);
+  const text = writeToml(STATIONS_PATH, { stations });
   console.log(
     `stations: mapped ${groups.size - unmapped.length}/${groups.size} groups ` +
       `(${unmapped.filter((s) => dhidCountry(s.id) === "at").length} unmapped in Austria); ` +

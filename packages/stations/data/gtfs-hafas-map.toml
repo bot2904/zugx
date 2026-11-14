@@ -1,0 +1,1146 @@
+"Pat:41:3087" = { id = "8100481", name = "Bad Sauerbrunn Bahnhof", lat = 47.773954, lon = 16.324779, p = 16, d = 40, gtfs = "Bad Sauerbrunn Bahnhof" }
+"Pat:41:3145" = { id = "8100216", name = "Baumgarten im Bgld-Schattendorf Bahnhof", lat = 47.727849, lon = 16.517715, p = 16, d = 16, gtfs = "Baumgarten-Schattendorf Bahnhof" }
+"Pat:41:3186" = { id = "8100397", name = "Breitenbrunn/Neusiedler See Bahnhst", lat = 47.941082, lon = 16.746256, p = 16, d = 19, gtfs = "Breitenbrunn Bahnhof" }
+"Pat:41:3294" = { id = "8100719", name = "Deutschkreutz Bahnhof", lat = 47.603869, lon = 16.62021, p = 16, d = 36, gtfs = "Deutschkreutz Bahnhof" }
+"Pat:41:3298" = { id = "8100219", name = "Donnerskirchen Bahnhst", lat = 47.888585, lon = 16.660454, p = 16, d = 13, gtfs = "Donnerskirchen Bahnhof" }
+"Pat:41:3303" = { id = "8100220", name = "Draßburg Bahnhst", lat = 47.747886, lon = 16.494945, p = 16, d = 14, gtfs = "Draßburg Bahnhof" }
+"Pat:41:3443" = { id = "8100238", name = "Frauenkirchen Bahnhof", lat = 47.839953, lon = 16.915928, p = 16, d = 20, gtfs = "Frauenkirchen Bahnhof" }
+"Pat:41:3490" = { id = "8100773", name = "Eisenstadt Schulzentrum Bahnhst", lat = 47.8438, lon = 16.536511, p = 16, d = 15, gtfs = "Eisenstadt Schule" }
+"Pat:41:3531" = { id = "8100255", name = "Gols Bahnhof", lat = 47.891596, lon = 16.905393, p = 16, d = 66, gtfs = "Gols Bahnhof" }
+"Pat:41:3831" = { id = "8100280", name = "Jois Bahnhst", lat = 47.956678, lon = 16.791283, p = 16, d = 38, gtfs = "Jois Bahnhof" }
+"Pat:41:4109" = { id = "8100398", name = "Loipersbach im Bgld-Schattendorf Bahnhof", lat = 47.700737, lon = 16.491871, p = 16, d = 15, gtfs = "Loipersbach-Schattendorf Bhf." }
+"Pat:41:4176" = { id = "8100472", name = "Marz-Rohrbach Bahnhst", lat = 47.717565, lon = 16.428829, p = 16, d = 14, gtfs = "Marz-Rohrbach Bahnhof" }
+"Pat:41:4177" = { id = "8100408", name = "Mattersburg Bahnhof", lat = 47.73575, lon = 16.408927, p = 16, d = 4, gtfs = "Mattersburg Bahnhof" }
+"Pat:41:4309" = { id = "8100484", name = "Mönchhof-Halbturn Bahnhof", lat = 47.874678, lon = 16.946887, p = 16, d = 112, gtfs = "Mönchhof-Halbturn Bahnhof" }
+"Pat:41:4325" = { id = "8100494", name = "Neudörfl im Bgld Bahnhof", lat = 47.79374, lon = 16.300697, p = 16, d = 26, gtfs = "Neudörfl Bahnhof" }
+"Pat:41:4348" = { id = "8100453", name = "Neusiedl am See Bad Bahnhst", lat = 47.942853, lon = 16.844338, p = 16, d = 51, gtfs = "Neusiedl am See Bad Bahnhof" }
+"Pat:41:4351" = { id = "8100434", name = "Neusiedl am See Bahnhof", lat = 47.955761, lon = 16.823483, p = 48, d = 15, gtfs = "Neusiedl am See Bahnhof" }
+"Pat:41:4367" = { id = "8100499", name = "Nickelsdorf Bahnhof", lat = 47.942871, lon = 17.086148, p = 16, d = 23, gtfs = "Nickelsdorf Bahnhof" }
+"Pat:41:4464" = { id = "8100448", name = "Pamhagen Bahnhof", lat = 47.704306, lon = 16.903667, p = 18, d = 9, gtfs = "Pamhagen Bahnhof" }
+"Pat:41:4469" = { id = "8101335", name = "Parndorf Bahnhof", lat = 47.986891, lon = 16.87073, p = 48, d = 89, gtfs = "Parndorf Bahnhof" }
+"Pat:41:4473" = { id = "8100515", name = "Parndorf Ort Bahnhst", lat = 47.992042, lon = 16.851457, p = 48, d = 7, gtfs = "Parndorf Ort Bahnhof" }
+"Pat:41:4592" = { id = "8100532", name = "Purbach/Neusiedler See Bahnhof", lat = 47.906284, lon = 16.698614, p = 16, d = 15, gtfs = "Purbach am Neusiedler See Bf." }
+"Pat:41:4731" = { id = "8101617", name = "Schützen am Gebirge Ruster Straße Bahnhst", lat = 47.851208, lon = 16.629999, p = 16, d = 18, gtfs = "Schützen am Gebirge Ruster Straße Bahnhof" }
+"Pat:41:4732" = { id = "8100422", name = "Schützen am Gebirge Bahnhof", lat = 47.848142, lon = 16.61896, p = 16, d = 46, gtfs = "Schützen am Gebirge Bahnhof" }
+"Pat:41:4821" = { id = "8100431", name = "St.Andrä/Zicksee Bahnhof", lat = 47.782638, lon = 16.928, p = 16, d = 5, gtfs = "St. Andrä am Zicksee Bahnhof" }
+"Pat:41:5143" = { id = "8100341", name = "Wallern im Bgld Bahnhof", lat = 47.734006, lon = 16.930499, p = 16, d = 4, gtfs = "Wallern im Bgld Bahnhof" }
+"Pat:41:5157" = { id = "8100343", name = "Weiden am See Bahnhst", lat = 47.925746, lon = 16.863817, p = 16, d = 3, gtfs = "Weiden am See Bahnhof" }
+"Pat:41:5233" = { id = "8100356", name = "Wiesen im Bgld-Sigleß Bahnhst", lat = 47.753396, lon = 16.369725, p = 16, d = 38, gtfs = "Wiesen-Sigleß Bahnhof" }
+"Pat:41:5248" = { id = "8100357", name = "Winden am See Bahnhst", lat = 47.947006, lon = 16.759066, p = 16, d = 20, gtfs = "Winden am See Bahnhof" }
+"Pat:41:5286" = { id = "8100361", name = "Wulkaprodersdorf Bahnhof", lat = 47.789703, lon = 16.49063, p = 16, d = 32, gtfs = "Wulkaprodersdorf Bahnhof" }
+"Pat:41:5288" = { id = "8101810", name = "Wulkaprodersdorf Rathausgasse Bahnhst", lat = 47.799079, lon = 16.496482, p = 16, d = 13, gtfs = "Wulkaprodersdorf Rathausgasse" }
+"Pat:41:5312" = { id = "8101829", name = "Zurndorf Bahnhof", lat = 47.968076, lon = 17.024113, p = 16, d = 36, gtfs = "Zurndorf Bahnhof" }
+"Pat:41:5969" = { id = "8100388", name = "Neudorf b.Parndorf Bahnhst", lat = 48.008842, lon = 16.938266, p = 48, d = 34, gtfs = "Neudorf bei Parndorf Bahnhof" }
+"Pat:41:5970" = { id = "8100332", name = "Gattendorf Bahnhst", lat = 48.010586, lon = 16.980659, p = 48, d = 6, gtfs = "Gattendorf Bahnhof" }
+"Pat:41:5971" = { id = "8100543", name = "Pama Bahnhst", lat = 48.042084, lon = 17.041399, p = 48, d = 4, gtfs = "Pama Bahnhof" }
+"Pat:41:5972" = { id = "8100373", name = "Kittsee Bahnhof", lat = 48.081502, lon = 17.071558, p = 48, d = 85, gtfs = "Kittsee Bahnhof" }
+"Pat:41:5980" = { id = "8102015", name = "Mattersburg Hirtengasse Bahnhst", lat = 47.741458, lon = 16.402491, p = 16, d = 2, gtfs = "Mattersburg Nord Bahnhof" }
+"Pat:41:7075" = { id = "8101010", name = "Jennersdorf Bahnhof", lat = 46.935063, lon = 16.139017, p = 20, d = 4, gtfs = "Jennersdorf Bahnhof" }
+"Pat:41:7455" = { id = "8101231", name = "Mogersdorf Bahnhst", lat = 46.945535, lon = 16.229233, p = 16, d = 8, gtfs = "Mogersdorf Bahnhof" }
+"Pat:42:2121" = { id = "8100093", name = "Mallnitz-Obervellach im Mölltal Bahnhof", lat = 46.981645, lon = 13.176137, p = 29, d = 54, gtfs = "Mallnitz-Obervellach Bahnhof" }
+"Pat:42:2125" = { id = "8100091", name = "Kolbnitz Bahnhof", lat = 46.878314, lon = 13.321798, p = 16, d = 108, gtfs = "Kolbnitz Bahnhof" }
+"Pat:42:2126" = { id = "8100087", name = "Mühldorf-Möllbrücke Bahnhst", lat = 46.8514, lon = 13.367023, p = 16, d = 19, gtfs = "Mühldorf-Möllbrücke Bahnhst" }
+"Pat:42:2127" = { id = "8101373", name = "Pusarnitz Bahnhof", lat = 46.835067, lon = 13.404786, p = 48, d = 24, gtfs = "Pusarnitz Bahnhof" }
+"Pat:42:2128" = { id = "8100092", name = "Spittal/Drau-Millstätter See Bahnhof", lat = 46.79573, lon = 13.487541, p = 4157, d = 42, gtfs = "Spittal-Millstätter See Bahnhof" }
+"Pat:42:2130" = { id = "8101447", name = "Rothenthurn Bahnhof", lat = 46.759567, lon = 13.582242, p = 32, d = 20, gtfs = "Rothenthurn Bahnhof" }
+"Pat:42:2131" = { id = "8100781", name = "Ferndorf in Ktn Bahnhof", lat = 46.732662, lon = 13.628932, p = 32, d = 47, gtfs = "Ferndorf in Ktn Bahnhst" }
+"Pat:42:2132" = { id = "8101238", name = "Paternion Markt Bahnhst", lat = 46.7253, lon = 13.642434, p = 32, d = 7, gtfs = "Markt Paternion Bahnhst" }
+"Pat:42:2133" = { id = "8100086", name = "Paternion-Feistritz/Drau Bahnhst", lat = 46.706791, lon = 13.674678, p = 48, d = 38, gtfs = "Paternion-Feistritz Bahnhst" }
+"Pat:42:2134" = { id = "8101783", name = "Weißenstein ob der Drau-Kellerberg Bahnhst", lat = 46.679518, lon = 13.719912, p = 32, d = 34, gtfs = "Weissenstein-Kellerberg Bahnhst" }
+"Pat:42:2136" = { id = "8101877", name = "Puch b.Villach Bahnhst", lat = 46.663004, lon = 13.760103, p = 32, d = 21, gtfs = "Puch b.Villach Bahnhst" }
+"Pat:42:2137" = { id = "8100861", name = "Gödersdorf b.Villach Bahnhof", lat = 46.568474, lon = 13.847163, p = 32, d = 24, gtfs = "Gödersdorf Bahnhst" }
+"Pat:42:2138" = { id = "8100788", name = "Finkenstein am Faaker See Bahnhst", lat = 46.568824, lon = 13.867749, p = 32, d = 54, gtfs = "Finkenstein am Faaker See Bahnhst" }
+"Pat:42:2139" = { id = "8100084", name = "Faak am See Bahnhof", lat = 46.564231, lon = 13.911544, p = 48, d = 33, gtfs = "Faak am See Bahnhof" }
+"Pat:42:2143" = { id = "8100083", name = "Rosenbach b.Villach Bahnhst", lat = 46.530539, lon = 14.035092, p = 52, d = 12, gtfs = "Rosenbach Bahnhof" }
+"Pat:42:2149" = { id = "8102149", name = "Ledenitzen Bahnhst", lat = 46.562954, lon = 13.965084, p = 32, d = 65, gtfs = "Ledenitzen Bahnhst" }
+"Pat:42:3625" = { id = "8100076", name = "Friesach in Ktn Bahnhof", lat = 46.953554, lon = 14.410517, p = 60, d = 3, gtfs = "Friesach Bahnhof" }
+"Pat:42:3626" = { id = "8100573", name = "Micheldorf in Ktn-Hirt Bahnhst", lat = 46.913965, lon = 14.431633, p = 52, d = 7, gtfs = "Micheldorf-Hirt Bahnhst" }
+"Pat:42:3627" = { id = "8100096", name = "Treibach-Althofen Bahnhof", lat = 46.868552, lon = 14.465531, p = 60, d = 43, gtfs = "Treibach-Althofen Bahnhof" }
+"Pat:42:3628" = { id = "8101075", name = "Kappel am Krappfeld Bahnhst", lat = 46.837602, lon = 14.475626, p = 52, d = 25, gtfs = "Kappel am Krappfeld Bahnhst" }
+"Pat:42:3629" = { id = "8101393", name = "Passering Bahnhst", lat = 46.806778, lon = 14.469738, p = 52, d = 13, gtfs = "Passering Bahnhst" }
+"Pat:42:3631" = { id = "8100077", name = "Launsdorf in Ktn-Hochosterwitz Bahnhof", lat = 46.768843, lon = 14.455427, p = 52, d = 20, gtfs = "Launsdorf-Hochosterwitz Bahnhof" }
+"Pat:42:3632" = { id = "8101505", name = "St.Georgen/Längsee Bahnhst", lat = 46.761868, lon = 14.423327, p = 52, d = 12, gtfs = "St.Georgen am Längsee Bahnhst" }
+"Pat:42:3633" = { id = "8100078", name = "St.Veit/Glan Bahnhof", lat = 46.770551, lon = 14.367216, p = 61, d = 3, gtfs = "St. Veit an der Glan Bahnhof" }
+"Pat:42:3636" = { id = "8100849", name = "Glandorf b.St.Veit Bahnhst", lat = 46.750478, lon = 14.381213, p = 52, d = 15, gtfs = "Glandorf Bahnhst" }
+"Pat:42:3639" = { id = "8101239", name = "Maria Saal Bahnhof", lat = 46.682772, lon = 14.33935, p = 52, d = 61, gtfs = "Maria Saal Bahnhof" }
+"Pat:42:3640" = { id = "8101090", name = "Klagenfurt Annabichl Bahnhst", lat = 46.650051, lon = 14.315142, p = 52, d = 5, gtfs = "Klagenfurt Annabichl Bahnhst" }
+"Pat:42:3641" = { id = "8101094", name = "Klagenfurt Ostbahnhof", lat = 46.621618, lon = 14.321983, p = 52, d = 33, gtfs = "Klagenfurt Ostbahnhof" }
+"Pat:42:3642" = { id = "8100085", name = "Klagenfurt Hbf", lat = 46.615604, lon = 14.313578, p = 4157, d = 42, gtfs = "Klagenfurt Hauptbahnhof" }
+"Pat:42:3643" = { id = "8103644", name = "Klagenfurt West Bahnhst", lat = 46.622939, lon = 14.266852, p = 48, d = 9, gtfs = "Klagenfurt West Bahnhst" }
+"Pat:42:3645" = { id = "8101093", name = "Klagenfurt Lend Bahnhst", lat = 46.621528, lon = 14.284003, p = 32, d = 29, gtfs = "Klagenfurt Lend Bahnhst" }
+"Pat:42:3646" = { id = "8100079", name = "Krumpendorf/Wörther See Bahnhof", lat = 46.626436, lon = 14.221852, p = 52, d = 64, gtfs = "Krumpendorf/Wörthersee Bahnhof" }
+"Pat:42:3648" = { id = "8100080", name = "Pörtschach/Wörther See Bahnhof", lat = 46.636199, lon = 14.146288, p = 4157, d = 36, gtfs = "Pörtschach/Wörthersee Bahnhof" }
+"Pat:42:3649" = { id = "8101676", name = "Töschling Bahnhst", lat = 46.633178, lon = 14.111159, p = 32, d = 27, gtfs = "Töschling Bahnhst" }
+"Pat:42:3650" = { id = "8100081", name = "Velden/Wörther See Bahnhof", lat = 46.620054, lon = 14.044719, p = 61, d = 22, gtfs = "Velden/Wörthersee Bahnhof" }
+"Pat:42:3651" = { id = "8101157", name = "Lind ob Velden-Rosegg Bahnhst", lat = 46.606139, lon = 14.000726, p = 48, d = 21, gtfs = "Lind-Rosegg Bahnhst" }
+"Pat:42:3652" = { id = "8100797", name = "Föderlach Bahnhof", lat = 46.602076, lon = 13.959232, p = 48, d = 14, gtfs = "Föderlach Bahnhof" }
+"Pat:42:3653" = { id = "8101496", name = "Villach Seebach Bahnhst", lat = 46.620971, lon = 13.873978, p = 48, d = 51, gtfs = "Villach Seebach Bahnhst" }
+"Pat:42:3654" = { id = "8100147", name = "Villach Hbf", lat = 46.618616, lon = 13.848449, p = 4157, d = 26, gtfs = "Villach Hauptbahnhof" }
+"Pat:42:3655" = { id = "8105979", name = "Villach Landskron Bahnhst", lat = 46.629888, lon = 13.875686, p = 36, d = 9, gtfs = "Villach Landskron Bahnhst" }
+"Pat:42:3656" = { id = "8100148", name = "Villach Westbahnhof", lat = 46.608098, lon = 13.840143, p = 56, d = 31, gtfs = "Villach Westbahnhof" }
+"Pat:42:3657" = { id = "8100382", name = "Villach Warmbad Bahnhof", lat = 46.588745, lon = 13.828709, p = 56, d = 40, gtfs = "Villach Warmbad Bahnhst" }
+"Pat:42:3659" = { id = "8100368", name = "Fürnitz Bahnhof", lat = 46.56326, lon = 13.813445, p = 56, d = 26, gtfs = "Fürnitz Bahnhof" }
+"Pat:42:3660" = { id = "8101267", name = "Neuhaus/Gail Bahnhst", lat = 46.555008, lon = 13.779574, p = 48, d = 76, gtfs = "Neuhaus a.d. Gail Bahnhst" }
+"Pat:42:3661" = { id = "8101375", name = "Pöckau Bahnhst", lat = 46.55197, lon = 13.745406, p = 48, d = 36, gtfs = "Pöckau Bahnhst" }
+"Pat:42:3662" = { id = "8100056", name = "Arnoldstein Bahnhof", lat = 46.55152, lon = 13.707588, p = 56, d = 85, gtfs = "Arnoldstein Bahnhof" }
+"Pat:42:3663" = { id = "8101675", name = "Thörl-Maglern Bahnhst", lat = 46.540329, lon = 13.648358, p = 8, d = 12, gtfs = "Thörl-Maglern Bahnhof" }
+"Pat:42:3715" = { id = "8100359", name = "Wolfsberg in Ktn Bahnhof", lat = 46.842114, lon = 14.838503, p = 48, d = 5, gtfs = "Wolfsberg Bahnhof" }
+"Pat:42:3716" = { id = "8101383", name = "Wolfsberg in Ktn Reding Bahnhst", lat = 46.82526, lon = 14.846, p = 48, d = 45, gtfs = "Wolfsberg Reding Bahnhst" }
+"Pat:42:3717" = { id = "8100440", name = "St.Stefan im Lavanttal Bahnhof", lat = 46.807101, lon = 14.846216, p = 48, d = 7, gtfs = "St.Stefan Bahnhof" }
+"Pat:42:3718" = { id = "8100496", name = "St.Andrä im Lavanttal Bahnhof", lat = 46.763198, lon = 14.841685, p = 48, d = 40, gtfs = "St.Andrä Bahnhof" }
+"Pat:42:3721" = { id = "8100501", name = "St.Paul im Lavanttal Bahnhof", lat = 46.721506, lon = 14.855852, p = 61, d = 6, gtfs = "St.Paul im Lavanttal Bahnhof" }
+"Pat:42:3800" = { id = "8101624", name = "St.Veit/Glan Westbahnhof", lat = 46.762515, lon = 14.362039, p = 36, d = 48, gtfs = "St.Veit an der Glan Westbahnhof" }
+"Pat:42:3802" = { id = "8100305", name = "Liebenfels Bahnhst", lat = 46.735943, lon = 14.29239, p = 36, d = 23, gtfs = "Liebenfels Bahnhst" }
+"Pat:42:3803" = { id = "8101652", name = "Tauchendorf-Haidensee Bahnhst", lat = 46.728401, lon = 14.236882, p = 36, d = 17, gtfs = "Tauchendorf-Haidensee Bahnhst" }
+"Pat:42:3804" = { id = "8100850", name = "Glanegg in Ktn Bahnhst", lat = 46.717587, lon = 14.211379, p = 36, d = 30, gtfs = "Glanegg in Ktn Bahnhst" }
+"Pat:42:3805" = { id = "8101205", name = "Mautbrücken Bahnhst", lat = 46.721587, lon = 14.189023, p = 36, d = 11, gtfs = "Mautbrücken Bahnhst" }
+"Pat:42:3806" = { id = "8100502", name = "St.Martin b.Feldkirchen-Sittich Bahnhst", lat = 46.732221, lon = 14.152635, p = 36, d = 37, gtfs = "St.Martin-Sittich Bahnhst (Bundesstraße)" }
+"Pat:42:3807" = { id = "8100039", name = "Feldkirchen in Ktn Bahnhof", lat = 46.721506, lon = 14.099527, p = 44, d = 16, gtfs = "Feldkirchen in Ktn Bahnhof" }
+"Pat:42:3808" = { id = "8101669", name = "Tiffen Bahnhst", lat = 46.701469, lon = 14.060226, p = 36, d = 29, gtfs = "Tiffen Bahnhst" }
+"Pat:42:3809" = { id = "8100038", name = "Steindorf/Ossiacher See Bahnhst", lat = 46.698197, lon = 14.014093, p = 44, d = 57, gtfs = "Steindorf am Ossiacher See Bahnhst" }
+"Pat:42:3810" = { id = "8100037", name = "Ossiach-Bodensdorf Bahnhst", lat = 46.68243, lon = 13.97401, p = 44, d = 56, gtfs = "Ossiach-Bodensdorf Bahnhof" }
+"Pat:42:3811" = { id = "8100506", name = "St.Urban/Ossiacher See Bahnhst", lat = 46.674726, lon = 13.959897, p = 44, d = 21, gtfs = "St.Urban/Ossiacher See Bahnhst" }
+"Pat:42:3812" = { id = "8100036", name = "Sattendorf Bahnhof", lat = 46.66287, lon = 13.916515, p = 44, d = 49, gtfs = "Sattendorf Bahnhof" }
+"Pat:42:3813" = { id = "8100213", name = "Annenheim Bahnhst", lat = 46.658663, lon = 13.89949, p = 44, d = 71, gtfs = "Annenheim Bahnhst" }
+"Pat:42:3814" = { id = "8101592", name = "Villach St.Ruprecht Bahnhof", lat = 46.64125, lon = 13.876154, p = 36, d = 50, gtfs = "Villach St.Ruprecht Bahnhof" }
+"Pat:42:3819" = { id = "8101091", name = "Klagenfurt Ebenthal Bahnhst", lat = 46.616629, lon = 14.333884, p = 32, d = 37, gtfs = "Klagenfurt Ebenthal Bahnhst" }
+"Pat:42:3820" = { id = "8100256", name = "Grafenstein Bahnhof", lat = 46.619029, lon = 14.459473, p = 48, d = 10, gtfs = "Grafenstein Bahnhof" }
+"Pat:42:3823" = { id = "8100418", name = "Mittlern Bahnhst", lat = 46.598552, lon = 14.716025, p = 32, d = 48, gtfs = "Mittlern Bahnhst" }
+"Pat:42:3824" = { id = "8101471", name = "St.Michael ob Bleiburg Bahnhst", lat = 46.582389, lon = 14.750732, p = 32, d = 47, gtfs = "St.Michael ob Bleiburg Bahnhst" }
+"Pat:42:3825" = { id = "8100393", name = "Bleiburg Bahnhof", lat = 46.574155, lon = 14.78659, p = 48, d = 11, gtfs = "Bleiburg Bahnhof" }
+"Pat:42:3826" = { id = "8100668", name = "Bleiburg Stadt Bahnhst", lat = 46.590147, lon = 14.79415, p = 32, d = 53, gtfs = "Bleiburg Stadt Bahnhst" }
+"Pat:42:3831" = { id = "8100336", name = "Kühnsdorf-Klopeiner See Bahnhof", lat = 46.624836, lon = 14.620892, p = 4157, d = 17, gtfs = "Kühnsdorf-Klopeiner See Bahnhof" }
+"Pat:42:3832" = { id = "8100611", name = "Wiederndorf-Aich im Jauntal Bahnhst", lat = 46.620737, lon = 14.794932, p = 32, d = 20, gtfs = "Wiederndorf-Aich Bahnhst" }
+"Pat:42:3842" = { id = "8103842", name = "Klagenfurt Süd Bahnhst", lat = 46.610894, lon = 14.30226, p = 32, d = 26, gtfs = "Klagenfurt Süd Bahnhst" }
+"Pat:42:3843" = { id = "8100470", name = "Maria Rain in Ktn Bahnhof", lat = 46.562586, lon = 14.283967, p = 32, d = 19, gtfs = "Maria Rain Bahnhst" }
+"Pat:42:3844" = { id = "8100347", name = "Weizelsdorf Bahnhof", lat = 46.539475, lon = 14.243417, p = 32, d = 39, gtfs = "Weizelsdorf Bahnhof" }
+"Pat:42:3847" = { id = "8103840", name = "Köttmannsdorf Lambichl Bahnhst", lat = 46.580043, lon = 14.282835, p = 32, d = 6, gtfs = "Köttmannsdorf Lambichl Bahnhst" }
+"Pat:42:3861" = { id = "8101126", name = "Lendorf im Drautal Bahnhst", lat = 46.827561, lon = 13.418729, p = 32, d = 54, gtfs = "Lendorf im Drautal Bahnhst" }
+"Pat:42:3862" = { id = "8100419", name = "Möllbrücke-Sachsenburg in Ktn Bahnhof", lat = 46.830995, lon = 13.36731, p = 32, d = 31, gtfs = "Möllbrücke-Sachsenburg Bahnhof" }
+"Pat:42:3863" = { id = "8101241", name = "Sachsenburg in Ktn Markt Bahnhst", lat = 46.825808, lon = 13.348118, p = 32, d = 32, gtfs = "Sachsenburg Markt Bahnhst" }
+"Pat:42:3864" = { id = "8101055", name = "Kleblach-Lind im Drautal Bahnhst", lat = 46.770839, lon = 13.341502, p = 32, d = 61, gtfs = "Kleblach-Lind Bahnhof" }
+"Pat:42:3865" = { id = "8100149", name = "Steinfeld im Drautal Bahnhof", lat = 46.752825, lon = 13.259988, p = 32, d = 54, gtfs = "Steinfeld im Drautal Bahnhof" }
+"Pat:42:3866" = { id = "8100146", name = "Greifenburg-Weißensee Bahnhof", lat = 46.741175, lon = 13.190987, p = 33, d = 103, gtfs = "Greifenburg-Weißensee Bahnhof" }
+"Pat:42:3867" = { id = "8100657", name = "Berg im Drautal Bahnhst", lat = 46.742397, lon = 13.127757, p = 32, d = 65, gtfs = "Berg im Drautal Bahnhst" }
+"Pat:42:3868" = { id = "8100145", name = "Dellach im Drautal Bahnhof", lat = 46.735781, lon = 13.075466, p = 32, d = 19, gtfs = "Dellach im Drautal Bahnhof" }
+"Pat:42:3869" = { id = "8101005", name = "Irschen Bahnhst", lat = 46.740554, lon = 13.01336, p = 32, d = 14, gtfs = "Irschen Bahnhst" }
+"Pat:42:3870" = { id = "8100144", name = "Oberdrauburg Bahnhof", lat = 46.746343, lon = 12.973798, p = 33, d = 49, gtfs = "Oberdrauburg Bahnhof" }
+"Pat:42:3901" = { id = "8101284", name = "Nötsch im Gailtal Bahnhst", lat = 46.588637, lon = 13.62557, p = 48, d = 37, gtfs = "Nötsch Bahnhof" }
+"Pat:42:3902" = { id = "8100745", name = "Emmersdorf im Gailtal Bahnhst", lat = 46.595325, lon = 13.572435, p = 48, d = 10, gtfs = "Emmersdorf im Gailtal Bahnhst" }
+"Pat:42:3903" = { id = "8101598", name = "St.Stefan im Gailtal-Vorderberg Bahnhst", lat = 46.600386, lon = 13.533224, p = 48, d = 10, gtfs = "St.Stefan-Vorderberg Bahnhof" }
+"Pat:42:3904" = { id = "8100862", name = "Görtschach im Gailtal-Förolach Bahnhst", lat = 46.623155, lon = 13.470812, p = 48, d = 34, gtfs = "Görtschach-Förolach Bahnhof" }
+"Pat:42:3905" = { id = "8100529", name = "Pressegger See Bahnhst", lat = 46.631587, lon = 13.436716, p = 48, d = 12, gtfs = "Pressegger See Bahnhst" }
+"Pat:42:3906" = { id = "8101720", name = "Vellach im Gailtal-Khünburg Bahnhst", lat = 46.631317, lon = 13.408121, p = 48, d = 6, gtfs = "Vellach-Khünburg Bahnhst" }
+"Pat:42:3907" = { id = "8100270", name = "Hermagor Bahnhof", lat = 46.626337, lon = 13.37558, p = 48, d = 49, gtfs = "Hermagor Bahnhof" }
+"Pat:43:20307" = { id = "8102056", name = "Unterretzbach Bahnhst", lat = 48.765141, lon = 16.008062, p = 16, d = 4, gtfs = "Unterretzbach Bahnhof" }
+"Pat:43:3004" = { id = "8100202", name = "Absdorf b.Tulln-Hippersdorf Bahnhof", lat = 48.401995, lon = 15.98576, p = 48, d = 18, gtfs = "Absdorf-Hippersdorf Bahnhof" }
+"Pat:43:3005" = { id = "8101863", name = "Altenhof/Kamp Bahnhst", lat = 48.544204, lon = 15.686006, p = 16, d = 9, gtfs = "Altenhof/Kamp Bahnhof" }
+"Pat:43:3008" = { id = "8100205", name = "Achau Bahnhof", lat = 48.080459, lon = 16.37849, p = 32, d = 77, gtfs = "Achau Bahnhof" }
+"Pat:43:3046" = { id = "8100619", name = "Angern/March Bahnhof", lat = 48.384726, lon = 16.826476, p = 16, d = 82, gtfs = "Angern/March Bahnhof" }
+"Pat:43:3064" = { id = "8100637", name = "Atzenbrugg Bahnhst", lat = 48.297342, lon = 15.917757, p = 32, d = 51, gtfs = "Atzenbrugg Bahnhof" }
+"Pat:43:3079" = { id = "8100538", name = "Bad Deutsch-Altenburg Bahnhof", lat = 48.132768, lon = 16.910759, p = 16, d = 51, gtfs = "Bad Deutsch-Altenburg Bahnhof" }
+"Pat:43:3090" = { id = "8100708", name = "Bad Vöslau Bahnhof", lat = 47.969479, lon = 16.224073, p = 48, d = 46, gtfs = "Bad Vöslau Bahnhof" }
+"Pat:43:3101" = { id = "8100025", name = "Baden b.Wien Bahnhof", lat = 48.004051, lon = 16.24278, p = 48, d = 18, gtfs = "Baden Bahnhof" }
+"Pat:43:3155" = { id = "8100650", name = "Berndorf/Triesting Fabrik Bahnhof", lat = 47.940255, lon = 16.133785, p = 16, d = 34, gtfs = "Berndorf/Triesting Fabrik Bahnhof" }
+"Pat:43:3160" = { id = "8100652", name = "Berndorf/Triesting Stadt Bahnhof", lat = 47.944821, lon = 16.108688, p = 16, d = 6, gtfs = "Berndorf Stadt Bahnhof" }
+"Pat:43:3162" = { id = "8100457", name = "Bernhardsthal Bahnhof", lat = 48.687789, lon = 16.879144, p = 16, d = 41, gtfs = "Bernhardsthal Bahnhof" }
+"Pat:43:3170" = { id = "8100689", name = "Bisamberg Bahnhst", lat = 48.316327, lon = 16.34727, p = 48, d = 2, gtfs = "Bisamberg Bahnhof" }
+"Pat:43:3189" = { id = "8100682", name = "Breiteneich b.Horn Bahnhst", lat = 48.671977, lon = 15.688127, p = 16, d = 24, gtfs = "Breiteneich bei Horn Bahnhof" }
+"Pat:43:3204" = { id = "8100693", name = "Breitensee b.Marchegg Bahnhst", lat = 48.254769, lon = 16.877634, p = 48, d = 76, gtfs = "Breitensee Bahnhof" }
+"Pat:43:3205" = { id = "8100710", name = "Breitenwaida Bahnhst", lat = 48.515115, lon = 16.074708, p = 48, d = 37, gtfs = "Breitenwaida Bahnhof" }
+"Pat:43:3209" = { id = "8100198", name = "Bruck/Leitha Bahnhof", lat = 48.018991, lon = 16.781081, p = 48, d = 28, gtfs = "Bruck/Leitha Bahnhof" }
+"Pat:43:3255" = { id = "8100698", name = "Brunn am Gebirge-Maria Enzersdorf Bahnhof", lat = 48.104955, lon = 16.288058, p = 48, d = 62, gtfs = "Brunn-Maria Enzersdorf Bahnhof" }
+"Pat:43:3260" = { id = "", gtfs = "Buchberg/Kamp Bahnhof", checked = "2026-11-13" }
+"Pat:43:3264" = { id = "8100661", name = "Böheimkirchen Bahnhof", lat = 48.20042, lon = 15.753668, p = 16, d = 54, gtfs = "Böheimkirchen Bahnhof" }
+"Pat:43:3279" = { id = "8100721", name = "Deutsch Wagram Bahnhof", lat = 48.302907, lon = 16.563587, p = 48, d = 12, gtfs = "Deutsch-Wagram Bahnhof" }
+"Pat:43:3292" = { id = "8100928", name = "Helmahof Bahnhst", lat = 48.310457, lon = 16.597665, p = 32, d = 2, gtfs = "Helmahof Bahnhof" }
+"Pat:43:3309" = { id = "8100221", name = "Drösing Bahnhof", lat = 48.540114, lon = 16.895783, p = 16, d = 80, gtfs = "Drösing Bahnhof" }
+"Pat:43:3310" = { id = "8100724", name = "Dürnkrut Bahnhof", lat = 48.469764, lon = 16.860114, p = 16, d = 158, gtfs = "Dürnkrut Bahnhof" }
+"Pat:43:3314" = { id = "8100735", name = "Dürrwien Bahnhst", lat = 48.178478, lon = 16.06189, p = 32, d = 2, gtfs = "Dürrwien Bahnhof" }
+"Pat:43:3318" = { id = "8100225", name = "Ebenfurth Bahnhof", lat = 47.877663, lon = 16.36212, p = 48, d = 50, gtfs = "Ebenfurth Bahnhof" }
+"Pat:43:3339" = { id = "8100201", name = "Eggenburg Bahnhof", lat = 48.637827, lon = 15.814821, p = 16, d = 140, gtfs = "Eggenburg Bahnhof" }
+"Pat:43:3347" = { id = "8100749", name = "Eichgraben NÖ-Altlengbach Bahnhst", lat = 48.173444, lon = 15.981481, p = 48, d = 33, gtfs = "Eichgraben-Altlengbach Bahnhof" }
+"Pat:43:3388" = { id = "8100775", name = "Enzersdorf b.Staatz Bahnhof", lat = 48.672804, lon = 16.511027, p = 48, d = 54, gtfs = "Enzersdorf bei Staatz Bahnhof" }
+"Pat:43:3401" = { id = "8100757", name = "Enzesfeld-Lindabrunn Bahnhof", lat = 47.921296, lon = 16.187388, p = 16, d = 25, gtfs = "Enzesfeld-Lindabrunn Bahnhof" }
+"Pat:43:3408" = { id = "8100746", name = "Etsdorf/Kamp-Straß im Straßertale Bahnhof", lat = 48.453089, lon = 15.730332, p = 16, d = 27, gtfs = "Etsdorf-Straß Bahnhof" }
+"Pat:43:3415" = { id = "8100780", name = "Felixdorf Bahnhof", lat = 47.887488, lon = 16.248074, p = 48, d = 91, gtfs = "Felixdorf Bahnhof" }
+"Pat:43:3420" = { id = "8100568", name = "Fels am Wagram Bahnhst", lat = 48.428998, lon = 15.822858, p = 16, d = 71, gtfs = "Fels am Wagram Bahnhof" }
+"Pat:43:3430" = { id = "8100235", name = "Fischamend Bahnhof", lat = 48.116524, lon = 16.615203, p = 16, d = 31, gtfs = "Fischamend Bahnhof" }
+"Pat:43:3449" = { id = "8100808", name = "Frättingsdorf Bahnhof", lat = 48.643427, lon = 16.512177, p = 48, d = 157, gtfs = "Frättingsdorf Bahnhof" }
+"Pat:43:3481" = { id = "8100823", name = "Gaisruck b.Stockerau Bahnhst", lat = 48.394066, lon = 16.064856, p = 32, d = 31, gtfs = "Gaisruck Bahnhof" }
+"Pat:43:3486" = { id = "8100247", name = "Gars/Kamp-Thunau Bahnhof", lat = 48.597672, lon = 15.655128, p = 16, d = 42, gtfs = "Gars-Thunau Bahnhof" }
+"Pat:43:3493" = { id = "8100828", name = "Gedersdorf Bahnhst", lat = 48.432585, lon = 15.691678, p = 16, d = 64, gtfs = "Gedersdorf Bahnhof" }
+"Pat:43:3496" = { id = "8100831", name = "Gemeinlebarn Bahnhst", lat = 48.336158, lon = 15.80434, p = 32, d = 21, gtfs = "Gemeinlebarn Bahnhof" }
+"Pat:43:3499" = { id = "8100869", name = "Gerasdorf b.Wien Bahnhst", lat = 48.293711, lon = 16.483942, p = 48, d = 18, gtfs = "Gerasdorf Bahnhof" }
+"Pat:43:3527" = { id = "8100852", name = "Glinzendorf Bahnhst", lat = 48.242211, lon = 16.640885, p = 48, d = 62, gtfs = "Glinzendorf Bahnhof" }
+"Pat:43:3528" = { id = "8100859", name = "Gobelsburg Bahnhst", lat = 48.462411, lon = 15.701611, p = 16, d = 45, gtfs = "Gobelsburg Bahnhof" }
+"Pat:43:3538" = { id = "8100369", name = "Gramatneusiedl Bahnhof", lat = 48.035855, lon = 16.489435, p = 48, d = 11, gtfs = "Gramatneusiedl Bahnhof" }
+"Pat:43:3544" = { id = "8100257", name = "Greifenstein-Altenberg/Donau Bahnhof", lat = 48.344688, lon = 16.239571, p = 32, d = 17, gtfs = "Greifenstein-Altenberg Bahnhof" }
+"Pat:43:3580" = { id = "8100906", name = "Großweikersdorf Bahnhof", lat = 48.469009, lon = 15.976223, p = 16, d = 116, gtfs = "Großweikersdorf Bahnhof" }
+"Pat:43:3602" = { id = "8100867", name = "Gumpoldskirchen Bahnhof", lat = 48.041132, lon = 16.285146, p = 48, d = 87, gtfs = "Gumpoldskirchen Bahnhof" }
+"Pat:43:3608" = { id = "8100894", name = "Guntersdorf Bahnhof", lat = 48.642249, lon = 16.05371, p = 16, d = 53, gtfs = "Guntersdorf Bahnhof" }
+"Pat:43:3616" = { id = "8100846", name = "Guntramsdorf Thallern Bahnhst", lat = 48.052161, lon = 16.297749, p = 48, d = 65, gtfs = "Guntramsdorf Thallern Bahnhof" }
+"Pat:43:3617" = { id = "8100372", name = "Guntramsdorf Kaiserau Bahnhst", lat = 48.043981, lon = 16.324833, p = 16, d = 32, gtfs = "Guntramsdorf Kaiserau Bahnhof" }
+"Pat:43:3622" = { id = "8100245", name = "Gänserndorf Bahnhof", lat = 48.340302, lon = 16.732746, p = 48, d = 85, gtfs = "Gänserndorf Bahnhof" }
+"Pat:43:3647" = { id = "8100827", name = "Göllersdorf Bahnhof", lat = 48.492354, lon = 16.126756, p = 48, d = 63, gtfs = "Göllersdorf Bahnhof" }
+"Pat:43:3653" = { id = "8100226", name = "Ebreichsdorf Bahnhof", lat = 47.964121, lon = 16.419337, p = 48, d = 8, gtfs = "Ebreichsdorf Bahnhof" }
+"Pat:43:3655" = { id = "8100254", name = "Götzendorf/Leitha Bahnhof", lat = 48.025706, lon = 16.586311, p = 48, d = 46, gtfs = "Götzendorf Bahnhof" }
+"Pat:43:3660" = { id = "8100264", name = "Hadersdorf/Kamp Bahnhof", lat = 48.446545, lon = 15.714753, p = 16, d = 50, gtfs = "Hadersdorf/Kamp Bahnhof" }
+"Pat:43:3677" = { id = "8100959", name = "Hainburg/Donau Ungartor Bahnhst", lat = 48.148355, lon = 16.948154, p = 16, d = 48, gtfs = "Hainburg/Donau Ungartor/B9" }
+"Pat:43:3681" = { id = "8100958", name = "Hainburg/Donau Kulturfabrik Bahnhst", lat = 48.144939, lon = 16.93227, p = 16, d = 57, gtfs = "Hainburg/Donau Kulturfabrik Bhf." }
+"Pat:43:3686" = { id = "8100266", name = "Hainburg/Donau Personenbahnhof", lat = 48.148975, lon = 16.939821, p = 16, d = 4, gtfs = "Hainburg/Donau Personenbhf." }
+"Pat:43:3706" = { id = "8100982", name = "Haslau/Donau Bahnhst", lat = 48.109656, lon = 16.710443, p = 16, d = 25, gtfs = "Haslau an der Donau Bahnhof" }
+"Pat:43:3709" = { id = "8100990", name = "Hausleiten b.Stockerau Bahnhof", lat = 48.391297, lon = 16.107321, p = 32, d = 78, gtfs = "Hausleiten Bahnhof" }
+"Pat:43:3712" = { id = "8100984", name = "Hautzendorf NÖ Bahnhst", lat = 48.451318, lon = 16.492896, p = 32, d = 17, gtfs = "Hautzendorf Bahnhof" }
+"Pat:43:3723" = { id = "8100925", name = "Hennersdorf b.Wien Bahnhst", lat = 48.112749, lon = 16.358354, p = 32, d = 1, gtfs = "Hennersdorf Bahnhof" }
+"Pat:43:3733" = { id = "8100936", name = "Hetzmannsdorf b.Hollabrunn-Wullersdorf Bahnhof", lat = 48.61716, lon = 16.091653, p = 16, d = 31, gtfs = "Hetzmannsdorf-Wullersdorf Bhf." }
+"Pat:43:3766" = { id = "8100983", name = "Hirtenberg Bahnhof", lat = 47.929441, lon = 16.175648, p = 16, d = 77, gtfs = "Hirtenberg Bahnhof" }
+"Pat:43:3778" = { id = "8100130", name = "Hohenau/March Bahnhof", lat = 48.598247, lon = 16.900943, p = 16, d = 85, gtfs = "Hohenau/March Bahnhof" }
+"Pat:43:3780" = { id = "8100274", name = "Hollabrunn Bahnhof", lat = 48.562955, lon = 16.07229, p = 48, d = 12, gtfs = "Hollabrunn Bahnhof" }
+"Pat:43:3784" = { id = "8100277", name = "Horn NÖ Bahnhof", lat = 48.665801, lon = 15.674014, p = 16, d = 99, gtfs = "Horn Bahnhof" }
+"Pat:43:3794" = { id = "8100962", name = "Höbersdorf Bahnhst", lat = 48.448424, lon = 16.173131, p = 48, d = 51, gtfs = "Höbersdorf Bahnhof" }
+"Pat:43:3800" = { id = "8100961", name = "Höflein/Donau Bahnhof", lat = 48.350064, lon = 16.271815, p = 48, d = 17, gtfs = "Höflein/Donau Bahnhof" }
+"Pat:43:3806" = { id = "8100970", name = "Hörersdorf Bahnhof", lat = 48.620289, lon = 16.51633, p = 48, d = 60, gtfs = "Hörersdorf Bahnhof" }
+"Pat:43:3830" = { id = "8101012", name = "Jedenspeigen Bahnhof", lat = 48.495033, lon = 16.878281, p = 16, d = 23, gtfs = "Jedenspeigen Bahnhof" }
+"Pat:43:3851" = { id = "8101024", name = "Kamegg Bahnhst", lat = 48.609672, lon = 15.657897, p = 16, d = 70, gtfs = "Kamegg Bahnhof" }
+"Pat:43:3852" = { id = "8101020", name = "Kapellerfeld Bahnhst", lat = 48.316831, lon = 16.49508, p = 48, d = 10, gtfs = "Kapellerfeld Bahnhof" }
+"Pat:43:3867" = { id = "8100284", name = "Katzelsdorf/Leitha Bahnhst", lat = 47.792436, lon = 16.262763, p = 16, d = 272, gtfs = "Katzelsdorf Bahnhof" }
+"Pat:43:3880" = { id = "8100288", name = "Kirchberg am Wagram Bahnhof", lat = 48.427506, lon = 15.894295, p = 16, d = 22, gtfs = "Kirchberg am Wagram Bhf." }
+"Pat:43:3885" = { id = "8101048", name = "Kirchstetten b.Neulengbach Bahnhof", lat = 48.190218, lon = 15.821491, p = 16, d = 21, gtfs = "Kirchstetten Bahnhof" }
+"Pat:43:3895" = { id = "8101051", name = "Kledering Bahnhst", lat = 48.133523, lon = 16.438942, p = 48, d = 11, gtfs = "Kledering Bahnhof" }
+"Pat:43:3952" = { id = "8100460", name = "Klosterneuburg Kierling Bahnhof", lat = 48.309936, lon = 16.326173, p = 48, d = 19, gtfs = "Klosterneuburg-Kierling Bhf." }
+"Pat:43:3953" = { id = "8101101", name = "Klosterneuburg-Weidling Bahnhof", lat = 48.297585, lon = 16.334586, p = 48, d = 80, gtfs = "Klosterneuburg-Weidling Bhf." }
+"Pat:43:3963" = { id = "8100293", name = "Korneuburg Bahnhof", lat = 48.343466, lon = 16.328537, p = 48, d = 2, gtfs = "Korneuburg Bahnhof" }
+"Pat:43:3989" = { id = "8101033", name = "Kottingbrunn Bahnhof", lat = 47.950188, lon = 16.226977, p = 48, d = 20, gtfs = "Kottingbrunn Bahnhof" }
+"Pat:43:3991" = { id = "8101065", name = "Kottingneusiedl Bahnhof", lat = 48.703466, lon = 16.464283, p = 48, d = 4, gtfs = "Kottingneusiedl Bahnhof" }
+"Pat:43:3993" = { id = "8100295", name = "Krems/Donau Bahnhof", lat = 48.408719, lon = 15.604698, p = 16, d = 3, gtfs = "Krems Bahnhof" }
+"Pat:43:3995" = { id = "8101084", name = "Kritzendorf Bahnhof", lat = 48.335897, lon = 16.299115, p = 48, d = 18, gtfs = "Kritzendorf Bahnhof" }
+"Pat:43:4003" = { id = "8101702", name = "Unterkritzendorf Bahnhof", lat = 48.324076, lon = 16.309282, p = 32, d = 58, gtfs = "Unterkritzendorf Bahnhof" }
+"Pat:43:4015" = { id = "8101180", name = "Laa/Thaya Bahnhof", lat = 48.72371, lon = 16.402671, p = 48, d = 50, gtfs = "Laa/Thaya Bahnhof" }
+"Pat:43:4016" = { id = "8106003", name = "St.Pölten Bildungscampus Bahnhst", lat = 48.189705, lon = 15.615063, p = 16, d = 30, gtfs = "St. Pölten Bildungscampus Bahnhof" }
+"Pat:43:4025" = { id = "8101111", name = "Ladendorf Bahnhof", lat = 48.536141, lon = 16.510065, p = 48, d = 27, gtfs = "Ladendorf Bahnhof" }
+"Pat:43:4029" = { id = "8101159", name = "Langenlebarn Bahnhof", lat = 48.327519, lon = 16.121749, p = 32, d = 51, gtfs = "Langenlebarn Bahnhof" }
+"Pat:43:4036" = { id = "8100299", name = "Langenlois Bahnhof", lat = 48.477243, lon = 15.686329, p = 16, d = 35, gtfs = "Langenlois Bahnhof" }
+"Pat:43:4045" = { id = "8101191", name = "Langenzersdorf Bahnhof", lat = 48.306619, lon = 16.355783, p = 48, d = 37, gtfs = "Langenzersdorf Bahnhof" }
+"Pat:43:4054" = { id = "8101173", name = "Lanzendorf b.Wien-Rannersdorf Bahnhst", lat = 48.113477, lon = 16.447446, p = 32, d = 25, gtfs = "Lanzendorf-Rannersdorf Bahnhof" }
+"Pat:43:4067" = { id = "8101122", name = "Laxenburg-Biedermannsdorf Bahnhof", lat = 48.077682, lon = 16.356997, p = 16, d = 33, gtfs = "Laxenburg-Biedermannsdorf Bhf." }
+"Pat:43:4083" = { id = "8101124", name = "Leobendorf b.Wien-Burg Kreuzenstein Bahnhst", lat = 48.364465, lon = 16.302099, p = 48, d = 10, gtfs = "Leobendorf-Burg Kreuzenstein Bhf." }
+"Pat:43:4084" = { id = "8101163", name = "Leobersdorf Bahnhof", lat = 47.93843, lon = 16.231058, p = 48, d = 25, gtfs = "Leobersdorf Bahnhof" }
+"Pat:43:4102" = { id = "8101154", name = "Limberg NÖ-Maissau Bahnhof", lat = 48.592323, lon = 15.863336, p = 16, d = 98, gtfs = "Limberg-Maissau Bahnhof" }
+"Pat:43:4132" = { id = "8100466", name = "Marchegg Bahnhof", lat = 48.249798, lon = 16.917528, p = 48, d = 34, gtfs = "Marchegg Bahnhof" }
+"Pat:43:4140" = { id = "8101197", name = "Maria Anzbach Bahnhst", lat = 48.186928, lon = 15.937317, p = 48, d = 7, gtfs = "Maria Anzbach Bahnhof" }
+"Pat:43:4142" = { id = "8100537", name = "Maria Ellend/Donau Bahnhst", lat = 48.109791, lon = 16.688258, p = 16, d = 2, gtfs = "Maria Ellend Bahnhof" }
+"Pat:43:4165" = { id = "8101224", name = "Maria Lanzendorf Bahnhof", lat = 48.102537, lon = 16.419723, p = 16, d = 6, gtfs = "Maria Lanzendorf Bahnhof" }
+"Pat:43:4196" = { id = "8101217", name = "Michelhausen Bahnhst", lat = 48.296479, lon = 15.934027, p = 32, d = 28, gtfs = "Michelhausen Bahnhof" }
+"Pat:43:4202" = { id = "8101245", name = "Mistelbach/Zaya Bahnhof", lat = 48.565688, lon = 16.563623, p = 48, d = 21, gtfs = "Mistelbach Bahnhof" }
+"Pat:43:4207" = { id = "8102007", name = "Mistelbach/Zaya Stadt Bahnhst", lat = 48.570686, lon = 16.568863, p = 48, d = 52, gtfs = "Mistelbach Stadt" }
+"Pat:43:4216" = { id = "8100376", name = "Moosbierbaum-Heiligeneich Bahnhof", lat = 48.305855, lon = 15.901091, p = 32, d = 28, gtfs = "Moosbierbaum-Heiligeneich Bahnhof" }
+"Pat:43:4225" = { id = "8101247", name = "Muckendorf/Donau-Wipfing Bahnhst", lat = 48.328301, lon = 16.150038, p = 32, d = 60, gtfs = "Muckendorf-Wipfing Bahnhof" }
+"Pat:43:4231" = { id = "8100423", name = "Münchendorf Bahnhof", lat = 48.032223, lon = 16.386203, p = 32, d = 3, gtfs = "Münchendorf Bahnhof" }
+"Pat:43:4239" = { id = "8101230", name = "Mödling Bahnhof", lat = 48.08597, lon = 16.295528, p = 48, d = 40, gtfs = "Mödling Bahnhof" }
+"Pat:43:4301" = { id = "8101229", name = "Möllersdorf Aspangbahn Bahnhst", lat = 48.029958, lon = 16.313291, p = 16, d = 21, gtfs = "Möllersdorf Aspangbahn" }
+"Pat:43:4318" = { id = "8101261", name = "Neubau b.Ladendorf-Kreuzstetten Bahnhof", lat = 48.497334, lon = 16.500653, p = 48, d = 5, gtfs = "Neubau-Kreuzstetten Bahnhof" }
+"Pat:43:4337" = { id = "8101279", name = "Neulengbach Bahnhof", lat = 48.199531, lon = 15.892803, p = 48, d = 13, gtfs = "Neulengbach Bahnhof" }
+"Pat:43:4338" = { id = "8101280", name = "Neulengbach Stadt Bahnhst", lat = 48.196294, lon = 15.906403, p = 48, d = 58, gtfs = "Neulengbach Stadt Bahnhof" }
+"Pat:43:4377" = { id = "8101272", name = "Niederkreuzstetten Bahnhst", lat = 48.477998, lon = 16.479825, p = 48, d = 34, gtfs = "Niederkreuzstetten Bahnhof" }
+"Pat:43:4395" = { id = "8100439", name = "Obereggendorf Bahnhof", lat = 47.849634, lon = 16.296679, p = 32, d = 24, gtfs = "Obereggendorf Bahnhof" }
+"Pat:43:4408" = { id = "8101315", name = "Oberolberndorf Bahnhst", lat = 48.413744, lon = 16.174012, p = 48, d = 39, gtfs = "Oberolberndorf Bahnhof" }
+"Pat:43:4417" = { id = "8101317", name = "Obersdorf NÖ Bahnhst", lat = 48.362361, lon = 16.516699, p = 48, d = 28, gtfs = "Obersdorf Bahnhof" }
+"Pat:43:4423" = { id = "8101328", name = "Oberwaltersdorf Bahnhof", lat = 47.975115, lon = 16.328357, p = 16, d = 20, gtfs = "Oberwaltersdorf Bahnhof" }
+"Pat:43:4429" = { id = "8101329", name = "Oberweiden Bahnhof", lat = 48.306403, lon = 16.833578, p = 32, d = 9, gtfs = "Oberweiden Bahnhof" }
+"Pat:43:4440" = { id = "8101312", name = "Ollersbach Bahnhst", lat = 48.191611, lon = 15.848108, p = 16, d = 23, gtfs = "Ollersbach Bahnhof" }
+"Pat:43:4455" = { id = "8101336", name = "Paasdorf Bahnhst", lat = 48.546721, lon = 16.53519, p = 32, d = 7, gtfs = "Paasdorf Bahnhof" }
+"Pat:43:4500" = { id = "8101346", name = "Perchtoldsdorf Bahnhst", lat = 48.123023, lon = 16.285514, p = 32, d = 41, gtfs = "Perchtoldsdorf Bahnhof" }
+"Pat:43:4531" = { id = "8100520", name = "Petronell-Carnuntum Bahnhof", lat = 48.105899, lon = 16.867728, p = 16, d = 63, gtfs = "Petronell-Carnuntum Bahnhof" }
+"Pat:43:4533" = { id = "8101352", name = "Pfaffstätten Bahnhof", lat = 48.018254, lon = 16.258933, p = 48, d = 22, gtfs = "Pfaffstätten Bahnhof" }
+"Pat:43:4549" = { id = "8101363", name = "Plank/Kamp Bahnhof", lat = 48.557886, lon = 15.673277, p = 16, d = 22, gtfs = "Plank am Kamp Bahnhof" }
+"Pat:43:4552" = { id = "8101367", name = "Platt b.Zellerndorf Bahnhst", lat = 48.67461, lon = 15.966137, p = 16, d = 23, gtfs = "Platt Bahnhof" }
+"Pat:43:4556" = { id = "8101396", name = "Pottenbrunn Bahnhst", lat = 48.223667, lon = 15.701935, p = 16, d = 9, gtfs = "Pottenbrunn Bahnhof" }
+"Pat:43:4562" = { id = "8100525", name = "Pottendorf-Landegg Bahnhst", lat = 47.905386, lon = 16.396199, p = 48, d = 65, gtfs = "Pottendorf-Landegg Bahnhof" }
+"Pat:43:4565" = { id = "8101401", name = "Pottenstein/Triesting Bahnhof", lat = 47.961514, lon = 16.089424, p = 16, d = 39, gtfs = "Pottenstein an der Triesting Bhf." }
+"Pat:43:4574" = { id = "8101381", name = "Pressbaum Bahnhst", lat = 48.181354, lon = 16.077837, p = 48, d = 11, gtfs = "Pressbaum Bahnhof" }
+"Pat:43:4601" = { id = "8101342", name = "Purkersdorf b.Wien Sanatorium Bahnhst", lat = 48.206281, lon = 16.20044, p = 32, d = 23, gtfs = "Purkersdorf Sanatorium Bhf." }
+"Pat:43:4603" = { id = "8101404", name = "Purkersdorf b.Wien Zentrum Bahnhst", lat = 48.206129, lon = 16.175774, p = 48, d = 37, gtfs = "Purkersdorf Zentrum Bahnhof" }
+"Pat:43:4605" = { id = "8101709", name = "Unterpurkersdorf Bahnhst", lat = 48.207666, lon = 16.190121, p = 32, d = 37, gtfs = "Unterpurkersdorf Bahnhof" }
+"Pat:43:4613" = { id = "8101415", name = "Raasdorf Bahnhof", lat = 48.23902, lon = 16.581907, p = 48, d = 85, gtfs = "Raasdorf Bahnhof" }
+"Pat:43:4616" = { id = "8101416", name = "Rabensburg Bahnhof", lat = 48.651913, lon = 16.894668, p = 16, d = 88, gtfs = "Rabensburg Bahnhof" }
+"Pat:43:4639" = { id = "8101430", name = "Regelsbrunn Bahnhof", lat = 48.107041, lon = 16.780577, p = 16, d = 7, gtfs = "Regelsbrunn Bahnhof" }
+"Pat:43:4651" = { id = "1132425", name = "Rekawinkel", lat = 48.179781, lon = 16.031587, p = 96, d = 17, gtfs = "Rekawinkel Bahnhof" }
+"Pat:43:4656" = { id = "8100469", name = "Retz Bahnhof", lat = 48.753644, lon = 15.957147, p = 16, d = 91, gtfs = "Retz Bahnhof" }
+"Pat:43:4671" = { id = "8101453", name = "Rohrendorf b.Krems Bahnhst", lat = 48.423218, lon = 15.656944, p = 16, d = 67, gtfs = "Rohrendorf bei Krems Bahnhof" }
+"Pat:43:4674" = { id = "8100411", name = "Rosenburg/Kamp Bahnhof", lat = 48.628415, lon = 15.643505, p = 16, d = 4, gtfs = "Rosenburg Bahnhof" }
+"Pat:43:4688" = { id = "8101467", name = "Sarasdorf Bahnhst", lat = 48.023207, lon = 16.67721, p = 32, d = 7, gtfs = "Sarasdorf Bahnhof" }
+"Pat:43:4695" = { id = "8101535", name = "Schleinbach Bahnhst", lat = 48.422059, lon = 16.489875, p = 48, d = 46, gtfs = "Schleinbach Bahnhof" }
+"Pat:43:4708" = { id = "8100353", name = "Flughafen Wien Bahnhof", lat = 48.120228, lon = 16.56427, p = 61, d = 8, gtfs = "Flughafen Wien Bahnhof" }
+"Pat:43:4710" = { id = "8100259", name = "Schwechat Bahnhof", lat = 48.143654, lon = 16.481389, p = 48, d = 20, gtfs = "Schwechat Bahnhof" }
+"Pat:43:4742" = { id = "8100487", name = "Schönberg/Kamp Bahnhof", lat = 48.515618, lon = 15.696613, p = 16, d = 32, gtfs = "Schönberg/Kamp Bahnhof" }
+"Pat:43:4743" = { id = "8101548", name = "Schönborn-Mallebarn Bahnhst", lat = 48.468461, lon = 16.159198, p = 48, d = 52, gtfs = "Schönborn-Mallebarn Bahnhof" }
+"Pat:43:4745" = { id = "8101545", name = "Schönfeld im Marchfeld-Lassee Bahnhof", lat = 48.251039, lon = 16.807212, p = 48, d = 16, gtfs = "Schönfeld-Lassee Bahnhof" }
+"Pat:43:4759" = { id = "8101498", name = "Seyring Bahnhst", lat = 48.330764, lon = 16.501804, p = 48, d = 63, gtfs = "Seyring Bahnhof" }
+"Pat:43:4764" = { id = "8101477", name = "Siebenbrunn im Marchfeld-Leopoldsdorf Bahnhof", lat = 48.245573, lon = 16.703845, p = 48, d = 10, gtfs = "Siebenbrunn-Leopoldsdorf Bahnhof" }
+"Pat:43:4765" = { id = "8101523", name = "Siebenhirten b.Mistelbach Bahnhof", lat = 48.611398, lon = 16.531208, p = 48, d = 5, gtfs = "Siebenhirten (NÖ) Haltestelle" }
+"Pat:43:4783" = { id = "8101522", name = "Sierndorf b.Stockerau Bahnhof", lat = 48.428926, lon = 16.175028, p = 48, d = 1, gtfs = "Sierndorf bei Stockerau Bahnhof" }
+"Pat:43:4787" = { id = "8101524", name = "Sierndorf/March Bahnhst", lat = 48.51133, lon = 16.891145, p = 16, d = 79, gtfs = "Sierndorf an der March Bahnhof" }
+"Pat:43:4789" = { id = "8100493", name = "Sigmundsherberg Bahnhof", lat = 48.686422, lon = 15.743006, p = 16, d = 62, gtfs = "Sigmundsherberg Bahnhof" }
+"Pat:43:4790" = { id = "8100591", name = "Strasshof/Nordbahn Silberwald Bahnhst", lat = 48.328193, lon = 16.677849, p = 48, d = 39, gtfs = "Silberwald Bahnhof" }
+"Pat:43:4798" = { id = "8101587", name = "Sitzenberg-Reidling Bahnhof", lat = 48.332202, lon = 15.818705, p = 32, d = 4, gtfs = "Sitzenberg-Reidling Bahnhof" }
+"Pat:43:4801" = { id = "8101567", name = "Sollenau Bahnhst", lat = 47.898473, lon = 16.245405, p = 48, d = 3, gtfs = "Sollenau Bahnhof" }
+"Pat:43:4814" = { id = "8101578", name = "Spillern Bahnhst", lat = 48.375764, lon = 16.257082, p = 48, d = 17, gtfs = "Spillern Bahnhof" }
+"Pat:43:4824" = { id = "8100432", name = "St.Andrä-Wördern Bahnhof", lat = 48.333937, lon = 16.209133, p = 48, d = 44, gtfs = "St. Andrä-Wördern Bahnhof" }
+"Pat:43:4848" = { id = "8100008", name = "St.Pölten Hbf", lat = 48.208277, lon = 15.624681, p = 4157, d = 70, gtfs = "St. Pölten Hauptbahnhof" }
+"Pat:43:4849" = { id = "8101623", name = "St.Veit/Triesting Bahnhof", lat = 47.933243, lon = 16.149085, p = 16, d = 48, gtfs = "St. Veit an der Triesting Bhf." }
+"Pat:43:4852" = { id = "8101600", name = "Staatz Bahnhst", lat = 48.699717, lon = 16.49259, p = 48, d = 16, gtfs = "Staatz Bahnhof" }
+"Pat:43:4875" = { id = "8101871", name = "Mannswörth Bahnhst", lat = 48.136516, lon = 16.507458, p = 32, d = 23, gtfs = "Mannswörth Bahnhof" }
+"Pat:43:4881" = { id = "8101500", name = "Stiefern Bahnhst", lat = 48.534747, lon = 15.691426, p = 16, d = 3, gtfs = "Stiefern Bahnhof" }
+"Pat:43:4882" = { id = "8101536", name = "Stillfried Bahnhst", lat = 48.411559, lon = 16.846513, p = 16, d = 54, gtfs = "Stillfried Bahnhof" }
+"Pat:43:4884" = { id = "8100534", name = "Stockerau Bahnhof", lat = 48.382299, lon = 16.213286, p = 48, d = 61, gtfs = "Stockerau Bahnhof" }
+"Pat:43:4922" = { id = "8101595", name = "Strasshof/Nordbahn Bahnhst", lat = 48.318476, lon = 16.6339, p = 48, d = 14, gtfs = "Strasshof Bahnhof" }
+"Pat:43:4975" = { id = "8101644", name = "Tallesbrunn Bahnhst", lat = 48.363799, lon = 16.786519, p = 16, d = 30, gtfs = "Tallesbrunn Bahnhof" }
+"Pat:43:4978" = { id = "8101647", name = "Tattendorf Bahnhof", lat = 47.955536, lon = 16.305902, p = 16, d = 14, gtfs = "Tattendorf Bahnhof" }
+"Pat:43:4983" = { id = "8101656", name = "Teesdorf Bahnhst", lat = 47.942529, lon = 16.289703, p = 16, d = 35, gtfs = "Teesdorf Bahnhof" }
+"Pat:43:4990" = { id = "8101664", name = "Theresienfeld Bahnhst", lat = 47.8607, lon = 16.244038, p = 48, d = 30, gtfs = "Theresienfeld Bahnhof" }
+"Pat:43:4995" = { id = "8101640", name = "Traiskirchen Aspangbahn Bahnhof", lat = 48.017939, lon = 16.303412, p = 16, d = 5, gtfs = "Traiskirchen Aspangbahn" }
+"Pat:43:5005" = { id = "8100325", name = "Traismauer Bahnhof", lat = 48.347933, lon = 15.745586, p = 32, d = 13, gtfs = "Traismauer Bahnhof" }
+"Pat:43:5006" = { id = "8101651", name = "Trasdorf Bahnhst", lat = 48.31506, lon = 15.880469, p = 32, d = 38, gtfs = "Trasdorf Bahnhof" }
+"Pat:43:5013" = { id = "8101653", name = "Trautmannsdorf/Leitha Bahnhof", lat = 48.024214, lon = 16.642449, p = 32, d = 82, gtfs = "Trautmannsdorf/Leitha Bhf." }
+"Pat:43:5023" = { id = "8101682", name = "Trumau Bahnhof", lat = 47.992608, lon = 16.332168, p = 16, d = 5, gtfs = "Trumau Bahnhof" }
+"Pat:43:5034" = { id = "8100203", name = "Tulln/Donau Bahnhof", lat = 48.327402, lon = 16.064766, p = 48, d = 32, gtfs = "Tulln Bahnhof" }
+"Pat:43:5057" = { id = "8101692", name = "Tulln/Donau Stadt Bahnhst", lat = 48.328454, lon = 16.05406, p = 32, d = 16, gtfs = "Tulln Stadt Bahnhof" }
+"Pat:43:5068" = { id = "8101650", name = "Tullnerbach-Pressbaum Bahnhof", lat = 48.186065, lon = 16.093289, p = 48, d = 7, gtfs = "Tullnerbach-Pressbaum Bahnhof" }
+"Pat:43:5070" = { id = "8101697", name = "Ulrichskirchen Bahnhof", lat = 48.402084, lon = 16.488122, p = 48, d = 1, gtfs = "Ulrichskirchen Bahnhof" }
+"Pat:43:5072" = { id = "8100331", name = "Untereggendorf Bahnhst", lat = 47.861437, lon = 16.321534, p = 32, d = 46, gtfs = "Untereggendorf Bahnhof" }
+"Pat:43:5090" = { id = "8101701", name = "Untersiebenbrunn Bahnhst", lat = 48.247991, lon = 16.748962, p = 48, d = 37, gtfs = "Untersiebenbrunn Bahnhof" }
+"Pat:43:5094" = { id = "8101713", name = "Untertullnerbach Bahnhof", lat = 48.191656, lon = 16.128086, p = 32, d = 23, gtfs = "Untertullnerbach Bahnhof" }
+"Pat:43:5138" = { id = "8101764", name = "Wagram am Wagram-Grafenegg Bahnhst", lat = 48.434194, lon = 15.776626, p = 16, d = 31, gtfs = "Wagram-Grafenegg Bahnhof" }
+"Pat:43:5147" = { id = "8100342", name = "Wampersdorf Bahnhof", lat = 47.931526, lon = 16.417305, p = 48, d = 95, gtfs = "Wampersdorf Bahnhof" }
+"Pat:43:5189" = { id = "8101748", name = "Weikendorf-Dörfles Bahnhof", lat = 48.349489, lon = 16.758913, p = 16, d = 42, gtfs = "Weikendorf-Dörfles Bahnhof" }
+"Pat:43:5195" = { id = "8101755", name = "Weissenbach/Triesting-Neuhaus Bahnhof", lat = 47.984275, lon = 16.045772, p = 16, d = 53, gtfs = "Weissenbach-Neuhaus Bahnhof" }
+"Pat:43:5210" = { id = "8100516", name = "Wr.Neustadt Hbf", lat = 47.81108, lon = 16.233656, p = 4157, d = 61, gtfs = "Wiener Neustadt Hauptbahnhof" }
+"Pat:43:5223" = { id = "8101791", name = "Wr.Neustadt Nord Bahnhst", lat = 47.834856, lon = 16.238788, p = 48, d = 65, gtfs = "Wiener Neustadt Nord" }
+"Pat:43:5227" = { id = "8101789", name = "Wr.Neustadt Civitas Nova Bahnhst", lat = 47.833804, lon = 16.256237, p = 32, d = 131, gtfs = "Wiener Neustadt Civitas Nova" }
+"Pat:43:5235" = { id = "8101787", name = "Wildungsmauer Bahnhst", lat = 48.107966, lon = 16.801909, p = 16, d = 38, gtfs = "Wildungsmauer Bahnhof" }
+"Pat:43:5239" = { id = "8101771", name = "Wilfleinsdorf Bahnhst", lat = 48.021994, lon = 16.71981, p = 32, d = 84, gtfs = "Wilfleinsdorf Bahnhof" }
+"Pat:43:5255" = { id = "8101788", name = "Wittmannsdorf NÖ Bahnhof", lat = 47.92029, lon = 16.21992, p = 16, d = 41, gtfs = "Wittmannsdorf Bahnhof" }
+"Pat:43:5271" = { id = "8100360", name = "Wolfsthal Bahnhof", lat = 48.135527, lon = 17.006243, p = 16, d = 15, gtfs = "Wolfsthal Bahnhof" }
+"Pat:43:5274" = { id = "8101793", name = "Wolkersdorf im Weinviertel Bahnhof", lat = 48.378425, lon = 16.512681, p = 48, d = 16, gtfs = "Wolkersdorf Bahnhof" }
+"Pat:43:5301" = { id = "8101825", name = "Zeiselmauer-Königstetten b.Tulln Bahnhof", lat = 48.326638, lon = 16.174992, p = 32, d = 55, gtfs = "Zeiselmauer-Königstetten Bhf." }
+"Pat:43:5303" = { id = "8100363", name = "Zellerndorf Bahnhof", lat = 48.695286, lon = 15.968249, p = 16, d = 37, gtfs = "Zellerndorf Bahnhof" }
+"Pat:43:5304" = { id = "8101822", name = "Ziersdorf Bahnhof", lat = 48.527924, lon = 15.921982, p = 16, d = 82, gtfs = "Ziersdorf Bahnhof" }
+"Pat:43:5323" = { id = "8101826", name = "Zöbing/Kamp Bahnhst", lat = 48.490682, lon = 15.693853, p = 16, d = 2, gtfs = "Zöbing Bahnhof" }
+"Pat:43:5759" = { id = "8102059", name = "Tullnerfeld Bahnhof", lat = 48.295275, lon = 15.996529, p = 61, d = 23, gtfs = "Tullnerfeld Bahnhof" }
+"Pat:43:6003" = { id = "8102017", name = "Wr.Neustadt Anemonensee Bahnhst", lat = 47.811916, lon = 16.209753, p = 16, d = 23, gtfs = "Wiener Neustadt Anemonensee" }
+"Pat:43:7032" = { id = "8100192", name = "Bad Erlach Bahnhof", lat = 47.731876, lon = 16.211758, p = 16, d = 70, gtfs = "Bad Erlach Bahnhof" }
+"Pat:43:7033" = { id = "8100705", name = "Brunn/Pitten Bahnhst", lat = 47.722554, lon = 16.188431, p = 16, d = 9, gtfs = "Brunn an der Pitten Bahnhof" }
+"Pat:43:7034" = { id = "8100191", name = "Pitten Bahnhof", lat = 47.716954, lon = 16.179424, p = 16, d = 22, gtfs = "Pitten Bahnhof" }
+"Pat:43:7035" = { id = "8101611", name = "Sautern-Schiltern Bahnhst", lat = 47.707416, lon = 16.156241, p = 16, d = 38, gtfs = "Sautern-Schiltern Bahnhof" }
+"Pat:43:7036" = { id = "8100190", name = "Seebenstein Bahnhof", lat = 47.70347, lon = 16.143026, p = 16, d = 4, gtfs = "Seebenstein Bahnhof" }
+"Pat:43:7037" = { id = "8100851", name = "Gleißenfeld Bahnhst", lat = 47.677185, lon = 16.12921, p = 16, d = 15, gtfs = "Gleißenfeld Bahnhof" }
+"Pat:43:7038" = { id = "8101546", name = "Scheiblingkirchen-Warth Bahnhof", lat = 47.662182, lon = 16.131026, p = 16, d = 19, gtfs = "Scheiblingkirchen-Warth Bhf." }
+"Pat:43:7039" = { id = "8101347", name = "Petersbaumgarten Bahnhst", lat = 47.633758, lon = 16.132383, p = 16, d = 9, gtfs = "Petersbaumgarten Bahnhof" }
+"Pat:43:7040" = { id = "8100189", name = "Edlitz-Grimmenstein Bahnhof", lat = 47.616922, lon = 16.127853, p = 16, d = 87, gtfs = "Edlitz-Grimmenstein Bahnhof" }
+"Pat:43:7041" = { id = "8100188", name = "Aspang Markt Bahnhof", lat = 47.562348, lon = 16.099582, p = 16, d = 38, gtfs = "Aspang Markt Bahnhof" }
+"Pat:43:7042" = { id = "8100642", name = "Ausschlag-Zöbern Bahnhof", lat = 47.533061, lon = 16.083212, p = 16, d = 48, gtfs = "Ausschlag-Zöbern Bahnhof" }
+"Pat:43:7057" = { id = "8101104", name = "Lanzenkirchen Bahnhof", lat = 47.750672, lon = 16.242249, p = 16, d = 72, gtfs = "Lanzenkirchen Bahnhof" }
+"Pat:43:7091" = { id = "8100653", name = "Bad Fischau-Brunn/Schneebergbahn Bahnhof", lat = 47.826685, lon = 16.173239, p = 16, d = 26, gtfs = "Bad Fischau-Brunn Bahnhof" }
+"Pat:43:7092" = { id = "8100655", name = "Bad Fischau Bahnhst", lat = 47.83126, lon = 16.171342, p = 16, d = 4, gtfs = "Bad Fischau Bahnhof" }
+"Pat:43:7093" = { id = "8100784", name = "Feuerwerksanstalt Bahnhof", lat = 47.848834, lon = 16.189321, p = 16, d = 10, gtfs = "Feuerwerksanstalt Bahnhof" }
+"Pat:43:7094" = { id = "8101796", name = "Wöllersdorf/Piesting Bahnhof", lat = 47.861527, lon = 16.177994, p = 16, d = 49, gtfs = "Wöllersdorf Bahnhof" }
+"Pat:43:7096" = { id = "8100731", name = "Dreistetten Bahnhst", lat = 47.872404, lon = 16.110656, p = 16, d = 7, gtfs = "Dreistetten Bahnhof" }
+"Pat:43:7097" = { id = "8101316", name = "Oberpiesting Bahnhst", lat = 47.874472, lon = 16.097172, p = 16, d = 8, gtfs = "Oberpiesting Bahnhof" }
+"Pat:43:7098" = { id = "8101797", name = "Wopfing Bahnhst", lat = 47.873654, lon = 16.076803, p = 16, d = 22, gtfs = "Wopfing Bahnhof" }
+"Pat:43:7099" = { id = "8101745", name = "Waldegg/Piesting Bahnhof", lat = 47.868916, lon = 16.058474, p = 16, d = 15, gtfs = "Waldegg Bahnhof" }
+"Pat:43:7100" = { id = "8100579", name = "Oed/Piesting Bahnhst", lat = 47.878661, lon = 16.025897, p = 16, d = 84, gtfs = "Oed/Piesting Bahnhof" }
+"Pat:43:7101" = { id = "8101218", name = "Miesenbach b.Pernitz-Waidmannsfeld Bahnhst", lat = 47.877537, lon = 16.005527, p = 16, d = 19, gtfs = "Miesenbach-Waidmannsfeld Bhf." }
+"Pat:43:7102" = { id = "8101320", name = "Pernitz Ortmann Bahnhst", lat = 47.893457, lon = 15.97909, p = 16, d = 6, gtfs = "Pernitz Ortmann Bahnhof" }
+"Pat:43:7104" = { id = "8101369", name = "Pernitz-Muggendorf Bahnhof", lat = 47.895794, lon = 15.95775, p = 16, d = 6, gtfs = "Pernitz-Muggendorf Bahnhof" }
+"Pat:43:7105" = { id = "8100571", name = "Gutenstein Bahnhof", lat = 47.876944, lon = 15.910862, p = 16, d = 17, gtfs = "Gutenstein Bahnhof" }
+"Pat:43:7106" = { id = "8102058", name = "Wöllersdorf/Piesting Marchgraben Bahnhst", lat = 47.864844, lon = 16.165517, p = 16, d = 74, gtfs = "Wöllersdorf Marchgraben Bf" }
+"Pat:43:7108" = { id = "8101988", name = "Waldegg/Piesting-Dürnbach Bahnhst", lat = 47.867595, lon = 16.05148, p = 16, d = 3, gtfs = "Waldegg-Dürnbach Bahnhof" }
+"Pat:43:7109" = { id = "8101394", name = "Markt Piesting Bahnhof", lat = 47.874804, lon = 16.124868, p = 16, d = 17, gtfs = "Markt Piesting Bahnhof" }
+"Pat:43:7110" = { id = "8101974", name = "Markt Piesting Harzwerk Bahnhst", lat = 47.876485, lon = 16.136222, p = 16, d = 14, gtfs = "Piesting Harzwerk" }
+"Pat:43:7112" = { id = "8101781", name = "Winzendorf b.Wr.Neustadt Bahnhst", lat = 47.811062, lon = 16.111537, p = 16, d = 31, gtfs = "Winzendorf Bahnhof" }
+"Pat:43:7113" = { id = "8101711", name = "Urschendorf am Steinfeld Bahnhst", lat = 47.79738, lon = 16.089837, p = 16, d = 23, gtfs = "Urschendorf Bahnhof" }
+"Pat:43:7114" = { id = "8101769", name = "Willendorf am Steinfeld Bahnhof", lat = 47.789245, lon = 16.060613, p = 16, d = 21, gtfs = "Willendorf Bahnhof" }
+"Pat:43:7115" = { id = "8101696", name = "Unterhöflein Bahnhst", lat = 47.790656, lon = 16.033025, p = 16, d = 5, gtfs = "Unterhöflein Bahnhof" }
+"Pat:43:7116" = { id = "8100882", name = "Grünbach am Schneeberg Bahnhof", lat = 47.797452, lon = 15.99794, p = 16, d = 1, gtfs = "Grünbach/Schneeberg Bahnhof" }
+"Pat:43:7117" = { id = "8101837", name = "Grünbach am Schneeberg Schule/Kolonie Bahnhof", lat = 47.801371, lon = 15.981463, p = 16, d = 6, gtfs = "Grünbach/Schneeberg Schule" }
+"Pat:43:7118" = { id = "8100847", name = "Grünbach am Schneeberg Kohlenwerk Bahnhof", lat = 47.798162, lon = 15.971872, p = 16, d = 19, gtfs = "Grünbach/Schneeberg Kohlenwerk" }
+"Pat:43:7119" = { id = "8101973", name = "Rothengrub Bahnhst", lat = 47.7892, lon = 16.051076, p = 16, d = 10, gtfs = "Rothengrub Bahnhof" }
+"Pat:43:7120" = { id = "8101403", name = "Puchberg am Schneeberg Bahnhof", lat = 47.790431, lon = 15.910574, p = 16, d = 13, gtfs = "Puchberg am Schneeberg Bahnhof" }
+"Pat:43:7161" = { id = "8100273", name = "Hötzelsdorf-Geras Bahnhof", lat = 48.742344, lon = 15.670436, p = 16, d = 54, gtfs = "Hötzelsdorf-Geras Bahnhof" }
+"Pat:43:7162" = { id = "8100399", name = "Irnfritz Bahnhof", lat = 48.748466, lon = 15.539509, p = 16, d = 52, gtfs = "Irnfritz Bahnhof" }
+"Pat:43:7163" = { id = "8100200", name = "Göpfritz an der Wild Bahnhof", lat = 48.729732, lon = 15.394351, p = 16, d = 70, gtfs = "Göpfritz an der Wild Bahnhof" }
+"Pat:43:7164" = { id = "8100210", name = "Allentsteig Bahnhof", lat = 48.715844, lon = 15.329961, p = 16, d = 71, gtfs = "Allentsteig Bahnhof" }
+"Pat:43:7165" = { id = "8100199", name = "Schwarzenau im Waldviertel Bahnhof", lat = 48.746272, lon = 15.267207, p = 16, d = 121, gtfs = "Schwarzenau Bahnhof" }
+"Pat:43:7166" = { id = "8100335", name = "Vitis Bahnhof", lat = 48.753212, lon = 15.173872, p = 16, d = 109, gtfs = "Vitis Bahnhof" }
+"Pat:43:7167" = { id = "8100953", name = "Hirschbach b.Gmünd Bahnhof", lat = 48.749239, lon = 15.127191, p = 16, d = 78, gtfs = "Hirschbach bei Gmünd Bahnhof" }
+"Pat:43:7168" = { id = "8100531", name = "Pürbach-Schrems Bahnhof", lat = 48.763595, lon = 15.084439, p = 16, d = 45, gtfs = "Pürbach-Schrems Bahnhof" }
+"Pat:43:7211" = { id = "8101579", name = "St.Pantaleon NÖ Pyburg Bahnhst", lat = 48.227945, lon = 14.528726, p = 16, d = 19, gtfs = "St. Pantaleon Bahnhof" }
+"Pat:43:7222" = { id = "8101387", name = "Prinzersdorf Bahnhof", lat = 48.203081, lon = 15.526169, p = 16, d = 39, gtfs = "Prinzersdorf Bahnhof" }
+"Pat:43:7223" = { id = "8101203", name = "Markersdorf/Pielach Bahnhst", lat = 48.196447, lon = 15.497062, p = 16, d = 104, gtfs = "Markersdorf an der Pielach Bf." }
+"Pat:43:7224" = { id = "8100890", name = "Groß Sierning Bahnhst", lat = 48.187997, lon = 15.458183, p = 16, d = 109, gtfs = "Groß Sierning Bahnhof" }
+"Pat:43:7225" = { id = "8101169", name = "Loosdorf b.Melk Bahnhof", lat = 48.19482, lon = 15.404913, p = 16, d = 79, gtfs = "Loosdorf/Melk Bahnhof" }
+"Pat:43:7226" = { id = "8100005", name = "Melk Bahnhof", lat = 48.224655, lon = 15.330806, p = 16, d = 64, gtfs = "Melk Bahnhof" }
+"Pat:43:7227" = { id = "8100006", name = "Pöchlarn Bahnhof", lat = 48.208088, lon = 15.216364, p = 16, d = 59, gtfs = "Pöchlarn Bahnhof" }
+"Pat:43:7228" = { id = "8101083", name = "Krummnußbaum an der Westbahn Bahnhst", lat = 48.207971, lon = 15.158878, p = 16, d = 7, gtfs = "Krummnußbaum Bahnhof" }
+"Pat:43:7229" = { id = "8101468", name = "Säusenstein Bahnhof", lat = 48.193445, lon = 15.113618, p = 16, d = 38, gtfs = "Säusenstein Bahnhof" }
+"Pat:43:7230" = { id = "8100007", name = "Ybbs/Donau Bahnhof", lat = 48.158899, lon = 15.099711, p = 16, d = 22, gtfs = "Ybbs/Donau Bahnhof" }
+"Pat:43:7231" = { id = "8101293", name = "Neumarkt/Ybbs-Karlsbach Bahnhst", lat = 48.142143, lon = 15.050432, p = 16, d = 15, gtfs = "Neumarkt/Ybbs-Karlsbach Bf." }
+"Pat:43:7233" = { id = "8100669", name = "Blindenmarkt b.Amstetten Bahnhof", lat = 48.125073, lon = 14.979606, p = 16, d = 73, gtfs = "Blindenmarkt Bahnhof" }
+"Pat:43:7234" = { id = "8100012", name = "Amstetten NÖ Bahnhof", lat = 48.121531, lon = 14.878253, p = 4125, d = 110, gtfs = "Amstetten Bahnhof" }
+"Pat:43:7235" = { id = "8101228", name = "Mauer b.Amstetten-Öhling Bahnhst", lat = 48.09495, lon = 14.800892, p = 16, d = 53, gtfs = "Mauer-Öhling Bahnhof" }
+"Pat:43:7236" = { id = "8100600", name = "Aschbach NÖ Bahnhst", lat = 48.069609, lon = 14.756234, p = 16, d = 2, gtfs = "Aschbach Bahnhof" }
+"Pat:43:7237" = { id = "8101085", name = "Krenstetten-Biberbach Bahnhst", lat = 48.054975, lon = 14.698631, p = 16, d = 72, gtfs = "Krenstetten-Biberbach Bahnhof" }
+"Pat:43:7238" = { id = "8101597", name = "St.Peter-Seitenstetten Bahnhof", lat = 48.054858, lon = 14.645073, p = 16, d = 15, gtfs = "St. Peter-Seitenstetten Bhf." }
+"Pat:43:7239" = { id = "8101530", name = "St.Johann-Weistrach Bahnhst", lat = 48.075255, lon = 14.612918, p = 16, d = 32, gtfs = "St. Johann-Weistrach Bahnhof" }
+"Pat:43:7241" = { id = "8101514", name = "Stadt Haag Bahnhst", lat = 48.115697, lon = 14.566058, p = 16, d = 5, gtfs = "Stadt Haag Bahnhof" }
+"Pat:43:7242" = { id = "8100009", name = "St.Valentin Bahnhof", lat = 48.178909, lon = 14.522002, p = 61, d = 46, gtfs = "St. Valentin Bahnhof" }
+"Pat:43:7243" = { id = "8100759", name = "Ennsdorf Bahnhof", lat = 48.216502, lon = 14.496086, p = 48, d = 76, gtfs = "Ennsdorf Bahnhof" }
+"Pat:43:7370" = { id = "8101990", name = "St.Pölten Traisenpark Bahnhst", lat = 48.220341, lon = 15.641141, p = 32, d = 19, gtfs = "St. Pölten Traisenpark/P+R Nord" }
+"Pat:43:7371" = { id = "8101374", name = "St.Pölten Alpenbahnhof-Kaiserwald (Traisentalbahn)", lat = 48.198928, lon = 15.613867, p = 16, d = 50, gtfs = "St. Pölten Alpenbahnhof-Kaiserwald" }
+"Pat:43:7372" = { id = "8101845", name = "St.Pölten Porschestraße Bahnhst", lat = 48.183107, lon = 15.617068, p = 16, d = 13, gtfs = "St. Pölten Porschestraße" }
+"Pat:43:7376" = { id = "8101510", name = "St.Georgen am Steinfelde Bahnhst", lat = 48.137622, lon = 15.614425, p = 16, d = 58, gtfs = "St. Georgen am Steinfelde Bahnhof" }
+"Pat:43:7377" = { id = "8101768", name = "Wilhelmsburg/Traisen Bahnhof", lat = 48.111688, lon = 15.608447, p = 16, d = 57, gtfs = "Wilhelmsburg/Traisen Bahnhof" }
+"Pat:43:7378" = { id = "8101077", name = "Kreisbach Bahnhst", lat = 48.100451, lon = 15.607881, p = 16, d = 61, gtfs = "Kreisbach Bahnhof" }
+"Pat:43:7381" = { id = "8101643", name = "Traisen NÖ Bahnhof", lat = 48.056872, lon = 15.612312, p = 16, d = 92, gtfs = "Traisen Bahnhof" }
+"Pat:43:7382" = { id = "8101645", name = "Traisen NÖ Markt Bahnhst", lat = 48.039909, lon = 15.61171, p = 16, d = 19, gtfs = "Traisen Markt Bahnhof" }
+"Pat:43:7383" = { id = "8100576", name = "Marktl/Traisen Bahnhst", lat = 48.021535, lon = 15.600069, p = 16, d = 1, gtfs = "Marktl Bahnhof" }
+"Pat:43:7384" = { id = "8101153", name = "Lilienfeld Bahnhof", lat = 48.013786, lon = 15.593309, p = 16, d = 7, gtfs = "Lilienfeld Bahnhof" }
+"Pat:43:7385" = { id = "8101605", name = "Lilienfeld Krankenhaus Bahnhst", lat = 48.009022, lon = 15.578513, p = 16, d = 22, gtfs = "Lilienfeld Krankenhaus Bahnhof" }
+"Pat:43:7386" = { id = "8101586", name = "Schrambach Bahnhst", lat = 48.00202, lon = 15.57534, p = 16, d = 21, gtfs = "Schrambach Bahnhof" }
+"Pat:43:7399" = { id = "8101804", name = "Wiesenfeld/Gölsen-Schwarzenbach Bahnhst", lat = 48.051236, lon = 15.648665, p = 16, d = 22, gtfs = "Wiesenfeld-Schwarzenbach Bf." }
+"Pat:43:7400" = { id = "8101622", name = "St.Veit/Gölsen Bahnhst", lat = 48.045168, lon = 15.671578, p = 16, d = 3, gtfs = "St. Veit an der Gölsen Bahnhof" }
+"Pat:43:7401" = { id = "8101421", name = "Rainfeld/Gölsen-Kleinzell Bahnhst", lat = 48.050606, lon = 15.707229, p = 16, d = 49, gtfs = "Rainfeld-Kleinzell Bahnhof" }
+"Pat:43:7402" = { id = "8101439", name = "Rohrbach/Gölsen Bahnhst", lat = 48.047766, lon = 15.742845, p = 16, d = 42, gtfs = "Rohrbach an der Gölsen Bahnhof" }
+"Pat:43:7403" = { id = "8100957", name = "Hainfeld NÖ Bahnhof", lat = 48.039711, lon = 15.767718, p = 16, d = 35, gtfs = "Hainfeld Bahnhof" }
+"Pat:43:7435" = { id = "8100764", name = "Erlauf Bahnhst", lat = 48.183808, lon = 15.182097, p = 16, d = 4, gtfs = "Erlauf Bahnhof" }
+"Pat:43:7442" = { id = "8101414", name = "Petzenkirchen Bahnhst", lat = 48.143582, lon = 15.157125, p = 16, d = 3, gtfs = "Petzenkirchen Bahnhof" }
+"Pat:43:7443" = { id = "8100355", name = "Wieselburg Bahnhof", lat = 48.132219, lon = 15.142509, p = 16, d = 6, gtfs = "Wieselburg Bahnhof" }
+"Pat:43:7444" = { id = "8101225", name = "Mühling/Erlauf Bahnhst", lat = 48.111086, lon = 15.135578, p = 16, d = 2, gtfs = "Mühling Bahnhof" }
+"Pat:43:7445" = { id = "8101841", name = "Mühling/Erlauf-Plaika Bahnhst", lat = 48.103238, lon = 15.13272, p = 16, d = 11, gtfs = "Mühling-Plaika Bahnhof" }
+"Pat:43:7446" = { id = "8101480", name = "Schauboden Bahnhof", lat = 48.079003, lon = 15.136963, p = 16, d = 12, gtfs = "Schauboden Bahnhof" }
+"Pat:43:7447" = { id = "8101391", name = "Purgstall/Erlauf Bahnhof", lat = 48.059038, lon = 15.131102, p = 16, d = 3, gtfs = "Purgstall/Erlauf Bahnhof" }
+"Pat:43:7448" = { id = "8101851", name = "Sölling b.Purgstall Bahnhst", lat = 48.039001, lon = 15.140379, p = 16, d = 4, gtfs = "Sölling Bahnhof" }
+"Pat:43:7449" = { id = "8101463", name = "Saffen Bahnhst", lat = 48.021715, lon = 15.152514, p = 16, d = 1, gtfs = "Saffen Bahnhof" }
+"Pat:43:7450" = { id = "8100485", name = "Scheibbs Bahnhof", lat = 48.005265, lon = 15.16429, p = 16, d = 3, gtfs = "Scheibbs Bahnhof" }
+"Pat:43:7893" = { id = "8100836", name = "Greinsfurth Bahnhof", lat = 48.107957, lon = 14.83853, p = 16, d = 2, gtfs = "Greinsfurth Bahnhof" }
+"Pat:43:7894" = { id = "8101695", name = "Ulmerfeld-Hausmening Bahnhof", lat = 48.074904, lon = 14.815706, p = 20, d = 20, gtfs = "Ulmerfeld-Hausmening Bahnhof" }
+"Pat:43:7895" = { id = "8101081", name = "Kröllendorf Bahnhof", lat = 48.042552, lon = 14.789008, p = 16, d = 2, gtfs = "Kröllendorf Bahnhof" }
+"Pat:43:7896" = { id = "8100949", name = "Hilm-Kematen Bahnhof", lat = 48.022569, lon = 14.761915, p = 16, d = 3, gtfs = "Hilm-Kematen Bahnhof" }
+"Pat:43:7897" = { id = "8101449", name = "Rosenau am Sonntagberg Bahnhof", lat = 48.010604, lon = 14.741824, p = 16, d = 81, gtfs = "Rosenau am Sonntagberg Bahnhof" }
+"Pat:43:7898" = { id = "8101573", name = "Sonntagberg NÖ Bahnhof", lat = 47.992069, lon = 14.738246, p = 16, d = 5, gtfs = "Sonntagberg Bahnhof" }
+"Pat:43:7899" = { id = "8100713", name = "Böhlerwerk Bahnhof", lat = 47.983088, lon = 14.754058, p = 16, d = 12, gtfs = "Böhlerwerk an der Ybbs Bahnhof" }
+"Pat:43:7900" = { id = "8100445", name = "Waidhofen/Ybbs Bahnhof", lat = 47.968139, lon = 14.76534, p = 20, d = 0, gtfs = "Waidhofen/Ybbs Bahnhof" }
+"Pat:43:7901" = { id = "8101635", name = "Waidhofen/Ybbs Stadt Bahnhof", lat = 47.958395, lon = 14.767767, p = 16, d = 54, gtfs = "Waidhofen/Ybbs Stadt" }
+"Pat:43:8000" = { id = "8100244", name = "Furth b.Göttweig-Göttweig Bahnhst", lat = 48.373229, lon = 15.615809, p = 16, d = 30, gtfs = "Furth-Göttweig Bahnhof" }
+"Pat:43:8001" = { id = "8100813", name = "Furth b.Göttweig-Palt Bahnhst", lat = 48.3846, lon = 15.605705, p = 16, d = 29, gtfs = "Furth-Palt Bahnhof" }
+"Pat:43:8002" = { id = "8100834", name = "Getzersdorf ob der Traisen Bahnhst", lat = 48.324292, lon = 15.71541, p = 32, d = 6, gtfs = "Getzersdorf/Traisen Bahnhof" }
+"Pat:43:8003" = { id = "8100272", name = "Herzogenburg Bahnhof", lat = 48.27655, lon = 15.696361, p = 48, d = 31, gtfs = "Herzogenburg Bahnhof" }
+"Pat:43:8004" = { id = "8100996", name = "Herzogenburg Stadt Bahnhst", lat = 48.284461, lon = 15.700586, p = 32, d = 8, gtfs = "Herzogenburg Stadt" }
+"Pat:43:8005" = { id = "8100997", name = "Herzogenburg-Wielandsthal Bahnhof", lat = 48.285144, lon = 15.690572, p = 16, d = 18, gtfs = "Herzogenburg-Wielandsthal" }
+"Pat:43:8008" = { id = "8101319", name = "Oberradlberg Bahnhst", lat = 48.240629, lon = 15.670535, p = 32, d = 3, gtfs = "Oberradlberg Bahnhof" }
+"Pat:43:8009" = { id = "8101338", name = "Paudorf Bahnhst", lat = 48.351673, lon = 15.615818, p = 16, d = 60, gtfs = "Paudorf Bahnhof" }
+"Pat:43:8010" = { id = "8100311", name = "Statzendorf Bahnhof", lat = 48.309621, lon = 15.632026, p = 16, d = 2, gtfs = "Statzendorf Bahnhof" }
+"Pat:43:8011" = { id = "8101706", name = "Unterradlberg Bahnhst", lat = 48.255255, lon = 15.686842, p = 32, d = 14, gtfs = "Unterradlberg Bahnhof" }
+"Pat:43:8012" = { id = "8101717", name = "Viehofen Bahnhof", lat = 48.230651, lon = 15.652791, p = 32, d = 22, gtfs = "Viehofen Bahnhof" }
+"Pat:43:8022" = { id = "8100706", name = "Brunn/Schneebergbahn Bahnhst", lat = 47.825606, lon = 16.157247, p = 16, d = 39, gtfs = "Brunn an der Schneebergbahn Bhf." }
+"Pat:43:8059" = { id = "8101858", name = "Pernitz Wipfelhofstraße Bahnhst", lat = 47.895731, lon = 15.968087, p = 16, d = 16, gtfs = "Pernitz Wipfelhofstraße/Bf." }
+"Pat:43:8068" = { id = "8101349", name = "Pfennigbach b.Puchberg Bahnhst", lat = 47.795699, lon = 15.923869, p = 16, d = 4, gtfs = "Pfennigbach Bahnhof" }
+"Pat:43:8074" = { id = "8101975", name = "Pernitz Raimundviertel Bahnhst", lat = 47.89174, lon = 15.94565, p = 16, d = 43, gtfs = "Pernitz Raimundviertel Bahnhof" }
+"Pat:43:8240" = { id = "8100995", name = "Herzograd Bahnhst", lat = 48.161317, lon = 14.503385, p = 48, d = 49, gtfs = "Herzograd Bahnhof" }
+"Pat:43:8241" = { id = "8100747", name = "Ernsthofen/Enns Bahnhof", lat = 48.126565, lon = 14.479932, p = 48, d = 63, gtfs = "Ernsthofen Bahnhof" }
+"Pat:43:8242" = { id = "8100716", name = "Dorf/Enns Bahnhst", lat = 48.09148, lon = 14.473118, p = 32, d = 35, gtfs = "Dorf an der Enns Bahnhof" }
+"Pat:43:8243" = { id = "8101419", name = "Ramingdorf-Haidershofen Bahnhof", lat = 48.06774, lon = 14.459545, p = 32, d = 63, gtfs = "Ramingdorf-Haidershofen Bf." }
+"Pat:43:8757" = { id = "8101489", name = "St.Egyden am Steinfeld Bahnhst", lat = 47.761028, lon = 16.146766, p = 48, d = 22, gtfs = "St. Egyden/Stfd Bahnhof" }
+"Pat:43:8758" = { id = "8101277", name = "Neunkirchen NÖ Bahnhof", lat = 47.731615, lon = 16.0851, p = 48, d = 60, gtfs = "Neunkirchen Bahnhof" }
+"Pat:43:8759" = { id = "8101661", name = "Ternitz Bahnhof", lat = 47.713529, lon = 16.033205, p = 48, d = 25, gtfs = "Ternitz Bahnhof" }
+"Pat:43:8760" = { id = "8101390", name = "Pottschach Bahnhof", lat = 47.697132, lon = 16.006264, p = 48, d = 2, gtfs = "Pottschach Bahnhof" }
+"Pat:43:8761" = { id = "8100026", name = "Gloggnitz Bahnhof", lat = 47.677662, lon = 15.946261, p = 48, d = 11, gtfs = "Gloggnitz Bahnhof" }
+"Pat:43:8762" = { id = "8100587", name = "Schlöglmühl Bahnhst", lat = 47.682525, lon = 15.914287, p = 48, d = 17, gtfs = "Schlöglmühl Bahnhof" }
+"Pat:43:8763" = { id = "8100027", name = "Payerbach-Reichenau an der Rax Bahnhof", lat = 47.696054, lon = 15.86321, p = 4144, d = 36, gtfs = "Payerbach-Reichenau Bahnhof" }
+"Pat:43:8765" = { id = "8100736", name = "Eichberg am Semmering Bahnhst", lat = 47.672187, lon = 15.911051, p = 16, d = 17, gtfs = "Eichberg am Semmering Bahnhof" }
+"Pat:43:8766" = { id = "8101050", name = "Klamm am Semmering-Schottwien Bahnhof", lat = 47.665284, lon = 15.873584, p = 16, d = 28, gtfs = "Klamm-Schottwien Bahnhof" }
+"Pat:43:8767" = { id = "8100692", name = "Breitenstein am Semmering Bahnhof", lat = 47.660025, lon = 15.820457, p = 16, d = 42, gtfs = "Breitenstein Bahnhof" }
+"Pat:43:8768" = { id = "8101795", name = "Wolfsbergkogel Bahnhst", lat = 47.649615, lon = 15.8271, p = 16, d = 14, gtfs = "Wolfsbergkogel Bahnhof" }
+"Pat:43:8769" = { id = "8100028", name = "Semmering Bahnhof", lat = 47.639601, lon = 15.830849, p = 4117, d = 64, gtfs = "Semmering Bahnhof" }
+"Pat:44:40156" = { id = "8100023", name = "Neumarkt im Hausruckkreis-Kallham Bahnhof", lat = 48.271489, lon = 13.724856, p = 16, d = 21, gtfs = "Neumarkt-Kallham Bahnhof" }
+"Pat:44:40179" = { id = "8102009", name = "Lengau Bahnhst", lat = 48.008465, lon = 13.219806, p = 16, d = 35, gtfs = "Lengau Bahnhst" }
+"Pat:44:40222" = { id = "8102016", name = "Perg Schulzentrum Bahnhst", lat = 48.242463, lon = 14.640731, p = 16, d = 8, gtfs = "Perg Schulzentrum Bahnhst" }
+"Pat:44:41027" = { id = "8101358", name = "Linz/Donau Pichling Bahnhst", lat = 48.24285, lon = 14.379298, p = 32, d = 13, gtfs = "Linz/Donau Pichling Bahnhst" }
+"Pat:44:41060" = { id = "8100807", name = "Linz/Donau Franckstraße Bahnhst", lat = 48.28589, lon = 14.323691, p = 48, d = 23, gtfs = "Linz/Donau Franckstraße Bahnhof" }
+"Pat:44:41072" = { id = "8101165", name = "Leonding (Westbahn) Bahnhst", lat = 48.274033, lon = 14.253952, p = 48, d = 22, gtfs = "Leonding Westbahn Bahnhof" }
+"Pat:44:41121" = { id = "8101127", name = "Linz/Donau Ebelsberg Bahnhst", lat = 48.251974, lon = 14.347107, p = 48, d = 28, gtfs = "Linz/Donau Ebelsberg Bahnhof" }
+"Pat:44:41164" = { id = "8100013", name = "Linz/Donau Hbf", lat = 48.290241, lon = 14.29186, p = 4157, d = 10, gtfs = "Linz/Donau Hauptbahnhof" }
+"Pat:44:41224" = { id = "8101193", name = "Linz/Donau Oed Bahnhof", lat = 48.264675, lon = 14.276542, p = 48, d = 65, gtfs = "Linz/Donau Oed Bahnhst" }
+"Pat:44:41272" = { id = "8100396", name = "Linz/Donau Urfahr Bahnhof", lat = 48.311977, lon = 14.279598, p = 16, d = 26, gtfs = "Linz/Donau Urfahr Bahnhof" }
+"Pat:44:41298" = { id = "8101195", name = "Linz/Donau Wegscheid Bahnhof", lat = 48.249591, lon = 14.275553, p = 32, d = 48, gtfs = "Linz/Donau Wegscheid Bahnhof" }
+"Pat:44:41500" = { id = "8101389", name = "Pasching b.Linz Bahnhst", lat = 48.257178, lon = 14.208799, p = 48, d = 40, gtfs = "Pasching b.Linz Bahnhst" }
+"Pat:44:41501" = { id = "8100974", name = "Hörsching Bahnhst", lat = 48.245528, lon = 14.185949, p = 48, d = 61, gtfs = "Hörsching Bahnhst" }
+"Pat:44:41570" = { id = "8101308", name = "Oftering Bahnhst", lat = 48.227712, lon = 14.15134, p = 48, d = 104, gtfs = "Oftering Bahnhst" }
+"Pat:44:41600" = { id = "8101690", name = "Traun OÖ Bahnhof", lat = 48.225437, lon = 14.253683, p = 60, d = 102, gtfs = "Traun OÖ Bahnhof" }
+"Pat:44:41601" = { id = "8101560", name = "Traun OÖ St.Martin Bahnhst", lat = 48.236413, lon = 14.264631, p = 32, d = 23, gtfs = "Traun OÖ St.Martin Bahnhst" }
+"Pat:44:41602" = { id = "8100626", name = "Ansfelden Bahnhof", lat = 48.209023, lon = 14.261108, p = 32, d = 32, gtfs = "Ansfelden Bahnhof" }
+"Pat:44:41740" = { id = "8101265", name = "Nettingsdorf Bahnhof", lat = 48.189642, lon = 14.258483, p = 32, d = 41, gtfs = "Nettingsdorf Bahnhof" }
+"Pat:44:41760" = { id = "8101283", name = "Nöstlbach OÖ-St.Marien Bahnhst", lat = 48.163987, lon = 14.246536, p = 32, d = 67, gtfs = "Nöstlbach-St.Marien Bahnhst" }
+"Pat:44:41761" = { id = "8101255", name = "Neuhofen/Krems Bahnhof", lat = 48.135959, lon = 14.238509, p = 60, d = 37, gtfs = "Neuhofen/Krems Bahnhof" }
+"Pat:44:41770" = { id = "8101036", name = "Kematen/Krems-Piberbach Bahnhof", lat = 48.113036, lon = 14.203136, p = 48, d = 76, gtfs = "Kematen/Krems-Piberbach Bahnhof" }
+"Pat:44:41900" = { id = "8102046", name = "Asten b.Linz Fisching Bahnhst", lat = 48.227253, lon = 14.427696, p = 32, d = 32, gtfs = "Asten-Fisching Bahnhst" }
+"Pat:44:41910" = { id = "8100011", name = "Enns Bahnhof", lat = 48.221195, lon = 14.466673, p = 48, d = 29, gtfs = "Enns Bahnhof" }
+"Pat:44:42107" = { id = "8100014", name = "Wels Hbf", lat = 48.165947, lon = 14.026507, p = 4157, d = 23, gtfs = "Wels Hauptbahnhof" }
+"Pat:44:42146" = { id = "8101754", name = "Wels Lokalbahn Bahnhof", lat = 48.156463, lon = 14.017365, p = 16, d = 18, gtfs = "Wels Lokalbahn Bahnhof" }
+"Pat:44:42268" = { id = "8101946", name = "Wels Messe Bahnhst", lat = 48.152445, lon = 14.01963, p = 16, d = 2, gtfs = "Wels Messe Bahnhof" }
+"Pat:44:42300" = { id = "8101204", name = "Marchtrenk Bahnhof", lat = 48.20167, lon = 14.101082, p = 48, d = 224, gtfs = "Marchtrenk Bahnhof" }
+"Pat:44:42390" = { id = "8100169", name = "Kremsmünster Bahnhof", lat = 48.052656, lon = 14.139412, p = 60, d = 72, gtfs = "Kremsmünster Bahnhof" }
+"Pat:44:42410" = { id = "8101852", name = "Schauersberg Bahnhst", lat = 48.135932, lon = 14.008673, p = 16, d = 2, gtfs = "Schauersberg Bahnhst" }
+"Pat:44:42411" = { id = "8101521", name = "Steinhaus b.Wels Bahnhst", lat = 48.119302, lon = 14.01794, p = 16, d = 11, gtfs = "Steinhaus b.Wels Bahnhst" }
+"Pat:44:42412" = { id = "8101299", name = "Oberhart b.Steinhaus Bahnhof", lat = 48.103984, lon = 14.039182, p = 16, d = 4, gtfs = "Oberhart b.Steinhaus Bahnhst" }
+"Pat:44:42430" = { id = "8101700", name = "Unterhart b.Sattledt Bahnhst", lat = 48.089107, lon = 14.042643, p = 16, d = 1, gtfs = "Unterhart b.Sattledt Bahnhst" }
+"Pat:44:42431" = { id = "8100416", name = "Sattledt Bahnhof", lat = 48.074104, lon = 14.057924, p = 16, d = 7, gtfs = "Sattledt Bahnhof" }
+"Pat:44:42451" = { id = "8100570", name = "Großendorf Bahnhst", lat = 48.038767, lon = 14.055722, p = 16, d = 4, gtfs = "Großendorf Bahnhst" }
+"Pat:44:42452" = { id = "8101778", name = "Ried im Traunkreis Wiesmühle Bahnhst", lat = 48.021859, lon = 14.043713, p = 16, d = 9, gtfs = "Ried im Traunkreis Wiesmühle Bahnhst" }
+"Pat:44:42453" = { id = "8101723", name = "Voitsdorf Bahnhst", lat = 48.012375, lon = 14.04703, p = 16, d = 13, gtfs = "Voitsdorf Bahnhst" }
+"Pat:44:42750" = { id = "8100845", name = "Gunskirchen Bahnhof", lat = 48.132687, lon = 13.946198, p = 16, d = 83, gtfs = "Gunskirchen Bahnhof" }
+"Pat:44:42790" = { id = "8100015", name = "Lambach OÖ Bahnhof", lat = 48.094033, lon = 13.888397, p = 16, d = 20, gtfs = "Lambach OÖ Bahnhof" }
+"Pat:44:42791" = { id = "8101223", name = "Lambach OÖ Markt Bahnhst", lat = 48.094339, lon = 13.870113, p = 16, d = 6, gtfs = "Lambach OÖ Markt Bahnhst" }
+"Pat:44:42850" = { id = "8101278", name = "Neukirchen b.Lambach Bahnhst", lat = 48.095157, lon = 13.832727, p = 16, d = 30, gtfs = "Neukirchen b.Lambach Bahnhst" }
+"Pat:44:42940" = { id = "8100265", name = "Haiding Bahnhof", lat = 48.209482, lon = 13.975062, p = 16, d = 55, gtfs = "Haiding Bahnhof" }
+"Pat:44:43005" = { id = "8100010", name = "Steyr Bahnhof", lat = 48.038426, lon = 14.423453, p = 48, d = 13, gtfs = "Steyr Bahnhof" }
+"Pat:44:43133" = { id = "8101609", name = "Steyr Münichholz Bahnhst", lat = 48.047838, lon = 14.44936, p = 48, d = 42, gtfs = "Steyr-Münichholz Bahnhst" }
+"Pat:44:43450" = { id = "8100167", name = "Rohr im Kremstal-Bad Hall Bahnhof", lat = 48.069708, lon = 14.191558, p = 60, d = 8, gtfs = "Rohr-Bad Hall Bahnhof" }
+"Pat:44:43500" = { id = "8100170", name = "Kirchdorf/Krems Bahnhof", lat = 47.906536, lon = 14.116157, p = 60, d = 47, gtfs = "Kirchdorf/Krems Bahnhof" }
+"Pat:44:43510" = { id = "8100412", name = "Micheldorf in OÖ Bahnhof", lat = 47.882921, lon = 14.126063, p = 60, d = 28, gtfs = "Micheldorf in OÖ Bahnhof" }
+"Pat:44:43520" = { id = "8101540", name = "Schlierbach/Krems Bahnhst", lat = 47.937279, lon = 14.111437, p = 48, d = 74, gtfs = "Schlierbach/Krems Bahnhof" }
+"Pat:44:43530" = { id = "8101292", name = "Nußbach Bahnhst", lat = 47.971897, lon = 14.123276, p = 48, d = 20, gtfs = "Nußbach Bahnhst" }
+"Pat:44:43540" = { id = "8101742", name = "Wartberg/Krems Bahnhof", lat = 47.98903, lon = 14.12155, p = 52, d = 9, gtfs = "Wartberg/Krems Bahnhof" }
+"Pat:44:43589" = { id = "8100171", name = "Klaus an der Pyhrnbahn Bahnhof", lat = 47.832968, lon = 14.155089, p = 28, d = 34, gtfs = "Klaus an der Pyhrnbahn Bahnhof" }
+"Pat:44:43620" = { id = "8100172", name = "Hinterstoder Bahnhof", lat = 47.774646, lon = 14.178991, p = 28, d = 11, gtfs = "Hinterstoder Bahnhof" }
+"Pat:44:43640" = { id = "8101450", name = "Roßleithen Bahnhst", lat = 47.724343, lon = 14.309011, p = 28, d = 26, gtfs = "Roßleithen Bahnhst" }
+"Pat:44:43649" = { id = "8100517", name = "Windischgarsten Bahnhof", lat = 47.715363, lon = 14.326918, p = 28, d = 80, gtfs = "Windischgarsten Bahnhof" }
+"Pat:44:43660" = { id = "8100306", name = "Spital am Pyhrn Bahnhof", lat = 47.67332, lon = 14.347485, p = 28, d = 54, gtfs = "Spital am Pyhrn Bahnhof" }
+"Pat:44:43790" = { id = "8101612", name = "Steinbachbrücke Bahnhst", lat = 47.932317, lon = 13.993067, p = 16, d = 24, gtfs = "Steinbachbrücke Bahnhst" }
+"Pat:44:43835" = { id = "8100521", name = "Pettenbach OÖ Bahnhof", lat = 47.962161, lon = 14.011468, p = 16, d = 16, gtfs = "Pettenbach OÖ Bahnhof" }
+"Pat:44:43860" = { id = "8101857", name = "Wilfling Bahnhst", lat = 47.980526, lon = 14.029069, p = 16, d = 9, gtfs = "Wilfling Bahnhst" }
+"Pat:44:43900" = { id = "8100248", name = "Garsten Bahnhof", lat = 48.02372, lon = 14.408306, p = 48, d = 85, gtfs = "Garsten Bahnhof" }
+"Pat:44:43934" = { id = "8101118", name = "Lahrndorf b.Garsten Bahnhst", lat = 47.994891, lon = 14.3743, p = 16, d = 17, gtfs = "Lahrndorf b.Garsten Bahnhof" }
+"Pat:44:43940" = { id = "8100733", name = "Dürnbach/Enns Bahnhst", lat = 47.978369, lon = 14.353831, p = 16, d = 34, gtfs = "Dürnbach/Enns Bahnhst" }
+"Pat:44:43941" = { id = "8100322", name = "Ternberg Bahnhst", lat = 47.94919, lon = 14.354982, p = 16, d = 54, gtfs = "Ternberg Bahnhof" }
+"Pat:44:43950" = { id = "8101686", name = "Trattenbach/Enns Bahnhst", lat = 47.930259, lon = 14.354748, p = 16, d = 32, gtfs = "Trattenbach/Enns Bahnhst" }
+"Pat:44:43960" = { id = "8100463", name = "Losenstein Bahnhst", lat = 47.924182, lon = 14.430833, p = 16, d = 29, gtfs = "Losenstein Bahnhst" }
+"Pat:44:43981" = { id = "8101431", name = "Reichraming Bahnhst", lat = 47.891488, lon = 14.472076, p = 16, d = 46, gtfs = "Reichraming Bahnhof" }
+"Pat:44:44000" = { id = "8101402", name = "Puchenau Bahnhst", lat = 48.311635, lon = 14.238563, p = 16, d = 3, gtfs = "Puchenau Bahnhst" }
+"Pat:44:44001" = { id = "8101409", name = "Puchenau West Bahnhst", lat = 48.312507, lon = 14.222436, p = 16, d = 41, gtfs = "Puchenau West Bahnhst" }
+"Pat:44:44002" = { id = "8100734", name = "Dürnberg b.Ottensheim Bahnhst", lat = 48.331438, lon = 14.192484, p = 16, d = 10, gtfs = "Dürnberg b.Ottensheim Bahnhof" }
+"Pat:44:44003" = { id = "8100513", name = "Ottensheim Bahnhof", lat = 48.337785, lon = 14.177112, p = 16, d = 49, gtfs = "Ottensheim Bahnhof" }
+"Pat:44:44009" = { id = "8101955", name = "Achleitnersiedlung Bahnhst", lat = 48.321568, lon = 14.205581, p = 16, d = 3, gtfs = "Achleitnersiedlung Bahnhst" }
+"Pat:44:44020" = { id = "8101747", name = "Walding b.Linz Bahnhst", lat = 48.348428, lon = 14.153561, p = 16, d = 26, gtfs = "Walding b.Linz Bahnhst" }
+"Pat:44:44040" = { id = "8100476", name = "Rottenegg OÖ Bahnhof", lat = 48.360051, lon = 14.137686, p = 16, d = 28, gtfs = "Rottenegg Bahnhof" }
+"Pat:44:44050" = { id = "8101110", name = "Lacken im Mühlkreis Bahnhst", lat = 48.385859, lon = 14.091409, p = 16, d = 22, gtfs = "Lacken im Mühlkreis Bahnhst" }
+"Pat:44:44052" = { id = "8100878", name = "Gerling OÖ Bahnhst", lat = 48.397293, lon = 14.077081, p = 16, d = 20, gtfs = "Gerling OÖ Bahnhst" }
+"Pat:44:44350" = { id = "8101614", name = "Steyregg Bahnhof", lat = 48.28447, lon = 14.36229, p = 32, d = 3, gtfs = "Steyregg Bahnhof" }
+"Pat:44:44351" = { id = "8101405", name = "Pulgarn Bahnhst", lat = 48.278339, lon = 14.393573, p = 32, d = 73, gtfs = "Pulgarn Bahnhst" }
+"Pat:44:44360" = { id = "8101501", name = "St.Georgen/Gusen Bahnhof", lat = 48.265206, lon = 14.440748, p = 32, d = 17, gtfs = "St.Georgen/Gusen Bahnhof" }
+"Pat:44:44361" = { id = "8101502", name = "St.Georgen/Gusen Ort Bahnhst", lat = 48.270896, lon = 14.450879, p = 48, d = 76, gtfs = "St.Georgen/Gusen Ort Bahnhst" }
+"Pat:44:44410" = { id = "8100413", name = "Mauthausen OÖ Bahnhst", lat = 48.242877, lon = 14.532717, p = 16, d = 59, gtfs = "Mauthausen OÖ Bahnhof" }
+"Pat:44:44450" = { id = "8101185", name = "Lungitz/Gusen Bahnhof", lat = 48.288659, lon = 14.478341, p = 48, d = 19, gtfs = "Lungitz/Gusen Bahnhof" }
+"Pat:44:44470" = { id = "8101029", name = "Katsdorf Bahnhst", lat = 48.312201, lon = 14.490602, p = 32, d = 11, gtfs = "Katsdorf Bahnhst" }
+"Pat:44:44471" = { id = "8100246", name = "Gaisbach OÖ-Wartberg Bahnhof", lat = 48.330297, lon = 14.5061, p = 32, d = 14, gtfs = "Gaisbach-Wartberg Bahnhof" }
+"Pat:44:44472" = { id = "8100585", name = "Wartberg ob der Aist Schloss Haus Bahnhst", lat = 48.341533, lon = 14.505497, p = 32, d = 14, gtfs = "Schloss Haus Bahnhst" }
+"Pat:44:44500" = { id = "8100580", name = "Perg Bahnhof", lat = 48.247704, lon = 14.626942, p = 16, d = 20, gtfs = "Perg Bahnhof" }
+"Pat:44:44550" = { id = "8100609", name = "Aisthofen Bahnhst", lat = 48.257448, lon = 14.590185, p = 16, d = 2, gtfs = "Aisthofen Bahnhst" }
+"Pat:44:44551" = { id = "8101601", name = "Schwertberg Bahnhof", lat = 48.268649, lon = 14.579578, p = 16, d = 10, gtfs = "Schwertberg Bahnhof" }
+"Pat:44:44850" = { id = "8100622", name = "Arbing Bahnhof", lat = 48.227145, lon = 14.700797, p = 16, d = 4, gtfs = "Arbing Bahnhof" }
+"Pat:44:44870" = { id = "8100727", name = "Dornach b.Grein Bahnhst", lat = 48.191836, lon = 14.820129, p = 16, d = 12, gtfs = "Dornach b.Grein Bahnhst" }
+"Pat:44:44880" = { id = "8100826", name = "Grein-Bad Kreuzen Bahnhof", lat = 48.220916, lon = 14.85098, p = 16, d = 45, gtfs = "Grein-Bad Kreuzen Bahnhof" }
+"Pat:44:44881" = { id = "8100858", name = "Grein Stadt Bahnhof", lat = 48.229986, lon = 14.855753, p = 16, d = 2, gtfs = "Grein Stadt Bahnhof" }
+"Pat:44:44900" = { id = "8100503", name = "St.Nikola-Struden Bahnhst", lat = 48.233501, lon = 14.909104, p = 16, d = 7, gtfs = "St.Nikola-Struden Bahnhst" }
+"Pat:44:44960" = { id = "8100656", name = "Baumgartenberg Bahnhst", lat = 48.208709, lon = 14.748035, p = 16, d = 3, gtfs = "Baumgartenberg Bahnhst" }
+"Pat:44:44961" = { id = "8101469", name = "Saxen Bahnhof", lat = 48.205248, lon = 14.790455, p = 16, d = 23, gtfs = "Saxen Bahnhof" }
+"Pat:44:45000" = { id = "8100239", name = "Freistadt Bahnhof", lat = 48.495222, lon = 14.481406, p = 20, d = 11, gtfs = "Freistadt Bahnhof" }
+"Pat:44:45090" = { id = "8100528", name = "Pregarten Bahnhof", lat = 48.355952, lon = 14.522316, p = 52, d = 20, gtfs = "Pregarten Bahnhof" }
+"Pat:44:45260" = { id = "8100316", name = "Summerau Bahnhof", lat = 48.557346, lon = 14.448856, p = 20, d = 13, gtfs = "Summerau Bahnhof" }
+"Pat:44:45450" = { id = "8100536", name = "Kefermarkt Bahnhof", lat = 48.436558, lon = 14.538353, p = 20, d = 36, gtfs = "Kefermarkt Bahnhof" }
+"Pat:44:45500" = { id = "8100474", name = "Rohrbach-Berg Bahnhof", lat = 48.581941, lon = 13.987072, p = 16, d = 34, gtfs = "Rohrbach-Berg Bahnhof" }
+"Pat:44:45530" = { id = "8101306", name = "Oepping Bahnhst", lat = 48.599784, lon = 13.960535, p = 16, d = 11, gtfs = "Oepping Bahnhst" }
+"Pat:44:45550" = { id = "8100976", name = "Haslach/Mühl Bahnhof", lat = 48.554452, lon = 14.03093, p = 16, d = 77, gtfs = "Haslach/Mühl Bahnhst" }
+"Pat:44:45680" = { id = "8100999", name = "Iglmühle Bahnhst", lat = 48.520544, lon = 14.036413, p = 16, d = 6, gtfs = "Iglmühle Bahnhst" }
+"Pat:44:45750" = { id = "8100430", name = "Neufelden Bahnhof", lat = 48.483868, lon = 14.005113, p = 16, d = 42, gtfs = "Neufelden Bahnhof" }
+"Pat:44:45765" = { id = "8101106", name = "Kleinzell im Mühlkreis Bahnhst", lat = 48.458168, lon = 14.032045, p = 16, d = 6, gtfs = "Kleinzell im Mühlkreis Bahnhst" }
+"Pat:44:45780" = { id = "8101282", name = "Neuhaus/Donau-Niederwaldkirchen Bahnhst", lat = 48.44197, lon = 14.051515, p = 16, d = 49, gtfs = "Neuhaus-Niederwaldkirchen Bahnhst" }
+"Pat:44:46009" = { id = "8101361", name = "Pinsdorf Bahnhst", lat = 47.933423, lon = 13.765847, p = 16, d = 36, gtfs = "Pinsdorf Bahnhst" }
+"Pat:44:46010" = { id = "8100151", name = "Gmunden Bahnhof", lat = 47.925791, lon = 13.783628, p = 20, d = 72, gtfs = "Gmunden Bahnhof" }
+"Pat:44:46011" = { id = "8100152", name = "Altmünster/Traunsee Bahnhof", lat = 47.891228, lon = 13.758314, p = 20, d = 3, gtfs = "Altmünster/Traunsee Bahnhof" }
+"Pat:44:46320" = { id = "8101716", name = "Viechtwang Bahnhst", lat = 47.915669, lon = 13.971376, p = 16, d = 3, gtfs = "Viechtwang Bahnhst" }
+"Pat:44:46321" = { id = "8100420", name = "Scharnstein-Mühldorf Bahnhof", lat = 47.900603, lon = 13.958926, p = 16, d = 34, gtfs = "Scharnstein-Mühldorf Bahnhof" }
+"Pat:44:46322" = { id = "8101071", name = "Kothmühle Bahnhst", lat = 47.886751, lon = 13.940687, p = 16, d = 12, gtfs = "Kothmühle Bahnhst" }
+"Pat:44:46323" = { id = "8101684", name = "Traxenbichl Bahnhst", lat = 47.87698, lon = 13.938413, p = 16, d = 14, gtfs = "Traxenbichl Bahnhst" }
+"Pat:44:46340" = { id = "8100261", name = "Grünau im Almtal Bahnhof", lat = 47.853671, lon = 13.951609, p = 16, d = 1, gtfs = "Grünau im Almtal Bahnhof" }
+"Pat:44:46406" = { id = "8100153", name = "Traunkirchen Bahnhof", lat = 47.855199, lon = 13.777137, p = 16, d = 45, gtfs = "Traunkirchen Bahnhof" }
+"Pat:44:46430" = { id = "8101674", name = "Traunkirchen Ort Bahnhof", lat = 47.842776, lon = 13.787035, p = 16, d = 6, gtfs = "Traunkirchen Ort Bahnhof" }
+"Pat:44:46440" = { id = "8100766", name = "Ebensee/Traunsee Landungsplatz Bahnhst", lat = 47.812734, lon = 13.774513, p = 16, d = 64, gtfs = "Ebensee Landungsplatz Bahnhst" }
+"Pat:44:46441" = { id = "8100155", name = "Ebensee/Traunsee Bahnhst", lat = 47.804347, lon = 13.771465, p = 20, d = 9, gtfs = "Ebensee Bahnhof" }
+"Pat:44:46470" = { id = "8101534", name = "Ebensee/Traunsee Steinkogel Bahnhst", lat = 47.786998, lon = 13.740848, p = 16, d = 44, gtfs = "Steinkogel Bahnhst" }
+"Pat:44:46500" = { id = "8100157", name = "Bad Ischl Bahnhof", lat = 47.712135, lon = 13.627485, p = 20, d = 6, gtfs = "Bad Ischl Bahnhof" }
+"Pat:44:46534" = { id = "8101120", name = "Lauffen b.Bad Ischl Bahnhst", lat = 47.674381, lon = 13.616374, p = 16, d = 62, gtfs = "Lauffen b.Bad Ischl Bahnhst" }
+"Pat:44:46570" = { id = "8100863", name = "Bad Goisern Jodschwefelbad Bahnhst", lat = 47.658344, lon = 13.608796, p = 16, d = 24, gtfs = "Bad Goisern Jodschwefelbad Bahnhst" }
+"Pat:44:46571" = { id = "8100160", name = "Bad Goisern Bahnhst", lat = 47.639673, lon = 13.613102, p = 20, d = 37, gtfs = "Bad Goisern Bahnhof" }
+"Pat:44:46580" = { id = "8100162", name = "Steeg/Hallstätter See-Gosau Bahnhof", lat = 47.616158, lon = 13.632025, p = 20, d = 39, gtfs = "Steeg-Gosau Bahnhof" }
+"Pat:44:46630" = { id = "8101322", name = "Obersee OÖ Bahnhst", lat = 47.591509, lon = 13.665851, p = 16, d = 3, gtfs = "Obersee OÖ Bahnhst" }
+"Pat:44:46631" = { id = "8100926", name = "Hallstatt Bahnhst", lat = 47.567607, lon = 13.662022, p = 20, d = 6, gtfs = "Hallstatt Bahnhst" }
+"Pat:44:46640" = { id = "8100163", name = "Obertraun Dachsteinhöhlen Bahnhof", lat = 47.557629, lon = 13.683542, p = 20, d = 3, gtfs = "Obertraun-Dachsteinhöhlen Bahnhof" }
+"Pat:44:46641" = { id = "8101311", name = "Obertraun Koppenbrüllerhöhle Bahnhst", lat = 47.563759, lon = 13.719921, p = 16, d = 54, gtfs = "Obertraun Koppenbrüllerhöhle Bahnhst" }
+"Pat:44:46790" = { id = "8100639", name = "Aurachkirchen Bahnhof", lat = 47.968139, lon = 13.745379, p = 16, d = 44, gtfs = "Aurachkirchen Bahnhof" }
+"Pat:44:46900" = { id = "8101313", name = "Oberland OÖ Bahnhst", lat = 47.902212, lon = 14.744637, p = 16, d = 25, gtfs = "Oberland OÖ Bahnhof" }
+"Pat:44:46910" = { id = "8100876", name = "Großraming Bahnhst", lat = 47.882193, lon = 14.551261, p = 16, d = 28, gtfs = "Großraming Bahnhof" }
+"Pat:44:46930" = { id = "8101099", name = "Küpfern Bahnhst", lat = 47.858435, lon = 14.610698, p = 16, d = 33, gtfs = "Küpfern Bahnhst" }
+"Pat:44:46940" = { id = "8101079", name = "Kastenreith Bahnhst", lat = 47.850812, lon = 14.637935, p = 16, d = 37, gtfs = "Kastenreith Bahnhst" }
+"Pat:44:46942" = { id = "8100511", name = "Weyer/Enns Bahnhof", lat = 47.861851, lon = 14.667375, p = 20, d = 40, gtfs = "Weyer/Enns Bahnhof" }
+"Pat:44:46950" = { id = "8100156", name = "Kleinreifling Bahnhof", lat = 47.82415, lon = 14.642205, p = 20, d = 49, gtfs = "Kleinreifling Bahnhof" }
+"Pat:44:46960" = { id = "8100154", name = "Gaflenz Bahnhst", lat = 47.89378, lon = 14.723657, p = 16, d = 37, gtfs = "Gaflenz Bahnhst" }
+"Pat:44:47000" = { id = "8100507", name = "Vöcklabruck Bahnhof", lat = 48.010083, lon = 13.663783, p = 4157, d = 23, gtfs = "Vöcklabruck Bahnhof" }
+"Pat:44:47060" = { id = "8101324", name = "Oberthalheim-Timelkam Bahnhst", lat = 48.001831, lon = 13.623754, p = 16, d = 22, gtfs = "Oberthalheim-Timelkam Bahnhst" }
+"Pat:44:47120" = { id = "8101327", name = "Ottnang am Hausruck-Wolfsegg Bahnhof", lat = 48.092127, lon = 13.664907, p = 16, d = 6, gtfs = "Ottnang-Wolfsegg Bahnhof" }
+"Pat:44:47130" = { id = "8100681", name = "Bergern am Hausruck Bahnhst", lat = 48.100847, lon = 13.631359, p = 16, d = 42, gtfs = "Bergern am Hausruck Bahnhst" }
+"Pat:44:47150" = { id = "8100016", name = "Schwanenstadt Bahnhof", lat = 48.053977, lon = 13.767932, p = 16, d = 14, gtfs = "Schwanenstadt Bahnhof" }
+"Pat:44:47151" = { id = "8100695", name = "Breitenschützing Bahnhof", lat = 48.078787, lon = 13.800968, p = 16, d = 17, gtfs = "Breitenschützing Bahnhof" }
+"Pat:44:47200" = { id = "8100017", name = "Attnang-Puchheim Bahnhof", lat = 48.012609, lon = 13.720892, p = 4157, d = 48, gtfs = "Attnang-Puchheim Bahnhof" }
+"Pat:44:47230" = { id = "8101119", name = "Lehen b.Pühret-Altensam Bahnhst", lat = 48.035397, lon = 13.701008, p = 16, d = 30, gtfs = "Lehen-Altensam Bahnhst" }
+"Pat:44:47250" = { id = "8101736", name = "Wankham b.Attnang Bahnhst", lat = 47.997552, lon = 13.730762, p = 16, d = 4, gtfs = "Wankham b.Attnang Bahnhst" }
+"Pat:44:47270" = { id = "8101141", name = "Lenzing OÖ Bahnhof", lat = 47.983223, lon = 13.613633, p = 16, d = 9, gtfs = "Lenzing OÖ Bahnhof" }
+"Pat:44:47271" = { id = "8101135", name = "Lenzing OÖ Ort Bahnhst", lat = 47.971672, lon = 13.606648, p = 16, d = 13, gtfs = "Lenzing OÖ Ort Bahnhst" }
+"Pat:44:47300" = { id = "8101478", name = "Siebenmühlen-Rosenau Bahnhst", lat = 47.959626, lon = 13.605821, p = 16, d = 41, gtfs = "Siebenmühlen-Rosenau Bahnhst" }
+"Pat:44:47301" = { id = "8100283", name = "Kammer/Attersee-Schörfling Bahnhst", lat = 47.948516, lon = 13.595879, p = 16, d = 27, gtfs = "Kammer-Schörfling Bahnhst" }
+"Pat:44:47510" = { id = "8100022", name = "Grieskirchen-Gallspach Bahnhof", lat = 48.231047, lon = 13.838947, p = 16, d = 1, gtfs = "Grieskirchen-Gallspach Bahnhof" }
+"Pat:44:47511" = { id = "8100584", name = "Schlüßlberg Bahnhof", lat = 48.223828, lon = 13.868513, p = 16, d = 53, gtfs = "Schlüßlberg Bahnhof" }
+"Pat:44:47650" = { id = "8101325", name = "Obertrattnach-Markt Hofkirchen Bahnhst", lat = 48.24605, lon = 13.766818, p = 16, d = 68, gtfs = "Obertrattnach-Markt Hofkirchen Bahnhst" }
+"Pat:44:47750" = { id = "8100021", name = "Bad Schallerbach-Wallern/Trattnach Bahnhof", lat = 48.228701, lon = 13.922286, p = 16, d = 8, gtfs = "Bad Schallerbach-Wallern Bahnhof" }
+"Pat:44:47795" = { id = "8101045", name = "Kimpling Bahnhst", lat = 48.266626, lon = 13.670957, p = 16, d = 16, gtfs = "Kimpling Bahnhst" }
+"Pat:44:47800" = { id = "8101670", name = "Timelkam Bahnhof", lat = 48.007934, lon = 13.595942, p = 48, d = 20, gtfs = "Timelkam Bahnhof" }
+"Pat:44:47840" = { id = "8101260", name = "Neukirchen/Vöckla-Gampern Bahnhst", lat = 48.020214, lon = 13.549773, p = 48, d = 26, gtfs = "Neukirchen-Gampern Bahnhst" }
+"Pat:44:47841" = { id = "8101428", name = "Redl b.Vöcklamarkt-Zipf Bahnhst", lat = 48.026093, lon = 13.516037, p = 48, d = 89, gtfs = "Redl-Zipf Bahnhst" }
+"Pat:44:47860" = { id = "8100508", name = "Vöcklamarkt Bahnhof", lat = 47.998001, lon = 13.489438, p = 48, d = 17, gtfs = "Vöcklamarkt Bahnhof" }
+"Pat:44:47870" = { id = "8100018", name = "Frankenmarkt Bahnhof", lat = 47.982935, lon = 13.432015, p = 48, d = 23, gtfs = "Frankenmarkt Bahnhof" }
+"Pat:44:47880" = { id = "8101377", name = "Pöndorf Bahnhst", lat = 47.986666, lon = 13.355804, p = 48, d = 1, gtfs = "Pöndorf Bahnhof" }
+"Pat:44:47901" = { id = "8101332", name = "Oberhofen/Irrsee-Zell am Moos Bahnhst", lat = 47.959069, lon = 13.301959, p = 48, d = 1, gtfs = "Oberhofen-Zell am Moos Bahnhst" }
+"Pat:44:47980" = { id = "8101794", name = "Wolfshütte Bahnhst", lat = 48.052899, lon = 13.681546, p = 16, d = 3, gtfs = "Wolfshütte Bahnhst" }
+"Pat:44:48000" = { id = "8100405", name = "Ried im Innkreis Bahnhof", lat = 48.200465, lon = 13.488296, p = 16, d = 15, gtfs = "Ried im Innkreis Bahnhof" }
+"Pat:44:48050" = { id = "8100678", name = "Ried im Innkreis Bad Bahnhst", lat = 48.212214, lon = 13.477581, p = 16, d = 47, gtfs = "Bad Ried Bahnhst" }
+"Pat:44:48060" = { id = "8101295", name = "Oberbrunn im Innkreis Bahnhst", lat = 48.17099, lon = 13.513169, p = 16, d = 60, gtfs = "Oberbrunn im Innkreis Bahnhst" }
+"Pat:44:48080" = { id = "8101288", name = "Neuratting Bahnhst", lat = 48.227226, lon = 13.373666, p = 16, d = 42, gtfs = "Neuratting Bahnhst" }
+"Pat:44:48081" = { id = "8100263", name = "Gurten OÖ Bahnhst", lat = 48.243829, lon = 13.334607, p = 16, d = 37, gtfs = "Gurten OÖ Bahnhst" }
+"Pat:44:48101" = { id = "8100638", name = "Aurolzmünster Bahnhst", lat = 48.249034, lon = 13.458038, p = 16, d = 7, gtfs = "Aurolzmünster Bahnhst" }
+"Pat:44:48140" = { id = "8100437", name = "St.Martin im Innkreis Bahnhof", lat = 48.288883, lon = 13.433651, p = 16, d = 9, gtfs = "St.Martin im Innkreis Bahnhof" }
+"Pat:44:48141" = { id = "8100948", name = "Hart im Innkreis Bahnhst", lat = 48.315995, lon = 13.41525, p = 16, d = 49, gtfs = "Hart im Innkreis Bahnhst" }
+"Pat:44:48170" = { id = "8101063", name = "Kumpfmühl Bahnhof", lat = 48.269377, lon = 13.620312, p = 16, d = 13, gtfs = "Kumpfmühl Bahnhof" }
+"Pat:44:48171" = { id = "8100407", name = "Riedau Bahnhof", lat = 48.304111, lon = 13.626595, p = 16, d = 73, gtfs = "Riedau Bahnhof" }
+"Pat:44:48190" = { id = "8101399", name = "Peterskirchen Bahnhst", lat = 48.23386, lon = 13.549387, p = 16, d = 29, gtfs = "Peterskirchen Bahnhof" }
+"Pat:44:48201" = { id = "8100526", name = "Pram am Hausruck-Haag Bahnhst", lat = 48.231739, lon = 13.617076, p = 16, d = 31, gtfs = "Pram-Haag Bahnhof" }
+"Pat:44:48210" = { id = "8101785", name = "Wendling b.Haag Bahnhst", lat = 48.246508, lon = 13.650327, p = 16, d = 14, gtfs = "Wendling b.Haag Bahnhof" }
+"Pat:44:48300" = { id = "8100740", name = "Eberschwang Bahnhof", lat = 48.151807, lon = 13.536919, p = 16, d = 1, gtfs = "Eberschwang Bahnhof" }
+"Pat:44:48310" = { id = "8100980", name = "Hausruck Bahnhof", lat = 48.129603, lon = 13.571581, p = 16, d = 9, gtfs = "Hausruck Bahnhof" }
+"Pat:44:48315" = { id = "8102068", name = "Schalchen OÖ-Mattighofen Bahnhst", lat = 48.09522, lon = 13.163642, p = 16, d = 3, gtfs = "Schalchen-Mattighofen Bahnhst" }
+"Pat:44:48320" = { id = "8100276", name = "Holzleithen am Hausruck Bahnhst", lat = 48.113567, lon = 13.606639, p = 16, d = 2, gtfs = "Holzleithen am Hausruck Bahnhst" }
+"Pat:44:48500" = { id = "8100024", name = "Schärding Bahnhof", lat = 48.463813, lon = 13.44246, p = 17, d = 51, gtfs = "Schärding Bahnhof" }
+"Pat:44:48530" = { id = "8100544", name = "Wernstein/Inn Bahnhof", lat = 48.507204, lon = 13.458299, p = 16, d = 110, gtfs = "Wernstein/Inn Bahnhof" }
+"Pat:44:48531" = { id = "8100864", name = "Gopperding Bahnhst", lat = 48.440783, lon = 13.458236, p = 16, d = 24, gtfs = "Gopperding Bahnhst" }
+"Pat:44:48790" = { id = "8100320", name = "Taufkirchen/Pram Bahnhof", lat = 48.406804, lon = 13.522698, p = 16, d = 119, gtfs = "Taufkirchen/Pram Bahnhof" }
+"Pat:44:48800" = { id = "8100211", name = "Andorf Bahnhof", lat = 48.369553, lon = 13.56572, p = 16, d = 27, gtfs = "Andorf Bahnhof" }
+"Pat:44:48880" = { id = "8101819", name = "Zell/Pram Bahnhof", lat = 48.317271, lon = 13.62406, p = 16, d = 31, gtfs = "Zell/Pram Bahnhof" }
+"Pat:44:48900" = { id = "8100315", name = "Suben Bahnhof", lat = 48.402947, lon = 13.433336, p = 16, d = 36, gtfs = "Suben Bahnhof" }
+"Pat:44:48920" = { id = "8100732", name = "Dietrichshofen Bahnhst", lat = 48.370029, lon = 13.42209, p = 16, d = 19, gtfs = "Dietrichshofen Bahnhst" }
+"Pat:44:48930" = { id = "8100215", name = "Antiesenhofen Bahnhof", lat = 48.347637, lon = 13.402125, p = 16, d = 13, gtfs = "Antiesenhofen Bahnhof" }
+"Pat:44:49000" = { id = "8100365", name = "Braunau/Inn Bahnhof", lat = 48.259156, lon = 13.048121, p = 22, d = 16, gtfs = "Braunau/Inn Bahnhof" }
+"Pat:44:49100" = { id = "8100914", name = "Hagenau im Innkreis Bahnhst", lat = 48.265278, lon = 13.114668, p = 16, d = 4, gtfs = "Hagenau im Innkreis Bahnhst" }
+"Pat:44:49110" = { id = "8100478", name = "Mining Bahnhst", lat = 48.271291, lon = 13.171507, p = 16, d = 27, gtfs = "Mining Bahnhof" }
+"Pat:44:49120" = { id = "8101248", name = "Mühlheim/Inn Bahnhst", lat = 48.2697, lon = 13.22093, p = 16, d = 23, gtfs = "Mühlheim/Inn Bahnhst" }
+"Pat:44:49130" = { id = "8100442", name = "Obernberg-Altheim Bahnhof", lat = 48.2705, lon = 13.257795, p = 16, d = 3, gtfs = "Obernberg-Altheim Bahnhof" }
+"Pat:44:49131" = { id = "8100830", name = "Geinberg Bahnhst", lat = 48.266284, lon = 13.290794, p = 16, d = 5, gtfs = "Geinberg Bahnhst" }
+"Pat:44:49190" = { id = "8101506", name = "St.Georgen/Mattig Bahnhst", lat = 48.216358, lon = 13.098847, p = 16, d = 3, gtfs = "St.Georgen/Mattig Bahnhof" }
+"Pat:44:49210" = { id = "8100410", name = "Mauerkirchen Bahnhof", lat = 48.19144, lon = 13.128853, p = 16, d = 10, gtfs = "Mauerkirchen Bahnhof" }
+"Pat:44:49220" = { id = "8100333", name = "Uttendorf-Helpfau Bahnhst", lat = 48.160778, lon = 13.133483, p = 16, d = 43, gtfs = "Uttendorf-Helpfau Bahnhst" }
+"Pat:44:49320" = { id = "8100602", name = "Achenlohe Bahnhst", lat = 48.045851, lon = 13.197801, p = 16, d = 42, gtfs = "Achenlohe Bahnhst" }
+"Pat:44:49330" = { id = "8101658", name = "Teichstätt Bahnhst", lat = 48.019836, lon = 13.212974, p = 16, d = 33, gtfs = "Teichstätt Bahnhof" }
+"Pat:44:49331" = { id = "8100241", name = "Friedburg Bahnhof", lat = 47.99704, lon = 13.234279, p = 16, d = 13, gtfs = "Friedburg Bahnhof" }
+"Pat:44:49650" = { id = "8100409", name = "Mattighofen Bahnhof", lat = 48.108668, lon = 13.152369, p = 16, d = 41, gtfs = "Mattighofen Bahnhof" }
+"Pat:44:49666" = { id = "8100489", name = "Munderfing Bahnhof", lat = 48.073493, lon = 13.17984, p = 16, d = 27, gtfs = "Munderfing Bahnhof" }
+"Pat:44:49759" = { id = "8101178", name = "Lasberg-St.Oswald Bahnhst", lat = 48.460847, lon = 14.521723, p = 20, d = 7, gtfs = "Lasberg-St.Oswald Bahnhst" }
+"Pat:44:49841" = { id = "8101516", name = "Schlägl Bahnhst", lat = 48.636613, lon = 13.975395, p = 16, d = 4, gtfs = "Schlägl Bahnhst" }
+"Pat:44:49844" = { id = "8100208", name = "Aigen-Schlägl Bahnhof", lat = 48.642681, lon = 13.974936, p = 16, d = 8, gtfs = "Aigen-Schlägl Bahnhof" }
+"Pat:45:50002" = { id = "8100002", name = "Salzburg Hbf", lat = 47.813057, lon = 13.045856, p = 4159, d = 5, gtfs = "Salzburg Hauptbahnhof" }
+"Pat:45:50034" = { id = "8102063", name = "Salzburg Liefering Bahnhst", lat = 47.824258, lon = 13.000487, p = 48, d = 6, gtfs = "Salzburg Liefering S-Bahn" }
+"Pat:45:50209" = { id = "8101803", name = "Wallersee Bahnhst", lat = 47.919193, lon = 13.159291, p = 48, d = 19, gtfs = "Wallersee S-Bahn" }
+"Pat:45:50210" = { id = "8100594", name = "Köstendorf b.Salzburg Weng Bahnhst", lat = 47.936407, lon = 13.175112, p = 48, d = 17, gtfs = "Köstendorf Weng S-Bahn" }
+"Pat:45:50230" = { id = "8100774", name = "Eugendorf Bahnhst", lat = 47.873249, lon = 13.116691, p = 48, d = 13, gtfs = "Eugendorf S-Bahn" }
+"Pat:45:50253" = { id = "8101558", name = "Salzburg Kasern Bahnhst", lat = 47.839018, lon = 13.065291, p = 48, d = 10, gtfs = "Salzburg Kasern S-Bahn" }
+"Pat:45:50254" = { id = "8100929", name = "Hallwang-Elixhausen Bahnhof", lat = 47.85794, lon = 13.091746, p = 48, d = 33, gtfs = "Hallwang-Elixhausen S-Bahn" }
+"Pat:45:50273" = { id = "8100134", name = "Neumarkt/Wallersee Bahnhof", lat = 47.955842, lon = 13.225964, p = 53, d = 44, gtfs = "Neumarkt Bahnhof" }
+"Pat:45:50281" = { id = "8100020", name = "Steindorf b.Straßwalchen Bahnhof", lat = 47.966926, lon = 13.239223, p = 16, d = 60, gtfs = "Steindorf Bahnhof" }
+"Pat:45:50290" = { id = "8100019", name = "Straßwalchen Bahnhof", lat = 47.971978, lon = 13.264716, p = 48, d = 28, gtfs = "Straßwalchen Bahnhof" }
+"Pat:45:50456" = { id = "8101481", name = "Salzburg Parsch Bahnhst", lat = 47.799196, lon = 13.073066, p = 32, d = 62, gtfs = "Salzburg Parsch S-Bahn" }
+"Pat:45:50457" = { id = "8101470", name = "Salzburg Aigen Bahnhst", lat = 47.788571, lon = 13.078748, p = 32, d = 18, gtfs = "Salzburg Aigen S-Bahn" }
+"Pat:45:50458" = { id = "8101917", name = "Salzburg Süd Bahnhst", lat = 47.770026, lon = 13.078469, p = 4157, d = 4, gtfs = "Salzburg-Süd S-Bahn" }
+"Pat:45:50470" = { id = "8100772", name = "Elsbethen Bahnhst", lat = 47.760857, lon = 13.080366, p = 32, d = 5, gtfs = "Elsbethen S-Bahn" }
+"Pat:45:50475" = { id = "8101406", name = "Puch b.Hallein Bahnhst", lat = 47.712971, lon = 13.090622, p = 32, d = 5, gtfs = "Puch S-Bahn" }
+"Pat:45:50489" = { id = "8102006", name = "Oberalm Bahnhst", lat = 47.700027, lon = 13.093166, p = 32, d = 48, gtfs = "Oberalm S-Bahn" }
+"Pat:45:50494" = { id = "8100040", name = "Hallein Bahnhof", lat = 47.685033, lon = 13.099674, p = 4157, d = 9, gtfs = "Hallein Bahnhof" }
+"Pat:45:50500" = { id = "8102049", name = "Hallein Burgfried Bahnhst", lat = 47.67581, lon = 13.114516, p = 32, d = 11, gtfs = "Hallein Burgfried S-Bahn" }
+"Pat:45:50578" = { id = "8102047", name = "Kuchl Garnei Bahnhst", lat = 47.651647, lon = 13.128296, p = 32, d = 1, gtfs = "Kuchl Garnei S-Bahn" }
+"Pat:45:50580" = { id = "8100546", name = "Kuchl Bahnhst", lat = 47.625857, lon = 13.141501, p = 61, d = 113, gtfs = "Kuchl S-Bahn" }
+"Pat:45:50591" = { id = "8100041", name = "Golling/Salzach-Abtenau Bahnhof", lat = 47.600813, lon = 13.164055, p = 4157, d = 4, gtfs = "Golling-Abtenau Bahnhof" }
+"Pat:45:50861" = { id = "8102055", name = "Salzburg Sam Bahnhst", lat = 47.819592, lon = 13.063115, p = 32, d = 7, gtfs = "Salzburg Sam S-Bahn" }
+"Pat:45:51023" = { id = "8102052", name = "Salzburg Mülln-Altstadt Bahnhst", lat = 47.808374, lon = 13.034134, p = 48, d = 33, gtfs = "Salzburg Mülln-Altstadt S-Bahn" }
+"Pat:45:51024" = { id = "8102048", name = "Salzburg Aiglhof Bahnhst", lat = 47.807835, lon = 13.026736, p = 48, d = 11, gtfs = "Salzburg Aiglhof S-Bahn" }
+"Pat:45:52099" = { id = "8100042", name = "Bischofshofen Bahnhof", lat = 47.417901, lon = 13.219959, p = 4157, d = 12, gtfs = "Bischofshofen Bahnhof" }
+"Pat:45:52106" = { id = "8101376", name = "Pöham Bahnhst", lat = 47.430207, lon = 13.255071, p = 20, d = 42, gtfs = "Pöham Bahnhof" }
+"Pat:45:52114" = { id = "8100138", name = "Radstadt Bahnhof", lat = 47.384326, lon = 13.468133, p = 20, d = 12, gtfs = "Radstadt Bahnhof" }
+"Pat:45:52183" = { id = "8100139", name = "Altenmarkt im Pongau Bahnhof", lat = 47.382267, lon = 13.429003, p = 20, d = 41, gtfs = "Altenmarkt Bahnhof" }
+"Pat:45:52191" = { id = "8100045", name = "Lend/Salzach Bahnhst", lat = 47.297679, lon = 13.054665, p = 4156, d = 11, gtfs = "Lend Bahnhof" }
+"Pat:45:52192" = { id = "8101219", name = "Mitterberghütten Bahnhst", lat = 47.395329, lon = 13.222359, p = 48, d = 16, gtfs = "Mitterberghütten Bahnhof" }
+"Pat:45:52197" = { id = "8100044", name = "Schwarzach im Pongau-St.Veit Bahnhof", lat = 47.318624, lon = 13.154518, p = 4157, d = 38, gtfs = "Schwarzach-St.Veit Bahnhof" }
+"Pat:45:52199" = { id = "8100098", name = "Dorfgastein Bahnhof", lat = 47.238485, lon = 13.103072, p = 29, d = 25, gtfs = "Dorfgastein Bahnhof" }
+"Pat:45:52201" = { id = "8100097", name = "Bad Hofgastein Bahnhof", lat = 47.195409, lon = 13.100546, p = 29, d = 113, gtfs = "Bad Hofgastein Bahnhof" }
+"Pat:45:52204" = { id = "8100095", name = "Bad Gastein Bahnhof", lat = 47.111773, lon = 13.131928, p = 29, d = 10, gtfs = "Bad Gastein Bahnhof" }
+"Pat:45:52205" = { id = "8100094", name = "Böckstein Bahnhof", lat = 47.080598, lon = 13.130382, p = 8, d = 32, gtfs = "Böckstein Bahnhof" }
+"Pat:45:52210" = { id = "8101660", name = "Tenneck Bahnhst", lat = 47.494408, lon = 13.178923, p = 48, d = 12, gtfs = "Tenneck Bahnhof" }
+"Pat:45:52343" = { id = "8100140", name = "Eben im Pongau Bahnhof", lat = 47.406529, lon = 13.396615, p = 20, d = 63, gtfs = "Eben Bahnhof" }
+"Pat:45:52385" = { id = "8100043", name = "St.Johann im Pongau Bahnhof", lat = 47.348162, lon = 13.194861, p = 4157, d = 16, gtfs = "St.Johann Bahnhof" }
+"Pat:45:52418" = { id = "8101202", name = "Mandling Bahnhof", lat = 47.404183, lon = 13.568156, p = 20, d = 2, gtfs = "Mandling Bahnhof" }
+"Pat:45:52428" = { id = "8101353", name = "Pfarrwerfen Bahnhst", lat = 47.461417, lon = 13.199697, p = 48, d = 82, gtfs = "Pfarrwerfen Bahnhof" }
+"Pat:45:52434" = { id = "8100539", name = "Werfen Bahnhof", lat = 47.472834, lon = 13.19523, p = 4157, d = 12, gtfs = "Werfen Bahnhof" }
+"Pat:45:52495" = { id = "8101287", name = "Niedernfritz-St.Martin Bahnhst", lat = 47.421289, lon = 13.344684, p = 20, d = 1, gtfs = "Niedernfritz-St.Martin Bahnhof" }
+"Pat:45:52600" = { id = "8100993", name = "Hüttau Bahnhst", lat = 47.414799, lon = 13.308161, p = 20, d = 54, gtfs = "Hüttau Bahnhof" }
+"Pat:45:54001" = { id = "8100049", name = "Saalfelden Bahnhof", lat = 47.4268, lon = 12.829782, p = 4157, d = 4, gtfs = "Saalfelden Bahnhof" }
+"Pat:45:54104" = { id = "8100048", name = "Zell am See Bahnhof", lat = 47.320664, lon = 12.796882, p = 4157, d = 14, gtfs = "Zell am See Bahnhof" }
+"Pat:45:54179" = { id = "8100047", name = "Bruck/Glocknerstraße-Fusch Bahnhof", lat = 47.284617, lon = 12.828398, p = 4156, d = 19, gtfs = "Bruck-Fusch Bahnhof" }
+"Pat:45:54180" = { id = "8100046", name = "Taxenbach-Rauris Bahnhof", lat = 47.29278, lon = 12.946804, p = 4156, d = 24, gtfs = "Taxenbach-Rauris Bahnhof" }
+"Pat:45:54252" = { id = "8101146", name = "Leogang-Steinberge Bahnhst", lat = 47.445057, lon = 12.76853, p = 48, d = 50, gtfs = "Leogang-Steinberge Bahnhof" }
+"Pat:45:54253" = { id = "8100050", name = "Maishofen-Saalbach Bahnhof", lat = 47.358662, lon = 12.810249, p = 4157, d = 25, gtfs = "Maishofen-Saalbach Bahnhof" }
+"Pat:45:54276" = { id = "8100051", name = "Leogang Bahnhst", lat = 47.443439, lon = 12.740385, p = 60, d = 8, gtfs = "Leogang Bahnhof" }
+"Pat:45:56183" = { id = "8100426", name = "Seekirchen/Wallersee Bahnhof", lat = 47.899363, lon = 13.129995, p = 48, d = 57, gtfs = "Seekirchen Bahnhof" }
+"Pat:45:56199" = { id = "8101718", name = "Bad Vigaun Bahnhof", lat = 47.664268, lon = 13.124152, p = 32, d = 12, gtfs = "Bad Vigaun S-Bahn" }
+"Pat:45:56408" = { id = "8110427", name = "Seekirchen/Wallersee Stadt Bahnhst", lat = 47.891192, lon = 13.120071, p = 48, d = 9, gtfs = "Seekirchen Stadt S-Bahn" }
+"Pat:45:56483" = { id = "8102062", name = "Straßwalchen West Bahnhst", lat = 47.976373, lon = 13.245246, p = 16, d = 43, gtfs = "Straßwalchen West" }
+"Pat:45:56533" = { id = "8100559", name = "Salzburg Gnigl Bahnhst", lat = 47.81197, lon = 13.066315, p = 48, d = 2, gtfs = "Salzburg Gnigl S-Bahn" }
+"Pat:45:56656" = { id = "8102054", name = "Puch b.Hallein Urstein Bahnhst", lat = 47.724118, lon = 13.088159, p = 4144, d = 1, gtfs = "Puch Urstein (FH)" }
+"Pat:45:56702" = { id = "8102045", name = "Salzburg Taxham Europark Bahnhst", lat = 47.81606, lon = 13.010654, p = 4146, d = 84, gtfs = "Salzburg Taxham Europark S-Bahn" }
+"Pat:45:56900" = { id = "8100892", name = "Gries im Pinzgau Bahnhof", lat = 47.288051, lon = 12.89063, p = 60, d = 3, gtfs = "Gries Bahnhof" }
+"Pat:46:1034" = { id = "8100196", name = "Studenzen-Fladnitz im Raabtal Bahnhst", lat = 46.998976, lon = 15.774783, p = 52, d = 24, gtfs = "Studenzen-Fladnitz Bahnhof" }
+"Pat:46:1745" = { id = "8101370", name = "Pernegg/Mur Bahnhof", lat = 47.359255, lon = 15.343139, p = 32, d = 27, gtfs = "Pernegg Bahnhof" }
+"Pat:46:1746" = { id = "8100601", name = "Flughafen Graz-Feldkirchen b.Graz Bahnhst", lat = 46.997996, lon = 15.449437, p = 36, d = 5, gtfs = "Flughafen Graz-Feldkirchen Bahnhof" }
+"Pat:46:1747" = { id = "8100593", name = "Werndorf Bahnhof", lat = 46.916311, lon = 15.476971, p = 32, d = 2, gtfs = "Werndorf Bahnhof" }
+"Pat:46:1748" = { id = "8101774", name = "Wildon Bahnhof", lat = 46.884184, lon = 15.521, p = 52, d = 56, gtfs = "Wildon Bahnhof" }
+"Pat:46:1749" = { id = "8101137", name = "Lebring Bahnhst", lat = 46.854924, lon = 15.532245, p = 48, d = 92, gtfs = "Lebring Bahnhof" }
+"Pat:46:1751" = { id = "8101148", name = "Lichendorf b.Mureck Bahnhof", lat = 46.713901, lon = 15.69833, p = 32, d = 17, gtfs = "Lichendorf Bahnhof" }
+"Pat:46:1752" = { id = "8101752", name = "Weitersfeld/Mur Bahnhst", lat = 46.714656, lon = 15.721585, p = 32, d = 25, gtfs = "Weitersfeld an der Mur Bahnhof" }
+"Pat:46:1753" = { id = "8100491", name = "Mureck Bahnhof", lat = 46.711312, lon = 15.771313, p = 32, d = 19, gtfs = "Mureck Bahnhof" }
+"Pat:46:1756" = { id = "8101408", name = "Purkla Bahnhst", lat = 46.731583, lon = 15.903266, p = 32, d = 3, gtfs = "Purkla Bahnhof" }
+"Pat:46:1757" = { id = "8100916", name = "Halbenrain Bahnhof", lat = 46.723789, lon = 15.948976, p = 32, d = 16, gtfs = "Halbenrain Bahnhof" }
+"Pat:46:1758" = { id = "8101011", name = "Judendorf/Mur-Straßengel Bahnhst", lat = 47.118479, lon = 15.343822, p = 32, d = 44, gtfs = "Judendorf-Straßengel Bahnhof" }
+"Pat:46:1759" = { id = "8100590", name = "Stübing Bahnhst", lat = 47.177574, lon = 15.322482, p = 32, d = 12, gtfs = "Stübing Bahnhof" }
+"Pat:46:1760" = { id = "8100034", name = "Peggau-Deutschfeistritz Bahnhof", lat = 47.207391, lon = 15.343229, p = 48, d = 15, gtfs = "Peggau-Deutschfeistritz Bahnhof" }
+"Pat:46:1761" = { id = "8100194", name = "Laßnitzhöhe Bahnhof", lat = 47.078926, lon = 15.58841, p = 52, d = 6, gtfs = "Laßnitzhöhe Bahnhof" }
+"Pat:46:1762" = { id = "8100318", name = "Takern-St.Margarethen Bahnhst", lat = 47.045657, lon = 15.757848, p = 48, d = 35, gtfs = "Takern-St.Margarethen Bahnhof" }
+"Pat:46:1764" = { id = "8101454", name = "Rohr/Raab Bahnhof", lat = 46.976287, lon = 15.812484, p = 48, d = 42, gtfs = "Rohr/Raab Bahnhof" }
+"Pat:46:1765" = { id = "8100857", name = "Gniebing Bahnhof", lat = 46.961824, lon = 15.853169, p = 48, d = 55, gtfs = "Gniebing Bahnhof" }
+"Pat:46:1766" = { id = "8101164", name = "Lödersdorf Bahnhof", lat = 46.954677, lon = 15.945533, p = 48, d = 51, gtfs = "Lödersdorf Bahnhof" }
+"Pat:46:1767" = { id = "8100945", name = "Hohenbrugg/Raab Bahnhst", lat = 46.944196, lon = 16.060721, p = 16, d = 22, gtfs = "Hohenbrugg an der Raab Bahnhof" }
+"Pat:46:1768" = { id = "8100268", name = "Hatzendorf Bahnhst", lat = 46.979353, lon = 16.003415, p = 16, d = 6, gtfs = "Hatzendorf Bahnhof" }
+"Pat:46:1770" = { id = "8100429", name = "Söchau Bahnhof", lat = 47.028677, lon = 16.013744, p = 16, d = 18, gtfs = "Söchau Bahnhof" }
+"Pat:46:1771" = { id = "8101694", name = "Übersbach b.Fürstenfeld Bahnhst", lat = 47.026861, lon = 16.053772, p = 16, d = 12, gtfs = "Übersbach Bahnhof" }
+"Pat:46:1772" = { id = "8100178", name = "Bierbaum/Safen Bahnhof", lat = 47.097965, lon = 16.074331, p = 16, d = 8, gtfs = "Bierbaum/Safen Bahnhof" }
+"Pat:46:1774" = { id = "8100455", name = "Bad Waltersdorf Bahnhst", lat = 47.170158, lon = 16.013779, p = 16, d = 27, gtfs = "Bad Waltersdorf Bahnhof" }
+"Pat:46:1775" = { id = "8100179", name = "Sebersdorf Bahnhof", lat = 47.188927, lon = 15.999037, p = 16, d = 23, gtfs = "Sebersdorf Bahnhof" }
+"Pat:46:1794" = { id = "8101019", name = "Kalsdorf b.Graz Bahnhof", lat = 46.964296, lon = 15.47004, p = 32, d = 4, gtfs = "Kalsdorf Bahnhof" }
+"Pat:46:1827" = { id = "8100035", name = "Leibnitz Bahnhof", lat = 46.779918, lon = 15.547347, p = 60, d = 4, gtfs = "Leibnitz Bahnhof" }
+"Pat:46:1839" = { id = "8100082", name = "Spielfeld-Straß in Stmk Bahnhof", lat = 46.709578, lon = 15.629122, p = 60, d = 11, gtfs = "Spielfeld-Straß Bahnhof" }
+"Pat:46:1858" = { id = "8100886", name = "Gosdorf Bahnhst", lat = 46.724572, lon = 15.797769, p = 32, d = 4, gtfs = "Gosdorf Bahnhof" }
+"Pat:46:1891" = { id = "8100677", name = "Bad Radkersburg Bahnhof", lat = 46.699474, lon = 15.993383, p = 32, d = 4, gtfs = "Bad Radkersburg Bahnhof" }
+"Pat:46:1923" = { id = "8100175", name = "Feldbach/Raab Bahnhof", lat = 46.958543, lon = 15.88927, p = 52, d = 4, gtfs = "Feldbach Bahnhof" }
+"Pat:46:1960" = { id = "8100176", name = "Fehring Bahnhof", lat = 46.949482, lon = 16.013123, p = 52, d = 13, gtfs = "Fehring Bahnhof" }
+"Pat:46:1982" = { id = "8100177", name = "Fürstenfeld Bahnhof", lat = 47.041864, lon = 16.083967, p = 16, d = 23, gtfs = "Fürstenfeld Bahnhof" }
+"Pat:46:2022" = { id = "8100180", name = "Hartberg Bahnhof", lat = 47.281264, lon = 15.984969, p = 16, d = 44, gtfs = "Hartberg Bahnhof" }
+"Pat:46:2042" = { id = "8100033", name = "Frohnleiten Bahnhof", lat = 47.266459, lon = 15.327291, p = 52, d = 3, gtfs = "Frohnleiten Bahnhof" }
+"Pat:46:2051" = { id = "8101210", name = "Mixnitz-Bärenschützklamm Bahnhof", lat = 47.331901, lon = 15.359949, p = 32, d = 3, gtfs = "Mixnitz-Bärenschützklamm Bahnhof" }
+"Pat:46:2065" = { id = "8100032", name = "Bruck/Mur Bahnhof", lat = 47.413891, lon = 15.279496, p = 4157, d = 24, gtfs = "Bruck/Mur Bahnhof" }
+"Pat:46:2244" = { id = "8101161", name = "Laßnitzthal Bahnhof", lat = 47.08814, lon = 15.65626, p = 48, d = 70, gtfs = "Laßnitzthal Bahnhof" }
+"Pat:46:2735" = { id = "8100663", name = "Bad Blumau Bahnhst", lat = 47.123126, lon = 16.056775, p = 16, d = 13, gtfs = "Bad Blumau Bahnhof" }
+"Pat:46:28" = { id = "8100195", name = "Gleisdorf Bahnhof", lat = 47.099368, lon = 15.708865, p = 52, d = 68, gtfs = "Gleisdorf Bahnhof" }
+"Pat:46:30077" = { id = "8101345", name = "Weststeiermark Bahnhof", lat = 46.81396, lon = 15.296782, p = 61, d = 32, gtfs = "Weststeiermark Bahnhof" }
+"Pat:46:3038" = { id = "8100371", name = "Graz Ostbahnhof", lat = 47.053397, lon = 15.44825, p = 52, d = 34, gtfs = "Graz Ostbahnhof" }
+"Pat:46:3039" = { id = "8100193", name = "Raaba Bahnhst", lat = 47.030295, lon = 15.494922, p = 52, d = 7, gtfs = "Raaba Bahnhof" }
+"Pat:46:3040" = { id = "8100173", name = "Graz Hbf", lat = 47.0724, lon = 15.416518, p = 4157, d = 8, gtfs = "Graz Hauptbahnhof" }
+"Pat:46:30454" = { id = "8106002", name = "Leoben Lerchenfeld Bahnhst", lat = 47.385396, lon = 15.114067, p = 48, d = 7, gtfs = "Leoben Lerchenfeld Bahnhof" }
+"Pat:46:3747" = { id = "8103487", name = "Graz Liebenau Murpark (Bahnhst)", lat = 47.040003, lon = 15.462687, p = 52, d = 33, gtfs = "Graz Liebenau Murpark" }
+"Pat:46:3918" = { id = "8101918", name = "Kaindorf/Sulm Bahnhst", lat = 46.802373, lon = 15.542412, p = 52, d = 38, gtfs = "Kaindorf Bahnhof" }
+"Pat:46:4279" = { id = "8101398", name = "Graz Puntigam Bahnhof", lat = 47.030807, lon = 15.429247, p = 52, d = 28, gtfs = "Graz Puntigam Bahnhof" }
+"Pat:46:4498" = { id = "8103490", name = "Graz Don Bosco Bahnhst", lat = 47.058206, lon = 15.419503, p = 52, d = 24, gtfs = "Graz Don Bosco Bahnhof" }
+"Pat:46:5205" = { id = "8100181", name = "St.Johann in der Haide Bahnhof", lat = 47.280411, lon = 16.035417, p = 16, d = 8, gtfs = "St.Johann in der Haide Bahnhof" }
+"Pat:46:5211" = { id = "8100182", name = "Grafendorf b.Hartberg Bahnhof", lat = 47.34667, lon = 16.003613, p = 16, d = 23, gtfs = "Grafendorf Bahnhof" }
+"Pat:46:5230" = { id = "8100183", name = "Rohrbach/Lafnitz-Vorau Bahnhst", lat = 47.389252, lon = 15.985814, p = 16, d = 214, gtfs = "Rohrbach-Vorau Bahnhof" }
+"Pat:46:525" = { id = "8100370", name = "Gratwein-Gratkorn Bahnhof", lat = 47.129293, lon = 15.32286, p = 48, d = 29, gtfs = "Gratwein-Gratkorn Bahnhof" }
+"Pat:46:5511" = { id = "8100074", name = "Unzmarkt Bahnhof", lat = 47.200901, lon = 14.442034, p = 60, d = 12, gtfs = "Unzmarkt Bahnhof" }
+"Pat:46:6092" = { id = "8100031", name = "Kapfenberg Bahnhof", lat = 47.445228, lon = 15.292359, p = 53, d = 3, gtfs = "Kapfenberg Bahnhof" }
+"Pat:46:6155" = { id = "8101243", name = "St.Marein im Mürztal-St.Lorenzen im Mürztal Bahnhst", lat = 47.473193, lon = 15.373118, p = 52, d = 18, gtfs = "St.Marein-St.Lorenzen Bahnhof" }
+"Pat:46:6313" = { id = "8100030", name = "Kindberg Bahnhof", lat = 47.501159, lon = 15.448376, p = 52, d = 18, gtfs = "Kindberg Bahnhof" }
+"Pat:46:6344" = { id = "8100070", name = "Leoben Hbf", lat = 47.386663, lon = 15.089724, p = 61, d = 25, gtfs = "Leoben Hauptbahnhof" }
+"Pat:46:6539" = { id = "8101080", name = "Krieglach Bahnhof", lat = 47.547273, lon = 15.56022, p = 52, d = 36, gtfs = "Krieglach Bahnhof" }
+"Pat:46:6589" = { id = "8100158", name = "Hieflau Bahnhof", lat = 47.60778, lon = 14.737095, p = 20, d = 11, gtfs = "Hieflau Bahnhof" }
+"Pat:46:6750" = { id = "8100071", name = "St.Michael in Oberstmk Bahnhof", lat = 47.346625, lon = 15.00919, p = 52, d = 25, gtfs = "St.Michael Bahnhof" }
+"Pat:46:6770" = { id = "8100125", name = "Mautern in Stmk Bahnhof", lat = 47.396803, lon = 14.835752, p = 16, d = 24, gtfs = "Mautern Bahnhof" }
+"Pat:46:6793" = { id = "8100161", name = "Admont Bahnhof", lat = 47.573369, lon = 14.468372, p = 20, d = 5, gtfs = "Admont Bahnhof" }
+"Pat:46:6802" = { id = "8100159", name = "Gstatterboden im Nationalpark Bahnhof", lat = 47.591392, lon = 14.633603, p = 20, d = 4, gtfs = "Gstatterboden Bahnhof" }
+"Pat:46:6892" = { id = "8100132", name = "Stainach-Irdning Bahnhof", lat = 47.529232, lon = 14.107185, p = 20, d = 14, gtfs = "Stainach-Irdning Bahnhof" }
+"Pat:46:6938" = { id = "8100150", name = "Selzthal Bahnhof", lat = 47.550554, lon = 14.3132, p = 28, d = 82, gtfs = "Selzthal Bahnhof" }
+"Pat:46:6947" = { id = "8100309", name = "Rottenmann Bahnhof", lat = 47.527785, lon = 14.365041, p = 20, d = 18, gtfs = "Rottenmann Bahnhof" }
+"Pat:46:7024" = { id = "8100135", name = "Gröbming Bahnhof", lat = 47.426683, lon = 13.900478, p = 20, d = 24, gtfs = "Gröbming Bahnhof" }
+"Pat:46:7063" = { id = "8100164", name = "Bad Aussee Bahnhof", lat = 47.599033, lon = 13.777236, p = 20, d = 34, gtfs = "Bad Aussee Bahnhof" }
+"Pat:46:7112" = { id = "8100166", name = "Tauplitz Bahnhof", lat = 47.55166, lon = 14.010354, p = 20, d = 15, gtfs = "Tauplitz Bahnhof" }
+"Pat:46:7189" = { id = "8100136", name = "Haus im Ennstal Bahnhst", lat = 47.41702, lon = 13.80148, p = 20, d = 74, gtfs = "Haus Bahnhof" }
+"Pat:46:7208" = { id = "8100137", name = "Schladming Bahnhof", lat = 47.393872, lon = 13.678148, p = 20, d = 29, gtfs = "Schladming Bahnhof" }
+"Pat:46:7316" = { id = "8100165", name = "Bad Mitterndorf Bahnhof", lat = 47.550455, lon = 13.944651, p = 20, d = 49, gtfs = "Bad Mitterndorf Bahnhof" }
+"Pat:46:7420" = { id = "8101032", name = "Kapfenberg Fachhochschule Bahnhst", lat = 47.454765, lon = 15.329359, p = 52, d = 16, gtfs = "Kapfenberg Fachhochschule" }
+"Pat:46:7421" = { id = "8100613", name = "Allerheiligen im Mürztal-Mürzhofen Bahnhst", lat = 47.482066, lon = 15.403034, p = 52, d = 7, gtfs = "Allerheiligen-Mürzhofen Bahnhof" }
+"Pat:46:7422" = { id = "8100383", name = "Wartberg im Mürztal Bahnhof", lat = 47.527362, lon = 15.484728, p = 52, d = 50, gtfs = "Wartberg Bahnhof" }
+"Pat:46:7423" = { id = "8101221", name = "Mitterdorf im Mürztal-Veitsch Bahnhof", lat = 47.536729, lon = 15.513278, p = 52, d = 17, gtfs = "Mitterdorf-Veitsch Bahnhof" }
+"Pat:46:7424" = { id = "8101190", name = "Langenwang/Mürz Bahnhof", lat = 47.567939, lon = 15.613481, p = 52, d = 17, gtfs = "Langenwang Bahnhof" }
+"Pat:46:7426" = { id = "8100029", name = "Mürzzuschlag Bahnhof", lat = 47.607906, lon = 15.677241, p = 61, d = 57, gtfs = "Mürzzuschlag Bahnhof" }
+"Pat:46:7427" = { id = "8101596", name = "Spital am Semmering Bahnhst", lat = 47.616364, lon = 15.748004, p = 16, d = 12, gtfs = "Spital am Semmering Bahnhof" }
+"Pat:46:7428" = { id = "8101520", name = "Steinhaus am Semmering Bahnhst", lat = 47.620814, lon = 15.783754, p = 16, d = 4, gtfs = "Steinhaus Bahnhof" }
+"Pat:46:7431" = { id = "8101061", name = "Kammern im Liesingtal Bahnhst", lat = 47.389935, lon = 14.903755, p = 16, d = 11, gtfs = "Kammern Bahnhof" }
+"Pat:46:7432" = { id = "8100126", name = "Kalwang Bahnhof", lat = 47.423645, lon = 14.746525, p = 16, d = 33, gtfs = "Kalwang Bahnhof" }
+"Pat:46:7433" = { id = "8100127", name = "Wald am Schoberpass Bahnhof", lat = 47.450379, lon = 14.670791, p = 16, d = 12, gtfs = "Wald am Schoberpaß Bahnhof" }
+"Pat:46:7435" = { id = "8100819", name = "Gaishorn am See Bahnhst", lat = 47.489086, lon = 14.546569, p = 16, d = 24, gtfs = "Gaishorn Bahnhof" }
+"Pat:46:7436" = { id = "8100128", name = "Trieben Bahnhof", lat = 47.488996, lon = 14.489973, p = 20, d = 22, gtfs = "Trieben Bahnhof" }
+"Pat:46:7437" = { id = "8100131", name = "Liezen Bahnhof", lat = 47.562681, lon = 14.241727, p = 20, d = 48, gtfs = "Liezen Bahnhof" }
+"Pat:46:7438" = { id = "8100425", name = "Wörschach Bahnhst", lat = 47.545538, lon = 14.139789, p = 16, d = 20, gtfs = "Wörschach Schwefelbad Bahnhof" }
+"Pat:46:7441" = { id = "8101273", name = "Niederöblarn Bahnhst", lat = 47.481787, lon = 14.014336, p = 20, d = 27, gtfs = "Niederöblarn Bahnhof" }
+"Pat:46:7442" = { id = "8100133", name = "Öblarn Bahnhof", lat = 47.460671, lon = 13.987611, p = 20, d = 6, gtfs = "Öblarn Bahnhof" }
+"Pat:46:7443" = { id = "8101494", name = "Stein/Enns Bahnhst", lat = 47.437434, lon = 13.941937, p = 20, d = 4, gtfs = "Stein an der Enns Bahnhof" }
+"Pat:46:7444" = { id = "8101386", name = "Pruggern Bahnhst", lat = 47.423357, lon = 13.874643, p = 20, d = 9, gtfs = "Pruggern Bahnhof" }
+"Pat:46:7445" = { id = "8100597", name = "Aich im Ennstal-Assach Bahnhst", lat = 47.420337, lon = 13.821095, p = 20, d = 6, gtfs = "Aich-Assach Bahnhof" }
+"Pat:46:7447" = { id = "8101356", name = "Pichl b.Schladming Bahnhst", lat = 47.388308, lon = 13.612698, p = 20, d = 25, gtfs = "Pichl bei Schladming Bahnhof" }
+"Pat:46:7449" = { id = "8100623", name = "Ardning Bahnhof", lat = 47.590619, lon = 14.358946, p = 28, d = 28, gtfs = "Ardning Bahnhof" }
+"Pat:46:7452" = { id = "8101014", name = "Johnsbach im Nationalpark Bahnhst", lat = 47.582403, lon = 14.595884, p = 20, d = 6, gtfs = "Johnsbach Bahnhof" }
+"Pat:46:7456" = { id = "8101806", name = "Weißenbach/Enns-St.Gallen Bahnhof", lat = 47.714365, lon = 14.635454, p = 20, d = 9, gtfs = "Weißenbach-St.Gallen Bahnhof" }
+"Pat:46:7461" = { id = "8101275", name = "Niklasdorf Bahnhof", lat = 47.393747, lon = 15.154806, p = 48, d = 23, gtfs = "Niklasdorf Bahnhof" }
+"Pat:46:7463" = { id = "8101076", name = "Kraubath/Mur Bahnhof", lat = 47.305949, lon = 14.945483, p = 48, d = 10, gtfs = "Kraubath an der Mur Bahnhof" }
+"Pat:46:7465" = { id = "8100783", name = "Fentsch-St.Lorenzen b.Knittelfeld Bahnhst", lat = 47.251726, lon = 14.892959, p = 48, d = 29, gtfs = "Fentsch-St.Lorenzen Bahnhof" }
+"Pat:46:7466" = { id = "8100072", name = "Knittelfeld Bahnhof", lat = 47.215293, lon = 14.837613, p = 61, d = 39, gtfs = "Knittelfeld Bahnhof" }
+"Pat:46:7468" = { id = "8100518", name = "Zeltweg Bahnhof", lat = 47.190051, lon = 14.74995, p = 60, d = 13, gtfs = "Zeltweg Bahnhof" }
+"Pat:46:7469" = { id = "8100073", name = "Judenburg Bahnhof", lat = 47.174976, lon = 14.662611, p = 60, d = 5, gtfs = "Judenburg Bahnhof" }
+"Pat:46:7470" = { id = "8101678", name = "Thalheim/Mur-Pöls Bahnhof", lat = 47.196568, lon = 14.588585, p = 52, d = 53, gtfs = "Thalheim-Pöls Bahnhof" }
+"Pat:46:7471" = { id = "8101504", name = "St.Georgen ob Judenburg Bahnhst", lat = 47.212173, lon = 14.499034, p = 52, d = 21, gtfs = "St.Georgen ob Judenburg Bahnhof" }
+"Pat:46:7472" = { id = "8101538", name = "Scheifling in der Stmk Bahnhof", lat = 47.148521, lon = 14.418122, p = 20, d = 10, gtfs = "Scheifling Bahnhof" }
+"Pat:46:7473" = { id = "8101244", name = "Mariahof-St.Lambrecht Bahnhof", lat = 47.106245, lon = 14.37279, p = 20, d = 4, gtfs = "Mariahof-St.Lambrecht Bahnhof" }
+"Pat:46:7474" = { id = "8100075", name = "Neumarkt in der Stmk Bahnhof", lat = 47.073488, lon = 14.414931, p = 28, d = 5, gtfs = "Neumarkt Bahnhof" }
+"Pat:46:7510" = { id = "8100582", name = "Pürgg Bahnhst", lat = 47.528621, lon = 14.064568, p = 16, d = 9, gtfs = "Pürgg Bahnhof" }
+"Pat:46:7512" = { id = "8100672", name = "Bad Mitterndorf Heilbrunn Bahnhof", lat = 47.551139, lon = 13.925307, p = 20, d = 24, gtfs = "Bad Mitterndorf-Heilbrunn Bahnhof" }
+"Pat:46:7513" = { id = "8101025", name = "Kainisch Bahnhof", lat = 47.570699, lon = 13.841509, p = 20, d = 131, gtfs = "Kainisch Bahnhof" }
+"Pat:46:7542" = { id = "8100722", name = "Dechantskirchen Bahnhst", lat = 47.418728, lon = 16.022193, p = 16, d = 4, gtfs = "Dechantskirchen Bahnhof" }
+"Pat:46:7543" = { id = "8100185", name = "Friedberg in Stmk Bahnhof", lat = 47.43471, lon = 16.053934, p = 16, d = 34, gtfs = "Friedberg Bahnhof" }
+"Pat:46:7547" = { id = "8100186", name = "Pinggau Markt Bahnhst", lat = 47.440553, lon = 16.06109, p = 16, d = 8, gtfs = "Pinggau Markt Bahnhof" }
+"Pat:46:7548" = { id = "8100187", name = "Tauchen-Schaueregg Bahnhst", lat = 47.483126, lon = 16.054941, p = 16, d = 35, gtfs = "Tauchen-Schaueregg Bahnhof" }
+"Pat:46:76" = { id = "8100763", name = "Ehrenhausen an der Weinstraße Bahnhof", lat = 46.727664, lon = 15.585578, p = 52, d = 3, gtfs = "Ehrenhausen Bahnhof" }
+"Pat:46:942" = { id = "8103174", name = "Feldkirchen b.Graz-Seiersberg Bahnhst", lat = 47.012604, lon = 15.440474, p = 32, d = 12, gtfs = "Feldkirchen-Seiersberg Bahnhof" }
+"Pat:46:977" = { id = "8102050", name = "Hart b.Graz Bahnhst", lat = 47.041837, lon = 15.50748, p = 48, d = 36, gtfs = "Hart b.Graz Bahnhof" }
+"Pat:47:1150" = { id = "8102042", name = "Lienz in Osttirol Peggetz Bahnhst", lat = 46.827345, lon = 12.792153, p = 32, d = 13, gtfs = "Lienz-Peggetz Bahnhof" }
+"Pat:47:1153" = { id = "8100052", name = "Hochfilzen Bahnhof", lat = 47.467449, lon = 12.626608, p = 61, d = 13, gtfs = "Hochfilzen Bahnhof" }
+"Pat:47:1154" = { id = "8101351", name = "Pfaffenschwendt Bahnhst", lat = 47.468519, lon = 12.580664, p = 48, d = 24, gtfs = "Pfaffenschwendt Bahnhof" }
+"Pat:47:1155" = { id = "8100053", name = "Fieberbrunn Bahnhof", lat = 47.490965, lon = 12.529462, p = 61, d = 4, gtfs = "Fieberbrunn Bahnhof" }
+"Pat:47:1156" = { id = "8100907", name = "St.Johann in Tirol Grieswirt Bahnhst", lat = 47.509492, lon = 12.467706, p = 48, d = 23, gtfs = "St. Johann i. T. Grieswirt Bahnhof" }
+"Pat:47:1157" = { id = "8100054", name = "St.Johann in Tirol Bahnhof", lat = 47.519595, lon = 12.430814, p = 61, d = 11, gtfs = "St. Johann i. T. Bahnhof" }
+"Pat:47:1159" = { id = "8101792", name = "Oberndorf in Tirol Bahnhof", lat = 47.497329, lon = 12.390785, p = 48, d = 22, gtfs = "Oberndorf i. T. Bahnhof" }
+"Pat:47:1160" = { id = "8100055", name = "Kitzbühel Bahnhof", lat = 47.45401, lon = 12.391091, p = 61, d = 3, gtfs = "Kitzbühel Bahnhof" }
+"Pat:47:1161" = { id = "8101044", name = "Kitzbühel Hahnenkamm Bahnhof", lat = 47.443484, lon = 12.389661, p = 61, d = 28, gtfs = "Kitzbühel Hahnenkamm Bahnhof" }
+"Pat:47:1162" = { id = "8101593", name = "Kitzbühel Schwarzsee Bahnhof", lat = 47.453471, lon = 12.37046, p = 48, d = 5, gtfs = "Kitzbühel Schwarzsee Bahnhof" }
+"Pat:47:1163" = { id = "8100057", name = "Kirchberg in Tirol Bahnhof", lat = 47.448895, lon = 12.309091, p = 61, d = 16, gtfs = "Kirchberg i. T. Bahnhof" }
+"Pat:47:1164" = { id = "8100366", name = "Brixen im Thale Bahnhof", lat = 47.449219, lon = 12.260738, p = 60, d = 32, gtfs = "Brixen i. Th. Bahnhof" }
+"Pat:47:1165" = { id = "8100058", name = "Westendorf in Tirol Bahnhof", lat = 47.441039, lon = 12.222813, p = 60, d = 6, gtfs = "Westendorf Bahnhof" }
+"Pat:47:1166" = { id = "8101776", name = "Windau im Brixental Bahnhst", lat = 47.438881, lon = 12.186685, p = 48, d = 14, gtfs = "Windau Bahnhof" }
+"Pat:47:1167" = { id = "8100939", name = "Hopfgarten im Brixental Berglift Bahnhst", lat = 47.446774, lon = 12.158827, p = 60, d = 25, gtfs = "Hopfgarten i. Br. Berglift Bahnhof" }
+"Pat:47:1168" = { id = "8100059", name = "Hopfgarten im Brixental Bahnhof", lat = 47.455439, lon = 12.149038, p = 49, d = 2, gtfs = "Hopfgarten i. Br. Bahnhof" }
+"Pat:47:1169" = { id = "8101571", name = "Wörgl Süd-Bruckhäusl Bahnhst", lat = 47.486749, lon = 12.109333, p = 48, d = 24, gtfs = "Wörgl Süd-Bruckhäusl Bahnhof" }
+"Pat:47:1170" = { id = "8100099", name = "Wörgl Hbf", lat = 47.491513, lon = 12.06062, p = 4157, d = 79, gtfs = "Wörgl Hauptbahnhof" }
+"Pat:47:1172" = { id = "8100100", name = "Kundl Bahnhst", lat = 47.476097, lon = 11.982288, p = 48, d = 13, gtfs = "Kundl Bahnhof" }
+"Pat:47:1173" = { id = "8100465", name = "Rattenberg in Tirol-Kramsach Bahnhst", lat = 47.439295, lon = 11.896217, p = 48, d = 16, gtfs = "Rattenberg-Kramsach Bahnhof" }
+"Pat:47:1174" = { id = "8100101", name = "Brixlegg Bahnhof", lat = 47.434845, lon = 11.880261, p = 48, d = 12, gtfs = "Brixlegg Bahnhof" }
+"Pat:47:1175" = { id = "8100488", name = "Münster/Inn-Wiesing Bahnhst", lat = 47.403778, lon = 11.820986, p = 48, d = 103, gtfs = "Münster-Wiesing Bahnhof" }
+"Pat:47:1178" = { id = "8100310", name = "Stans b.Schwaz Bahnhst", lat = 47.365368, lon = 11.726195, p = 32, d = 8, gtfs = "Stans Bahnhof" }
+"Pat:47:1179" = { id = "8100103", name = "Schwaz Bahnhof", lat = 47.350077, lon = 11.701861, p = 48, d = 48, gtfs = "Schwaz Bahnhof" }
+"Pat:47:1180" = { id = "8100524", name = "Pill-Vomperbach Bahnhst", lat = 47.324008, lon = 11.677212, p = 32, d = 3, gtfs = "Pill-Vomperbach Bahnhof" }
+"Pat:47:1181" = { id = "8100323", name = "Terfens-Weer Bahnhof", lat = 47.316053, lon = 11.634612, p = 32, d = 23, gtfs = "Terfens-Weer Bahnhof" }
+"Pat:47:1182" = { id = "8100104", name = "Fritzens-Wattens Bahnhof", lat = 47.302146, lon = 11.588938, p = 48, d = 45, gtfs = "Fritzens-Wattens Bahnhof" }
+"Pat:47:1183" = { id = "8100337", name = "Volders-Baumkirchen Bahnhst", lat = 47.295998, lon = 11.563894, p = 32, d = 54, gtfs = "Volders-Baumkirchen Bahnhof" }
+"Pat:47:1184" = { id = "8100105", name = "Hall in Tirol Bahnhof", lat = 47.27695, lon = 11.501374, p = 48, d = 13, gtfs = "Hall in Tirol Bahnhof" }
+"Pat:47:1186" = { id = "8100477", name = "Rum b.Innsbruck Bahnhst", lat = 47.277956, lon = 11.456977, p = 48, d = 27, gtfs = "Rum Bahnhof" }
+"Pat:47:1187" = { id = "8100108", name = "Innsbruck Hbf", lat = 47.263043, lon = 11.401019, p = 4157, d = 31, gtfs = "Innsbruck Hauptbahnhof" }
+"Pat:47:1189" = { id = "8100109", name = "Innsbruck Westbahnhof", lat = 47.255528, lon = 11.391481, p = 4144, d = 41, gtfs = "Innsbruck Westbahnhof" }
+"Pat:47:1191" = { id = "8101728", name = "Völs Bahnhof", lat = 47.255753, lon = 11.321365, p = 48, d = 15, gtfs = "Völs Bahnhof" }
+"Pat:47:1192" = { id = "8101038", name = "Kematen in Tirol Bahnhof", lat = 47.261237, lon = 11.276518, p = 32, d = 2, gtfs = "Kematen i. T. Bahnhof" }
+"Pat:47:1193" = { id = "8102053", name = "Oberhofen im Inntal Bahnhst", lat = 47.302003, lon = 11.095556, p = 32, d = 11, gtfs = "Oberhofen i. I. Bahnhof" }
+"Pat:47:1194" = { id = "8100451", name = "Zirl Bahnhof", lat = 47.265893, lon = 11.229837, p = 32, d = 1, gtfs = "Zirl Bahnhof" }
+"Pat:47:1195" = { id = "8101007", name = "Inzing in Tirol Bahnhst", lat = 47.277741, lon = 11.199193, p = 32, d = 4, gtfs = "Inzing Bahnhof" }
+"Pat:47:1196" = { id = "8100986", name = "Hatting in Tirol Bahnhst", lat = 47.281291, lon = 11.170562, p = 32, d = 5, gtfs = "Hatting Bahnhof" }
+"Pat:47:1197" = { id = "8100795", name = "Flaurling Bahnhof", lat = 47.289058, lon = 11.142938, p = 32, d = 18, gtfs = "Flaurling Bahnhof" }
+"Pat:47:1198" = { id = "8100060", name = "Telfs-Pfaffenhofen Bahnhof", lat = 47.300663, lon = 11.078585, p = 57, d = 50, gtfs = "Telfs-Pfaffenhofen Bahnhof" }
+"Pat:47:1199" = { id = "8101457", name = "Rietz in Tirol Bahnhst", lat = 47.292052, lon = 11.024703, p = 48, d = 1, gtfs = "Rietz Bahnhof" }
+"Pat:47:1200" = { id = "8100589", name = "Stams Bahnhof", lat = 47.281957, lon = 10.979919, p = 48, d = 8, gtfs = "Stams Bahnhof" }
+"Pat:47:1201" = { id = "8101237", name = "Mötz Bahnhof", lat = 47.275673, lon = 10.960817, p = 48, d = 80, gtfs = "Mötz Bahnhof" }
+"Pat:47:1202" = { id = "8100586", name = "Silz in Tirol Bahnhof", lat = 47.270172, lon = 10.936897, p = 48, d = 10, gtfs = "Silz Bahnhof" }
+"Pat:47:1203" = { id = "8100956", name = "Haiming in Tirol Bahnhst", lat = 47.25285, lon = 10.88964, p = 48, d = 61, gtfs = "Haiming Bahnhof" }
+"Pat:47:1204" = { id = "8100061", name = "Ötztal Bahnhof", lat = 47.238593, lon = 10.859383, p = 61, d = 12, gtfs = "Ötztal-Bahnhof" }
+"Pat:47:1205" = { id = "8101448", name = "Roppen Bahnhst", lat = 47.215796, lon = 10.81743, p = 48, d = 8, gtfs = "Roppen Bahnhof" }
+"Pat:47:1206" = { id = "8100062", name = "Imst-Pitztal Bahnhof", lat = 47.219041, lon = 10.761895, p = 4157, d = 14, gtfs = "Imst-Pitztal Bahnhof" }
+"Pat:47:1209" = { id = "8101000", name = "Imsterberg Bahnhst", lat = 47.211212, lon = 10.705901, p = 48, d = 11, gtfs = "Imsterberg Bahnhof" }
+"Pat:47:1210" = { id = "8101629", name = "Schönwies Bahnhst", lat = 47.197233, lon = 10.660658, p = 48, d = 10, gtfs = "Schönwies Bahnhof" }
+"Pat:47:1212" = { id = "8100063", name = "Landeck-Zams Bahnhof", lat = 47.14817, lon = 10.57838, p = 4157, d = 47, gtfs = "Landeck-Zams Bahnhof" }
+"Pat:47:1222" = { id = "8100064", name = "St.Anton am Arlberg Bahnhof", lat = 47.127378, lon = 10.267326, p = 4109, d = 4, gtfs = "St. Anton a. A. Bahnhof" }
+"Pat:47:211" = { id = "8105987", name = "Innsbruck Messe Bahnhst", lat = 47.272761, lon = 11.407006, p = 48, d = 10, gtfs = "Innsbruck Messe Bahnhof" }
+"Pat:47:2181" = { id = "8100290", name = "Kirchbichl in Tirol Bahnhof", lat = 47.519604, lon = 12.093916, p = 48, d = 3, gtfs = "Kirchbichl Bahnhof" }
+"Pat:47:2183" = { id = "8100483", name = "Langkampfen Schaftenau Bahnhst", lat = 47.558779, lon = 12.125298, p = 48, d = 2, gtfs = "Schaftenau Bahnhof" }
+"Pat:47:2184" = { id = "8100001", name = "Kufstein Bahnhof", lat = 47.582969, lon = 12.165731, p = 4159, d = 7, gtfs = "Kufstein Bahnhof" }
+"Pat:47:2221" = { id = "8100110", name = "Innsbruck Hötting Bahnhof", lat = 47.261254, lon = 11.373826, p = 48, d = 14, gtfs = "Innsbruck Hötting Bahnhof" }
+"Pat:47:2222" = { id = "8100548", name = "Innsbruck Allerheiligenhöfe Bahnhof", lat = 47.269066, lon = 11.353088, p = 48, d = 31, gtfs = "Innsbruck Allerheiligenhöfe Bahnhof" }
+"Pat:47:2223" = { id = "8100551", name = "Kranebitten Bahnhst", lat = 47.269614, lon = 11.32871, p = 48, d = 23, gtfs = "Kranebitten Bahnhof" }
+"Pat:47:2225" = { id = "8100111", name = "Hochzirl Bahnhof", lat = 47.280986, lon = 11.249694, p = 48, d = 24, gtfs = "Hochzirl Bahnhof" }
+"Pat:47:2226" = { id = "8100554", name = "Leithen b.Reith Bahnhst", lat = 47.290775, lon = 11.221999, p = 48, d = 12, gtfs = "Leithen Bahnhof" }
+"Pat:47:2227" = { id = "8100112", name = "Reith b.Seefeld Bahnhst", lat = 47.30105, lon = 11.200631, p = 48, d = 19, gtfs = "Reith b. S. Bahnhof" }
+"Pat:47:2228" = { id = "8100113", name = "Seefeld in Tirol Bahnhof", lat = 47.328889, lon = 11.189494, p = 48, d = 10, gtfs = "Seefeld i. T. Bahnhof" }
+"Pat:47:2230" = { id = "8100549", name = "Gießenbach Bahnhst", lat = 47.374788, lon = 11.236876, p = 48, d = 21, gtfs = "Gießenbach Bahnhof" }
+"Pat:47:2231" = { id = "8100088", name = "Scharnitz Bahnhof", lat = 47.391859, lon = 11.266819, p = 48, d = 3, gtfs = "Scharnitz Bahnhof" }
+"Pat:47:2263" = { id = "8100106", name = "Matrei am Brenner Bahnhof", lat = 47.127073, lon = 11.452779, p = 48, d = 13, gtfs = "Matrei a. Br. Bahnhof" }
+"Pat:47:2264" = { id = "8100107", name = "Steinach am Brenner Bahnhst", lat = 47.089462, lon = 11.469867, p = 48, d = 7, gtfs = "Steinach a. Br. Bahnhof" }
+"Pat:47:2265" = { id = "8101529", name = "St.Jodok am Brenner Bahnhst", lat = 47.063285, lon = 11.499145, p = 48, d = 10, gtfs = "St. Jodok a. Br. Bahnhof" }
+"Pat:47:2266" = { id = "8100258", name = "Gries am Brenner Bahnhst", lat = 47.041154, lon = 11.485212, p = 48, d = 1, gtfs = "Gries a. Br. Bahnhof" }
+"Pat:47:294" = { id = "8102105", name = "Hall in Tirol-Thaur Bahnhst", lat = 47.277102, lon = 11.474452, p = 32, d = 15, gtfs = "Hall-Thaur Bahnhof" }
+"Pat:47:3871" = { id = "8101274", name = "Nikolsdorf Bahnhst", lat = 46.77919, lon = 12.895044, p = 32, d = 37, gtfs = "Nikolsdorf Bahnhof" }
+"Pat:47:3872" = { id = "8100143", name = "Dölsach Bahnhof", lat = 46.814769, lon = 12.833594, p = 32, d = 15, gtfs = "Dölsach Bahnhof" }
+"Pat:47:3873" = { id = "8100141", name = "Lienz in Osttirol Bahnhof", lat = 46.828406, lon = 12.771433, p = 49, d = 12, gtfs = "Lienz Bahnhof" }
+"Pat:47:3875" = { id = "8100324", name = "Thal/Drau Bahnhof", lat = 46.783936, lon = 12.66946, p = 32, d = 105, gtfs = "Thal Bahnhof" }
+"Pat:47:3876" = { id = "8100417", name = "Mittewald/Drau Bahnhof", lat = 46.769446, lon = 12.593914, p = 32, d = 38, gtfs = "Mittewald Bahnhof" }
+"Pat:47:3877" = { id = "8100204", name = "Abfaltersbach/Drau Bahnhst", lat = 46.758164, lon = 12.529219, p = 32, d = 10, gtfs = "Abfaltersbach Bahnhof" }
+"Pat:47:3878" = { id = "8101646", name = "Tassenbach Bahnhof", lat = 46.746829, lon = 12.465728, p = 32, d = 12, gtfs = "Tassenbach Bahnhof" }
+"Pat:47:3879" = { id = "8100142", name = "Sillian Bahnhof", lat = 46.745624, lon = 12.425016, p = 48, d = 9, gtfs = "Sillian Bahnhof" }
+"Pat:47:3880" = { id = "8101784", name = "Arnbach b.Sillian Weitlanbrunn Bahnhof", lat = 46.742505, lon = 12.395522, p = 32, d = 3, gtfs = "Weitlanbrunn Bahnhof" }
+"Pat:47:3881" = { id = "8105982", name = "Heinfels Bahnhst", lat = 46.745894, lon = 12.444433, p = 32, d = 20, gtfs = "Heinfels Bahnhof" }
+"Pat:47:61321" = { id = "8100102", name = "Jenbach Bahnhof", lat = 47.388425, lon = 11.778269, p = 4157, d = 52, gtfs = "Jenbach Bahnhof" }
+"Pat:48:1029" = { id = "8100120", name = "Götzis Bahnhof", lat = 47.336647, lon = 9.636688, p = 4153, d = 16, gtfs = "Götzis Bahnhof" }
+"Pat:48:1098" = { id = "8100267", name = "Hard/Bodensee-Fußach Bahnhst", lat = 47.479872, lon = 9.689634, p = 48, d = 109, gtfs = "Hard-Fussach Bahnhof" }
+"Pat:48:1099" = { id = "8100981", name = "Haselstauden (Dornbirn) Bahnhst", lat = 47.432769, lon = 9.74926, p = 48, d = 72, gtfs = "Dornbirn Haselstauden Bahnhof" }
+"Pat:48:1226" = { id = "8100065", name = "Langen am Arlberg Bahnhof", lat = 47.131603, lon = 10.121251, p = 13, d = 60, gtfs = "Langen a. A. Bahnhof" }
+"Pat:48:1252" = { id = "8100302", name = "Lauterach in Vlbg Bahnhof", lat = 47.47767, lon = 9.724324, p = 48, d = 23, gtfs = "Lauterach Bahnhof" }
+"Pat:48:1303" = { id = "8101175", name = "Lorüns Bahnhst", lat = 47.130992, lon = 9.853013, p = 32, d = 8, gtfs = "Lorüns Bahnhof" }
+"Pat:48:1305" = { id = "8100066", name = "Ludesch Bahnhst", lat = 47.180289, lon = 9.77123, p = 48, d = 77, gtfs = "Ludesch Bahnhof" }
+"Pat:48:1313" = { id = "8100123", name = "Lustenau Bahnhof", lat = 47.450621, lon = 9.667296, p = 48, d = 28, gtfs = "Lustenau Bahnhof" }
+"Pat:48:134" = { id = "8100117", name = "Schruns Bahnhof", lat = 47.079681, lon = 9.917277, p = 32, d = 23, gtfs = "Schruns Bahnhof" }
+"Pat:48:1377" = { id = "8100068", name = "Nenzing Bahnhst", lat = 47.191561, lon = 9.708278, p = 48, d = 70, gtfs = "Nenzing Bahnhof" }
+"Pat:48:139" = { id = "8100282", name = "Kaltenbrunnen im Montafon Bahnhst", lat = 47.085533, lon = 9.88791, p = 32, d = 25, gtfs = "Kaltenbrunnen Bahnhof" }
+"Pat:48:1405" = { id = "8101289", name = "Nüziders Bahnhst", lat = 47.170913, lon = 9.794008, p = 48, d = 30, gtfs = "Nüziders Bahnhof" }
+"Pat:48:146" = { id = "8101634", name = "Schwarzach in Vlbg Bahnhst", lat = 47.446064, lon = 9.75442, p = 48, d = 99, gtfs = "Schwarzach Bahnhof" }
+"Pat:48:1679" = { id = "8101543", name = "Schlins-Beschling Bahnhst", lat = 47.19486, lon = 9.690614, p = 48, d = 39, gtfs = "Schlins Bahnhof" }
+"Pat:48:187" = { id = "8100497", name = "St.Anton im Montafon Bahnhst", lat = 47.109984, lon = 9.866147, p = 32, d = 6, gtfs = "St. Anton im Montafon Bahnhof" }
+"Pat:48:233" = { id = "8101585", name = "Sulz in Vlbg-Röthis Bahnhst", lat = 47.294344, lon = 9.634558, p = 48, d = 60, gtfs = "Sulz-Röthis Bahnhof" }
+"Pat:48:2383" = { id = "8105481", name = "Lauterach in Vlbg Unterfeld Bahnhst", lat = 47.480798, lon = 9.715595, p = 32, d = 51, gtfs = "Lauterach Unterfeld Bahnhof" }
+"Pat:48:276" = { id = "", gtfs = "Tisis Bahnhof", checked = "2026-11-13" }
+"Pat:48:326" = { id = "8100380", name = "Vandans Bahnhst", lat = 47.098783, lon = 9.868771, p = 32, d = 3, gtfs = "Vandans Bahnhof" }
+"Pat:48:356" = { id = "8100389", name = "Wolfurt Bahnhst", lat = 47.457084, lon = 9.741116, p = 48, d = 87, gtfs = "Wolfurt Bahnhof" }
+"Pat:48:413" = { id = "8100667", name = "Bludenz Moos Bahnhst", lat = 47.14239, lon = 9.830819, p = 32, d = 34, gtfs = "Bludenz Moos Bahnhof" }
+"Pat:48:452" = { id = "8100090", name = "Bregenz Bahnhof", lat = 47.503019, lon = 9.739776, p = 4157, d = 102, gtfs = "Bregenz Bahnhof" }
+"Pat:48:454" = { id = "8100473", name = "Bregenz Riedenburg Bahnhst", lat = 47.493464, lon = 9.721241, p = 4157, d = 3, gtfs = "Bregenz Riedenburg Bahnhof" }
+"Pat:48:466" = { id = "8101950", name = "Bregenz Hafen Bahnhof", lat = 47.506229, lon = 9.748532, p = 48, d = 28, gtfs = "Bregenz Hafen Bahnhof" }
+"Pat:48:511" = { id = "8100699", name = "Bludenz Brunnenfeld-Stallehr Bahnhst", lat = 47.136367, lon = 9.838774, p = 32, d = 16, gtfs = "Bludenz Brunnenfeld Bahnhof" }
+"Pat:48:567" = { id = "8100635", name = "Altenstadt (Feldkirch) Bahnhst", lat = 47.256445, lon = 9.615213, p = 48, d = 8, gtfs = "Altenstadt Bahnhof" }
+"Pat:48:628" = { id = "8100921", name = "Dornbirn Hatlerdorf Bahnhst", lat = 47.398088, lon = 9.724881, p = 48, d = 1, gtfs = "Dornbirn Hatlerdorf Bahnhof" }
+"Pat:48:738" = { id = "8100728", name = "Dornbirn Schoren Bahnhst", lat = 47.413208, lon = 9.726742, p = 48, d = 39, gtfs = "Dornbirn Schoren Bahnhof" }
+"Pat:48:847" = { id = "8100791", name = "Feldkirch Amberg Bahnhst", lat = 47.255726, lon = 9.621721, p = 48, d = 51, gtfs = "Feldkirch Amberg Bahnhof" }
+"Pat:48:868" = { id = "8100069", name = "Frastanz Bahnhof", lat = 47.220048, lon = 9.639205, p = 4144, d = 16, gtfs = "Frastanz Bahnhof" }
+"Pat:48:889" = { id = "8100124", name = "Lochau in Vlbg-Hörbranz Bahnhof", lat = 47.529448, lon = 9.742446, p = 48, d = 53, gtfs = "Lochau-Hörbranz Bahnhof" }
+"Pat:48:892" = { id = "8100118", name = "Tschagguns Bahnhst", lat = 47.079133, lon = 9.904836, p = 32, d = 6, gtfs = "Tschagguns Bahnhof" }
+"Pat:48:975" = { id = "8100842", name = "Gisingen (Feldkirch) Bahnhst", lat = 47.255501, lon = 9.597917, p = 32, d = 10, gtfs = "Gisingen Bahnhof" }
+"Pat:49:1003" = { id = "8100450", name = "Wien Penzing Bahnhst", lat = 48.19269, lon = 16.304895, p = 32, d = 6, gtfs = "Wien Penzing" }
+"Pat:49:1015" = { id = "8100514", name = "Wien Meidling Bahnhof", lat = 48.174532, lon = 16.333966, p = 4157, d = 14, gtfs = "Wien Meidling" }
+"Pat:49:1040" = { id = "8100349", name = "Wien Praterstern Bahnhof", lat = 48.219082, lon = 16.392153, p = 48, d = 28, gtfs = "Wien Praterstern" }
+"Pat:49:1062" = { id = "8101937", name = "Wien Spittelau Bahnhof", lat = 48.235317, lon = 16.358066, p = 48, d = 1, gtfs = "Wien Spittelau" }
+"Pat:49:1091" = { id = "8101433", name = "Wien Rennweg Bahnhst", lat = 48.195467, lon = 16.386023, p = 48, d = 23, gtfs = "Wien Rennweg" }
+"Pat:49:1248" = { id = "8100796", name = "Wien Siemensstraße Bahnhof", lat = 48.270743, lon = 16.4202, p = 48, d = 50, gtfs = "Wien Siemensstraße" }
+"Pat:49:1257" = { id = "8101556", name = "Wien Grillgasse Bahnhst", lat = 48.167205, lon = 16.406959, p = 48, d = 9, gtfs = "Wien Grillgasse" }
+"Pat:49:1260" = { id = "8101553", name = "Wien Simmering Bahnhof", lat = 48.169875, lon = 16.419328, p = 48, d = 62, gtfs = "Wien Simmering" }
+"Pat:49:1295" = { id = "", gtfs = "Wien Speising", checked = "2026-11-13" }
+"Pat:49:1299" = { id = "8104229", name = "Wien Stadlau Bahnhof", lat = 48.21919, lon = 16.448408, p = 48, d = 59, gtfs = "Wien Stadlau" }
+"Pat:49:1301" = { id = "8101539", name = "Wien Praterkai Bahnhst", lat = 48.199504, lon = 16.441037, p = 32, d = 0, gtfs = "Wien Praterkai" }
+"Pat:49:1333" = { id = "8101588", name = "Wien Strebersdorf Bahnhst", lat = 48.285899, lon = 16.381258, p = 48, d = 14, gtfs = "Wien Strebersdorf" }
+"Pat:49:1346" = { id = "8101473", name = "Wien Quartier Belvedere Bahnhst", lat = 48.188033, lon = 16.381807, p = 576, d = 24, gtfs = "Wien Quartier Belvedere" }
+"Pat:49:1349" = { id = "8103000", name = "Wien Hbf (Bahnsteige 3-12)", lat = 48.184986, lon = 16.37795, p = 4157, d = 67, gtfs = "Wien Hauptbahnhof" }
+"Pat:49:1350" = { id = "8100004", name = "Wien Hbf (Autoreisezug)", lat = 48.177876, lon = 16.391003, p = 8, d = 21, gtfs = "Wien Hauptbahnhof Autoreisezug" }
+"Pat:49:1357" = { id = "8101619", name = "Wien Süßenbrunn Bahnhst", lat = 48.285548, lon = 16.485515, p = 48, d = 82, gtfs = "Wien Süßenbrunn" }
+"Pat:49:1385" = { id = "8101641", name = "Wien Traisengasse Bahnhst", lat = 48.234786, lon = 16.38338, p = 48, d = 54, gtfs = "Wien Traisengasse" }
+"Pat:49:1425" = { id = "8101818", name = "Wien St.Marx Bahnhst", lat = 48.188366, lon = 16.398778, p = 32, d = 5, gtfs = "Wien St. Marx" }
+"Pat:49:1458" = { id = "8101760", name = "Wien Weidlingau Bahnhst", lat = 48.210452, lon = 16.212162, p = 32, d = 28, gtfs = "Wien Weidlingau Bahnhof" }
+"Pat:49:1468" = { id = "8100003", name = "Wien Westbahnhof", lat = 48.196753, lon = 16.337256, p = 4157, d = 53, gtfs = "Wien Westbahnhof" }
+"Pat:49:1482" = { id = "8102057", name = "Wien Wolf in der Au Bahnhst", lat = 48.204618, lon = 16.236541, p = 32, d = 18, gtfs = "Wien Wolf in der Au" }
+"Pat:49:1519" = { id = "8101820", name = "Wien Zentralfriedhof Bahnhst", lat = 48.154099, lon = 16.426106, p = 32, d = 22, gtfs = "Wien Zentralfriedhof" }
+"Pat:49:166" = { id = "8100395", name = "Wien Breitensee Bahnhst", lat = 48.197535, lon = 16.306729, p = 32, d = 29, gtfs = "Wien Breitensee" }
+"Pat:49:1705" = { id = "8101934", name = "Wien Handelskai Bahnhst (Bahnsteige 1-2)", lat = 48.241942, lon = 16.385232, p = 48, d = 18, gtfs = "Wien Handelskai" }
+"Pat:49:176" = { id = "8100691", name = "Wien Brünner Straße Bahnhst", lat = 48.267768, lon = 16.403588, p = 48, d = 20, gtfs = "Wien Brünner Straße" }
+"Pat:49:1780" = { id = "8100374", name = "Wien Kaiserebersdorf Bahnhst", lat = 48.146171, lon = 16.465433, p = 48, d = 36, gtfs = "Wien Kaiserebersdorf" }
+"Pat:49:288" = { id = "8100756", name = "Wien Erzherzog-Karl-Straße Bahnhst", lat = 48.229842, lon = 16.453235, p = 48, d = 44, gtfs = "Wien Erzherzog-Karl-Straße" }
+"Pat:49:334" = { id = "8100236", name = "Wien Floridsdorf Bahnhof", lat = 48.256387, lon = 16.400046, p = 48, d = 5, gtfs = "Wien Floridsdorf" }
+"Pat:49:345" = { id = "8100446", name = "Wien Franz-Josefs-Bahnhof", lat = 48.226642, lon = 16.360997, p = 48, d = 17, gtfs = "Wien Franz-Josefs-Bahnhof" }
+"Pat:49:393" = { id = "8100249", name = "Wien Gersthof Bahnhst", lat = 48.230777, lon = 16.329067, p = 32, d = 8, gtfs = "Wien Gersthof" }
+"Pat:49:460" = { id = "8100922", name = "Wien Hadersdorf Bahnhst", lat = 48.210372, lon = 16.22294, p = 32, d = 50, gtfs = "Wien Hadersdorf" }
+"Pat:49:465" = { id = "8100920", name = "Wien Haidestraße Bahnhof", lat = 48.178748, lon = 16.426205, p = 32, d = 12, gtfs = "Wien Haidestraße" }
+"Pat:49:484" = { id = "8101555", name = "Wien Geiselbergstraße Bahnhst", lat = 48.175583, lon = 16.407156, p = 32, d = 3, gtfs = "Wien Geiselbergstraße" }
+"Pat:49:491" = { id = "8100269", name = "Wien Heiligenstadt Bahnhof", lat = 48.24898, lon = 16.365545, p = 48, d = 5, gtfs = "Wien Heiligenstadt" }
+"Pat:49:505" = { id = "8100271", name = "Wien Hernals Bahnhst", lat = 48.223244, lon = 16.314846, p = 32, d = 57, gtfs = "Wien Hernals" }
+"Pat:49:511" = { id = "8100935", name = "Wien Hetzendorf Bahnhof", lat = 48.166684, lon = 16.315269, p = 48, d = 24, gtfs = "Wien Hetzendorf" }
+"Pat:49:532" = { id = "8100918", name = "Wien Hirschstetten Bahnhst", lat = 48.232692, lon = 16.468777, p = 48, d = 25, gtfs = "Wien Hirschstetten" }
+"Pat:49:560" = { id = "8100447", name = "Wien Hütteldorf Bahnhof", lat = 48.197355, lon = 16.261118, p = 4157, d = 39, gtfs = "Wien Hütteldorf" }
+"Pat:49:582" = { id = "8101003", name = "Wien Blumental Bahnhst", lat = 48.139599, lon = 16.369546, p = 32, d = 67, gtfs = "Wien Blumental" }
+"Pat:49:591" = { id = "8101013", name = "Wien Jedlersdorf Bahnhst", lat = 48.274015, lon = 16.39592, p = 48, d = 103, gtfs = "Wien Jedlersdorf" }
+"Pat:49:723" = { id = "8100297", name = "Wien Krottenbachstraße Bahnhof", lat = 48.240063, lon = 16.341077, p = 32, d = 39, gtfs = "Wien Krottenbachstraße" }
+"Pat:49:743" = { id = "8100449", name = "Wien Mitte-Landstraße Bahnhof", lat = 48.206093, lon = 16.38489, p = 48, d = 53, gtfs = "Wien Mitte-Landstraße" }
+"Pat:49:769" = { id = "8101170", name = "Wien Leopoldau Bahnhst", lat = 48.277314, lon = 16.448327, p = 48, d = 128, gtfs = "Wien Leopoldau" }
+"Pat:49:788" = { id = "8101150", name = "Wien Liesing Bahnhof", lat = 48.134583, lon = 16.284229, p = 48, d = 11, gtfs = "Wien Liesing" }
+"Pat:49:849" = { id = "8101227", name = "Wien Matzleinsdorfer Platz Bahnhst", lat = 48.180132, lon = 16.35777, p = 48, d = 13, gtfs = "Wien Matzleinsdorfer Platz" }
+"Pat:49:910" = { id = "8102888", name = "Wien Aspern Nord Bahnhst", lat = 48.234741, lon = 16.504456, p = 48, d = 21, gtfs = "Wien Aspern Nord" }
+"Pat:49:94" = { id = "8100634", name = "Wien Atzgersdorf Bahnhof", lat = 48.146953, lon = 16.288571, p = 48, d = 9, gtfs = "Wien Atzgersdorf" }
+"Pat:49:948" = { id = "8101290", name = "Wien Nußdorf Bahnhof", lat = 48.260226, lon = 16.367784, p = 32, d = 8, gtfs = "Wien Nußdorf" }
+"Pat:49:959" = { id = "8100441", name = "Wien Oberdöbling Bahnhof", lat = 48.244396, lon = 16.344268, p = 32, d = 36, gtfs = "Wien Oberdöbling" }
+"Pat:49:981" = { id = "8100512", name = "Wien Ottakring Bahnhst", lat = 48.211738, lon = 16.31117, p = 32, d = 8, gtfs = "Wien Ottakring" }
+"Pbe:26:8814001" = { id = "8800004", name = "Bruxelles Midi", lat = 50.835375, lon = 4.335695, p = 31, d = 9, gtfs = "Bruxelles Midi" }
+"Pch:23016:20302" = { id = "8509404", name = "Buchs SG", lat = 47.168414, lon = 9.47864, p = 61, d = 67, gtfs = "Buchs Bahnhof" }
+"Pch:23016:20307" = { id = "8506302", name = "St. Gallen(CH)", lat = 47.423177, lon = 9.369897, p = 61, d = 41, gtfs = "St. Gallen Bahnhof" }
+"Pch:23016:20309" = { id = "8506314", name = "St. Margrethen SG", lat = 47.453219, lon = 9.638261, p = 60, d = 46, gtfs = "St.Margrethen Bahnhof" }
+"Pch:23016:20329" = { id = "8509411", name = "Sargans", lat = 47.044821, lon = 9.44626, p = 61, d = 116, gtfs = "Sargans Bahnhof" }
+"Pch:23026:20038" = { id = "8506000", name = "Winterthur", lat = 47.500332, lon = 8.723824, p = 61, d = 19, gtfs = "Winterthur Hauptbahnhof" }
+"Pch:23026:688" = { id = "8503000", name = "Zürich HB", lat = 47.378177, lon = 8.540211, p = 61, d = 191, gtfs = "Zürich HB" }
+"Pcz:0:5433295" = { id = "5400001", name = "Brno hl.n.", lat = 49.190537, lon = 16.612776, p = 31, d = 37, gtfs = "Brno hlavní nádraží" }
+"Pcz:0:5433425" = { id = "5400202", name = "Breclav", lat = 48.753904, lon = 16.893239, p = 4127, d = 24, gtfs = "Břeclav" }
+"Pcz:0:5436275" = { id = "5400228", name = "Satov", lat = 48.780539, lon = 16.025987, p = 16, d = 26, gtfs = "Šatov, železniční stanice" }
+"Pcz:0:5455659" = { id = "5400003", name = "Decin hl.n.", lat = 50.773412, lon = 14.201249, p = 31, d = 32, gtfs = "Děčín hlavní nádrazí" }
+"Pcz:0:5457256" = { id = "5400201", name = "Praha-Holesovice", lat = 50.110601, lon = 14.440748, p = 29, d = 50, gtfs = "Praha-Holešovice" }
+"Pcz:0:5473632" = { id = "5400018", name = "Ceské Velenice", lat = 48.76933, lon = 14.957628, p = 26, d = 43, gtfs = "České Velenice" }
+"Pcz:55100:NVBW_99212" = { id = "5400014", name = "Praha hl.n.", lat = 50.083058, lon = 14.436038, p = 31, d = 48, gtfs = "Praha hlavní nádraží" }
+"Pcz:55803:NVBW_CSD_5" = { id = "5400038", name = "Bohumin", lat = 49.90073, lon = 18.359443, p = 31, d = 8, gtfs = "Bohumín" }
+"Pde:02000:80953" = { id = "8002553", name = "Hamburg-Altona", lat = 53.552697, lon = 9.935175, p = 29, d = 44, gtfs = "Hamburg-Altona" }
+"Pde:05315:11201" = { id = "8000207", name = "Köln Hbf", lat = 50.943029, lon = 6.95873, p = 61, d = 46, gtfs = "Köln Hauptbahnhof" }
+"Pde:05515:41000" = { id = "8000263", name = "Münster(Westf)Hbf", lat = 51.956563, lon = 7.635716, p = 31, d = 54, gtfs = "Münster (Westf) Hbf" }
+"Pde:05913:131" = { id = "8000080", name = "Dortmund Hbf", lat = 51.517899, lon = 7.459294, p = 63, d = 39, gtfs = "Dortmund Hauptbahnhof" }
+"Pde:09162:100" = { id = "8000261", name = "München Hbf", lat = 48.140417, lon = 11.558761, p = 4159, d = 152, gtfs = "München Hauptbahnhof" }
+"Pde:09162:5" = { id = "8000262", name = "München Ost", lat = 48.127437, lon = 11.604975, p = 4159, d = 34, gtfs = "München Ostbahnhof" }
+"Pde:09163:9" = { id = "8000320", name = "Rosenheim in Oberbayern", lat = 47.850021, lon = 12.119203, p = 4127, d = 7, gtfs = "Rosenheim Bahnhof" }
+"Pde:09172:42293" = { id = "8000108", name = "Freilassing (Oberbayern)", lat = 47.837005, lon = 12.976792, p = 63, d = 100, gtfs = "Freilassing Bahnhof" }
+"Pde:09180:42873" = { id = "8004043", name = "Mittenwald", lat = 47.440032, lon = 11.265704, p = 52, d = 51, gtfs = "Mittenwald Bahnhof" }
+"Pde:09262:156" = { id = "8000298", name = "Passau Hbf", lat = 48.573635, lon = 13.450775, p = 4125, d = 59, gtfs = "Passau Hauptbahnhof" }
+"Pde:09277:80490" = { id = "8000072", name = "Simbach/Inn", lat = 48.262626, lon = 13.022718, p = 22, d = 47, gtfs = "Simbach (Inn)" }
+"Pde:09564:510" = { id = "8000284", name = "Nürnberg Hbf", lat = 49.445615, lon = 11.082989, p = 61, d = 66, gtfs = "Nürnberg Hauptbahnhof" }
+"Pde:09761:100" = { id = "8000013", name = "Augsburg Hbf", lat = 48.365444, lon = 10.885568, p = 4127, d = 27, gtfs = "Augsburg Hauptbahnhof" }
+"Pde:09776:1546" = { id = "8000230", name = "Lindau (Bodensee) Insel", lat = 47.544361, lon = 9.680879, p = 4144, d = 114, gtfs = "Lindau-Insel" }
+"Pde:11000:900003201" = { id = "8098160", name = "Berlin Hbf (Tiefgeschoß)", lat = 52.525284, lon = 13.369306, p = 29, d = 34, gtfs = "Berlin Hauptbahnhof" }
+"Pde:11000:900058101" = { id = "8011113", name = "Berlin Südkreuz", lat = 52.475438, lon = 13.365593, p = 29, d = 59, gtfs = "Berlin Südkreuz" }
+"Pfl:21:104" = { id = "8100482", name = "Schaan-Vaduz Bahnhof", lat = 47.168594, lon = 9.508151, p = 48, d = 32, gtfs = "Schaan Bahnhof" }
+"Pfl:21:1371" = { id = "8101262", name = "Nendeln Bahnhof", lat = 47.200335, lon = 9.541726, p = 48, d = 14, gtfs = "Nendeln Bahnhof" }
+"Pfl:21:4145" = { id = "8101898", name = "Schaan Forst-Hilti Bahnhst", lat = 47.181376, lon = 9.521114, p = 48, d = 43, gtfs = "Schaan Forst Hilti Bahnhof" }
+"Phr:62:65" = { id = "7800016", name = "Split", lat = 43.504887, lon = 16.44279, p = 28, d = 21, gtfs = "Split željeznički kolodvor" }
+"Phr:62:80" = { id = "7800020", name = "Zagreb Glavni kolodvor", lat = 45.804436, lon = 15.978704, p = 28, d = 28, gtfs = "Zagreb Glavni kolodvor" }
+"Phu:08518:27001898" = { id = "5501494", name = "Sopron", lat = 47.677905, lon = 16.586734, p = 22, d = 40, gtfs = "Sopron pályaudvar" }
+"Phu:14216:27001535" = { id = "5500003", name = "Budapest-Keleti", lat = 47.500386, lon = 19.08507, p = 29, d = 34, gtfs = "Budapest-Keleti" }
+"Phu:15130:27001786" = { id = "5500058", name = "Debrecen", lat = 47.519631, lon = 21.628792, p = 30, d = 74, gtfs = "Debrecen" }
+"Phu:15343:27001902" = { id = "5500032", name = "Fertöszentmiklós", lat = 47.599833, lon = 16.860024, p = 22, d = 2, gtfs = "Fertőszentmiklós pályaudvar" }
+"Phu:17905:27000493" = { id = "5500017", name = "Hegyeshalom", lat = 47.913943, lon = 17.14571, p = 4127, d = 98, gtfs = "Hegyeshalom pályaudvar" }
+"Phu:28007:51761" = { id = "5500080", name = "Györ", lat = 47.682031, lon = 17.634624, p = 31, d = 72, gtfs = "Győr pályaudvar" }
+"Phu:31583:27000652" = { id = "5500029", name = "Szentgotthárd", lat = 46.95741, lon = 16.26341, p = 22, d = 20, gtfs = "Szentgotthárd pályaudvar" }
+"Phu:55061" = { id = "5500061", name = "Nyiregyhaza", lat = 47.946349, lon = 21.705228, p = 30, d = 22, gtfs = "Nyíregyháza" }
+"Phu:55064" = { id = "5500064", name = "Zahony", lat = 48.40168, lon = 22.183759, p = 30, d = 1, gtfs = "Záhony" }
+"Pit:22015:116" = { id = "8300217", name = "Bologna Centrale", lat = 44.506142, lon = 11.343407, p = 93, d = 180, gtfs = "Bologna, Stazione di Bologna Centrale" }
+"Pit:22021:1170" = { id = "8300089", name = "Fortezza/Franzensfeste", lat = 46.788719, lon = 11.610081, p = 113, d = 14, gtfs = "Fortezza, Stazione di Fortezza" }
+"Pit:22021:1177" = { id = "8300428", name = "Rio di Pusteria/Mühlbach", lat = 46.797141, lon = 11.669976, p = 114, d = 7, gtfs = "Rio di Pusteria, Stazione di Rio di Pusteria" }
+"Pit:22021:1179" = { id = "8300520", name = "Vandoies/Vintl", lat = 46.814949, lon = 11.722949, p = 112, d = 17, gtfs = "Vandoies, Stazione di Vandoies" }
+"Pit:22021:1194" = { id = "8300077", name = "Brunico/Bruneck", lat = 46.794705, lon = 11.929791, p = 114, d = 9, gtfs = "Brunico, Stazione di Brunico" }
+"Pit:22021:1219" = { id = "8311219", name = "Dobbiaco, Stazione", lat = 46.724572, lon = 12.225644, p = 2, d = 49, gtfs = "Dobbiaco, Stazione di Dobbiaco" }
+"Pit:22021:1389" = { id = "8300092", name = "Brennero/Brenner", lat = 47.002338, lon = 11.505428, p = 125, d = 94, gtfs = "Brennero, Stazione di Brennero" }
+"Pit:22021:1725" = { id = "8396239", name = "San Lorenzo di Sebato/St.Lorenzen im Pustertal", lat = 46.781518, lon = 11.903372, p = 112, d = 19, gtfs = "San Lorenzo di Sebato, Stazione di San Lorenzo" }
+"Pit:22021:1891" = { id = "8372315", name = "Perca-Plan de Corones/Percha-Kronplatz", lat = 46.790373, lon = 11.978522, p = 112, d = 30, gtfs = "Perca, Stazione di Perca - Plan de Corones" }
+"Pit:22021:1899" = { id = "8300443", name = "Valdaora-Anterselva/Olang-Antholz", lat = 46.767423, lon = 12.030309, p = 114, d = 11, gtfs = "Valdaora, Stazione di Valdaora - Anterselva" }
+"Pit:22021:1922" = { id = "8300421", name = "Monguelfo-Casies/Welsberg-Gsies", lat = 46.752915, lon = 12.107301, p = 114, d = 20, gtfs = "Monguelfo, Stazione di Monguelfo - Casies" }
+"Pit:22021:1961" = { id = "8300449", name = "Villabassa-Braies/Niederdorf-Prags", lat = 46.736671, lon = 12.167071, p = 112, d = 24, gtfs = "Villabassa, Stazione di Villabassa - Braies" }
+"Pit:22021:1980" = { id = "8300114", name = "San Candido/Innichen", lat = 46.732734, lon = 12.272038, p = 112, d = 9, gtfs = "San Candido, Stazione di San Candido" }
+"Pit:22021:2235" = { id = "8300401", name = "Casteldarne/Ehrenburg", lat = 46.797609, lon = 11.84407, p = 114, d = 10, gtfs = "Casteldarne, Stazione di Casteldarne" }
+"Pit:22021:2308" = { id = "8303941", name = "Brunico/Bruneck Nord", lat = 46.800629, lon = 11.936731, p = 112, d = 21, gtfs = "Brunico, Stazione di Brunico Nord" }
+"Pit:22021:2765" = { id = "8381962", name = "Versciaco-Elmo/Vierschach-Helm stazione/Bahnhof (Ss49)", lat = 46.732293, lon = 12.328346, p = 2, d = 18, gtfs = "Versciaco, Stazione di Versciaco - Elmo" }
+"Pit:22021:468" = { id = "8300084", name = "Bolzano/Bozen", lat = 46.49638, lon = 11.358787, p = 125, d = 16, gtfs = "Bolzano, Stazione di Bolzano" }
+"Pit:22021:998" = { id = "8300076", name = "Bressanone/Brixen", lat = 46.709892, lon = 11.649768, p = 113, d = 13, gtfs = "Bressanone, Stazione di Bressanone" }
+"Pit:22032:trieste-centrale" = { id = "8300107", name = "Trieste Centrale", lat = 45.65828, lon = 13.771537, p = 93, d = 35, gtfs = "Trieste Centrale" }
+"Pit:22079:stv1" = { id = "8300262", name = "Roma Tiburtina", lat = 41.910839, lon = 12.530855, p = 93, d = 41, gtfs = "Roma, Stazione di Roma Tiburtina" }
+"Pit:22095:7049" = { id = "8300115", name = "Udine", lat = 46.055783, lon = 13.242162, p = 93, d = 12, gtfs = "Udine stazione" }
+"Pit:22095:7068" = { id = "8303915", name = "Tarvisio Boscoverde", lat = 46.506358, lon = 13.607214, p = 89, d = 19, gtfs = "Tarvisio Citta Boscoverde" }
+"Pit:22099:7023" = { id = "8300093", name = "Venezia Mestre", lat = 45.481903, lon = 12.231901, p = 93, d = 41, gtfs = "Venezia Mestre stazione" }
+"Ppl:18:stv14804" = { id = "5100066", name = "Warszawa Wschodnia", lat = 52.251544, lon = 21.052332, p = 31, d = 12, gtfs = "Warszawa Wschodnia" }
+"Ppl:51020" = { id = "5100020", name = "Katowice", lat = 50.257512, lon = 19.017165, p = 31, d = 17, gtfs = "Katowice stacja kolejowa" }
+"Pro:34:obb1" = { id = "5300007", name = "Bucuresti Nord Gara A", lat = 44.446768, lon = 26.074408, p = 28, d = 116, gtfs = "București Nord Gara A" }
+"Psi:63:102" = { id = "7900064", name = "Sentilj", lat = 46.675104, lon = 15.656971, p = 20, d = 23, gtfs = "Šentilj železniška postaja" }
+"Psi:63:106" = { id = "7900006", name = "Maribor", lat = 46.562065, lon = 15.658013, p = 28, d = 10, gtfs = "Maribor Železniška postaja" }
+"Psi:63:5948" = { id = "7900001", name = "Jesenice(SLO)", lat = 46.436323, lon = 14.054913, p = 28, d = 32, gtfs = "Jesenice (SI) železniška posta" }
+"Psk:56000:5613600" = { id = "5600007", name = "Kosice", lat = 48.722918, lon = 21.268721, p = 28, d = 9, gtfs = "Košice" }
+"Psk:56:1" = { id = "5600207", name = "Bratislava hl.st.", lat = 48.158908, lon = 17.106463, p = 29, d = 20, gtfs = "Bratislava hlavná stanica" }
+"Psk:56:2" = { id = "5600582", name = "Bratislava-Petrzalka", lat = 48.121495, lon = 17.09911, p = 57, d = 43, gtfs = "Bratislava-Petržalka stanica" }
+"Psk:56:7" = { id = "5600193", name = "Devínska Nová Ves", lat = 48.218965, lon = 16.975805, p = 16, d = 28, gtfs = "Devínska Nová Ves" }
+"Pua:22005" = { id = "2200005", name = "Kyiv Pasazhyrskyi", lat = 50.440326, lon = 30.48919, p = 12, d = 50, gtfs = "Kyjiw-Passaschyrskyj" }
+"Pua:22010" = { id = "2200010", name = "Chop", lat = 48.432711, lon = 22.205549, p = 28, d = 7, gtfs = "Chop" }
+"Pua:22025" = { id = "2200025", name = "Lviv", lat = 49.839846, lon = 23.994196, p = 12, d = 7, gtfs = "Lviv" }
+"Pua:22033" = { id = "2200033", name = "Mukacheve", lat = 48.429349, lon = 22.711786, p = 28, d = 28, gtfs = "Mukačevo" }
+"Pua:22072" = { id = "2200072", name = "Stryj", lat = 49.259548, lon = 23.841622, p = 12, d = 8, gtfs = "Stryj" }
+"Pua:22517" = { id = "", gtfs = "Swaljawa", checked = "2026-11-13" }
+"at:41:3351:0:1" = { id = "8100231", name = "Eisenstadt Bahnhof", lat = 47.839351, lon = 16.529446, p = 16, d = 57, gtfs = "Eisenstadt Bahnhof" }
+"at:41:3351:0:4" = { id = "8100231", name = "Eisenstadt Bahnhof", lat = 47.839351, lon = 16.529446, p = 16, d = 56, gtfs = "Eisenstadt Bahnhof" }
+"at:41:3351:0:5" = { id = "8100231", name = "Eisenstadt Bahnhof", lat = 47.839351, lon = 16.529446, p = 16, d = 57, gtfs = "Eisenstadt Bahnhof" }
+"at:42:3647:0:1" = { id = "8101395", name = "Pritschitz Bahnhst", lat = 46.627946, lon = 14.170847, p = 32, d = 31, gtfs = "Pritschitz Bahnhst" }
+"at:42:3647:0:2" = { id = "8101395", name = "Pritschitz Bahnhst", lat = 46.627946, lon = 14.170847, p = 32, d = 6, gtfs = "Pritschitz Bahnhst" }
+"at:43:7169:0:1" = { id = "8100129", name = "Gmünd NÖ Bahnhof", lat = 48.764215, lon = 14.984515, p = 16, d = 47, gtfs = "Gmünd Bahnhof" }
+"at:43:7169:0:6" = { id = "8100129", name = "Gmünd NÖ Bahnhof", lat = 48.764215, lon = 14.984515, p = 16, d = 95, gtfs = "Gmünd Bahnhof" }
+"at:43:7169:0:7" = { id = "8100129", name = "Gmünd NÖ Bahnhof", lat = 48.764215, lon = 14.984515, p = 16, d = 94, gtfs = "Gmünd Bahnhof" }
+"at:43:8764:0:1" = { id = "8101097", name = "Küb Bahnhst", lat = 47.681734, lon = 15.876541, p = 16, d = 39, gtfs = "Küb Bahnhof" }
+"at:43:8764:0:2" = { id = "8101097", name = "Küb Bahnhst", lat = 47.681734, lon = 15.876541, p = 16, d = 39, gtfs = "Küb Bahnhof" }
+"at:48:1133:0:2" = { id = "8100121", name = "Hohenems Bahnhof", lat = 47.364927, lon = 9.681319, p = 4157, d = 4, gtfs = "Hohenems Bahnhof" }
+"at:48:1133:0:3" = { id = "8100121", name = "Hohenems Bahnhof", lat = 47.364927, lon = 9.681319, p = 4157, d = 5, gtfs = "Hohenems Bahnhof" }
+"at:48:1133:0:4" = { id = "8100121", name = "Hohenems Bahnhof", lat = 47.364927, lon = 9.681319, p = 4157, d = 14, gtfs = "Hohenems Bahnhof" }
+"at:48:1184:0:4" = { id = "8101100", name = "Klaus in Vlbg Bahnhst", lat = 47.308583, lon = 9.624481, p = 48, d = 93, gtfs = "Klaus Bahnhof" }
+"at:48:1184:0:5" = { id = "8101100", name = "Klaus in Vlbg Bahnhst", lat = 47.308583, lon = 9.624481, p = 48, d = 27, gtfs = "Klaus Bahnhof" }
+"at:48:130:0:1" = { id = "8100067", name = "Bludenz Bahnhof", lat = 47.154723, lon = 9.81489, p = 4157, d = 78, gtfs = "Bludenz Bahnhof" }
+"at:48:130:0:10" = { id = "8100067", name = "Bludenz Bahnhof", lat = 47.154723, lon = 9.81489, p = 4157, d = 73, gtfs = "Bludenz Bahnhof" }
+"at:48:130:0:11" = { id = "8100067", name = "Bludenz Bahnhof", lat = 47.154723, lon = 9.81489, p = 4157, d = 76, gtfs = "Bludenz Bahnhof" }
+"at:48:130:0:12" = { id = "8100067", name = "Bludenz Bahnhof", lat = 47.154723, lon = 9.81489, p = 4157, d = 75, gtfs = "Bludenz Bahnhof" }
+"at:48:130:0:2" = { id = "8100067", name = "Bludenz Bahnhof", lat = 47.154723, lon = 9.81489, p = 4157, d = 152, gtfs = "Bludenz Bahnhof" }
+"at:48:130:0:4" = { id = "8100067", name = "Bludenz Bahnhof", lat = 47.154723, lon = 9.81489, p = 4157, d = 78, gtfs = "Bludenz Bahnhof" }
+"at:48:1436:0:2" = { id = "8100119", name = "Rankweil Bahnhof", lat = 47.272338, lon = 9.637497, p = 4157, d = 68, gtfs = "Rankweil Bahnhof" }
+"at:48:1436:0:3" = { id = "8100119", name = "Rankweil Bahnhof", lat = 47.272338, lon = 9.637497, p = 4157, d = 68, gtfs = "Rankweil Bahnhof" }
+"at:48:1436:0:4" = { id = "8100119", name = "Rankweil Bahnhof", lat = 47.272338, lon = 9.637497, p = 4157, d = 70, gtfs = "Rankweil Bahnhof" }
+"at:48:394:0:3" = { id = "8100630", name = "Altach Bahnhst", lat = 47.352369, lon = 9.661687, p = 4144, d = 73, gtfs = "Altach Bahnhof" }
+"at:48:394:0:4" = { id = "8100630", name = "Altach Bahnhst", lat = 47.352369, lon = 9.661687, p = 4144, d = 48, gtfs = "Altach Bahnhof" }
+"at:48:585:0:2" = { id = "8100122", name = "Dornbirn Bahnhof", lat = 47.417586, lon = 9.738671, p = 4157, d = 55, gtfs = "Dornbirn Bahnhof" }
+"at:48:585:0:3" = { id = "8100122", name = "Dornbirn Bahnhof", lat = 47.417586, lon = 9.738671, p = 4157, d = 74, gtfs = "Dornbirn Bahnhof" }
+"at:48:585:0:4" = { id = "8100122", name = "Dornbirn Bahnhof", lat = 47.417586, lon = 9.738671, p = 4157, d = 53, gtfs = "Dornbirn Bahnhof" }
+"at:48:817:0:2" = { id = "8100197", name = "Feldkirch Bahnhof", lat = 47.240921, lon = 9.604309, p = 4157, d = 36, gtfs = "Feldkirch Bahnhof" }
+"at:48:817:0:3" = { id = "8100197", name = "Feldkirch Bahnhof", lat = 47.240921, lon = 9.604309, p = 4157, d = 121, gtfs = "Feldkirch Bahnhof" }
+"at:48:817:0:4" = { id = "8100197", name = "Feldkirch Bahnhof", lat = 47.240921, lon = 9.604309, p = 4157, d = 118, gtfs = "Feldkirch Bahnhof" }
+"at:48:817:0:5" = { id = "8100197", name = "Feldkirch Bahnhof", lat = 47.240921, lon = 9.604309, p = 4157, d = 118, gtfs = "Feldkirch Bahnhof" }
+"at:48:817:0:6" = { id = "8100197", name = "Feldkirch Bahnhof", lat = 47.240921, lon = 9.604309, p = 4157, d = 120, gtfs = "Feldkirch Bahnhof" }
+"de:02000:10950:11:1" = { id = "8002549", name = "Hamburg Hbf", lat = 53.552733, lon = 10.006909, p = 31, d = 83, gtfs = "Hamburg Hauptbahnhof" }
+"de:02000:10950:1:5" = { id = "8002549", name = "Hamburg Hbf", lat = 53.552733, lon = 10.006909, p = 31, d = 55, gtfs = "Hamburg Hauptbahnhof" }
+"de:02000:10950:3:11" = { id = "8002549", name = "Hamburg Hbf", lat = 53.552733, lon = 10.006909, p = 31, d = 52, gtfs = "Hamburg Hauptbahnhof" }
+"de:02000:10950:4:14" = { id = "8002549", name = "Hamburg Hbf", lat = 53.552733, lon = 10.006909, p = 31, d = 71, gtfs = "Hamburg Hauptbahnhof" }
+"de:08111:6115:1:1" = { id = "8000096", name = "Stuttgart Hbf", lat = 48.784782, lon = 9.18276, p = 4157, d = 34, gtfs = "Stuttgart Hauptbahnhof 1" }
+"de:08111:6115:3:5" = { id = "8000096", name = "Stuttgart Hbf", lat = 48.784782, lon = 9.18276, p = 4157, d = 34, gtfs = "Stuttgart Hauptbahnhof 5" }
+"de:08111:6115:5:10" = { id = "8000096", name = "Stuttgart Hbf", lat = 48.784782, lon = 9.18276, p = 4157, d = 34, gtfs = "Stuttgart Hauptbahnhof 10" }
+"de:08111:6115:5:9" = { id = "8000096", name = "Stuttgart Hbf", lat = 48.784782, lon = 9.18276, p = 4157, d = 34, gtfs = "Stuttgart Hauptbahnhof 9" }
+"de:08111:6115:8:16" = { id = "8000096", name = "Stuttgart Hbf", lat = 48.784782, lon = 9.18276, p = 4157, d = 34, gtfs = "Stuttgart Hauptbahnhof 16" }
+"de:08421:1008:31:1" = { id = "8000170", name = "Ulm Hbf", lat = 48.399397, lon = 9.982611, p = 4127, d = 24, gtfs = "Ulm Hauptbahnhof" }
+"de:08421:1008:32:2" = { id = "8000170", name = "Ulm Hbf", lat = 48.399397, lon = 9.982611, p = 4127, d = 15, gtfs = "Ulm Hauptbahnhof" }
+"de:09161:9000:3:2" = { id = "8000183", name = "Ingolstadt Hbf", lat = 48.744538, lon = 11.437335, p = 27, d = 16, gtfs = "Ingolstadt Hbf" }
+"de:09161:9000:3:3" = { id = "8000183", name = "Ingolstadt Hbf", lat = 48.744538, lon = 11.437335, p = 27, d = 8, gtfs = "Ingolstadt Hbf" }
+"de:09161:9000:4:4" = { id = "8000183", name = "Ingolstadt Hbf", lat = 48.744538, lon = 11.437335, p = 27, d = 8, gtfs = "Ingolstadt Hbf" }
+"de:09161:9000:5:7" = { id = "8000183", name = "Ingolstadt Hbf", lat = 48.744538, lon = 11.437335, p = 27, d = 29, gtfs = "Ingolstadt Hbf" }
+"de:09776:1592:1:1" = { id = "8003693", name = "Lindau (Bodensee) Reutin", lat = 47.552451, lon = 9.703118, p = 4149, d = 15, gtfs = "Lindau-Reutin" }
+"de:09776:1592:2:2" = { id = "8003693", name = "Lindau (Bodensee) Reutin", lat = 47.552451, lon = 9.703118, p = 4149, d = 15, gtfs = "Lindau-Reutin" }
+"de:09776:1592:2:4" = { id = "8003693", name = "Lindau (Bodensee) Reutin", lat = 47.552451, lon = 9.703118, p = 4149, d = 138, gtfs = "Lindau-Reutin" }
+"it:22099:110:51:1" = { id = "8300094", name = "Venezia Santa Lucia", lat = 45.441397, lon = 12.320462, p = 93, d = 126, gtfs = "Venezia Santa Lucia" }
+"si:63:311:0:3" = { id = "7900003", name = "Ljubljana", lat = 46.058687, lon = 14.51294, p = 30, d = 118, gtfs = "Ljubljana železniška postaja" }

@@ -25,14 +25,14 @@ when `parent_station` is empty, e.g. Feldkirch, Bludenz).
 
 | File                        | Type (`src/types.ts`) | Content                                 |
 | --------------------------- | --------------------- | --------------------------------------- |
-| `data/netz.json`            | `NetzModel`           | Knoten, Takt lines, edges, Knotenzeiten |
+| `data/netz.toml`            | `NetzModel`           | Knoten, Takt lines, edges, Knotenzeiten |
 | `data/nge.json`             | `NgeDto` (`nge.ts`)   | same model as Netzgrafik-Editor JSON    |
-| `data/corridors/index.json` | `CorridorIndex`       | list of corridors                       |
-| `data/corridors/<id>.json`  | `Corridor`            | time–distance data (one train per line) |
+| `data/corridors/index.toml` | `CorridorIndex`       | list of corridors                       |
+| `data/corridors/<id>.toml`  | `Corridor`            | time–distance data (one train per line) |
 
 The UI imports the types from `@zugx/netz` (`src/types.ts`).
 
-## Netzgrafik model (`netz.json`)
+## Netzgrafik model (`netz.toml`)
 
 ```jsonc
 {
@@ -106,7 +106,7 @@ The UI imports the types from `@zugx/netz` (`src/types.ts`).
   of hubs, junctions and border points. `--candidates` prints the data-driven ranking
   (departures of the selected categories + number of neighbouring stations) to help curating.
   `code` is a zugx short code (not an official ÖBB Betriebsstellen-Abkürzung). If
-  `packages/stations/data/gtfs-hafas-map.json` exists at build time, nodes get a `hafasId`.
+  `packages/stations/data/gtfs-hafas-map.toml` exists at build time, nodes get a `hafasId`.
 - **Categories**: Takt-relevant long-distance and regional-express trains by default
   (`RJX RJ ICE EC IC D IR CJX REX`); night trains and R/S are left out (`--cats=` to change).
 - **Minutes** are 0–59. For Takt < 60 they are the first slot of the hour (a 30' line at
@@ -180,7 +180,7 @@ and select `packages/netz/data/nge.json`. NGE logs "3rd party import" and routes
 sections, metadata; references; unique `betriebspunktName`; section chains; time consistency)
 for a synthetic model and for the generated file.
 
-## Bildfahrplan corridors (`corridors/*.json`)
+## Bildfahrplan corridors (`corridors/*.toml`)
 
 ```jsonc
 {"id":"westbahn","name":"Westbahn Wien – Salzburg","day":"2026-03-10","source":"…",
@@ -224,5 +224,5 @@ for a synthetic model and for the generated file.
 
 ## Day types and running days
 
-- **Netzgrafik** is built for three day types from reference days of the same regular week: Mon–Fri (`--day`, default Tue 2026-03-10) → `netz.json` / `nge.json`, Saturday 2026-03-14 → `netz-saturday.json` / `nge-saturday.json`, Sunday 2026-03-15 → `netz-sunday.json` / `nge-sunday.json` (`DAY_TYPES` in `src/build.ts`).
+- **Netzgrafik** is built for three day types from reference days of the same regular week: Mon–Fri (`--day`, default Tue 2026-03-10) → `netz.toml` / `nge.json`, Saturday 2026-03-14 → `netz-saturday.toml` / `nge-saturday.json`, Sunday 2026-03-15 → `netz-sunday.toml` / `nge-sunday.json` (`DAY_TYPES` in `src/build.ts`).
 - **Corridors** take their station list from the reference day, but their trains from the **whole timetable year** (`loadFeed(src, null)` + `serviceDays()`): runs with identical times are merged, and each carries `days`, a base64 bitset over `begin…end` (bit i = day `begin + i`, MSB first — same as the train index). The UI filters by date. Corridor/index `trains` counts and `cats` refer to the reference day.

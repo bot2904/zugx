@@ -10,6 +10,9 @@
   "scripts": {
     "test": "vp test run"
   },
+  "dependencies": {
+    "@zugx/toml": "workspace:*"
+  },
   "devDependencies": {
     "@types/node": "catalog:",
     "fflate": "catalog:",

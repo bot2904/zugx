@@ -6,8 +6,8 @@ import { useRoute, useRouter } from "vue-router";
 import { NGE_APP, ngeLink } from "../lib/nge.ts";
 import { categoryColor } from "../lib/products.ts";
 
-// one model per day type: netz.json (Mon–Fri), netz-saturday.json, netz-sunday.json
-const files = import.meta.glob<{ default: NetzModel }>("../../../../packages/netz/data/netz*.json");
+// one model per day type: netz.toml (Mon–Fri), netz-saturday.toml, netz-sunday.toml
+const files = import.meta.glob<{ default: NetzModel }>("../../../../packages/netz/data/netz*.toml");
 const ngeUrls = import.meta.glob<string>("../../../../packages/netz/data/nge*.json", {
   query: "?url",
   import: "default",
@@ -19,9 +19,10 @@ const DAY_TYPES = [
   { id: "sunday", suffix: "-sunday" },
 ] as const;
 type DayType = (typeof DAY_TYPES)[number]["id"];
-const pathFor = (prefix: string, t: DayType, keys: string[]) => {
+const pathFor = (prefix: "netz" | "nge", t: DayType, keys: string[]) => {
   const suffix = DAY_TYPES.find((d) => d.id === t)!.suffix;
-  return keys.find((k) => k.endsWith(`/${prefix}${suffix}.json`));
+  // models are TOML, the Netzgrafik-Editor exports stay JSON (the editor's import format)
+  return keys.find((k) => k.endsWith(`/${prefix}${suffix}.${prefix === "nge" ? "json" : "toml"}`));
 };
 
 const netz = shallowRef<NetzModel>();

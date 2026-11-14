@@ -23,6 +23,7 @@ catalog:
   "@playwright/test": ^1.65.0
   "@vueuse/core": ^15.0.0
   temporal-polyfill: 1.0.8
+  smol-toml: ^1.9.1
 
 overrides:
   vite@*: "catalog:"

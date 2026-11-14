@@ -1,4 +1,4 @@
-// Local station index: lazy-loaded, content-hashed JSON chunk (packages/stations/data/stations.json).
+// Local station index: lazy-loaded, content-hashed chunk (packages/stations/data/stations.toml).
 import { normalize, searchKeys, tokenPrefixMatch } from "./normalize.ts";
 
 export interface Station {
@@ -25,7 +25,9 @@ let loading: Promise<Indexed[]> | undefined;
 
 export function loadStations(): Promise<Indexed[]> {
   loading ??= (async () => {
-    const list = (await import("@zugx/stations/stations.json")).default as Station[];
+    const { stations: list } = (await import("@zugx/stations/stations.toml")).default as {
+      stations: Station[];
+    };
     byId = new Map(list.map((s) => [s.id, s]));
     index = list.map((s) => {
       const names = [s.name, ...(s.alias ?? [])];

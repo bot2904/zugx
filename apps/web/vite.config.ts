@@ -3,6 +3,7 @@ import UnoCSS from "unocss/vite";
 import { VitePWA } from "vite-plugin-pwa";
 import { execFileSync } from "node:child_process";
 import { defineConfig } from "vite-plus";
+import { toml } from "@zugx/toml/vite";
 
 /** last commit as `<hash> <YYYY-MM-DD>`, empty without a git checkout (e.g. container build) */
 function gitVersion(): string {
@@ -19,6 +20,8 @@ process.env.VITE_COMMIT_DATE ??= commitDate;
 
 export default defineConfig({
   plugins: [
+    // prebuilt data (packages/*/data/*.toml) imported like JSON
+    toml(),
     vue(),
     UnoCSS(),
     VitePWA({
@@ -112,7 +115,7 @@ export default defineConfig({
         // recognisable names for corridor data chunks (excluded from the service worker precache)
         chunkFileNames: (chunk) =>
           chunk.facadeModuleId?.includes("/netz/data/corridors/") &&
-          !chunk.facadeModuleId.endsWith("/index.json")
+          !chunk.facadeModuleId.endsWith("/index.toml")
             ? "assets/corridor-[name]-[hash].js"
             : "assets/[name]-[hash].js",
       },

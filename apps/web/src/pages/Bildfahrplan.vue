@@ -13,9 +13,9 @@ import { trainSlug } from "../lib/url.ts";
 type CorridorRef = Pick<CorridorIndexEntry, "id" | "name" | "oebb">;
 
 const files = import.meta.glob<{ default: Corridor }>(
-  "../../../../packages/netz/data/corridors/*.json",
+  "../../../../packages/netz/data/corridors/*.toml",
 );
-const indexFile = Object.entries(files).find(([p]) => p.endsWith("/index.json"))?.[1] as
+const indexFile = Object.entries(files).find(([p]) => p.endsWith("/index.toml"))?.[1] as
   | (() => Promise<{ default: CorridorIndex }>)
   | undefined;
 
@@ -45,7 +45,7 @@ onMounted(async () => {
     if (alias) void router.replace({ path: `/bf/${alias}`, query: route.query });
   } else {
     list.value = Object.keys(files)
-      .map((p) => /corridors\/([^/]+)\.json$/.exec(p)?.[1])
+      .map((p) => /corridors\/([^/]+)\.toml$/.exec(p)?.[1])
       .filter((x): x is string => !!x && x !== "index")
       .map((x) => ({ id: x, name: x }));
   }
@@ -55,7 +55,7 @@ watch(
   id,
   async (c) => {
     if (!c) return;
-    const loader = Object.entries(files).find(([p]) => p.endsWith(`/${c}.json`))?.[1];
+    const loader = Object.entries(files).find(([p]) => p.endsWith(`/${c}.toml`))?.[1];
     if (!loader) return;
     loading.value = true;
     data.value = (await loader()).default;

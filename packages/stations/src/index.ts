@@ -1,4 +1,4 @@
-/** One rail station in Austria, as stored in `@zugx/stations/stations.json`. */
+/** One rail station in Austria, as stored in `@zugx/stations/stations.toml`. */
 export interface Station {
   /** HAFAS station id (extId / IBNR), e.g. "8103000" */
   id: string;
@@ -14,7 +14,7 @@ export interface Station {
   alias?: string[];
 }
 
-/** Entry of `data/gtfs-hafas-map.json`: GTFS station (parent DHID) → HAFAS station. */
+/** Entry of `data/gtfs-hafas-map.toml`: GTFS station (parent DHID) → HAFAS station. */
 export interface GtfsHafasEntry {
   /** HAFAS id, null if no match was found */
   id: string | null;

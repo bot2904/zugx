@@ -1,6 +1,7 @@
-// Build data/trains-<year>.json (long-distance + night) and data/trains-<year>.full.json (all trains)
+// Build data/trains-<year>.toml (long-distance + night) and data/trains-<year>.full.toml (all trains)
 // from open data GTFS. Run after stations:build (uses its GTFS → HAFAS station map).
 // Run: vp run trains:build   (env: GTFS_ZIP, TRAINS_YEAR, NAMES=0 to skip HAFAS name lookups)
+import { readToml, sortKeys, writeToml } from "@zugx/toml";
 import { join } from "node:path";
 import {
   dayFromIso,
@@ -12,17 +13,14 @@ import {
   mapPool,
   parseTrainName,
   politeClient,
-  readJson,
   stationGroup,
   timer,
   timetableYear,
-  writeJsonMap,
   type Gtfs,
   type Trip,
 } from "@zugx/gtfs";
 import type { GtfsHafasMap } from "@zugx/stations";
 import { cleanGtfsName, cleanHafasName } from "@zugx/stations/match";
-import { writeFile } from "node:fs/promises";
 import {
   decodeDays,
   encodeDays,
@@ -33,7 +31,7 @@ import {
 } from "./index.ts";
 
 const DATA = join(import.meta.dirname, "..", "data");
-const MAP_PATH = join(import.meta.dirname, "..", "..", "stations", "data", "gtfs-hafas-map.json");
+const MAP_PATH = join(import.meta.dirname, "..", "..", "stations", "data", "gtfs-hafas-map.toml");
 const MAX_VIA = 6;
 /** hubs: the HUBS_ALL busiest stations in Austria, the HUBS_LD busiest by long-distance stops, HUBS_ABROAD abroad */
 const HUBS_ALL = 60;
@@ -140,7 +138,7 @@ async function fetchNames(
   path: string,
   log: (msg: string) => void,
 ): Promise<Record<string, NameEntry>> {
-  const cache = readJson<Record<string, NameEntry>>(path, {});
+  const cache = readToml<Record<string, NameEntry>>(path, {});
   const todo = trains.filter((t) => t.date && !cache[t.key]);
   const notRunning = trains.filter((t) => !t.date && !cache[t.key]).length;
   log(
@@ -179,27 +177,20 @@ async function fetchNames(
     if (name) found++;
     if (++done % 50 === 0) {
       log(`names: ${done}/${todo.length}, ${found} named (${t()})`);
-      await writeJsonMap(path, cache);
+      writeToml(path, sortKeys(cache));
     }
   });
   log(
     `names: looked up ${todo.length} trains (${found} named) with ${polite.count} requests in ${t()}`,
   );
-  await writeJsonMap(path, cache);
+  writeToml(path, sortKeys(cache));
   return cache;
 }
 
 async function writeIndex(path: string, idx: TrainIndex): Promise<number> {
   const { trains, stations, ...head } = idx;
-  const st = Object.keys(stations)
-    .sort()
-    .map((k) => `${JSON.stringify(k)}:${JSON.stringify(stations[k])}`)
-    .join(",\n");
-  const text =
-    `${JSON.stringify(head).slice(0, -1)},\n"stations":{\n${st}\n},\n"trains":[\n` +
-    `${trains.map((t) => JSON.stringify(t)).join(",\n")}\n]}\n`;
-  await writeFile(path, text);
-  return text.length;
+  // trains one per line; stations (id → name) sorted, one per line
+  return writeToml(path, { ...head, trains, stations: sortKeys(stations) }).length;
 }
 
 async function main() {
@@ -215,7 +206,7 @@ async function main() {
   const nDays = tty.days;
   log(`trains: timetable year ${year} = ${tty.begin} … ${tty.end} (${nDays} days)`);
 
-  const map = readJson<GtfsHafasMap>(MAP_PATH, {});
+  const map = readToml<GtfsHafasMap>(MAP_PATH, {});
   if (!Object.keys(map).length)
     log(`trains: WARNING no station map at ${MAP_PATH}, run stations:build first`);
 
@@ -395,7 +386,7 @@ async function main() {
 
   // ---- names (long-distance only) ----
   const today = Temporal.Now.plainDateISO("Europe/Vienna").toString();
-  const namesPath = join(DATA, `names-${year}.json`);
+  const namesPath = join(DATA, `names-${year}.toml`);
   const ldTodo = entries.filter(isLongDistance);
   const names = await fetchNames(
     ldTodo.map((e) => {
@@ -443,8 +434,8 @@ async function main() {
       `trains: wrote ${list.length} trains, ${ids.size} stations, ${(size / 1024).toFixed(0)} KiB → ${path}`,
     );
   };
-  await write(`trains-${year}.full.json`, all);
-  await write(`trains-${year}.json`, ld);
+  await write(`trains-${year}.full.toml`, all);
+  await write(`trains-${year}.toml`, ld);
   if (unmapped.size) {
     log(`trains: ${unmapped.size} stations without HAFAS id (GTFS id used instead):`);
     for (const [gid, n] of [...unmapped].sort((a, b) => b[1] - a[1]))

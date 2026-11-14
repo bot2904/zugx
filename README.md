@@ -17,8 +17,9 @@ See [docs/](docs/README.md) for how each feature works (data source, computation
 ```
 apps/web            Vue 3 SPA (pages, components, viz)
 packages/hafas      typed ÖBB HAFAS mgate client + normalizer (+ recorded fixtures)
-packages/stations   station index build (ÖBB GTFS → HAFAS IDs) + committed stations.json
-packages/trains     train index build (ÖBB GTFS) + committed trains-<year>.json / .full.json
+packages/stations   station index build (ÖBB GTFS → HAFAS IDs) + committed stations.toml
+packages/trains     train index build (ÖBB GTFS) + committed trains-<year>.toml / .full.toml
+packages/toml       prebuilt data as TOML: writer/reader (null ⇔ "") + Vite plugin to import *.toml
 packages/netz       Netzgrafik / Bildfahrplan build (ÖBB GTFS) + committed data
 e2e                 Playwright smoke tests (API mocked from fixtures)
 deploy              Containerfile, Caddyfile, Quadlet unit, host Caddy snippet

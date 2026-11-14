@@ -1,8 +1,8 @@
 /**
  * Output types of the netz pipeline (consumed by the UI).
  *
- * - `data/netz.json`        → {@link NetzModel}
- * - `data/corridors/*.json` → {@link Corridor}, index → {@link CorridorIndex}
+ * - `data/netz.toml`        → {@link NetzModel}
+ * - `data/corridors/*.toml` → {@link Corridor}, index → {@link CorridorIndex}
  * - `data/nge.json`         → Netzgrafik-Editor DTO (see `nge.ts`)
  *
  * All minutes are local time (Europe/Vienna) of the reference day.

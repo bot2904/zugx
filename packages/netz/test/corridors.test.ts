@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vite-plus/test";
+import { fromToml } from "@zugx/toml";
 import {
   buildCorridor,
-  corridorJson,
+  corridorToml,
   corridorRuns,
   corridorStations,
   encodeDays,
@@ -110,9 +111,9 @@ describe("buildCorridor", () => {
     const c = buildCorridor(f, def, "2026-03-10", "test");
     // sorted by first departure: 360, 400, 420, 511
     expect(c.trains.map((t) => t.nr)).toEqual(["1", "2", "3", "77"]);
-    const json = corridorJson(c);
-    expect(JSON.parse(json)).toEqual(c);
-    expect(json.split("\n").filter((l) => l.includes('"cat"'))).toHaveLength(4);
+    const toml = corridorToml(c);
+    expect(fromToml(toml)).toEqual(c);
+    expect(toml.split("\n").filter((l) => l.startsWith("  { cat = "))).toHaveLength(4);
   });
 });
 

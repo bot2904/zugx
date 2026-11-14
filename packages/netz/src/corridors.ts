@@ -7,6 +7,7 @@
  * distances are median track distances, intermediate stations are placed by
  * their relative position between the two anchors (haversine fallback).
  */
+import { toToml } from "@zugx/toml";
 import { haversineKm, type Feed, type Trip } from "./gtfs.ts";
 import type { Corridor, CorridorStation, CorridorTrain } from "./types.ts";
 
@@ -1011,17 +1012,7 @@ export function buildCorridor(
   return { id: def.id, name: def.name, day, begin, end, source, stations, trains };
 }
 
-/** Compact JSON: one station / train per line. */
-export function corridorJson(c: Corridor): string {
-  const head = JSON.stringify({
-    id: c.id,
-    name: c.name,
-    day: c.day,
-    begin: c.begin,
-    end: c.end,
-    source: c.source,
-  });
-  const st = c.stations.map((s) => `    ${JSON.stringify(s)}`).join(",\n");
-  const tr = c.trains.map((t) => `    ${JSON.stringify(t)}`).join(",\n");
-  return `${head.slice(0, -1)},\n  "stations": [\n${st}\n  ],\n  "trains": [\n${tr}\n  ]\n}\n`;
+/** TOML text of a corridor: one station / train per line. */
+export function corridorToml(c: Corridor): string {
+  return toToml(c);
 }

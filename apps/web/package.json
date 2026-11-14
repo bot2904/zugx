@@ -25,6 +25,7 @@
     "@types/geojson": "catalog:",
     "@unocss/preset-wind4": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
+    "@zugx/toml": "workspace:*",
     "typescript": "^6.0.3",
     "unocss": "catalog:",
     "vite": "catalog:",

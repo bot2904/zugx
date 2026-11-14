@@ -6,7 +6,7 @@ import { NIGHT, REGIONAL, SUBURBAN } from "./products.ts";
 export type { TrainEntry, TrainIndex } from "@zugx/trains";
 
 const files = import.meta.glob<{ default: TrainIndex }>(
-  "../../../../packages/trains/data/trains-*.json",
+  "../../../../packages/trains/data/trains-*.toml",
 );
 
 /** available years, newest first */
@@ -27,7 +27,7 @@ export function loadTrains(year: number, full: boolean): Promise<TrainIndex | un
   let p = cache.get(key);
   if (!p) {
     const path = Object.keys(files).find((f) =>
-      f.endsWith(`trains-${year}${full ? ".full" : ""}.json`),
+      f.endsWith(`trains-${year}${full ? ".full" : ""}.toml`),
     );
     const loader = path ? files[path] : undefined;
     p = loader ? loader().then((m) => m.default) : Promise.resolve(undefined);

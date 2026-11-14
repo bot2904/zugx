@@ -8,13 +8,16 @@
   "exports": {
     ".": "./src/index.ts",
     "./match": "./src/match.ts",
-    "./stations.json": "./data/stations.json",
-    "./gtfs-hafas-map.json": "./data/gtfs-hafas-map.json",
+    "./stations.toml": "./data/stations.toml",
+    "./gtfs-hafas-map.toml": "./data/gtfs-hafas-map.toml",
     "./stations.schema.json": "./stations.schema.json"
   },
   "scripts": {
     "build:data": "vpx src/build.ts",
     "test": "vp test run"
+  },
+  "dependencies": {
+    "@zugx/toml": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "catalog:",

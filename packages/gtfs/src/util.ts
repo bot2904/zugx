@@ -1,6 +1,3 @@
-import { existsSync, readFileSync } from "node:fs";
-import { mkdir, writeFile } from "node:fs/promises";
-import { dirname } from "node:path";
 import type { Gtfs } from "./gtfs.ts";
 
 /** Station group of a GTFS stop: its parent station, or the stop itself. */
@@ -27,50 +24,6 @@ export function timetableYear(year: number): { begin: string; end: string; days:
     end: nextBegin.subtract({ days: 1 }).toString(),
     days: begin.until(nextBegin).days,
   };
-}
-
-/**
- * Write `{...head, [key]: [\n item,\n item\n]}` with one item per line, so git diffs show
- * exactly which entries changed.
- */
-export async function writeJsonLines(
-  path: string,
-  head: Record<string, unknown>,
-  key: string,
-  items: unknown[],
-  tail: Record<string, unknown> = {},
-): Promise<string> {
-  const headJson = JSON.stringify(head).slice(0, -1);
-  const tailJson = Object.entries(tail)
-    .map(([k, v]) => `,\n${JSON.stringify(k)}:${JSON.stringify(v)}`)
-    .join("");
-  const body = items.map((x) => JSON.stringify(x)).join(",\n");
-  const text = `${headJson}${headJson.length > 1 ? "," : ""}${JSON.stringify(key)}:[\n${body}\n]${tailJson}}\n`;
-  await mkdir(dirname(path), { recursive: true });
-  await writeFile(path, text);
-  return text;
-}
-
-/** Write a JSON array with one item per line. */
-export async function writeJsonArray(path: string, items: unknown[]): Promise<string> {
-  const text = `[\n${items.map((x) => JSON.stringify(x)).join(",\n")}\n]\n`;
-  await mkdir(dirname(path), { recursive: true });
-  await writeFile(path, text);
-  return text;
-}
-
-/** Write an object with one key per line (sorted). */
-export async function writeJsonMap(path: string, map: Record<string, unknown>): Promise<string> {
-  const keys = Object.keys(map).sort();
-  const text = `{\n${keys.map((k) => `${JSON.stringify(k)}:${JSON.stringify(map[k])}`).join(",\n")}\n}\n`;
-  await mkdir(dirname(path), { recursive: true });
-  await writeFile(path, text);
-  return text;
-}
-
-export function readJson<T>(path: string, fallback: T): T {
-  if (!existsSync(path)) return fallback;
-  return JSON.parse(readFileSync(path, "utf8")) as T;
 }
 
 /** Run `fn` over `items` with at most `n` running at once (results in input order). */

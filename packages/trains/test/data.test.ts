@@ -1,4 +1,5 @@
 import { readdirSync, readFileSync } from "node:fs";
+import { fromToml } from "@zugx/toml";
 import { join } from "node:path";
 import { describe, expect, it } from "vite-plus/test";
 import { compareTrains } from "../src/build.ts";
@@ -6,12 +7,12 @@ import { dayIndexes, isLongDistance, type TrainEntry, type TrainIndex } from "..
 
 const dataDir = join(import.meta.dirname, "..", "data");
 const years = readdirSync(dataDir)
-  .map((f) => /^trains-(\d{4})\.json$/.exec(f)?.[1])
+  .map((f) => /^trains-(\d{4})\.toml$/.exec(f)?.[1])
   .filter((y): y is string => !!y);
 
 const load = (file: string) => {
   const text = readFileSync(join(dataDir, file), "utf8");
-  return { text, idx: JSON.parse(text) as TrainIndex };
+  return { text, idx: fromToml<TrainIndex>(text) };
 };
 
 const KEYS = [
@@ -36,8 +37,8 @@ it("has data files", () => {
 });
 
 describe.each(years)("trains-%s", (year) => {
-  const def = load(`trains-${year}.json`);
-  const full = load(`trains-${year}.full.json`);
+  const def = load(`trains-${year}.toml`);
+  const full = load(`trains-${year}.full.toml`);
 
   describe.each([
     ["default", def],
@@ -54,7 +55,7 @@ describe.each(years)("trains-%s", (year) => {
 
     it("has one train per line", () => {
       const lines = text.trimEnd().split("\n");
-      const trainLines = lines.filter((l) => l.startsWith('{"op":'));
+      const trainLines = lines.filter((l) => l.startsWith("  { op = "));
       expect(trainLines.length).toBe(idx.trains.length);
     });
 

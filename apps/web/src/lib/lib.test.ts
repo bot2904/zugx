@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vite-plus/test";
+import type { TrainIndex } from "@zugx/trains";
 import { fromLocalInput, toLocalInput, viennaDate, viennaMinutes } from "./format.ts";
 import { normalize, searchKeys } from "./normalize.ts";
 import { _setStations, searchStations } from "./stations.ts";
@@ -128,9 +129,10 @@ describe("running days tooltip", () => {
     const { readFileSync } = await import("node:fs");
     const { join } = await import("node:path");
     const { daysTooltip, daysSummary } = await import("./trains.ts");
-    const idx = JSON.parse(
+    const { fromToml } = await import("@zugx/toml");
+    const idx = fromToml<TrainIndex>(
       readFileSync(
-        join(import.meta.dirname, "../../../../packages/trains/data/trains-2026.json"),
+        join(import.meta.dirname, "../../../../packages/trains/data/trains-2026.toml"),
         "utf8",
       ),
     );
@@ -145,8 +147,8 @@ describe("running days tooltip", () => {
       variants: (n: number) => `${n} Varianten`,
     };
     const ec164 = idx.trains.find((x: TrainEntry) => x.cat === "EC" && x.nr === "164");
-    const tip = daysTooltip(ec164, idx, "de-AT", labels);
+    const tip = daysTooltip(ec164!, idx, "de-AT", labels);
     expect(tip).toMatch(/^Verkehrt täglich\n\d+ Tage, 14\.12\.2025 – 12\.12\.2026\nNicht am: /);
-    expect(daysSummary(ec164, idx, labels)).toMatch(/^täglich −\d+$/);
+    expect(daysSummary(ec164!, idx, labels)).toMatch(/^täglich −\d+$/);
   });
 });

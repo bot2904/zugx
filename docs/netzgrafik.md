@@ -4,7 +4,7 @@
 
 ## Data
 
-Built by `vp run netz:build` from the **ÖBB GTFS** for three **day types**, each from a reference day of the same regular week: Mon–Fri (Tue 2026-03-10), Saturday (2026-03-14), Sunday/holiday (2026-03-15) → `netz.json`, `netz-saturday.json`, `netz-sunday.json` (+ matching NGE exports). Categories: long-distance and regional-express categories (RJX, RJ, ICE, EC, IC, D, IR, CJX, REX). Full description of the model and algorithm: [packages/netz/README.md](../packages/netz/README.md).
+Built by `vp run netz:build` from the **ÖBB GTFS** for three **day types**, each from a reference day of the same regular week: Mon–Fri (Tue 2026-03-10), Saturday (2026-03-14), Sunday/holiday (2026-03-15) → `netz.toml`, `netz-saturday.toml`, `netz-sunday.toml` (+ matching NGE exports). Categories: long-distance and regional-express categories (RJX, RJ, ICE, EC, IC, D, IR, CJX, REX). Full description of the model and algorithm: [packages/netz/README.md](../packages/netz/README.md).
 
 - **Nodes (Knoten)**: a curated list of ~45 hubs, junctions and border points.
 - **Lines**: trips grouped by category and the sequence of nodes they serve; shorter runs that fit into a longer pattern are merged.

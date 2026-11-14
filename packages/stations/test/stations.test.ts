@@ -1,4 +1,5 @@
 import { readFileSync } from "node:fs";
+import { fromToml } from "@zugx/toml";
 import { join } from "node:path";
 import { validate, type Schema } from "@zugx/gtfs";
 import { describe, expect, it } from "vite-plus/test";
@@ -12,18 +13,18 @@ import {
 } from "../src/match.ts";
 
 const root = join(import.meta.dirname, "..");
-const text = readFileSync(join(root, "data", "stations.json"), "utf8");
-const stations = JSON.parse(text) as Station[];
+const text = readFileSync(join(root, "data", "stations.toml"), "utf8");
+const { stations } = fromToml<{ stations: Station[] }>(text);
 const schema = JSON.parse(readFileSync(join(root, "stations.schema.json"), "utf8")) as Schema;
 
-describe("data/stations.json", () => {
+describe("data/stations.toml", () => {
   it("matches stations.schema.json", () => {
     expect(validate(schema, stations)).toEqual([]);
   });
 
   it("has one station per line", () => {
     const lines = text.trimEnd().split("\n");
-    expect(lines[0]).toBe("[");
+    expect(lines[0]).toBe("stations = [");
     expect(lines.at(-1)).toBe("]");
     expect(lines.length).toBe(stations.length + 2);
   });

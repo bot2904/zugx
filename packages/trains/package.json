@@ -8,15 +8,16 @@
   "exports": {
     ".": "./src/index.ts",
     "./data/*": "./data/*",
-    "./trains-2026.json": "./data/trains-2026.json",
-    "./trains-2026.full.json": "./data/trains-2026.full.json"
+    "./trains-2026.toml": "./data/trains-2026.toml",
+    "./trains-2026.full.toml": "./data/trains-2026.full.toml"
   },
   "scripts": {
     "build:data": "vpx src/build.ts",
     "test": "vp test run"
   },
   "dependencies": {
-    "@zugx/gtfs": "workspace:*"
+    "@zugx/gtfs": "workspace:*",
+    "@zugx/toml": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "catalog:",
