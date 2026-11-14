@@ -363,6 +363,10 @@ test("bildfahrplan: station menu (departure board, Wikidata via IBNR) and Wikida
 
 test("VzG index filters by line number and station, opens a line", async ({ page }) => {
   await page.goto("/vzg");
+  await expect(page.locator("h1 abbr")).toHaveAttribute(
+    "title",
+    "Verzeichnis der örtlich zulässigen Geschwindigkeiten und Besonderheiten",
+  );
   await page.getByRole("searchbox").fill("10101");
   await expect(page.locator("tbody tr")).toHaveCount(1);
   await page.getByRole("searchbox").fill("Maria Anzbach");

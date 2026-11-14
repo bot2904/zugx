@@ -7,6 +7,7 @@ import type { VzgIndex, VzgLine, VzgPoint, VzgTrack } from "@zugx/vzg";
 import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import VzgIndexView from "../components/VzgIndex.vue";
+import VzgAbbr from "../components/VzgAbbr.vue";
 
 const files = import.meta.glob<{ default: VzgLine }>("../../../../packages/vzg/data/*.toml");
 const indexFile = Object.entries(files).find(([p]) => p.endsWith("/index.toml"))?.[1] as
@@ -238,7 +239,9 @@ const fmt = (km: number) => km.toFixed(3);
   <section v-else-if="slug">
     <div class="flex flex-wrap items-center gap-2">
       <h1 class="m-0 text-xl">
-        <RouterLink to="/vzg" class="text-[var(--fg)]">{{ $t("vzg.title") }}</RouterLink>
+        <RouterLink to="/vzg" class="text-[var(--fg)]"
+          ><VzgAbbr :text="$t('vzg.title')"
+        /></RouterLink>
       </h1>
       <select
         v-if="index"

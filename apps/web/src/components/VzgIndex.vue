@@ -7,6 +7,7 @@ import { useRoute, useRouter } from "vue-router";
 import { isImeEnter, useKeys } from "../lib/keys.ts";
 import { normalize } from "../lib/normalize.ts";
 import SortHeader from "./SortHeader.vue";
+import VzgAbbr from "./VzgAbbr.vue";
 
 const props = defineProps<{ index: VzgIndex }>();
 const route = useRoute();
@@ -74,8 +75,10 @@ useKeys({
 <template>
   <section>
     <div class="flex flex-wrap items-baseline gap-2">
-      <h1 class="m-0 text-xl">{{ $t("vzg.title") }}</h1>
-      <span class="muted text-sm">{{ $t("vzg.subtitle", { n: index.lines.length }) }}</span>
+      <h1 class="m-0 text-xl"><VzgAbbr :text="$t('vzg.title')" /></h1>
+      <span class="muted text-sm"
+        ><VzgAbbr :text="$t('vzg.subtitle', { n: index.lines.length })"
+      /></span>
       <search class="contents">
         <input
           v-model="q"

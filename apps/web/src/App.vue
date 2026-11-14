@@ -5,6 +5,7 @@ import { useRoute, useRouter } from "vue-router";
 import CommandPalette from "./components/CommandPalette.vue";
 import ModalDialog from "./components/ModalDialog.vue";
 import DebugPanel from "./components/DebugPanel.vue";
+import VzgAbbr from "./components/VzgAbbr.vue";
 import { locale, LOCALES, setLocale, type Locale, type MessageKey } from "./i18n/index.ts";
 import { useKeys } from "./lib/keys.ts";
 import { state } from "./lib/store.ts";
@@ -127,7 +128,9 @@ const shortcuts: [string, string][] = [
               active-class="!text-[var(--fg)]"
               :exact-active-class="n.to === '/' ? '!text-[var(--fg)]' : undefined"
               @click="closeMenu"
-              >{{ $t(n.key) }}</RouterLink
+              ><VzgAbbr v-if="n.to === '/vzg'" :text="$t(n.key)" /><template v-else>{{
+                $t(n.key)
+              }}</template></RouterLink
             >
           </li>
         </ul>
