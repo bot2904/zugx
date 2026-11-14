@@ -124,6 +124,7 @@ export default {
     variants: "{n} Laufwegvarianten",
   },
   radar: {
+    openTrip: "Zuglauf öffnen",
     palette: "Farben",
     paletteBlue: "Farbenblind-freundlich",
     paletteBlueTip:

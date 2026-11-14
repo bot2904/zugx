@@ -1,12 +1,16 @@
 <script setup lang="ts">
 // Live train positions (HAFAS JourneyGeoPos) for the visible map area.
 import { useAutoRefresh } from "../lib/refresh.ts";
-import type { Line, Movement } from "@zugx/hafas";
+import type { Line, Movement, Trip } from "@zugx/hafas";
 import type { Map as MlMap } from "maplibre-gl";
 import { useDebounceFn, useLocalStorage } from "@vueuse/core";
-import { computed, ref, shallowRef } from "vue";
+import { computed, ref, shallowRef, watch } from "vue";
 import { useI18n } from "../i18n/index.ts";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
+import LineBadge from "../components/LineBadge.vue";
+import Remarks from "../components/Remarks.vue";
+import TripStops from "../components/TripStops.vue";
+import { useKeys } from "../lib/keys.ts";
 import Status from "../components/Status.vue";
 import { api } from "../lib/api.ts";
 import { lineColor, PRODUCT_GROUPS, RAIL_CLS } from "../lib/products.ts";
@@ -15,11 +19,13 @@ import {
   DELAY_CLASSES,
   delayClass,
   delayColor,
+  fmtSignedDelay,
   delayPalette,
   NO_DATA,
 } from "../lib/delay.ts";
-import MapView, { type MapPoint } from "../viz/MapView.vue";
+import MapView, { type MapLine, type MapPoint } from "../viz/MapView.vue";
 
+const route = useRoute();
 const router = useRouter();
 const { t } = useI18n();
 const movements = shallowRef<Movement[]>([]);
@@ -51,6 +57,61 @@ function onReady(m: MlMap) {
 }
 const onMove = useDebounceFn(() => void refresh(), 400);
 useAutoRefresh(() => void refresh(true), 15_000);
+
+// ---- selected train: its run in a side panel on the radar (like vonatinfo), ?trip=<journey id>.
+// Opening pushes a history entry, so "back" closes the panel.
+const selectedId = computed(() =>
+  typeof route.query.trip === "string" ? route.query.trip : undefined,
+);
+const selected = shallowRef<Trip>();
+const selError = ref<string>();
+const now = ref(Date.now());
+async function loadSelected(background = false) {
+  const jid = selectedId.value;
+  if (!jid) {
+    selected.value = undefined;
+    return;
+  }
+  selError.value = undefined;
+  try {
+    const trip = await api(background).trip(jid, true);
+    if (selectedId.value === jid) selected.value = trip;
+  } catch (e) {
+    selError.value = e instanceof Error ? e.message : String(e);
+  }
+}
+watch(
+  selectedId,
+  (jid, old) => {
+    if (jid !== old) selected.value = undefined;
+    void loadSelected();
+  },
+  { immediate: true },
+);
+useAutoRefresh(() => {
+  now.value = Date.now();
+  if (selectedId.value) void loadSelected(true);
+}, 30_000);
+const select = (jid: string) => void router.push({ query: { ...route.query, trip: jid } });
+const closePanel = () => {
+  const { trip: _, ...q } = route.query;
+  void router.replace({ query: q });
+};
+useKeys({ Escape: () => selectedId.value && closePanel() });
+const selectedMovement = computed(() =>
+  movements.value.find((m) => m.journeyId === selectedId.value),
+);
+/** the selected train's route on the map (polyline, else the stops) */
+const routeLines = computed<MapLine[]>(() => {
+  const tr = selected.value;
+  if (!tr) return [];
+  const coords =
+    tr.polyline ??
+    tr.stopovers
+      .filter((s) => s.stop.lat)
+      .map((s) => [s.stop.lat!, s.stop.lon!] as [number, number]);
+  return [{ coords, color: lineColor(tr.line) }];
+});
 
 // colour by delay (scale like MÁV's vonatinfo) or by train category
 const mode = useLocalStorage<"delay" | "category">("zugx:radar-mode", "delay");
@@ -97,6 +158,7 @@ const points = computed<MapPoint[]>(() =>
     color: mode.value === "delay" ? delayColor(m.delay) : lineColor(m.line),
     label: `${trainLabel(m.line)} → ${m.direction}${fmtDelay(m.delay)}`,
     bearing: m.bearing,
+    big: m.journeyId === selectedId.value,
   })),
 );
 
@@ -162,12 +224,58 @@ function toggle(cls: number) {
       </div>
       <MapView
         :points="points"
+        :lines="routeLines"
         :fit="false"
         height="calc(100vh - 170px)"
         @ready="onReady"
         @moveend="onMove"
-        @click-point="(jid) => router.push(`/train/${encodeURIComponent(jid)}`)"
+        @click-point="select"
       />
+      <!-- train run of the clicked train: side panel (desktop) / bottom sheet (phones) -->
+      <aside
+        v-if="selectedId"
+        class="card radar-panel absolute z-20 flex flex-col overflow-hidden shadow-xl"
+        :aria-label="$t('trip.title')"
+      >
+        <header class="flex items-start gap-2 border-b border-[var(--line)] p-2">
+          <div v-if="selected" class="min-w-0 flex-1">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <LineBadge :line="selected.line" />
+              <span v-if="selected.line.trainNumber" class="mono muted text-xs">{{
+                selected.line.trainNumber
+              }}</span>
+              <strong class="truncate text-sm">→ {{ selected.direction }}</strong>
+            </div>
+            <div class="mt-1 flex flex-wrap items-center gap-2 text-xs">
+              <span
+                v-if="selectedMovement?.delay !== undefined"
+                class="rounded px-1.5 py-0.5 font-semibold text-black"
+                :style="{ background: delayColor(selectedMovement.delay) }"
+                >{{ fmtSignedDelay(selectedMovement.delay) }}</span
+              >
+              <RouterLink :to="`/train/${encodeURIComponent(selectedId)}`"
+                >{{ $t("radar.openTrip") }} →</RouterLink
+              >
+            </div>
+          </div>
+          <span v-else class="muted flex-1 text-sm" role="status">{{ $t("common.loading") }}</span>
+          <button
+            class="btn px-2 py-0.5"
+            :aria-label="$t('common.close')"
+            :title="`${$t('common.close')} (Esc)`"
+            @click="closePanel"
+          >
+            ✕
+          </button>
+        </header>
+        <div class="overflow-y-auto p-2">
+          <Status :error="selError" @retry="loadSelected" />
+          <template v-if="selected">
+            <TripStops :trip="selected" :now="now" />
+            <Remarks :remarks="selected.remarks" class="mt-3" />
+          </template>
+        </div>
+      </aside>
       <div
         class="card absolute bottom-8 left-2 z-10 p-2 text-xs shadow"
         role="group"
@@ -232,3 +340,24 @@ function toggle(cls: number) {
     <p class="muted mt-1 text-xs">{{ $t("radar.hint") }}</p>
   </section>
 </template>
+
+<style scoped>
+.radar-panel {
+  top: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  width: min(26rem, calc(100% - 1rem));
+}
+/* phones: bottom sheet over the lower part of the map */
+@media (max-width: 640px) {
+  .radar-panel {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    max-height: 55%;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+}
+</style>

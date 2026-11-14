@@ -12,3 +12,4 @@ HAFAS `JourneyGeoPos` (live) for the visible map area, up to 1000 trains, refres
 - Product chips filter by HAFAS class (default: rail only).
 - Hover (desktop) or first tap (touch) shows the train and its direction; click / second tap opens the train run.
 - Map: [OpenFreeMap](https://openfreemap.org/) vector base map (Positron in light, Dark in dark theme; railway lines slightly emphasised). The [OpenRailwayMap](https://www.openrailwaymap.org/) overlay is on by default ("Railway map" toggle, switching it off is remembered), desaturated so it stays in the background. Same for all maps.
+- **Click a train**: its run opens in a panel on the radar (bottom sheet on phones), like vonatinfo: stops with planned/realtime times, platforms, current delay, remarks; the route is drawn on the map. "Open train run →" leads to the full train page. The selection is in the URL (`?trip=`), so it can be linked; Esc, ✕ or the browser's back button close it.

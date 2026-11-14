@@ -4,10 +4,9 @@ import { useAutoRefresh } from "../lib/refresh.ts";
 import type { Stopover, Trip, TripMatch } from "@zugx/hafas";
 import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import EventTime from "../components/EventTime.vue";
 import LineBadge from "../components/LineBadge.vue";
-import Platform from "../components/Platform.vue";
 import Remarks from "../components/Remarks.vue";
+import TripStops from "../components/TripStops.vue";
 import Status from "../components/Status.vue";
 import { api } from "../lib/api.ts";
 import { addDays, fromLocalInput, hhmm, ms } from "../lib/format.ts";
@@ -80,10 +79,6 @@ const position = computed(() => {
   });
   return last;
 });
-const atStation = (i: number) => {
-  const s = trip.value?.stopovers[i];
-  return !!s && tArr(s) <= now.value && t(s) > now.value;
-};
 
 const lines = computed<MapLine[]>(() => {
   const tr = trip.value;
@@ -203,51 +198,7 @@ function goDay(delta: number) {
         <div class="card p-3">
           <h2 class="muted m-0 mb-1 text-xs uppercase">{{ $t("trip.delayProfile") }}</h2>
           <DelaySparkline :stops="trip.stopovers" />
-          <ol class="m-0 mt-2 list-none p-0">
-            <li
-              v-for="(s, i) in trip.stopovers"
-              :key="i"
-              class="relative grid grid-cols-[1.25rem_4.4rem_4.4rem_1fr_auto] items-center gap-x-2 py-0.5 text-sm"
-              :class="[s.cancelled && 'line-through muted', i <= position && 'opacity-60']"
-            >
-              <span class="relative flex h-full justify-center">
-                <span
-                  class="absolute w-1"
-                  :class="
-                    i === 0
-                      ? 'top-1/2 bottom-0'
-                      : i === trip.stopovers.length - 1
-                        ? 'top-0 bottom-1/2'
-                        : 'inset-y-0'
-                  "
-                  :style="{ background: lineColor(trip.line) }"
-                />
-                <span
-                  class="z-1 my-auto block h-2.5 w-2.5 rounded-full border-2"
-                  :class="atStation(i) ? 'animate-pulse' : ''"
-                  :style="{
-                    borderColor: lineColor(trip.line),
-                    background:
-                      atStation(i) || i === position ? lineColor(trip.line) : 'var(--bg2)',
-                  }"
-                />
-              </span>
-              <!-- wrappers keep the grid columns when arr (origin) or dep (destination) is missing -->
-              <span><EventTime :ev="s.arr" /></span>
-              <span><EventTime :ev="s.dep" /></span>
-              <RouterLink :to="`/station/${s.stop.id}`" class="text-[var(--fg)]">
-                {{ s.stop.name }}
-                <span v-if="s.additional" class="text-xs text-[var(--warn)]">+</span>
-              </RouterLink>
-              <span class="text-right text-xs"><Platform :ev="s.dep ?? s.arr" /></span>
-              <Remarks
-                v-if="s.remarks?.length"
-                :remarks="s.remarks"
-                compact
-                class="col-start-4 col-end-6"
-              />
-            </li>
-          </ol>
+          <TripStops :trip="trip" :now="now" class="mt-2" />
         </div>
         <MapView
           :lines="lines"

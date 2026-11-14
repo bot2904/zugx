@@ -122,6 +122,7 @@ export default {
     variants: "{n} route variants",
   },
   radar: {
+    openTrip: "Open train run",
     palette: "Colours",
     paletteBlue: "Colour-blind safe",
     paletteBlueTip:

@@ -124,6 +124,7 @@ export default {
     variants: "{n} varianti di percorso",
   },
   radar: {
+    openTrip: "Apri percorso del treno",
     palette: "Colori",
     paletteBlue: "Adatto ai daltonici",
     paletteBlueTip:
