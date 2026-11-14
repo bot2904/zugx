@@ -16,3 +16,4 @@ HAFAS `StationBoard` (live): the next 90 minutes, up to 60 trains, from the give
 - **Operator**: shown when not ÖBB. HAFAS returns an id-less placeholder "Nahreisezug" for trains ÖBB runs itself; zugx replaces it with the operator from the train's UIC company code (81 → ÖBB, 80 → DB, 55 → MÁV …).
 - Clicking a row shows remarks (accessibility, bikes, disruptions); the direction links to the train run.
 - **Auto-refresh** every 30 s when showing "now" and the tab is visible.
+- **Earlier / Later** (keys `h` / `l`) load the previous / next departures and add them above / below the shown ones (nothing is removed). Only the initial window auto-refreshes; the time input jumps to another time and starts a new list.

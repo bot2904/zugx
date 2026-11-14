@@ -2,7 +2,7 @@
 import { useAutoRefresh } from "../lib/refresh.ts";
 import type { BoardEntry } from "@zugx/hafas";
 import { useLocalStorage } from "@vueuse/core";
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import EventTime from "../components/EventTime.vue";
 import LineBadge from "../components/LineBadge.vue";
@@ -13,7 +13,7 @@ import Status from "../components/Status.vue";
 import MapView from "../viz/MapView.vue";
 import { api } from "../lib/api.ts";
 import { useAsync } from "../lib/async.ts";
-import { fromLocalInput, hhmm, toLocalInput, viennaNow } from "../lib/format.ts";
+import { fromLocalInput, hhmm, instant, ms, toLocalInput } from "../lib/format.ts";
 import { useKeys } from "../lib/keys.ts";
 import { PRODUCT_GROUPS, RAIL_CLS } from "../lib/products.ts";
 import { catRank } from "../lib/trains.ts";
@@ -73,8 +73,61 @@ async function resolveName() {
   document.title = `${name.value} · zugx`;
 }
 
+/** departures loaded with "Earlier" / "Later", kept around the current window */
+const before = shallowRef<BoardEntry[]>([]);
+const after = shallowRef<BoardEntry[]>([]);
+const paging = ref(false);
+const pageError = ref<string>();
+const entryKey = (e: BoardEntry) => e.journeyId + e.when.planned;
+
+/** all loaded departures in time order, without duplicates (windows may overlap) */
+const entries = computed(() => {
+  const seen = new Set<string>();
+  return [...before.value, ...(board.data.value ?? []), ...after.value].filter((e) => {
+    const k = entryKey(e);
+    return !seen.has(k) && !!seen.add(k);
+  });
+});
+
+/** Load the next (dir 1) or previous (dir -1) departures and add them, keeping the shown ones. */
+async function more(dir: 1 | -1) {
+  const list = entries.value;
+  const edge = dir > 0 ? list.at(-1) : list[0];
+  if (!edge) return;
+  const edgeMs = ms(edge.when.planned);
+  paging.value = true;
+  pageError.value = undefined;
+  try {
+    const r = await api().board(id.value, {
+      arrivals: arrivals.value,
+      when:
+        dir > 0 ? instant(edge.when.planned) : instant(edge.when.planned).subtract({ hours: 1 }),
+      duration: dir > 0 ? 90 : 60,
+      results: 60,
+      products: products.value,
+    });
+    const have = new Set(list.map(entryKey));
+    const fresh = r.filter(
+      (e) =>
+        !have.has(entryKey(e)) &&
+        (dir > 0 ? ms(e.when.planned) >= edgeMs : ms(e.when.planned) <= edgeMs),
+    );
+    if (dir > 0) after.value = [...after.value, ...fresh];
+    else {
+      before.value = [...fresh, ...before.value];
+      if (sel.value >= 0) sel.value += fresh.length;
+    }
+  } catch (e) {
+    pageError.value = e instanceof Error ? e.message : String(e);
+  } finally {
+    paging.value = false;
+  }
+}
+
 watch([id, arrivals, t, products], () => {
   sel.value = -1;
+  before.value = [];
+  after.value = [];
   void board.run();
 });
 watch(id, resolveName);
@@ -97,11 +150,6 @@ function setQuery(q: Record<string, string | undefined>) {
   const next = { ...route.query, ...q };
   for (const k of Object.keys(next)) if (next[k] === undefined) delete next[k];
   void router.replace({ query: next });
-}
-
-function shift(min: number) {
-  const base = (t.value && fromLocalInput(t.value)) || viennaNow();
-  setQuery({ t: toLocalInput(base.add({ minutes: min })) });
 }
 
 function toggleProduct(cls: number) {
@@ -136,7 +184,7 @@ const sortValue = (e: BoardEntry, k: SortKey): string => {
 };
 
 const rows = computed(() => {
-  const list = [...(board.data.value ?? [])];
+  const list = [...entries.value];
   if (sort.value === "time" && !desc.value) return list; // HAFAS order
   const dir = desc.value ? -1 : 1;
   return list.sort(
@@ -154,8 +202,8 @@ useKeys({
   j: () => (sel.value = Math.min(rows.value.length - 1, sel.value + 1)),
   k: () => (sel.value = Math.max(0, sel.value - 1)),
   Enter: () => open(rows.value[sel.value]),
-  h: () => shift(-60),
-  l: () => shift(60),
+  h: () => void more(-1),
+  l: () => void more(1),
   a: () => setQuery({ arr: arrivals.value ? undefined : "" }),
   f: () => toggleFavourite({ id: id.value, name: name.value }),
 });
@@ -202,7 +250,7 @@ watch(sel, (i) =>
         </button>
       </span>
       <span class="ml-auto flex items-center gap-1">
-        <button class="btn" @click="shift(-60)">
+        <button class="btn" :disabled="paging || !entries.length" @click="more(-1)">
           ‹ {{ $t("board.earlier") }} <span class="kbd">h</span>
         </button>
         <input
@@ -215,7 +263,7 @@ watch(sel, (i) =>
         <button v-if="t" class="btn" @click="setQuery({ t: undefined })">
           {{ $t("search.now") }}
         </button>
-        <button class="btn" @click="shift(60)">
+        <button class="btn" :disabled="paging || !entries.length" @click="more(1)">
           {{ $t("board.later") }} <span class="kbd">l</span> ›
         </button>
         <label class="ml-2 flex items-center gap-1 muted" :title="$t('board.autoRefresh')">
@@ -226,7 +274,7 @@ watch(sel, (i) =>
 
     <Status
       :loading="board.loading.value && !rows.length"
-      :error="board.error.value"
+      :error="board.error.value ?? pageError"
       @retry="board.run"
     />
 

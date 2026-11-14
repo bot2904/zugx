@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
 import { mockApi } from "./mock.ts";
 
@@ -301,4 +302,33 @@ test("netzgrafik opens the Netzgrafik-Editor with the network in the URL fragmen
   await popup.waitForURL(/#netzgrafik=/);
   const data = new URL(popup.url()).hash.replace("#netzgrafik=", "");
   expect(data).toMatch(/^[\w-]{1000,}$/);
+});
+
+test("station board: Later appends the next departures and keeps the shown ones", async ({
+  page,
+}) => {
+  // the 2nd StationBoard request answers with the same trains one day later (new entries)
+  const fixture = JSON.parse(
+    readFileSync(
+      new URL("../../packages/hafas/fixtures/station-board.json", import.meta.url),
+      "utf8",
+    ),
+  ).response;
+  let boards = 0;
+  await page.route("**/api/mgate", async (route) => {
+    const req = route.request().postDataJSON().svcReqL[0];
+    if (req.meth !== "StationBoard" || req.req.type === "ARR") return route.fallback();
+    const res = structuredClone(fixture);
+    if (boards++ > 0) for (const j of res.svcResL[0].res.jnyL) j.date = String(Number(j.date) + 1);
+    await route.fulfill({ json: res });
+  });
+  await page.goto("/station/8103000");
+  const rows = page.locator("table.dense tbody tr[data-row]");
+  await rows.first().waitFor();
+  const n = await rows.count();
+  const first = (await rows.first().textContent()) ?? "";
+  await page.getByRole("button", { name: /^(Later|Später|Dopo)/ }).click();
+  await expect(rows).toHaveCount(2 * n);
+  await expect(rows.first()).toHaveText(first);
+  await expect(page).not.toHaveURL(/[?&]t=/);
 });
