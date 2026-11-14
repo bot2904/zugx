@@ -175,6 +175,8 @@ export default {
     subtitle: "Integrated interval timetable (ITF), reconstructed from the timetable",
     noData: "Netzgrafik data not built yet.",
     export: "Download NGE JSON",
+    openNge: "Netzgrafik-Editor",
+    openNgeHint: "Download the NGE JSON, then import it in the Netzgrafik-Editor",
     knoten: "Node times",
     takt: "Interval",
     symmetry: "Symmetry",

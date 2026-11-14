@@ -38,6 +38,9 @@ const dayType = computed<DayType>(() =>
 const availableTypes = computed(() =>
   DAY_TYPES.filter((d) => pathFor("netz", d.id, Object.keys(files))),
 );
+/** public Netzgrafik-Editor web app (OpenRail Association) */
+const NGE_APP = "https://openrailassociation.github.io/netzgrafik-editor-frontend/";
+
 const ngeUrl = computed(() => {
   const p = pathFor("nge", dayType.value, Object.keys(ngeUrls));
   return p ? ngeUrls[p] : undefined;
@@ -177,6 +180,14 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
         :download="`zugx-netzgrafik-${dayType}-nge.json`"
         class="btn ml-auto text-xs"
         >⤓ {{ $t("netz.export") }}</a
+      >
+      <a
+        :href="NGE_APP"
+        class="btn text-xs"
+        :class="!ngeUrl && 'ml-auto'"
+        target="_blank"
+        :title="$t('netz.openNgeHint')"
+        >{{ $t("netz.openNge") }} ↗</a
       >
     </div>
     <p v-if="!loading && !netz" class="muted">{{ $t("netz.noData") }}</p>

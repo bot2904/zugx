@@ -177,6 +177,8 @@ export default {
     subtitle: "Integrierter Taktfahrplan (ITF), rekonstruiert aus dem Fahrplan",
     noData: "Netzgrafik noch nicht erzeugt.",
     export: "NGE-JSON herunterladen",
+    openNge: "Netzgrafik-Editor",
+    openNgeHint: "NGE-JSON herunterladen und im Netzgrafik-Editor importieren",
     knoten: "Knotenzeiten",
     takt: "Takt",
     symmetry: "Symmetrie",

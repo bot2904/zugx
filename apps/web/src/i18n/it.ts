@@ -177,6 +177,8 @@ export default {
     subtitle: "Orario cadenzato integrato, ricostruito dall'orario",
     noData: "Grafico di rete non ancora generato.",
     export: "Scarica JSON NGE",
+    openNge: "Netzgrafik-Editor",
+    openNgeHint: "Scarica il JSON NGE e importalo nel Netzgrafik-Editor",
     knoten: "Orari ai nodi",
     takt: "Cadenza",
     symmetry: "Simmetria",
