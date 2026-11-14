@@ -6,6 +6,7 @@ import {
   decodePolyline,
   parseDuration,
   parseTime,
+  dirGeoBearing,
   runningDays,
 } from "../src/index.ts";
 
@@ -210,5 +211,35 @@ describe("client against fixtures", () => {
     await client.locations("Linz");
     await client.locations("Linz");
     expect(calls.length).toBe(1);
+  });
+});
+
+describe("dirGeo", () => {
+  it("is counter-clockwise from east in 32 steps, as a compass bearing", () => {
+    expect(dirGeoBearing(0)).toBe(90); // east
+    expect(dirGeoBearing(8)).toBe(0); // north
+    expect(dirGeoBearing(16)).toBe(270); // west
+    expect(dirGeoBearing(24)).toBe(180); // south
+    expect(dirGeoBearing(21)).toBe(213.75);
+    expect(dirGeoBearing(undefined)).toBeUndefined();
+  });
+
+  it("matches the direction from the previous to the next stop in the recorded radar data", async () => {
+    const res = fixture("journey-geo-pos").response;
+    const r = res.svcResL[0].res;
+    const locs = r.common.locL;
+    const errs: number[] = [];
+    for (const j of r.jnyL) {
+      const f = locs[j.ani.fLocX[0]].crd;
+      const t = locs[j.ani.tLocX[0]].crd;
+      const dx = (t.x - f.x) * Math.cos((48.2 * Math.PI) / 180);
+      const dy = t.y - f.y;
+      if (!dx && !dy) continue;
+      const stops = ((Math.atan2(dx, dy) * 180) / Math.PI + 360) % 360;
+      const d = Math.abs(dirGeoBearing(j.dirGeo)! - stops) % 360;
+      errs.push(Math.min(d, 360 - d));
+    }
+    expect(errs.length).toBeGreaterThan(30);
+    expect(Math.max(...errs)).toBeLessThan(20);
   });
 });

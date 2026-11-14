@@ -2,6 +2,7 @@ export * from "./types.ts";
 export * from "./client.ts";
 export {
   currentDelay,
+  dirGeoBearing,
   ALL_PRODUCTS,
   PRODUCT_CLASSES,
   RAIL_PRODUCTS,

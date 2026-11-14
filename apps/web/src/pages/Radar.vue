@@ -96,6 +96,7 @@ const points = computed<MapPoint[]>(() =>
     id: m.journeyId,
     color: mode.value === "delay" ? delayColor(m.delay) : lineColor(m.line),
     label: `${trainLabel(m.line)} → ${m.direction}${fmtDelay(m.delay)}`,
+    bearing: m.bearing,
   })),
 );
 

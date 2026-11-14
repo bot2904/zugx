@@ -149,6 +149,8 @@ export interface Movement {
    * (undefined if HAFAS has no realtime data for this train)
    */
   delay?: number;
+  /** direction of travel, compass degrees (0 = north, clockwise), from HAFAS `dirGeo` */
+  bearing?: number;
 }
 
 export interface Warning {

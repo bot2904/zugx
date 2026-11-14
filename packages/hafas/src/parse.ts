@@ -456,6 +456,16 @@ export function currentDelay(
   return best?.d;
 }
 
+/**
+ * HAFAS `dirGeo` (0–31: steps of 11.25° counter-clockwise from east, the mathematical angle) as a
+ * compass bearing in degrees (0 = north, clockwise). Derived from the ÖBB data: matches the
+ * direction from the previous to the next stop within a few degrees.
+ */
+export function dirGeoBearing(dirGeo: unknown): number | undefined {
+  if (typeof dirGeo !== "number" || !Number.isFinite(dirGeo)) return undefined;
+  return (((90 - dirGeo * 11.25) % 360) + 360) % 360;
+}
+
 export function parseJourneyGeoPos(res: Raw, now = Temporal.Now.instant()): Movement[] {
   const c = common(res);
   return (res?.jnyL ?? [])
@@ -477,6 +487,8 @@ export function parseJourneyGeoPos(res: Raw, now = Temporal.Now.instant()): Move
       };
       const delay = currentDelay(stops, now);
       if (delay !== undefined) m.delay = delay;
+      const bearing = dirGeoBearing(j.dirGeo);
+      if (bearing !== undefined) m.bearing = bearing;
       return m;
     });
 }

@@ -33,6 +33,8 @@ export interface MapPoint {
   stroke?: string;
   id?: string;
   big?: boolean;
+  /** direction of travel (compass degrees): drawn as a small arrow at the edge of the dot */
+  bearing?: number;
 }
 
 setWorkerUrl(workerUrl);
@@ -86,6 +88,7 @@ function pointData() {
         stroke: p.stroke ?? "#000",
         id: p.id ?? "",
         big: p.big ? 1 : 0,
+        ...(p.bearing !== undefined ? { bearing: p.bearing } : {}),
       },
       geometry: { type: "Point", coordinates: [p.lon, p.lat] },
     })),
@@ -135,7 +138,33 @@ const styleUrl = (): string | StyleSpecification =>
       }
     : `https://tiles.openfreemap.org/styles/${scheme.value === "dark" ? "dark" : "positron"}`;
 
+/** small triangle pointing up (north), black with a white outline: visible on light and dark maps */
+function arrowImage() {
+  const px = 2; // device pixels per CSS pixel
+  const c = document.createElement("canvas");
+  c.width = c.height = 12 * px;
+  const g = c.getContext("2d")!;
+  g.scale(px, px);
+  g.beginPath();
+  g.moveTo(6, 1.5);
+  g.lineTo(10.5, 10.5);
+  g.lineTo(1.5, 10.5);
+  g.closePath();
+  g.lineJoin = "round";
+  g.lineWidth = 1.5;
+  g.strokeStyle = "#fff";
+  g.stroke();
+  g.fillStyle = "#111";
+  g.fill();
+  const { data, width, height } = g.getImageData(0, 0, c.width, c.height);
+  return { image: { width, height, data: new Uint8Array(data.buffer) }, pixelRatio: px };
+}
+
 function addOverlays(m: MlMap) {
+  if (!m.hasImage("zugx-arrow")) {
+    const { image, pixelRatio } = arrowImage();
+    m.addImage("zugx-arrow", image, { pixelRatio });
+  }
   if (!m.getSource("lines")) {
     m.addSource("lines", { type: "geojson", data: lineData() });
     m.addSource("points", { type: "geojson", data: pointData() });
@@ -152,6 +181,21 @@ function addOverlays(m: MlMap) {
       source: "lines",
       paint: { "line-color": ["get", "color"], "line-width": 4 },
       layout: { "line-cap": "round", "line-join": "round" },
+    });
+    // direction of travel (vonatinfo style): an arrow just outside the dot, rotating with the map
+    m.addLayer({
+      id: "point-arrows",
+      type: "symbol",
+      source: "points",
+      filter: ["has", "bearing"],
+      layout: {
+        "icon-image": "zugx-arrow",
+        "icon-rotate": ["get", "bearing"],
+        "icon-rotation-alignment": "map",
+        "icon-offset": [0, -7],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true,
+      },
     });
     m.addLayer({
       id: "points",
