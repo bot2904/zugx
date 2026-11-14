@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Read-only Netzgrafik: nodes (Knoten) + line sections with departure/arrival minutes at both ends.
-import type { EdgeLine, NetzLine, NetzModel, NetzNode } from "@zugx/netz";
+import type { NetzModel, NetzNode, Trainrun, TrainrunSection } from "@zugx/netz";
 import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { NGE_APP, ngeLink } from "../lib/nge.ts";
@@ -92,15 +92,15 @@ const pos = computed(() => {
   return new Map(ns.map((n) => [n.id, { x: ox + (n.x - x0) * k, y: oy + (n.y - y0) * k }]));
 });
 
-const lineById = computed(() => new Map((netz.value?.lines ?? []).map((l) => [l.id, l])));
-const visible = (l?: NetzLine) =>
+const lineById = computed(() => new Map((netz.value?.trainruns ?? []).map((l) => [l.id, l])));
+const visible = (l?: Trainrun) =>
   !!l &&
-  !hiddenCats.value.has(l.cat) &&
-  (!maxTakt.value || (l.takt !== null && l.takt <= maxTakt.value));
+  !hiddenCats.value.has(l.category) &&
+  (!maxTakt.value || (l.frequency !== null && l.frequency <= maxTakt.value));
 
 interface Seg {
-  el: EdgeLine;
-  line: NetzLine;
+  el: TrainrunSection;
+  line: Trainrun;
   a: string;
   b: string;
   offset: number;
@@ -110,9 +110,16 @@ interface Seg {
 const segs = computed<Seg[]>(() => {
   const out: Seg[] = [];
   for (const e of netz.value?.edges ?? []) {
-    const ls = e.lines.filter((el) => visible(lineById.value.get(el.line)));
+    const ls = e.sections.filter((el) => visible(lineById.value.get(el.trainrun)));
     ls.forEach((el, i) =>
-      out.push({ el, line: lineById.value.get(el.line)!, a: e.a, b: e.b, offset: i, n: ls.length }),
+      out.push({
+        el,
+        line: lineById.value.get(el.trainrun)!,
+        a: e.source,
+        b: e.target,
+        offset: i,
+        n: ls.length,
+      }),
     );
   }
   return out;
@@ -144,7 +151,7 @@ function geom(s: Seg) {
 }
 
 const mm = (m: number | null) => (m === null ? "" : String(Math.round(m) % 60).padStart(2, "0"));
-const cats = computed(() => [...new Set(netz.value?.lines.map((l) => l.cat) ?? [])]);
+const cats = computed(() => [...new Set(netz.value?.trainruns.map((l) => l.category) ?? [])]);
 function toggleCat(c: string) {
   const s = new Set(hiddenCats.value);
   if (s.has(c)) s.delete(c);
@@ -155,7 +162,7 @@ const node = computed<NetzNode | undefined>(() =>
   netz.value?.nodes.find((n) => n.id === selNode.value),
 );
 const nodeLines = computed(() =>
-  (netz.value?.lines ?? []).filter(
+  (netz.value?.trainruns ?? []).filter(
     (l) =>
       visible(l) &&
       [...l.fwd.stops, ...(l.back?.stops ?? [])].some((s) => s.node === selNode.value),
@@ -164,16 +171,17 @@ const nodeLines = computed(() =>
 const line = computed(() => (selLine.value ? lineById.value.get(selLine.value) : undefined));
 const nodeName = (id: string) => netz.value?.nodes.find((n) => n.id === id)?.name ?? id;
 const knotColor = (n: NetzNode) =>
-  n.knots.type === "voll"
+  n.nodeTimes.type === "full"
     ? "var(--accent)"
-    : n.knots.type === "halb"
+    : n.nodeTimes.type === "half"
       ? "var(--warn)"
-      : n.knots.type
+      : n.nodeTimes.type
         ? "var(--link)"
         : "var(--bg2)";
 const knotLabel = (n: NetzNode) =>
-  n.knots.minutes.map((m) => `:${String(m).padStart(2, "0")}`).join(" ");
-const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ? 2 : 1.3);
+  n.nodeTimes.minutes.map((m) => `:${String(m).padStart(2, "0")}`).join(" ");
+const lineWidth = (l: Trainrun) =>
+  l.frequency && l.frequency <= 30 ? 3 : l.frequency === 60 ? 2 : 1.3;
 </script>
 
 <template>
@@ -259,15 +267,17 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
               "
               @click="selLine = selLine === s.line.id ? undefined : s.line.id"
             >
-              <title>{{ s.line.cat }} {{ s.line.name }} ({{ s.line.takt ?? "–" }}′)</title>
+              <title>
+                {{ s.line.category }} {{ s.line.name }} ({{ s.line.frequency ?? "–" }}′)
+              </title>
               <line
                 :x1="geom(s).ax"
                 :y1="geom(s).ay"
                 :x2="geom(s).bx"
                 :y2="geom(s).by"
-                :stroke="categoryColor(s.line.cat)"
+                :stroke="categoryColor(s.line.category)"
                 :stroke-width="lineWidth(s.line)"
-                :stroke-dasharray="!s.line.takt || s.line.takt > 60 ? '5 3' : undefined"
+                :stroke-dasharray="!s.line.frequency || s.line.frequency > 60 ? '5 3' : undefined"
               />
               <template
                 v-if="geom(s).len > 60 && (selLine === s.line.id || segs.length < 140 || s.n === 1)"
@@ -280,9 +290,9 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
                   class="mono"
                   fill="var(--fg)"
                 >
-                  {{ mm(s.el.aDep)
+                  {{ mm(s.el.sourceDeparture)
                   }}<tspan fill="var(--muted)">{{
-                    s.el.aArr !== null ? "/" + mm(s.el.aArr) : ""
+                    s.el.sourceArrival !== null ? "/" + mm(s.el.sourceArrival) : ""
                   }}</tspan>
                 </text>
                 <text
@@ -293,11 +303,11 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
                   class="mono"
                   fill="var(--fg)"
                 >
-                  <tspan fill="var(--muted)">{{ mm(s.el.bArr) }}</tspan
-                  >{{ s.el.bDep !== null ? "/" + mm(s.el.bDep) : "" }}
+                  <tspan fill="var(--muted)">{{ mm(s.el.targetArrival) }}</tspan
+                  >{{ s.el.targetDeparture !== null ? "/" + mm(s.el.targetDeparture) : "" }}
                 </text>
                 <text
-                  v-if="s.el.travel !== null && geom(s).len > 110"
+                  v-if="s.el.travelTime !== null && geom(s).len > 110"
                   :x="geom(s).mid.x"
                   :y="geom(s).mid.y + 9"
                   font-size="8"
@@ -305,7 +315,7 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
                   class="mono"
                   fill="var(--muted)"
                 >
-                  {{ s.el.travel }}′
+                  {{ s.el.travelTime }}′
                 </text>
               </template>
             </g>
@@ -318,7 +328,9 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
                 selLine = undefined;
               "
             >
-              <title>{{ n.name }}{{ n.knots.minutes.length ? " · " + knotLabel(n) : "" }}</title>
+              <title>
+                {{ n.name }}{{ n.nodeTimes.minutes.length ? " · " + knotLabel(n) : "" }}
+              </title>
               <rect
                 :x="pos.get(n.id)!.x - 9"
                 :y="pos.get(n.id)!.y - 9"
@@ -335,7 +347,7 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
                 font-size="7"
                 text-anchor="middle"
                 class="mono"
-                :fill="n.knots.type ? '#fff' : 'var(--fg)'"
+                :fill="n.nodeTimes.type ? '#fff' : 'var(--fg)'"
                 font-weight="700"
               >
                 {{ n.code }}
@@ -362,9 +374,11 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
         <aside class="card p-2 text-sm">
           <template v-if="line">
             <div class="muted text-xs">{{ $t("netz.trainrun") }}</div>
-            <b :style="{ color: categoryColor(line.cat) }">{{ line.cat }}</b> {{ line.name }}
+            <b :style="{ color: categoryColor(line.category) }">{{ line.category }}</b>
+            {{ line.name }}
             <div class="muted text-xs">
-              {{ $t("netz.takt") }} {{ line.takt ? line.takt + "′" : $t("netz.occasional") }}
+              {{ $t("netz.takt") }}
+              {{ line.frequency ? line.frequency + "′" : $t("netz.occasional") }}
               <template v-if="line.symmetry !== null">
                 · {{ $t("netz.symmetry") }} {{ line.symmetry > 0 ? "+" : ""
                 }}{{ line.symmetry }}′</template
@@ -386,7 +400,7 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
                   v-for="(s, i) in d!.stops"
                   :key="i"
                   class="flex gap-2"
-                  :class="s.pass && 'muted italic'"
+                  :class="s.nonStop && 'muted italic'"
                 >
                   <span class="w-6 text-right muted">{{ mm(s.arr) }}</span>
                   <span class="w-6 text-right">{{ mm(s.dep) }}</span>
@@ -405,13 +419,13 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
             >
             <div class="text-xs">
               {{ $t("netz.knoten") }}: {{ knotLabel(node) || "–" }} ({{
-                Math.round(node.knots.share * 100)
+                Math.round(node.nodeTimes.share * 100)
               }}
               %)
             </div>
             <svg viewBox="0 0 120 30" class="mt-1 block w-full" aria-hidden="true">
               <rect
-                v-for="(c, m) in node.knots.arr"
+                v-for="(c, m) in node.nodeTimes.arr"
                 :key="'a' + m"
                 :x="m * 2"
                 :y="15 - c * 4"
@@ -420,7 +434,7 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
                 fill="var(--muted)"
               />
               <rect
-                v-for="(c, m) in node.knots.dep"
+                v-for="(c, m) in node.nodeTimes.dep"
                 :key="'d' + m"
                 :x="m * 2"
                 y="15"
@@ -432,13 +446,13 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
             </svg>
             <ul class="m-0 mt-2 list-none p-0 text-xs">
               <li v-for="l in nodeLines" :key="l.id" class="cursor-pointer" @click="selLine = l.id">
-                <b :style="{ color: categoryColor(l.cat) }">{{ l.cat }}</b> {{ l.name }}
-                <span class="muted">{{ l.takt ? l.takt + "′" : "" }}</span>
+                <b :style="{ color: categoryColor(l.category) }">{{ l.category }}</b> {{ l.name }}
+                <span class="muted">{{ l.frequency ? l.frequency + "′" : "" }}</span>
               </li>
             </ul>
           </template>
           <p v-else class="muted text-xs">
-            {{ netz.nodes.length }} Knoten · {{ netz.lines.length }} lines · click a node or line.
+            {{ $t("netz.summary", { nodes: netz.nodes.length, trainruns: netz.trainruns.length }) }}
           </p>
         </aside>
       </div>

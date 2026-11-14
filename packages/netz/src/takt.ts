@@ -8,7 +8,7 @@
  * departure inside the main operating window (default 06:00–20:00). The
  * smallest T whose slots are ≥ 75 % filled (and with enough trips) wins.
  */
-import type { Takt } from "./types.ts";
+import type { Frequency } from "./types.ts";
 
 export const TAKTS = [15, 30, 60, 120] as const;
 
@@ -24,7 +24,7 @@ export interface TaktOptions {
 }
 
 export interface TaktResult {
-  takt: Takt;
+  takt: Frequency;
   /** phase: representative minute mod takt (or of the first departure if takt is null) */
   phase: number;
   /** indices (into the input) of the departures belonging to this Takt family */

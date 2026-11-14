@@ -6,14 +6,14 @@ import { haversineKm, type Feed, type Station, type Trip } from "./gtfs.ts";
 import type { NodeDef } from "./nodes.ts";
 import { circDist, circMedian, mod, taktFamilies, type TaktOptions } from "./takt.ts";
 import type {
-  LineDirection,
-  LineStop,
+  TrainrunDirection,
+  TrainrunStop,
   NetzEdge,
-  NetzLine,
+  Trainrun,
   NetzModel,
   NetzNode,
-  NodeKnots,
-  Takt,
+  NodeTimes,
+  Frequency,
 } from "./types.ts";
 
 export interface NetzOptions {
@@ -260,8 +260,8 @@ const timeAt = (nt: NodeTrip, offset: number, i: number) => {
 interface DirectionDraft {
   cat: string;
   seq: string[];
-  takt: Takt;
-  dir: LineDirection;
+  takt: Frequency;
+  dir: TrainrunDirection;
   members: number;
 }
 
@@ -334,7 +334,7 @@ export function patternDirections(
     // short runs (other dwell / turnaround) do not skew the pattern
     const full = members.filter((t) => t.offset <= lo && t.offset + t.nt.pts.length - 1 >= hi);
     const basis = full.length ? full : members;
-    const stops: LineStop[] = seq.map((node, j) => {
+    const stops: TrainrunStop[] = seq.map((node, j) => {
       const i = j + lo;
       const arrs: number[] = [];
       const deps: number[] = [];
@@ -348,12 +348,12 @@ export function patternDirections(
         if (i - t.offset > 0) arrs.push(mod(p.arr, M));
         if (i - t.offset < t.nt.pts.length - 1) deps.push(mod(p.dep, M));
       }
-      const s: LineStop = {
+      const s: TrainrunStop = {
         node,
         arr: i === lo || !arrs.length ? null : circMedian(arrs, M),
         dep: i === hi || !deps.length ? null : circMedian(deps, M),
       };
-      if (count && passes > count / 2) s.pass = true;
+      if (count && passes > count / 2) s.nonStop = true;
       return s;
     });
     const travel = seq.slice(1).map((_, j) => {
@@ -409,7 +409,7 @@ export function patternDirections(
       members: f.members.length,
       dir: {
         to,
-        takt: f.takt,
+        frequency: f.takt,
         trips: trips.length,
         numbers: formatNumbers(g.cat, trips),
         first: hhmm(Math.min(...firstTimes)),
@@ -428,12 +428,12 @@ export function patternDirections(
  * smaller one.
  */
 export function symmetryDeviation(
-  fwd: LineStop[],
-  back: LineStop[],
-  takt: Takt,
-  taktBack: Takt = takt,
+  fwd: TrainrunStop[],
+  back: TrainrunStop[],
+  takt: Frequency,
+  taktBack: Frequency = takt,
 ): number | null {
-  const m = (t: Takt) => (t && t < 60 ? t : 60);
+  const m = (t: Frequency) => (t && t < 60 ? t : 60);
   const M = Math.min(m(takt), m(taktBack));
   const devs: number[] = [];
   const byNode = new Map(back.map((s) => [s.node, s]));
@@ -455,8 +455,8 @@ export function symmetryDeviation(
 
 /** Knotenzeiten for one node from all Takt line directions touching it. */
 export function nodeKnots(
-  events: { arr: number | null; dep: number | null; takt: Takt }[],
-): NodeKnots {
+  events: { arr: number | null; dep: number | null; takt: Frequency }[],
+): NodeTimes {
   const arr = Array.from({ length: 60 }, () => 0);
   const dep = Array.from({ length: 60 }, () => 0);
   let total = 0;
@@ -499,7 +499,7 @@ export function nodeKnots(
   if (lines < 2 || total < 4 || bestShare < 0.5) {
     return { arr, dep, minutes: [], type: null, share: Math.round(bestShare * 100) / 100 };
   }
-  const type = best.includes(0) ? "voll" : best[0] === 30 ? "halb" : "viertel";
+  const type = best.includes(0) ? "full" : best[0] === 30 ? "half" : "quarter";
   return { arr, dep, minutes: best, type, share: Math.round(bestShare * 100) / 100 };
 }
 
@@ -532,7 +532,7 @@ export function buildNetz(feed: Feed, opts: NetzOptions): NetzModel {
   drafts.sort((a, b) => b.dir.trips - a.dir.trips);
 
   // pair opposite directions
-  const lines: NetzLine[] = [];
+  const lines: Trainrun[] = [];
   const used = new Set<DirectionDraft>();
   const ids = new Set<string>();
   for (const d of drafts) {
@@ -569,9 +569,9 @@ export function buildNetz(feed: Feed, opts: NetzOptions): NetzModel {
     ids.add(id);
     lines.push({
       id,
-      cat: d.cat,
+      category: d.cat,
       name,
-      takt: d.takt,
+      frequency: d.takt,
       fwd: d.dir,
       ...(partner ? { back: partner.dir } : {}),
       symmetry: partner
@@ -579,7 +579,7 @@ export function buildNetz(feed: Feed, opts: NetzOptions): NetzModel {
         : null,
     });
   }
-  lines.sort((a, b) => a.cat.localeCompare(b.cat) || a.id.localeCompare(b.id));
+  lines.sort((a, b) => a.category.localeCompare(b.category) || a.id.localeCompare(b.id));
 
   // edges
   const edges = new Map<string, NetzEdge>();
@@ -596,31 +596,36 @@ export function buildNetz(feed: Feed, opts: NetzOptions): NetzModel {
           const d = km2.get(k);
           edges.set(
             k,
-            (e = { a, b, km: d === undefined ? null : Math.round(d * 10) / 10, lines: [] }),
+            (e = {
+              source: a,
+              target: b,
+              km: d === undefined ? null : Math.round(d * 10) / 10,
+              sections: [],
+            }),
           );
         }
-        let el = e.lines.find((z) => z.line === l.id);
+        let el = e.sections.find((z) => z.trainrun === l.id);
         if (!el) {
           el = {
-            line: l.id,
-            aDep: null,
-            bArr: null,
-            bDep: null,
-            aArr: null,
-            travel: null,
-            travelBack: null,
+            trainrun: l.id,
+            sourceDeparture: null,
+            targetArrival: null,
+            targetDeparture: null,
+            sourceArrival: null,
+            travelTime: null,
+            backwardTravelTime: null,
           };
-          e.lines.push(el);
+          e.sections.push(el);
         }
         const t = dir.travel[i - 1] ?? null;
         if (x.node === a) {
-          el.aDep ??= x.dep;
-          el.bArr ??= y.arr;
-          el.travel ??= t;
+          el.sourceDeparture ??= x.dep;
+          el.targetArrival ??= y.arr;
+          el.travelTime ??= t;
         } else {
-          el.bDep ??= x.dep;
-          el.aArr ??= y.arr;
-          el.travelBack ??= t;
+          el.targetDeparture ??= x.dep;
+          el.sourceArrival ??= y.arr;
+          el.backwardTravelTime ??= t;
         }
       }
     }
@@ -628,20 +633,20 @@ export function buildNetz(feed: Feed, opts: NetzOptions): NetzModel {
 
   // nodes + Knotenzeiten
   const used2 = new Set<string>();
-  for (const e of edges.values()) used2.add(e.a).add(e.b);
+  for (const e of edges.values()) used2.add(e.source).add(e.target);
   const nodes: NetzNode[] = [];
   for (const def of opts.nodes) {
     if (!used2.has(def.id)) continue;
     const st: Station | undefined = feed.stations.get(def.id);
     if (!st) continue;
-    const events: { arr: number | null; dep: number | null; takt: Takt }[] = [];
+    const events: { arr: number | null; dep: number | null; takt: Frequency }[] = [];
     let count = 0;
     for (const l of lines) {
       for (const dir of [l.fwd, l.back]) {
         const s = dir?.stops.find((z) => z.node === def.id);
         if (!s) continue;
         count++;
-        if (!s.pass) events.push({ arr: s.arr, dep: s.dep, takt: dir!.takt });
+        if (!s.nonStop) events.push({ arr: s.arr, dep: s.dep, takt: dir!.frequency });
       }
     }
     const hafasId = opts.hafas?.get(def.id);
@@ -653,17 +658,19 @@ export function buildNetz(feed: Feed, opts: NetzOptions): NetzModel {
       lon: Math.round(st.lon * 1e5) / 1e5,
       ...project(st.lat, st.lon),
       ...(hafasId ? { hafasId } : {}),
-      lines: count,
-      knots: nodeKnots(events),
+      trainruns: count,
+      nodeTimes: nodeKnots(events),
     });
   }
 
   return {
     day: opts.day,
     source: opts.source,
-    cats: opts.cats,
+    categories: opts.cats,
     nodes,
-    lines,
-    edges: [...edges.values()].sort((x, y) => x.a.localeCompare(y.a) || x.b.localeCompare(y.b)),
+    trainruns: lines,
+    edges: [...edges.values()].sort(
+      (x, y) => x.source.localeCompare(y.source) || x.target.localeCompare(y.target),
+    ),
   };
 }

@@ -38,7 +38,7 @@ The UI imports the types from `@zugx/netz` (`src/types.ts`).
 {
   "day": "2026-03-10",
   "source": "ÖBB GTFS 2026 (CC BY 4.0)",
-  "cats": ["RJX", "RJ", "ICE", "EC", "IC", "D", "IR", "CJX", "REX"],
+  "categories": ["RJX", "RJ", "ICE", "EC", "IC", "D", "IR", "CJX", "REX"],
   "nodes": [
     {
       "id": "Pat:44:41164",
@@ -48,8 +48,8 @@ The UI imports the types from `@zugx/netz` (`src/types.ts`).
       "lon": 14.29117,
       "x": 74.3,
       "y": -76.8, // km, equirectangular around 47.6°N 13.3°E (y grows south)
-      "lines": 25, // line directions touching the node
-      "knots": {
+      "trainruns": 25, // trainrun directions touching the node
+      "nodeTimes": {
         "arr": [/* 60 */],
         "dep": [/* 60 */],
         "minutes": [15, 45],
@@ -58,22 +58,22 @@ The UI imports the types from `@zugx/netz` (`src/types.ts`).
       },
     },
   ],
-  "lines": [
+  "trainruns": [
     {
       "id": "IR-klagenfurt-hbf-graz-hbf",
-      "cat": "IR",
+      "category": "IR",
       "name": "Klagenfurt Hbf – Graz Hbf",
-      "takt": 60, // 15 | 30 | 60 | 120 | null (= "zeitweise"), of the forward direction
+      "frequency": 60, // 15 | 30 | 60 | 120 | null (= "zeitweise"), of the forward direction
       "fwd": {
         "to": "Graz Hbf",
-        "takt": 60, // per direction (the opposite one may differ)
+        "frequency": 60, // per direction (the opposite one may differ)
         "trips": 16,
         "numbers": "IR 581–589, 681, …",
         "first": "06:11",
         "last": "20:11",
         "stops": [
           { "node": "Pat:42:3642", "arr": null, "dep": 11 },
-          { "node": "…", "arr": 21, "dep": 22, "pass": true },
+          { "node": "…", "arr": 21, "dep": 22, "nonStop": true },
         ],
         "travel": [70, 10, 37], // minutes between consecutive stops
       },
@@ -83,18 +83,18 @@ The UI imports the types from `@zugx/netz` (`src/types.ts`).
   ],
   "edges": [
     {
-      "a": "Pat:42:3642",
-      "b": "Pat:46:6344",
+      "source": "Pat:42:3642",
+      "target": "Pat:46:6344",
       "km": 153.1,
-      "lines": [
+      "trainruns": [
         {
-          "line": "IR-…",
-          "aDep": 11,
-          "bArr": 21,
-          "bDep": 38,
-          "aArr": 48,
-          "travel": 70,
-          "travelBack": 70,
+          "trainrun": "IR-…",
+          "sourceDeparture": 11,
+          "targetArrival": 21,
+          "targetDeparture": 38,
+          "sourceArrival": 48,
+          "travelTime": 70,
+          "backwardTravelTime": 70,
         },
       ],
     },
@@ -110,18 +110,18 @@ The UI imports the types from `@zugx/netz` (`src/types.ts`).
 - **Categories**: Takt-relevant long-distance and regional-express trains by default
   (`RJX RJ ICE EC IC D IR CJX REX`); night trains and R/S are left out (`--cats=` to change).
 - **Minutes** are 0–59. For Takt < 60 they are the first slot of the hour (a 30' line at
-  `dep: 7` also departs at :37). `pass: true` marks a node passed without stop (time interpolated).
-- **Knotenzeiten** (`knots`): every Takt line contributes its arrival/departure minutes,
+  `dep: 7` also departs at :37). `nonStop: true` marks a node passed without stop (time interpolated).
+- **Knotenzeiten** (`nodeTimes`): every Takt line contributes its arrival/departure minutes,
   expanded over the hour (`arr`/`dep` histograms). A knot at minute _k_ explains arrivals
   up to 10' before and departures up to 10' after _k_; `minutes` is the knot set (one of
   `[0]`, `[30]`, `[15]`, `[45]`, `[0,30]`, `[15,45]`) explaining most events (≥ 50 %),
-  `type` is `voll` (:00 / :00+:30), `halb` (:30) or `viertel` (:15/:45).
+  `type` is `full` (Vollknoten, :00 / :00+:30), `half` (Halbknoten, :30) or `quarter` (:15/:45).
 
 ### Pipeline (`src/netz.ts`)
 
 1. Project every trip of the day onto the node set (keep only stops at nodes).
 2. Edge lengths: median `shape_dist_traveled` difference per node pair. A nonstop hop A→C is
-   expanded to A→B→C (`pass: true`, time interpolated by distance) when a chain of other
+   expanded to A→B→C (`nonStop: true`, time interpolated by distance) when a chain of other
    edges has the same track length (±4 %), e.g. RJX passing Amstetten or Wels.
 3. Group trips by (category, node sequence = direction). Short-run variants whose sequence is
    a contiguous part of a longer pattern of the same category are merged into it.
@@ -132,7 +132,7 @@ The UI imports the types from `@zugx/netz` (`src/types.ts`).
    the slots filled (≥ 5 slots for 15/30, ≥ 3 otherwise) wins. Its members form a family; the
    rest is analysed again (second family = separate line, e.g. two hourly lines with
    different minutes); leftovers without Takt are counted as extra trips of the main family.
-   Patterns without any Takt but ≥ 2 trips become `takt: null` lines.
+   Patterns without any Takt but ≥ 2 trips become `frequency: null` trainruns.
 5. Per family: node minutes and travel times are taken from the medoid through train (the one
    closest to the per-stop circular medians mod T), so arr/dep/travel stay consistent even when
    dwell times vary; plus trip count, train-number ranges, first/last departure.
@@ -143,6 +143,9 @@ The UI imports the types from `@zugx/netz` (`src/types.ts`).
    axis; `symmetry` is the median deviation from :00/:30 in [−15, 15) (0 = ITF-symmetric; most
    ÖBB Takt lines come out at 0 or −0.5).
 7. Edges collect the per-line minutes at both ends; nodes get the Knotenzeiten summary.
+
+Names follow the Netzgrafik-Editor (trainrun, trainrun section, source/target, frequency, non-stop);
+see PLAN.md "Adopt the Netzgrafik-Editor's terminology".
 
 ## Netzgrafik-Editor export (`nge.json`)
 

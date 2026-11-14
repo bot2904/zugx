@@ -9,7 +9,7 @@
  */
 
 /** Takt (headway) in minutes; `null` = no regular interval ("zeitweise"). */
-export type Takt = 15 | 30 | 60 | 120 | null;
+export type Frequency = 15 | 30 | 60 | 120 | null;
 
 /** A Knoten (major station) of the Netzgrafik. */
 export interface NetzNode {
@@ -27,9 +27,9 @@ export interface NetzNode {
   /** HAFAS station id, if the DHID→HAFAS map was available at build time */
   hafasId?: string;
   /** number of line directions arriving or departing here */
-  lines: number;
-  /** Knotenzeiten summary, see {@link NodeKnots} */
-  knots: NodeKnots;
+  trainruns: number;
+  /** Knotenzeiten summary, see {@link NodeTimes} */
+  nodeTimes: NodeTimes;
 }
 
 /**
@@ -39,7 +39,7 @@ export interface NetzNode {
  * expanded over the hour (a 30' line contributes `m` and `m+30`). A knot at
  * minute `k` counts arrivals in `(k-15, k]` and departures in `[k, k+15)`.
  */
-export interface NodeKnots {
+export interface NodeTimes {
   /** minutes 0–59 → number of Takt arrivals at that minute (expanded over the hour) */
   arr: number[];
   /** minutes 0–59 → number of Takt departures at that minute */
@@ -48,10 +48,10 @@ export interface NodeKnots {
   minutes: number[];
   /**
    * classification of the strongest knot:
-   * `voll` = :00 (Vollknoten), `halb` = :30 (Halbknoten), `viertel` = :15/:45,
+   * `full` = :00 (Vollknoten), `half` = :30 (Halbknoten), `quarter` = :15/:45 (Viertelknoten),
    * `null` = no clear knot (or too few Takt lines)
    */
-  type: "voll" | "halb" | "viertel" | null;
+  type: "full" | "half" | "quarter" | null;
   /** share (0–1) of events that fit the knot(s) in `minutes` */
   share: number;
 }
@@ -60,7 +60,7 @@ export interface NodeKnots {
  * A line's stop at a node. Minutes are 0–59; for a direction with Takt < 60
  * they are the first slot of the hour (modulo the direction's takt).
  */
-export interface LineStop {
+export interface TrainrunStop {
   /** node id */
   node: string;
   /** arrival minute; null at the origin */
@@ -68,15 +68,15 @@ export interface LineStop {
   /** departure minute; null at the destination */
   dep: number | null;
   /** true if the train passes the node without stopping (time interpolated) */
-  pass?: boolean;
+  nonStop?: boolean;
 }
 
 /** One direction of a line. */
-export interface LineDirection {
+export interface TrainrunDirection {
   /** headsign of the representative trip, e.g. `Salzburg Hbf` */
   to: string;
   /** Takt of this direction (may differ from the opposite one, e.g. 30' one way, 60' back) */
-  takt: Takt;
+  frequency: Frequency;
   /** trips on the reference day in this direction (incl. partial runs) */
   trips: number;
   /** train numbers, e.g. `RJX 640–699` or `RJ 531, 533` */
@@ -85,25 +85,25 @@ export interface LineDirection {
   first: string;
   last: string;
   /** stops in travel order */
-  stops: LineStop[];
+  stops: TrainrunStop[];
   /** travel time (minutes) between consecutive stops, `travel[i]` = stops[i] → stops[i+1] */
   travel: number[];
 }
 
 /** A line pattern: trips of one category serving the same node sequence. */
-export interface NetzLine {
+export interface Trainrun {
   /** stable id, e.g. `RJX-wien-hbf-salzburg-hbf` */
   id: string;
   /** category, e.g. `RJX` */
-  cat: string;
+  category: string;
   /** `Wien Hbf – Salzburg Hbf` (forward direction) */
   name: string;
   /** Takt of the forward direction */
-  takt: Takt;
+  frequency: Frequency;
   /** forward direction (the one with more trips) */
-  fwd: LineDirection;
+  fwd: TrainrunDirection;
   /** opposite direction, if paired; its stops are listed in its own travel order */
-  back?: LineDirection;
+  back?: TrainrunDirection;
   /**
    * Symmetry check: deviation (minutes) of this line's symmetry axis from the
    * standard Symmetrieminute (:00/:30, i.e. modulo 30 — modulo takt/2 for takt < 60).
@@ -113,27 +113,27 @@ export interface NetzLine {
 }
 
 /** Per-line minute labels on an edge (one entry per line serving the edge). */
-export interface EdgeLine {
-  line: string;
+export interface TrainrunSection {
+  trainrun: string;
   /** departure at `a` / arrival at `b` of trains running a → b */
-  aDep: number | null;
-  bArr: number | null;
+  sourceDeparture: number | null;
+  targetArrival: number | null;
   /** departure at `b` / arrival at `a` of trains running b → a */
-  bDep: number | null;
-  aArr: number | null;
+  targetDeparture: number | null;
+  sourceArrival: number | null;
   /** travel time a → b and b → a (minutes) */
-  travel: number | null;
-  travelBack: number | null;
+  travelTime: number | null;
+  backwardTravelTime: number | null;
 }
 
 /** Edge between two nodes that are consecutive on at least one line. */
 export interface NetzEdge {
   /** node ids, `a` < `b` lexicographically */
-  a: string;
-  b: string;
+  source: string;
+  target: string;
   /** median track distance in km (from GTFS shape_dist_traveled) */
   km: number | null;
-  lines: EdgeLine[];
+  sections: TrainrunSection[];
 }
 
 export interface NetzModel {
@@ -141,9 +141,9 @@ export interface NetzModel {
   day: string;
   source: string;
   /** categories considered */
-  cats: string[];
+  categories: string[];
   nodes: NetzNode[];
-  lines: NetzLine[];
+  trainruns: Trainrun[];
   edges: NetzEdge[];
 }
 

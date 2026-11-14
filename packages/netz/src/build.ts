@@ -83,7 +83,7 @@ async function main() {
     writeFileSync(join(out, `netz${dt.suffix}.toml`), toToml(model));
     writeFileSync(join(out, `nge${dt.suffix}.json`), `${JSON.stringify(toNge(model))}\n`);
     console.log(
-      `netz${dt.suffix}.toml (${dt.type} ${d}): ${model.nodes.length} nodes, ${model.lines.length} lines, ${model.edges.length} edges (+ nge${dt.suffix}.json)`,
+      `netz${dt.suffix}.toml (${dt.type} ${d}): ${model.nodes.length} nodes, ${model.trainruns.length} lines, ${model.edges.length} edges (+ nge${dt.suffix}.json)`,
     );
   }
 

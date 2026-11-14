@@ -11,7 +11,7 @@
  */
 import { schematicLayout, type SchematicOptions } from "./schematic.ts";
 import { mod } from "./takt.ts";
-import type { LineDirection, LineStop, NetzModel } from "./types.ts";
+import type { TrainrunDirection, TrainrunStop, NetzModel } from "./types.ts";
 
 // ---- DTO subset (field names as in NGE) ---------------------------------
 
@@ -242,7 +242,7 @@ interface Timed {
 }
 
 /** Forward minutes per segment of `stops` (missing values filled from neighbours). */
-function segmentTimes(dir: LineDirection): Timed[] {
+function segmentTimes(dir: TrainrunDirection): Timed[] {
   const out: Timed[] = [];
   for (let i = 0; i + 1 < dir.stops.length; i++) {
     const a = dir.stops[i]!;
@@ -256,7 +256,7 @@ function segmentTimes(dir: LineDirection): Timed[] {
 }
 
 /** Backward minutes for the forward segment i (from node i+1 to node i). */
-function backTimes(fwd: LineStop[], back: LineDirection | undefined, seg: Timed[]) {
+function backTimes(fwd: TrainrunStop[], back: TrainrunDirection | undefined, seg: Timed[]) {
   return seg.map((s, i) => {
     const from = fwd[i + 1]!.node;
     const to = fwd[i]!.node;
@@ -287,8 +287,8 @@ export function startMinute(first: string, minute: number): number {
   return t;
 }
 
-function frequencyId(dir: LineDirection): number {
-  switch (dir.takt) {
+function frequencyId(dir: TrainrunDirection): number {
+  switch (dir.frequency) {
     case 15:
       return 0;
     case 30:
@@ -322,7 +322,7 @@ export function toNge(model: NetzModel, layout?: SchematicOptions): NgeDto {
     labelIds: [],
   }));
 
-  const usedCats = [...new Set(model.lines.map((l) => l.cat))];
+  const usedCats = [...new Set(model.trainruns.map((l) => l.category))];
   const catDefs = CATEGORY_DEFS.filter(([s]) => usedCats.includes(s));
   for (const c of usedCats) {
     if (!catDefs.some(([s]) => s === c)) catDefs.push([c, c, "S", "HaltezeitD"]);
@@ -352,10 +352,13 @@ export function toNge(model: NetzModel, layout?: SchematicOptions): NgeDto {
   const trainruns: NgeTrainrunDto[] = [];
   const trainrunSections: NgeTrainrunSectionDto[] = [];
   // a round trip needs one frequency for both directions; otherwise two one-way trainruns
-  const runs: { cat: string; fwd: LineDirection; back?: LineDirection }[] = [];
-  for (const line of model.lines) {
-    if (line.back && line.back.takt !== line.fwd.takt) {
-      runs.push({ cat: line.cat, fwd: line.fwd }, { cat: line.cat, fwd: line.back });
+  const runs: { category: string; fwd: TrainrunDirection; back?: TrainrunDirection }[] = [];
+  for (const line of model.trainruns) {
+    if (line.back && line.back.frequency !== line.fwd.frequency) {
+      runs.push(
+        { category: line.category, fwd: line.fwd },
+        { category: line.category, fwd: line.back },
+      );
     } else runs.push(line);
   }
   for (const run of runs) {
@@ -366,10 +369,10 @@ export function toNge(model: NetzModel, layout?: SchematicOptions): NgeDto {
       id: trId,
       // NGE labels a trainrun "<category><name>"; ÖBB has no line numbers, so just the category
       name: "",
-      categoryId: catId.get(run.cat)!,
+      categoryId: catId.get(run.category)!,
       frequencyId: frequencyId(run.fwd),
-      trainrunTimeCategoryId: run.fwd.takt === null ? 2 : 0,
-      labelIds: [catId.get(run.cat)! + 1],
+      trainrunTimeCategoryId: run.fwd.frequency === null ? 2 : 0,
+      labelIds: [catId.get(run.category)! + 1],
       direction: run.back ? "round_trip" : "one_way",
     });
     const seg = segmentTimes(run.fwd);
@@ -469,7 +472,7 @@ export function toNge(model: NetzModel, layout?: SchematicOptions): NgeDto {
         width: 384,
         height: 96,
         title: `zugx Netzgrafik ${model.day}`,
-        text: `Reconstructed from ${model.source}. Lines: ${model.lines.length}, categories ${model.cats.join(", ")}.`,
+        text: `Reconstructed from ${model.source}. Lines: ${model.trainruns.length}, categories ${model.categories.join(", ")}.`,
         backgroundColor: "#FFFFFF",
         textColor: "#000000",
         labelIds: [],

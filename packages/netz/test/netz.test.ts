@@ -84,9 +84,9 @@ describe("buildNetz", () => {
   });
 
   it("builds one paired hourly line", () => {
-    expect(model.lines).toHaveLength(1);
-    const l = model.lines[0]!;
-    expect(l.takt).toBe(60);
+    expect(model.trainruns).toHaveLength(1);
+    const l = model.trainruns[0]!;
+    expect(l.frequency).toBe(60);
     expect(l.name).toBe("X – Z");
     expect(l.fwd.trips).toBe(15);
     expect(l.fwd.first).toBe("06:10");
@@ -103,27 +103,27 @@ describe("buildNetz", () => {
   });
 
   it("builds edges with minute labels at both ends", () => {
-    expect(model.edges.map((e) => [e.a, e.b, e.km])).toEqual([
+    expect(model.edges.map((e) => [e.source, e.target, e.km])).toEqual([
       ["X", "Y", 30],
       ["Y", "Z", 30],
     ]);
-    const xy = model.edges[0]!.lines[0]!;
+    const xy = model.edges[0]!.sections[0]!;
     expect(xy).toMatchObject({
-      aDep: 10,
-      bArr: 30,
-      bDep: 30,
-      aArr: 50,
-      travel: 20,
-      travelBack: 20,
+      sourceDeparture: 10,
+      targetArrival: 30,
+      targetDeparture: 30,
+      sourceArrival: 50,
+      travelTime: 20,
+      backwardTravelTime: 20,
     });
   });
 
   it("derives Knotenzeiten per node", () => {
     const y = model.nodes.find((n) => n.id === "Y")!;
-    expect(y.lines).toBe(2);
-    expect(y.knots.arr[30]).toBe(1);
-    expect(y.knots.arr[28]).toBe(1);
-    expect(y.knots.dep[32]).toBe(1);
-    expect(y.knots.type).toBe("halb");
+    expect(y.trainruns).toBe(2);
+    expect(y.nodeTimes.arr[30]).toBe(1);
+    expect(y.nodeTimes.arr[28]).toBe(1);
+    expect(y.nodeTimes.dep[32]).toBe(1);
+    expect(y.nodeTimes.type).toBe("half");
   });
 });

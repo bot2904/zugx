@@ -604,7 +604,7 @@ To watch:
 - **Nulls (decided): `null` ⇔ `""` everywhere.** TOML has no null (spec v1.0.0: values are string, integer, float, boolean, date/time, array, inline table; "Unspecified values are invalid"). Inventory of the data (without NGE exports): no empty strings at all; nulls only in corridor `pts` (arrival/departure, ~85k, in arrays), the Netzgrafik models (`edges[].lines[]` minutes/travel, `stops[].arr/dep`, `takt`, `symmetry`, `knots.type`, ~2k, in tables) and 4 unmatched stations in `gtfs-hafas-map`. So the writer stores every null as `""` (keys stay explicit, arrays may mix types since TOML 1.0) and **throws on a real empty string**; the readers (Vite plugin, Node helper for scripts/tests) map every `""` back to null. Types, consumers and schema checks stay unchanged. Rejected: `-1` in arrays (field-specific, `symmetry` can be negative), omitting table keys (null → undefined, ~11 checks and types to change, "no value" invisible in the file).
 - Done: `packages/toml` (`toToml`/`fromToml`/`readToml`/`writeToml`, Vite plugin `@zugx/toml/vite`), all build scripts write TOML, tests and the web app read it; converted once with `node scripts/json-to-toml.ts` (verifies the round-trip of every file). 76 files, 14.8 → 15.8 MB (+6 %), still one record per line; rebuilt data is byte-identical to the converted files. Root arrays need a key: `stations.toml` is `stations = [...]`.
 
-### Adopt the Netzgrafik-Editor's terminology (proposed)
+### Adopt the Netzgrafik-Editor's terminology — done
 
 Source: netzgrafik-editor-frontend (`src/assets/i18n/{de,en}.json`, `documentation/*.md`, `business.data.structures.ts`). Goal: the same concepts carry the same names in zugx (UI, code, data) as in the tool experts use, so the NGE export becomes a 1:1 mapping and users recognise the terms.
 
@@ -630,7 +630,7 @@ Source: netzgrafik-editor-frontend (`src/assets/i18n/{de,en}.json`, `documentati
 | transfer time             | Umsteigezeit / transfer time                                                | Umstieg / transfer                                             | keep                                                                                                                                                          |
 | running days              | Verkehrsperiode / traffic period                                            | Verkehrstage / running days                                    | keep (ÖBB/DB term); mention "Verkehrsperiode" in the docs                                                                                                     |
 
-Order of work (one commit each): (1) UI labels en/de/it; (2) `packages/netz` types + build + data keys (netz-*.toml; NGE export then maps 1:1) + web consumers; (3) Netzgrafik panel → Perlenkette; (4) docs/README. Not renamed: real-train concepts on the board/journey/train pages (Zuglauf, train, connection = Verbindung), and `corridor`.
+Done: UI labels (en Graphic timetable, Frequency, Trainrun/Perlenkette panel, Operational point, Voll-/Halbknoten translated, "zeitweise" for lines without Takt); `packages/netz` model renamed with the TypeScript language service (symbol-aware) + data keys + Netz page + README. The NGE exports came out byte-identical. Not renamed: real-train concepts (Zuglauf, train, Verbindung), `corridor`, build options (`--cats`).
 
 ## Sources
 

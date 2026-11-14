@@ -255,9 +255,9 @@ describe("NGE export", () => {
       cats: ["REX"],
       nodes: ["X", "Y"].map((id) => ({ id, code: id })),
     });
-    expect(m.lines).toHaveLength(1);
-    expect(m.lines[0]!.fwd.takt).toBe(30);
-    expect(m.lines[0]!.back!.takt).toBe(60);
+    expect(m.trainruns).toHaveLength(1);
+    expect(m.trainruns[0]!.fwd.frequency).toBe(30);
+    expect(m.trainruns[0]!.back!.frequency).toBe(60);
     const d = toNge(m);
     validateNge(d);
     expect(d.trainruns.map((t) => [t.name, t.direction, t.frequencyId])).toEqual([

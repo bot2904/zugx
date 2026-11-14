@@ -189,6 +189,7 @@ export default {
     trainrun: "Zuglauf",
     perlenkette: "Perlenkette",
     occasional: "zeitweise",
+    summary: "{nodes} Knoten · {trainruns} Zugläufe · Knoten oder Zuglauf anklicken.",
   },
   map: { orm: "Bahnkarte", ormTip: "OpenRailwayMap-Overlay (Gleise, Bahnhöfe, Signale)" },
   debug: {

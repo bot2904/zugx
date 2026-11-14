@@ -187,6 +187,7 @@ export default {
     trainrun: "Trainrun",
     perlenkette: "Perlenkette",
     occasional: "occasional",
+    summary: "{nodes} nodes · {trainruns} trainruns · click a node or trainrun.",
   },
   map: { orm: "Railway map", ormTip: "OpenRailwayMap overlay (tracks, stations, signals)" },
   debug: {

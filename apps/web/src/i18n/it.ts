@@ -189,6 +189,7 @@ export default {
     trainrun: "Corsa",
     perlenkette: "Perlenkette",
     occasional: "occasionale",
+    summary: "{nodes} nodi · {trainruns} corse · clicca un nodo o una corsa.",
   },
   map: { orm: "Mappa ferroviaria", ormTip: "Overlay OpenRailwayMap (binari, stazioni, segnali)" },
   debug: {

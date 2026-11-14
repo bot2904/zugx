@@ -116,7 +116,7 @@ describe("nodeKnots", () => {
       { arr: 57, dep: 5, takt: 60 },
       { arr: 52, dep: 2, takt: 60 },
     ]);
-    expect(k.type).toBe("voll");
+    expect(k.type).toBe("full");
     expect(k.minutes).toEqual([0]);
     expect(k.share).toBe(1);
   });
@@ -135,7 +135,7 @@ describe("nodeKnots", () => {
       { arr: 10, dep: 18, takt: 60 },
       { arr: 12, dep: 20, takt: 60 },
     ]);
-    expect(k.type).toBe("viertel");
+    expect(k.type).toBe("quarter");
   });
 
   it("returns null with too few Takt lines", () => {
