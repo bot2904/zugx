@@ -132,15 +132,23 @@ const t1 = computed(() => t0.value + span.value * 60);
 const y = (min: number) =>
   M.top + ((min - t0.value) / (t1.value - t0.value)) * (H - M.top - M.bottom);
 
+/**
+ * Time grid: solid hour lines, dashed half-hour and (where at least 6 px apart) 10-minute lines;
+ * labels at every hour, at 10/30 minutes only where there is room.
+ */
 const hourTicks = computed(() => {
-  const out: { y: number; label: string; major: boolean }[] = [];
-  const step = span.value <= 4 ? 10 : span.value <= 8 ? 30 : 60;
-  for (let m = Math.ceil(t0.value / step) * step; m <= t1.value; m += step)
+  const out: { y: number; label: string; kind: "hour" | "half" | "ten"; labelled: boolean }[] = [];
+  const px10 = y(t0.value + 10) - y(t0.value);
+  const step = px10 >= 6 ? 10 : 30;
+  for (let m = Math.ceil(t0.value / step) * step; m <= t1.value; m += step) {
+    const kind = m % 60 === 0 ? "hour" : m % 30 === 0 ? "half" : "ten";
     out.push({
       y: y(m),
       label: `${String(Math.floor(m / 60) % 24).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`,
-      major: m % 60 === 0,
+      kind,
+      labelled: kind === "hour" || (kind === "half" ? px10 * 3 >= 14 : px10 >= 14),
     });
+  }
   return out;
 });
 
@@ -430,14 +438,14 @@ function toggleCat(c: string) {
               :x2="W - M.right"
               :y1="tk.y"
               :y2="tk.y"
-              stroke="var(--line)"
-              :stroke-width="tk.major ? 0.8 : 0.3"
+              :class="`bf-grid bf-grid-${tk.kind}`"
             />
             <text
+              v-if="tk.labelled"
               :x="M.left - 4"
               :y="tk.y + 3"
               text-anchor="end"
-              :fill="tk.major ? 'var(--fg)' : 'var(--muted)'"
+              :fill="tk.kind === 'hour' ? 'var(--fg)' : 'var(--muted)'"
             >
               {{ tk.label }}
             </text>
@@ -509,6 +517,24 @@ function toggleCat(c: string) {
 </template>
 
 <style scoped>
+/* time grid: hours clearly visible, 30/10 minutes thinner and dashed */
+.bf-grid-hour {
+  stroke: var(--muted);
+  stroke-width: 1;
+  opacity: 0.55;
+}
+.bf-grid-half {
+  stroke: var(--muted);
+  stroke-width: 0.6;
+  stroke-dasharray: 4 3;
+  opacity: 0.45;
+}
+.bf-grid-ten {
+  stroke: var(--muted);
+  stroke-width: 0.5;
+  stroke-dasharray: 1.5 3;
+  opacity: 0.4;
+}
 .bf-station[href] {
   cursor: pointer;
 }
