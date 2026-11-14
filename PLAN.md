@@ -597,6 +597,13 @@ To watch:
 - **Neighbours' GTFS** (DB, SBB) if cross-border trains matter.
 - **TypeScript 7 for `apps/web`** once `vue-tsc` supports it (needs a JS API or a Go-based Vue language tool).
 
+### Prebuilt data as TOML instead of JSON (planned)
+
+- Goal: `packages/*/data` (stations, train index, train names, GTFS→HAFAS map, Netzgrafik models, Bildfahrplan corridors) as TOML. Build scripts write TOML; a small Vite plugin imports `*.toml` like JSON (parsed at build time, emitted as a JS module); one converter script turns the existing JSON into TOML once.
+- **Stays JSON:** the Netzgrafik-Editor exports (`nge*.json`); they are the editor's import format (download button, `#netzgrafik=` link).
+- **Nulls (decided): `null` ⇔ `""` everywhere.** TOML has no null (spec v1.0.0: values are string, integer, float, boolean, date/time, array, inline table; "Unspecified values are invalid"). Inventory of the data (without NGE exports): no empty strings at all; nulls only in corridor `pts` (arrival/departure, ~85k, in arrays), the Netzgrafik models (`edges[].lines[]` minutes/travel, `stops[].arr/dep`, `takt`, `symmetry`, `knots.type`, ~2k, in tables) and 4 unmatched stations in `gtfs-hafas-map`. So the writer stores every null as `""` (keys stay explicit, arrays may mix types since TOML 1.0) and **throws on a real empty string**; the readers (Vite plugin, Node helper for scripts/tests) map every `""` back to null. Types, consumers and schema checks stay unchanged. Rejected: `-1` in arrays (field-specific, `symmetry` can be negative), omitting table keys (null → undefined, ~11 checks and types to change, "no value" invisible in the file).
+- Check before: file sizes (arrays of tables are more verbose than JSON lines; `trains-<year>.full` is 2.9 MB JSON), parse time in the build, and that JSON-schema validation of the data files still works.
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
