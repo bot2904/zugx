@@ -171,7 +171,15 @@ export default {
     corridor: "Strecke",
     noData: "Streckendaten noch nicht erzeugt.",
     hours: "Stunden",
-    live: "Live-Overlay",
+    live: "Echtzeit",
+    liveTip:
+      "Echtzeit: tatsächliche Fahrten aus ÖBB Scotty (durchgezogen = Ist, gestrichelt = Prognose)",
+    liveOnlyToday: "Echtzeit nur für heute",
+    liveCount: "{n} Züge mit Echtzeit",
+    liveError: "Echtzeit nicht verfügbar",
+    liveNoRt: "keine Echtzeit",
+    liveOnTime: "pünktlich",
+    hafasOnly: "nicht im GTFS (nur HAFAS)",
   },
   vzg: {
     title: "VzG-Grafik",

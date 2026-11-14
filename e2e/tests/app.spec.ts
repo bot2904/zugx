@@ -377,3 +377,14 @@ test("VzG index filters by line number and station, opens a line", async ({ page
   for (const km of ["30.558", "32.863", "34.629"])
     await expect(svg.locator("text", { hasText: km })).toHaveCount(1);
 });
+
+test("bildfahrplan live overlay: only for today, toggles ?live=1", async ({ page }) => {
+  await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
+  const live = page.getByRole("button", { name: /Live|Echtzeit|Tempo reale/ });
+  await expect(live).toBeDisabled();
+  await page.goto("/bf/westbahn?from=7&h=2");
+  await live.click();
+  await expect(page).toHaveURL(/live=1/);
+  await expect(live).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByRole("status")).toBeVisible();
+});

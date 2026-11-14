@@ -171,7 +171,15 @@ export default {
     corridor: "Linea",
     noData: "Dati della linea non ancora generati.",
     hours: "Ore",
-    live: "Sovrapposizione live",
+    live: "Tempo reale",
+    liveTip:
+      "Tempo reale: percorsi effettivi da ÖBB Scotty (continuo = effettivo, tratteggiato = previsione)",
+    liveOnlyToday: "Tempo reale solo per oggi",
+    liveCount: "{n} treni in tempo reale",
+    liveError: "Tempo reale non disponibile",
+    liveNoRt: "nessun tempo reale",
+    liveOnTime: "in orario",
+    hafasOnly: "non nel GTFS (solo HAFAS)",
   },
   vzg: {
     title: "Grafico VzG",

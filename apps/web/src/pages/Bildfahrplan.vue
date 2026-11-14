@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Bildfahrplan (time–distance diagram) for a corridor: x = km, y = time (downwards).
 import { addDays, daysBetween, viennaDate, viennaMinutes, viennaNow } from "../lib/format.ts";
-import { useDebounceFn, useIntervalFn } from "@vueuse/core";
+import { useDebounceFn, useDocumentVisibility, useIntervalFn } from "@vueuse/core";
 import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
 import { computed, nextTick, onMounted, ref, shallowRef, watch } from "vue";
 import { useI18n } from "../i18n/index.ts";
@@ -9,6 +9,8 @@ import { useRoute, useRouter } from "vue-router";
 import CorridorIndexView from "../components/CorridorIndex.vue";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
+import { api } from "../lib/api.ts";
+import { livePaths, plannedTrain, refreshLive, trainKey, type LiveRun } from "../lib/bf-live.ts";
 import { itemWikidata, stationWikidata } from "../lib/wikidata.ts";
 
 type CorridorRef = Pick<CorridorIndexEntry, "id" | "name" | "oebb" | "lines">;
@@ -175,6 +177,8 @@ interface Drawn {
   d: string;
   color: string;
   label?: { x: number; y: number };
+  /** realtime run of this train (live overlay) */
+  live?: LiveRun;
 }
 
 // ---- date: any day of the timetable period (trains carry running-day bitsets) ----
@@ -204,11 +208,82 @@ const weekday = computed(() =>
   Temporal.PlainDate.from(date.value).toLocaleString(locale.value, { weekday: "short" }),
 );
 
+// ---- live overlay (?live=1, today only): realtime paths from HAFAS, see lib/bf-live.ts ----
+const liveOn = computed(() => route.query.live === "1" && isToday.value);
+const liveRuns = shallowRef(new Map<string, LiveRun>());
+const liveBusy = ref(false);
+const liveError = ref(false);
+let liveIds = new Map<string, string>();
+let liveRound = 0;
+const visibility = useDocumentVisibility();
+async function updateLive() {
+  const c = data.value;
+  if (!liveOn.value || !c || liveBusy.value || visibility.value === "hidden") return;
+  const round = ++liveRound;
+  liveBusy.value = true;
+  try {
+    const runs = await refreshLive({
+      client: api(true),
+      day: date.value,
+      nowMin: viennaMinutes(viennaNow()),
+      t0: t0.value,
+      t1: t1.value,
+      stations: c.stations,
+      lo: range.value.lo,
+      hi: range.value.hi,
+      trains: trainsOnDate.value,
+      known: liveRuns.value,
+      ids: liveIds,
+      onProgress: (runs) => round === liveRound && (liveRuns.value = runs),
+    });
+    if (round === liveRound) liveRuns.value = runs;
+    liveError.value = false;
+  } catch {
+    liveError.value = true;
+  } finally {
+    liveBusy.value = false;
+  }
+}
+// new corridor or day: start over; window/section changes: fetch what is new
+watch([id, date], () => {
+  liveRuns.value = new Map();
+  liveIds = new Map();
+});
+const updateLiveSoon = useDebounceFn(updateLive, 500);
+watch([liveOn, data, t0, t1, range], () => void updateLiveSoon(), { immediate: true });
+watch(visibility, (v) => v === "visible" && void updateLiveSoon());
+useIntervalFn(() => void updateLive(), 60_000);
+function toggleLive() {
+  setQuery({ live: route.query.live === "1" ? undefined : "1" });
+}
+/** trains known from HAFAS only (WESTbahn & co.), drawn with their planned times */
+const hafasOnlyTrains = computed(() =>
+  liveOn.value ? [...liveRuns.value.values()].filter((r) => r.hafasOnly).map(plannedTrain) : [],
+);
+const drawnByKey = computed(
+  () => new Map(drawn.value.map((r) => [trainKey(r.t.cat, r.t.nr), r.t] as const)),
+);
+const hoverLive = computed(() =>
+  hover.value && liveOn.value
+    ? liveRuns.value.get(trainKey(hover.value.cat, hover.value.nr))
+    : undefined,
+);
+const liveDrawn = computed(() => {
+  const c = data.value;
+  if (!c || !liveOn.value) return [];
+  const nowMin = viennaMinutes(now.value);
+  const xi = (i: number) => (inRange(i) && c.stations[i] ? x(c.stations[i].km) : undefined);
+  return [...liveRuns.value.values()]
+    .filter((r) => !hidden.value.has(r.cat))
+    .map((r) => ({ r, color: categoryColor(r.cat), ...livePaths(r, xi, y, nowMin) }))
+    .filter((p) => p.past || p.future);
+});
+
 const drawn = computed<Drawn[]>(() => {
   const c = data.value;
   if (!c) return [];
   const out: Drawn[] = [];
-  for (const t of trainsOnDate.value) {
+  for (const t of [...trainsOnDate.value, ...hafasOnlyTrains.value]) {
     const coords: [number, number][] = [];
     for (const [i, a, d] of t.pts) {
       const st = c.stations[i];
@@ -227,11 +302,13 @@ const drawn = computed<Drawn[]>(() => {
       .map(([px, py], k) => `${k ? "L" : "M"}${px.toFixed(1)},${py.toFixed(1)}`)
       .join("");
     const mid = coords[Math.floor(coords.length / 2)];
+    const live = liveOn.value ? liveRuns.value.get(trainKey(t.cat, t.nr)) : undefined;
     out.push({
       t,
       d: path,
       color: categoryColor(t.cat),
       label: mid ? { x: mid[0], y: mid[1] } : undefined,
+      ...(live ? { live } : {}),
     });
   }
   return out;
@@ -272,7 +349,9 @@ function openTrain(t: CorridorTrain) {
   void router.push({ path: `/train/${trainSlug(`${t.cat} ${t.nr}`)}`, query: { d: date.value } });
 }
 
-const cats = computed(() => [...new Set(trainsOnDate.value.map((t) => t.cat))]);
+const cats = computed(() => [
+  ...new Set([...trainsOnDate.value, ...hafasOnlyTrains.value].map((t) => t.cat)),
+]);
 const hidden = ref(new Set<string>());
 function toggleCat(c: string) {
   const s = new Set(hidden.value);
@@ -412,6 +491,21 @@ function toggleCat(c: string) {
       </span>
     </div>
     <div class="my-2 flex flex-wrap gap-1 text-xs">
+      <button
+        class="btn"
+        :class="liveOn && 'btn-on'"
+        :aria-pressed="liveOn"
+        :disabled="!isToday"
+        :title="isToday ? $t('bf.liveTip') : $t('bf.liveOnlyToday')"
+        @click="toggleLive"
+      >
+        <span aria-hidden="true">●</span> {{ $t("bf.live") }}
+      </button>
+      <span v-if="liveOn" class="muted self-center" role="status">
+        <template v-if="liveError">{{ $t("bf.liveError") }}</template>
+        <template v-else-if="liveBusy && !liveRuns.size">…</template>
+        <template v-else>{{ $t("bf.liveCount", { n: liveDrawn.length }) }}</template>
+      </span>
       <span class="chips flex flex-wrap gap-1">
         <button
           v-for="c in cats"
@@ -519,7 +613,8 @@ function toggleCat(c: string) {
               :stroke-width="
                 hover === r.t ? 3 : ['S', 'R', 'REX', 'CJX'].includes(r.t.cat) ? 1 : 1.6
               "
-              :opacity="hover && hover !== r.t ? 0.35 : 1"
+              :opacity="hover && hover !== r.t ? 0.35 : r.live ? 0.4 : 1"
+              :stroke-dasharray="r.live?.hafasOnly ? '1 2' : undefined"
             />
             <text
               v-if="r.label && span <= 8"
@@ -530,6 +625,36 @@ function toggleCat(c: string) {
               class="mono"
             >
               {{ r.t.cat }} {{ r.t.nr }}
+            </text>
+          </g>
+          <!-- live overlay: actual path (solid) and forecast (dashed), delay at "now" -->
+          <g v-for="p in liveDrawn" :key="`live-${p.r.key}`" class="pointer-events-none">
+            <path
+              :d="p.past"
+              fill="none"
+              :stroke="p.color"
+              stroke-width="2.6"
+              stroke-linejoin="round"
+              :opacity="hover && hover !== drawnByKey.get(p.r.key) ? 0.35 : 1"
+            />
+            <path
+              :d="p.future"
+              fill="none"
+              :stroke="p.color"
+              stroke-width="2"
+              stroke-dasharray="5 3"
+              :opacity="hover && hover !== drawnByKey.get(p.r.key) ? 0.35 : 0.9"
+            />
+            <text
+              v-if="p.end && p.r.delay"
+              :x="p.end[0] + 3"
+              :y="p.end[1] + 3"
+              font-size="9"
+              font-weight="700"
+              class="mono"
+              :fill="p.r.delay >= 5 ? 'var(--bad)' : 'var(--warn)'"
+            >
+              +{{ p.r.delay }}
             </text>
           </g>
         </g>
@@ -565,6 +690,26 @@ function toggleCat(c: string) {
           >{{ hover.origin
           }}<template v-if="hover.headsign"> → {{ hover.headsign }}</template></span
         >
+        <template v-if="hoverLive">
+          ·
+          <span
+            :class="
+              (hoverLive.delay ?? 0) >= 5
+                ? 'text-[var(--bad)]'
+                : hoverLive.delay
+                  ? 'text-[var(--warn)]'
+                  : 'text-[var(--good)]'
+            "
+            >{{
+              hoverLive.delay === undefined
+                ? $t("bf.liveNoRt")
+                : hoverLive.delay
+                  ? `+${hoverLive.delay}'`
+                  : $t("bf.liveOnTime")
+            }}</span
+          >
+          <span v-if="hoverLive.hafasOnly" class="muted"> · {{ $t("bf.hafasOnly") }}</span>
+        </template>
       </template>
       <template v-else>&nbsp;</template>
     </p>
