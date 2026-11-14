@@ -670,6 +670,29 @@ Consequences:
 
 Recommendation / next steps: ask services@mobilitaetsverbuende.at in writing first (zugx = open-source, non-commercial; git history; WESTbahn/GKB only). If granted: build-only overlay for WESTbahn & co. in the current year, full attribution set, removal at year end. Alternatives meanwhile: a UI note "ohne WESTbahn, GKB u. a. (nicht in den ÖBB-Open-Data)"; WESTbahn runs from HAFAS for the reference days. Not legal advice.
 
+### Bildfahrplan: realistic train paths instead of straight lines (planned, decide later)
+
+Feedback: "statt der linearen Interpolation zwischen Halten eine realistischere Darstellung — vielleicht die VzG-Daten der OpenRailwayMap anzapfen und daraus eine realistischere Trasse rechnen lassen?"
+
+Today: straight lines between timetable times; passing points (trains running through without stopping) are interpolated linearly by track distance. Real trains accelerate after a stop, run at the line's speed limit, brake before the next stop, so their paths are curved at stops and steeper/flatter by section.
+
+**Data**
+
+- The VzG (Verzeichnis der örtlich zulässigen Geschwindigkeiten) is DB's; ÖBB's equivalent (speeds in La/Buchfahrplan) is not open.
+- OpenRailwayMap's "max speed" layer shows OSM tags: `railway=rail` ways with `maxspeed` (+ `maxspeed:forward/backward`, `railway:preferred_direction`). Good on Austrian main lines, patchy on branch lines.
+- Access: not Overpass (too slow/unreliable, rejected earlier), not ORM tiles (403). Instead the Geofabrik Austria extract (~700 MB PBF) in the weekly build, filtered with osmium (`railway=rail` + speed tags → a few MB).
+- **Licence: ODbL.** Rendered diagrams are a "produced work" (attribution "© OpenStreetMap contributors" suffices); a committed derived database (speed profiles per corridor) is ODbL share-alike → keep it in its own files with ODbL notice, or derive at build time only.
+
+**Method**
+
+1. _Step 1 — no new data_: per section between two stops a trapezoidal speed profile (accelerate a, cruise, brake b) fitted to the timetable time: from distance d and time T solve d = v·T − v²/2·(1/a + 1/b) for the cruise speed v (triangular profile if it has no solution). Category parameters (e.g. RJX/RJ a = 0.4, b = 0.5 m/s², v_max 230/200 km/h; REX/CJX 0.6/0.6, 160; S/R 0.8/0.8, 140/120). Passing points get no acceleration/braking. Computed client-side from the existing (km, time) points, so no data growth; drawn as sampled polylines (only for visible trains).
+2. _Step 2 — speed limits from OSM_: map-match each GTFS shape (or each corridor) to OSM ways (nearest way within ~20 m, direction-consistent) → limit profile v_lim(s) along the track; per section the minimum running time with v ≤ min(v_lim, v_max(category)) via forward (acceleration) and backward (braking) integration — the classic Fahrzeitrechnung; then stretch to the timetable time (running time reserve spread by lowering the cruise speeds uniformly). Store per corridor one compact limit profile (km → v_lim), the client does the rest (same as step 1, with limits).
+3. Passing times: once profiles exist, also use them for the interpolated passing points (instead of linear by distance).
+
+**Validation**: compare with ÖBB's Fahrplanbild PDFs (they show Fahrschaulinien), with HAFAS passing times where available (JourneyDetails sometimes lists non-stop points), and with radar positions (`JourneyGeoPos` is itself calculated by HAFAS).
+
+**Effort / risks**: step 1 small (one module + tests + rendering). Step 2 several days: OSM pipeline in CI, map-matching at junctions/stations, gaps in `maxspeed` (fallback: category v_max), ODbL handling, build time.
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
