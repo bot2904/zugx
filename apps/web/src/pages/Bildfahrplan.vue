@@ -10,7 +10,16 @@ import CorridorIndexView from "../components/CorridorIndex.vue";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
 import { api } from "../lib/api.ts";
-import { livePaths, plannedTrain, refreshLive, trainKey, type LiveRun } from "../lib/bf-live.ts";
+import {
+  buildRuns,
+  livePaths,
+  newLiveState,
+  plannedTrain,
+  refreshLive,
+  trainKey,
+  type LiveRun,
+} from "../lib/bf-live.ts";
+import { loadStations, stationById } from "../lib/stations.ts";
 import { itemWikidata, stationWikidata } from "../lib/wikidata.ts";
 
 type CorridorRef = Pick<CorridorIndexEntry, "id" | "name" | "oebb" | "lines">;
@@ -213,30 +222,52 @@ const liveOn = computed(() => route.query.live === "1" && isToday.value);
 const liveRuns = shallowRef(new Map<string, LiveRun>());
 const liveBusy = ref(false);
 const liveError = ref(false);
-let liveIds = new Map<string, string>();
+let liveState = newLiveState();
 let liveRound = 0;
 const visibility = useDocumentVisibility();
+/** bounding box of the shown section's stations (+ ~3 km), for the radar request */
+async function sectionBbox() {
+  await loadStations();
+  const pts = shownStations.value
+    .map((s) => (s.hafasId ? stationById(s.hafasId) : undefined))
+    .filter((s) => s !== undefined);
+  if (!pts.length) return undefined;
+  const lats = pts.map((p) => p.lat);
+  const lons = pts.map((p) => p.lon);
+  return {
+    north: Math.max(...lats) + 0.03,
+    south: Math.min(...lats) - 0.03,
+    west: Math.min(...lons) - 0.04,
+    east: Math.max(...lons) + 0.04,
+  };
+}
 async function updateLive() {
   const c = data.value;
   if (!liveOn.value || !c || liveBusy.value || visibility.value === "hidden") return;
   const round = ++liveRound;
+  const st = liveState;
+  const nowMin = viennaMinutes(viennaNow());
+  const publish = () => {
+    if (round === liveRound && st === liveState)
+      liveRuns.value = buildRuns(st, trainsOnDate.value, c.stations, nowMin);
+  };
   liveBusy.value = true;
   try {
-    const runs = await refreshLive({
+    await refreshLive({
       client: api(true),
+      st,
       day: date.value,
-      nowMin: viennaMinutes(viennaNow()),
+      nowMin,
       t0: t0.value,
       t1: t1.value,
       stations: c.stations,
       lo: range.value.lo,
       hi: range.value.hi,
+      bbox: await sectionBbox(),
       trains: trainsOnDate.value,
-      known: liveRuns.value,
-      ids: liveIds,
-      onProgress: (runs) => round === liveRound && (liveRuns.value = runs),
+      onProgress: publish,
     });
-    if (round === liveRound) liveRuns.value = runs;
+    publish();
     liveError.value = false;
   } catch {
     liveError.value = true;
@@ -244,10 +275,10 @@ async function updateLive() {
     liveBusy.value = false;
   }
 }
-// new corridor or day: start over; window/section changes: fetch what is new
+// new corridor or day: start over; window/section changes: fetch only what is new
 watch([id, date], () => {
+  liveState = newLiveState();
   liveRuns.value = new Map();
-  liveIds = new Map();
 });
 const updateLiveSoon = useDebounceFn(updateLive, 500);
 watch([liveOn, data, t0, t1, range], () => void updateLiveSoon(), { immediate: true });

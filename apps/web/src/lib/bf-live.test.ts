@@ -1,7 +1,15 @@
-import type { Trip } from "@zugx/hafas";
-import type { CorridorStation } from "@zugx/netz";
+import type { CorridorStation, CorridorTrain } from "@zugx/netz";
 import { describe, expect, it } from "vite-plus/test";
-import { liveRunOf, livePaths, minutesOn, plannedTrain, trainKey } from "./bf-live.ts";
+import {
+  addEvent,
+  alongCorridor,
+  buildRuns,
+  livePaths,
+  minutesOn,
+  newLiveState,
+  plannedTrain,
+  trainKey,
+} from "./bf-live.ts";
 
 const st = (hafasId: string, km: number): CorridorStation => ({
   id: hafasId,
@@ -10,89 +18,97 @@ const st = (hafasId: string, km: number): CorridorStation => ({
   major: true,
   hafasId,
 });
-const stations = [st("A", 0), st("B", 50), st("C", 100)];
-const line = {
-  name: "RJX 162",
-  category: "RJX",
-  number: "162",
-  cls: 1,
-  product: "highspeed" as const,
-};
+const stations = [st("A", 0), st("P", 25), st("B", 50), st("C", 100)];
+const DAY = "2026-11-14";
+const hm = (t: string) => +t.slice(0, 2) * 60 + +t.slice(3);
 const ev = (planned: string, actual?: string) => ({
-  planned: `2026-11-14T${planned}:00+01:00`,
-  ...(actual
-    ? {
-        actual: `2026-11-14T${actual}:00+01:00`,
-        delay:
-          +actual.slice(0, 2) * 60 +
-          +actual.slice(3) -
-          (+planned.slice(0, 2) * 60 + +planned.slice(3)),
-      }
-    : {}),
+  planned: `${DAY}T${planned}:00+01:00`,
+  ...(actual ? { actual: `${DAY}T${actual}:00+01:00`, delay: hm(actual) - hm(planned) } : {}),
 });
-const trip: Trip = {
-  journeyId: "j1",
-  date: "2026-11-14",
-  line,
-  direction: "C",
-  remarks: [],
-  stopovers: [
-    { stop: { id: "X", name: "Origin" } as never, dep: ev("09:00", "09:00") },
-    { stop: { id: "A", name: "A" } as never, arr: ev("10:00", "10:03"), dep: ev("10:02", "10:05") },
-    { stop: { id: "B", name: "B" } as never, arr: ev("10:30", "10:36"), dep: ev("10:32") },
-    { stop: { id: "C", name: "C" } as never, arr: ev("11:00") },
+// GTFS: A 10:00/10:02, passes P (10:16, interpolated), B 10:30/10:32, C 11:00
+const rjx: CorridorTrain = {
+  cat: "RJX",
+  nr: "162",
+  dir: 1,
+  origin: "Origin",
+  headsign: "C",
+  pts: [
+    [0, 600, 602],
+    [1, 616, 616],
+    [2, 630, 632],
+    [3, 660, null],
   ],
+  days: "",
 };
+const K = trainKey("RJX", "162");
 
 describe("Bildfahrplan live overlay", () => {
   it("minutes relative to the shown day", () => {
-    expect(minutesOn("2026-11-14", "2026-11-14T10:05:00+01:00")).toBe(605);
-    expect(minutesOn("2026-11-14", "2026-11-15T00:10:00+01:00")).toBe(1450);
+    expect(minutesOn(DAY, `${DAY}T10:05:00+01:00`)).toBe(605);
+    expect(minutesOn(DAY, "2026-11-15T00:10:00+01:00")).toBe(1450);
   });
-  it("maps a HAFAS run onto the corridor stations", () => {
-    const r = liveRunOf(trip, stations, "2026-11-14", 640, false)!;
-    expect(r.key).toBe(trainKey("RJX", "162"));
-    expect(r.pts.map((p) => p.i)).toEqual([0, 1, 2]);
-    expect(r.pts[0]).toEqual({ i: 0, arr: { plan: 600, rt: 603 }, dep: { plan: 602, rt: 605 } });
+
+  it("GTFS train with realtime from boards: planned path, realtime where known", () => {
+    const s = newLiveState();
+    addEvent(s, K, 0, "dep", ev("10:02", "10:05"), DAY); // board at A
+    addEvent(s, K, 2, "dep", ev("10:32", "10:38"), DAY); // board at B
+    const r = buildRuns(s, [rjx], stations, 640).get(K)!;
+    expect(r.pts.map((p) => p.i)).toEqual([0, 1, 2, 3]); // incl. the passing point
+    expect(r.pts[0]).toEqual({ i: 0, arr: { plan: 600 }, dep: { plan: 602, rt: 605 } });
+    expect(r.pts[2]!.dep).toEqual({ plan: 632, rt: 638 });
     expect(r.delay).toBe(6);
     expect(r.final).toBe(false);
-    expect(liveRunOf(trip, stations, "2026-11-14", 700, false)!.final).toBe(true);
-    expect(
-      liveRunOf(
-        { ...trip, stopovers: trip.stopovers.slice(0, 2) },
-        stations,
-        "2026-11-14",
-        0,
-        false,
-      ),
-    ).toBeNull();
+    expect(buildRuns(s, [rjx], stations, 700).get(K)!.final).toBe(true);
   });
-  it("splits the path at now, forecast shifted by the last known delay", () => {
-    const r = liveRunOf(trip, stations, "2026-11-14", 640, false)!;
+
+  it("no realtime → no live run", () => {
+    const s = newLiveState();
+    addEvent(s, K, 0, "dep", ev("10:02"), DAY);
+    expect(buildRuns(s, [rjx], stations, 640).size).toBe(0);
+  });
+
+  it("splits the path at now, between realtime points planned + last delay", () => {
+    const s = newLiveState();
+    addEvent(s, K, 0, "dep", ev("10:02", "10:05"), DAY);
+    const r = buildRuns(s, [rjx], stations, 640).get(K)!;
     const p = livePaths(
       r,
       (i) => i * 10,
       (m) => m,
       640,
     );
-    // departure B without realtime: planned 632 + 6 = 638 (not 632, before the arrival)
-    expect(p.past).toBe("M0.0,603.0L0.0,605.0L10.0,636.0L10.0,638.0L10.7,640.0");
-    // arrival C: 660 + 6 = 666, after now → forecast
-    expect(p.future).toBe("M10.7,640.0L20.0,666.0");
+    // A arr 600 (no rt yet), dep 605; then +3: P 619, B 633/635, C 663
+    expect(p.past).toBe("M0.0,600.0L0.0,605.0L10.0,619.0L20.0,633.0L20.0,635.0L21.8,640.0");
+    expect(p.future).toBe("M21.8,640.0L30.0,663.0");
   });
-  it("normalises lower-case HAFAS categories", () => {
-    const s = { ...trip, line: { ...line, category: "s", number: "2", trainNumber: "22750" } };
-    const r = liveRunOf(s, stations, "2026-11-14", 640, true)!;
-    expect([r.key, r.cat, r.nr]).toEqual(["S 22750", "S", "22750"]);
-  });
-  it("planned train for HAFAS-only runs", () => {
-    const r = liveRunOf(trip, stations, "2026-11-14", 640, true)!;
-    const t = plannedTrain(r);
-    expect(t.pts).toEqual([
-      [0, 600, 602],
-      [1, 630, 632],
-      [2, 660, null],
+
+  it("trains not in the GTFS: through the stations seen, only along the corridor", () => {
+    const s = newLiveState();
+    s.extra.set("WB 918", { cat: "WB", nr: "918", headsign: "C" });
+    addEvent(s, "WB 918", 2, "dep", ev("10:40", "10:42"), DAY);
+    addEvent(s, "WB 918", 0, "dep", ev("10:10", "10:11"), DAY);
+    const r = buildRuns(s, [], stations, 650).get("WB 918")!;
+    expect(r.hafasOnly).toBe(true);
+    expect(r.pts.map((p) => p.i)).toEqual([0, 2]); // sorted by time
+    expect(plannedTrain(r).pts).toEqual([
+      [0, null, 610],
+      [2, null, 640],
     ]);
-    expect(t.dir).toBe(1);
+    // Wien Hbf – Meidling only (3 km): not along the corridor
+    expect(alongCorridor([0, 1], [st("A", 0), st("B", 3)])).toBe(false);
+    expect(alongCorridor([0, 1, 2], [st("A", 0), st("B", 1), st("C", 2)])).toBe(true);
+  });
+
+  it("radar and board events merge per station", () => {
+    const s = newLiveState();
+    addEvent(s, K, 2, "arr", ev("10:30", "10:36"), DAY);
+    addEvent(s, K, 2, "dep", ev("10:32", "10:38"), DAY, true);
+    const r = buildRuns(s, [rjx], stations, 640).get(K)!;
+    expect(r.pts[2]).toEqual({
+      i: 2,
+      arr: { plan: 630, rt: 636 },
+      dep: { plan: 632, rt: 638 },
+      cancelled: true,
+    });
   });
 });
