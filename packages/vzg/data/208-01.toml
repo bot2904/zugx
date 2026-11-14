@@ -1,0 +1,86 @@
+ref = "208 01"
+name = "Westbahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Abzw Ast 1"
+to = "Linz Hbf (in Lz)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 181.566
+kmTo = 186.131
+length = 4.413
+speeds = [[181.566, 184.681, 40, 40], [184.681, 185.18, 40, 60], [185.18, 186.131, 60, 60]]
+curves = [[181.822, 182.146, 970], [182.196, 182.297, 1000], [182.446, 182.522, 1690], [182.974, 183.273, 340], [183.323, 183.498, 580], [184.025, 184.454, 610], [184.551, 184.677, 1510], [184.874, 185.146, 1450], [185.569, 185.668, 1580]]
+points = [
+  { km = 181.566, kind = "signal", label = "VHTm15", signal = "shunting", measured = true },
+  { km = 181.674, kind = "signal", label = "V001R", signal = "shunting", measured = true },
+  { km = 181.822, kind = "signal", label = "V061H", signal = "shunting", measured = true },
+  { km = 181.999, kind = "signal", label = "g/V061R", signal = "distant,shunting", measured = true },
+  { km = 182.172, kind = "signal", label = "H84", signal = "main,shunting", measured = true },
+  { km = 182.305, kind = "signal", label = "V084R", signal = "shunting", measured = true },
+  { km = 182.416, kind = "signal", label = "Sch124H", signal = "minor,shunting", measured = true },
+  { km = 182.835, kind = "signal", label = "Sch124R/1G22/1G24", signal = "main_repeated,minor,shunting", measured = true },
+  { km = 182.891, kind = "signal", label = "V224H", signal = "shunting", measured = true },
+  { km = 183.094, kind = "signal", label = "G24", signal = "main,shunting", measured = true },
+  { km = 183.185, kind = "signal", label = "V291H", signal = "shunting", measured = true },
+  { km = 183.345, kind = "signal", label = "n/V291R", signal = "distant,shunting", measured = true },
+  { km = 183.35, kind = "signal", label = "K391/h", signal = "distant,main,shunting", measured = true },
+  { km = 183.889, kind = "signal", label = "Sch391", signal = "minor,shunting", measured = true },
+  { km = 183.978, kind = "signal", label = "L395/k", signal = "distant,main,shunting", measured = true },
+  { km = 184.27, kind = "signal", label = "V395", signal = "shunting", measured = true },
+  { km = 184.356, kind = "signal", label = "N397", signal = "main,shunting", measured = true },
+  { km = 184.422, kind = "signal", label = "V306", signal = "shunting", measured = true },
+  { km = 184.529, kind = "signal", label = "V321", signal = "shunting", measured = true },
+  { km = 184.594, kind = "signal", label = "V531H", signal = "shunting", measured = true },
+  { km = 184.68, kind = "signal", label = "f551/V531R", signal = "distant,shunting", measured = true },
+  { km = 184.68, kind = "signal", label = "S551/l,k", signal = "distant,main,shunting", measured = true },
+  { km = 185.18, kind = "signal", label = "F551", signal = "main,shunting", measured = true },
+  { km = 185.256, kind = "signal", label = "V571H", signal = "shunting", measured = true },
+  { km = 185.402, kind = "signal", label = "p", signal = "distant", measured = true },
+  { km = 185.403, kind = "signal", label = "s571", signal = "distant", measured = true },
+  { km = 185.568, kind = "signal", label = "V571R", signal = "shunting", measured = true },
+  { km = 185.705, kind = "signal", label = "T581", signal = "main,shunting", measured = true },
+  { km = 186.131, kind = "signal", label = "P581", signal = "main,shunting", measured = true },
+]
+
+[[tracks]]
+track = "2"
+kmFrom = 181.888
+kmTo = 186.51
+length = 4.467
+speeds = [[181.888, 184.681, 40, 40], [184.681, 185.18, 40, 60], [185.18, 186.51, 60, 60]]
+curves = [[182.014, 182.165, 610], [182.215, 182.29, 1120], [182.439, 182.516, 1860], [182.968, 183.516, 470], [184.019, 184.472, 590], [184.545, 184.67, 1680], [184.868, 185.165, 1590], [185.587, 185.686, 1680], [186.186, 186.386, 780]]
+points = [
+  { km = 181.888, kind = "signal", label = "V062H", signal = "shunting", measured = true },
+  { km = 182.002, kind = "signal", label = "g/V062R", signal = "distant,shunting", measured = true },
+  { km = 182.172, kind = "signal", label = "H84", signal = "main,shunting", measured = true },
+  { km = 182.305, kind = "signal", label = "V084R", signal = "shunting", measured = true },
+  { km = 182.416, kind = "signal", label = "Sch124H", signal = "minor,shunting", measured = true },
+  { km = 182.835, kind = "signal", label = "Sch124R/1G22/1G24", signal = "main_repeated,minor,shunting", measured = true },
+  { km = 182.891, kind = "signal", label = "V224H", signal = "shunting", measured = true },
+  { km = 183.094, kind = "signal", label = "G24", signal = "main,shunting", measured = true },
+  { km = 183.185, kind = "signal", label = "V291H", signal = "shunting", measured = true },
+  { km = 183.345, kind = "signal", label = "n/V291R", signal = "distant,shunting", measured = true },
+  { km = 183.35, kind = "signal", label = "K391/h", signal = "distant,main,shunting", measured = true },
+  { km = 183.889, kind = "signal", label = "Sch391", signal = "minor,shunting", measured = true },
+  { km = 183.978, kind = "signal", label = "L395/k", signal = "distant,main,shunting", measured = true },
+  { km = 184.27, kind = "signal", label = "V395", signal = "shunting", measured = true },
+  { km = 184.356, kind = "signal", label = "N397", signal = "main,shunting", measured = true },
+  { km = 184.422, kind = "signal", label = "V306", signal = "shunting", measured = true },
+  { km = 184.529, kind = "signal", label = "V321", signal = "shunting", measured = true },
+  { km = 184.594, kind = "signal", label = "V531H", signal = "shunting", measured = true },
+  { km = 184.68, kind = "signal", label = "f551/V531R", signal = "distant,shunting", measured = true },
+  { km = 184.68, kind = "signal", label = "S551/l,k", signal = "distant,main,shunting", measured = true },
+  { km = 185.18, kind = "signal", label = "F551", signal = "main,shunting", measured = true },
+  { km = 185.256, kind = "signal", label = "V571H", signal = "shunting", measured = true },
+  { km = 185.402, kind = "signal", label = "p", signal = "distant", measured = true },
+  { km = 185.403, kind = "signal", label = "s571", signal = "distant", measured = true },
+  { km = 185.568, kind = "signal", label = "V571R", signal = "shunting", measured = true },
+  { km = 185.705, kind = "signal", label = "T581", signal = "main,shunting", measured = true },
+  { km = 186.131, kind = "signal", label = "P581", signal = "main,shunting", measured = true },
+  { km = 186.28, kind = "signal", label = "V597H", signal = "shunting", measured = true },
+  { km = 186.368, kind = "signal", label = "V597R", signal = "shunting", measured = true },
+  { km = 186.457, kind = "signal", label = "V592H", signal = "shunting", measured = true },
+  { km = 186.51, kind = "signal", label = "V592R", signal = "shunting", measured = true },
+]

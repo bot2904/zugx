@@ -1,0 +1,20 @@
+ref = "106 15"
+name = "Donauländebahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Maxing"
+to = "W.Mat.-Altmannsdorf (in Wbf)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "2"
+kmFrom = 4.188
+kmTo = 4.903
+length = 0.713
+speeds = [[4.188, 4.903, 90, 90]]
+curves = []
+points = [
+  { km = 4.188, kind = "signal", label = "H302/yz22,zz21", signal = "distant,main", measured = true },
+  { km = 4.475, kind = "signal", label = "Sch302R", signal = "minor", measured = true },
+  { km = 4.682, kind = "signal", label = "Sch402H", signal = "minor", measured = true },
+  { km = 4.903, kind = "signal", label = "R402", signal = "main", measured = true },
+]

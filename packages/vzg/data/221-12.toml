@@ -1,0 +1,29 @@
+ref = "221 12"
+name = "Summerauer Bahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Linz Vbf-Ost Reihungsgr (in Lzv)"
+to = "Franckstraße (in Lzv)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.18
+kmTo = 2.315
+length = 2.137
+speeds = [[0.18, 1.518, 40, 40], [1.518, 2.315, 80, 80]]
+curves = [[0.556, 0.729, 880], [0.98, 1.578, 240]]
+points = [
+  { km = 0.18, kind = "signal", label = "S951/l,k", signal = "distant,main,shunting", measured = true },
+  { km = 0.258, kind = "signal", label = "f951", signal = "distant", measured = true },
+  { km = 0.923, kind = "signal", label = "s951", signal = "distant", measured = true },
+  { km = 0.997, kind = "signal", label = "F951", signal = "main,shunting", measured = true },
+  { km = 1.079, kind = "signal", label = "V962H", signal = "shunting", measured = true },
+  { km = 1.421, kind = "signal", label = "V962R", signal = "shunting", measured = true },
+  { km = 1.889, kind = "stop", label = "Linz Franckstraße" },
+  { km = 2.915, kind = "signal", label = "V959H", signal = "shunting", measured = true },
+  { km = 2.919, kind = "signal", label = "r902,911", signal = "distant", measured = true },
+  { km = 2.986, kind = "signal", label = "V959R", signal = "shunting", measured = true },
+  { km = 3.066, kind = "signal", label = "U901", signal = "main,shunting", measured = true },
+  { km = 3.256, kind = "signal", label = "Sch911/1U901", signal = "main_repeated,minor", measured = true },
+  { km = 3.74, kind = "signal", label = "R911", signal = "main,shunting", measured = true },
+]

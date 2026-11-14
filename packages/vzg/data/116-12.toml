@@ -1,0 +1,19 @@
+ref = "116 12"
+name = "Nordschleife"
+operator = "ÖBB-Infrastruktur AG"
+from = "Wien Süßenbrunn-Mitte (in Sue)"
+to = "Abzww Süßenbrunn-Ost (in Sue)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 1.24
+kmTo = 2.408
+length = 1.165
+speeds = [[1.24, 2.408, 40, 60]]
+curves = [[1.365, 1.566, 670]]
+points = [
+  { km = 1.24, kind = "signal", label = "K31/l", signal = "distant,main,speed_limit", measured = true },
+  { km = 1.492, kind = "station", label = "Wien Süßenbrunn" },
+  { km = 2.408, kind = "signal", label = "R31", signal = "main,shunting", measured = true },
+]

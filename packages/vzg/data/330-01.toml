@@ -1,0 +1,40 @@
+ref = "330 01"
+name = "Neue Unterinntalbahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Abzw W 2"
+to = "Abzw Fw 2"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 48.576
+kmTo = 51.14
+length = 2.557
+speeds = [[48.576, 51.14, 220, 220]]
+curves = [[49.23, 49.28, 2960], [49.557, 49.632, 2930], [49.807, 49.857, 2950], [50.107, 50.207, 2810], [50.357, 50.457, 2890], [50.808, 50.858, 2900]]
+points = [
+  { km = 48.576, kind = "signal", label = "VHT501", signal = "shunting", measured = true },
+  { km = 48.886, kind = "signal", label = "H601", signal = "train_protection", measured = true },
+  { km = 49.632, kind = "signal", label = "SM601R", signal = "train_protection", measured = true },
+  { km = 50.083, kind = "signal", label = "SM611H", signal = "train_protection", measured = true },
+  { km = 50.833, kind = "signal", label = "R611", signal = "train_protection", measured = true },
+  { km = 51.04, kind = "signal", label = "V701H", signal = "shunting", measured = true },
+  { km = 51.14, kind = "signal", label = "VHT701", signal = "shunting", measured = true },
+]
+
+[[tracks]]
+track = "2"
+kmFrom = 48.576
+kmTo = 51.14
+length = 2.561
+speeds = [[48.576, 51.14, 220, 220]]
+curves = [[48.802, 48.877, 2990], [49.053, 49.103, 2960], [49.805, 49.855, 2930], [50.104, 50.204, 2810], [50.354, 50.454, 2900], [50.804, 50.904, 2970]]
+points = [
+  { km = 48.576, kind = "signal", label = "VHT502", signal = "shunting", measured = true },
+  { km = 48.677, kind = "signal", label = "V502R", signal = "shunting", measured = true },
+  { km = 48.886, kind = "signal", label = "H602", signal = "train_protection", measured = true },
+  { km = 49.632, kind = "signal", label = "SM602R", signal = "train_protection", measured = true },
+  { km = 50.083, kind = "signal", label = "SM612H", signal = "train_protection", measured = true },
+  { km = 50.833, kind = "signal", label = "R612", signal = "train_protection", measured = true },
+  { km = 51.14, kind = "signal", label = "VHT702", signal = "shunting", measured = true },
+]

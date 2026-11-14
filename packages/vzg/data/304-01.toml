@@ -1,0 +1,34 @@
+ref = "304 01"
+name = "ÖBB St. Margrethen – Lauterach Nord"
+operator = "ÖBB-Infrastruktur AG"
+from = "St.Margrethen"
+to = "Abzww Lauterach Nord (in Wo)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 2.25
+kmTo = 6.16
+length = 3.909
+speeds = [[2.25, 2.478, 90, 90], [2.478, 5.576, 130, 130], [5.576, 6.16, 110, 110]]
+curves = [[2.35, 2.474, 840], [4.587, 4.636, 2510], [4.759, 4.809, 2610], [4.978, 5.026, 2380], [5.151, 5.226, 2800], [5.626, 6.051, 570]]
+points = [
+  { km = 2.25, kind = "signal", label = "VHT101", signal = "shunting", measured = true },
+  { km = 2.424, kind = "signal", label = "V101R", signal = "shunting", measured = true },
+  { km = 2.6, kind = "signal", label = "H1", signal = "main", measured = true },
+  { km = 2.664, kind = "stop", label = "Lustenau" },
+  { km = 2.702, kind = "signal", label = "1H1", signal = "main_repeated", measured = true },
+  { km = 3.017, kind = "signal", label = "Sch201R/1R1", signal = "main_repeated,minor", measured = true },
+  { km = 3.178, kind = "signal", label = "V301H", signal = "shunting", measured = true },
+  { km = 3.244, kind = "signal", label = "R1", signal = "main", measured = true },
+  { km = 3.436, kind = "signal", label = "V401H", signal = "shunting", measured = true },
+  { km = 3.47, kind = "signal", label = "VHT401", signal = "shunting", measured = true },
+  { km = 3.702, kind = "signal", label = "Z/h", signal = "distant,main,speed_limit", measured = true },
+  { km = 4.223, kind = "signal", signal = "crossing_distant" },
+  { km = 4.802, kind = "signal", label = "z", signal = "distant,speed_limit_distant", measured = true },
+  { km = 5.035, kind = "signal", label = "az11", signal = "distant,speed_limit_distant", measured = true },
+  { km = 5.108, kind = "signal", signal = "crossing_distant" },
+  { km = 5.685, kind = "signal", signal = "station_distant" },
+  { km = 6.022, kind = "signal", label = "1Az11", signal = "main_repeated", measured = true },
+  { km = 6.16, kind = "signal", label = "Az11/g", signal = "distant,main,speed_limit", measured = true },
+]

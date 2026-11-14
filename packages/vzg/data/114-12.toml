@@ -1,0 +1,18 @@
+ref = "114 12"
+name = "Westschleife"
+operator = "ÖBB-Infrastruktur AG"
+from = "Abzww Süßenbrunn-West (in Sue)"
+to = "Abzww Süßenbrunn-Nord (in Sue)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 0.449
+length = 0.449
+speeds = [[0, 0.449, 60, 60]]
+curves = [[0.1, 0.3, 200]]
+points = [
+  { km = 0.562, kind = "signal", label = "S22/a61,b62", signal = "distant,main", measured = true },
+  { km = 11.076, kind = "signal", label = "H522", signal = "shunting,train_protection", measured = true },
+]

@@ -1,0 +1,91 @@
+ref = "302 02"
+name = "Brennerbahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Innsbruck Hbf (in I)"
+to = "Staatsgrenze nächst Steinach in Tirol"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 75.285
+kmTo = 79.152
+length = 3.854
+speeds = [[75.285, 75.506, 80, 60], [75.506, 76.501, 60, 60], [76.501, 79.152, 80, 80]]
+curves = [[75.489, 75.839, 830], [75.914, 76.014, 1380], [76.139, 76.412, 1080], [76.788, 77.669, 450], [77.745, 78.12, 850], [78.396, 78.849, 1070]]
+points = [
+  { km = 2.35, kind = "station", label = "Innsbruck Sonnenburgerhof", measured = true },
+  { km = 75.285, kind = "signal", label = "Sch201R", signal = "departure,minor,shunting", measured = true },
+  { km = 75.285, kind = "station", label = "Innsbruck Hauptbahnhof" },
+  { km = 75.286, kind = "signal", label = "Sch301H", signal = "departure,minor,shunting", measured = true },
+  { km = 75.506, kind = "signal", label = "O1/p", signal = "departure,distant,main,shunting", measured = true },
+  { km = 75.767, kind = "signal", label = "V401R", signal = "shunting", measured = true },
+  { km = 75.767, kind = "signal", label = "V421H", signal = "shunting", measured = true },
+  { km = 76.102, kind = "signal", label = "1P1", signal = "main_repeated", measured = true },
+  { km = 76.102, kind = "signal", label = "V441H", signal = "shunting", measured = true },
+  { km = 76.221, kind = "signal", label = "P1", signal = "main", measured = true },
+  { km = 76.274, kind = "signal", label = "T1/h", signal = "distant,main", measured = true },
+  { km = 76.374, kind = "signal", label = "V191H", signal = "shunting", measured = true },
+  { km = 76.385, kind = "signal", label = "1T1/1T7", signal = "main_repeated", measured = true },
+  { km = 76.506, kind = "signal", label = "V193H", signal = "shunting", measured = true },
+  { km = 76.512, kind = "signal", label = "2T2-7", signal = "main_repeated", measured = true },
+  { km = 76.682, kind = "signal", label = "V553H", signal = "shunting", measured = true },
+  { km = 77.424, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 77.43, kind = "signal", label = "VHT553", signal = "shunting", measured = true },
+  { km = 77.574, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 77.583, kind = "signal", label = "Z/t", signal = "distant,main", measured = true },
+  { km = 77.609, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 77.748, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 77.847, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 78.114, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 78.537, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 78.58, kind = "signal", label = "bg11", signal = "distant", measured = true },
+  { km = 78.676, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 78.722, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 78.813, kind = "signal", label = "z", signal = "distant", measured = true },
+  { km = 78.924, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 78.975, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 79.124, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 79.152, kind = "signal", label = "Bg11", signal = "main", measured = true },
+]
+
+[[tracks]]
+track = "2"
+kmFrom = 75.283
+kmTo = 79.152
+length = 3.859
+speeds = [[75.283, 75.549, 80, 60], [75.549, 76.221, 60, 60], [76.221, 76.274, 80, 60], [76.274, 79.152, 80, 80]]
+curves = [[75.537, 75.805, 690], [75.905, 76.006, 1580], [76.134, 76.382, 1200], [76.794, 77.667, 450], [77.742, 78.117, 840], [78.392, 78.843, 1000]]
+points = [
+  { km = 2.35, kind = "station", label = "Innsbruck Sonnenburgerhof", measured = true },
+  { km = 75.283, kind = "signal", label = "Sch202R", signal = "departure,minor,shunting", measured = true },
+  { km = 75.283, kind = "station", label = "Innsbruck Hauptbahnhof" },
+  { km = 75.286, kind = "signal", label = "Sch302H", signal = "departure,minor,shunting,speed_limit", measured = true },
+  { km = 75.549, kind = "signal", label = "O2/p", signal = "departure,distant,main,shunting", measured = true },
+  { km = 75.654, kind = "signal", label = "V404H", signal = "shunting", measured = true },
+  { km = 75.836, kind = "signal", label = "V424H", signal = "shunting", measured = true },
+  { km = 75.987, kind = "signal", label = "V444H", signal = "shunting", measured = true },
+  { km = 76.102, kind = "signal", label = "2P4", signal = "main_repeated", measured = true },
+  { km = 76.151, kind = "signal", label = "1P4", signal = "main_repeated", measured = true },
+  { km = 76.221, kind = "signal", label = "P4", signal = "main", measured = true },
+  { km = 76.274, kind = "signal", label = "T4/h", signal = "distant,main", measured = true },
+  { km = 76.385, kind = "signal", label = "1T4", signal = "main_repeated", measured = true },
+  { km = 76.712, kind = "signal", label = "V554H", signal = "shunting", measured = true },
+  { km = 77.42, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 77.43, kind = "signal", label = "VHT554", signal = "shunting", measured = true },
+  { km = 77.566, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 77.583, kind = "signal", label = "X/t", signal = "distant,main", measured = true },
+  { km = 77.613, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 77.755, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 77.849, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 78.118, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 78.542, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 78.58, kind = "signal", label = "ag12", signal = "distant", measured = true },
+  { km = 78.68, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 78.727, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 78.813, kind = "signal", label = "x", signal = "distant", measured = true },
+  { km = 78.92, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 78.972, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 79.066, kind = "signal", label = "1Ag12", signal = "main_repeated" },
+  { km = 79.12, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 79.152, kind = "signal", label = "Ag12", signal = "main", measured = true },
+]

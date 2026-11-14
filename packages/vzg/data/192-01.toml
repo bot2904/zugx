@@ -1,0 +1,70 @@
+ref = "192 01"
+operator = "ÖBB-Infrastruktur AG"
+from = "Abzww Str 19201 (in Fws)"
+to = "Götzendorf (in Goe)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 10.661
+kmTo = 22.93
+length = 11.723
+speeds = [[10.661, 15.991, 40, 40], [15.991, 16.327, 30, 40], [16.327, 16.369, 30, 10], [16.369, 16.428, 40, 10], [16.428, 22.93, 40, 40]]
+curves = [[10.76, 11.315, 380], [11.365, 11.656, 190], [11.784, 11.989, 610], [12.065, 12.218, 730], [12.269, 12.393, 750], [12.443, 12.667, 790], [13.613, 14.089, 1050], [14.394, 14.841, 300], [15.175, 15.341, 490], [16.239, 16.489, 390], [16.565, 17.117, 300], [17.167, 17.456, 330], [17.916, 18.124, 1210], [19.329, 19.535, 1120], [20.165, 20.39, 440], [20.44, 20.842, 240], [20.915, 21.012, 1190], [21.088, 21.315, 640], [21.69, 21.789, 1650], [21.838, 21.936, 1160], [22.172, 22.27, 480]]
+points = [
+  { km = 10.661, kind = "signal", label = "VHT712", signal = "shunting", measured = true },
+  { km = 10.821, kind = "signal", signal = "whistle" },
+  { km = 10.86, kind = "signal", label = "Y/u", signal = "distant,main", measured = true },
+  { km = 11.087, kind = "signal", signal = "snowplow" },
+  { km = 11.112, kind = "signal", signal = "snowplow" },
+  { km = 11.26, kind = "signal", label = "y", signal = "distant", measured = true },
+  { km = 11.565, kind = "signal", signal = "snowplow" },
+  { km = 11.848, kind = "signal", signal = "whistle" },
+  { km = 12.01, kind = "signal", signal = "whistle" },
+  { km = 12.26, kind = "signal", signal = "snowplow" },
+  { km = 12.265, kind = "signal", signal = "whistle" },
+  { km = 12.28, kind = "signal", signal = "snowplow" },
+  { km = 12.464, kind = "signal", signal = "snowplow" },
+  { km = 12.477, kind = "signal", signal = "snowplow" },
+  { km = 12.485, kind = "signal", signal = "whistle" },
+  { km = 12.717, kind = "signal", signal = "whistle" },
+  { km = 12.725, kind = "signal", signal = "whistle" },
+  { km = 13.619, kind = "signal", signal = "snowplow" },
+  { km = 13.737, kind = "signal", signal = "whistle" },
+  { km = 14.06, kind = "signal", signal = "snowplow" },
+  { km = 14.081, kind = "signal", signal = "snowplow" },
+  { km = 14.098, kind = "signal", signal = "whistle" },
+  { km = 14.342, kind = "signal", signal = "whistle" },
+  { km = 14.37, kind = "signal", signal = "whistle" },
+  { km = 14.375, kind = "signal", signal = "snowplow" },
+  { km = 14.395, kind = "signal", signal = "whistle" },
+  { km = 14.553, kind = "signal", signal = "snowplow" },
+  { km = 14.574, kind = "signal", signal = "whistle" },
+  { km = 14.583, kind = "signal", signal = "whistle" },
+  { km = 14.784, kind = "signal", signal = "snowplow" },
+  { km = 14.903, kind = "signal", signal = "whistle" },
+  { km = 15.262, kind = "signal", signal = "snowplow" },
+  { km = 15.786, kind = "signal", signal = "snowplow" },
+  { km = 15.8, kind = "signal", signal = "snowplow" },
+  { km = 15.991, kind = "signal", signal = "speed_limit" },
+  { km = 16.327, kind = "signal", signal = "speed_limit" },
+  { km = 16.332, kind = "signal", signal = "snowplow" },
+  { km = 16.369, kind = "signal", signal = "speed_limit" },
+  { km = 16.393, kind = "signal", signal = "whistle" },
+  { km = 16.428, kind = "signal", signal = "speed_limit" },
+  { km = 16.624, kind = "signal", signal = "snowplow" },
+  { km = 16.809, kind = "signal", signal = "speed_limit_distant" },
+  { km = 16.826, kind = "signal", signal = "whistle" },
+  { km = 17.1, kind = "signal", signal = "snowplow" },
+  { km = 17.109, kind = "signal", signal = "snowplow" },
+  { km = 17.374, kind = "signal", signal = "snowplow" },
+  { km = 17.927, kind = "signal", signal = "snowplow" },
+  { km = 17.942, kind = "signal", signal = "whistle" },
+  { km = 19.667, kind = "signal", signal = "snowplow" },
+  { km = 19.788, kind = "signal", signal = "snowplow" },
+  { km = 19.965, kind = "signal", signal = "minor" },
+  { km = 21.255, kind = "signal", signal = "minor" },
+  { km = 22.177, kind = "signal", label = "x", signal = "distant", measured = true },
+  { km = 22.278, kind = "signal", signal = "minor" },
+  { km = 22.512, kind = "signal", signal = "minor" },
+]

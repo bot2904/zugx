@@ -1,0 +1,29 @@
+ref = "160 01"
+name = "Kaltenleutgebner Bahn"
+operator = "Perchtoldsdorfer Immobilien"
+from = "Wien Liesing"
+to = "Waldmühle"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.582
+kmTo = 5.753
+length = 5.153
+speeds = [[0.582, 0.62, 20, 25], [0.62, 1.836, 25, 25], [1.836, 2.112, 20, 20], [2.112, 5.753, 25, 25]]
+curves = [[0.682, 0.732, 1070], [0.881, 1.258, 460], [1.308, 1.383, 930], [1.533, 2.458, 310], [2.508, 3.36, 340], [3.487, 3.907, 740], [3.95, 4.091, 850], [4.143, 4.34, 1060], [4.463, 4.636, 820], [4.882, 5.117, 1030], [5.166, 5.215, 2350], [5.337, 5.611, 910]]
+points = [
+  { km = 0.582, kind = "signal", label = "X/l", signal = "distant,main", measured = true },
+  { km = 0.62, kind = "signal", signal = "speed_limit" },
+  { km = 1.074, kind = "signal", label = "x", signal = "distant", measured = true },
+  { km = 1.635, kind = "halt", label = "Perchtoldsdorf", measured = true },
+  { km = 1.836, kind = "signal", signal = "speed_limit" },
+  { km = 1.84, kind = "signal", signal = "speed_limit" },
+  { km = 2.104, kind = "signal", signal = "speed_limit" },
+  { km = 2.112, kind = "signal", signal = "speed_limit" },
+  { km = 5.086, kind = "signal", signal = "main" },
+  { km = 5.103, kind = "signal", signal = "shunting" },
+  { km = 5.257, kind = "signal", signal = "speed_limit" },
+  { km = 5.413, kind = "signal", signal = "stop" },
+  { km = 5.506, kind = "signal", signal = "minor" },
+]

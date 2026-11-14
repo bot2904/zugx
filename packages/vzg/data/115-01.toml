@@ -1,0 +1,67 @@
+ref = "115 01"
+name = "ÖBB Gänserndorf – Marchegg"
+operator = "ÖBB-Infrastruktur AG"
+from = "Gänserndorf"
+to = "Marchegg"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 32.902
+kmTo = 48.084
+length = 15.164
+speeds = [[32.902, 48.084, 120, 120]]
+curves = [[36.888, 38.141, 1890], [44.484, 45.076, 1580]]
+points = [
+  { km = 32.902, kind = "signal", label = "Xm11", signal = "main,speed_limit", measured = true },
+  { km = 32.992, kind = "signal", signal = "snowplow" },
+  { km = 32.994, kind = "signal", signal = "snowplow" },
+  { km = 33.027, kind = "signal", signal = "snowplow" },
+  { km = 33.029, kind = "signal", signal = "snowplow" },
+  { km = 33.07, kind = "signal", signal = "station_distant" },
+  { km = 34.4, kind = "signal", signal = "station_distant" },
+  { km = 34.874, kind = "signal", signal = "snowplow" },
+  { km = 34.917, kind = "signal", signal = "snowplow" },
+  { km = 35.96, kind = "signal", signal = "snowplow" },
+  { km = 35.965, kind = "signal", signal = "whistle" },
+  { km = 36.403, kind = "signal", signal = "snowplow" },
+  { km = 36.408, kind = "signal", signal = "snowplow" },
+  { km = 36.603, kind = "signal", signal = "snowplow" },
+  { km = 36.607, kind = "signal", signal = "snowplow" },
+  { km = 36.621, kind = "signal", signal = "snowplow" },
+  { km = 37.748, kind = "signal", signal = "snowplow" },
+  { km = 37.781, kind = "signal", signal = "snowplow" },
+  { km = 38.28, kind = "signal", label = "am11", signal = "distant", measured = true },
+  { km = 39.37, kind = "signal", label = "Am11/r", signal = "distant,main", measured = true },
+  { km = 39.512, kind = "signal", signal = "snowplow" },
+  { km = 39.537, kind = "signal", signal = "snowplow" },
+  { km = 39.854, kind = "signal", label = "VHT701", signal = "shunting", measured = true },
+  { km = 40.094, kind = "signal", label = "V701R", signal = "shunting", measured = true },
+  { km = 40.203, kind = "signal", label = "H711", signal = "main,shunting", measured = true },
+  { km = 40.338, kind = "stop", label = "Oberweiden" },
+  { km = 40.37, kind = "signal", label = "Sch711R/1R731", signal = "main_repeated,minor", measured = true },
+  { km = 40.404, kind = "signal", label = "V731H", signal = "shunting", measured = true },
+  { km = 40.744, kind = "signal", label = "R731", signal = "main,shunting", measured = true },
+  { km = 40.874, kind = "signal", label = "V741H", signal = "shunting", measured = true },
+  { km = 41.108, kind = "signal", label = "VHT741", signal = "shunting", measured = true },
+  { km = 41.4, kind = "signal", label = "Zn21/h", signal = "distant,main", measured = true },
+  { km = 41.847, kind = "signal", signal = "crossing_distant" },
+  { km = 42.219, kind = "signal", signal = "snowplow" },
+  { km = 42.227, kind = "signal", signal = "snowplow" },
+  { km = 42.235, kind = "signal", signal = "snowplow" },
+  { km = 42.242, kind = "signal", signal = "snowplow" },
+  { km = 42.4, kind = "signal", label = "zn21", signal = "distant", measured = true },
+  { km = 45.997, kind = "signal", signal = "snowplow" },
+  { km = 46.012, kind = "signal", signal = "snowplow" },
+  { km = 46.016, kind = "signal", signal = "snowplow" },
+  { km = 46.442, kind = "signal", signal = "snowplow" },
+  { km = 46.447, kind = "signal", signal = "snowplow" },
+  { km = 46.455, kind = "signal", signal = "snowplow" },
+  { km = 46.458, kind = "signal", signal = "snowplow" },
+  { km = 47.084, kind = "signal", label = "an21", signal = "distant,speed_limit_distant", measured = true },
+  { km = 47.488, kind = "signal", signal = "snowplow" },
+  { km = 47.503, kind = "signal", signal = "snowplow" },
+  { km = 47.511, kind = "signal", signal = "snowplow" },
+  { km = 47.521, kind = "signal", signal = "snowplow" },
+  { km = 48.084, kind = "signal", label = "An21/r", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+]

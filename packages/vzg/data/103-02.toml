@@ -1,0 +1,41 @@
+ref = "103 02"
+name = "Eisbergbogentunnel"
+operator = "ÖBB-Infrastruktur AG"
+from = "St.Pölten Hbf (in Pb)"
+to = "Prinzersdorf"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 61.11
+kmTo = 67.082
+length = 5.94
+speeds = [[61.11, 61.113, 80, 80], [61.113, 61.56, 100, 100], [61.56, 61.861, 100, 160], [61.861, 67.082, 160, 160]]
+curves = [[62.19, 63.482, 1180]]
+points = [
+  { km = 61.11, kind = "signal", label = "U1/h,t", signal = "distant,main,speed_limit_distant", measured = true },
+  { km = 61.195, kind = "signal", signal = "speed_limit" },
+  { km = 61.217, kind = "signal", signal = "speed_limit" },
+  { km = 61.335, kind = "signal", label = "R1", signal = "main", measured = true },
+  { km = 61.65, kind = "signal", signal = "speed_limit" },
+  { km = 61.654, kind = "signal", signal = "speed_limit" },
+  { km = 61.66, kind = "signal", label = "V711H", signal = "shunting", measured = true },
+  { km = 61.859, kind = "signal", signal = "electricity" },
+  { km = 61.862, kind = "signal", signal = "electricity" },
+  { km = 61.91, kind = "signal", label = "VHT711", signal = "shunting", measured = true },
+  { km = 62.02, kind = "signal", label = "cb11", signal = "distant", measured = true },
+  { km = 62.046, kind = "signal", signal = "electricity" },
+  { km = 62.051, kind = "signal", signal = "electricity" },
+  { km = 62.62, kind = "signal", label = "X/u1", signal = "distant,main", measured = true },
+  { km = 62.776, kind = "signal", label = "1X", signal = "main_repeated", measured = true },
+  { km = 62.9, kind = "signal", label = "2X", signal = "main_repeated", measured = true },
+  { km = 63.195, kind = "signal", label = "1Cb11", signal = "main_repeated", measured = true },
+  { km = 63.402, kind = "signal", label = "Cb11", signal = "main", measured = true },
+  { km = 63.986, kind = "signal", label = "Xb21/x,y", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+  { km = 64.5, kind = "signal", label = "cb21", signal = "distant", measured = true },
+  { km = 65.187, kind = "signal", label = "xb21", signal = "distant,speed_limit_distant", measured = true },
+  { km = 65.692, kind = "signal", label = "Cb21/c", signal = "distant,main,speed_limit_distant", measured = true },
+  { km = 65.747, kind = "signal", label = "Xb31", signal = "main", measured = true },
+  { km = 66.85, kind = "signal", label = "xb31", signal = "distant", measured = true },
+  { km = 67.082, kind = "signal", label = "C/r", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+]

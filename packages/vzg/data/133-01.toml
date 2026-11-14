@@ -1,0 +1,20 @@
+ref = "133 01"
+name = "Donauländebahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Oberlaa"
+to = "Kledering (in Zur)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 13.492
+kmTo = 14.242
+length = 0.751
+speeds = [[13.492, 14.242, 100, 100]]
+curves = []
+points = [
+  { km = 13.492, kind = "signal", label = "H1", signal = "main", measured = true },
+  { km = 13.574, kind = "station", label = "Oberlaa" },
+  { km = 14.165, kind = "signal", signal = "speed_limit_distant" },
+  { km = 14.242, kind = "signal", label = "R1", signal = "main", measured = true },
+]

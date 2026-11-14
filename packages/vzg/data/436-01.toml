@@ -1,0 +1,22 @@
+ref = "436 01"
+name = "Wieserbahn"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 23.602
+kmTo = 25.3
+length = 1.692
+speeds = [[23.602, 25.3, 100, 100]]
+curves = [[23.979, 24.231, 830], [24.906, 25.032, 1890]]
+points = [
+  { km = 23.602, kind = "signal", label = "Zu11/h", signal = "distant,main", measured = true },
+  { km = 23.614, kind = "signal", signal = "crossing_distant" },
+  { km = 23.973, kind = "signal", signal = "crossing_distant" },
+  { km = 24.33, kind = "signal", label = "au11", signal = "distant", measured = true },
+  { km = 24.432, kind = "signal", signal = "crossing_distant" },
+  { km = 24.5, kind = "signal", signal = "speed_limit_distant" },
+  { km = 24.702, kind = "signal", label = "zu11", signal = "distant", measured = true },
+  { km = 24.829, kind = "signal", signal = "crossing_distant" },
+  { km = 25.3, kind = "signal", label = "Au11", signal = "main", measured = true },
+]

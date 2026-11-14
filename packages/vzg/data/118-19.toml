@@ -1,0 +1,19 @@
+ref = "118 19"
+name = "Ausfahrüberwerfung"
+operator = "ÖBB-Infrastruktur AG"
+from = "Wien Zvbf-Ost (in Zur)"
+to = "Lanzendorf-Rannersdorf (in Zur)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.07
+kmTo = 1.435
+length = 0.696
+speeds = [[0.07, 1.435, 60, 60]]
+curves = [[0.315, 0.708, 600], [0.806, 1.051, 1450]]
+points = [
+  { km = 0.07, kind = "signal", label = "V605S", signal = "shunting", measured = true },
+  { km = 0.916, kind = "signal", label = "V714N", signal = "shunting", measured = true },
+  { km = 1.435, kind = "signal", label = "R714", signal = "main,shunting", measured = true },
+]

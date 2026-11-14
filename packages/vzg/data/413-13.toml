@@ -1,0 +1,19 @@
+ref = "413 13"
+name = "Rudolfsbahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "St.Michael (in M)"
+to = "St.Michael-West (in M)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 202.937
+kmTo = 203.538
+length = 0.601
+speeds = [[202.937, 203.538, 60, 60]]
+curves = [[203.037, 203.412, 300]]
+points = [
+  { km = 202.937, kind = "signal", label = "r3", signal = "distant", measured = true },
+  { km = 202.971, kind = "signal", label = "1E3", signal = "main_repeated" },
+  { km = 203.538, kind = "signal", label = "R3", signal = "main", measured = true },
+]

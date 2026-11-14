@@ -1,0 +1,68 @@
+ref = "122 01"
+name = "Verbindungsbahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Wien Hütteldorf (in Hf)"
+to = "Wien Praterstern (in Nw)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 1.447
+kmTo = 5.397
+length = 4.233
+speeds = [[1.447, 1.646, 50, 50], [1.646, 1.687, 50, 40], [1.687, 2.272, 80, 40], [2.272, 3.763, 80, 80], [3.763, 5.397, 90, 90]]
+curves = [[1.547, 2.048, 440], [3.149, 3.742, 390], [3.993, 4.166, 30], [4.238, 4.282, 2800], [5.118, 5.292, 780]]
+points = [
+  { km = 0.15, kind = "signal", label = "VHTW105L", signal = "shunting", measured = true },
+  { km = 0.27, kind = "signal", label = "Ac11/az12,bz11", signal = "distant,main", measured = true },
+  { km = 1.694, kind = "signal", signal = "speed_limit" },
+  { km = 1.995, kind = "signal", label = "VHT102", signal = "shunting", measured = true },
+  { km = 2.079, kind = "station", label = "Unter St. Veit", measured = true },
+  { km = 2.272, kind = "signal", label = "Yz12/zc11,zd11", signal = "distant,main", measured = true },
+  { km = 2.577, kind = "signal", label = "Az12/az22,bz21", signal = "distant,main", measured = true },
+  { km = 3.278, kind = "signal", label = "Yz22/yz12,zz11", signal = "distant,main", measured = true },
+  { km = 3.405, kind = "signal", label = "1Yz22", signal = "main_repeated", measured = true },
+  { km = 3.578, kind = "signal", label = "2Az22", signal = "main_repeated", measured = true },
+  { km = 3.578, kind = "signal", label = "2Yz22", signal = "main_repeated", measured = true },
+  { km = 3.64, kind = "signal", label = "1Az22", signal = "main_repeated", measured = true },
+  { km = 3.663, kind = "stop", label = "Wien Speising" },
+  { km = 3.763, kind = "signal", label = "Az22/r", signal = "distant,main", measured = true },
+  { km = 3.804, kind = "signal", signal = "speed_limit" },
+  { km = 3.806, kind = "signal", signal = "speed_limit" },
+  { km = 3.827, kind = "signal", label = "VHT202", signal = "shunting", measured = true },
+  { km = 3.922, kind = "signal", label = "V202R", signal = "shunting", measured = true },
+  { km = 4.215, kind = "signal", signal = "station_distant" },
+  { km = 4.288, kind = "signal", label = "H305/yz22,zz21", signal = "distant,main", measured = true },
+  { km = 4.903, kind = "signal", label = "R305", signal = "main", measured = true },
+  { km = 5.162, kind = "signal", label = "V501H", signal = "shunting", measured = true },
+  { km = 5.384, kind = "signal", label = "u", signal = "distant", measured = true },
+  { km = 5.397, kind = "signal", label = "VHT501", signal = "shunting", measured = true },
+]
+
+[[tracks]]
+track = "2"
+kmFrom = 2.272
+kmTo = 5.406
+length = 3.126
+speeds = [[2.272, 3.763, 80, 80], [3.763, 5.406, 90, 90]]
+curves = [[3.151, 3.744, 390], [4.046, 4.096, 2430], [4.22, 4.27, 2420], [5.128, 5.302, 750]]
+points = [
+  { km = 2.272, kind = "signal", label = "Yz12/zc11,zd11", signal = "distant,main", measured = true },
+  { km = 2.577, kind = "signal", label = "Az12/az22,bz21", signal = "distant,main", measured = true },
+  { km = 3.278, kind = "signal", label = "Yz22/yz12,zz11", signal = "distant,main", measured = true },
+  { km = 3.405, kind = "signal", label = "1Yz22", signal = "main_repeated", measured = true },
+  { km = 3.578, kind = "signal", label = "2Az22", signal = "main_repeated", measured = true },
+  { km = 3.578, kind = "signal", label = "2Yz22", signal = "main_repeated", measured = true },
+  { km = 3.64, kind = "signal", label = "1Az22", signal = "main_repeated", measured = true },
+  { km = 3.663, kind = "stop", label = "Wien Speising" },
+  { km = 3.763, kind = "signal", label = "Az22/r", signal = "distant,main", measured = true },
+  { km = 3.804, kind = "signal", signal = "speed_limit" },
+  { km = 3.806, kind = "signal", signal = "speed_limit" },
+  { km = 3.827, kind = "signal", label = "VHT202", signal = "shunting", measured = true },
+  { km = 3.922, kind = "signal", label = "V202R", signal = "shunting", measured = true },
+  { km = 4.283, kind = "signal", label = "H303/yz22,zz21", signal = "distant,main", measured = true },
+  { km = 4.903, kind = "signal", label = "R303", signal = "main", measured = true },
+  { km = 5.124, kind = "signal", label = "V502H", signal = "shunting", measured = true },
+  { km = 5.386, kind = "signal", label = "t", signal = "distant", measured = true },
+  { km = 5.406, kind = "signal", label = "VHT502", signal = "shunting", measured = true },
+]

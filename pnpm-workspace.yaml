@@ -24,6 +24,8 @@ catalog:
   "@vueuse/core": ^15.0.0
   temporal-polyfill: 1.0.8
   smol-toml: ^1.9.1
+  pbf: ^5.1.2
+  "@zugx/toml": workspace:*
 
 overrides:
   vite@*: "catalog:"

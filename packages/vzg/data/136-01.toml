@@ -1,0 +1,22 @@
+ref = "136 01"
+name = "Schwechater Schleife"
+operator = "ÖBB-Infrastruktur AG"
+from = "Wien Zvbf-Ost (in Zur)"
+to = "Kaiserebersdorf (in Kls)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.134
+kmTo = 0.67
+length = 0.525
+speeds = [[0.134, 0.67, 60, 60]]
+curves = [[0.235, 0.561, 350]]
+points = [
+  { km = 0.134, kind = "signal", label = "S/p215", signal = "distant,main", measured = true },
+  { km = 0.136, kind = "signal", label = "d908", signal = "distant", measured = true },
+  { km = 0.551, kind = "signal", label = "D908/k", signal = "distant,main", measured = true },
+  { km = 0.63, kind = "signal", label = "VHT102", signal = "shunting", measured = true },
+  { km = 0.66, kind = "signal", label = "V102R", signal = "shunting", measured = true },
+  { km = 0.67, kind = "signal", label = "s", signal = "distant", measured = true },
+]

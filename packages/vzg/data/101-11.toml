@@ -1,0 +1,49 @@
+ref = "101 11"
+name = "Westbahn"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 208.3
+kmTo = 211.18
+length = 2.877
+speeds = [[208.3, 211.18, 160, 160]]
+curves = []
+points = [
+  { km = 208.3, kind = "signal", label = "V531H", signal = "shunting", measured = true },
+  { km = 208.564, kind = "signal", label = "V531R", signal = "shunting", measured = true },
+  { km = 208.778, kind = "signal", label = "SN/W53PS", signal = "main_repeated", measured = true },
+  { km = 208.778, kind = "signal", label = "H601/u", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+  { km = 208.964, kind = "signal", label = "V701H", signal = "shunting", measured = true },
+  { km = 209.129, kind = "signal", label = "R701", signal = "main", measured = true },
+  { km = 209.169, kind = "signal", label = "VHT711", signal = "shunting", measured = true },
+  { km = 209.881, kind = "signal", label = "bd11", signal = "distant", measured = true },
+  { km = 209.95, kind = "signal", label = "Zd11/h", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+  { km = 210.17, kind = "signal", label = "1Zd11", signal = "main_repeated", measured = true },
+  { km = 211.017, kind = "signal", label = "zd11", signal = "distant,speed_limit_distant", measured = true },
+  { km = 211.18, kind = "signal", label = "Bd11/r", signal = "distant,main", measured = true },
+]
+
+[[tracks]]
+track = "2"
+kmFrom = 207.609
+kmTo = 211.18
+length = 3.566
+speeds = [[207.609, 208.178, 100, 100], [208.178, 211.18, 160, 160]]
+curves = [[207.709, 207.934, 1060], [208.009, 208.185, 1540]]
+points = [
+  { km = 207.609, kind = "signal", label = "U530/h", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+  { km = 207.867, kind = "signal", label = "1R532", signal = "main_repeated", measured = true },
+  { km = 208.025, kind = "signal", label = "R532/g,r", signal = "distant,main,speed_limit", measured = true },
+  { km = 208.496, kind = "signal", label = "V542R", signal = "shunting", measured = true },
+  { km = 208.778, kind = "signal", label = "SN/W209R", signal = "main_repeated", measured = true },
+  { km = 208.778, kind = "signal", label = "H602/u", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+  { km = 208.872, kind = "signal", label = "V602R", signal = "shunting", measured = true },
+  { km = 209.069, kind = "signal", label = "V702H", signal = "shunting", measured = true },
+  { km = 209.129, kind = "signal", label = "R702", signal = "main", measured = true },
+  { km = 209.169, kind = "signal", label = "VHT712", signal = "shunting", measured = true },
+  { km = 209.881, kind = "signal", label = "ad12", signal = "distant", measured = true },
+  { km = 209.95, kind = "signal", label = "Yd12/h", signal = "distant,main,speed_limit_distant", measured = true },
+  { km = 211.017, kind = "signal", label = "yd12", signal = "distant", measured = true },
+  { km = 211.18, kind = "signal", label = "Ad12/r", signal = "distant,main", measured = true },
+]

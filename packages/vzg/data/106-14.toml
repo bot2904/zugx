@@ -1,0 +1,21 @@
+ref = "106 14"
+operator = "ÖBB-Infrastruktur AG"
+from = "Oberlaa"
+to = "Wien Blumental (in Id)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "2"
+kmFrom = 0.141
+kmTo = 0.672
+length = 0.522
+speeds = [[0.141, 0.672, 60, 60]]
+curves = [[0.236, 0.541, 250]]
+points = [
+  { km = 0.141, kind = "signal", label = "V142R", signal = "shunting", measured = true },
+  { km = 0.171, kind = "signal", label = "VHT142", signal = "shunting", measured = true },
+  { km = 0.26, kind = "signal", label = "C/f", signal = "distant,main", measured = true },
+  { km = 0.537, kind = "signal", label = "U", signal = "main", measured = true },
+  { km = 0.639, kind = "signal", label = "VHT642", signal = "shunting", measured = true },
+  { km = 0.672, kind = "signal", label = "V642", signal = "shunting", measured = true },
+]

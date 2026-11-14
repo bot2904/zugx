@@ -1,0 +1,25 @@
+ref = "222 11"
+name = "Ostschleife"
+operator = "ÖBB-Infrastruktur AG"
+from = "Villach Süd Gvbf-Ausfgr (in Vsv)"
+to = "Abzww Villach Süd Gvbf-Ost (in Vsv)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 4.112
+kmTo = 5.529
+length = 1.694
+speeds = [[4.112, 4.688, 40, 40], [4.688, 4.856, 80, 40], [4.856, 5.529, 80, 80]]
+curves = [[4.21, 4.356, 630], [4.43, 4.576, 580], [4.723, 5.229, 2010], [5.355, 5.481, 880]]
+points = [
+  { km = 4.112, kind = "signal", label = "M601", signal = "main,speed_limit", measured = true },
+  { km = 4.246, kind = "signal", label = "V704w", signal = "shunting" },
+  { km = 4.255, kind = "signal", label = "V704o", signal = "shunting" },
+  { km = 4.621, kind = "signal", label = "V745w", signal = "shunting" },
+  { km = 4.856, kind = "signal", label = "N215", signal = "main", measured = true },
+  { km = 5.107, kind = "signal", label = "r205", signal = "distant", measured = true },
+  { km = 5.364, kind = "halt", label = "Gödersdorf", measured = true },
+  { km = 5.463, kind = "signal", label = "n215", signal = "distant", measured = true },
+  { km = 5.529, kind = "signal", label = "R205", signal = "main", measured = true },
+]

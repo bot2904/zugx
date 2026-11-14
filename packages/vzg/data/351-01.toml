@@ -1,0 +1,41 @@
+ref = "351 01"
+name = "Karwendelbahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Innsbruck Westbf (in I)"
+to = "Staatsgrenze nächst Scharnitz"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 2.334
+kmTo = 5.944
+length = 3.599
+speeds = [[2.334, 5.944, 60, 60]]
+curves = [[2.708, 3.035, 390], [3.182, 3.436, 780], [3.537, 3.763, 440], [3.813, 4.088, 440], [4.138, 4.339, 650], [4.514, 4.614, 1120], [4.664, 5.04, 570], [5.191, 5.491, 360], [5.642, 5.767, 1280]]
+points = [
+  { km = 2.334, kind = "signal", label = "U/m", signal = "distant,main", measured = true },
+  { km = 2.459, kind = "signal", signal = "snowplow" },
+  { km = 2.525, kind = "signal", signal = "snowplow" },
+  { km = 2.8, kind = "signal", signal = "snowplow" },
+  { km = 2.822, kind = "signal", signal = "crossing_distant" },
+  { km = 2.863, kind = "signal", signal = "snowplow" },
+  { km = 3.059, kind = "signal", signal = "station_distant" },
+  { km = 3.106, kind = "signal", signal = "snowplow" },
+  { km = 3.122, kind = "signal", label = "u", signal = "distant", measured = true },
+  { km = 3.128, kind = "signal", signal = "crossing_distant" },
+  { km = 3.197, kind = "signal", signal = "snowplow" },
+  { km = 3.456, kind = "signal", signal = "snowplow" },
+  { km = 3.739, kind = "halt", label = "Innsbruck Allerheiligenhöfe", measured = true },
+  { km = 3.904, kind = "signal", signal = "snowplow" },
+  { km = 4.003, kind = "signal", signal = "snowplow" },
+  { km = 4.092, kind = "signal", signal = "snowplow" },
+  { km = 4.137, kind = "signal", signal = "snowplow" },
+  { km = 4.43, kind = "signal", signal = "station_distant" },
+  { km = 4.986, kind = "signal", signal = "snowplow" },
+  { km = 5.021, kind = "signal", signal = "station_distant" },
+  { km = 5.265, kind = "signal", signal = "snowplow" },
+  { km = 5.571, kind = "signal", signal = "snowplow" },
+  { km = 5.672, kind = "signal", signal = "snowplow" },
+  { km = 5.718, kind = "halt", label = "Kranebitten", measured = true },
+  { km = 5.916, kind = "signal", signal = "snowplow" },
+]

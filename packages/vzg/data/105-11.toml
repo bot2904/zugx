@@ -1,0 +1,20 @@
+ref = "105 11"
+operator = "ÖBB-Infrastruktur AG"
+from = "Wiener Neustadt Hbf (in Nb)"
+to = "Abzww Ne (in Nb)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 49.058
+kmTo = 50.903
+length = 1.865
+speeds = [[49.058, 49.748, 40, ""], [49.748, 50.024, "", ""], [50.024, 50.903, "", 40]]
+curves = [[49.478, 49.627, 970], [49.775, 49.849, 2720], [49.899, 49.948, 2300]]
+points = [
+  { km = 49.058, kind = "signal", label = "P615/s", signal = "distant,main,speed_limit_distant", measured = true },
+  { km = 49.748, kind = "signal", label = "FE 615R", signal = "minor,shunting" },
+  { km = 49.852, kind = "signal", label = "V08", signal = "shunting" },
+  { km = 50.024, kind = "signal", label = "FE 719H", signal = "minor,shunting" },
+  { km = 50.903, kind = "signal", label = "R719", signal = "main", measured = true },
+]

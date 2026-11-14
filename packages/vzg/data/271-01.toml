@@ -1,0 +1,18 @@
+ref = "271 01"
+operator = "ÖBB-Infrastruktur AG"
+from = "Linz Vbf-West (in Lzv)"
+to = "Linz Vbf-Stadthafen (in Lzv)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.928
+kmTo = 1.247
+length = 0.316
+speeds = [[0.928, 1.247, 40, 40]]
+curves = [[1.029, 1.13, 270]]
+points = [
+  { km = 0.928, kind = "signal", label = "s603", signal = "distant", measured = true },
+  { km = 0.947, kind = "signal", label = "F603", signal = "main,shunting", measured = true },
+  { km = 1.247, kind = "signal", label = "V923", signal = "shunting", measured = true },
+]

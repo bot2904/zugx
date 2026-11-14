@@ -1,0 +1,18 @@
+ref = "106 16"
+name = "Oswaldschleife"
+operator = "ÖBB-Infrastruktur AG"
+from = "W.Mat.-Oswaldgasse (in Wbf)"
+to = "Wien Meidling (in Wbf)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.126
+kmTo = 0.595
+length = 0.47
+speeds = [[0.126, 0.595, 50, 50]]
+curves = [[0.226, 0.45, 210]]
+points = [
+  { km = 0.126, kind = "signal", label = "H35/yb03,zb05", signal = "distant,main,shunting,speed_limit", measured = true },
+  { km = 0.595, kind = "signal", label = "S635/p", signal = "distant,main,shunting,speed_limit", measured = true },
+]

@@ -188,6 +188,9 @@ catalogs:
     maplibre-gl:
       specifier: ^6.18.0
       version: 6.18.0
+    pbf:
+      specifier: ^5.1.2
+      version: 5.1.2
     smol-toml:
       specifier: ^1.9.1
       version: 1.9.1
@@ -397,6 +400,22 @@ importers:
       '@zugx/stations':
         specifier: workspace:*
         version: link:../stations
+      vite-plus:
+        specifier: 'catalog:'
+        version: 1.6.0(@types/node@26.6.6)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))
+
+  packages/vzg:
+    dependencies:
+      '@zugx/toml':
+        specifier: workspace:*
+        version: link:../toml
+      pbf:
+        specifier: 'catalog:'
+        version: 5.1.2
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 26.6.6
       vite-plus:
         specifier: 'catalog:'
         version: 1.6.0(@types/node@26.6.6)(@vitest/ui@5.1.0)(@vue/language-core@3.3.14)(jiti@2.7.0)(playwright@1.65.0)(terser@5.51.2)(typescript@7.0.2)(vue-tsc@3.3.14(typescript@7.0.2))

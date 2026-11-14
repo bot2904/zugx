@@ -1,0 +1,23 @@
+ref = "120 11"
+operator = "ÖBB-Infrastruktur AG"
+from = "Wien Hütteldorf Güterzuggruppe (in Hf)"
+to = "Wien Hütteldorf (in Hf)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 5.055
+kmTo = 5.707
+length = 0.648
+speeds = [[5.055, 5.3, 60, 60], [5.3, 5.303, 40, 60], [5.303, 5.707, 40, 40]]
+curves = [[5.259, 5.31, 2240], [5.359, 5.407, 2140], [5.534, 5.584, 1460]]
+points = [
+  { km = 0, kind = "station", label = "Hütteldorf", measured = true },
+  { km = 5.055, kind = "signal", label = "H6/yb22,zb21,ac11", signal = "distant,main,shunting", measured = true },
+  { km = 5.273, kind = "signal", label = "Sch206R/3R/Sch206R", signal = "main_repeated,minor,shunting,speed_limit", measured = true },
+  { km = 5.3, kind = "signal", label = "1H6/GA206", signal = "main_repeated,speed_limit", measured = true },
+  { km = 5.426, kind = "signal", label = "V258H", signal = "shunting", measured = true },
+  { km = 5.482, kind = "signal", label = "V258R", signal = "shunting", measured = true },
+  { km = 5.707, kind = "signal", label = "Sch308H/2H6", signal = "main_repeated,minor,shunting", measured = true },
+  { km = 5.707, kind = "station", label = "Wien Hütteldorf" },
+]

@@ -1,0 +1,19 @@
+ref = "423 01"
+name = "Drautalbahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Staatsgrenze nächst Bleiburg"
+to = "Bleiburg"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 82.152
+kmTo = 85.605
+length = 3.446
+speeds = [[82.152, 85.605, 80, 80]]
+curves = [[83.866, 84.015, 1300]]
+points = [
+  { km = 82, kind = "halt", label = "Holmec", measured = true },
+  { km = 84.851, kind = "signal", label = "ax11", signal = "distant", measured = true },
+  { km = 85.605, kind = "signal", label = "Ax11/r", signal = "distant,main", measured = true },
+]

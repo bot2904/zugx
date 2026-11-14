@@ -1,0 +1,54 @@
+ref = "118 15"
+operator = "ÖBB-Infrastruktur AG"
+from = "Abzww Str 11815 (in Goe)"
+to = "Mannersdorf (in Goe)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 22.97
+kmTo = 29.074
+length = 6.152
+speeds = [[22.97, 23.753, 40, 40], [23.753, 23.809, 20, 40], [23.809, 24.573, 20, 20], [24.573, 24.702, 40, 20], [24.702, 26.563, 40, 40], [26.563, 26.636, 40, 20], [26.636, 29.074, 20, 20]]
+curves = [[23.072, 23.172, 420], [23.222, 23.523, 540], [24.054, 24.297, 500], [24.346, 24.445, 1350], [24.495, 24.77, 650], [25.298, 25.449, 740], [25.598, 25.748, 1220], [26.027, 26.423, 800], [27.128, 27.322, 860], [27.748, 27.902, 1130], [28.77, 28.944, 530]]
+points = [
+  { km = 22.97, kind = "signal", label = "R101", signal = "main,shunting", measured = true },
+  { km = 23.064, kind = "signal", signal = "snowplow" },
+  { km = 23.079, kind = "signal", signal = "snowplow" },
+  { km = 23.251, kind = "signal", signal = "whistle" },
+  { km = 23.753, kind = "signal", signal = "speed_limit" },
+  { km = 23.787, kind = "signal", signal = "snowplow" },
+  { km = 23.793, kind = "signal", signal = "minor" },
+  { km = 23.804, kind = "signal", signal = "speed_limit" },
+  { km = 23.819, kind = "signal", signal = "snowplow" },
+  { km = 23.931, kind = "signal", signal = "whistle" },
+  { km = 24.015, kind = "signal", signal = "speed_limit_distant" },
+  { km = 24.168, kind = "signal", signal = "snowplow" },
+  { km = 24.419, kind = "signal", signal = "whistle" },
+  { km = 24.585, kind = "signal", signal = "speed_limit" },
+  { km = 24.593, kind = "signal", signal = "snowplow" },
+  { km = 24.702, kind = "signal", signal = "speed_limit" },
+  { km = 25.044, kind = "signal", signal = "crossing_distant" },
+  { km = 25.12, kind = "signal", signal = "snowplow" },
+  { km = 25.138, kind = "signal", signal = "snowplow" },
+  { km = 25.358, kind = "signal", signal = "snowplow" },
+  { km = 25.409, kind = "signal", signal = "snowplow" },
+  { km = 25.762, kind = "signal", signal = "crossing_distant" },
+  { km = 25.766, kind = "signal", signal = "crossing" },
+  { km = 25.85, kind = "signal", signal = "snowplow" },
+  { km = 25.863, kind = "signal", signal = "snowplow" },
+  { km = 26.153, kind = "signal", signal = "snowplow" },
+  { km = 26.379, kind = "signal", signal = "whistle" },
+  { km = 26.563, kind = "signal", signal = "speed_limit" },
+  { km = 26.626, kind = "signal", signal = "snowplow" },
+  { km = 26.643, kind = "signal", signal = "speed_limit" },
+  { km = 27.243, kind = "signal", signal = "snowplow" },
+  { km = 27.262, kind = "signal", signal = "snowplow" },
+  { km = 27.57, kind = "signal", signal = "whistle" },
+  { km = 27.593, kind = "signal", signal = "snowplow" },
+  { km = 27.605, kind = "signal", signal = "snowplow" },
+  { km = 27.866, kind = "signal", signal = "snowplow" },
+  { km = 27.887, kind = "signal", signal = "snowplow" },
+  { km = 28.235, kind = "signal", signal = "whistle" },
+  { km = 28.557, kind = "signal", signal = "whistle" },
+]

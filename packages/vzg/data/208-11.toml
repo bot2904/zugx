@@ -1,0 +1,17 @@
+ref = "208 11"
+operator = "ÖBB-Infrastruktur AG"
+from = "Abzww Str 20814 (in Lzv)"
+to = "Voest Alpine Linz"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.045
+kmTo = 0.453
+length = 0.425
+speeds = [[0.045, 0.088, 40, 40], [0.088, 0.453, 40, 25]]
+curves = [[0.13, 0.353, 290]]
+points = [
+  { km = 0.088, kind = "signal", label = "H66", signal = "main,shunting", measured = true },
+  { km = 0.453, kind = "signal", label = "S39311", signal = "minor,shunting", measured = true },
+]

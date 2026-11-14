@@ -1,0 +1,25 @@
+ref = "305 01"
+name = "Umfahrung Innsbruck"
+operator = "ÖBB-Infrastruktur AG"
+from = "Abzw Fw 2"
+to = "Abzw I 1"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 1.237
+kmTo = 15.032
+length = 13.76
+speeds = [[1.237, 15.032, 160, 160]]
+curves = [[1.416, 2.141, 2040], [2.866, 2.916, 2880], [4.569, 4.619, 2820], [5.22, 5.321, 2600], [13.195, 14.923, 1910]]
+points = [
+  { km = 1.237, kind = "signal", label = "Xf33/zl21,yl22", signal = "distant,main,speed_limit", measured = true },
+  { km = 1.289, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 1.517, kind = "signal", label = "1Xf33", signal = "main_repeated", measured = true },
+  { km = 1.677, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 1.789, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 2.206, kind = "signal", signal = "catenary_mast,snowplow" },
+  { km = 2.434, kind = "signal", label = "xf33", signal = "distant,speed_limit_distant", measured = true },
+  { km = 15.03, kind = "signal", signal = "catenary_mast,speed_limit", measured = true },
+  { km = 15.03, kind = "signal", signal = "catenary_mast,speed_limit", measured = true },
+]

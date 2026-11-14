@@ -1,0 +1,38 @@
+ref = "220 01"
+name = "Erzbergbahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Eisenerz"
+to = "Hieflau (in Hi)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 4.208
+kmTo = 13.718
+length = 9.499
+speeds = [[4.208, 13.718, 50, 50]]
+curves = [[4.334, 5.313, 280], [5.389, 5.765, 710], [5.816, 6.092, 680], [6.167, 6.243, 2140], [6.293, 6.619, 380], [6.67, 7.07, 300], [7.12, 7.194, 560], [7.244, 7.319, 730], [7.369, 7.468, 400], [7.518, 7.593, 780], [7.643, 7.742, 370], [7.792, 8.016, 410], [8.066, 8.215, 220], [8.265, 8.34, 530], [8.389, 8.514, 290], [8.564, 8.638, 710], [8.688, 8.763, 1180], [9.062, 9.385, 750], [9.535, 9.833, 690], [9.959, 10.31, 410], [10.36, 10.46, 560], [10.51, 10.911, 380], [10.961, 11.162, 720], [11.362, 11.613, 700], [11.663, 11.764, 1630], [11.864, 12.114, 1020], [12.34, 12.541, 510], [12.616, 12.716, 1250], [13.142, 13.343, 830], [13.468, 13.594, 1540]]
+points = [
+  { km = 4.847, kind = "signal", signal = "crossing" },
+  { km = 4.916, kind = "signal", signal = "crossing_distant" },
+  { km = 5.198, kind = "signal", signal = "whistle" },
+  { km = 6.456, kind = "signal", signal = "crossing" },
+  { km = 7.261, kind = "signal", signal = "crossing" },
+  { km = 7.309, kind = "signal", signal = "crossing_distant" },
+  { km = 7.348, kind = "signal", signal = "crossing_distant" },
+  { km = 9.354, kind = "signal", signal = "crossing_distant" },
+  { km = 9.476, kind = "signal", signal = "crossing_distant" },
+  { km = 9.577, kind = "signal", signal = "crossing" },
+  { km = 10.225, kind = "signal", signal = "crossing" },
+  { km = 10.296, kind = "signal", signal = "crossing_distant" },
+  { km = 10.44, kind = "signal", signal = "crossing_distant" },
+  { km = 12.055, kind = "signal", signal = "snowplow" },
+  { km = 12.078, kind = "signal", signal = "snowplow" },
+  { km = 12.481, kind = "signal", signal = "snowplow" },
+  { km = 12.51, kind = "signal", signal = "snowplow" },
+  { km = 12.764, kind = "signal", signal = "snowplow" },
+  { km = 12.847, kind = "signal", label = "z", signal = "distant" },
+  { km = 12.853, kind = "signal", signal = "snowplow" },
+  { km = 13.504, kind = "signal", label = "Z/h", signal = "distant,main" },
+  { km = 13.687, kind = "signal", signal = "snowplow" },
+]

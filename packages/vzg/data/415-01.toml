@@ -1,0 +1,21 @@
+ref = "415 01"
+name = "Tauernschleife"
+operator = "ÖBB-Infrastruktur AG"
+from = "Abzw Gu 2"
+to = "Villach Hbf-Draubrücke (in Vb)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.16
+kmTo = 0.8
+length = 0.643
+speeds = [[0.16, 0.8, 50, 50]]
+curves = [[0.259, 0.458, 310], [0.508, 0.682, 310]]
+points = [
+  { km = 0.16, kind = "signal", label = "1D", signal = "main_repeated", measured = true },
+  { km = 0.703, kind = "signal", label = "D/q602", signal = "distant,main", measured = true },
+  { km = 0.718, kind = "signal", label = "xt33", signal = "distant", measured = true },
+  { km = 0.74, kind = "signal", signal = "snowplow" },
+  { km = 0.8, kind = "signal", label = "VHT151", signal = "shunting", measured = true },
+]

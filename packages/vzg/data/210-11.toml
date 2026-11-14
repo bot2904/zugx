@@ -1,0 +1,17 @@
+ref = "210 11"
+operator = "ÖBB-Infrastruktur AG"
+from = "Abzww Traun West (in T)"
+to = "Abzww Traun Süd (in T)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.073
+kmTo = 0.423
+length = 0.348
+speeds = [[0.073, 0.423, 60, 60]]
+curves = [[0.174, 0.299, 340]]
+points = [
+  { km = 0.073, kind = "signal", label = "V504H", signal = "shunting", measured = true },
+  { km = 0.423, kind = "signal", label = "V504R", signal = "shunting", measured = true },
+]

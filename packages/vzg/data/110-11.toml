@@ -1,0 +1,17 @@
+ref = "110 11"
+operator = "ÖBB-Infrastruktur AG"
+from = "Tullnerfeld-Nord (in Tfd)"
+to = "Tullnerfeld-Ost (in Tfd)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 5.05
+kmTo = 6.087
+length = 1.034
+speeds = [[5.05, 6.087, 80, 80]]
+curves = [[5.15, 5.719, 300]]
+points = [
+  { km = 5.05, kind = "signal", label = "R111", signal = "main,speed_limit", measured = true },
+  { km = 6.087, kind = "signal", label = "H111", signal = "main,speed_limit", measured = true },
+]

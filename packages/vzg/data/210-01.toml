@@ -1,0 +1,31 @@
+ref = "210 01"
+name = "Trauner Schleife"
+operator = "ÖBB-Infrastruktur AG"
+from = "Marchtrenk"
+to = "Traun (in T)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 6.425
+kmTo = 7.615
+length = 1.188
+speeds = [[6.425, 7.486, 110, 110], [7.486, 7.615, 120, 120]]
+curves = [[6.701, 7.276, 1510], [7.401, 7.502, 1500]]
+points = [
+  { km = 6.425, kind = "signal", label = "VHT111", signal = "shunting", measured = true },
+  { km = 6.441, kind = "signal", signal = "snowplow" },
+  { km = 6.572, kind = "signal", label = "V111R", signal = "shunting", measured = true },
+  { km = 6.672, kind = "signal", label = "H211", signal = "main", measured = true },
+  { km = 6.694, kind = "signal", signal = "snowplow" },
+  { km = 6.936, kind = "signal", signal = "snowplow" },
+  { km = 6.987, kind = "signal", signal = "snowplow" },
+  { km = 7.383, kind = "signal", signal = "snowplow" },
+  { km = 7.387, kind = "signal", label = "R211", signal = "main", measured = true },
+  { km = 7.487, kind = "signal", signal = "speed_limit" },
+  { km = 7.488, kind = "signal", signal = "speed_limit" },
+  { km = 7.489, kind = "signal", label = "V311H", signal = "shunting", measured = true },
+  { km = 7.517, kind = "signal", signal = "snowplow" },
+  { km = 7.567, kind = "signal", signal = "snowplow" },
+  { km = 7.615, kind = "signal", label = "VHT311", signal = "shunting", measured = true },
+]

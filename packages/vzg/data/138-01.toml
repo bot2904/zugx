@@ -1,0 +1,36 @@
+ref = "138 01"
+name = "Floridsdorfer Hochbahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Jedlersdorf (in F)"
+to = "Leopoldau"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.108
+kmTo = 4.982
+length = 4.862
+speeds = [[0.108, 0.27, 60, 70], [0.27, 3.662, 70, 70], [3.662, 4.982, 70, 60]]
+curves = [[0.352, 0.64, 890], [1.067, 1.844, 850], [1.919, 2.045, 1330], [2.22, 2.521, 390], [2.571, 2.847, 500], [3.269, 3.368, 1390]]
+points = [
+  { km = 0.108, kind = "signal", label = "V313R", signal = "shunting", measured = true },
+  { km = 0.177, kind = "signal", label = "V313H", signal = "shunting", measured = true },
+  { km = 0.293, kind = "signal", signal = "speed_limit" },
+  { km = 0.298, kind = "signal", label = "V303R", signal = "shunting", measured = true },
+  { km = 0.329, kind = "signal", signal = "electricity" },
+  { km = 0.386, kind = "signal", label = "VHT303", signal = "shunting", measured = true },
+  { km = 0.47, kind = "signal", label = "Z004/i", signal = "distant,main", measured = true },
+  { km = 0.543, kind = "signal", signal = "electricity" },
+  { km = 0.989, kind = "signal", label = "z004", signal = "distant", measured = true },
+  { km = 2.81, kind = "signal", label = "c004", signal = "distant", measured = true },
+  { km = 3.415, kind = "signal", label = "C004/r", signal = "distant,main", measured = true },
+  { km = 3.491, kind = "signal", label = "VHT104", signal = "shunting", measured = true },
+  { km = 3.627, kind = "signal", label = "V104R", signal = "shunting", measured = true },
+  { km = 5.686, kind = "halt", label = "Wien Brünner Straße", measured = true },
+  { km = 6.5, kind = "halt", label = "Wien Jedlersdorf", measured = true },
+  { km = 6.95, kind = "halt", label = "Wien Siemensstraße", measured = true },
+  { km = 8.593, kind = "signal", label = "V114H", signal = "shunting", measured = true },
+  { km = 8.792, kind = "signal", label = "V105", signal = "shunting", measured = true },
+  { km = 8.899, kind = "signal", label = "Q204", signal = "main,shunting", measured = true },
+  { km = 9.816, kind = "signal", label = "R204", signal = "main,shunting", measured = true },
+]

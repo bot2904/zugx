@@ -1,0 +1,20 @@
+ref = "304 11"
+name = "ÖBB Lauterach Süd – Lauterach West"
+operator = "ÖBB-Infrastruktur AG"
+from = "Lauterach Unterfeld (in Wo)"
+to = "Wolfurt Nord (in Wo)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 13.964
+kmTo = 14.441
+length = 0.476
+speeds = [[13.964, 14.441, 60, 60]]
+curves = [[14.064, 14.139, 1570]]
+points = [
+  { km = 0.143, kind = "signal", label = "P705/l3", signal = "distant,main", measured = true },
+  { km = 14.118, kind = "signal", label = "Sch703/1R3,2U705", signal = "main_repeated,minor", measured = true },
+  { km = 14.161, kind = "stop", label = "Lauterach" },
+  { km = 14.441, kind = "signal", label = "L3/s,t", signal = "distant,main", measured = true },
+]

@@ -1,0 +1,25 @@
+ref = "171 01"
+operator = "ÖBB-Infrastruktur AG"
+from = "Ebenfurth"
+to = "Grenze ÖBB - ROeEE (-Sopron)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 115.331
+kmTo = 116.307
+length = 1.003
+speeds = [[115.331, 115.682, 60, 70], [115.682, 115.9, 60, 60], [115.9, 116.211, 60, 50], [116.211, 116.307, 40, 50]]
+curves = [[115.617, 115.78, 780], [115.954, 116.204, 300]]
+points = [
+  { km = 115.372, kind = "signal", label = "Aa10/r", signal = "distant,main" },
+  { km = 115.565, kind = "signal", label = "ca10", signal = "distant", measured = true },
+  { km = 115.682, kind = "signal", signal = "speed_limit" },
+  { km = 115.805, kind = "signal", signal = "crossing_distant" },
+  { km = 115.9, kind = "signal", signal = "speed_limit" },
+  { km = 115.969, kind = "signal", label = "aa10", signal = "distant", measured = true },
+  { km = 116.122, kind = "signal", label = "1Ca10", signal = "main_repeated", measured = true },
+  { km = 116.211, kind = "signal", label = "Ca10/r", signal = "distant,main", measured = true },
+  { km = 116.266, kind = "signal", signal = "crossing_distant" },
+  { km = 118.308, kind = "signal", label = "VHT927", signal = "shunting", measured = true },
+]

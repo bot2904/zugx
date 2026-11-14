@@ -1,0 +1,24 @@
+ref = "413 11"
+name = "Brucker Schleife"
+operator = "ÖBB-Infrastruktur AG"
+from = "Bruck a.d.Mur-Übelstein (in Bm)"
+to = "Bruck a.d.Mur-Stadtwald (in Bm)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.202
+kmTo = 1.7
+length = 1.468
+speeds = [[0.202, 1.7, 60, 60]]
+curves = [[0.884, 1.264, 370], [1.483, 1.549, 1050]]
+points = [
+  { km = 0.202, kind = "signal", label = "H742", signal = "main", measured = true },
+  { km = 0.394, kind = "signal", signal = "snowplow" },
+  { km = 0.413, kind = "signal", signal = "snowplow" },
+  { km = 1.076, kind = "signal", signal = "snowplow" },
+  { km = 1.279, kind = "signal", signal = "snowplow" },
+  { km = 1.398, kind = "signal", signal = "snowplow" },
+  { km = 1.537, kind = "signal", label = "1R742", signal = "main_repeated", measured = true },
+  { km = 1.63, kind = "signal", label = "R742", signal = "main", measured = true },
+]

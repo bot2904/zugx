@@ -1,0 +1,32 @@
+ref = "101 13"
+operator = "ÖBB-Infrastruktur AG"
+from = "Abzww Lambach-Ost (in La)"
+to = "Abzww Lambach-West (in La)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 224.632
+kmTo = 227.85
+length = 3.212
+speeds = [[224.632, 225.213, 100, 100], [225.213, 225.232, 80, 100], [225.232, 226.802, 80, 80], [226.802, 227.85, 80, 90]]
+curves = [[224.983, 225.033, 2140], [226.308, 226.905, 500], [227.23, 227.53, 700]]
+points = [
+  { km = 224.632, kind = "signal", label = "H24", signal = "main,speed_limit", measured = true },
+  { km = 225.213, kind = "signal", label = "E24/n", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+  { km = 225.232, kind = "signal", label = "h24", signal = "distant,speed_limit,speed_limit_distant", measured = true },
+  { km = 225.39, kind = "signal", label = "V5", signal = "shunting", measured = true },
+  { km = 225.507, kind = "signal", label = "K24", signal = "main,speed_limit", measured = true },
+  { km = 226.097, kind = "stop", label = "Lambach" },
+  { km = 226.244, kind = "signal", label = "GA224", signal = "speed_limit", measured = true },
+  { km = 226.245, kind = "signal", label = "N24", signal = "main,speed_limit", measured = true },
+  { km = 226.436, kind = "signal", label = "r24", signal = "distant,speed_limit_distant", measured = true },
+  { km = 226.538, kind = "signal", label = "V89", signal = "shunting", measured = true },
+  { km = 226.564, kind = "signal", signal = "snowplow" },
+  { km = 226.59, kind = "signal", label = "V324", signal = "shunting", measured = true },
+  { km = 226.594, kind = "signal", signal = "station_distant" },
+  { km = 226.802, kind = "signal", label = "T24/k", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+  { km = 227.602, kind = "signal", label = "1T24", signal = "main_repeated", measured = true },
+  { km = 227.628, kind = "stop", label = "Lambach Markt" },
+  { km = 227.85, kind = "signal", label = "R24", signal = "main,speed_limit", measured = true },
+]

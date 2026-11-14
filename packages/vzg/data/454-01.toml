@@ -1,0 +1,55 @@
+ref = "454 01"
+name = "Görtschitztalbahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "STRE km 17,800 AB (Awanst)"
+to = "Launsdorf-Hochosterwitz"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 1
+kmTo = 17.8
+length = 16.894
+speeds = [[1, 7.329, 40, 40], [7.329, 7.659, 35, 40], [7.659, 8.007, 35, 35], [8.007, 8.09, 20, 35], [8.09, 9.096, 20, 20], [9.096, 9.154, 40, 20], [9.154, 9.924, 40, 40], [9.924, 10.077, 20, 40], [10.077, 10.423, 20, 20], [10.423, 10.545, 40, 20], [10.545, 11.09, 40, 40], [11.09, 11.188, 20, 40], [11.188, 11.347, 40, 20], [11.347, 12.008, 40, 40], [12.008, 12.156, 20, 40], [12.156, 12.229, 40, 20], [12.229, 15.073, 40, 40], [15.073, 15.093, 35, 35], [15.093, 15.448, 35, 40], [15.448, 15.709, 35, 20], [15.709, 16.135, 20, 20], [16.135, 16.267, 40, 20], [16.267, 17.13, 40, 40], [17.13, 17.571, 40, 20], [17.571, 17.8, 20, 20]]
+curves = [[1.129, 1.244, 550], [1.848, 2.213, 2090], [2.419, 3.047, 250], [3.104, 3.459, 510], [3.573, 4, 340], [4.2, 4.759, 390], [4.93, 5.468, 620], [5.815, 6.317, 400], [6.875, 7.176, 310], [7.576, 7.776, 790], [8.078, 8.202, 880], [8.276, 8.452, 910], [8.502, 8.666, 870], [9.746, 9.843, 800], [9.892, 10.521, 450], [10.802, 11.041, 400], [11.086, 11.326, 460], [11.575, 11.931, 950], [12.576, 12.873, 430], [13.097, 13.348, 700], [13.775, 13.899, 1270], [13.949, 14.103, 1270], [14.249, 14.682, 330], [14.734, 15.013, 370], [15.74, 15.925, 540], [16.075, 16.873, 300], [17.251, 17.55, 1150]]
+points = [
+  { km = 1.089, kind = "signal", signal = "snowplow" },
+  { km = 1.108, kind = "signal", signal = "snowplow" },
+  { km = 1.298, kind = "signal", signal = "crossing_distant" },
+  { km = 1.301, kind = "signal", label = "C/r", signal = "distant,main" },
+  { km = 1.797, kind = "signal", label = "c", signal = "distant" },
+  { km = 3.086, kind = "signal", signal = "whistle" },
+  { km = 3.805, kind = "signal", signal = "whistle" },
+  { km = 4.286, kind = "signal", signal = "whistle" },
+  { km = 4.595, kind = "signal", signal = "snowplow" },
+  { km = 5.89, kind = "signal", signal = "snowplow" },
+  { km = 5.935, kind = "signal", signal = "snowplow" },
+  { km = 6.128, kind = "signal", signal = "whistle" },
+  { km = 6.987, kind = "signal", signal = "snowplow" },
+  { km = 7.055, kind = "signal", signal = "snowplow" },
+  { km = 7.071, kind = "signal", signal = "snowplow" },
+  { km = 7.329, kind = "signal", signal = "speed_limit" },
+  { km = 7.645, kind = "signal", signal = "speed_limit" },
+  { km = 8.007, kind = "signal", signal = "speed_limit" },
+  { km = 8.09, kind = "signal", signal = "speed_limit" },
+  { km = 9.067, kind = "signal", signal = "speed_limit" },
+  { km = 9.154, kind = "signal", signal = "speed_limit" },
+  { km = 9.924, kind = "signal", signal = "speed_limit" },
+  { km = 10.08, kind = "signal", signal = "speed_limit" },
+  { km = 10.423, kind = "signal", signal = "speed_limit" },
+  { km = 10.545, kind = "signal", signal = "speed_limit" },
+  { km = 11.09, kind = "signal", signal = "speed_limit" },
+  { km = 11.181, kind = "signal", signal = "speed_limit" },
+  { km = 11.347, kind = "signal", signal = "speed_limit" },
+  { km = 12.008, kind = "signal", signal = "speed_limit" },
+  { km = 12.152, kind = "signal", signal = "speed_limit" },
+  { km = 12.239, kind = "signal", signal = "speed_limit" },
+  { km = 15.065, kind = "signal", signal = "speed_limit" },
+  { km = 15.448, kind = "signal", signal = "speed_limit" },
+  { km = 15.709, kind = "signal", signal = "speed_limit" },
+  { km = 16.138, kind = "signal", signal = "speed_limit" },
+  { km = 16.267, kind = "signal", signal = "speed_limit" },
+  { km = 16.942, kind = "signal", signal = "speed_limit_distant" },
+  { km = 17.13, kind = "signal", signal = "speed_limit" },
+  { km = 17.571, kind = "signal", signal = "speed_limit" },
+]

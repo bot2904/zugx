@@ -1,0 +1,37 @@
+ref = "101 12"
+name = "Talgleis"
+operator = "ÖBB-Infrastruktur AG"
+from = "Marchtrenk"
+to = "Wels Hbf"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "2"
+kmFrom = 208.977
+kmTo = 211.907
+length = 2.966
+speeds = [[208.977, 211.907, 40, 40]]
+curves = [[209.311, 209.479, 680], [210.108, 210.518, 570], [211.167, 211.317, 820], [211.392, 211.591, 970]]
+points = [
+  { km = 208.977, kind = "signal", label = "V152H", signal = "shunting", measured = true },
+  { km = 209.152, kind = "signal", label = "V152R", signal = "shunting", measured = true },
+  { km = 209.271, kind = "signal", label = "g(5)", signal = "distant", measured = true },
+  { km = 209.273, kind = "signal", label = "h/W113S/V113", signal = "distant,shunting", measured = true },
+  { km = 209.334, kind = "signal", label = "K70", signal = "main,shunting", measured = true },
+  { km = 209.385, kind = "signal", label = "V270", signal = "shunting", measured = true },
+  { km = 209.643, kind = "signal", label = "Sch370H", signal = "minor", measured = true },
+  { km = 209.987, kind = "signal", label = "Sch370R", signal = "minor", measured = true },
+  { km = 210.1, kind = "signal", label = "V392H", signal = "shunting", measured = true },
+  { km = 210.128, kind = "signal", label = "V392R", signal = "shunting", measured = true },
+  { km = 210.206, kind = "signal", label = "G70/r(4)", signal = "distant,main", measured = true },
+  { km = 210.299, kind = "signal", label = "M70/k(4)", signal = "distant,main", measured = true },
+  { km = 210.404, kind = "signal", label = "V570", signal = "shunting", measured = true },
+  { km = 210.581, kind = "signal", label = "Sch534", signal = "minor", measured = true },
+  { km = 211.444, kind = "signal", label = "R34", signal = "main", measured = true },
+  { km = 211.548, kind = "signal", label = "V515", signal = "shunting", measured = true },
+  { km = 211.621, kind = "signal", label = "r612", signal = "distant", measured = true },
+  { km = 211.621, kind = "signal", label = "m612/V612H", signal = "distant,shunting", measured = true },
+  { km = 211.851, kind = "signal", label = "V612R", signal = "shunting", measured = true },
+  { km = 211.851, kind = "signal", label = "V712H", signal = "shunting", measured = true },
+  { km = 211.907, kind = "signal", label = "V712R", signal = "shunting", measured = true },
+]

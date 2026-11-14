@@ -1,0 +1,27 @@
+ref = "101 17"
+name = "Lokalbahn Linz – Waizenkirchen"
+operator = "ÖBB-Infrastruktur AG"
+from = "Linz Hbf (in Lz)"
+to = "Leonding Lokalbahn"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 188.477
+kmTo = 189.733
+length = 1.255
+speeds = [[188.477, 189.733, 60, 60]]
+curves = [[189.152, 189.428, 1080]]
+points = [
+  { km = 188.477, kind = "signal", label = "N8/o", signal = "distant,main,shunting", measured = true },
+  { km = 188.477, kind = "station", label = "Linz Hauptbahnhof" },
+  { km = 188.678, kind = "signal", label = "V224", signal = "shunting", measured = true },
+  { km = 188.864, kind = "signal", label = "S8/h", signal = "distant,main,shunting", measured = true },
+  { km = 189.207, kind = "signal", label = "1O408", signal = "main_repeated", measured = true },
+  { km = 189.289, kind = "signal", label = "O408/p,l608", signal = "distant,main", measured = true },
+  { km = 189.417, kind = "signal", label = "V501H", signal = "shunting", measured = true },
+  { km = 189.417, kind = "signal", label = "V482", signal = "shunting", measured = true },
+  { km = 189.497, kind = "signal", label = "V508H", signal = "shunting", measured = true },
+  { km = 189.733, kind = "signal", label = "V508R", signal = "shunting", measured = true },
+  { km = 189.733, kind = "halt", label = "Linz Untergaumberg" },
+]

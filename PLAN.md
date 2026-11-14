@@ -680,7 +680,7 @@ Today: straight lines between timetable times; passing points (trains running th
 
 - The VzG (Verzeichnis der örtlich zulässigen Geschwindigkeiten) is DB's; ÖBB's equivalent (speeds in La/Buchfahrplan) is not open.
 - OpenRailwayMap's "max speed" layer shows OSM tags: `railway=rail` ways with `maxspeed` (+ `maxspeed:forward/backward`, `railway:preferred_direction`). Good on Austrian main lines, patchy on branch lines.
-- Access: not Overpass (too slow/unreliable, rejected earlier), not ORM tiles (403). Instead the Geofabrik Austria extract (~700 MB PBF) in the weekly build, filtered with osmium (`railway=rail` + speed tags → a few MB).
+- Access: not Overpass (too slow/unreliable, rejected earlier), not ORM tiles (403). Instead the Geofabrik Austria extract (~700 MB PBF) in the weekly build, filtered with osmium (`railway=rail` + speed tags → a few MB). _Done as an experiment (no osmium, pure Node): `packages/vzg`, see "VzG-Grafik" below — speed profiles per line and track are now in `packages/vzg/data/*.toml`._
 - **Licence: ODbL.** Rendered diagrams are a "produced work" (attribution "© OpenStreetMap contributors" suffices); a committed derived database (speed profiles per corridor) is ODbL share-alike → keep it in its own files with ODbL notice, or derive at build time only.
 
 **Method**
@@ -692,6 +692,63 @@ Today: straight lines between timetable times; passing points (trains running th
 **Validation**: compare with ÖBB's Fahrplanbild PDFs (they show Fahrschaulinien), with HAFAS passing times where available (JourneyDetails sometimes lists non-stop points), and with radar positions (`JourneyGeoPos` is itself calculated by HAFAS).
 
 **Effort / risks**: step 1 small (one module + tests + rendering). Step 2 several days: OSM pipeline in CI, map-matching at junctions/stations, gaps in `maxspeed` (fallback: category v_max), ODbL handling, build time.
+
+### VzG-Grafik: speed profile per line and track from OSM (experiments 2026-11-14, view planned)
+
+Goal: a new view "VzG-Grafik" modelled on ÖBB's VzG pages (Strecke 10101 / REGELGLEIS / Richtung 2), for every Streckennummer and every Regelgleis: km axis, operating points and signals, speed changes with their km, a speed diagram, remarks. Data from OSM, unless better open data turns up. Also the source for the realistic Bildfahrplan paths (step 2 above).
+
+**What the ÖBB VzG page shows** (columns 1–9): 1 km · 2 operating points/signals (symbols) · 3 braking distance (1000/1200 m) · 4/5 decisive gradients ‰ (+10, +9 …) · 6 km of the speed changes · 7 speed diagram (×10 km/h; solid line and dash-dot line = two speed bands, e.g. normal and tilting/higher brake class) · 8 km · 9 remarks.
+
+**What OSM has (Geofabrik Austria 2026-11-13, `.cache/austria-261113.osm.pbf`, 760 MB)**
+
+- 315 `route=tracks` relations with ÖBB line numbers (`ref` = "101 01", 181 of the pattern `ddd dd`), plus `ref` on the ways.
+- `maxspeed` on nearly all main-line track ways; `maxspeed:forward/backward` where it differs by direction.
+- `railway:track_ref` = ÖBB section track numbers (e.g. "e21"/"e22"; last digit 1/2 = Regelgleis of direction 1/2) → the two tracks of a double-track line can be told apart.
+- `railway:position` (km) on ~9,000 nodes along the paths (signals, stops, milestones, switches) → chainage.
+- 50,000 railway nodes: signals with `railway:signal:*` types and refs (e.g. "Ae22/r"), stop positions, switches, level crossings; 1,700 named stations/halts (usually beside the track).
+- **Not in OSM**: braking distance (col. 3), gradients (col. 4/5), the second speed band (col. 7 dash-dot), remarks (col. 9), validity dates. Gradients could come from a DEM (basemap.at DGM 10 m, CC BY 4.0; or Copernicus GLO-30), but tunnels/bridges make a terrain model wrong exactly where it matters; the braking distance is per line section and only in ÖBB's documents.
+
+**Pipeline (`packages/vzg`, pure Node, no osmium/GDAL)**
+
+1. `scripts/extract.ts` (24 s): reads the PBF with an own minimal reader (`src/pbf.ts`, mapbox `pbf` + zlib) → `.cache/osm-rail.json` (35 MB, not committed): all `railway=rail` ways except yard/siding/spur and industrial/military/test usage (31,455), the route=tracks relations, coordinates (216,000), railway nodes, stations.
+2. `scripts/build.ts` (6 s): `src/lines.ts` → `data/<ref>.toml` per line + `data/index.toml` (2 MB TOML; ODbL, `data/LICENSE.md`).
+   - one global track graph; per line and direction the cheapest path between the line's km extremes (Dijkstra): own direction's section tracks ×0.5, other direction ×4, connectors without ref ×2, other lines ×6 → one continuous Regelgleis through the stations (single track: "1").
+   - km extremes: the largest connected component, then the largest run of positions without jumps (> 20 km, or much farther apart than their km difference).
+   - chainage: OSM positions on the path → longest monotonic, plausible subsequence (outliers of other lines dropped) → linear interpolation, slope 1 beyond.
+   - speeds per edge relative to increasing km, equal sections merged: `[kmFrom, kmTo, v increasing, v decreasing]`.
+   - curves: heading change over ±100 m on a 25 m resample → sections with radius < 3,000 m (median, 10 m).
+   - points: stations/halts/stops/signals/switches/level crossings on the path, stations beside it within 250 m; `measured` if the km is OSM's own.
+3. `scripts/explore*.ts`, `scripts/diagnose.ts`: the experiments (tag statistics, line coverage, detours).
+
+**Result**: 156 of 181 lines built (37 double-track), 3,050 km of track paths, speed coverage ≈ 100 % (except 105 11, 181 01, 408 11), 19,500 points (9,200 with measured km), 4,800 curve sections.
+
+**Validation** against the ÖBB VzG page 101 01 Regelgleis Richtung 2 (2013): speed changes at km 30.558 / 30.963 / 32.863 / 34.629 (VzG: 30.550 / 30.960 / 32.866 / 34.630) with 85 / 95 / 90 / 95 km/h — identical. Curve radii 280–290 m in the 65 km/h section near Eichgraben are plausible.
+
+**Known gaps**
+
+- missing (25): mostly tiny connector refs; real ones: 116 11, 132 01, 139 01, 162 01, 166 01, 170 01 (few or inconsistent km positions / mixed track refs).
+- partial: 101 05 Arlbergbahn (path 26 km for km 49.6–135.9), 102 01 (32 of 81 km), 206 02 (63 of 150), 107 01 (only km 43.8–72.3), 118 01 (1.9–48.4); detours 122 12, 130 01. Causes: gaps in the graph (missing connectors/excluded service ways), km positions of other lines on shared ways, km resets at line borders.
+- fix options: path via the relation's own member order; stitching components; manual overrides in a small TOML (`data/overrides.toml`: per line via-nodes or km corrections); fixing OSM itself (positions, track refs).
+
+**View concept (to discuss)**
+
+- route `/vzg/:ref` (e.g. `/vzg/101-01`) + index `/vzg` listing lines (search by number, name, Kursbuch number); links from the Bildfahrplan sheet and the station menu.
+- SVG, vertical km axis like the original (or horizontal for wide screens): columns km · points (symbols per kind/signal type) · speed changes · speed diagram (step line per direction; both tracks side by side or a toggle) · curves (optional column, replacing braking distance) · km.
+- zoom/scroll along km; hover → OSM way/node link; "© OpenStreetMap contributors" visible.
+- Kursbuch strecke (e.g. 100 Wien–Salzburg) → several Streckennummern (101 01, 101 02, …): mapping table Kursbuch ↔ lines (from the corridors' stations: stations per line in the TOML ↔ corridor stations).
+
+**Questions (for Simon)**
+
+1. Granularity: one view per Streckennummer (like the VzG) or per Kursbuchstrecke (stitching several lines, km resets at the borders)?
+2. Orientation: vertical km axis like the original, or horizontal (fits the Bildfahrplan)?
+3. Both directions: two columns (Richtung 1 / Richtung 2) side by side, or one track at a time with a toggle?
+4. Column 3/4/5 (braking distance, gradients): leave out, or try gradients from a DEM (basemap.at, CC BY) with tunnels/bridges interpolated?
+5. Curve radii instead of braking distance in column 3 — useful or noise?
+6. Which signals to show: all (1,000 on the Südbahn), or only main/distant/speed signals?
+7. Data refresh: weekly CI job (Geofabrik download 760 MB → extract → build → commit TOML), or manual like now? The committed TOML is ODbL — OK to keep it in this repo (with `data/LICENSE.md`), or a separate data repo?
+8. Gaps: fix in OSM (upstream, benefits everyone) vs. local overrides TOML — which first?
+9. Scope of lines: only ÖBB (ref pattern ddd dd), or also private lines (GKB, Montafonerbahn, Zillertalbahn, narrow gauge)?
+10. Feed the speed profiles into the Bildfahrplan now (step 2 of the realistic paths), or first ship the VzG-Grafik view?
 
 ## Sources
 

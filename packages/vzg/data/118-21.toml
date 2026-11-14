@@ -1,0 +1,30 @@
+ref = "118 21"
+name = "Verbindung Ostbahn – Flughafenschnellbahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Abzww Str 11821 (in Zur)"
+to = "Abzw Cf 1"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.34
+kmTo = 1.42
+length = 1.101
+speeds = [[0.34, 0.754, 60, 60], [0.754, 1.42, 100, 100]]
+curves = [[0.438, 0.634, 250], [0.757, 1.051, 690]]
+points = [
+  { km = 0.34, kind = "signal", label = "Zw11/m1", signal = "distant,main", measured = true },
+  { km = 1.42, kind = "signal", label = "Bw11", signal = "main", measured = true },
+]
+
+[[tracks]]
+track = "2"
+kmFrom = 0.34
+kmTo = 1.42
+length = 1.107
+speeds = [[0.34, 0.755, 60, 60], [0.755, 1.42, 100, 100]]
+curves = [[0.438, 0.633, 260], [0.755, 1.048, 690]]
+points = [
+  { km = 0.34, kind = "signal", label = "Yw12/m2", signal = "distant,main", measured = true },
+  { km = 1.42, kind = "signal", label = "Aw12", signal = "main", measured = true },
+]

@@ -1,0 +1,519 @@
+/**
+ * From the OSM extract to VzG lines: chain the ways of one track into an ordered path, fit
+ * kilometres (chainage) to OSM `railway:position` values, derive speed sections per direction,
+ * curve radii and operating points.
+ */
+import type { RailExtract, VzgLine, VzgPoint, VzgTrack } from "./types.ts";
+
+type Way = RailExtract["ways"][number];
+type Coord = [number, number];
+
+const R = 6371.0088;
+export function distKm(a: Coord, b: Coord): number {
+  const toRad = Math.PI / 180;
+  const dLat = (b[0] - a[0]) * toRad;
+  const dLon = (b[1] - a[1]) * toRad;
+  const h =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(a[0] * toRad) * Math.cos(b[0] * toRad) * Math.sin(dLon / 2) ** 2;
+  return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
+}
+
+/** "35.129", "35,129", "35.1+20" (ÖBB: km + m) → km; null if not parseable */
+export function parsePosition(v: string | undefined): number | null {
+  if (!v) return null;
+  const s = v.split(";")[0]!.trim().replace(",", ".");
+  const plus = /^(-?\d+(?:\.\d+)?)\+(\d+)$/.exec(s);
+  if (plus) return Number(plus[1]) + Number(plus[2]) / 1000;
+  const n = Number(s);
+  return Number.isFinite(n) ? n : null;
+}
+
+/** "100", "100 km/h" → 100; "60 mph" → 97; else null */
+export function parseSpeed(v: string | undefined): number | null {
+  if (!v) return null;
+  const m = /^(\d+(?:\.\d+)?)\s*(mph|km\/h)?$/.exec(v.split(";")[0]!.trim());
+  if (!m) return null;
+  return Math.round(Number(m[1]) * (m[2] === "mph" ? 1.609344 : 1));
+}
+
+/**
+ * Kilometres along a path from (distance along path s, OSM km) anchors: orientation from the
+ * anchors, outliers removed (longest monotonic subsequence), linear in between, slope 1 beyond.
+ */
+export function fitChainage(anchors: { s: number; km: number }[]): ((s: number) => number) | null {
+  if (anchors.length < 2) return null;
+  const sorted = [...anchors].sort((a, b) => a.s - b.s);
+  const inc = lms(sorted, 1);
+  const dec = lms(sorted, -1);
+  const best = inc.length >= dec.length ? inc : dec;
+  if (best.length < 2) return null;
+  const dir = best === inc ? 1 : -1;
+  return (s: number) => {
+    if (s <= best[0]!.s) return best[0]!.km + dir * (s - best[0]!.s);
+    if (s >= best.at(-1)!.s) return best.at(-1)!.km + dir * (s - best.at(-1)!.s);
+    let i = 1;
+    while (best[i]!.s < s) i++;
+    const a = best[i - 1]!;
+    const b = best[i]!;
+    return a.km + ((s - a.s) / (b.s - a.s || 1)) * (b.km - a.km);
+  };
+}
+
+/**
+ * longest subsequence with km strictly monotonic in `dir` and plausible steps (km difference at
+ * most 1.5 × path distance + 0.5 km; O(n²), n is small)
+ */
+function lms<T extends { s: number; km: number }>(xs: T[], dir: 1 | -1): T[] {
+  const len = xs.map(() => 1);
+  const prev = xs.map(() => -1);
+  for (let i = 0; i < xs.length; i++)
+    for (let j = 0; j < i; j++)
+      if (
+        dir * (xs[i]!.km - xs[j]!.km) > 0 &&
+        Math.abs(xs[i]!.km - xs[j]!.km) <= 1.5 * (xs[i]!.s - xs[j]!.s) + 0.5 &&
+        len[j]! + 1 > len[i]!
+      ) {
+        len[i] = len[j]! + 1;
+        prev[i] = j;
+      }
+  let k = len.indexOf(Math.max(...len));
+  const out: T[] = [];
+  for (; k >= 0; k = prev[k]!) out.unshift(xs[k]!);
+  return out;
+}
+
+const round = (x: number, d = 3) => Math.round(x * 10 ** d) / 10 ** d;
+
+/**
+ * Curve sections along a polyline: [sFrom, sTo, radius m] for radius < `max`. Resampled every
+ * `step` km; curvature from the heading change over ±`half` km; radius = median of the section,
+ * rounded to 10 m.
+ */
+export function curveSections(
+  pts: Coord[],
+  s: number[],
+  { step = 0.025, half = 0.1, max = 3000 } = {},
+): [number, number, number][] {
+  const len = s.at(-1)!;
+  // resample
+  const rs: Coord[] = [];
+  for (let x = 0, i = 0; x <= len; x += step) {
+    while (i + 1 < s.length - 1 && s[i + 1]! < x) i++;
+    const f = (x - s[i]!) / (s[i + 1]! - s[i]! || 1);
+    rs.push([
+      pts[i]![0] + f * (pts[i + 1]![0] - pts[i]![0]),
+      pts[i]![1] + f * (pts[i + 1]![1] - pts[i]![1]),
+    ]);
+  }
+  const k = Math.round(half / step);
+  const heading = (a: Coord, b: Coord) =>
+    Math.atan2(b[0] - a[0], (b[1] - a[1]) * Math.cos((a[0] * Math.PI) / 180));
+  const radii: number[] = rs.map(() => Infinity);
+  for (let i = k; i + k < rs.length; i++) {
+    let d = heading(rs[i]!, rs[i + k]!) - heading(rs[i - k]!, rs[i]!);
+    d = Math.atan2(Math.sin(d), Math.cos(d));
+    radii[i] = Math.abs(d) < 1e-9 ? Infinity : (half * 1000) / Math.abs(d);
+  }
+  const out: [number, number, number][] = [];
+  let start = -1;
+  for (let i = 0; i <= radii.length; i++) {
+    const curved = i < radii.length && radii[i]! < max;
+    if (curved && start < 0) start = i;
+    if (!curved && start >= 0) {
+      const sec = radii.slice(start, i).sort((a, b) => a - b);
+      if (i - start >= 3)
+        out.push([start * step, (i - 1) * step, Math.round(sec[sec.length >> 1]! / 10) * 10]);
+      start = -1;
+    }
+  }
+  return out;
+}
+
+/** one step along a track: from node `a` to node `b` on `way` */
+export interface Edge {
+  a: number;
+  b: number;
+  way: Way;
+  /** traversed in the way's own direction */
+  forward: boolean;
+  len: number;
+}
+
+/**
+ * Line track graph: every consecutive node pair of the line's ways. Directed both ways; the
+ * weight function decides which ways a path prefers.
+ */
+export function trackGraph(ways: Way[], coords: RailExtract["coords"]) {
+  const adj = new Map<number, Edge[]>();
+  const add = (e: Edge) => {
+    const l = adj.get(e.a) ?? [];
+    l.push(e);
+    adj.set(e.a, l);
+  };
+  for (const w of ways)
+    for (let i = 1; i < w.nodes.length; i++) {
+      const a = w.nodes[i - 1]!;
+      const b = w.nodes[i]!;
+      if (!coords[a] || !coords[b]) continue;
+      const len = distKm(coords[a]!, coords[b]!);
+      add({ a, b, way: w, forward: true, len });
+      add({ a: b, b: a, way: w, forward: false, len });
+    }
+  return adj;
+}
+
+/** cheapest path from `from` to `to` (Dijkstra; binary heap) */
+export function shortestPath(
+  adj: Map<number, Edge[]>,
+  from: number,
+  to: number,
+  weight: (e: Edge) => number,
+): Edge[] | null {
+  const dist = new Map<number, number>([[from, 0]]);
+  const prev = new Map<number, Edge>();
+  const heap: [number, number][] = [[0, from]];
+  const push = (x: [number, number]) => {
+    heap.push(x);
+    for (let i = heap.length - 1; i > 0;) {
+      const p = (i - 1) >> 1;
+      if (heap[p]![0] <= heap[i]![0]) break;
+      [heap[p], heap[i]] = [heap[i]!, heap[p]!];
+      i = p;
+    }
+  };
+  const pop = () => {
+    const top = heap[0]!;
+    const last = heap.pop()!;
+    if (heap.length) {
+      heap[0] = last;
+      for (let i = 0; ;) {
+        const l = 2 * i + 1;
+        const r = l + 1;
+        let m = i;
+        if (l < heap.length && heap[l]![0] < heap[m]![0]) m = l;
+        if (r < heap.length && heap[r]![0] < heap[m]![0]) m = r;
+        if (m === i) break;
+        [heap[m], heap[i]] = [heap[i]!, heap[m]!];
+        i = m;
+      }
+    }
+    return top;
+  };
+  while (heap.length) {
+    const [d, n] = pop();
+    if (n === to) break;
+    if (d > (dist.get(n) ?? Infinity)) continue;
+    for (const e of adj.get(n) ?? []) {
+      const nd = d + weight(e);
+      if (nd < (dist.get(e.b) ?? Infinity)) {
+        dist.set(e.b, nd);
+        prev.set(e.b, e);
+        push([nd, e.b]);
+      }
+    }
+  }
+  if (!prev.has(to)) return null;
+  const out: Edge[] = [];
+  for (let n = to; n !== from;) {
+    const e = prev.get(n)!;
+    out.unshift(e);
+    n = e.a;
+  }
+  return out;
+}
+
+/** Build one track from a continuous path of edges. */
+export function buildTrack(
+  track: string,
+  path: Edge[],
+  ex: Pick<RailExtract, "coords" | "stations">,
+  nodeTags: Map<number, Record<string, string>>,
+): VzgTrack | null {
+  if (!path.length) return null;
+  const ids = [path[0]!.a, ...path.map((e) => e.b)];
+  const pts = ids.map((n) => ex.coords[n]!);
+  const s = [0];
+  for (let i = 1; i < pts.length; i++) s.push(s[i - 1]! + path[i - 1]!.len);
+  const length = s.at(-1)!;
+  if (length < 0.2) return null;
+
+  // chainage from railway:position on the path's nodes
+  const anchors: { s: number; km: number }[] = [];
+  ids.forEach((n, i) => {
+    const t = nodeTags.get(n);
+    const km = parsePosition(t?.["railway:position:exact"] ?? t?.["railway:position"]);
+    if (km !== null) anchors.push({ s: s[i]!, km });
+  });
+  const kmOf = fitChainage(anchors) ?? ((x: number) => x);
+  const kmAt = ids.map((_, i) => kmOf(s[i]!));
+  const increasing = kmAt.at(-1)! >= kmAt[0]!;
+
+  // speed sections per edge, relative to increasing km
+  const speeds: VzgTrack["speeds"] = [];
+  path.forEach((e, i) => {
+    const t = e.way.tags;
+    const v = parseSpeed(t.maxspeed);
+    const vf = parseSpeed(t["maxspeed:forward"]) ?? v; // in the way's direction
+    const vb = parseSpeed(t["maxspeed:backward"]) ?? v;
+    const alongKm = e.forward === increasing;
+    const up = alongKm ? vf : vb; // towards increasing km
+    const down = alongKm ? vb : vf;
+    const [from, to] =
+      kmAt[i]! <= kmAt[i + 1]! ? [kmAt[i]!, kmAt[i + 1]!] : [kmAt[i + 1]!, kmAt[i]!];
+    const last = speeds.at(-1);
+    const touches = last && (increasing ? Math.abs(last[1] - from) : Math.abs(last[0] - to)) < 0.05;
+    if (last && touches && last[2] === up && last[3] === down) {
+      if (increasing) last[1] = to;
+      else last[0] = from;
+    } else speeds.push([from, to, up, down]);
+  });
+  speeds.sort((x, y) => x[0] - y[0]);
+  for (const sp of speeds) [sp[0], sp[1]] = [round(sp[0]), round(sp[1])];
+
+  // curves: resample every 25 m, curvature = change of heading over ±HALF km (robust against
+  // noisy OSM nodes), sections with radius < 3000 m, median radius per section
+  const curves = curveSections(pts, s).map(
+    ([a, b, r]) => [kmOf(a), kmOf(b), r] as [number, number, number],
+  );
+  for (const c of curves) {
+    if (c[0] > c[1]) [c[0], c[1]] = [c[1], c[0]];
+    [c[0], c[1]] = [round(c[0]), round(c[1])];
+  }
+  curves.sort((x, y) => x[0] - y[0]);
+
+  // operating points on the path
+  const points: VzgPoint[] = [];
+  ids.forEach((n, i) => {
+    const t = nodeTags.get(n);
+    if (!t) return;
+    const kind = t.railway ?? "";
+    const pos = parsePosition(t["railway:position:exact"] ?? t["railway:position"]);
+    const km = round(pos ?? kmAt[i]!);
+    if (kind === "station" || kind === "halt" || kind === "stop") {
+      if (!t.name) return;
+      points.push({ km, kind, label: t.name, ...(pos !== null ? { measured: true } : {}) });
+    } else if (kind === "signal") {
+      const types = Object.keys(t)
+        .filter(
+          (k) =>
+            /^railway:signal:[a-z_]+$/.test(k) &&
+            !["direction", "position"].some((x) => k.endsWith(x)),
+        )
+        .map((k) => k.slice("railway:signal:".length));
+      if (!types.length) return;
+      points.push({
+        km,
+        kind,
+        ...(t.ref ? { label: t.ref } : {}),
+        signal: types.join(","),
+        ...(pos !== null ? { measured: true } : {}),
+      });
+    }
+  });
+  // stations and halts beside the track: nearest point of the path within 250 m
+  const box = pts.reduce<[number, number, number, number]>(
+    (b, p) => [
+      Math.min(b[0], p[0]),
+      Math.max(b[1], p[0]),
+      Math.min(b[2], p[1]),
+      Math.max(b[3], p[1]),
+    ],
+    [90, -90, 180, -180],
+  );
+  const named = new Set(points.filter((p) => p.kind !== "signal").map((p) => p.label));
+  for (const st of ex.stations ?? []) {
+    if (
+      st.lat < box[0] - 0.003 ||
+      st.lat > box[1] + 0.003 ||
+      st.lon < box[2] - 0.004 ||
+      st.lon > box[3] + 0.004
+    )
+      continue;
+    const name = st.tags.name!;
+    if (named.has(name)) continue;
+    let best = Infinity;
+    let at = 0;
+    for (let i = 0; i < pts.length; i++) {
+      const d = distKm(pts[i]!, [st.lat, st.lon]);
+      if (d < best) {
+        best = d;
+        at = i;
+      }
+    }
+    if (best > 0.25) continue;
+    const pos = parsePosition(st.tags["railway:position:exact"] ?? st.tags["railway:position"]);
+    points.push({
+      km: round(pos ?? kmAt[at]!),
+      kind: st.tags.railway!,
+      label: name,
+      ...(pos !== null ? { measured: true } : {}),
+    });
+    named.add(name);
+  }
+  points.sort((a, b) => a.km - b.km);
+
+  const kmFrom = round(Math.min(kmAt[0]!, kmAt.at(-1)!));
+  const kmTo = round(Math.max(kmAt[0]!, kmAt.at(-1)!));
+  return { track, kmFrom, kmTo, length: round(length), speeds, curves, points };
+}
+
+/** ÖBB section track number "e21" → track 1 ("…1"/"…2" = Regelgleis of direction 1/2) */
+export const trackOf = (ref: string | undefined): "1" | "2" | null => {
+  const m = /^[a-z0-9]\d([12])$/i.exec(ref ?? "");
+  return m ? (m[1] as "1" | "2") : null;
+};
+
+/**
+ * Start and end of a line track: the nodes with the smallest / largest OSM kilometre — within the
+ * connected part of the network holding most of the line's positions, and within the largest run
+ * of kilometres without jumps > 20 km (wrong positions, e.g. of a node shared with another line).
+ */
+export function kmExtremes(
+  ways: Way[],
+  nodeTags: Map<number, Record<string, string>>,
+  adj?: Map<number, Edge[]>,
+  coords?: RailExtract["coords"],
+) {
+  const pos: { n: number; km: number }[] = [];
+  for (const w of ways)
+    for (const n of w.nodes) {
+      const t = nodeTags.get(n);
+      const km = parsePosition(t?.["railway:position:exact"] ?? t?.["railway:position"]);
+      if (km !== null) pos.push({ n, km });
+    }
+  if (pos.length < 2) return null;
+  let cand = pos;
+  if (adj) {
+    // connected components (undirected), restricted to the nodes with positions
+    const comp = new Map<number, number>();
+    let c = 0;
+    for (const p of pos) {
+      if (comp.has(p.n)) continue;
+      const stack = [p.n];
+      comp.set(p.n, c);
+      while (stack.length) {
+        const n = stack.pop()!;
+        for (const e of adj.get(n) ?? [])
+          if (!comp.has(e.b)) {
+            comp.set(e.b, c);
+            stack.push(e.b);
+          }
+      }
+      c++;
+    }
+    const size = new Map<number, number>();
+    for (const p of pos) size.set(comp.get(p.n)!, (size.get(comp.get(p.n)!) ?? 0) + 1);
+    const best = [...size].sort((a, b) => b[1] - a[1])[0]![0];
+    cand = pos.filter((p) => comp.get(p.n) === best);
+  }
+  cand.sort((a, b) => a.km - b.km);
+  // largest run without km jumps > 20 and without positions much farther apart than their km
+  // difference (straight-line distance d ≤ Δ·1.5 + 3; wrong positions of other lines break a run)
+  const at = (n: number) => coords?.[n];
+  let bestRun: [number, number] = [0, 0];
+  for (let i = 0, start = 0; i < cand.length; i++) {
+    if (i > 0) {
+      const dkm = cand[i]!.km - cand[i - 1]!.km;
+      const a = at(cand[i - 1]!.n);
+      const b = at(cand[i]!.n);
+      const d = a && b ? distKm(a, b) : dkm;
+      if (dkm > 20 || d > dkm * 1.5 + 3) start = i;
+    }
+    if (i - start > bestRun[1] - bestRun[0]) bestRun = [start, i];
+  }
+  const lo = cand[bestRun[0]]!;
+  const hi = cand[bestRun[1]]!;
+  return lo.n !== hi.n ? { lo, hi } : null;
+}
+
+/**
+ * Tracks of one line: per direction (1/2) the Regelgleis as one continuous path through the
+ * stations — its own section tracks preferred, the other direction's avoided, ways of the line
+ * cheaper than connectors without line number (station through tracks), other lines expensive;
+ * single-track lines as the cheapest path between the line's kilometre extremes.
+ */
+export function lineTracks(
+  ref: string,
+  lineWays: Way[],
+  adj: Map<number, Edge[]>,
+  ex: Pick<RailExtract, "coords" | "stations">,
+  nodeTags: Map<number, Record<string, string>>,
+  members: Set<number>,
+): VzgTrack[] {
+  const onLine = (w: Way) => w.tags.ref === ref || members.has(w.id);
+  const cost = (e: Edge, d?: "1" | "2") => {
+    const w = e.way;
+    if (!onLine(w)) return e.len * (w.tags.ref ? 6 : 2);
+    const t = trackOf(w.tags["railway:track_ref"]);
+    return e.len * (d && t === d ? 0.5 : d && t ? 4 : 1);
+  };
+  const tracks: VzgTrack[] = [];
+  const seeds = {
+    "1": lineWays.filter((w) => trackOf(w.tags["railway:track_ref"]) === "1"),
+    "2": lineWays.filter((w) => trackOf(w.tags["railway:track_ref"]) === "2"),
+  };
+  const directions = (["1", "2"] as const).filter((d) => seeds[d].length >= 2);
+  const runs: [string, Way[], "1" | "2" | undefined][] = directions.length
+    ? directions.map((d) => [d, seeds[d], d])
+    : [["1", lineWays, undefined]];
+  for (const [track, ws, d] of runs) {
+    const ext = kmExtremes(ws, nodeTags, adj, ex.coords);
+    if (!ext) continue;
+    const path = shortestPath(adj, ext.lo.n, ext.hi.n, (e) => cost(e, d));
+    const t = path && buildTrack(track, path, ex, nodeTags);
+    if (t) tracks.push(t);
+  }
+  return tracks;
+}
+
+/** All lines with ÖBB-style numbers ("101 01") from the extract. */
+export function buildLines(ex: RailExtract): VzgLine[] {
+  const nodeTags = new Map(ex.nodes.map((n) => [n.id, n.tags]));
+  const byId = new Map(ex.ways.map((w) => [w.id, w]));
+  // one graph of all tracks (crossovers excluded: a Regelgleis does not change tracks)
+  const adj = trackGraph(
+    ex.ways.filter((w) => w.tags.service !== "crossover"),
+    ex.coords,
+  );
+  const out: VzgLine[] = [];
+  const refs = new Map<string, RailExtract["lines"][number]>();
+  for (const l of ex.lines) if (/^\d{3} \d{2}$/.test(l.ref)) refs.set(l.ref, l);
+  // ways tagged with a line ref but without relation still count
+  const waysOf = new Map<string, Way[]>();
+  for (const w of ex.ways) {
+    const ref = w.tags.ref;
+    if (ref && /^\d{3} \d{2}$/.test(ref)) {
+      const l = waysOf.get(ref) ?? [];
+      l.push(w);
+      waysOf.set(ref, l);
+    }
+  }
+  for (const [ref, rel] of refs) {
+    const l = waysOf.get(ref) ?? [];
+    for (const id of rel.ways) {
+      const w = byId.get(id);
+      if (w && !l.includes(w)) l.push(w);
+    }
+    waysOf.set(ref, l);
+  }
+  for (const [ref, ways] of [...waysOf].sort((a, b) => a[0].localeCompare(b[0]))) {
+    const lineWays = ways.filter((w) => w.tags.service !== "crossover");
+    const members = new Set(refs.get(ref)?.ways ?? []);
+    const tracks = lineTracks(ref, lineWays, adj, ex, nodeTags, members);
+    if (!tracks.length) continue;
+    const rel = refs.get(ref);
+    const name =
+      rel?.name && rel.name !== ref ? rel.name : ways.find((w) => w.tags.name)?.tags.name;
+    out.push({
+      ref,
+      ...(name ? { name } : {}),
+      ...(rel?.operator ? { operator: rel.operator } : {}),
+      ...(rel?.from ? { from: rel.from } : {}),
+      ...(rel?.to ? { to: rel.to } : {}),
+      source: `OpenStreetMap (${ex.source}), © OpenStreetMap contributors, ODbL 1.0`,
+      tracks,
+    });
+  }
+  return out;
+}

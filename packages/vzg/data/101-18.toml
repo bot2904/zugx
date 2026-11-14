@@ -1,0 +1,25 @@
+ref = "101 18"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.349
+kmTo = 2.067
+length = 1.709
+speeds = [[0.349, 0.563, 40, 40], [0.563, 0.772, 40, 60], [0.772, 2.067, 60, 60]]
+curves = [[0.449, 0.995, 340], [1.07, 1.402, 930], [1.806, 1.881, 1770]]
+points = [
+  { km = 0.349, kind = "signal", label = "n5", signal = "distant", measured = true },
+  { km = 0.563, kind = "signal", label = "T5/h", signal = "distant,main,shunting", measured = true },
+  { km = 0.772, kind = "signal", label = "P5/q", signal = "distant,main,shunting", measured = true },
+  { km = 0.865, kind = "signal", label = "V627H", signal = "shunting", measured = true },
+  { km = 0.865, kind = "station", label = "Innsbruck Stubaitalbf" },
+  { km = 0.932, kind = "signal", label = "V627R", signal = "shunting", measured = true },
+  { km = 1.02, kind = "signal", label = "V637H", signal = "shunting", measured = true },
+  { km = 1.051, kind = "signal", label = "V637R", signal = "shunting", measured = true },
+  { km = 1.245, kind = "signal", label = "S7/t", signal = "distant,main,shunting", measured = true },
+  { km = 1.356, kind = "station", label = "Innsbruck Westbf" },
+  { km = 1.829, kind = "signal", label = "1Q7", signal = "main_repeated", measured = true },
+  { km = 1.889, kind = "signal", label = "Q7", signal = "main,shunting", measured = true },
+  { km = 2.067, kind = "signal", label = "V767H", signal = "shunting", measured = true },
+]

@@ -1,0 +1,18 @@
+ref = "118 12"
+name = "Einfahrunterwerfung"
+operator = "ÖBB-Infrastruktur AG"
+from = "Wien Hbf-Südosttangente (in Wbf)"
+to = "Lanzendorf-Rannersdorf (in Zur)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "2"
+kmFrom = 5.583
+kmTo = 6.376
+length = 0.744
+speeds = [[5.583, 6.376, 40, 40]]
+curves = []
+points = [
+  { km = 5.583, kind = "signal", label = "M392", signal = "main,shunting", measured = true },
+  { km = 6.376, kind = "signal", label = "F392/g,l", signal = "distant,main,shunting", measured = true },
+]

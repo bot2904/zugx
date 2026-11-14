@@ -1,0 +1,87 @@
+ref = "413 14"
+name = "Nordschleife"
+operator = "ÖBB-Infrastruktur AG"
+from = "Villach Hbf-Ostbf (in Vb)"
+to = "Villach Süd Gvbf-West (in Vsv)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 376.82
+kmTo = 389.535
+length = 12.798
+speeds = [[376.82, 376.842, 60, 40], [376.842, 378.815, 60, 60], [378.815, 379.021, 100, 60], [379.021, 380.188, 40, 40], [380.188, 380.469, 100, 40], [380.469, 382.521, 80, 80], [382.521, 383.159, 100, 80], [383.159, 383.172, 80, 80], [383.172, 384.252, 60, 60], [384.252, 384.285, 40, 60], [384.285, 387.988, 40, 40], [387.988, 388.076, 80, 40], [388.076, 389.535, 80, 80]]
+curves = [[377.073, 377.281, 1450], [377.773, 378.248, 330], [378.396, 378.597, 490], [378.646, 378.845, 460], [378.983, 379.053, 1620], [379.097, 379.171, 1690], [379.645, 379.72, 2680], [379.77, 379.921, 1630], [380.125, 380.351, 1010], [380.53, 381.052, 1300], [381.831, 382.35, 540], [382.825, 382.925, 1820], [383, 383.351, 1480], [383.451, 384.315, 440], [384.512, 384.709, 670], [384.759, 384.931, 810], [385.005, 385.054, 2210], [385.645, 385.768, 1520], [386.187, 386.335, 720], [386.384, 386.532, 850], [387.419, 387.985, 400], [388.034, 389.315, 780]]
+points = [
+  { km = 0.743, kind = "signal", label = "r434", signal = "distant,speed_limit_distant", measured = true },
+  { km = 1.023, kind = "signal", label = "k424", signal = "distant", measured = true },
+  { km = 1.625, kind = "signal", label = "K424/l", signal = "distant,main", measured = true },
+  { km = 1.947, kind = "signal", label = "Q501", signal = "main", measured = true },
+  { km = 2.63, kind = "signal", label = "L501", signal = "main", measured = true },
+  { km = 3.377, kind = "signal", label = "m601", signal = "distant", measured = true },
+  { km = 3.384, kind = "signal", label = "P601/q", signal = "distant,main", measured = true },
+  { km = 3.947, kind = "signal", label = "p601", signal = "distant", measured = true },
+  { km = 4.112, kind = "signal", label = "M601", signal = "main,speed_limit", measured = true },
+  { km = 4.854, kind = "signal", label = "N214", signal = "main,speed_limit", measured = true },
+  { km = 4.905, kind = "signal", label = "s204", signal = "distant", measured = true },
+  { km = 5.309, kind = "signal", label = "n214", signal = "distant", measured = true },
+  { km = 376.82, kind = "signal", label = "GA120", signal = "speed_limit", measured = true },
+  { km = 376.842, kind = "signal", label = "H20", signal = "main", measured = true },
+  { km = 377.141, kind = "signal", label = "V120", signal = "shunting", measured = true },
+  { km = 377.239, kind = "signal", signal = "crossing_distant" },
+  { km = 377.589, kind = "signal", signal = "snowplow" },
+  { km = 377.594, kind = "signal", signal = "snowplow" },
+  { km = 377.605, kind = "signal", label = "L20/h20", signal = "distant,main", measured = true },
+  { km = 377.645, kind = "stop", label = "Villach Hauptbahnhof" },
+  { km = 377.769, kind = "signal", label = "N20/p20", signal = "distant,main", measured = true },
+  { km = 377.798, kind = "signal", signal = "snowplow" },
+  { km = 377.815, kind = "signal", signal = "snowplow" },
+  { km = 378.105, kind = "signal", label = "l20", signal = "distant", measured = true },
+  { km = 378.169, kind = "signal", label = "P20/q602", signal = "distant,main", measured = true },
+  { km = 378.31, kind = "signal", label = "M602", signal = "main,speed_limit", measured = true },
+  { km = 378.471, kind = "signal", label = "1Q602", signal = "main_repeated", measured = true },
+  { km = 378.569, kind = "signal", label = "Q602/r", signal = "distant,main", measured = true },
+  { km = 378.583, kind = "signal", signal = "crossing_distant" },
+  { km = 378.679, kind = "signal", label = "V712H", signal = "shunting", measured = true },
+  { km = 378.732, kind = "signal", label = "V712R", signal = "shunting", measured = true },
+  { km = 378.918, kind = "signal", label = "V425", signal = "shunting", measured = true },
+  { km = 379.101, kind = "signal", label = "S4/m601,m602", signal = "distant,main", measured = true },
+  { km = 379.139, kind = "station", label = "Villach Westbahnhof", measured = true },
+  { km = 379.83, kind = "signal", label = "R4", signal = "main", measured = true },
+  { km = 380.122, kind = "signal", label = "V536", signal = "shunting", measured = true },
+  { km = 380.192, kind = "signal", label = "V904H", signal = "shunting", measured = true },
+  { km = 380.32, kind = "signal", label = "V904R", signal = "shunting", measured = true },
+  { km = 380.469, kind = "signal", label = "Z/s", signal = "distant,main", measured = true },
+  { km = 380.764, kind = "signal", label = "c", signal = "distant,speed_limit_distant", measured = true },
+  { km = 381.42, kind = "signal", label = "z", signal = "distant", measured = true },
+  { km = 381.616, kind = "stop", label = "Villach Warmbad" },
+  { km = 381.628, kind = "signal", signal = "electricity" },
+  { km = 381.635, kind = "signal", signal = "electricity" },
+  { km = 381.728, kind = "signal", label = "C/e", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+  { km = 381.803, kind = "signal", label = "V114H", signal = "shunting", measured = true },
+  { km = 381.847, kind = "signal", signal = "electricity" },
+  { km = 381.853, kind = "signal", signal = "electricity" },
+  { km = 381.873, kind = "signal", label = "V114w", signal = "shunting", measured = true },
+  { km = 382.521, kind = "signal", label = "H104", signal = "main,speed_limit", measured = true },
+  { km = 383.159, kind = "signal", label = "E104", signal = "main,speed_limit", measured = true },
+  { km = 383.523, kind = "signal", signal = "electricity" },
+  { km = 383.534, kind = "signal", signal = "electricity" },
+  { km = 383.61, kind = "signal", label = "S204/h", signal = "distant,main,speed_limit_distant", measured = true },
+  { km = 383.642, kind = "signal", signal = "electricity" },
+  { km = 383.655, kind = "signal", signal = "electricity" },
+  { km = 384.285, kind = "signal", signal = "speed_limit" },
+  { km = 384.855, kind = "signal", label = "V704o", signal = "shunting" },
+  { km = 384.865, kind = "signal", label = "V704w", signal = "shunting" },
+  { km = 385.82, kind = "signal", label = "V571o", signal = "shunting" },
+  { km = 386.135, kind = "signal", label = "V551o", signal = "shunting" },
+  { km = 386.327, kind = "signal", label = "V551w", signal = "shunting" },
+  { km = 387.205, kind = "signal", label = "V431o", signal = "shunting" },
+  { km = 387.297, kind = "signal", label = "V531w", signal = "shunting" },
+  { km = 387.347, kind = "signal", label = "V451o", signal = "shunting" },
+  { km = 387.697, kind = "signal", label = "V451w", signal = "shunting" },
+  { km = 387.773, kind = "signal", label = "V440o", signal = "shunting" },
+  { km = 387.932, kind = "signal", label = "V444w", signal = "shunting" },
+  { km = 387.988, kind = "signal", signal = "speed_limit" },
+  { km = 389.338, kind = "halt", label = "Neuhaus an der Gail" },
+  { km = 389.535, kind = "signal", label = "R434", signal = "main,speed_limit", measured = true },
+]

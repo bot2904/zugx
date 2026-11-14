@@ -1,0 +1,65 @@
+ref = "409 01"
+name = "Rosentalbahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Klagenfurt Hbf (in Kt)"
+to = "Weizelsdorf"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 20.88
+kmTo = 30.171
+length = 9.281
+speeds = [[20.88, 30.171, 70, 70]]
+curves = [[20.979, 21.054, 820], [21.104, 21.204, 950], [21.254, 21.429, 460], [21.479, 21.881, 370], [22.005, 22.255, 650], [22.38, 22.754, 570], [22.804, 23.455, 350], [23.606, 23.932, 510], [24.705, 24.831, 1290], [25.305, 25.68, 430], [25.73, 26.306, 340], [26.456, 26.957, 560], [27.007, 27.408, 1060], [27.634, 27.709, 1180], [27.759, 27.909, 1070], [28.009, 28.41, 1400], [28.46, 28.886, 410], [29.136, 29.563, 300]]
+points = [
+  { km = 20.88, kind = "signal", label = "Zp11/s709", signal = "distant,main", measured = true },
+  { km = 20.97, kind = "signal", label = "1Zp11", signal = "main_repeated", measured = true },
+  { km = 21.355, kind = "signal", signal = "snowplow" },
+  { km = 21.392, kind = "signal", signal = "snowplow" },
+  { km = 21.85, kind = "signal", label = "zp11", signal = "distant", measured = true },
+  { km = 21.857, kind = "signal", signal = "snowplow" },
+  { km = 21.876, kind = "signal", signal = "snowplow" },
+  { km = 22.355, kind = "signal", signal = "crossing_distant" },
+  { km = 22.738, kind = "signal", signal = "snowplow" },
+  { km = 22.882, kind = "signal", signal = "snowplow" },
+  { km = 22.943, kind = "signal", signal = "snowplow" },
+  { km = 23.045, kind = "signal", signal = "snowplow" },
+  { km = 23.076, kind = "signal", signal = "snowplow" },
+  { km = 23.141, kind = "halt", label = "Köttmannsdorf Lambichl" },
+  { km = 23.756, kind = "signal", signal = "snowplow" },
+  { km = 23.923, kind = "signal", signal = "whistle" },
+  { km = 24.036, kind = "signal", label = "ap11", signal = "distant", measured = true },
+  { km = 24.326, kind = "signal", signal = "station_distant" },
+  { km = 24.5, kind = "signal", label = "Ap11/r", signal = "distant,main", measured = true },
+  { km = 24.662, kind = "signal", signal = "snowplow" },
+  { km = 24.734, kind = "signal", label = "VHT601", signal = "shunting", measured = true },
+  { km = 24.9, kind = "signal", label = "V601R", signal = "shunting", measured = true },
+  { km = 25.005, kind = "signal", label = "H611", signal = "main", measured = true },
+  { km = 25.046, kind = "station", label = "Maria Rain", measured = true },
+  { km = 25.217, kind = "signal", label = "R611", signal = "main", measured = true },
+  { km = 25.406, kind = "signal", signal = "snowplow" },
+  { km = 25.41, kind = "signal", label = "V621H", signal = "shunting", measured = true },
+  { km = 25.504, kind = "signal", label = "VHT621", signal = "shunting", measured = true },
+  { km = 25.508, kind = "signal", signal = "snowplow" },
+  { km = 25.541, kind = "signal", signal = "snowplow" },
+  { km = 25.771, kind = "signal", signal = "station_distant" },
+  { km = 25.831, kind = "signal", label = "Zr11/h", signal = "distant,main", measured = true },
+  { km = 25.901, kind = "signal", signal = "snowplow" },
+  { km = 25.921, kind = "signal", signal = "snowplow" },
+  { km = 25.956, kind = "signal", label = "1Zr11", signal = "main_repeated", measured = true },
+  { km = 26.246, kind = "signal", label = "zr11", signal = "distant", measured = true },
+  { km = 27.64, kind = "signal", label = "ar11", signal = "distant", measured = true },
+  { km = 28.812, kind = "signal", signal = "snowplow" },
+  { km = 29.051, kind = "signal", signal = "snowplow" },
+  { km = 29.133, kind = "signal", signal = "snowplow" },
+  { km = 29.211, kind = "signal", label = "Ar11", signal = "main", measured = true },
+  { km = 29.305, kind = "signal", signal = "snowplow" },
+  { km = 29.365, kind = "signal", signal = "snowplow" },
+  { km = 29.402, kind = "signal", label = "VHT721", signal = "shunting", measured = true },
+  { km = 29.602, kind = "signal", signal = "snowplow" },
+  { km = 29.676, kind = "signal", label = "H731", signal = "main", measured = true },
+  { km = 30.084, kind = "stop", label = "Weizelsdorf" },
+  { km = 30.124, kind = "station", label = "Weizelsdorf" },
+  { km = 30.171, kind = "signal", label = "FE731R", signal = "minor", measured = true },
+]

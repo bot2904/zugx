@@ -1,0 +1,23 @@
+ref = "217 01"
+operator = "ÖBB-Infrastruktur AG"
+from = "Staatsgrenze nächst Liefering"
+to = "Salzburg Hbf (in Sb)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "2"
+kmFrom = 87.51
+kmTo = 88.191
+length = 0.677
+speeds = [[87.51, 88.191, 60, 60]]
+curves = [[87.661, 88.084, 520]]
+points = [
+  { km = 87.51, kind = "signal", label = "V592H", signal = "shunting", measured = true },
+  { km = 87.51, kind = "halt", label = "Salzburg Mülln-Altstadt" },
+  { km = 87.554, kind = "signal", label = "V592R", signal = "shunting", measured = true },
+  { km = 87.75, kind = "signal", label = "s2", signal = "distant", measured = true },
+  { km = 88.042, kind = "signal", label = "L502", signal = "main", measured = true },
+  { km = 88.191, kind = "signal", label = "1L502", signal = "main_repeated", measured = true },
+  { km = 88.191, kind = "station", label = "Salzburg Hauptbahnhof" },
+  { km = 88.191, kind = "station", label = "Salzburg Hauptbahnhof (S-Bahn)" },
+]

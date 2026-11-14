@@ -1,0 +1,32 @@
+ref = "101 14"
+name = "Salzburg Hbf – Salzburg Itzling"
+operator = "ÖBB-Infrastruktur AG"
+from = "Salzburg Itzling"
+to = "Salzburg Gnigl-Vbf (in Sb)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.222
+kmTo = 1.079
+length = 0.675
+speeds = [[0.222, 0.715, 25, 25], [0.715, 1.079, 40, 40]]
+curves = [[0.374, 0.488, 940], [0.564, 0.946, 410]]
+points = [
+  { km = 0.222, kind = "signal", label = "k290", signal = "distant", measured = true },
+  { km = 0.251, kind = "halt", label = "Ischlerbahnstraße" },
+  { km = 0.487, kind = "signal", signal = "electricity" },
+  { km = 0.667, kind = "signal", signal = "electricity" },
+  { km = 0.675, kind = "signal", signal = "electricity" },
+  { km = 0.749, kind = "signal", signal = "electricity" },
+  { km = 0.753, kind = "signal", signal = "electricity" },
+  { km = 0.771, kind = "signal", label = "K290/k280", signal = "distant,main,speed_limit", measured = true },
+  { km = 0.86, kind = "signal", label = "VHT290", signal = "shunting", measured = true },
+  { km = 0.904, kind = "signal", label = "V290", signal = "shunting", measured = true },
+  { km = 0.908, kind = "signal", label = "F290", signal = "main", measured = true },
+  { km = 0.92, kind = "signal", signal = "crossing_distant" },
+  { km = 0.962, kind = "signal", label = "K280", signal = "main", measured = true },
+  { km = 1.038, kind = "signal", label = "V234", signal = "shunting", measured = true },
+  { km = 1.04, kind = "signal", signal = "electricity" },
+  { km = 1.079, kind = "signal", label = "V231", signal = "shunting", measured = true },
+]

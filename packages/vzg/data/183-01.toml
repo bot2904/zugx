@@ -1,0 +1,81 @@
+ref = "183 01"
+name = "Lokalbahn Gänserndorf – Mistelbach"
+operator = "ÖBB-Infrastruktur AG"
+from = "Gänserndorf"
+to = "Bad Pirawarth"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.36
+kmTo = 8.502
+length = 8.134
+speeds = [[0.36, 8.502, 20, 20]]
+curves = [[0.458, 0.507, 320], [0.556, 0.787, 290], [4.234, 4.534, 360], [6.912, 7.087, 690], [7.416, 7.62, 590], [7.797, 8.218, 240]]
+points = [
+  { km = 0.36, kind = "signal", label = "W/h", signal = "distant,main,speed_limit", measured = true },
+  { km = 0.616, kind = "signal", signal = "snowplow" },
+  { km = 0.627, kind = "signal", signal = "snowplow" },
+  { km = 0.655, kind = "signal", signal = "snowplow" },
+  { km = 0.76, kind = "signal", label = "w", signal = "distant", measured = true },
+  { km = 0.908, kind = "signal", signal = "snowplow" },
+  { km = 1.022, kind = "signal", signal = "snowplow" },
+  { km = 1.158, kind = "signal", signal = "snowplow" },
+  { km = 1.183, kind = "signal", signal = "whistle" },
+  { km = 1.188, kind = "signal", signal = "snowplow" },
+  { km = 1.532, kind = "signal", signal = "snowplow" },
+  { km = 1.546, kind = "signal", signal = "snowplow" },
+  { km = 2.092, kind = "signal", signal = "snowplow" },
+  { km = 2.108, kind = "signal", signal = "snowplow" },
+  { km = 2.12, kind = "signal", signal = "snowplow" },
+  { km = 2.143, kind = "signal", signal = "snowplow" },
+  { km = 2.397, kind = "signal", signal = "crossing_distant" },
+  { km = 2.469, kind = "signal", signal = "whistle" },
+  { km = 2.531, kind = "signal", signal = "crossing_distant" },
+  { km = 2.597, kind = "signal", signal = "crossing" },
+  { km = 3.42, kind = "signal", signal = "crossing" },
+  { km = 3.502, kind = "signal", signal = "crossing_distant" },
+  { km = 3.686, kind = "signal", signal = "crossing_distant" },
+  { km = 3.939, kind = "signal", signal = "whistle" },
+  { km = 4.296, kind = "signal", signal = "snowplow" },
+  { km = 4.314, kind = "signal", signal = "snowplow" },
+  { km = 4.32, kind = "signal", signal = "whistle" },
+  { km = 4.347, kind = "signal", signal = "snowplow" },
+  { km = 4.499, kind = "signal", signal = "whistle" },
+  { km = 4.504, kind = "signal", signal = "snowplow" },
+  { km = 4.539, kind = "signal", signal = "snowplow" },
+  { km = 4.763, kind = "signal", signal = "whistle" },
+  { km = 4.77, kind = "signal", label = "as11", signal = "distant", measured = true },
+  { km = 4.861, kind = "signal", signal = "whistle" },
+  { km = 4.896, kind = "signal", signal = "snowplow" },
+  { km = 5.17, kind = "signal", label = "As11", signal = "main", measured = true },
+  { km = 5.23, kind = "signal", label = "Zs21", signal = "main", measured = true },
+  { km = 5.284, kind = "signal", signal = "whistle" },
+  { km = 5.442, kind = "signal", signal = "whistle" },
+  { km = 5.585, kind = "signal", signal = "snowplow" },
+  { km = 5.61, kind = "signal", signal = "snowplow" },
+  { km = 5.626, kind = "signal", signal = "snowplow" },
+  { km = 5.64, kind = "signal", label = "zs21", signal = "distant", measured = true },
+  { km = 5.646, kind = "signal", signal = "snowplow" },
+  { km = 5.822, kind = "signal", signal = "snowplow" },
+  { km = 5.839, kind = "signal", signal = "snowplow" },
+  { km = 5.852, kind = "signal", signal = "snowplow" },
+  { km = 5.857, kind = "signal", signal = "whistle" },
+  { km = 6.169, kind = "signal", signal = "whistle" },
+  { km = 6.208, kind = "signal", signal = "whistle" },
+  { km = 6.585, kind = "signal", signal = "snowplow" },
+  { km = 6.606, kind = "signal", signal = "snowplow" },
+  { km = 6.618, kind = "signal", signal = "snowplow" },
+  { km = 6.993, kind = "signal", signal = "whistle" },
+  { km = 7.266, kind = "signal", signal = "crossing_distant" },
+  { km = 7.575, kind = "signal", signal = "snowplow" },
+  { km = 7.598, kind = "signal", signal = "whistle" },
+  { km = 7.624, kind = "signal", signal = "whistle" },
+  { km = 7.748, kind = "signal", signal = "crossing_distant" },
+  { km = 7.803, kind = "signal", signal = "crossing" },
+  { km = 7.807, kind = "signal", signal = "snowplow" },
+  { km = 8.136, kind = "signal", signal = "whistle" },
+  { km = 8.31, kind = "signal", signal = "whistle" },
+  { km = 8.488, kind = "signal", signal = "snowplow" },
+  { km = 8.492, kind = "signal", signal = "whistle" },
+]

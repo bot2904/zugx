@@ -1,0 +1,58 @@
+ref = "451 01"
+name = "Gailtalbahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Arnoldstein"
+to = "Hermagor"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 1.012
+kmTo = 30.932
+length = 29.873
+speeds = [[1.012, 2.407, 60, 60], [2.407, 8.404, 70, 70], [8.404, 8.948, 40, 40], [8.948, 9.294, 50, 50], [9.294, 10.412, 60, 60], [10.412, 11.964, 100, 100], [11.964, 16.386, 60, 60], [16.386, 18.093, 80, 80], [18.093, 20.203, 100, 100], [20.203, 21.157, 70, 70], [21.157, 23.481, 60, 60], [23.481, 24.512, 70, 70], [24.512, 25.436, 50, 50], [25.436, 28.214, 70, 70], [28.214, 28.526, 60, 60], [28.526, 28.876, 70, 70], [28.876, 30.262, 80, 80], [30.262, 30.532, 60, 60], [30.532, 30.785, 60, ""], [30.785, 30.932, "", ""]]
+curves = [[1.11, 1.551, 300], [1.675, 1.874, 370], [1.923, 2.471, 260], [2.722, 2.923, 620], [3.146, 3.497, 460], [3.547, 3.741, 700], [3.952, 4.422, 690], [4.656, 4.774, 850], [4.821, 4.985, 1030], [5.126, 5.314, 900], [5.361, 5.642, 530], [5.76, 5.947, 500], [5.994, 6.135, 390], [6.182, 6.37, 370], [6.675, 6.886, 520], [6.933, 7.356, 560], [7.652, 8.259, 550], [8.359, 8.736, 310], [8.811, 8.862, 1410], [9.012, 9.562, 270], [9.662, 9.762, 600], [9.812, 10.083, 370], [10.132, 10.456, 560], [10.658, 10.861, 1340], [11.013, 11.165, 1850], [11.595, 12.152, 1250], [12.203, 12.684, 480], [12.835, 12.962, 850], [13.013, 13.365, 890], [13.414, 13.489, 760], [13.539, 13.986, 300], [14.358, 14.483, 780], [14.532, 14.855, 950], [14.93, 15.104, 660], [15.426, 15.804, 420], [15.879, 15.954, 2020], [16.03, 16.38, 550], [16.909, 17.036, 1020], [17.111, 17.48, 900], [17.901, 18.126, 740], [18.227, 18.528, 1080], [18.955, 19.13, 1530], [19.18, 19.356, 1320], [19.682, 19.783, 2200], [19.933, 20.084, 1980], [20.159, 20.46, 630], [20.51, 20.661, 680], [21.113, 21.615, 350], [21.665, 21.916, 220], [21.966, 22.142, 500], [22.242, 22.769, 280], [22.819, 23.496, 410], [23.546, 23.77, 530], [24.075, 24.25, 820], [24.478, 24.977, 340], [25.187, 25.476, 400], [25.918, 26.138, 690], [26.359, 26.604, 550], [26.897, 27.093, 590], [27.485, 27.73, 460], [27.779, 27.956, 790], [28.006, 28.53, 560], [28.63, 28.931, 380], [29.457, 29.607, 780], [29.958, 30.408, 520]]
+points = [
+  { km = 1.012, kind = "signal", label = "Za11/h", signal = "distant,main", measured = true },
+  { km = 1.457, kind = "signal", label = "za11", signal = "distant", measured = true },
+  { km = 2.303, kind = "signal", label = "aa11", signal = "distant", measured = true },
+  { km = 2.985, kind = "signal", label = "Aa11", signal = "main", measured = true },
+  { km = 3.119, kind = "signal", label = "Za21", signal = "main", measured = true },
+  { km = 3.233, kind = "signal", label = "1Za21", signal = "main_repeated", measured = true },
+  { km = 3.648, kind = "signal", label = "za21", signal = "distant", measured = true },
+  { km = 7.429, kind = "signal", label = "aa21", signal = "distant", measured = true },
+  { km = 8.189, kind = "signal", label = "Aa21/r", signal = "distant,main", measured = true },
+  { km = 8.446, kind = "signal", label = "VHT101", signal = "shunting", measured = true },
+  { km = 8.669, kind = "signal", label = "H201", signal = "main", measured = true },
+  { km = 8.807, kind = "stop", label = "Nötsch" },
+  { km = 8.855, kind = "signal", label = "R201", signal = "main", measured = true },
+  { km = 9.076, kind = "signal", label = "VHT301", signal = "shunting", measured = true },
+  { km = 9.42, kind = "signal", label = "h", signal = "distant", measured = true },
+  { km = 9.89, kind = "signal", label = "Zb11", signal = "main", measured = true },
+  { km = 10.3, kind = "signal", label = "zb11", signal = "distant", measured = true },
+  { km = 13.24, kind = "halt", label = "Emmersdorf im Gailtal", measured = true },
+  { km = 15.446, kind = "signal", label = "ab11", signal = "distant", measured = true },
+  { km = 15.848, kind = "signal", label = "Ab11/r", signal = "distant,main", measured = true },
+  { km = 16.25, kind = "signal", label = "VHT101", signal = "shunting", measured = true },
+  { km = 16.434, kind = "signal", label = "H201", signal = "main", measured = true },
+  { km = 16.498, kind = "stop", label = "St. Stefan-Vorderberg" },
+  { km = 16.576, kind = "signal", label = "R201", signal = "main", measured = true },
+  { km = 16.783, kind = "signal", label = "VHT301", signal = "shunting", measured = true },
+  { km = 17.057, kind = "signal", label = "Zc11/h", signal = "distant,main", measured = true },
+  { km = 17.762, kind = "signal", label = "zc11", signal = "distant", measured = true },
+  { km = 22.187, kind = "stop", label = "Görtschach-Förolach" },
+  { km = 23.147, kind = "signal", label = "ac11", signal = "distant", measured = true },
+  { km = 23.576, kind = "signal", label = "Ac11", signal = "main", measured = true },
+  { km = 23.657, kind = "signal", label = "Zc21", signal = "main", measured = true },
+  { km = 24.222, kind = "signal", label = "zc21", signal = "distant", measured = true },
+  { km = 25.496, kind = "halt", label = "Pressegger See", measured = true },
+  { km = 27.869, kind = "halt", label = "Vellach-Khünburg", measured = true },
+  { km = 28.605, kind = "signal", label = "ac21", signal = "distant", measured = true },
+  { km = 29.802, kind = "signal", label = "Ac21", signal = "main", measured = true },
+  { km = 30.277, kind = "signal", label = "VHT101", signal = "shunting", measured = true },
+  { km = 30.39, kind = "signal", label = "V101R", signal = "shunting", measured = true },
+  { km = 30.532, kind = "signal", label = "H201", signal = "main,shunting", measured = true },
+  { km = 30.672, kind = "stop", label = "Hermagor" },
+  { km = 30.785, kind = "signal", label = "FE201R/V201R", signal = "minor,shunting", measured = true },
+  { km = 30.932, kind = "signal", label = "V301H", signal = "shunting", measured = true },
+]

@@ -1,0 +1,63 @@
+ref = "108 01"
+name = "Mattersburger Bahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Wiener Neustadt Hbf (in Nb)"
+to = "Staatsgrenze nächst Loipersbach-Schattend"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 6.94
+kmTo = 21.184
+length = 14.255
+speeds = [[6.94, 8.976, 120, 120], [8.976, 9.229, 90, 90], [9.229, 9.405, 100, 100], [9.405, 12.592, 120, 120], [12.592, 16.387, 100, 100], [16.387, 21.184, 120, 120]]
+curves = [[7.092, 7.241, 1540], [9.09, 9.392, 1420], [11.114, 11.763, 950], [12.583, 13.029, 620], [13.362, 13.861, 600], [14.212, 14.888, 480], [15.113, 15.737, 480], [15.787, 16.362, 570], [19.759, 20.18, 970]]
+points = [
+  { km = 7.564, kind = "signal", signal = "crossing_distant" },
+  { km = 7.643, kind = "signal", signal = "crossing_distant" },
+  { km = 7.963, kind = "signal", signal = "speed_limit_distant" },
+  { km = 8.9, kind = "stop", label = "Bad Sauerbrunn" },
+  { km = 8.976, kind = "signal", signal = "speed_limit" },
+  { km = 8.986, kind = "signal", signal = "speed_limit" },
+  { km = 9.22, kind = "signal", signal = "speed_limit" },
+  { km = 9.229, kind = "signal", signal = "speed_limit" },
+  { km = 9.395, kind = "signal", signal = "speed_limit" },
+  { km = 9.399, kind = "signal", signal = "crossing_distant" },
+  { km = 9.405, kind = "signal", signal = "speed_limit" },
+  { km = 10.197, kind = "signal", signal = "snowplow" },
+  { km = 10.261, kind = "signal", signal = "snowplow" },
+  { km = 11.163, kind = "signal", signal = "crossing_distant" },
+  { km = 12.097, kind = "signal", signal = "station_distant" },
+  { km = 12.427, kind = "signal", signal = "snowplow" },
+  { km = 12.472, kind = "signal", signal = "crossing_distant" },
+  { km = 12.514, kind = "signal", signal = "snowplow" },
+  { km = 12.58, kind = "signal", signal = "speed_limit" },
+  { km = 12.592, kind = "signal", signal = "speed_limit" },
+  { km = 13.188, kind = "halt", label = "Wiesen-Sigleß", measured = true },
+  { km = 13.705, kind = "signal", signal = "snowplow" },
+  { km = 13.742, kind = "signal", signal = "snowplow" },
+  { km = 13.899, kind = "signal", signal = "snowplow" },
+  { km = 13.919, kind = "signal", signal = "crossing_distant" },
+  { km = 13.932, kind = "signal", signal = "snowplow" },
+  { km = 14.148, kind = "signal", signal = "crossing_distant" },
+  { km = 14.174, kind = "signal", signal = "station_distant" },
+  { km = 14.709, kind = "signal", signal = "snowplow" },
+  { km = 14.733, kind = "signal", signal = "snowplow" },
+  { km = 15.113, kind = "signal", signal = "crossing_distant" },
+  { km = 15.127, kind = "signal", signal = "station_distant" },
+  { km = 15.287, kind = "signal", signal = "crossing_distant" },
+  { km = 15.672, kind = "signal", signal = "snowplow" },
+  { km = 15.716, kind = "signal", signal = "snowplow" },
+  { km = 16.135, kind = "signal", signal = "snowplow" },
+  { km = 16.24, kind = "halt", label = "Mattersburg Hirtengasse", measured = true },
+  { km = 16.373, kind = "signal", signal = "speed_limit" },
+  { km = 16.383, kind = "signal", signal = "speed_limit" },
+  { km = 16.999, kind = "station", label = "Mattersburg" },
+  { km = 18.513, kind = "signal", signal = "station_distant" },
+  { km = 19.375, kind = "signal", signal = "snowplow" },
+  { km = 19.492, kind = "halt", label = "Marz-Rohrbach", measured = true },
+  { km = 19.592, kind = "signal", signal = "snowplow" },
+  { km = 20.507, kind = "signal", signal = "crossing_distant" },
+  { km = 20.512, kind = "signal", signal = "station_distant" },
+  { km = 21.151, kind = "signal", signal = "snowplow" },
+]

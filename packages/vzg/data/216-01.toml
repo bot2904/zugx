@@ -1,0 +1,22 @@
+ref = "216 01"
+operator = "ÖBB-Infrastruktur AG"
+from = "Abzw Hw 3"
+to = "Salzburg Gnigl-Vbf (in Sb)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.16
+kmTo = 0.857
+length = 1.075
+speeds = [[0.16, 0.192, 60, 60], [0.192, 0.207, 95, 95], [0.207, 0.744, 60, 60], [0.744, 0.857, 40, 60]]
+curves = [[0.186, 0.407, 410]]
+points = [
+  { km = 0.16, kind = "signal", label = "b", signal = "distant", measured = true },
+  { km = 0.16, kind = "signal", label = "a", signal = "distant", measured = true },
+  { km = 0.239, kind = "signal", label = "We44", signal = "main", measured = true },
+  { km = 0.703, kind = "signal", signal = "electricity" },
+  { km = 0.709, kind = "signal", signal = "electricity" },
+  { km = 0.744, kind = "signal", label = "A/d", signal = "distant,main", measured = true },
+  { km = 0.857, kind = "signal", label = "VHT 2", signal = "shunting", measured = true },
+]

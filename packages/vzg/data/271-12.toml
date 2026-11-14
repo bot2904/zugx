@@ -1,0 +1,26 @@
+ref = "271 12"
+operator = "ÖBB-Infrastruktur AG"
+from = "Linz Vbf-Ost Reihungsgr (in Lzv)"
+to = "Linz Hbf (in Lz)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.18
+kmTo = 1.458
+length = 1.882
+speeds = [[0.18, 1.458, 40, 40]]
+curves = [[0.556, 0.729, 880], [0.98, 1.457, 210]]
+points = [
+  { km = 0.18, kind = "signal", label = "S951/l,k", signal = "distant,main,shunting", measured = true },
+  { km = 0.258, kind = "signal", label = "f951", signal = "distant", measured = true },
+  { km = 0.923, kind = "signal", label = "s951", signal = "distant", measured = true },
+  { km = 0.997, kind = "signal", label = "F951", signal = "main,shunting", measured = true },
+  { km = 1.079, kind = "signal", label = "V962H", signal = "shunting", measured = true },
+  { km = 1.247, kind = "signal", label = "V923", signal = "shunting", measured = true },
+  { km = 1.262, kind = "signal", label = "V963H", signal = "shunting", measured = true },
+  { km = 1.336, kind = "signal", label = "V969H", signal = "shunting", measured = true },
+  { km = 1.421, kind = "signal", label = "V962R", signal = "shunting", measured = true },
+  { km = 1.455, kind = "signal", label = "V963R", signal = "shunting", measured = true },
+  { km = 1.458, kind = "signal", label = "V969R", signal = "shunting", measured = true },
+]

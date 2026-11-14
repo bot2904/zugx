@@ -1,0 +1,31 @@
+ref = "413 15"
+name = "Fürnitzer Schleife"
+operator = "ÖBB-Infrastruktur AG"
+from = "Villach Süd Gvbf-Ausfgr (in Vsv)"
+to = "Villach Süd Gvbf-Einfgr (in Vsv)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 385.635
+kmTo = 387.722
+length = 2.084
+speeds = [[385.635, 387.722, 60, 60]]
+curves = [[387.388, 387.613, 770]]
+points = [
+  { km = 385.635, kind = "signal", label = "F206/g", signal = "distant,main", measured = true },
+  { km = 385.703, kind = "signal", label = "V316o", signal = "shunting", measured = true },
+  { km = 385.91, kind = "signal", label = "V316w", signal = "shunting", measured = true },
+  { km = 385.985, kind = "signal", label = "V326o", signal = "shunting", measured = true },
+  { km = 386.058, kind = "signal", label = "GA206", signal = "speed_limit", measured = true },
+  { km = 386.07, kind = "signal", label = "V326w", signal = "shunting", measured = true },
+  { km = 386.141, kind = "signal", label = "V336o", signal = "shunting", measured = true },
+  { km = 386.35, kind = "signal", label = "V336w", signal = "shunting", measured = true },
+  { km = 386.443, kind = "signal", label = "T306", signal = "main", measured = true },
+  { km = 386.486, kind = "station", label = "Fürnitz", measured = true },
+  { km = 386.998, kind = "signal", label = "G306", signal = "main", measured = true },
+  { km = 387.36, kind = "signal", label = "V364o", signal = "shunting", measured = true },
+  { km = 387.365, kind = "signal", label = "GA404", signal = "speed_limit", measured = true },
+  { km = 387.655, kind = "signal", label = "V364w", signal = "shunting", measured = true },
+  { km = 387.722, kind = "signal", label = "U404/t", signal = "distant,main", measured = true },
+]

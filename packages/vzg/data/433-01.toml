@@ -1,0 +1,20 @@
+ref = "433 01"
+name = "Koralmbahn"
+operator = "ÖBB-Infrastruktur AG"
+from = "Werndorf"
+to = "Abzw Knoten Weitendorf"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.134
+kmTo = 0.924
+length = 0.784
+speeds = [[0.134, 0.924, 100, 100]]
+curves = [[0.24, 0.565, 560], [0.665, 0.815, 760]]
+points = [
+  { km = 0.134, kind = "signal", label = "V604", signal = "shunting", measured = true },
+  { km = 0.159, kind = "signal", label = "VHT604", signal = "shunting", measured = true },
+  { km = 0.282, kind = "signal", label = "Xb23", signal = "train_protection", measured = true },
+  { km = 0.924, kind = "signal", label = "Cb23", signal = "train_protection", measured = true },
+]
