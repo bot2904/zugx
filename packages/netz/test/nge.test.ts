@@ -204,7 +204,7 @@ describe("NGE export", () => {
     expect(dto.trainruns).toEqual([
       {
         id: 0,
-        name: "X–Z",
+        name: "",
         categoryId: 0,
         frequencyId: 3,
         trainrunTimeCategoryId: 0,
@@ -261,8 +261,8 @@ describe("NGE export", () => {
     const d = toNge(m);
     validateNge(d);
     expect(d.trainruns.map((t) => [t.name, t.direction, t.frequencyId])).toEqual([
-      ["X–Y", "one_way", 2],
-      ["Y–X", "one_way", 3],
+      ["", "one_way", 2],
+      ["", "one_way", 3],
     ]);
   });
 

@@ -351,7 +351,6 @@ export function toNge(model: NetzModel, layout?: SchematicOptions): NgeDto {
 
   const trainruns: NgeTrainrunDto[] = [];
   const trainrunSections: NgeTrainrunSectionDto[] = [];
-  const code = (id: string) => model.nodes[nodeIndex.get(id)!]?.code ?? id;
   // a round trip needs one frequency for both directions; otherwise two one-way trainruns
   const runs: { cat: string; fwd: LineDirection; back?: LineDirection }[] = [];
   for (const line of model.lines) {
@@ -365,7 +364,8 @@ export function toNge(model: NetzModel, layout?: SchematicOptions): NgeDto {
     const trId = trainruns.length;
     trainruns.push({
       id: trId,
-      name: `${code(stops[0]!.node)}–${code(stops[stops.length - 1]!.node)}`,
+      // NGE labels a trainrun "<category><name>"; ÖBB has no line numbers, so just the category
+      name: "",
       categoryId: catId.get(run.cat)!,
       frequencyId: frequencyId(run.fwd),
       trainrunTimeCategoryId: run.fwd.takt === null ? 2 : 0,

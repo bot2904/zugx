@@ -155,7 +155,7 @@ listed in travel order. On import NGE creates ports, transitions (nonstop where 
 departure minute, i.e. our `pass` nodes), resources and the edge routing itself.
 
 - one trainrun per line (`round_trip` if paired with the same Takt, else one `one_way` trainrun
-  per direction with mirrored backward times), named `<from code>–<to code>`, labelled with its
+  per direction with mirrored backward times), with an empty name (NGE then labels it with just the category, ÖBB has no line numbers), labelled with its
   category;
 - categories RJX/RJ/ICE → colour `EC`, EC/IC → `IC`, D/IR → `IR`, CJX/REX → `RE`;
 - frequency 15/30/60/120 (120 even/odd hour from the first departure), `takt: null` → 60 with
