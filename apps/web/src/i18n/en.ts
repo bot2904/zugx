@@ -177,6 +177,12 @@ export default {
     liveNoRt: "no realtime",
     liveOnTime: "on time",
     hafasOnly: "not in the GTFS (HAFAS only)",
+    legendReported: "time reported by Scotty",
+    legendActual: "actual (between reports: planned + delay)",
+    legendForecast: "forecast",
+    legendPlanned: "planned, replaced by live data",
+    legendHafasOnly: "planned, not in the timetable data (Scotty only)",
+    liveAt: "realtime at {n} stations, last {station} {time}",
   },
   vzg: {
     title: "VzG chart",

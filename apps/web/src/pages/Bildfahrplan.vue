@@ -12,6 +12,7 @@ import { trainSlug } from "../lib/url.ts";
 import { api } from "../lib/api.ts";
 import {
   buildRuns,
+  lastReported,
   livePaths,
   newLiveState,
   plannedTrain,
@@ -298,6 +299,9 @@ const hoverLive = computed(() =>
   hover.value && liveOn.value
     ? liveRuns.value.get(trainKey(hover.value.cat, hover.value.nr))
     : undefined,
+);
+const hoverReported = computed(() =>
+  hoverLive.value ? lastReported(hoverLive.value, viennaMinutes(now.value)) : undefined,
 );
 const liveDrawn = computed(() => {
   const c = data.value;
@@ -642,9 +646,9 @@ function toggleCat(c: string) {
               fill="none"
               :stroke="r.color"
               :stroke-width="
-                hover === r.t ? 3 : ['S', 'R', 'REX', 'CJX'].includes(r.t.cat) ? 1 : 1.6
+                hover === r.t ? 3 : r.live || ['S', 'R', 'REX', 'CJX'].includes(r.t.cat) ? 1 : 1.6
               "
-              :opacity="hover && hover !== r.t ? 0.35 : r.live ? 0.4 : 1"
+              :opacity="hover && hover !== r.t ? 0.35 : r.live && hover !== r.t ? 0.25 : 1"
               :stroke-dasharray="r.live?.hafasOnly ? '1 2' : undefined"
             />
             <text
@@ -676,6 +680,17 @@ function toggleCat(c: string) {
               stroke-dasharray="5 3"
               :opacity="hover && hover !== drawnByKey.get(p.r.key) ? 0.35 : 0.9"
             />
+            <circle
+              v-for="([cx, cy], k) in p.dots"
+              :key="k"
+              :cx="cx"
+              :cy="cy"
+              r="3"
+              :fill="p.color"
+              stroke="var(--bg2)"
+              stroke-width="1"
+              :opacity="hover && hover !== drawnByKey.get(p.r.key) ? 0.35 : 1"
+            />
             <text
               v-if="p.end && p.r.delay"
               :x="p.end[0] + 3"
@@ -691,6 +706,57 @@ function toggleCat(c: string) {
         </g>
       </svg>
     </div>
+    <!-- live legend: what is reported, what is interpolated, what is only planned -->
+    <p v-if="liveOn" class="muted my-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+      <span class="inline-flex items-center gap-1">
+        <svg width="26" height="8" aria-hidden="true">
+          <line x1="1" x2="25" y1="4" y2="4" stroke="var(--fg)" stroke-width="2.6" />
+          <circle cx="13" cy="4" r="3" fill="var(--fg)" stroke="var(--bg)" stroke-width="1" />
+        </svg>
+        {{ $t("bf.legendReported") }}
+      </span>
+      <span class="inline-flex items-center gap-1">
+        <svg width="26" height="8" aria-hidden="true">
+          <line x1="1" x2="25" y1="4" y2="4" stroke="var(--fg)" stroke-width="2.6" />
+        </svg>
+        {{ $t("bf.legendActual") }}
+      </span>
+      <span class="inline-flex items-center gap-1">
+        <svg width="26" height="8" aria-hidden="true">
+          <line
+            x1="1"
+            x2="25"
+            y1="4"
+            y2="4"
+            stroke="var(--fg)"
+            stroke-width="2"
+            stroke-dasharray="5 3"
+          />
+        </svg>
+        {{ $t("bf.legendForecast") }}
+      </span>
+      <span class="inline-flex items-center gap-1">
+        <svg width="26" height="8" aria-hidden="true">
+          <line x1="1" x2="25" y1="4" y2="4" stroke="var(--fg)" stroke-width="1" opacity="0.35" />
+        </svg>
+        {{ $t("bf.legendPlanned") }}
+      </span>
+      <span class="inline-flex items-center gap-1">
+        <svg width="26" height="8" aria-hidden="true">
+          <line
+            x1="1"
+            x2="25"
+            y1="4"
+            y2="4"
+            stroke="var(--fg)"
+            stroke-width="1"
+            stroke-dasharray="1 2"
+            opacity="0.6"
+          />
+        </svg>
+        {{ $t("bf.legendHafasOnly") }}
+      </span>
+    </p>
     <!-- station menu (click on a station name): departure board, Wikidata -->
     <div ref="stationMenu" popover="auto" class="bf-station-menu card" role="menu">
       <template v-if="menuStation">
@@ -739,6 +805,16 @@ function toggleCat(c: string) {
                   : $t("bf.liveOnTime")
             }}</span
           >
+          <span v-if="hoverReported?.last" class="muted">
+            ·
+            {{
+              $t("bf.liveAt", {
+                n: hoverReported.stations,
+                station: data?.stations[hoverReported.last.i]?.name ?? "",
+                time: hhmmOf(hoverReported.last.rt),
+              })
+            }}
+          </span>
           <span v-if="hoverLive.hafasOnly" class="muted"> · {{ $t("bf.hafasOnly") }}</span>
         </template>
       </template>

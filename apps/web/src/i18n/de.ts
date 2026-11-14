@@ -180,6 +180,12 @@ export default {
     liveNoRt: "keine Echtzeit",
     liveOnTime: "pünktlich",
     hafasOnly: "nicht im GTFS (nur HAFAS)",
+    legendReported: "von Scotty gemeldete Zeit",
+    legendActual: "Ist (zwischen Meldungen: Plan + Verspätung)",
+    legendForecast: "Prognose",
+    legendPlanned: "Plan, durch Echtzeit ersetzt",
+    legendHafasOnly: "Plan, nicht in den Fahrplandaten (nur Scotty)",
+    liveAt: "Echtzeit an {n} Bahnhöfen, zuletzt {station} {time}",
   },
   vzg: {
     title: "VzG-Grafik",

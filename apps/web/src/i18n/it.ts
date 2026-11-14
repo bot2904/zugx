@@ -180,6 +180,12 @@ export default {
     liveNoRt: "nessun tempo reale",
     liveOnTime: "in orario",
     hafasOnly: "non nel GTFS (solo HAFAS)",
+    legendReported: "orario comunicato da Scotty",
+    legendActual: "effettivo (tra le comunicazioni: orario + ritardo)",
+    legendForecast: "previsione",
+    legendPlanned: "programmato, sostituito dal tempo reale",
+    legendHafasOnly: "programmato, non nei dati orari (solo Scotty)",
+    liveAt: "tempo reale in {n} stazioni, ultima {station} {time}",
   },
   vzg: {
     title: "Grafico VzG",

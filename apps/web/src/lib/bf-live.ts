@@ -75,7 +75,7 @@ export function livePaths(
   x: (i: number) => number | undefined,
   y: (min: number) => number,
   nowMin: number,
-): { past: string; future: string; end?: [number, number] } {
+): { past: string; future: string; end?: [number, number]; dots: [number, number][] } {
   const pts: [number, number][] = [];
   // events without realtime: planned + the last known delay; never earlier than the event before
   let lastDelay = 0;
@@ -88,11 +88,15 @@ export function livePaths(
   };
   // time points per station in running order: arrival then departure
   const tm: [number, number][] = [];
+  const dots: [number, number][] = [];
   for (const p of r.pts) {
     const px = x(p.i);
     const a = t(p.arr);
     const d = t(p.dep);
     if (px === undefined) continue;
+    // times reported by HAFAS (not interpolated): marked with a dot
+    if (p.arr?.rt !== undefined) dots.push([px, y(p.arr.rt)]);
+    if (p.dep?.rt !== undefined && p.dep.rt !== p.arr?.rt) dots.push([px, y(p.dep.rt)]);
     if (a !== undefined) tm.push([px, a]);
     if (d !== undefined && d !== a) tm.push([px, d]);
   }
@@ -120,7 +124,7 @@ export function livePaths(
       .map((s) => s.map(([a, b], k) => `${k ? "L" : "M"}${a.toFixed(1)},${b.toFixed(1)}`).join(""))
       .join("");
   const lastPast = past.at(-1)!.at(-1);
-  return { past: d(past), future: d(future), ...(lastPast ? { end: lastPast } : {}) };
+  return { past: d(past), future: d(future), dots, ...(lastPast ? { end: lastPast } : {}) };
 }
 
 /** run `fn` over `items` with at most `n` in flight */
@@ -366,4 +370,17 @@ export async function refreshLive(o: {
     }
     o.onProgress?.();
   }
+}
+
+/** how many stations have reported times, and the last report up to now (station, minute, delay) */
+export function lastReported(r: LiveRun, nowMin: number) {
+  let best: { i: number; rt: number; delay: number } | undefined;
+  let n = 0;
+  for (const p of r.pts) {
+    if (p.arr?.rt !== undefined || p.dep?.rt !== undefined) n++;
+    for (const e of [p.arr, p.dep])
+      if (e?.rt !== undefined && e.rt <= nowMin + 1 && (!best || e.rt >= best.rt))
+        best = { i: p.i, rt: e.rt, delay: e.rt - e.plan };
+  }
+  return { stations: n, last: best };
 }
