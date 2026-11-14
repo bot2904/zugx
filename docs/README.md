@@ -24,6 +24,8 @@ One page per feature: where the data comes from and how it is shown or computed.
 - **OpenStreetMap** ([Geofabrik](https://download.geofabrik.de/europe/austria.html) Austria extract, ODbL) — railway lines, tracks, speed limits, km positions, signals for the VzG-Grafik (`vp run vzg:extract`, `vzg:build`; manual for now). Also the map tiles (OpenFreeMap, OSM, OpenRailwayMap), loaded live.
 - **Wikidata** (CC0) — railway lines of the Bildfahrplan sheets, queried at `netz:build`.
 
+Timetable formats offered by Austrian open-data portals (DINO, GTFS, NeTEx) compared: [timetable-formats.md](timetable-formats.md).
+
 Licences and fetch dates of all sources: [README → Data & licences](../README.md#data--licences).
 
 Times: HAFAS returns local times (`HHMMSS`, optionally with a day offset) plus a UTC offset; zugx keeps them as ISO strings with offset (`2026-11-13T12:24:00+01:00`), always in Europe/Vienna.
