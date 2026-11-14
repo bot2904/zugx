@@ -632,6 +632,44 @@ Source: netzgrafik-editor-frontend (`src/assets/i18n/{de,en}.json`, `documentati
 
 Done: UI labels (en Graphic timetable, Frequency, Trainrun/Perlenkette panel, Operational point, Voll-/Halbknoten translated, "zeitweise" for lines without Takt); `packages/netz` model renamed with the TypeScript language service (symbol-aware) + data keys + Netz page + README. The NGE exports came out byte-identical. Not renamed: real-train concepts (Zuglauf, train, Verbindung), `corridor`, build options (`--cats`).
 
+### WESTbahn & other operators: data.mobilitaetsverbuende.at (assessed 2026-11-14, not integrated)
+
+Gap: the ÖBB GTFS covers only ÖBB-PV, CAT and Montafonerbahn, so WESTbahn, GKB, StH etc. are missing in the Bildfahrplan, Netzgrafik and train index (live HAFAS pages are complete).
+
+Source: Datenbereitstellungsplattform of Mobilitätsverbünde Österreich OG, https://data.mobilitaetsverbuende.at (dataset list is public: `GET /api/public/v1/data-sets?tagFilterModeInclusive=true`).
+
+- **#66 "Fahrplandaten Eisenbahn (GTFS) – aktuell"**: ÖBB-PV, Raaberbahn/GySEV, Montafonerbahn, **WESTbahn**, ÖGEG; continuously updated, current timetable year + 60 days back.
+- **#70 "Fahrplandaten Eisenbahn (GTFS) – Stichtagsdaten Fahrplanwechsel"**: same plus CAT and NÖVOG, whole timetable year at the timetable change (superset of the ÖBB feed). Only version: 2026 (`GTFS_Steig_2026_obb.zip`, 268 MB); no 2027, no archive.
+- Regional datasets (VOR, VVT, …) explicitly exclude ÖBB and WESTbahn.
+- Access: registration + manual licence acceptance; scripted download via OpenID Connect (Keycloak, client `dbp-public-ui`, password grant) with the registered credentials (CI secrets).
+
+Licence: all 50 datasets use the "Datenlizenz Mobilitätsverbünde Österreich" (`Lizenzvereinbarung_DBP_v1.1`, text only visible after login) plus the Nutzungsbedingungen (https://mobilitaetsverbuende.atlassian.net/wiki/spaces/DBP/pages/85524481/Nutzungsbedingungen). It is a German adaptation of CC BY 4.0 with additions:
+
+| Section             | Rule                                                                                                                                                                                                                    | Impact on zugx                                                       |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| 2(a)(1), 4          | reproduce, redistribute, create and share derived material, extract the whole database; royalty-free                                                                                                                    | ✓ derived data in the repo and on the site                           |
+| 2(a)(5)             | no ticket sales based on the data                                                                                                                                                                                       | irrelevant                                                           |
+| 2(a)(7)             | no impression of endorsement by the licensor                                                                                                                                                                            | wording of the attribution                                           |
+| 3(a)(1)             | attribution: creator ("Datenquelle: Mobilitätsverbünde Österreich OG – data.mobilitaetsverbuende.at"), copyright notice, licence notice + link, **disclaimer notice**, URL, **mark modifications**                      | footer, `source` in data files, notice in `packages/*/data`          |
+| 3(a)(3)             | remove attribution on request                                                                                                                                                                                           | –                                                                    |
+| 3(a)(4)             | licensees must **pass the licence obligations on** to recipients of derived material                                                                                                                                    | data files need their own licence notice (AGPL covers only the code) |
+| 5(c)                | licensee **indemnifies** the licensor against third-party claims                                                                                                                                                        | liability risk for a private project                                 |
+| **6(a)**            | licence covers the data **only for its validity period**; afterwards only statistics/research/science                                                                                                                   | data must disappear when its timetable year ends                     |
+| **7(d)**            | using data after its validity "in öffentlich zugänglichen Routenplanern oder Auskunftssystemen" is a gross violation; **€20,000 contractual penalty per violation** (wording also ties it to commercial use; ambiguous) | expired years must not stay online                                   |
+| 8(d,e)              | Austrian law; court at the licensor's seat (Handelsgericht Wien)                                                                                                                                                        | –                                                                    |
+| 9(c)                | consent only in writing                                                                                                                                                                                                 | ask in writing                                                       |
+| Nutzungsbedingungen | licensor may list/link apps; asks to be informed at services@mobilitaetsverbuende.at; no use for criminal, discriminatory etc. purposes                                                                                 | fine                                                                 |
+
+Consequences:
+
+1. **Current timetable year: OK in principle**, if 3(a) is fully met (source, licence link, disclaimer, "modified", pass-through notice).
+2. **Not for previous years** (`netz-years`): exactly what 7(d) names. Past years keep coming from ÖBB's own feeds (CC BY 4.0, no expiry; e.g. the 2024 file from the Mobility Database archive `mdb-2138` is ÖBB's).
+3. **Git history**: committed derived data stays downloadable after expiry, arguably continued distribution. Safer: build-only overlay (download in CI with the credentials, publish only on the site, replace yearly; never commit), or written permission covering an open-source repo with history.
+4. **Risk**: indemnification + penalties under Austrian law vs. a hobby project; plain CC BY data (ÖBB) has none of that.
+5. ÖBB data (CC BY 4.0) and this data can be combined in derived files; both attributions, and the stricter terms apply to the combined files.
+
+Recommendation / next steps: ask services@mobilitaetsverbuende.at in writing first (zugx = open-source, non-commercial; git history; WESTbahn/GKB only). If granted: build-only overlay for WESTbahn & co. in the current year, full attribution set, removal at year end. Alternatives meanwhile: a UI note "ohne WESTbahn, GKB u. a. (nicht in den ÖBB-Open-Data)"; WESTbahn runs from HAFAS for the reference days. Not legal advice.
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
