@@ -30,8 +30,21 @@ export async function mockApi(page: Page) {
         : BY_METH[req.meth];
     await route.fulfill({ json: fixture(name!) });
   });
-  // keep map tiles offline
+  // keep the maps offline: OSM / OpenRailwayMap raster tiles empty, and instead of the OpenFreeMap
+  // vector style a minimal one (the map's "load" — and so the radar's first request — must not
+  // wait for an external tile server; that made the radar test flaky in CI)
   await page.route(/tile\.openstreetmap\.org|openrailwaymap\.org/, (r) =>
     r.fulfill({ status: 204 }),
+  );
+  await page.route(/tiles\.openfreemap\.org/, (r) =>
+    r.request().url().includes("/styles/")
+      ? r.fulfill({
+          json: {
+            version: 8,
+            sources: {},
+            layers: [{ id: "bg", type: "background", paint: { "background-color": "#eee" } }],
+          },
+        })
+      : r.fulfill({ status: 204 }),
   );
 }

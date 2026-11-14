@@ -33,6 +33,13 @@ jobs:
           cache: true
       - run: pnpm --filter @zugx/e2e exec playwright install --with-deps chromium
       - run: vp run --filter @zugx/e2e e2e
+      # screenshots, traces and error context of failed tests
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: e2e-results
+          path: e2e/test-results
+          retention-days: 7
 
   image:
     needs: [check, e2e]
