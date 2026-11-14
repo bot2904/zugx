@@ -14,6 +14,7 @@ import { buildCorridor, corridorToml, CORRIDOR_ALIASES, CORRIDORS } from "./corr
 import { feedPeriod, loadFeed, loadShapes, openFeed, parentDhid, serviceDays } from "./gtfs.ts";
 import { buildNetz } from "./netz.ts";
 import { toNge } from "./nge.ts";
+import { linesByIbnr, sheetLines } from "./wikidata.ts";
 import { nodeCandidates, NODES } from "./nodes.ts";
 import type { CorridorIndex } from "./types.ts";
 
@@ -148,6 +149,32 @@ async function main() {
     console.log(
       `corridors/${file}: ${c.stations.length} stations, ${c.trains.length} distinct runs (${onDay.length} on ${day})`,
     );
+  }
+  // railway lines per sheet from Wikidata (build-time; keep the previous result if unreachable)
+  const ibnrsOf = new Map<string, string[]>();
+  for (const e of index.corridors) {
+    const c = readToml<{ stations: { hafasId?: string }[] }>(join(out, "corridors", e.file), {
+      stations: [],
+    });
+    ibnrsOf.set(
+      e.id,
+      c.stations.flatMap((st) => (st.hafasId ? [st.hafasId] : [])),
+    );
+  }
+  try {
+    const lines = await linesByIbnr([...new Set([...ibnrsOf.values()].flat())]);
+    for (const e of index.corridors) {
+      const l = sheetLines(ibnrsOf.get(e.id) ?? [], lines);
+      if (l.length) e.lines = l;
+    }
+    console.log(`Wikidata: lines for ${index.corridors.filter((e) => e.lines).length} sheets`);
+  } catch (err) {
+    const old = readToml<Partial<CorridorIndex>>(join(out, "corridors", "index.toml"), {});
+    for (const e of index.corridors) {
+      const prev = old.corridors?.find((o) => o.id === e.id)?.lines;
+      if (prev) e.lines = prev;
+    }
+    console.warn(`Wikidata unreachable (${String(err)}), kept the previous lines`);
   }
   writeFileSync(join(out, "corridors", "index.toml"), toToml(index));
 }

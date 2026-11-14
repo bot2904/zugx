@@ -212,6 +212,10 @@ for a synthetic model and for the generated file.
   Second pass: stops of local trains that start/end between anchors (Semmering: Payerbach-Reichenau
   ↔ Mürzzuschlag serving Küb, Eichberg, Wolfsbergkogel) are placed between two neighbouring known
   stations ≤ 20 km apart (long-distance sheets keep only their through trains' stops).
+- Railway lines per sheet (`index.toml` → `lines`): Wikidata, queried at build time
+  (`src/wikidata.ts`): station P954 (IBNR = HAFAS id) → connecting line P81 (+ P1671 number);
+  lines with ≥ 3 stations of the sheet or ≥ 30 % of them; previous result kept if Wikidata is
+  unreachable. Wikidata is CC0.
 - km: median track distance between anchors (shape_dist_traveled), intermediate stations placed
   by their relative position between the anchors (haversine fallback).
 - Trains: every train of the day (all categories incl. S/R/NJ) with ≥ 2 consecutive corridor stops

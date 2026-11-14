@@ -211,6 +211,8 @@ export interface CorridorIndexEntry {
   names: string[];
   /** trains per category on the reference day, most frequent first */
   cats: Record<string, number>;
+  /** railway lines on Wikidata (station P954 → P81), most stations first */
+  lines?: { qid: string; name: string; number?: string; stations: number }[];
 }
 
 export interface CorridorIndex {
