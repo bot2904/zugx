@@ -587,7 +587,7 @@ Optional features, roughly by value/effort:
 
 1. **vagonweb links** (§8.5) — first verify by hand that `cislo` links resolve for ÖBB trains.
 2. **Train index extensions** (§8.4) — composition data (if ÖBB exposes it), timetable-year diff, train-number ranges.
-3. **Netzgrafik** (§7) — test-import the NGE export into the Netzgrafik-Editor; option C (colour by today's punctuality).
+3. **Netzgrafik** (§7) — the NGE export imports fine into the Netzgrafik-Editor (2026-11-14, 3rd-party import path). zugx links to the editor with the network in `#netzgrafik=<deflate-raw, base64url>`; the import of that fragment is proposed upstream (branch `feat/import-from-url` in the local netzgrafik-editor-frontend clone, PR not opened yet). Still open: option C (colour by today's punctuality).
 4. **Custom station plans** (§14) — blocked by the OpenRailwayMap vector tile 403: ask the maintainer or self-host for Austria.
 5. **Delay statistics** — out of scope for now; idea kept (ÖBB's weekly "Zugfahrten" CSV, §3.5, §11).
 
