@@ -207,10 +207,11 @@ export default {
     allSignalsTip: "Auch Verschub-, Zusatz- und Fahrleitungssignale",
     speed: "Geschwindigkeit (km/h)",
     speedChange: "km",
-    curves: "Radius (m)",
+    curves: "Kurvenradius (m)",
     travel: "Fahrtrichtung",
     opposite: "Gegenrichtung",
-    curvesTip: "Bogenradien, aus der OSM-Geometrie geschätzt",
+    curvesTip:
+      "Kurvenradius: Bögen enger als 3.000 m, aus der OSM-Gleisgeometrie geschätzt (nicht aus dem ÖBB-VzG); dunkler = enger.",
     measured: "km aus OSM",
     interpolated: "km interpoliert",
     osm: "Daten © OpenStreetMap-Mitwirkende (ODbL), {date}",

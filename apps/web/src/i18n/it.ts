@@ -208,10 +208,11 @@ export default {
     allSignalsTip: "Anche segnali di manovra, ausiliari e della linea di contatto",
     speed: "Velocità (km/h)",
     speedChange: "km",
-    curves: "Raggio (m)",
+    curves: "Raggio di curva (m)",
     travel: "senso di marcia",
     opposite: "senso opposto",
-    curvesTip: "Raggi di curva stimati dalla geometria OSM",
+    curvesTip:
+      "Raggio di curva: curve più strette di 3.000 m, stimate dalla geometria dei binari OSM (non dal VzG ÖBB); più scuro = più stretta.",
     measured: "km da OSM",
     interpolated: "km interpolato",
     osm: "Dati © contributori di OpenStreetMap (ODbL), {date}",

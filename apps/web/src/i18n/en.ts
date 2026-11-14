@@ -204,10 +204,11 @@ export default {
     allSignalsTip: "Also shunting, minor and electricity signals",
     speed: "Speed (km/h)",
     speedChange: "km",
-    curves: "Radius (m)",
+    curves: "Curve radius (m)",
     travel: "direction of travel",
     opposite: "opposite direction",
-    curvesTip: "Curve radii estimated from the OSM geometry",
+    curvesTip:
+      "Curve radius: curves tighter than 3,000 m, estimated from the OSM track geometry (not from the ÖBB VzG); darker = tighter.",
     measured: "km from OSM",
     interpolated: "km interpolated",
     osm: "Data © OpenStreetMap contributors (ODbL), {date}",

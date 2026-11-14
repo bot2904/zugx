@@ -313,6 +313,10 @@ const fmt = (km: number) => km.toFixed(3);
         <span v-if="oppositePath">· ─·─ {{ $t("vzg.opposite") }}</span>
         · {{ $t("vzg.osm", { date: index?.created ?? "" }) }}
       </p>
+      <p class="muted my-1 text-xs">
+        <span class="inline-block h-2 w-1.5 bg-[var(--link)] align-middle" aria-hidden="true" />
+        {{ $t("vzg.curvesTip") }}
+      </p>
       <div class="overflow-x-auto">
         <svg
           :viewBox="`0 0 ${W} ${H}`"
