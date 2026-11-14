@@ -32,6 +32,7 @@ export default {
     trainHint: "Numero treno, p. es. RJX 260",
   },
   board: {
+    wikidataTip: "Questa stazione su Wikidata (DinoData)",
     stationMap: "Pianta della stazione",
     departures: "Partenze",
     arrivals: "Arrivi",
@@ -160,6 +161,8 @@ export default {
     subtitle: "{n} linee, diagrammi spazio-tempo di un giorno feriale",
     filter: "Linea o stazione…",
     stations: "Stazioni",
+    lines: "Linee",
+    wikidataTip: "Linea ferroviaria su Wikidata (DinoData)",
     trains: "Treni/giorno",
     mix: "Composizione",
     mixTip: "Quota delle categorie di treni nel giorno di riferimento",

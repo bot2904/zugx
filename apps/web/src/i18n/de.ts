@@ -32,6 +32,7 @@ export default {
     trainHint: "Zugnummer, z. B. RJX 260",
   },
   board: {
+    wikidataTip: "Dieser Bahnhof auf Wikidata (DinoData)",
     stationMap: "Bahnhofsplan",
     departures: "Abfahrten",
     arrivals: "Ankünfte",
@@ -160,6 +161,8 @@ export default {
     subtitle: "{n} Strecken, Zeit-Weg-Diagramme eines Werktags",
     filter: "Strecke oder Bahnhof…",
     stations: "Bahnhöfe",
+    lines: "Strecken",
+    wikidataTip: "Strecke auf Wikidata (DinoData)",
     trains: "Züge/Tag",
     mix: "Zugmix",
     mixTip: "Anteil der Zuggattungen am Referenztag",

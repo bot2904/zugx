@@ -332,3 +332,31 @@ test("station board: Later appends the next departures and keeps the shown ones"
   await expect(rows.first()).toHaveText(first);
   await expect(page).not.toHaveURL(/[?&]t=/);
 });
+
+test("bildfahrplan: station menu (departure board, Wikidata via IBNR) and Wikidata railway lines", async ({
+  page,
+}) => {
+  await page.goto("/bf/500?from=14&h=2&d=2026-03-10");
+  await page.locator("svg[role=img] path").first().waitFor();
+  // sheet lines resolved from Wikidata at build time (P954 → P81), linked to DinoData
+  await expect(page.getByRole("link", { name: /^Semmeringbahn/ })).toHaveAttribute(
+    "href",
+    /^https:\/\/dinodata\.toolforge\.org\/#Q\d+$/,
+  );
+  await page
+    .locator("a.bf-station")
+    .filter({ has: page.locator("title", { hasText: /^Semmering$/ }) })
+    .click();
+  const menu = page.getByRole("menu");
+  await expect(menu).toBeVisible();
+  await expect(menu.getByRole("menuitem", { name: /Wikidata/ })).toHaveAttribute(
+    "href",
+    "https://dinodata.toolforge.org/#P954=8100028",
+  );
+  await menu.getByRole("menuitem", { name: /Departures|Abfahrten|Partenze/ }).click();
+  await expect(page).toHaveURL(/\/station\/8100028/);
+  await expect(page.getByRole("link", { name: /Wikidata/ })).toHaveAttribute(
+    "href",
+    "https://dinodata.toolforge.org/#P954=8100028",
+  );
+});

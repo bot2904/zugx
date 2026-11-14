@@ -3,14 +3,15 @@
 import { addDays, daysBetween, viennaDate, viennaMinutes, viennaNow } from "../lib/format.ts";
 import { useDebounceFn, useIntervalFn } from "@vueuse/core";
 import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
-import { computed, onMounted, ref, shallowRef, watch } from "vue";
+import { computed, nextTick, onMounted, ref, shallowRef, watch } from "vue";
 import { useI18n } from "../i18n/index.ts";
 import { useRoute, useRouter } from "vue-router";
 import CorridorIndexView from "../components/CorridorIndex.vue";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
+import { itemWikidata, stationWikidata } from "../lib/wikidata.ts";
 
-type CorridorRef = Pick<CorridorIndexEntry, "id" | "name" | "oebb">;
+type CorridorRef = Pick<CorridorIndexEntry, "id" | "name" | "oebb" | "lines">;
 
 const files = import.meta.glob<{ default: Corridor }>(
   "../../../../packages/netz/data/corridors/*.toml",
@@ -33,6 +34,23 @@ const from = computed(() =>
 );
 const span = computed(() => Number(route.query.h ?? 4));
 const hover = ref<CorridorTrain>();
+
+// railway lines of the current sheet (Wikidata, from the index)
+const sheetLines = computed(() => list.value.find((c) => c.id === id.value)?.lines ?? []);
+
+// station menu: opened at the click position
+const stationMenu = ref<HTMLElement>();
+const menuStation = shallowRef<{ name: string; hafasId?: string }>();
+async function openStationMenu(s: { name: string; hafasId?: string }, e: MouseEvent) {
+  menuStation.value = s;
+  const el = stationMenu.value;
+  if (!el) return;
+  el.style.left = `${Math.min(e.clientX, innerWidth - 220)}px`;
+  el.style.top = `${e.clientY + 8}px`;
+  el.showPopover();
+  await nextTick();
+  el.querySelector<HTMLElement>("[role=menuitem]")?.focus();
+}
 const now = shallowRef(viennaNow());
 useIntervalFn(() => (now.value = viennaNow()), 30_000);
 
@@ -378,6 +396,20 @@ function toggleCat(c: string) {
         >{{ Math.round(Math.abs(kmHi - kmLo)) }} km · {{ shownStations.length }}
         {{ $t("bf.stations") }}</span
       >
+      <!-- railway lines of this sheet on Wikidata (resolved at build time from P954 → P81) -->
+      <span v-if="sheetLines.length" class="muted text-xs">
+        · {{ $t("bf.lines") }}:
+        <template v-for="(l, i) in sheetLines" :key="l.qid"
+          ><template v-if="i"> · </template
+          ><a
+            :href="itemWikidata(l.qid)"
+            target="_blank"
+            rel="noopener"
+            :title="$t('bf.wikidataTip')"
+            >{{ l.name }}<template v-if="l.number"> ({{ l.number }})</template></a
+          ></template
+        >
+      </span>
     </div>
     <div class="my-2 flex flex-wrap gap-1 text-xs">
       <span class="chips flex flex-wrap gap-1">
@@ -417,9 +449,10 @@ function toggleCat(c: string) {
           <a
             :href="s.hafasId ? `/station/${s.hafasId}` : undefined"
             class="bf-station"
-            @click.prevent="s.hafasId && router.push(`/station/${s.hafasId}`)"
+            aria-haspopup="menu"
+            @click.prevent="s.hafasId && openStationMenu(s, $event)"
           >
-            <title>{{ s.name }}{{ s.hafasId ? ` → ${$t("search.board")}` : "" }}</title>
+            <title>{{ s.name }}</title>
             <text
               :transform="`translate(${x(s.km) + 3} ${M.top - 8}) rotate(-60)`"
               font-size="10"
@@ -502,6 +535,28 @@ function toggleCat(c: string) {
         </g>
       </svg>
     </div>
+    <!-- station menu (click on a station name): departure board, Wikidata -->
+    <div ref="stationMenu" popover="auto" class="bf-station-menu card" role="menu">
+      <template v-if="menuStation">
+        <div class="mb-1 text-xs font-semibold">{{ menuStation.name }}</div>
+        <RouterLink
+          role="menuitem"
+          :to="`/station/${menuStation.hafasId}`"
+          class="block"
+          @click="stationMenu?.hidePopover()"
+          >{{ $t("search.board") }} →</RouterLink
+        >
+        <a
+          role="menuitem"
+          :href="stationWikidata(menuStation.hafasId!)"
+          target="_blank"
+          rel="noopener"
+          class="block"
+          @click="stationMenu?.hidePopover()"
+          >Wikidata ↗</a
+        >
+      </template>
+    </div>
     <!-- always rendered (nbsp when empty) so hovering doesn't shift the layout -->
     <p class="mono my-1 min-h-[1.4em] text-sm">
       <template v-if="hover">
@@ -517,6 +572,15 @@ function toggleCat(c: string) {
 </template>
 
 <style scoped>
+.bf-station-menu:popover-open {
+  position: fixed;
+  margin: 0;
+  inset: auto;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.25);
+}
 /* time grid: hours clearly visible, 30/10 minutes thinner and dashed */
 .bf-grid-hour {
   stroke: var(--muted);

@@ -30,6 +30,7 @@ export default {
     trainHint: "Train number, e.g. RJX 260",
   },
   board: {
+    wikidataTip: "This station on Wikidata (DinoData)",
     stationMap: "Station map",
     departures: "Departures",
     arrivals: "Arrivals",
@@ -158,6 +159,8 @@ export default {
     subtitle: "{n} corridors, time–distance diagrams of one weekday",
     filter: "Corridor or station…",
     stations: "Stations",
+    lines: "Lines",
+    wikidataTip: "Railway line on Wikidata (DinoData)",
     trains: "Trains/day",
     mix: "Train mix",
     mixTip: "Share of train categories on the reference day",

@@ -19,6 +19,7 @@ import { PRODUCT_GROUPS, RAIL_CLS } from "../lib/products.ts";
 import { catRank } from "../lib/trains.ts";
 import { loadStations, stationById } from "../lib/stations.ts";
 import { addRecent, isFavourite, toggleFavourite } from "../lib/store.ts";
+import { stationWikidata } from "../lib/wikidata.ts";
 
 const route = useRoute();
 const router = useRouter();
@@ -227,6 +228,15 @@ watch(sel, (i) =>
         ★
       </button>
       <span class="muted mono text-xs">{{ id }}</span>
+      <!-- Wikidata item of the station, looked up by its IBNR (P954 = HAFAS id) -->
+      <a
+        :href="stationWikidata(id)"
+        target="_blank"
+        rel="noopener"
+        class="text-xs"
+        :title="$t('board.wikidataTip')"
+        >Wikidata ↗</a
+      >
       <div class="ml-auto flex gap-1">
         <button class="btn" :class="!arrivals && 'btn-on'" @click="setQuery({ arr: undefined })">
           {{ $t("board.departures") }}
