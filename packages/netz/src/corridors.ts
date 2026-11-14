@@ -913,7 +913,7 @@ export function corridorStations(feed: Feed, def: CorridorDef, names?: Map<strin
  * are corridor stations in monotonic order. A non-corridor stop in between
  * (train left the corridor) or a direction change splits the run.
  */
-export type CorridorRun = Omit<CorridorTrain, "days">;
+export type CorridorRun = Omit<CorridorTrain, "days" | "origin">;
 
 export function corridorRuns(trip: Trip, stationIdx: Map<string, number>): CorridorRun[] {
   const out: CorridorRun[] = [];
@@ -986,11 +986,16 @@ export function buildCorridor(
   const begin = year?.begin ?? day;
   const end = year?.end ?? day;
   const n = Temporal.PlainDate.from(begin).until(end).days + 1;
-  const merged = new Map<string, { t: CorridorRun; days: Set<number> }>();
-  for (const trip of (year ?? { feed }).feed.trips) {
+  const merged = new Map<string, { t: Omit<CorridorTrain, "days">; days: Set<number> }>();
+  const src = (year ?? { feed }).feed;
+  for (const trip of src.trips) {
     const tripDays = year ? year.days.get(trip.service) : new Set([0]);
     if (!tripDays?.size) continue;
-    for (const t of corridorRuns(trip, idx)) {
+    const first = trip.stops[0]!.st;
+    const origin = src.stations.get(first)?.name ?? first;
+    for (const run of corridorRuns(trip, idx)) {
+      const { pts, headsign, ...head } = run;
+      const t = { ...head, origin, headsign, pts }; // key order of the JSON lines
       const key = JSON.stringify(t);
       let m = merged.get(key);
       if (!m) merged.set(key, (m = { t, days: new Set() }));

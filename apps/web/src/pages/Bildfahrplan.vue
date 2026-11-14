@@ -498,7 +498,10 @@ function toggleCat(c: string) {
     <p class="mono my-1 min-h-[1.4em] text-sm">
       <template v-if="hover">
         {{ hover.cat }} {{ hover.nr }}
-        <span v-if="hover.headsign" class="muted">→ {{ hover.headsign }}</span>
+        <span class="muted"
+          >{{ hover.origin
+          }}<template v-if="hover.headsign"> → {{ hover.headsign }}</template></span
+        >
       </template>
       <template v-else>&nbsp;</template>
     </p>

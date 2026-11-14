@@ -277,3 +277,11 @@ test("footer links imprint and privacy policy (German version authoritative)", a
   await page.goto("/impressum");
   await expect(page).toHaveURL(/\/imprint$/);
 });
+
+test("bildfahrplan hover shows train, departure station and destination", async ({ page }) => {
+  await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
+  const train = page.locator("svg[role=img] g.cursor-pointer").first();
+  await train.waitFor({ state: "attached" });
+  await train.dispatchEvent("mouseenter"); // the first run may lie partly outside the clipped plot
+  await expect(page.locator("p.mono").filter({ hasText: "→" })).toHaveText(/\S+ \d+\s+.+ → .+/);
+});

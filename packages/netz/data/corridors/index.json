@@ -544,11 +544,11 @@
       "to": "Bad Radkersburg",
       "km": 77.2,
       "stations": 20,
-      "trains": 223,
+      "trains": 235,
       "file": "502.json",
       "major": ["Graz Hbf", "Leibnitz", "Spielfeld-Straß", "Bad Radkersburg"],
       "names": ["Graz Hbf", "Graz Don Bosco", "Graz Puntigam", "Feldkirchen-Seiersberg", "Flughafen Graz-Feldkirchen", "Kalsdorf", "Werndorf", "Wildon", "Lebring", "Kaindorf", "Leibnitz", "Ehrenhausen", "Spielfeld-Straß", "Lichendorf", "Weitersfeld an der Mur", "Mureck", "Gosdorf", "Purkla", "Halbenrain", "Bad Radkersburg"],
-      "cats": { "S": 165, "IR": 30, "REX": 20, "IC": 4, "EC": 4 }
+      "cats": { "S": 165, "IR": 42, "REX": 20, "IC": 4, "EC": 4 }
     },
     {
       "id": "510",
@@ -693,11 +693,11 @@
       "to": "Szentgotthárd pályaudvar",
       "km": 81.5,
       "stations": 20,
-      "trains": 216,
+      "trains": 228,
       "file": "530.json",
       "major": ["Graz Hbf", "Feldbach", "Fehring", "Szentgotthárd pályaudvar"],
       "names": ["Graz Hbf", "Graz Don Bosco", "Graz Ostbahnhof", "Graz Liebenau Murpark", "Raaba", "Hart b.Graz", "Laßnitzhöhe", "Laßnitzthal", "Gleisdorf", "Takern-St.Margarethen", "Studenzen-Fladnitz", "Rohr/Raab", "Gniebing", "Feldbach", "Lödersdorf", "Fehring", "Hohenbrugg an der Raab", "Jennersdorf", "Mogersdorf", "Szentgotthárd pályaudvar"],
-      "cats": { "S": 134, "IR": 30, "R": 24, "REX": 20, "IC": 4, "EC": 4 }
+      "cats": { "S": 134, "IR": 42, "R": 24, "REX": 20, "IC": 4, "EC": 4 }
     },
     {
       "id": "600",

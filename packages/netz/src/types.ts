@@ -170,6 +170,8 @@ export interface CorridorTrain {
   nr: string;
   /** 1 = in station order (increasing km), -1 = reverse */
   dir: 1 | -1;
+  /** first station of the whole run (may lie outside the corridor), e.g. `Wien Hbf` */
+  origin: string;
   headsign: string;
   pts: [number, number | null, number | null][];
   /**
