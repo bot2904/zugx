@@ -13,12 +13,17 @@ One page per feature: where the data comes from and how it is shown or computed.
 | Train index     | `/trains`                         | ÖBB GTFS (static) + HAFAS train names                      | [train-index.md](train-index.md)     |
 | Bildfahrplan    | `/bf`, `/bf/<corridor>?d=`        | ÖBB GTFS (static, any day of the timetable year)           | [bildfahrplan.md](bildfahrplan.md)   |
 | Netzgrafik      | `/netz?day=`                      | ÖBB GTFS (static, per day type: Mon–Fri, Sat, Sun)         | [netzgrafik.md](netzgrafik.md)       |
+| VzG-Grafik      | `/vzg`, `/vzg/101-01?t=2`         | OpenStreetMap (static, Geofabrik extract, ODbL)            | [vzg.md](vzg.md)                     |
 | Add to calendar | journey details                   | the journey shown                                          | [calendar.md](calendar.md)           |
 | Raw API view    | `{}` button / `d`                 | the app's own HAFAS requests                               | [raw-api.md](raw-api.md)             |
 
-## The two data sources
+## Data sources
 
 - **ÖBB HAFAS** (`fahrplan.oebb.at/bin/mgate.exe`) — the unofficial JSON API behind ÖBB Scotty. Everything _live_ (realtime delays, platforms, routing, positions, disruptions). The browser talks to it through the same-origin proxy `/api/mgate` (Caddy in the container, Vite in dev); the request/response handling is in `packages/hafas`. Identical requests are cached in the browser for 30 s.
-- **ÖBB open data GTFS** ([data.oebb.at](https://data.oebb.at/de/datensaetze~soll-fahrplan-gtfs~), CC BY 4.0) — the planned timetable of the timetable year. Everything _static_ (station index, train index, Bildfahrplan, Netzgrafik) is built from it in CI (`vp run stations:build`, `trains:build`, `netz:build`), committed as JSON and refreshed weekly by a pull request. Coverage: ÖBB-Personenverkehr, CAT, Montafonerbahn — **not** WESTbahn, GKB, Raaberbahn etc.
+- **ÖBB open data GTFS** ([data.oebb.at](https://data.oebb.at/de/datensaetze~soll-fahrplan-gtfs~), CC BY 4.0) — the planned timetable of the timetable year. Everything _static_ (station index, train index, Bildfahrplan, Netzgrafik) is built from it in CI (`vp run stations:build`, `trains:build`, `netz:build`), committed as TOML and refreshed weekly by a pull request. Coverage: ÖBB-Personenverkehr, CAT, Montafonerbahn — **not** WESTbahn, GKB, Raaberbahn etc.
+- **OpenStreetMap** ([Geofabrik](https://download.geofabrik.de/europe/austria.html) Austria extract, ODbL) — railway lines, tracks, speed limits, km positions, signals for the VzG-Grafik (`vp run vzg:extract`, `vzg:build`; manual for now). Also the map tiles (OpenFreeMap, OSM, OpenRailwayMap), loaded live.
+- **Wikidata** (CC0) — railway lines of the Bildfahrplan sheets, queried at `netz:build`.
+
+Licences and fetch dates of all sources: [README → Data & licences](../README.md#data--licences).
 
 Times: HAFAS returns local times (`HHMMSS`, optionally with a day offset) plus a UTC offset; zugx keeps them as ISO strings with offset (`2026-11-13T12:24:00+01:00`), always in Europe/Vienna.

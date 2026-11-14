@@ -8,6 +8,7 @@ Fast, mobile-friendly, information-dense timetable browser for Austrian trains (
 - **Live radar** of train positions
 - **Train index** of every train running in Austria in the timetable year (`/trains`)
 - **Bildfahrplan** (time–distance diagrams) for corridors, **Netzgrafik** of the integrated interval timetable (+ export for SBB's Netzgrafik-Editor)
+- **VzG-Grafik**: permitted speeds, stations, signals and curves per railway line (Streckennummer) and track (`/vzg`)
 - Raw API JSON view (`d`), command palette (`Ctrl/⌘ K`), UI in English, German, Italian
 
 See [docs/](docs/README.md) for how each feature works (data source, computation, display) and [PLAN.md](PLAN.md) for the design and decisions.
@@ -19,8 +20,10 @@ apps/web            Vue 3 SPA (pages, components, viz)
 packages/hafas      typed ÖBB HAFAS mgate client + normalizer (+ recorded fixtures)
 packages/stations   station index build (ÖBB GTFS → HAFAS IDs) + committed stations.toml
 packages/trains     train index build (ÖBB GTFS) + committed trains-<year>.toml / .full.toml
+packages/gtfs       ÖBB GTFS download + parsing shared by the builds
 packages/toml       prebuilt data as TOML: writer/reader (null ⇔ "") + Vite plugin to import *.toml
-packages/netz       Netzgrafik / Bildfahrplan build (ÖBB GTFS) + committed data
+packages/netz       Netzgrafik / Bildfahrplan build (ÖBB GTFS, Wikidata) + committed data
+packages/vzg        VzG-Grafik build (OpenStreetMap PBF) + committed data (ODbL)
 e2e                 Playwright smoke tests (API mocked from fixtures)
 deploy              Containerfile, Caddyfile, Quadlet unit, host Caddy snippet
 ```
@@ -37,7 +40,9 @@ vp run -r test              # unit tests
 vp run --filter @zugx/e2e e2e
 vp run stations:build       # rebuild station index (downloads ÖBB GTFS, queries HAFAS)
 vp run trains:build         # rebuild train index
-vp run netz:build           # rebuild Netzgrafik + corridors
+vp run netz:build           # rebuild Netzgrafik + corridors (+ railway lines from Wikidata)
+vp run vzg:extract          # OSM PBF in .cache/ (Geofabrik Austria) → .cache/osm-rail.json
+vp run vzg:build            # → packages/vzg/data/*.toml
 vp run hafas:record         # re-record API fixtures
 vp run hafas:canary         # check the live API still works
 ```
@@ -72,8 +77,27 @@ Local image instead of GHCR: `podman build -t localhost/zugx -f deploy/Container
 
 ## Data & licences
 
-- Realtime and routing: ÖBB HAFAS (unofficial API, used politely: client cache, small request bodies, honest User-Agent).
-- Timetable: [ÖBB open data GTFS](https://data.oebb.at/de/datensaetze~soll-fahrplan-gtfs~), CC BY 4.0.
-- Map: © OpenStreetMap contributors, OpenRailwayMap (CC BY-SA).
+Code: AGPL-3.0-only. The data below keeps its own licence; the committed files under `packages/*/data/` are derived from it.
 
-Code: AGPL-3.0-only.
+### Built into the app (committed, rebuilt by the scripts above)
+
+| Data                                                                      | Source                                                                                                                                                            | Licence                                                                                                                       | Fetched                                         | Files                                                                                |
+| ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Planned timetable 2026 (stations, trains, Bildfahrplan, Netzgrafik)       | ÖBB open data, [Soll-Fahrplan GTFS](https://data.oebb.at/de/datensaetze~soll-fahrplan-gtfs~) (`GTFS_Fahrplan_2026.zip`, valid 2025-12-14 – 2026-12-12)            | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), attribution "ÖBB (data.oebb.at)"                                   | 2026-11-13                                      | `packages/stations/data`, `packages/trains/data`, `packages/netz/data`               |
+| Station ids (GTFS → HAFAS), train names                                   | ÖBB HAFAS (`fahrplan.oebb.at`, unofficial API: `LocMatch`, `JourneyMatch`)                                                                                        | no licence stated (facts; ids and names only)                                                                                 | 2026-11-13 (train names: `checked` per entry)   | `packages/stations/data/gtfs-hafas-map.toml`, `packages/trains/data/names-2026.toml` |
+| Railway lines per Bildfahrplan sheet (station IBNR P954 → line P81/P1671) | [Wikidata](https://www.wikidata.org/) SPARQL (`query.wikidata.org`)                                                                                               | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)                                                                 | 2026-11-14                                      | `packages/netz/data/corridors/index.toml` (`lines`)                                  |
+| VzG-Grafik: tracks, speed limits, km positions, signals, stations         | [OpenStreetMap](https://www.openstreetmap.org/) via the [Geofabrik](https://download.geofabrik.de/europe/austria.html) Austria extract (`austria-261113.osm.pbf`) | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/), © OpenStreetMap contributors (see `packages/vzg/data/LICENSE.md`) | OSM data as of 2026-11-13, extracted 2026-11-14 | `packages/vzg/data`                                                                  |
+| API test fixtures                                                         | ÖBB HAFAS (recorded responses)                                                                                                                                    | no licence stated; test data only, not shipped                                                                                | 2026-11-13                                      | `packages/hafas/fixtures`                                                            |
+
+The build date and source are also stored in the files themselves (`source`, `created`, `day`, `begin`/`end`). Not covered by the ÖBB GTFS: WESTbahn, GKB, Raaberbahn and other operators (see PLAN.md for data.mobilitaetsverbuende.at).
+
+### Loaded live by the browser
+
+| Data                                                                  | Source                                                                                  | Licence / terms                                                                                                                              |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Realtime, routing, station boards, train runs, positions, disruptions | ÖBB HAFAS `fahrplan.oebb.at/bin/mgate.exe` via the same-origin proxy `/api/mgate`       | unofficial API, used politely (client cache, small request bodies, honest User-Agent); no licence stated                                     |
+| Base map (radar, train run)                                           | [OpenFreeMap](https://openfreemap.org/) vector tiles (OpenMapTiles schema)              | data © OpenStreetMap contributors (ODbL), © OpenMapTiles; attribution shown on the map                                                       |
+| Station map                                                           | [OpenStreetMap](https://www.openstreetmap.org/) raster tiles (`tile.openstreetmap.org`) | © OpenStreetMap contributors (ODbL), [tile usage policy](https://operations.osmfoundation.org/policies/tiles/); attribution shown on the map |
+| Railway overlay                                                       | [OpenRailwayMap](https://www.openrailwaymap.org/) tiles (`a.tiles.openrailwaymap.org`)  | cartography CC BY-SA 2.0, data © OpenStreetMap contributors (ODbL); attribution shown on the map                                             |
+
+Links only (no data loaded): ÖBB Fahrplanbilder (oebb.at), [DinoData](https://dinodata.toolforge.org/) / Wikidata items, [Netzgrafik-Editor](https://openrailassociation.github.io/netzgrafik-editor-frontend/) (the NGE export is generated from the GTFS data above, CC BY 4.0).
