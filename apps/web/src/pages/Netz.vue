@@ -352,8 +352,8 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
             </g>
           </svg>
           <p class="muted m-1 flex flex-wrap gap-3 text-xs">
-            <span><b class="text-[var(--accent)]">■</b> :00 Vollknoten</span>
-            <span><b class="text-[var(--warn)]">■</b> :30 Halbknoten</span>
+            <span><b class="text-[var(--accent)]">■</b> :00 {{ $t("netz.fullNode") }}</span>
+            <span><b class="text-[var(--warn)]">■</b> :30 {{ $t("netz.halfNode") }}</span>
             <span><b class="text-[var(--link)]">■</b> :15/:45</span>
             <span>━ 30′ · ── 60′ · ╌ 120′/–</span>
             <span class="mono">dep/arr</span>
@@ -361,20 +361,27 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
         </div>
         <aside class="card p-2 text-sm">
           <template v-if="line">
+            <div class="muted text-xs">{{ $t("netz.trainrun") }}</div>
             <b :style="{ color: categoryColor(line.cat) }">{{ line.cat }}</b> {{ line.name }}
             <div class="muted text-xs">
-              {{ $t("netz.takt") }} {{ line.takt ? line.takt + "′" : "–" }}
+              {{ $t("netz.takt") }} {{ line.takt ? line.takt + "′" : $t("netz.occasional") }}
               <template v-if="line.symmetry !== null">
                 · {{ $t("netz.symmetry") }} {{ line.symmetry > 0 ? "+" : ""
                 }}{{ line.symmetry }}′</template
               >
             </div>
+            <h3 class="muted m-0 mt-2 text-xs font-normal uppercase">
+              {{ $t("netz.perlenkette") }}
+            </h3>
             <div v-for="d in [line.fwd, line.back].filter(Boolean)" :key="d!.to" class="mt-2">
               <div class="text-xs">
                 → {{ d!.to }} · {{ d!.trips }}× · {{ d!.first }}–{{ d!.last }}
                 <div class="muted">{{ d!.numbers }}</div>
               </div>
-              <ol class="m-0 mt-1 list-none p-0 mono text-xs">
+              <ol
+                class="m-0 mt-1 list-none p-0 mono text-xs"
+                :aria-label="`${$t('netz.perlenkette')} → ${d!.to}`"
+              >
                 <li
                   v-for="(s, i) in d!.stops"
                   :key="i"
@@ -390,6 +397,9 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
           </template>
           <template v-else-if="node">
             <b>{{ node.name }}</b>
+            <span class="muted ml-1 text-xs" :title="$t('netz.operationalPoint')"
+              >{{ $t("netz.operationalPoint") }} {{ node.code }}</span
+            >
             <RouterLink v-if="node.hafasId" :to="`/station/${node.hafasId}`" class="ml-2 text-xs"
               >{{ $t("search.board") }} →</RouterLink
             >

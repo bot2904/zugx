@@ -183,6 +183,12 @@ export default {
     knoten: "Knotenzeiten",
     takt: "Takt",
     symmetry: "Symmetrie",
+    fullNode: "Vollknoten",
+    halfNode: "Halbknoten",
+    operationalPoint: "Betriebspunkt",
+    trainrun: "Zuglauf",
+    perlenkette: "Perlenkette",
+    occasional: "zeitweise",
   },
   map: { orm: "Bahnkarte", ormTip: "OpenRailwayMap-Overlay (Gleise, Bahnhöfe, Signale)" },
   debug: {

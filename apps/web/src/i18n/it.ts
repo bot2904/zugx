@@ -183,6 +183,12 @@ export default {
     knoten: "Orari ai nodi",
     takt: "Cadenza",
     symmetry: "Simmetria",
+    fullNode: "Nodo completo",
+    halfNode: "Mezzo nodo",
+    operationalPoint: "Punto operativo",
+    trainrun: "Corsa",
+    perlenkette: "Perlenkette",
+    occasional: "occasionale",
   },
   map: { orm: "Mappa ferroviaria", ormTip: "Overlay OpenRailwayMap (binari, stazioni, segnali)" },
   debug: {
