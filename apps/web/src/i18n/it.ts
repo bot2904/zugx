@@ -255,7 +255,7 @@ export default {
   },
   products: {
     highspeed: "RJX/RJ/ICE",
-    intercity: "EC/IC",
+    intercity: "EC/IC/IR",
     interregional: "D/NJ/WB",
     replacement: "Bus sostitutivo",
     regional: "Regionali",

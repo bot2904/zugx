@@ -4,7 +4,7 @@ export type ProductId =
   | "highspeed" // RJX, RJ, ICE (cls 1)
   | "night" // NJ, EN (cls 8, detected by category)
   | "replacement" // rail replacement bus, SEV (cls 2)
-  | "intercity" // IC, EC (cls 4)
+  | "intercity" // IC, EC, IR (cls 4)
   | "interregional" // D, NJ, EN, WB, other long distance (cls 8, 4096)
   | "regional" // CJX, REX, R (cls 16)
   | "suburban" // S (cls 32)
