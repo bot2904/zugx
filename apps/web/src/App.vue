@@ -70,6 +70,7 @@ const nav: { to: string; key: MessageKey }[] = [
   { to: "/trains", key: "nav.trains" },
   { to: "/radar", key: "nav.radar" },
   { to: "/bf", key: "nav.bildfahrplan" },
+  { to: "/vzg", key: "nav.vzg" },
   { to: "/netz", key: "nav.netz" },
   { to: "/him", key: "nav.him" },
 ];

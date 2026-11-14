@@ -79,12 +79,12 @@ export default defineConfig({
         globPatterns: ["**/*.{js,mjs,css,html,svg,png,json,woff2}"],
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         navigateFallbackDenylist: [/^\/api\//, /\.txt$/],
-        // big, rarely used data (67 Bildfahrplan corridors, full train index): not precached on
+        // big, rarely used data (67 Bildfahrplan corridors, 156 VzG lines, full train index): not precached on
         // install, cached on first use instead (hashed file names → cache-first is safe)
-        globIgnores: ["**/corridor-*.js", "**/trains-*.full-*.js"],
+        globIgnores: ["**/corridor-*.js", "**/vzg-*.js", "**/trains-*.full-*.js"],
         runtimeCaching: [
           {
-            urlPattern: /\/assets\/(corridor-|trains-\d{4}\.full-)[^/]+\.js$/,
+            urlPattern: /\/assets\/(corridor-|vzg-|trains-\d{4}\.full-)[^/]+\.js$/,
             handler: "CacheFirst",
             options: { cacheName: "zugx-data", expiration: { maxEntries: 40 } },
           },
@@ -112,12 +112,15 @@ export default defineConfig({
     chunkSizeWarningLimit: 1200,
     rollupOptions: {
       output: {
-        // recognisable names for corridor data chunks (excluded from the service worker precache)
-        chunkFileNames: (chunk) =>
-          chunk.facadeModuleId?.includes("/netz/data/corridors/") &&
-          !chunk.facadeModuleId.endsWith("/index.toml")
-            ? "assets/corridor-[name]-[hash].js"
-            : "assets/[name]-[hash].js",
+        // recognisable names for corridor / VzG data chunks (excluded from the service worker
+        // precache)
+        chunkFileNames: (chunk) => {
+          const id = chunk.facadeModuleId ?? "";
+          if (id.endsWith("/index.toml")) return "assets/[name]-[hash].js";
+          if (id.includes("/netz/data/corridors/")) return "assets/corridor-[name]-[hash].js";
+          if (id.includes("/vzg/data/")) return "assets/vzg-[name]-[hash].js";
+          return "assets/[name]-[hash].js";
+        },
       },
     },
   },

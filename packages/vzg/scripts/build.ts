@@ -8,7 +8,7 @@ import { mkdirSync, readFileSync, readdirSync, rmSync } from "node:fs";
 import { join } from "node:path";
 import { writeToml } from "@zugx/toml";
 import { buildLines } from "../src/lines.ts";
-import type { RailExtract } from "../src/types.ts";
+import type { RailExtract, VzgIndexEntry } from "../src/types.ts";
 
 const root = join(import.meta.dirname, "..", "..", "..");
 const input = process.argv[2] ?? join(root, ".cache", "osm-rail.json");
@@ -18,7 +18,7 @@ const ex = JSON.parse(readFileSync(input, "utf8")) as RailExtract;
 const lines = buildLines(ex);
 mkdirSync(out, { recursive: true });
 for (const f of readdirSync(out)) if (/^\d{3}-\d{2}\.toml$/.test(f)) rmSync(join(out, f));
-const index = [];
+const index: VzgIndexEntry[] = [];
 for (const l of lines) {
   const file = `${l.ref.replace(" ", "-")}.toml`;
   writeToml(join(out, file), l);
@@ -37,8 +37,28 @@ for (const l of lines) {
     kmTo: Math.max(...t.map((tr) => tr.kmTo)),
     length: Math.max(...t.map((tr) => tr.length)),
     speedCoverage: Math.round(Math.min(...t.map(covered)) * 100) / 100,
-    stations: Math.max(...t.map((tr) => tr.points.filter((p) => p.kind !== "signal").length)),
+    stations: Math.max(
+      ...t.map(
+        (tr) =>
+          new Set(
+            tr.points
+              .filter((p) => p.kind === "station" || p.kind === "halt" || p.kind === "stop")
+              .map((p) => p.label),
+          ).size,
+      ),
+    ),
     signals: Math.max(...t.map((tr) => tr.points.filter((p) => p.kind === "signal").length)),
+    names: [
+      ...new Set(
+        t.flatMap((tr) =>
+          tr.points
+            .filter(
+              (p) => (p.kind === "station" || p.kind === "halt" || p.kind === "stop") && p.label,
+            )
+            .map((p) => p.label!),
+        ),
+      ),
+    ],
   });
 }
 writeToml(join(out, "index.toml"), {

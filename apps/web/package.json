@@ -16,6 +16,7 @@
     "@zugx/netz": "workspace:*",
     "@zugx/stations": "workspace:*",
     "@zugx/trains": "workspace:*",
+    "@zugx/vzg": "workspace:*",
     "maplibre-gl": "catalog:",
     "temporal-polyfill": "catalog:",
     "vue": "catalog:",

@@ -55,7 +55,6 @@ export interface VzgTrack {
   curves: [number, number, number][];
   /** operating points along the track: stations, halts, signals, switches, level crossings */
   points: VzgPoint[];
-  /** km values interpolated between OSM positions (true) or measured on the node (false) */
 }
 
 export interface VzgPoint {
@@ -68,4 +67,29 @@ export interface VzgPoint {
   measured?: boolean;
   /** signal type, e.g. "main", "distant", "speed_limit" */
   signal?: string;
+}
+
+/** `data/index.toml`: one entry per built line */
+export interface VzgIndex {
+  source: string;
+  created: string;
+  lines: VzgIndexEntry[];
+}
+export interface VzgIndexEntry {
+  ref: string;
+  name?: string;
+  from?: string;
+  to?: string;
+  /** file name in data/, e.g. "101-01.toml" */
+  file: string;
+  tracks: string[];
+  kmFrom: number;
+  kmTo: number;
+  length: number;
+  /** share of the km range with a known speed limit (worst track) */
+  speedCoverage: number;
+  stations: number;
+  signals: number;
+  /** names of the stations and halts along the line (for the search) */
+  names: string[];
 }

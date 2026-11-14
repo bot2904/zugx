@@ -256,6 +256,9 @@ importers:
       '@zugx/trains':
         specifier: workspace:*
         version: link:../../packages/trains
+      '@zugx/vzg':
+        specifier: workspace:*
+        version: link:../../packages/vzg
       maplibre-gl:
         specifier: 'catalog:'
         version: 6.18.0

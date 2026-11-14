@@ -730,6 +730,8 @@ Goal: a new view "VzG-Grafik" modelled on ÖBB's VzG pages (Strecke 10101 / REGE
 - partial: 101 05 Arlbergbahn (path 26 km for km 49.6–135.9), 102 01 (32 of 81 km), 206 02 (63 of 150), 107 01 (only km 43.8–72.3), 118 01 (1.9–48.4); detours 122 12, 130 01. Causes: gaps in the graph (missing connectors/excluded service ways), km positions of other lines on shared ways, km resets at line borders.
 - fix options: path via the relation's own member order; stitching components; manual overrides in a small TOML (`data/overrides.toml`: per line via-nodes or km corrections); fixing OSM itself (positions, track refs).
 
+**View — first version done (2026-11-14)**: nav entry "VzG-Grafik" → `/vzg` (index by Streckennummer like the Bildfahrplan index: filter by number — "10101" finds "101 01" —, name or station; sortable) and `/vzg/101-01?t=2&z=100&rev=1&all=1` (track, scale px/km, swap direction, all signals). Vertical km axis in the direction of travel (Regelgleis 1 → increasing km, 2 → decreasing); columns km · stations/signals · km of the speed changes · speed diagram (solid = direction of travel, dash-dot = opposite direction where different) · curve radii · km. Named OSM stop positions without a station node count as halts (e.g. Maria Anzbach). Line cut = VzG/Streckenlisten (ÖBB), not the historic lines; names/ends from the OSM `route=tracks` relations — official names could come from the Wikipedia list of ÖBB lines by VzG later.
+
 **View concept (to discuss)**
 
 - route `/vzg/:ref` (e.g. `/vzg/101-01`) + index `/vzg` listing lines (search by number, name, Kursbuch number); links from the Bildfahrplan sheet and the station menu.

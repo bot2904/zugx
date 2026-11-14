@@ -360,3 +360,20 @@ test("bildfahrplan: station menu (departure board, Wikidata via IBNR) and Wikida
     "https://dinodata.toolforge.org/#P954=8100028",
   );
 });
+
+test("VzG index filters by line number and station, opens a line", async ({ page }) => {
+  await page.goto("/vzg");
+  await page.getByRole("searchbox").fill("10101");
+  await expect(page.locator("tbody tr")).toHaveCount(1);
+  await page.getByRole("searchbox").fill("Maria Anzbach");
+  await expect(page.locator("tbody tr").first()).toContainText("101 01");
+  await page.getByRole("searchbox").press("Enter");
+  await expect(page).toHaveURL(/\/vzg\/101-01/);
+  const svg = page.locator("svg.vzg");
+  await expect(svg.locator("text", { hasText: "Maria Anzbach" })).toBeVisible();
+  // Regelgleis 2 (direction of decreasing km): speed changes of the ÖBB VzG page
+  await page.getByRole("button", { name: "2", exact: true }).click();
+  await expect(page).toHaveURL(/t=2/);
+  for (const km of ["30.558", "32.863", "34.629"])
+    await expect(svg.locator("text", { hasText: km })).toHaveCount(1);
+});
