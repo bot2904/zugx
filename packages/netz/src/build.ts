@@ -11,7 +11,7 @@ import { join } from "node:path";
 import { parseArgs } from "node:util";
 import { readToml, toToml } from "@zugx/toml";
 import { buildCorridor, corridorToml, CORRIDOR_ALIASES, CORRIDORS } from "./corridors.ts";
-import { feedPeriod, loadFeed, openFeed, serviceDays } from "./gtfs.ts";
+import { feedPeriod, loadFeed, openFeed, parentDhid, serviceDays } from "./gtfs.ts";
 import { buildNetz } from "./netz.ts";
 import { toNge } from "./nge.ts";
 import { nodeCandidates, NODES } from "./nodes.ts";
@@ -39,8 +39,15 @@ function loadHafasMap(): Map<string, string> | undefined {
   const raw = readToml<Record<string, unknown>>(p, {});
   const map = new Map<string, string>();
   for (const [k, v] of Object.entries(raw)) {
-    if (typeof v === "string") map.set(k, v);
-    else if (v && typeof v === "object" && "id" in v) map.set(k, String(v.id));
+    const id = typeof v === "string" ? v : v && typeof v === "object" && "id" in v ? v.id : null;
+    if (typeof id !== "string" && typeof id !== "number") continue;
+    map.set(k, String(id));
+    // stops without parent station (e.g. Küb: `at:43:8764:0:1`) are stations under their derived
+    // parent DHID in the corridors (`Pat:43:8764`, see loadFeed)
+    if (k.startsWith("at:")) {
+      const parent = parentDhid(k);
+      if (!map.has(parent)) map.set(parent, String(id));
+    }
   }
   return map;
 }

@@ -28,7 +28,7 @@ stations = [
   { id = "Pat:47:1212", name = "Landeck-Zams", km = 71.4, major = true, hafasId = "8100063" },
   { id = "Pat:47:1222", name = "St. Anton a. A.", km = 98.8, major = false, hafasId = "8100064" },
   { id = "Pat:48:1226", name = "Langen a. A.", km = 110, major = false, hafasId = "8100065" },
-  { id = "Pat:48:130", name = "Bludenz", km = 135.5, major = true },
+  { id = "Pat:48:130", name = "Bludenz", km = 135.5, major = true, hafasId = "8100067" },
 ]
 trains = [
   { cat = "S", nr = "5148", dir = 1, origin = "Innsbruck Hbf", headsign = "Landeck-Zams", pts = [[0, "", 5], [1, 8, 8], [2, 12, 12], [3, 15, 16], [4, 18, 19], [5, 21, 22], [6, 24, 24], [7, 26, 27], [8, 30, 30], [9, 33, 33], [10, 36, 37], [11, 40, 40], [12, 42, 42], [13, 45, 45], [14, 48, 49], [15, 52, 55], [16, 60, 61], [17, 65, 66], [18, 69, 70], [19, 73, 74], [20, 80, ""]], days = "//////////////////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },

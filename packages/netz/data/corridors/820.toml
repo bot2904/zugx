@@ -27,7 +27,7 @@ stations = [
   { id = "Pat:43:4881", name = "Stiefern", km = 51.3, major = false, hafasId = "8101500" },
   { id = "Pat:43:3005", name = "Altenhof/Kamp", km = 52.9, major = false, hafasId = "8101863" },
   { id = "Pat:43:4549", name = "Plank am Kamp", km = 56.3, major = false, hafasId = "8101363" },
-  { id = "Pat:43:3260", name = "Buchberg/Kamp", km = 59.1, major = false, hafasId = "null" },
+  { id = "Pat:43:3260", name = "Buchberg/Kamp", km = 59.1, major = false },
   { id = "Pat:43:3486", name = "Gars-Thunau", km = 62, major = false, hafasId = "8100247" },
   { id = "Pat:43:3851", name = "Kamegg", km = 63.6, major = false, hafasId = "8101024" },
   { id = "Pat:43:4674", name = "Rosenburg", km = 66.4, major = false, hafasId = "8100411" },

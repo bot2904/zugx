@@ -23,7 +23,7 @@ stations = [
   { id = "Pat:43:7166", name = "Vitis", km = 147.3, major = false, hafasId = "8100335" },
   { id = "Pat:43:7167", name = "Hirschbach bei Gmünd", km = 150.8, major = false, hafasId = "8100953" },
   { id = "Pat:43:7168", name = "Pürbach-Schrems", km = 154.3, major = false, hafasId = "8100531" },
-  { id = "Pat:43:7169", name = "Gmünd NÖ", km = 161.9, major = true },
+  { id = "Pat:43:7169", name = "Gmünd NÖ", km = 161.9, major = true, hafasId = "8100129" },
   { id = "Pat:43:99980", name = "TP Gmünd Lainsitzbrücke Schiene", km = 163.4, major = false },
   { id = "Pcz:0:5473632", name = "České Velenice", km = 164.1, major = true, hafasId = "5400018" },
 ]

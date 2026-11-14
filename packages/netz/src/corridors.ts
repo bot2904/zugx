@@ -879,6 +879,65 @@ export function corridorStations(feed: Feed, def: CorridorDef, names?: Map<strin
     }
   }
 
+  // pass 2: local trains that start or end between anchors (e.g. the Semmering R trains
+  // Payerbach-Reichenau ↔ Mürzzuschlag, which serve Küb, Eichberg, Wolfsbergkogel) never form an
+  // anchor-to-anchor hop. Place their extra stops between two stations already known in the same
+  // segment, by track distance, but only to close small gaps: the two must be neighbours in the
+  // corridor and at most GAP_KM apart. Long-distance sheets (e.g. 501: Flughafen Wien →
+  // Mürzzuschlag) intentionally show only the through trains' stops, the local ones are on their
+  // own sheets. Repeat until nothing new.
+  const GAP_KM = 20;
+  const segLen = segDist.map((d) => (d.length ? median(d) : NaN));
+  for (let iter = 0; iter < 5; iter++) {
+    // corridor position: anchor index + fraction within the following segment
+    const g = new Map<string, number>(def.anchors.map((a, i) => [a, i]));
+    for (const [id, e] of between) if (!g.has(id)) g.set(id, e.k + median(e.f));
+    const sortedG = [...new Set(g.values())].sort((x, y) => x - y);
+    const neighbours = (x: number, y: number) => {
+      const [lo, hi] = x < y ? [x, y] : [y, x];
+      return !sortedG.some((v) => v > lo + 1e-9 && v < hi - 1e-9);
+    };
+    const found = new Map<string, { k: number; f: number[] }>();
+    for (const trip of feed.trips) {
+      const known: number[] = [];
+      trip.stops.forEach((st, i) => g.has(st.st) && known.push(i));
+      for (let n = 0; n + 1 < known.length; n++) {
+        const p = known[n]!;
+        const q = known[n + 1]!;
+        if (q - p < 2) continue;
+        const gp = g.get(trip.stops[p]!.st)!;
+        const gq = g.get(trip.stops[q]!.st)!;
+        const k = Math.floor(Math.min(gp, gq));
+        if (Math.max(gp, gq) > k + 1 || gp === gq || nonstop.has(k)) continue;
+        if (!neighbours(gp, gq) || !(Math.abs(gq - gp) * segLen[k]! <= GAP_KM)) continue;
+        // track distance must fit the corridor between the two (no parallel line)
+        const span = trip.stops[q]!.dist - trip.stops[p]!.dist;
+        const expected = Math.abs(gq - gp) * segLen[k]! * 1000;
+        if (span > 0 && Number.isFinite(expected) && span > expected * (1 + detour)) continue;
+        for (let m = p + 1; m < q; m++) {
+          const st = trip.stops[m]!;
+          if (g.has(st.st)) continue;
+          let frac: number;
+          if (Number.isFinite(span) && span > 0) frac = (st.dist - trip.stops[p]!.dist) / span;
+          else {
+            const A = feed.stations.get(trip.stops[p]!.st);
+            const B = feed.stations.get(trip.stops[q]!.st);
+            const S = feed.stations.get(st.st);
+            if (!A || !B || !S) continue;
+            const dA = haversineKm(A, S);
+            frac = dA / (dA + haversineKm(S, B) || 1);
+          }
+          const f = gp + Math.min(1, Math.max(0, frac)) * (gq - gp) - k;
+          let e = found.get(st.st);
+          if (!e) found.set(st.st, (e = { k, f: [] }));
+          if (e.k === k) e.f.push(f);
+        }
+      }
+    }
+    if (!found.size) break;
+    for (const [id, e] of found) between.set(id, e);
+  }
+
   const anchorKm = [0];
   def.anchors.slice(1).forEach((a, k) => {
     let d = segDist[k]!.length ? median(segDist[k]!) : NaN;

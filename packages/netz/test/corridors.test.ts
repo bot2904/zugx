@@ -123,3 +123,46 @@ describe("encodeDays", () => {
     expect(encodeDays([7, 8], 16)).toBe(Buffer.from([0x01, 0x80]).toString("base64"));
   });
 });
+
+describe("corridorStations: local trains between anchors", () => {
+  // A —10— a1 —5— l1 —5— B —15— b1 —15— C ; anchors A, B, C
+  const st0 = lineStations(["A", "a1", "l1", "B", "b1", "C"], [10, 5, 5, 15, 15]);
+  const through = trip("R", "1", [
+    ["A", 0, 0, 0],
+    ["a1", 8, 9, 10],
+    ["B", 17, 18, 20],
+    ["C", 40, 40, 50],
+  ]);
+  // starts at a1 (not an anchor): the only train serving l1
+  const shortLocal = trip("R", "2", [
+    ["a1", 100, 100, 0],
+    ["l1", 105, 106, 5],
+    ["B", 110, 110, 10],
+  ]);
+  // local B → b1 → C
+  const localBC = trip("S", "3", [
+    ["B", 200, 200, 0],
+    ["b1", 210, 211, 15],
+    ["C", 220, 220, 30],
+  ]);
+  const st = corridorStations(feed(st0, [through, shortLocal, localBC]), {
+    id: "t",
+    name: "T",
+    anchors: ["A", "B", "C"],
+  });
+
+  it("adds stops of trains starting between anchors in small gaps (Semmering: Küb …)", () => {
+    expect(st.map((s) => s.id)).toEqual(["A", "a1", "l1", "B", "b1", "C"]);
+    expect(st.find((s) => s.id === "l1")!.km).toBe(15);
+  });
+
+  it("keeps long gaps of through trains (long-distance sheets show only their stops)", () => {
+    // sheet A – C: through trains stop at a1 and B; the 30 km gap B → C is not filled with b1
+    const sheet = corridorStations(feed(st0, [through, shortLocal, localBC]), {
+      id: "ld",
+      name: "LD",
+      anchors: ["A", "C"],
+    });
+    expect(sheet.map((s) => s.id)).toEqual(["A", "a1", "l1", "B", "C"]);
+  });
+});

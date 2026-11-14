@@ -50,7 +50,7 @@ stations = [
   { id = "Pat:42:3650", name = "Velden/Wörthersee", km = 197.3, major = false, hafasId = "8100081" },
   { id = "Pat:42:3649", name = "Töschling", km = 202.7, major = false, hafasId = "8101676" },
   { id = "Pat:42:3648", name = "Pörtschach/Wörthersee", km = 205.4, major = false, hafasId = "8100080" },
-  { id = "Pat:42:3647", name = "Pritschitz", km = 207.6, major = false },
+  { id = "Pat:42:3647", name = "Pritschitz", km = 207.6, major = false, hafasId = "8101395" },
   { id = "Pat:42:3646", name = "Krumpendorf/Wörthersee", km = 211.8, major = false, hafasId = "8100079" },
   { id = "Pat:42:3643", name = "Klagenfurt West", km = 215.4, major = false, hafasId = "8103644" },
   { id = "Pat:42:3645", name = "Klagenfurt Lend", km = 216.8, major = false, hafasId = "8101093" },

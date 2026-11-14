@@ -11,12 +11,12 @@ oebb = "100"
 from = "Flughafen Wien"
 to = "Linz Hbf"
 km = 203.8
-stations = 8
-trains = 384
+stations = 9
+trains = 1000
 file = "100.toml"
 major = ["Flughafen Wien", "Wien Hbf", "St. Pölten Hbf", "Linz Hbf"]
-names = ["Flughafen Wien", "Wien Hbf", "Wien Meidling", "Tullnerfeld", "St. Pölten Hbf", "Amstetten", "St. Valentin", "Linz Hbf"]
-cats = { RJX = 77, CJX = 64, IC = 62, S = 59, RJ = 39, EC = 31, NJ = 15, REX = 13, D = 8, ICE = 8, EN = 8 }
+names = ["Flughafen Wien", "Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Tullnerfeld", "St. Pölten Hbf", "Amstetten", "St. Valentin", "Linz Hbf"]
+cats = { S = 472, REX = 160, CJX = 110, RJX = 77, IC = 62, RJ = 39, EC = 31, NJ = 15, R = 10, D = 8, ICE = 8, EN = 8 }
 
 [[corridors]]
 id = "101"
@@ -403,12 +403,12 @@ oebb = "500"
 from = "Wiener Neustadt Hbf"
 to = "Mürzzuschlag"
 km = 68.2
-stations = 14
-trains = 149
+stations = 17
+trains = 131
 file = "500.toml"
 major = ["Wiener Neustadt Hbf", "Semmering", "Mürzzuschlag"]
-names = ["Wiener Neustadt Hbf", "St. Egyden/Stfd", "Neunkirchen", "Ternitz", "Pottschach", "Gloggnitz", "Schlöglmühl", "Payerbach-Reichenau", "Klamm-Schottwien", "Breitenstein", "Semmering", "Steinhaus", "Spital am Semmering", "Mürzzuschlag"]
-cats = { CJX = 72, R = 36, RJ = 31, IC = 6, REX = 2, NJ = 2 }
+names = ["Wiener Neustadt Hbf", "St. Egyden/Stfd", "Neunkirchen", "Ternitz", "Pottschach", "Gloggnitz", "Schlöglmühl", "Payerbach-Reichenau", "Küb", "Eichberg am Semmering", "Klamm-Schottwien", "Breitenstein", "Wolfsbergkogel", "Semmering", "Steinhaus", "Spital am Semmering", "Mürzzuschlag"]
+cats = { CJX = 72, RJ = 31, R = 18, IC = 6, REX = 2, NJ = 2 }
 
 [[corridors]]
 id = "501"
@@ -417,12 +417,12 @@ oebb = "501"
 from = "Flughafen Wien"
 to = "Villach Hbf"
 km = 392.6
-stations = 39
-trains = 627
+stations = 42
+trains = 1263
 file = "501.toml"
 major = ["Flughafen Wien", "Mürzzuschlag", "Bruck/Mur", "Graz Hbf", "Klagenfurt Hbf", "Villach Hbf"]
-names = ["Flughafen Wien", "Wien Hbf", "Wien Meidling", "Wiener Neustadt Hbf", "Semmering", "Mürzzuschlag", "Langenwang", "Krieglach", "Mitterdorf-Veitsch", "Wartberg", "Kindberg", "Allerheiligen-Mürzhofen", "St.Marein-St.Lorenzen", "Kapfenberg Fachhochschule", "Kapfenberg", "Bruck/Mur", "Pernegg", "Mixnitz-Bärenschützklamm", "Frohnleiten", "Peggau-Deutschfeistritz", "Stübing", "Gratwein-Gratkorn", "Judendorf-Straßengel", "Graz Hbf", "Weststeiermark", "St.Paul im Lavanttal", "Kühnsdorf-Klopeiner See", "Klagenfurt Hbf", "Klagenfurt Lend", "Klagenfurt West", "Krumpendorf/Wörthersee", "Pritschitz", "Pörtschach/Wörthersee", "Töschling", "Velden/Wörthersee", "Lind-Rosegg", "Föderlach", "Villach Seebach", "Villach Hbf"]
-cats = { S = 246, RJX = 83, IC = 64, IR = 54, REX = 47, RJ = 45, EC = 32, ICE = 17, NJ = 17, D = 8, EN = 8, CJX = 6 }
+names = ["Flughafen Wien", "Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wiener Neustadt Hbf", "Semmering", "Steinhaus", "Spital am Semmering", "Mürzzuschlag", "Langenwang", "Krieglach", "Mitterdorf-Veitsch", "Wartberg", "Kindberg", "Allerheiligen-Mürzhofen", "St.Marein-St.Lorenzen", "Kapfenberg Fachhochschule", "Kapfenberg", "Bruck/Mur", "Pernegg", "Mixnitz-Bärenschützklamm", "Frohnleiten", "Peggau-Deutschfeistritz", "Stübing", "Gratwein-Gratkorn", "Judendorf-Straßengel", "Graz Hbf", "Weststeiermark", "St.Paul im Lavanttal", "Kühnsdorf-Klopeiner See", "Klagenfurt Hbf", "Klagenfurt Lend", "Klagenfurt West", "Krumpendorf/Wörthersee", "Pritschitz", "Pörtschach/Wörthersee", "Töschling", "Velden/Wörthersee", "Lind-Rosegg", "Föderlach", "Villach Seebach", "Villach Hbf"]
+cats = { S = 659, REX = 194, RJX = 83, IC = 64, CJX = 54, IR = 54, RJ = 45, EC = 32, R = 28, ICE = 17, NJ = 17, D = 8, EN = 8 }
 
 [[corridors]]
 id = "502"
@@ -459,12 +459,12 @@ oebb = "511"
 from = "Wien Hbf"
 to = "Wiener Neustadt Hbf"
 km = 54.7
-stations = 14
-trains = 314
+stations = 15
+trains = 930
 file = "511.toml"
 major = ["Wien Hbf", "Pottendorf-Landegg", "Ebenfurth", "Wiener Neustadt Hbf"]
-names = ["Wien Hbf", "Wien Meidling", "Wien Blumental", "Hennersdorf", "Achau", "Münchendorf", "Ebreichsdorf", "Wampersdorf", "Pottendorf-Landegg", "Ebenfurth", "Untereggendorf", "Obereggendorf", "Wiener Neustadt Civitas Nova", "Wiener Neustadt Hbf"]
-cats = { RJX = 76, S = 59, IC = 57, RJ = 36, EC = 31, NJ = 15, REX = 10, ICE = 8, D = 8, EN = 8, CJX = 6 }
+names = ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wien Blumental", "Hennersdorf", "Achau", "Münchendorf", "Ebreichsdorf", "Wampersdorf", "Pottendorf-Landegg", "Ebenfurth", "Untereggendorf", "Obereggendorf", "Wiener Neustadt Civitas Nova", "Wiener Neustadt Hbf"]
+cats = { S = 472, REX = 157, RJX = 76, IC = 57, CJX = 52, RJ = 36, EC = 31, NJ = 15, R = 10, ICE = 8, D = 8, EN = 8 }
 
 [[corridors]]
 id = "512"
@@ -473,12 +473,12 @@ oebb = "512"
 from = "Wien Hbf"
 to = "Deutschkreutz"
 km = 83.3
-stations = 12
-trains = 329
+stations = 13
+trains = 945
 file = "512.toml"
 major = ["Wien Hbf", "Ebenfurth", "Sopron pályaudvar", "Deutschkreutz"]
-names = ["Wien Hbf", "Wien Meidling", "Wien Blumental", "Hennersdorf", "Achau", "Münchendorf", "Ebreichsdorf", "Wampersdorf", "Pottendorf-Landegg", "Ebenfurth", "Sopron pályaudvar", "Deutschkreutz"]
-cats = { RJX = 76, S = 59, IC = 57, RJ = 36, EC = 31, REX = 25, NJ = 15, ICE = 8, D = 8, EN = 8, CJX = 6 }
+names = ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wien Blumental", "Hennersdorf", "Achau", "Münchendorf", "Ebreichsdorf", "Wampersdorf", "Pottendorf-Landegg", "Ebenfurth", "Sopron pályaudvar", "Deutschkreutz"]
+cats = { S = 472, REX = 172, RJX = 76, IC = 57, CJX = 52, RJ = 36, EC = 31, NJ = 15, R = 10, ICE = 8, D = 8, EN = 8 }
 
 [[corridors]]
 id = "513"
@@ -669,12 +669,12 @@ oebb = "720"
 from = "Wien Hbf"
 to = "Wiener Neustadt Hbf"
 km = 51.6
-stations = 16
-trains = 505
+stations = 17
+trains = 458
 file = "720.toml"
 major = ["Wien Hbf", "Kledering", "Traiskirchen Aspangbahn", "Wiener Neustadt Hbf"]
-names = ["Wien Hbf", "Wien Grillgasse", "Kledering", "Maria Lanzendorf", "Laxenburg-Biedermannsdorf Bhf.", "Guntramsdorf Kaiserau", "Möllersdorf Aspangbahn", "Traiskirchen Aspangbahn", "Trumau", "Oberwaltersdorf", "Tattendorf", "Teesdorf", "Sollenau", "Felixdorf", "Wiener Neustadt Nord", "Wiener Neustadt Hbf"]
-cats = { REX = 253, S = 167, R = 85 }
+names = ["Wien Hbf", "Wien Grillgasse", "Kledering", "Maria Lanzendorf", "Laxenburg-Biedermannsdorf Bhf.", "Guntramsdorf Kaiserau", "Möllersdorf Aspangbahn", "Traiskirchen Aspangbahn", "Trumau", "Oberwaltersdorf", "Tattendorf", "Teesdorf", "Sollenau", "Felixdorf", "Theresienfeld", "Wiener Neustadt Nord", "Wiener Neustadt Hbf"]
+cats = { REX = 253, S = 127, R = 78 }
 
 [[corridors]]
 id = "730"
@@ -683,11 +683,11 @@ oebb = "730"
 from = "Wien Hbf"
 to = "Wulkaprodersdorf"
 km = 87.6
-stations = 17
+stations = 19
 trains = 350
 file = "730.toml"
 major = ["Wien Hbf", "Neusiedl am See", "Eisenstadt", "Wulkaprodersdorf"]
-names = ["Wien Hbf", "Wien Grillgasse", "Gramatneusiedl", "Bruck/Leitha", "Parndorf Ort", "Neusiedl am See", "Jois", "Winden am See", "Breitenbrunn", "Purbach am Neusiedler See Bf.", "Donnerskirchen", "Schützen am Gebirge Ruster Straße", "Schützen am Gebirge", "Eisenstadt Schule", "Eisenstadt", "Wulkaprodersdorf Rathausgasse", "Wulkaprodersdorf"]
+names = ["Wien Hbf", "Wien Grillgasse", "Kledering", "Lanzendorf-Rannersdorf", "Gramatneusiedl", "Bruck/Leitha", "Parndorf Ort", "Neusiedl am See", "Jois", "Winden am See", "Breitenbrunn", "Purbach am Neusiedler See Bf.", "Donnerskirchen", "Schützen am Gebirge Ruster Straße", "Schützen am Gebirge", "Eisenstadt Schule", "Eisenstadt", "Wulkaprodersdorf Rathausgasse", "Wulkaprodersdorf"]
 cats = { REX = 223, S = 75, R = 48, D = 3, EN = 1 }
 
 [[corridors]]
@@ -697,11 +697,11 @@ oebb = "731"
 from = "Wien Hbf"
 to = "Fertőszentmiklós pályaudvar"
 km = 102.2
-stations = 15
+stations = 17
 trains = 321
 file = "731.toml"
 major = ["Wien Hbf", "Neusiedl am See", "Pamhagen", "Fertőszentmiklós pályaudvar"]
-names = ["Wien Hbf", "Wien Grillgasse", "Gramatneusiedl", "Bruck/Leitha", "Parndorf Ort", "Neusiedl am See", "Neusiedl am See Bad", "Weiden am See", "Gols", "Mönchhof-Halbturn", "Frauenkirchen", "St. Andrä am Zicksee", "Wallern im Bgld", "Pamhagen", "Fertőszentmiklós pályaudvar"]
+names = ["Wien Hbf", "Wien Grillgasse", "Kledering", "Lanzendorf-Rannersdorf", "Gramatneusiedl", "Bruck/Leitha", "Parndorf Ort", "Neusiedl am See", "Neusiedl am See Bad", "Weiden am See", "Gols", "Mönchhof-Halbturn", "Frauenkirchen", "St. Andrä am Zicksee", "Wallern im Bgld", "Pamhagen", "Fertőszentmiklós pályaudvar"]
 cats = { REX = 194, S = 75, R = 48, D = 3, EN = 1 }
 
 [[corridors]]
@@ -879,12 +879,12 @@ oebb = "510/500/501"
 from = "Wien Hbf"
 to = "Graz Hbf"
 km = 210.4
-stations = 52
-trains = 1220
+stations = 55
+trains = 1202
 file = "suedbahn.toml"
 major = ["Wien Hbf", "Wien Meidling", "Baden", "Wiener Neustadt Hbf", "Gloggnitz", "Semmering", "Mürzzuschlag", "Bruck/Mur", "Graz Hbf"]
-names = ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wien Hetzendorf", "Wien Atzgersdorf", "Wien Liesing", "Perchtoldsdorf", "Brunn-Maria Enzersdorf", "Mödling", "Guntramsdorf Thallern", "Gumpoldskirchen", "Pfaffstätten", "Baden", "Bad Vöslau", "Kottingbrunn", "Leobersdorf", "Sollenau", "Felixdorf", "Theresienfeld", "Wiener Neustadt Nord", "Wiener Neustadt Hbf", "St. Egyden/Stfd", "Neunkirchen", "Ternitz", "Pottschach", "Gloggnitz", "Schlöglmühl", "Payerbach-Reichenau", "Klamm-Schottwien", "Breitenstein", "Semmering", "Steinhaus", "Spital am Semmering", "Mürzzuschlag", "Langenwang", "Krieglach", "Mitterdorf-Veitsch", "Wartberg", "Kindberg", "Allerheiligen-Mürzhofen", "St.Marein-St.Lorenzen", "Kapfenberg Fachhochschule", "Kapfenberg", "Bruck/Mur", "Pernegg", "Mixnitz-Bärenschützklamm", "Frohnleiten", "Peggau-Deutschfeistritz", "Stübing", "Gratwein-Gratkorn", "Judendorf-Straßengel", "Graz Hbf"]
-cats = { S = 591, REX = 171, R = 91, RJX = 76, CJX = 74, IC = 57, IR = 54, RJ = 36, EC = 31, NJ = 15, ICE = 8, D = 8, EN = 8 }
+names = ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wien Hetzendorf", "Wien Atzgersdorf", "Wien Liesing", "Perchtoldsdorf", "Brunn-Maria Enzersdorf", "Mödling", "Guntramsdorf Thallern", "Gumpoldskirchen", "Pfaffstätten", "Baden", "Bad Vöslau", "Kottingbrunn", "Leobersdorf", "Sollenau", "Felixdorf", "Theresienfeld", "Wiener Neustadt Nord", "Wiener Neustadt Hbf", "St. Egyden/Stfd", "Neunkirchen", "Ternitz", "Pottschach", "Gloggnitz", "Schlöglmühl", "Payerbach-Reichenau", "Küb", "Eichberg am Semmering", "Klamm-Schottwien", "Breitenstein", "Wolfsbergkogel", "Semmering", "Steinhaus", "Spital am Semmering", "Mürzzuschlag", "Langenwang", "Krieglach", "Mitterdorf-Veitsch", "Wartberg", "Kindberg", "Allerheiligen-Mürzhofen", "St.Marein-St.Lorenzen", "Kapfenberg Fachhochschule", "Kapfenberg", "Bruck/Mur", "Pernegg", "Mixnitz-Bärenschützklamm", "Frohnleiten", "Peggau-Deutschfeistritz", "Stübing", "Gratwein-Gratkorn", "Judendorf-Straßengel", "Graz Hbf"]
+cats = { S = 591, REX = 171, RJX = 76, CJX = 74, R = 73, IC = 57, IR = 54, RJ = 36, EC = 31, NJ = 15, ICE = 8, D = 8, EN = 8 }
 
 [[corridors]]
 id = "koralm"

@@ -6,7 +6,7 @@ end = "2026-12-12"
 source = "ÖBB GTFS 2026 (CC BY 4.0)"
 stations = [
   { id = "Pat:49:560", name = "Wien Hütteldorf", km = 0, major = true, hafasId = "8100447" },
-  { id = "Pat:49:1295", name = "Wien Speising", km = 4.1, major = false, hafasId = "null" },
+  { id = "Pat:49:1295", name = "Wien Speising", km = 4.1, major = false },
   { id = "Pat:49:1015", name = "Wien Meidling", km = 8, major = false, hafasId = "8100514" },
   { id = "Pat:49:849", name = "Wien Matzleinsdorfer Platz", km = 9.9, major = false, hafasId = "8101227" },
   { id = "Pat:49:1349", name = "Wien Hbf", km = 11.5, major = true, hafasId = "8103000" },
