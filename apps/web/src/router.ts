@@ -25,7 +25,7 @@ export const router = createRouter({
     { path: "/train/:id", component: () => import("./pages/Train.vue") },
     { path: "/him", component: () => import("./pages/Him.vue") },
     { path: "/trains/:op?/:cat?", component: () => import("./pages/Trains.vue") },
-    { path: "/radar", component: () => import("./pages/Radar.vue") },
+    { path: "/radar", component: () => import("./pages/Radar.vue"), meta: { wide: true } },
     { path: "/bf/:corridor?", component: () => import("./pages/Bildfahrplan.vue") },
     { path: "/vzg/:line?", component: () => import("./pages/Vzg.vue") },
     { path: "/netz/:region?", component: () => import("./pages/Netz.vue") },
@@ -68,3 +68,10 @@ router.beforeResolve((to, from) => {
     });
   });
 });
+
+declare module "vue-router" {
+  interface RouteMeta {
+    /** page uses the full window width (e.g. the radar map) */
+    wide?: boolean;
+  }
+}

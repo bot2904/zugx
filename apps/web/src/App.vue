@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useResizeObserver } from "@vueuse/core";
 import { nextTick, ref, watch } from "vue";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import CommandPalette from "./components/CommandPalette.vue";
 import ModalDialog from "./components/ModalDialog.vue";
 import DebugPanel from "./components/DebugPanel.vue";
@@ -11,6 +11,7 @@ import { state } from "./lib/store.ts";
 import { scheme, toggleScheme } from "./lib/theme.ts";
 
 const router = useRouter();
+const route = useRoute();
 
 // navigation layout: measure whether the inline list fits the header row
 const headerRow = ref<HTMLElement>();
@@ -167,7 +168,12 @@ const shortcuts: [string, string][] = [
       </div>
     </div>
   </header>
-  <main id="main" tabindex="-1" class="mx-auto max-w-6xl px-3 py-3 outline-none">
+  <main
+    id="main"
+    tabindex="-1"
+    class="mx-auto px-3 py-3 outline-none"
+    :class="route.meta.wide ? 'max-w-none' : 'max-w-6xl'"
+  >
     <RouterView />
   </main>
   <DebugPanel v-if="state.debug" />
