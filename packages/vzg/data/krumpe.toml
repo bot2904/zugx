@@ -11,5 +11,5 @@ length = 0.301
 speeds = [[3.19, 3.5, 40, 40]]
 curves = [[3.293, 3.396, 270]]
 points = [
-  { km = 3.5, kind = "halt", label = "St. Margarethen - Rammersdorf" },
+  { km = 3.5, kind = "halt", label = "St. Margarethen - Rammersdorf", pos = [48.14932, 15.50052] },
 ]

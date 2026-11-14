@@ -118,7 +118,7 @@ trains = [
   { cat = "R", nr = "4711", dir = -1, origin = "Szentgotthárd pályaudvar", headsign = "Graz Hbf", pts = [[19, "", 498], [18, 501, 501], [17, 508, 509], [16, 514, 514], [15, 519, ""]], days = "////////////////////////////////////////////////////////////8A==" },
   { cat = "S", nr = "4008", dir = -1, origin = "Leibnitz", headsign = "Mürzzuschlag", pts = [[1, "", 502], [0, 505, ""]], days = "////////////////////////////////////////////////////////////8A==" },
   { cat = "RJX", nr = "531", dir = 1, origin = "Wien Hbf", headsign = "Villach Hbf", pts = [[0, "", 502], [1, 502.5, ""]], days = "////////////////////////////////////////////////////////////8A==" },
-  { cat = "IC", nr = "351", dir = -1, origin = "Šentilj železniška postaja", headsign = "Budapest-Keleti", pts = [[1, "", 504.8], [0, 506, ""]], days = "////////////////////////////////////////////////////////////8A==" },
+  { cat = "IC", nr = "351", dir = -1, origin = "Šentilj železniška postaja", headsign = "Budapest-Keleti", pts = [[1, "", 504.6], [0, 506, ""]], days = "////////////////////////////////////////////////////////////8A==" },
   { cat = "IR", nr = "679", dir = 1, origin = "Graz Hbf", headsign = "Maribor Železniška postaja", pts = [[0, "", 508], [1, 510, ""]], days = "////////////////////////////////////////////////////////////8A==" },
   { cat = "S", nr = "4576", dir = -1, origin = "Werndorf", headsign = "Graz Hbf", pts = [[1, "", 513], [0, 515, ""]], days = "fOHS58+fPnz58+fPnz48+fPHzp8edPnz58+fPnz58+fPnz58+fPnx58+fPny4A==" },
   { cat = "S", nr = "4009", dir = 1, origin = "Mürzzuschlag", headsign = "Leibnitz", pts = [[0, "", 515], [1, 516, ""]], days = "////////////////////////////////////////////////////////////8A==" },

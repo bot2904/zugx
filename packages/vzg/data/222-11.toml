@@ -21,7 +21,7 @@ points = [
   { km = 4.621, kind = "signal", label = "V745w", signal = "shunting" },
   { km = 4.856, kind = "signal", label = "N215", signal = "main", measured = true },
   { km = 5.107, kind = "signal", label = "r205", signal = "distant", measured = true },
-  { km = 5.364, kind = "halt", label = "Gödersdorf", measured = true },
+  { km = 5.364, kind = "halt", label = "Gödersdorf", uic = "8100861", pos = [46.56847, 13.84715], measured = true },
   { km = 5.463, kind = "signal", label = "n215", signal = "distant", measured = true },
   { km = 5.529, kind = "signal", label = "R205", signal = "main", measured = true },
 ]

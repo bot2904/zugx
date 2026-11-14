@@ -342,6 +342,9 @@ importers:
       '@zugx/toml':
         specifier: workspace:*
         version: link:../toml
+      '@zugx/vzg':
+        specifier: workspace:*
+        version: link:../vzg
     devDependencies:
       '@types/node':
         specifier: 'catalog:'

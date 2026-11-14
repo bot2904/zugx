@@ -15,11 +15,11 @@ speeds = [[87.51, 88.191, 60, 60]]
 curves = [[87.661, 88.084, 520]]
 points = [
   { km = 87.51, kind = "signal", label = "V592H", signal = "shunting", measured = true },
-  { km = 87.51, kind = "halt", label = "Salzburg Mülln-Altstadt" },
+  { km = 87.51, kind = "halt", label = "Salzburg Mülln-Altstadt", uic = "8173368", pos = [47.80843, 13.03458] },
   { km = 87.554, kind = "signal", label = "V592R", signal = "shunting", measured = true },
   { km = 87.75, kind = "signal", label = "s2", signal = "distant", measured = true },
   { km = 88.042, kind = "signal", label = "L502", signal = "main", measured = true },
   { km = 88.191, kind = "signal", label = "1L502", signal = "main_repeated", measured = true },
-  { km = 88.191, kind = "station", label = "Salzburg Hauptbahnhof" },
-  { km = 88.191, kind = "station", label = "Salzburg Hauptbahnhof (S-Bahn)" },
+  { km = 88.191, kind = "station", label = "Salzburg Hauptbahnhof", uic = "8101114", pos = [47.81306, 13.04585] },
+  { km = 88.191, kind = "station", label = "Salzburg Hauptbahnhof (S-Bahn)", uic = "8100414", pos = [47.81278, 13.04451] },
 ]

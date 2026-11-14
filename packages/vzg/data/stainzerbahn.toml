@@ -14,7 +14,7 @@ length = 3.389
 speeds = [[5.1, 8.5, 20, 20]]
 curves = [[6.298, 6.375, 1950], [7.063, 7.19, 950], [7.241, 7.366, 910], [7.56, 7.901, 300], [7.95, 8.388, 660]]
 points = [
-  { km = 5.1, kind = "halt", label = "Kraubath", measured = true },
-  { km = 7.3, kind = "halt", label = "Neudorf", measured = true },
-  { km = 8.5, kind = "halt", label = "Herbersdorf", measured = true },
+  { km = 5.1, kind = "halt", label = "Kraubath", pos = [46.85843, 15.33192], measured = true },
+  { km = 7.3, kind = "halt", label = "Neudorf", pos = [46.87232, 15.3122], measured = true },
+  { km = 8.5, kind = "halt", label = "Herbersdorf", pos = [46.87751, 15.29844], measured = true },
 ]

@@ -63,6 +63,10 @@ export interface VzgTrack {
 
 export interface VzgPoint {
   km: number;
+  /** UIC station number (OSM uic_ref) = IBNR = HAFAS station id, e.g. "8100008" */
+  uic?: string;
+  /** stations, halts, stops: position [lat, lon] (to link them with timetable stations) */
+  pos?: [number, number];
   /** station | halt | stop | signal | switch | level_crossing | milestone | buffer_stop */
   kind: string;
   /** name or signal ref, e.g. "Maria Anzbach", "Ae22/r" (absent if OSM has none) */

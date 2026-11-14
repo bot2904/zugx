@@ -32,6 +32,6 @@ points = [
   { km = 248.953, kind = "signal", label = "1R9", signal = "main_repeated", measured = true },
   { km = 249.02, kind = "signal", label = "2K9", signal = "main_repeated", measured = true },
   { km = 249.089, kind = "signal", label = "1K9", signal = "main_repeated", measured = true },
-  { km = 249.123, kind = "stop", label = "Graz Don Bosco" },
+  { km = 249.123, kind = "stop", label = "Graz Don Bosco", pos = [47.05836, 15.41971] },
   { km = 249.155, kind = "signal", label = "K9/l", signal = "distant,main,speed_limit", measured = true },
 ]

@@ -16,7 +16,7 @@ speeds = [[0.472, 1.969, 40, 40], [1.969, 4.03, 100, 100]]
 curves = [[0.648, 0.698, 2450], [0.748, 1.154, 480], [1.85, 1.902, 2140], [1.954, 2.004, 2080], [2.251, 2.651, 780]]
 points = [
   { km = 0.472, kind = "signal", label = "N731", signal = "main", measured = true },
-  { km = 0.589, kind = "stop", label = "Graz Köflacherbahnhof" },
+  { km = 0.589, kind = "stop", label = "Graz Köflacherbahnhof", pos = [47.0677, 15.41281] },
   { km = 0.7, kind = "signal", label = "1Q731", signal = "main_repeated", measured = true },
   { km = 0.759, kind = "signal", label = "Q731/r", signal = "distant,main,shunting", measured = true },
   { km = 0.812, kind = "signal", label = "V784H", signal = "shunting", measured = true },
@@ -32,7 +32,7 @@ points = [
   { km = 2.33, kind = "signal", label = "1W", signal = "main_repeated", measured = true },
   { km = 2.372, kind = "signal", signal = "crossing_distant" },
   { km = 2.764, kind = "signal", label = "2W", signal = "main_repeated", measured = true },
-  { km = 2.797, kind = "halt", label = "Graz Wetzelsdorf", measured = true },
+  { km = 2.797, kind = "halt", label = "Graz Wetzelsdorf", uic = "8100905", pos = [47.05087, 15.40165], measured = true },
   { km = 2.997, kind = "signal", signal = "crossing_distant" },
   { km = 3.019, kind = "signal", label = "w", signal = "distant", measured = true },
   { km = 3.114, kind = "signal", signal = "crossing_distant" },
@@ -52,7 +52,7 @@ speeds = [[0.476, 0.703, 40, 60], [0.703, 1.201, 60, 60], [1.201, 1.819, 100, 10
 curves = [[0.778, 1.152, 440]]
 points = [
   { km = 0.476, kind = "signal", label = "N732", signal = "main", measured = true },
-  { km = 0.589, kind = "stop", label = "Graz Köflacherbahnhof" },
+  { km = 0.589, kind = "stop", label = "Graz Köflacherbahnhof", pos = [47.06777, 15.41278] },
   { km = 0.703, kind = "signal", label = "Q732/r", signal = "distant,main,shunting,speed_limit", measured = true },
   { km = 0.765, kind = "signal", label = "V761H", signal = "shunting", measured = true },
   { km = 0.921, kind = "signal", label = "V772H", signal = "shunting", measured = true },

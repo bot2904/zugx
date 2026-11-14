@@ -296,7 +296,15 @@ export function buildTrack(
       // tram stops lie on the track (light rail such as the Innsbrucker Mittelgebirgsbahn): halts
       const k = kind === "tram_stop" ? "halt" : kind;
       if (k === "halt" && points.some((p) => p.kind === "halt" && p.label === t.name)) return;
-      points.push({ km, kind: k, label: t.name, ...(pos !== null ? { measured: true } : {}) });
+      const c = ex.coords[n];
+      points.push({
+        km,
+        kind: k,
+        label: t.name,
+        ...(t.uic_ref ? { uic: t.uic_ref } : {}),
+        ...(c ? { pos: [round(c[0], 5), round(c[1], 5)] as [number, number] } : {}),
+        ...(pos !== null ? { measured: true } : {}),
+      });
     } else if (kind === "signal") {
       const types = Object.keys(t)
         .filter(
@@ -351,6 +359,8 @@ export function buildTrack(
       km: round(pos ?? kmAt[at]!),
       kind: st.tags.railway!,
       label: name,
+      ...(st.tags.uic_ref ? { uic: st.tags.uic_ref } : {}),
+      pos: [round(st.lat, 5), round(st.lon, 5)],
       ...(pos !== null ? { measured: true } : {}),
     });
     named.add(name);

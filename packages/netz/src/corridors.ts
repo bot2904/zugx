@@ -1029,12 +1029,25 @@ export function shapeOnLine(
  * Mürzzuschlag on sheet 500) would have no points on it at all. 300 m: trains running through a
  * station pass within 0–140 m of its coordinate, lines alongside stay ≥ 640 m away (high-speed line
  * near Hütteldorf/Pottenbrunn).
+ *
+ * Times: with `speed` (permitted speeds from the VzG data) the running time between two stops is
+ * spread over the passed stations by the time at the permitted speed (capped at the category's top
+ * speed) per stretch; without, or where unknown, by distance.
  */
+/** (station A, station B, category, stretch length km) → average speed km/h, if known */
+export type SpeedLookup = (
+  stA: string,
+  stB: string,
+  cat: string,
+  lengthKm: number,
+) => number | undefined;
+
 export function passingPoints(
   feed: Feed,
   stations: CorridorStation[],
   shapes: Map<string, Shape>,
   maxKm = 0.3,
+  speed?: SpeedLookup,
 ): (trip: Trip) => Trip {
   const coords = stations.flatMap((s) => {
     const st = feed.stations.get(s.id);
@@ -1083,12 +1096,29 @@ export function passingPoints(
       const a = trip.stops[i]!;
       const b = trip.stops[i + 1]!;
       if (!(b.dist > a.dist) || !Number.isFinite(a.dep) || !Number.isFinite(b.arr)) continue;
-      for (const p of passed) {
-        if (stopped.has(p.id) || p.alongM <= a.dist || p.alongM >= b.dist) continue;
-        const t = a.dep + ((p.alongM - a.dist) / (b.dist - a.dist)) * (b.arr - a.dep);
+      const ps = passed
+        .filter((p) => !stopped.has(p.id) && p.alongM > a.dist && p.alongM < b.dist)
+        .sort((x, y) => x.alongM - y.alongM);
+      if (!ps.length) continue;
+      // stretches A → P1 → … → B: time per stretch ∝ length / speed
+      const pts = [{ id: a.st, alongM: a.dist }, ...ps, { id: b.st, alongM: b.dist }];
+      const lens = pts.slice(1).map((p, k) => (p.alongM - pts[k]!.alongM) / 1000);
+      const vs = lens.map((len, k) => speed?.(pts[k]!.id, pts[k + 1]!.id, trip.cat, len));
+      const known = vs.filter((v): v is number => v !== undefined);
+      // unknown stretches: the average speed of the known ones (all unknown: by distance)
+      const avg = known.length
+        ? lens.filter((_, k) => vs[k] !== undefined).reduce((x, y) => x + y, 0) /
+          lens.reduce((x, len, k) => x + (vs[k] !== undefined ? len / vs[k]! : 0), 0)
+        : 1;
+      const w = lens.map((len, k) => len / (vs[k] ?? avg));
+      const total = w.reduce((x, y) => x + y, 0);
+      let acc = 0;
+      ps.forEach((p, k) => {
+        acc += w[k]!;
+        const t = a.dep + (acc / total) * (b.arr - a.dep);
         const tm = Math.round(t * 10) / 10;
         extra.push({ st: p.id, arr: tm, dep: tm, dist: p.alongM });
-      }
+      });
     }
     if (!extra.length) return trip;
     const stops = [...trip.stops, ...extra].sort((x, y) => x.dist - y.dist);
@@ -1175,11 +1205,14 @@ export function buildCorridor(
   names?: Map<string, string>,
   year?: YearTrips,
   shapes?: Map<string, Shape>,
+  speed?: SpeedLookup,
 ): Corridor {
   const stations = corridorStations(feed, def, names);
   const idx = new Map(stations.map((s, i) => [s.id, i]));
   const onLine = shapes ? shapeOnLine(year?.feed ?? feed, stations, shapes) : undefined;
-  const withPassing = shapes ? passingPoints(year?.feed ?? feed, stations, shapes) : undefined;
+  const withPassing = shapes
+    ? passingPoints(year?.feed ?? feed, stations, shapes, undefined, speed)
+    : undefined;
   const begin = year?.begin ?? day;
   const end = year?.end ?? day;
   const n = Temporal.PlainDate.from(begin).until(end).days + 1;

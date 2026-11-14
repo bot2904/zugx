@@ -15,7 +15,7 @@ length = 3.446
 speeds = [[82.152, 85.605, 80, 80]]
 curves = [[83.866, 84.015, 1300]]
 points = [
-  { km = 82, kind = "halt", label = "Holmec", measured = true },
+  { km = 82, kind = "halt", label = "Holmec", uic = "7900055", pos = [46.56639, 14.84139], measured = true },
   { km = 84.851, kind = "signal", label = "ax11", signal = "distant", measured = true },
   { km = 85.605, kind = "signal", label = "Ax11/r", signal = "distant,main", measured = true },
 ]

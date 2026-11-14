@@ -14,9 +14,9 @@ length = 10.982
 speeds = [[0, 10.982, "", ""]]
 curves = [[0.225, 0.6, 240], [1.075, 1.375, 1140], [2.125, 2.3, 740], [2.65, 2.825, 370], [2.875, 3.025, 910], [3.075, 3.35, 590], [3.4, 3.5, 1220], [3.55, 3.775, 310], [3.825, 4.2, 380], [4.25, 4.7, 380], [4.75, 5, 470], [5.175, 5.375, 380], [5.525, 5.9, 570], [6.275, 6.725, 340], [6.775, 6.925, 940], [7.2, 7.55, 270], [7.675, 7.9, 560], [8.55, 8.85, 1890], [8.925, 9.275, 350], [9.325, 9.8, 320], [10.175, 10.375, 1140], [10.45, 10.875, 520]]
 points = [
-  { km = 0.095, kind = "station", label = "Mauterndorf" },
-  { km = 3.483, kind = "halt", label = "Gröbendorf" },
-  { km = 5.134, kind = "station", label = "Mariapfarr" },
-  { km = 7.666, kind = "halt", label = "Lintsching" },
-  { km = 9.225, kind = "halt", label = "St. Andrä-Andlwirt" },
+  { km = 0.095, kind = "station", label = "Mauterndorf", pos = [47.13025, 13.68435] },
+  { km = 3.483, kind = "halt", label = "Gröbendorf", pos = [47.13589, 13.72371] },
+  { km = 5.134, kind = "station", label = "Mariapfarr", pos = [47.14069, 13.74333] },
+  { km = 7.666, kind = "halt", label = "Lintsching", pos = [47.14206, 13.77298] },
+  { km = 9.225, kind = "halt", label = "St. Andrä-Andlwirt", pos = [47.14661, 13.79204] },
 ]

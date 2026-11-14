@@ -44,6 +44,6 @@ points = [
   { km = 18.039, kind = "signal", signal = "snowplow" },
   { km = 18.205, kind = "signal", signal = "snowplow" },
   { km = 18.305, kind = "signal", signal = "whistle" },
-  { km = 25.83, kind = "stop", label = "Amt Mitterbach", measured = true },
-  { km = 27.545, kind = "stop", label = "St. Aegyd am Neuwalde Eisenwerk", measured = true },
+  { km = 25.83, kind = "stop", label = "Amt Mitterbach", pos = [47.87023, 15.59819], measured = true },
+  { km = 27.545, kind = "stop", label = "St. Aegyd am Neuwalde Eisenwerk", pos = [47.85901, 15.58276], measured = true },
 ]

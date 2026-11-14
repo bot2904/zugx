@@ -21,7 +21,7 @@ points = [
   { km = 0.997, kind = "signal", label = "F951", signal = "main,shunting", measured = true },
   { km = 1.079, kind = "signal", label = "V962H", signal = "shunting", measured = true },
   { km = 1.421, kind = "signal", label = "V962R", signal = "shunting", measured = true },
-  { km = 1.889, kind = "stop", label = "Linz Franckstraße" },
+  { km = 1.889, kind = "stop", label = "Linz Franckstraße", pos = [48.28594, 14.3237] },
   { km = 2.915, kind = "signal", label = "V959H", signal = "shunting", measured = true },
   { km = 2.919, kind = "signal", label = "r902,911", signal = "distant", measured = true },
   { km = 2.986, kind = "signal", label = "V959R", signal = "shunting", measured = true },

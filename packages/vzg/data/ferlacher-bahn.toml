@@ -17,7 +17,7 @@ points = [
   { km = 0.235, kind = "signal", signal = "shunting" },
   { km = 0.349, kind = "signal", signal = "main" },
   { km = 0.824, kind = "signal", signal = "distant" },
-  { km = 1.809, kind = "stop", label = "Carnica" },
+  { km = 1.809, kind = "stop", label = "Carnica", pos = [46.52979, 14.26437] },
   { km = 2.219, kind = "signal", signal = "snowplow" },
   { km = 2.268, kind = "signal", signal = "snowplow" },
   { km = 2.437, kind = "signal", signal = "whistle" },
@@ -52,5 +52,5 @@ points = [
   { km = 5.215, kind = "signal", signal = "speed_limit,whistle" },
   { km = 5.237, kind = "signal", signal = "snowplow" },
   { km = 5.266, kind = "signal", signal = "speed_limit" },
-  { km = 5.359, kind = "station", label = "Ferlach" },
+  { km = 5.359, kind = "station", label = "Ferlach", pos = [46.52299, 14.30432] },
 ]

@@ -11,7 +11,8 @@
     "test": "vp test run"
   },
   "dependencies": {
-    "@zugx/toml": "workspace:*"
+    "@zugx/toml": "workspace:*",
+    "@zugx/vzg": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "catalog:",

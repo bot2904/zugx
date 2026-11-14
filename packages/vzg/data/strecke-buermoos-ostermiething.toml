@@ -15,15 +15,15 @@ length = 5.725
 speeds = [[3.2, 3.352, 80, 80], [3.352, 3.7, 50, 50], [3.7, 4.136, 80, 80], [4.136, 4.234, 80, 70], [4.234, 4.821, 80, 80], [4.821, 5.004, 50, 80], [5.004, 5.177, 50, 60], [5.177, 5.48, 80, 50], [5.48, 6.076, 80, 80], [6.076, 6.408, 50, 80], [6.408, 6.721, 50, 50], [6.721, 7.067, 80, 50], [7.067, 7.614, 80, 80], [7.614, 7.705, 50, 80], [7.705, 7.941, 50, 45], [7.941, 8.185, 50, 50], [8.185, 8.225, 50, 40], [8.225, 8.895, 40, 40], [8.895, 8.935, 50, 50]]
 curves = [[3.3, 3.727, 500], [4.078, 4.304, 630], [4.704, 4.955, 550], [5.906, 6.006, 1520], [6.832, 7.183, 580], [7.683, 7.984, 330], [8.034, 8.509, 240]]
 points = [
-  { km = 3.636, kind = "stop", label = "St. Georgen bei Salzburg" },
-  { km = 5.054, kind = "stop", label = "St. Pantaleon Reith" },
-  { km = 6.347, kind = "stop", label = "Wildshut Kirchberg" },
-  { km = 6.757, kind = "stop", label = "Gut Wildshut" },
-  { km = 7.147, kind = "stop", label = "Eiferding" },
-  { km = 8.443, kind = "stop", label = "Riedersbach" },
+  { km = 3.636, kind = "stop", label = "St. Georgen bei Salzburg", uic = "8101513", pos = [47.99022, 12.88907] },
+  { km = 5.054, kind = "stop", label = "St. Pantaleon Reith", uic = "8101583", pos = [48.00174, 12.88374] },
+  { km = 6.347, kind = "stop", label = "Wildshut Kirchberg", uic = "8101773", pos = [48.00928, 12.87057] },
+  { km = 6.757, kind = "stop", label = "Gut Wildshut", pos = [48.01186, 12.86664] },
+  { km = 7.147, kind = "stop", label = "Eiferding", uic = "8101834", pos = [48.01474, 12.8638] },
+  { km = 8.443, kind = "stop", label = "Riedersbach", uic = "8101916", pos = [48.02454, 12.85751] },
   { km = 8.735, kind = "signal", signal = "crossing" },
   { km = 8.743, kind = "signal", signal = "crossing_distant" },
   { km = 8.784, kind = "signal", signal = "shunting" },
-  { km = 8.845, kind = "stop", label = "Trimmelkam" },
+  { km = 8.845, kind = "stop", label = "Trimmelkam", pos = [48.02744, 12.86072] },
   { km = 8.917, kind = "signal", signal = "crossing" },
 ]

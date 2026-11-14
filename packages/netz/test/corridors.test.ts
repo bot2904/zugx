@@ -269,6 +269,23 @@ describe("passing points (trains running through a sheet without stopping)", () 
     expect(runs[0]!.pts.map((p) => p[0])).toEqual([0, 1, 2, 3]);
   });
 
+  it("weights passing times by the permitted speed where known", () => {
+    // 10 km stretches X–A, A–m1 at 50 km/h (0.2 h each), m1–m2, m2–B, B–Y at 100 km/h (0.1 h):
+    // the 25 minutes split 2:2:1:1:1
+    const slow = new Set(["X", "A", "m1"]);
+    const t = passingPoints(f, stations, new Map([["s", straight]]), undefined, (a, b) =>
+      slow.has(a) && slow.has(b) ? 50 : 100,
+    )(express);
+    expect(t.stops.map((s) => [s.st, s.arr])).toEqual([
+      ["X", 100],
+      ["A", 107.1],
+      ["m1", 114.3],
+      ["m2", 117.9],
+      ["B", 121.4],
+      ["Y", 125],
+    ]);
+  });
+
   it("ignores lines running alongside (> 300 m from the stations)", () => {
     const beside: Shape = { ...straight, lat: Float32Array.from([47.01, 47.01]) }; // ≈ 1.1 km north
     const t = passingPoints(f, stations, new Map([["s", beside]]))(express);

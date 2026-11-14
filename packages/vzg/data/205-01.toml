@@ -53,7 +53,7 @@ points = [
   { km = 66.41, kind = "signal", label = "1L1", signal = "main_repeated", measured = true },
   { km = 66.499, kind = "signal", label = "2L1", signal = "main_repeated", measured = true },
   { km = 66.66, kind = "signal", label = "Sch401H/3L1", signal = "main_repeated,minor", measured = true },
-  { km = 67.133, kind = "stop", label = "Schärding" },
+  { km = 67.133, kind = "stop", label = "Schärding", pos = [48.46376, 13.4424] },
   { km = 67.313, kind = "signal", label = "R1", signal = "main", measured = true },
   { km = 67.724, kind = "signal", label = "V601H", signal = "shunting", measured = true },
   { km = 67.794, kind = "signal", label = "VHT601", signal = "shunting", measured = true },
@@ -70,7 +70,7 @@ points = [
   { km = 70.5, kind = "signal", label = "bm21", signal = "distant", measured = true },
   { km = 71.01, kind = "signal", label = "zm21", signal = "distant", measured = true },
   { km = 71.6, kind = "signal", label = "Bm21", signal = "main", measured = true },
-  { km = 72.291, kind = "stop", label = "Wernstein" },
+  { km = 72.291, kind = "stop", label = "Wernstein", uic = "8100544", pos = [48.50686, 13.45795] },
   { km = 72.5, kind = "signal", label = "Zm41", signal = "main", measured = true },
   { km = 72.507, kind = "signal", signal = "speed_limit" },
   { km = 72.512, kind = "signal", signal = "speed_limit" },
@@ -98,7 +98,7 @@ points = [
   { km = 79.001, kind = "signal", signal = "electricity" },
   { km = 79.008, kind = "signal", signal = "electricity" },
   { km = 79.337, kind = "signal", label = "Zm91", signal = "main", measured = true },
-  { km = 171.12, kind = "halt", label = "Gopperding", measured = true },
+  { km = 171.12, kind = "halt", label = "Gopperding", uic = "8100864", pos = [48.44078, 13.45824], measured = true },
 ]
 
 [[tracks]]
@@ -160,7 +160,7 @@ points = [
   { km = 66.66, kind = "signal", label = "3L2", signal = "main_repeated", measured = true },
   { km = 66.667, kind = "signal", label = "V302R", signal = "shunting", measured = true },
   { km = 66.81, kind = "signal", label = "Sch402H/4L2", signal = "main_repeated,minor", measured = true },
-  { km = 67.133, kind = "stop", label = "Schärding" },
+  { km = 67.133, kind = "stop", label = "Schärding", pos = [48.46378, 13.44255] },
   { km = 67.429, kind = "signal", label = "R2", signal = "main", measured = true },
   { km = 67.709, kind = "signal", label = "V602H", signal = "shunting", measured = true },
   { km = 67.794, kind = "signal", label = "VHT602", signal = "shunting", measured = true },
@@ -177,7 +177,7 @@ points = [
   { km = 70.5, kind = "signal", label = "am22", signal = "distant", measured = true },
   { km = 71.01, kind = "signal", label = "ym22", signal = "distant", measured = true },
   { km = 71.6, kind = "signal", label = "Am22", signal = "main", measured = true },
-  { km = 72.291, kind = "stop", label = "Wernstein" },
+  { km = 72.291, kind = "stop", label = "Wernstein", uic = "8100544", pos = [48.50685, 13.45799] },
   { km = 72.5, kind = "signal", label = "Ym42", signal = "main", measured = true },
   { km = 72.506, kind = "signal", signal = "speed_limit" },
   { km = 72.512, kind = "signal", signal = "speed_limit" },
@@ -206,5 +206,5 @@ points = [
   { km = 79.001, kind = "signal", signal = "electricity" },
   { km = 79.008, kind = "signal", signal = "electricity" },
   { km = 79.337, kind = "signal", label = "Ym92", signal = "main", measured = true },
-  { km = 171.12, kind = "halt", label = "Gopperding", measured = true },
+  { km = 171.12, kind = "halt", label = "Gopperding", uic = "8100864", pos = [48.44078, 13.45824], measured = true },
 ]

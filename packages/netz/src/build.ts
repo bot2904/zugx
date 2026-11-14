@@ -6,11 +6,19 @@
  * GTFS source: env GTFS_DIR (unzipped) or GTFS_ZIP, else `<repo>/.cache/`
  * (downloaded if missing).
  */
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
 import { readToml, toToml } from "@zugx/toml";
-import { buildCorridor, corridorToml, CORRIDOR_ALIASES, CORRIDORS } from "./corridors.ts";
+import { speedLookup } from "@zugx/vzg/speed";
+import type { VzgLine } from "@zugx/vzg";
+import {
+  buildCorridor,
+  corridorToml,
+  CORRIDOR_ALIASES,
+  CORRIDORS,
+  type SpeedLookup,
+} from "./corridors.ts";
 import { feedPeriod, loadFeed, loadShapes, openFeed, parentDhid, serviceDays } from "./gtfs.ts";
 import { buildNetz } from "./netz.ts";
 import { toNge } from "./nge.ts";
@@ -51,6 +59,42 @@ function loadHafasMap(): Map<string, string> | undefined {
     }
   }
   return map;
+}
+
+/** top speed per category (km/h) for the passing-time weighting: assumptions, see docs */
+const VMAX: Record<string, number> = {
+  RJX: 230,
+  RJ: 230,
+  ICE: 250,
+  EC: 200,
+  IC: 200,
+  ECE: 200,
+  WB: 200,
+  NJ: 160,
+  EN: 160,
+  D: 160,
+  CJX: 160,
+  REX: 160,
+  R: 140,
+  S: 140,
+};
+
+/**
+ * Permitted speeds between stations from the VzG data (packages/vzg/data, OSM, ODbL), stations
+ * linked by position.
+ */
+function loadSpeeds(stations: Map<string, { lat: number; lon: number }>): SpeedLookup | undefined {
+  const dir = join(root, "packages", "vzg", "data");
+  if (!existsSync(dir)) return undefined;
+  const lines = readdirSync(dir)
+    .filter((f) => f.endsWith(".toml") && f !== "index.toml")
+    .map((f) => readToml<VzgLine>(join(dir, f), {} as VzgLine));
+  const lookup = speedLookup(lines);
+  return (a, b, cat, len) => {
+    const sa = stations.get(a);
+    const sb = stations.get(b);
+    return sa && sb ? lookup([sa.lat, sa.lon], [sb.lat, sb.lon], VMAX[cat] ?? 160, len) : undefined;
+  };
 }
 
 async function main() {
@@ -116,8 +160,10 @@ async function main() {
     aliases: CORRIDOR_ALIASES,
     corridors: [],
   };
+  const speeds = loadSpeeds(year.feed.stations);
+  console.log(speeds ? "passing times weighted by VzG speed limits" : "passing times by distance");
   for (const def of CORRIDORS) {
-    const c = buildCorridor(feed, def, day, SOURCE, names, year, shapes);
+    const c = buildCorridor(feed, def, day, SOURCE, names, year, shapes, speeds);
     for (const st of c.stations) {
       const h = hafas?.get(st.id);
       if (h) st.hafasId = h;

@@ -18,7 +18,7 @@ points = [
   { km = 0.582, kind = "signal", label = "X/l", signal = "distant,main", measured = true },
   { km = 0.62, kind = "signal", signal = "speed_limit" },
   { km = 1.074, kind = "signal", label = "x", signal = "distant", measured = true },
-  { km = 1.635, kind = "halt", label = "Perchtoldsdorf", measured = true },
+  { km = 1.635, kind = "halt", label = "Perchtoldsdorf", pos = [48.12577, 16.27135], measured = true },
   { km = 1.836, kind = "signal", signal = "speed_limit" },
   { km = 1.84, kind = "signal", signal = "speed_limit" },
   { km = 2.104, kind = "signal", signal = "speed_limit" },

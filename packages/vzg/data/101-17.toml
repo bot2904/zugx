@@ -16,7 +16,7 @@ speeds = [[188.477, 189.733, 60, 60]]
 curves = [[189.152, 189.428, 1080]]
 points = [
   { km = 188.477, kind = "signal", label = "N8/o", signal = "distant,main,shunting", measured = true },
-  { km = 188.477, kind = "station", label = "Linz Hauptbahnhof" },
+  { km = 188.477, kind = "station", label = "Linz Hauptbahnhof", uic = "8101073", pos = [48.29024, 14.29186] },
   { km = 188.678, kind = "signal", label = "V224", signal = "shunting", measured = true },
   { km = 188.864, kind = "signal", label = "S8/h", signal = "distant,main,shunting", measured = true },
   { km = 189.207, kind = "signal", label = "1O408", signal = "main_repeated", measured = true },
@@ -25,5 +25,5 @@ points = [
   { km = 189.417, kind = "signal", label = "V482", signal = "shunting", measured = true },
   { km = 189.497, kind = "signal", label = "V508H", signal = "shunting", measured = true },
   { km = 189.733, kind = "signal", label = "V508R", signal = "shunting", measured = true },
-  { km = 189.733, kind = "halt", label = "Linz Untergaumberg" },
+  { km = 189.733, kind = "halt", label = "Linz Untergaumberg", uic = "8101699", pos = [48.28001, 14.27998] },
 ]

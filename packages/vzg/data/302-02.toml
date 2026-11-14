@@ -15,9 +15,9 @@ length = 3.854
 speeds = [[75.285, 75.506, 80, 60], [75.506, 76.501, 60, 60], [76.501, 79.152, 80, 80]]
 curves = [[75.489, 75.839, 830], [75.914, 76.014, 1380], [76.139, 76.412, 1080], [76.788, 77.669, 450], [77.745, 78.12, 850], [78.396, 78.849, 1070]]
 points = [
-  { km = 2.35, kind = "station", label = "Innsbruck Sonnenburgerhof", measured = true },
+  { km = 2.35, kind = "station", label = "Innsbruck Sonnenburgerhof", uic = "8101568", pos = [47.24645, 11.39359], measured = true },
   { km = 75.285, kind = "signal", label = "Sch201R", signal = "departure,minor,shunting", measured = true },
-  { km = 75.285, kind = "station", label = "Innsbruck Hauptbahnhof" },
+  { km = 75.285, kind = "station", label = "Innsbruck Hauptbahnhof", uic = "8101187", pos = [47.2633, 11.40102] },
   { km = 75.286, kind = "signal", label = "Sch301H", signal = "departure,minor,shunting", measured = true },
   { km = 75.506, kind = "signal", label = "O1/p", signal = "departure,distant,main,shunting", measured = true },
   { km = 75.767, kind = "signal", label = "V401R", signal = "shunting", measured = true },
@@ -58,9 +58,9 @@ length = 3.859
 speeds = [[75.283, 75.549, 80, 60], [75.549, 76.221, 60, 60], [76.221, 76.274, 80, 60], [76.274, 79.152, 80, 80]]
 curves = [[75.537, 75.805, 690], [75.905, 76.006, 1580], [76.134, 76.382, 1200], [76.794, 77.667, 450], [77.742, 78.117, 840], [78.392, 78.843, 1000]]
 points = [
-  { km = 2.35, kind = "station", label = "Innsbruck Sonnenburgerhof", measured = true },
+  { km = 2.35, kind = "station", label = "Innsbruck Sonnenburgerhof", uic = "8101568", pos = [47.24645, 11.39359], measured = true },
   { km = 75.283, kind = "signal", label = "Sch202R", signal = "departure,minor,shunting", measured = true },
-  { km = 75.283, kind = "station", label = "Innsbruck Hauptbahnhof" },
+  { km = 75.283, kind = "station", label = "Innsbruck Hauptbahnhof", uic = "8101187", pos = [47.2633, 11.40102] },
   { km = 75.286, kind = "signal", label = "Sch302H", signal = "departure,minor,shunting,speed_limit", measured = true },
   { km = 75.549, kind = "signal", label = "O2/p", signal = "departure,distant,main,shunting", measured = true },
   { km = 75.654, kind = "signal", label = "V404H", signal = "shunting", measured = true },

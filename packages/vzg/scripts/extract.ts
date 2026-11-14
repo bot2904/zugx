@@ -113,7 +113,7 @@ readPbf(input, {
         lon: Math.round(n.lon * 1e7) / 1e7,
         tags: Object.fromEntries(
           Object.entries(n.tags).filter(
-            ([k]) => k === "railway" || k === "name" || k.startsWith("railway:"),
+            ([k]) => k === "railway" || k === "name" || k === "uic_ref" || k.startsWith("railway:"),
           ),
         ),
       });
@@ -130,6 +130,7 @@ readPbf(input, {
             k === "railway" ||
             k === "name" ||
             k === "ref" ||
+            k === "uic_ref" ||
             k.startsWith("railway:") ||
             k === "public_transport",
         ),

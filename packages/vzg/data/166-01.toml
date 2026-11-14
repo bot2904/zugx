@@ -16,7 +16,7 @@ speeds = [[-0.145, 0.111, 70, 40], [0.111, 0.122, 70, 80], [0.122, 0.591, 45, 45
 curves = [[-0.011, 0.039, 2340], [0.216, 0.65, 220], [0.928, 1.078, 1140], [1.778, 2.028, 480], [2.278, 2.453, 1460], [2.603, 2.953, 600]]
 points = [
   { km = -0.145, kind = "signal", label = "H201", signal = "main" },
-  { km = -0.008, kind = "stop", label = "Bad Fischau-Brunn" },
+  { km = -0.008, kind = "stop", label = "Bad Fischau-Brunn", pos = [47.8267, 16.17315] },
   { km = 0.048, kind = "signal", label = "R201", signal = "main" },
   { km = 0.183, kind = "signal", signal = "speed_limit" },
   { km = 0.199, kind = "signal", signal = "speed_limit" },
@@ -28,7 +28,7 @@ points = [
   { km = 0.591, kind = "signal", signal = "speed_limit" },
   { km = 0.597, kind = "signal", label = "Yv11/h", signal = "distant,main" },
   { km = 0.683, kind = "signal", signal = "speed_limit" },
-  { km = 0.686, kind = "halt", label = "Bad Fischau", measured = true },
+  { km = 0.686, kind = "halt", label = "Bad Fischau", uic = "8100655", pos = [47.83127, 16.17135], measured = true },
   { km = 1.064, kind = "signal", signal = "snowplow" },
   { km = 1.092, kind = "signal", signal = "crossing_distant" },
   { km = 1.379, kind = "signal", signal = "snowplow" },
@@ -47,6 +47,6 @@ points = [
   { km = 2.746, kind = "signal", signal = "whistle" },
   { km = 2.788, kind = "signal", label = "Av11/r", signal = "distant,main" },
   { km = 3.099, kind = "signal", label = "H501", signal = "main" },
-  { km = 3.185, kind = "stop", label = "Feuerwerksanstalt" },
+  { km = 3.185, kind = "stop", label = "Feuerwerksanstalt", pos = [47.84874, 16.18929] },
   { km = 3.228, kind = "signal", signal = "speed_limit" },
 ]

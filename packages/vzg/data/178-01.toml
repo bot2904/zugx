@@ -17,5 +17,5 @@ points = [
   { km = 1.347, kind = "signal", signal = "snowplow" },
   { km = 1.397, kind = "signal", signal = "snowplow" },
   { km = 1.758, kind = "signal", signal = "stop" },
-  { km = 1.758, kind = "halt", label = "Alt Nagelberg Ergo" },
+  { km = 1.758, kind = "halt", label = "Alt Nagelberg Ergo", pos = [48.85157, 14.99937] },
 ]

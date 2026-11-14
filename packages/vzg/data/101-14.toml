@@ -16,7 +16,7 @@ speeds = [[0.222, 0.715, 25, 25], [0.715, 1.079, 40, 40]]
 curves = [[0.374, 0.488, 940], [0.564, 0.946, 410]]
 points = [
   { km = 0.222, kind = "signal", label = "k290", signal = "distant", measured = true },
-  { km = 0.251, kind = "halt", label = "Ischlerbahnstraße" },
+  { km = 0.251, kind = "halt", label = "Ischlerbahnstraße", pos = [47.81858, 13.04703] },
   { km = 0.487, kind = "signal", signal = "electricity" },
   { km = 0.667, kind = "signal", signal = "electricity" },
   { km = 0.675, kind = "signal", signal = "electricity" },

@@ -24,7 +24,7 @@ points = [
   { km = 386.141, kind = "signal", label = "V336o", signal = "shunting", measured = true },
   { km = 386.35, kind = "signal", label = "V336w", signal = "shunting", measured = true },
   { km = 386.443, kind = "signal", label = "T306", signal = "main", measured = true },
-  { km = 386.486, kind = "station", label = "Fürnitz", measured = true },
+  { km = 386.486, kind = "station", label = "Fürnitz", uic = "8100368", pos = [46.56322, 13.81344], measured = true },
   { km = 386.998, kind = "signal", label = "G306", signal = "main", measured = true },
   { km = 387.36, kind = "signal", label = "V364o", signal = "shunting", measured = true },
   { km = 387.365, kind = "signal", label = "GA404", signal = "speed_limit", measured = true },

@@ -18,7 +18,7 @@ points = [
   { km = 2.25, kind = "signal", label = "VHT101", signal = "shunting", measured = true },
   { km = 2.424, kind = "signal", label = "V101R", signal = "shunting", measured = true },
   { km = 2.6, kind = "signal", label = "H1", signal = "main", measured = true },
-  { km = 2.664, kind = "stop", label = "Lustenau" },
+  { km = 2.664, kind = "stop", label = "Lustenau", pos = [47.45059, 9.66736] },
   { km = 2.702, kind = "signal", label = "1H1", signal = "main_repeated", measured = true },
   { km = 3.017, kind = "signal", label = "Sch201R/1R1", signal = "main_repeated,minor", measured = true },
   { km = 3.178, kind = "signal", label = "V301H", signal = "shunting", measured = true },

@@ -15,12 +15,12 @@ length = 14.598
 speeds = [[15.615, 16.008, 70, 70], [16.008, 24.956, 60, 60], [24.956, 28.607, 70, 70], [28.607, 30.237, 60, 60]]
 curves = [[15.715, 15.89, 420], [15.991, 16.313, 350], [16.36, 16.916, 480], [17.192, 17.418, 440], [17.493, 17.644, 390], [17.694, 17.945, 540], [18.07, 18.171, 1530], [18.246, 18.397, 800], [18.447, 18.497, 770], [18.547, 18.648, 370], [18.698, 18.899, 380], [18.949, 19.1, 540], [19.2, 19.301, 1880], [19.401, 19.476, 2250], [19.527, 19.627, 980], [19.677, 19.978, 650], [20.381, 20.432, 2700], [20.682, 20.93, 1010], [20.98, 22.132, 480], [22.225, 22.528, 410], [22.574, 22.776, 420], [22.911, 23.232, 300], [23.343, 23.427, 1530], [23.478, 23.746, 470], [23.871, 24.121, 720], [24.246, 24.445, 810], [24.77, 25.02, 520], [25.12, 25.219, 1300], [25.294, 25.394, 1770], [25.544, 25.619, 1880], [25.844, 26.018, 830], [26.118, 26.243, 1060], [26.293, 26.593, 390], [26.843, 26.942, 1270], [27.092, 27.317, 620], [27.692, 27.766, 1650], [27.816, 27.991, 550], [28.091, 28.141, 2050], [28.241, 28.391, 1020], [28.466, 28.84, 650], [28.915, 29.414, 810], [29.564, 29.889, 520], [29.989, 30.114, 630]]
 points = [
-  { km = 16.414, kind = "stop", label = "Lähn", measured = true },
+  { km = 16.414, kind = "stop", label = "Lähn", pos = [47.41976, 10.83349], measured = true },
   { km = 18.365, kind = "signal", label = "zc11", signal = "distant", measured = true },
   { km = 19.725, kind = "signal", label = "Zc11/h", signal = "distant,main", measured = true },
   { km = 19.953, kind = "signal", label = "VHT321", signal = "shunting", measured = true },
   { km = 20.167, kind = "signal", label = "R221", signal = "main", measured = true },
-  { km = 20.299, kind = "stop", label = "Lermoos" },
+  { km = 20.299, kind = "stop", label = "Lermoos", pos = [47.40546, 10.8781] },
   { km = 20.462, kind = "signal", label = "H221", signal = "main", measured = true },
   { km = 20.578, kind = "signal", label = "1Ab11", signal = "main_repeated", measured = true },
   { km = 20.588, kind = "signal", label = "VHT122", signal = "shunting", measured = true },
@@ -30,7 +30,7 @@ points = [
   { km = 22.685, kind = "signal", label = "Zb11/h", signal = "distant,main", measured = true },
   { km = 22.809, kind = "signal", label = "VHT311", signal = "shunting", measured = true },
   { km = 23.19, kind = "signal", label = "R211", signal = "main", measured = true },
-  { km = 23.242, kind = "stop", label = "Ehrwald-Zugspitzbahn" },
+  { km = 23.242, kind = "stop", label = "Ehrwald-Zugspitzbahn", pos = [47.40971, 10.91358] },
   { km = 23.442, kind = "signal", label = "H211", signal = "main", measured = true },
   { km = 23.572, kind = "signal", label = "VHT112", signal = "shunting", measured = true },
   { km = 23.728, kind = "signal", label = "Aa11/r", signal = "distant,main", measured = true },

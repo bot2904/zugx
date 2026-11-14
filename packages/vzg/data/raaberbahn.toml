@@ -43,7 +43,7 @@ points = [
   { km = 106.394, kind = "signal", signal = "shunting" },
   { km = 106.577, kind = "signal", label = "V252", signal = "shunting" },
   { km = 106.739, kind = "signal", label = "R201", signal = "main" },
-  { km = 106.914, kind = "stop", label = "Müllendorf" },
+  { km = 106.914, kind = "stop", label = "Müllendorf", pos = [47.83472, 16.45914] },
   { km = 107.034, kind = "signal", label = "H201", signal = "main" },
   { km = 107.3, kind = "signal", label = "V201", signal = "shunting" },
   { km = 107.479, kind = "signal", signal = "shunting" },

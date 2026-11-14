@@ -27,7 +27,7 @@ points = [
   { km = 3.128, kind = "signal", signal = "crossing_distant" },
   { km = 3.197, kind = "signal", signal = "snowplow" },
   { km = 3.456, kind = "signal", signal = "snowplow" },
-  { km = 3.739, kind = "halt", label = "Innsbruck Allerheiligenhöfe", measured = true },
+  { km = 3.739, kind = "halt", label = "Innsbruck Allerheiligenhöfe", uic = "8100548", pos = [47.26912, 11.35346], measured = true },
   { km = 3.904, kind = "signal", signal = "snowplow" },
   { km = 4.003, kind = "signal", signal = "snowplow" },
   { km = 4.092, kind = "signal", signal = "snowplow" },
@@ -38,6 +38,6 @@ points = [
   { km = 5.265, kind = "signal", signal = "snowplow" },
   { km = 5.571, kind = "signal", signal = "snowplow" },
   { km = 5.672, kind = "signal", signal = "snowplow" },
-  { km = 5.718, kind = "halt", label = "Kranebitten", measured = true },
+  { km = 5.718, kind = "halt", label = "Kranebitten", uic = "8100551", pos = [47.26962, 11.32871], measured = true },
   { km = 5.916, kind = "signal", signal = "snowplow" },
 ]

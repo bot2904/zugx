@@ -40,7 +40,7 @@ points = [
   { km = 39.854, kind = "signal", label = "VHT701", signal = "shunting", measured = true },
   { km = 40.094, kind = "signal", label = "V701R", signal = "shunting", measured = true },
   { km = 40.203, kind = "signal", label = "H711", signal = "main,shunting", measured = true },
-  { km = 40.338, kind = "stop", label = "Oberweiden" },
+  { km = 40.338, kind = "stop", label = "Oberweiden", pos = [48.30646, 16.83349] },
   { km = 40.37, kind = "signal", label = "Sch711R/1R731", signal = "main_repeated,minor", measured = true },
   { km = 40.404, kind = "signal", label = "V731H", signal = "shunting", measured = true },
   { km = 40.744, kind = "signal", label = "R731", signal = "main,shunting", measured = true },

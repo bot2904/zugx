@@ -16,12 +16,12 @@ speeds = [[9.424, 9.484, 40, 50], [9.484, 10.735, 40, 40]]
 curves = [[9.7, 9.996, 580]]
 points = [
   { km = 0.552, kind = "signal", label = "VHT303", signal = "shunting", measured = true },
-  { km = 6.376, kind = "station", label = "Stadlau", measured = true },
+  { km = 6.376, kind = "station", label = "Stadlau", uic = "8170925", pos = [48.21977, 16.44956], measured = true },
   { km = 9.467, kind = "signal", label = "V303", signal = "shunting", measured = true },
   { km = 9.534, kind = "signal", label = "V313S", signal = "shunting", measured = true },
   { km = 9.682, kind = "signal", label = "V313N", signal = "shunting", measured = true },
   { km = 9.853, kind = "signal", label = "V323N", signal = "shunting", measured = true },
-  { km = 9.877, kind = "halt", label = "Wien Stadlau", measured = true },
+  { km = 9.877, kind = "halt", label = "Wien Stadlau", uic = "8104229", pos = [48.21857, 16.44817], measured = true },
   { km = 9.944, kind = "signal", label = "V333", signal = "shunting", measured = true },
   { km = 10.015, kind = "signal", label = "H3", signal = "main,shunting", measured = true },
   { km = 10.735, kind = "signal", label = "E3", signal = "main,shunting", measured = true },

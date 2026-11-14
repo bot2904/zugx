@@ -16,7 +16,7 @@ speeds = [[73.935, 74.848, 100, 120]]
 curves = [[74.035, 74.085, 2140]]
 points = [
   { km = 73.935, kind = "signal", label = "H1/yc33", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
-  { km = 73.958, kind = "stop", label = "Groß Sierning" },
+  { km = 73.958, kind = "stop", label = "Groß Sierning", pos = [48.1879, 15.45817] },
   { km = 74.193, kind = "signal", signal = "speed_limit" },
   { km = 74.197, kind = "signal", signal = "speed_limit" },
   { km = 74.848, kind = "signal", label = "R1", signal = "main", measured = true },
@@ -31,7 +31,7 @@ speeds = [[73.935, 75.242, 100, 120]]
 curves = []
 points = [
   { km = 73.935, kind = "signal", label = "H2/zc34", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
-  { km = 73.955, kind = "stop", label = "Groß Sierning" },
+  { km = 73.955, kind = "stop", label = "Groß Sierning", pos = [48.18811, 15.45816] },
   { km = 74.188, kind = "signal", signal = "speed_limit" },
   { km = 74.191, kind = "signal", signal = "speed_limit" },
   { km = 75.069, kind = "signal", signal = "station_distant" },
