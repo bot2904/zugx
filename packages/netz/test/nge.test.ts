@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vite-plus/test";
 import { buildNetz } from "../src/netz.ts";
-import { consistentTravel, layoutNodes, toNge, type NgeDto } from "../src/nge.ts";
+import { consistentTravel, toNge, type NgeDto } from "../src/nge.ts";
 import { feed, lineStations, trip } from "./helpers.ts";
 
 const has = (o: unknown, keys: string[]) => {
@@ -270,16 +270,6 @@ describe("NGE export", () => {
     expect(consistentTravel(10, 31, 20)).toBe(21);
     expect(consistentTravel(50, 5, 75)).toBe(75);
     expect(consistentTravel(50, 4, 75)).toBe(74);
-  });
-
-  it("pushes overlapping nodes apart and snaps to the grid", () => {
-    const p = layoutNodes([
-      { x: 0, y: 0 },
-      { x: 1, y: 0 },
-      { x: 100, y: 100 },
-    ]);
-    expect(Math.hypot(p[0]!.x - p[1]!.x, p[0]!.y - p[1]!.y)).toBeGreaterThanOrEqual(192);
-    for (const q of p) expect(q.x % 32 === 0 && q.y % 32 === 0).toBe(true);
   });
 
   const generated = join(import.meta.dirname, "..", "data", "nge.json");

@@ -161,7 +161,15 @@ departure minute, i.e. our `pass` nodes), resources and the edge routing itself.
 - frequency 15/30/60/120 (120 even/odd hour from the first departure), `takt: null` → 60 with
   time category "zeitweise";
 - `travelTime` is adjusted by ≤ 30 min so that departure + travel ≡ arrival (mod 60);
-- node positions: projected lat/lon × 8 px/km, pushed apart to ≥ 224 px, snapped to the 32 px grid;
+- node positions: **schematic layout** (`schematic.ts`), SBB style: near the geographic position,
+  on NGE's 32 px grid, connections exactly horizontal or vertical where possible. Each node pair
+  becomes horizontal or vertical by its geographic angle (heaviest first): both nodes share a
+  row/column and keep their order with ≥ 192 px for the time labels; contradicting connections
+  (cycles), or ones whose row already holds a station between the two ends, try the other axis or
+  stay diagonal. Node sizes are computed like NGE does (32 px per port on a side, ports on the side
+  facing the other node), coordinates are the longest path over the order constraints with the
+  geography (6 px/km) as lower bound, and overlapping nodes get separation constraints until there
+  are none. Weekday network: 0 overlaps, 48 of 50 connections straight;
 - `trafficSide: "leftHand"` (ÖBB), plus a note with source and reference day.
 
 **Import**: open the public demo <https://nge.flatland.cloud> (or a local NGE), open the

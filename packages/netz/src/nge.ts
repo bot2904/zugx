@@ -9,6 +9,7 @@
  * ports, transitions (nonstop where arrival = departure minute), resources and
  * edge routing itself (`EditorToolsViewComponent.processNetzgrafikJSON3rdParty`).
  */
+import { schematicLayout, type SchematicOptions } from "./schematic.ts";
 import { mod } from "./takt.ts";
 import type { LineDirection, LineStop, NetzModel } from "./types.ts";
 
@@ -219,51 +220,6 @@ const NORMAL_COLOR = {
   colorDarkModeRelated: "#767676",
 };
 
-// ---- layout -------------------------------------------------------------
-
-export interface LayoutOptions {
-  /** pixels per km */
-  scale?: number;
-  /** minimal node distance in pixels */
-  minDist?: number;
-  /** grid size NGE snaps to */
-  grid?: number;
-}
-
-/** Projects km coordinates to NGE pixels and pushes overlapping nodes apart. */
-export function layoutNodes(
-  pts: { x: number; y: number }[],
-  { scale = 8, minDist = 224, grid = 32 }: LayoutOptions = {},
-) {
-  const p = pts.map((q) => ({ x: q.x * scale, y: q.y * scale }));
-  for (let iter = 0; iter < 500; iter++) {
-    let moved = false;
-    for (let i = 0; i < p.length; i++) {
-      for (let j = i + 1; j < p.length; j++) {
-        const a = p[i]!;
-        const b = p[j]!;
-        let dx = b.x - a.x;
-        let dy = b.y - a.y;
-        let d = Math.hypot(dx, dy);
-        if (d >= minDist) continue;
-        if (d < 1e-6) {
-          dx = 1;
-          dy = 0;
-          d = 1;
-        }
-        const push = (minDist - d) / 2 + 0.5;
-        a.x -= (dx / d) * push;
-        a.y -= (dy / d) * push;
-        b.x += (dx / d) * push;
-        b.y += (dy / d) * push;
-        moved = true;
-      }
-    }
-    if (!moved) break;
-  }
-  return p.map((q) => ({ x: Math.round(q.x / grid) * grid, y: Math.round(q.y / grid) * grid }));
-}
-
 // ---- sections -----------------------------------------------------------
 
 const lockT = (time: number, consecutiveTime: number): TimeLockDto => ({
@@ -346,15 +302,14 @@ function frequencyId(dir: LineDirection): number {
   }
 }
 
-export function toNge(model: NetzModel, layout?: LayoutOptions): NgeDto {
+export function toNge(model: NetzModel, layout?: SchematicOptions): NgeDto {
   const nodeIndex = new Map(model.nodes.map((n, i) => [n.id, i]));
-  const pos = layoutNodes(model.nodes, layout);
   const nodes: NgeNodeDto[] = model.nodes.map((n, i) => ({
     id: i,
     betriebspunktName: n.code,
     fullName: n.name,
-    positionX: pos[i]!.x,
-    positionY: pos[i]!.y,
+    positionX: 0, // set by the schematic layout below
+    positionY: 0,
     ports: [],
     transitions: [],
     connections: [],
@@ -464,6 +419,20 @@ export function toNge(model: NetzModel, layout?: LayoutOptions): NgeDto {
       });
     });
   }
+
+  // schematic layout: one edge per connected node pair, weighted by its number of sections
+  const pairs = new Map<string, { a: number; b: number; n: number }>();
+  for (const s of trainrunSections) {
+    const [a, b] = [s.sourceNodeId, s.targetNodeId].sort((x, y) => x - y) as [number, number];
+    const e = pairs.get(`${a}-${b}`) ?? { a, b, n: 0 };
+    e.n++;
+    pairs.set(`${a}-${b}`, e);
+  }
+  const pos = schematicLayout(model.nodes, [...pairs.values()], layout).nodes;
+  nodes.forEach((n, i) => {
+    n.positionX = pos[i]!.x;
+    n.positionY = pos[i]!.y;
+  });
 
   const minX = Math.min(...nodes.map((n) => n.positionX));
   const minY = Math.min(...nodes.map((n) => n.positionY));
