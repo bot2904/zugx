@@ -11,7 +11,7 @@ import { join } from "node:path";
 import { parseArgs } from "node:util";
 import { readToml, toToml } from "@zugx/toml";
 import { buildCorridor, corridorToml, CORRIDOR_ALIASES, CORRIDORS } from "./corridors.ts";
-import { feedPeriod, loadFeed, openFeed, parentDhid, serviceDays } from "./gtfs.ts";
+import { feedPeriod, loadFeed, loadShapes, openFeed, parentDhid, serviceDays } from "./gtfs.ts";
 import { buildNetz } from "./netz.ts";
 import { toNge } from "./nge.ts";
 import { nodeCandidates, NODES } from "./nodes.ts";
@@ -98,6 +98,11 @@ async function main() {
   console.log(
     `${period.begin} – ${period.end}: ${year.feed.trips.length} rail trips (${Date.now() - t0} ms)`,
   );
+  // route geometry: trains skipping stations of a sheet are only drawn there if they really run
+  // along its line (not on a parallel one, e.g. Wien – St. Pölten high-speed line vs. Neulengbach)
+  const shapeIds = new Set(year.feed.trips.flatMap((t) => (t.shape ? [t.shape] : [])));
+  const shapes = await loadShapes(join(root, ".cache"), shapeIds);
+  console.log(`${shapes.size} shapes (${Date.now() - t0} ms)`);
   const dayIdx = Temporal.PlainDate.from(period.begin).until(day).days;
   const runsOnDay = (b64: string) => {
     const b = Buffer.from(b64, "base64")[dayIdx >> 3] ?? 0;
@@ -111,7 +116,7 @@ async function main() {
     corridors: [],
   };
   for (const def of CORRIDORS) {
-    const c = buildCorridor(feed, def, day, SOURCE, names, year);
+    const c = buildCorridor(feed, def, day, SOURCE, names, year, shapes);
     for (const st of c.stations) {
       const h = hafas?.get(st.id);
       if (h) st.hafasId = h;

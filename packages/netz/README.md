@@ -206,10 +206,17 @@ for a synthetic model and for the generated file.
   at both — unless that trip's anchor-to-anchor distance is > 12 % longer than the shortest (a
   parallel line) or the segment is marked `nonstop` (Neue Westbahn Tullnerfeld–St. Pölten vs.
   Tullnerfelder Bahn; Koralmbahn St. Paul–Kühnsdorf vs. Jauntalbahn via Bleiburg).
+  Second pass: stops of local trains that start/end between anchors (Semmering: Payerbach-Reichenau
+  ↔ Mürzzuschlag serving Küb, Eichberg, Wolfsbergkogel) are placed between two neighbouring known
+  stations ≤ 20 km apart (long-distance sheets keep only their through trains' stops).
 - km: median track distance between anchors (shape_dist_traveled), intermediate stations placed
   by their relative position between the anchors (haversine fallback).
 - Trains: every train of the day (all categories incl. S/R/NJ) with ≥ 2 consecutive corridor stops
-  in monotonic order. A non-corridor stop in between (train left the corridor) splits the run; a
+  in monotonic order. Where a train skips stations of the sheet, its GTFS shape must pass within
+  3 km of each of them, else it took a parallel line and the run is cut (e.g. sheet 110 Westbf –
+  Neulengbach – St. Pölten: D/IC/CJX via the high-speed line end at Hütteldorf; bypasses of the same
+  line such as Säusenstein or Schwaz stay ≤ 1.5 km). Shapes are streamed from `shapes.txt`.
+  A non-corridor stop in between (train left the corridor) splits the run; a
   train can therefore appear more than once (e.g. Tullnerfelder Bahn trains).
 
 ## Known gaps

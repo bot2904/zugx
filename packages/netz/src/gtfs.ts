@@ -5,7 +5,7 @@
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { unzipSync } from "fflate";
+import { Unzip, UnzipInflate, unzipSync } from "fflate";
 import { csvRecords, textChunks } from "./csv.ts";
 
 export const GTFS_URL =
@@ -39,6 +39,8 @@ export interface Trip {
   routeId: string;
   /** GTFS service_id (running days via {@link serviceDays}) */
   service: string;
+  /** GTFS shape_id (route geometry, {@link loadShapes}) */
+  shape?: string;
   stops: StopTime[];
 }
 
@@ -50,17 +52,10 @@ export interface Feed {
 /** Raw GTFS tables as text-chunk iterables (lets tests feed synthetic data). */
 export type TableSource = (name: string) => Iterable<string> | undefined;
 
-const NEEDED = ["stops", "routes", "trips", "calendar", "calendar_dates", "stop_times"];
+const NEEDED = ["stops", "routes", "trips", "calendar", "calendar_dates", "stop_times"]; // shapes: streamed, loadShapes
 
-/** Opens the feed: `GTFS_DIR` (unzipped), `GTFS_ZIP`, or the cached download. */
-export async function openFeed(cacheDir: string): Promise<TableSource> {
-  const dir = process.env.GTFS_DIR;
-  if (dir) {
-    return (name) => {
-      const p = join(dir, `${name}.txt`);
-      return existsSync(p) ? textChunks(readFileSync(p)) : undefined;
-    };
-  }
+/** Local path of the GTFS zip: env GTFS_ZIP, else the ÖBB feed in `cacheDir` (downloaded if missing). */
+export async function feedZip(cacheDir: string): Promise<string> {
   let zipPath = process.env.GTFS_ZIP;
   if (!zipPath) {
     zipPath = join(cacheDir, "GTFS_Fahrplan_2026.zip");
@@ -72,6 +67,19 @@ export async function openFeed(cacheDir: string): Promise<TableSource> {
       writeFileSync(zipPath, new Uint8Array(await res.arrayBuffer()));
     }
   }
+  return zipPath;
+}
+
+/** Opens the feed: `GTFS_DIR` (unzipped), `GTFS_ZIP`, or the cached download. */
+export async function openFeed(cacheDir: string): Promise<TableSource> {
+  const dir = process.env.GTFS_DIR;
+  if (dir) {
+    return (name) => {
+      const p = join(dir, `${name}.txt`);
+      return existsSync(p) ? textChunks(readFileSync(p)) : undefined;
+    };
+  }
+  const zipPath = await feedZip(cacheDir);
   const files = unzipSync(readFileSync(zipPath), {
     filter: (f) => NEEDED.some((n) => f.name.endsWith(`${n}.txt`)),
   });
@@ -233,6 +241,7 @@ export function loadFeed(src: TableSource, day: string | null): Feed {
       headsign: shortStationName(r.trip_headsign ?? ""),
       routeId: r.route_id!,
       service: r.service_id!,
+      ...(r.shape_id ? { shape: r.shape_id } : {}),
       stops: [],
     });
   }
@@ -272,4 +281,122 @@ export function haversineKm(a: { lat: number; lon: number }, b: { lat: number; l
     Math.sin(dLat / 2) ** 2 +
     Math.cos(a.lat * toRad) * Math.cos(b.lat * toRad) * Math.sin(dLon / 2) ** 2;
   return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+/** Route geometry of a GTFS shape (points in travel order). */
+export interface Shape {
+  lat: Float32Array;
+  lon: Float32Array;
+  /** shape_dist_traveled in metres (NaN if absent) */
+  dist: Float32Array;
+}
+
+/**
+ * Loads the given shapes from `shapes.txt`, streamed (the ÖBB file is ~600 MB uncompressed):
+ * env GTFS_DIR (unzipped) or the zip of {@link feedZip}.
+ */
+export async function loadShapes(cacheDir: string, ids: Set<string>): Promise<Map<string, Shape>> {
+  const pts = new Map<string, { seq: number[]; lat: number[]; lon: number[]; dist: number[] }>();
+  let rest = "";
+  let header: string[] | undefined;
+  const col: Record<string, number> = {};
+  const line = (l: string) => {
+    if (!l) return;
+    const f = l.split(",").map((x) => (x.startsWith('"') ? x.slice(1, -1) : x));
+    if (!header) {
+      header = f.map((h) => h.replace(/^﻿/, ""));
+      header.forEach((h, i) => (col[h] = i));
+      return;
+    }
+    const id = f[col.shape_id!]!;
+    if (!ids.has(id)) return;
+    let p = pts.get(id);
+    if (!p) pts.set(id, (p = { seq: [], lat: [], lon: [], dist: [] }));
+    p.seq.push(Number(f[col.shape_pt_sequence!]));
+    p.lat.push(Number(f[col.shape_pt_lat!]));
+    p.lon.push(Number(f[col.shape_pt_lon!]));
+    const d = f[col.shape_dist_traveled!];
+    p.dist.push(d ? Number(d) : NaN);
+  };
+  const text = (chunk: string, final: boolean) => {
+    const lines = (rest + chunk).split(/\r?\n/);
+    rest = final ? "" : lines.pop()!;
+    for (const l of lines) line(l);
+  };
+  const dir = process.env.GTFS_DIR;
+  if (dir) {
+    const p = join(dir, "shapes.txt");
+    if (existsSync(p)) for (const c of textChunks(readFileSync(p))) text(c, false);
+    text("", true);
+  } else {
+    const zip = readFileSync(await feedZip(cacheDir));
+    await new Promise<void>((resolve, reject) => {
+      const decoder = new TextDecoder();
+      const uz = new Unzip();
+      uz.register(UnzipInflate);
+      let found = false;
+      uz.onfile = (f) => {
+        if (!f.name.endsWith("shapes.txt")) return;
+        found = true;
+        f.ondata = (err, data, final) => {
+          if (err) return reject(err);
+          text(decoder.decode(data, { stream: !final }), final);
+          if (final) resolve();
+        };
+        f.start();
+      };
+      const CHUNK = 1 << 20;
+      for (let i = 0; i < zip.length; i += CHUNK)
+        uz.push(zip.subarray(i, i + CHUNK), i + CHUNK >= zip.length);
+      if (!found) resolve();
+    });
+  }
+  const out = new Map<string, Shape>();
+  for (const [id, p] of pts) {
+    const order = p.seq.map((_, i) => i).sort((a, b) => p.seq[a]! - p.seq[b]!);
+    out.set(id, {
+      lat: Float32Array.from(order, (i) => p.lat[i]!),
+      lon: Float32Array.from(order, (i) => p.lon[i]!),
+      dist: Float32Array.from(order, (i) => p.dist[i]!),
+    });
+  }
+  return out;
+}
+
+/**
+ * Smallest distance (km) between a point and the part of a shape between two track positions
+ * (shape_dist_traveled, metres); the whole shape if the positions are unknown.
+ */
+export function shapeDistanceKm(
+  shape: Shape,
+  lat: number,
+  lon: number,
+  fromM = NaN,
+  toM = NaN,
+): number {
+  const n = shape.lat.length;
+  let i0 = 0;
+  let i1 = n - 1;
+  if (Number.isFinite(fromM) && Number.isFinite(toM)) {
+    const [lo, hi] = fromM < toM ? [fromM, toM] : [toM, fromM];
+    while (i0 < n - 1 && !(shape.dist[i0 + 1]! >= lo)) i0++;
+    while (i1 > 0 && !(shape.dist[i1 - 1]! <= hi)) i1--;
+    if (i1 <= i0) [i0, i1] = [0, n - 1];
+  }
+  const kx = 111.32 * Math.cos((lat * Math.PI) / 180);
+  const ky = 110.57;
+  let best = Infinity;
+  for (let i = i0; i < i1; i++) {
+    const ax = (shape.lon[i]! - lon) * kx;
+    const ay = (shape.lat[i]! - lat) * ky;
+    const bx = (shape.lon[i + 1]! - lon) * kx;
+    const by = (shape.lat[i + 1]! - lat) * ky;
+    const dx = bx - ax;
+    const dy = by - ay;
+    const len2 = dx * dx + dy * dy;
+    const t = len2 ? Math.max(0, Math.min(1, -(ax * dx + ay * dy) / len2)) : 0;
+    best = Math.min(best, Math.hypot(ax + t * dx, ay + t * dy));
+  }
+  if (i1 === i0) best = Math.hypot((shape.lon[i0]! - lon) * kx, (shape.lat[i0]! - lat) * ky);
+  return best;
 }

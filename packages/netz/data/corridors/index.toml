@@ -54,11 +54,11 @@ from = "St. Pölten Hbf"
 to = "Wien Franz-Josefs-Bahnhof"
 km = 79.1
 stations = 21
-trains = 380
+trains = 276
 file = "112.toml"
 major = ["St. Pölten Hbf", "Traismauer", "Tullnerfeld", "Tulln", "Wien Franz-Josefs-Bahnhof"]
 names = ["St. Pölten Hbf", "St. Pölten Traisenpark/P+R Nord", "Viehofen", "Oberradlberg", "Unterradlberg", "Herzogenburg", "Herzogenburg Stadt", "Getzersdorf/Traisen", "Traismauer", "Gemeinlebarn", "Sitzenberg-Reidling", "Trasdorf", "Moosbierbaum-Heiligeneich", "Atzenbrugg", "Michelhausen", "Tullnerfeld", "Tulln Stadt", "Tulln", "Wien Heiligenstadt", "Wien Spittelau", "Wien Franz-Josefs-Bahnhof"]
-cats = { REX = 130, S = 98, CJX = 58, R = 48, IC = 37, RJ = 5, D = 2, NJ = 2 }
+cats = { REX = 130, S = 98, R = 48 }
 
 [[corridors]]
 id = "113"
@@ -558,11 +558,11 @@ from = "Graz Hbf"
 to = "Klagenfurt Hbf"
 km = 222.7
 stations = 37
-trains = 406
+trains = 401
 file = "600.toml"
 major = ["Graz Hbf", "Bruck/Mur", "Unzmarkt", "Klagenfurt Hbf"]
 names = ["Graz Hbf", "Judendorf-Straßengel", "Gratwein-Gratkorn", "Stübing", "Peggau-Deutschfeistritz", "Frohnleiten", "Mixnitz-Bärenschützklamm", "Pernegg", "Bruck/Mur", "Niklasdorf", "Leoben Lerchenfeld", "Leoben Hbf", "St.Michael", "Kraubath an der Mur", "Fentsch-St.Lorenzen", "Knittelfeld", "Zeltweg", "Judenburg", "Thalheim-Pöls", "St.Georgen ob Judenburg", "Unzmarkt", "Scheifling", "Mariahof-St.Lambrecht", "Neumarkt", "Friesach", "Micheldorf-Hirt", "Treibach-Althofen", "Kappel am Krappfeld", "Passering", "Launsdorf-Hochosterwitz", "St.Georgen am Längsee", "St. Veit an der Glan", "Glandorf", "Maria Saal", "Klagenfurt Annabichl", "Klagenfurt Ostbahnhof", "Klagenfurt Hbf"]
-cats = { S = 233, IR = 69, RJ = 31, RJX = 22, IC = 15, REX = 14, R = 10, EC = 8, NJ = 4 }
+cats = { S = 233, IR = 69, RJ = 31, RJX = 19, IC = 15, REX = 14, R = 10, EC = 8, NJ = 2 }
 
 [[corridors]]
 id = "601"
@@ -586,11 +586,11 @@ from = "Pusarnitz"
 to = "Wolfsberg"
 km = 153.8
 stations = 33
-trains = 259
+trains = 275
 file = "620.toml"
 major = ["Pusarnitz", "Spittal-Millstätter See", "Villach Hbf", "Klagenfurt Hbf", "Bleiburg", "Wolfsberg"]
 names = ["Pusarnitz", "Spittal-Millstätter See", "Rothenthurn", "Ferndorf in Ktn", "Markt Paternion", "Paternion-Feistritz", "Weissenstein-Kellerberg", "Puch b.Villach", "Villach Hbf", "Villach Seebach", "Föderlach", "Lind-Rosegg", "Velden/Wörthersee", "Töschling", "Pörtschach/Wörthersee", "Pritschitz", "Krumpendorf/Wörthersee", "Klagenfurt West", "Klagenfurt Lend", "Klagenfurt Hbf", "Klagenfurt Ebenthal", "Grafenstein", "Kühnsdorf-Klopeiner See", "Mittlern", "St.Michael ob Bleiburg", "Bleiburg", "Bleiburg Stadt", "Wiederndorf-Aich", "St.Paul im Lavanttal", "St.Andrä", "St.Stefan", "Wolfsberg Reding", "Wolfsberg"]
-cats = { S = 128, RJ = 41, REX = 28, RJX = 19, IC = 18, ICE = 9, EC = 4, R = 4, NJ = 4, EN = 4 }
+cats = { S = 128, REX = 50, RJ = 37, RJX = 19, IC = 18, ICE = 7, EC = 4, R = 4, NJ = 4, EN = 4 }
 
 [[corridors]]
 id = "650"
@@ -768,11 +768,11 @@ from = "Wien Hbf"
 to = "Břeclav"
 km = 88.4
 stations = 28
-trains = 728
+trains = 688
 file = "901.toml"
 major = ["Wien Hbf", "Gänserndorf", "Hohenau/March", "Břeclav"]
 names = ["Wien Hbf", "Wien Quartier Belvedere", "Wien Rennweg", "Wien Mitte-Landstraße", "Wien Praterstern", "Wien Traisengasse", "Wien Handelskai", "Wien Floridsdorf", "Wien Siemensstraße", "Wien Leopoldau", "Wien Süßenbrunn", "Deutsch-Wagram", "Helmahof", "Strasshof", "Silberwald", "Gänserndorf", "Weikendorf-Dörfles", "Tallesbrunn", "Angern/March", "Stillfried", "Dürnkrut", "Jedenspeigen", "Sierndorf an der March", "Drösing", "Hohenau/March", "Rabensburg", "Bernhardsthal", "Břeclav"]
-cats = { S = 408, REX = 220, CJX = 46, R = 14, RJ = 12, EC = 11, RJX = 6, IC = 5, EN = 4, NJ = 2 }
+cats = { S = 408, REX = 220, CJX = 46, R = 14 }
 
 [[corridors]]
 id = "902"
@@ -880,11 +880,11 @@ from = "Wien Hbf"
 to = "Graz Hbf"
 km = 210.4
 stations = 55
-trains = 1202
+trains = 1204
 file = "suedbahn.toml"
 major = ["Wien Hbf", "Wien Meidling", "Baden", "Wiener Neustadt Hbf", "Gloggnitz", "Semmering", "Mürzzuschlag", "Bruck/Mur", "Graz Hbf"]
 names = ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wien Hetzendorf", "Wien Atzgersdorf", "Wien Liesing", "Perchtoldsdorf", "Brunn-Maria Enzersdorf", "Mödling", "Guntramsdorf Thallern", "Gumpoldskirchen", "Pfaffstätten", "Baden", "Bad Vöslau", "Kottingbrunn", "Leobersdorf", "Sollenau", "Felixdorf", "Theresienfeld", "Wiener Neustadt Nord", "Wiener Neustadt Hbf", "St. Egyden/Stfd", "Neunkirchen", "Ternitz", "Pottschach", "Gloggnitz", "Schlöglmühl", "Payerbach-Reichenau", "Küb", "Eichberg am Semmering", "Klamm-Schottwien", "Breitenstein", "Wolfsbergkogel", "Semmering", "Steinhaus", "Spital am Semmering", "Mürzzuschlag", "Langenwang", "Krieglach", "Mitterdorf-Veitsch", "Wartberg", "Kindberg", "Allerheiligen-Mürzhofen", "St.Marein-St.Lorenzen", "Kapfenberg Fachhochschule", "Kapfenberg", "Bruck/Mur", "Pernegg", "Mixnitz-Bärenschützklamm", "Frohnleiten", "Peggau-Deutschfeistritz", "Stübing", "Gratwein-Gratkorn", "Judendorf-Straßengel", "Graz Hbf"]
-cats = { S = 591, REX = 171, RJX = 76, CJX = 74, R = 73, IC = 57, IR = 54, RJ = 36, EC = 31, NJ = 15, ICE = 8, D = 8, EN = 8 }
+cats = { S = 591, REX = 171, RJX = 76, CJX = 74, R = 73, IC = 57, IR = 54, RJ = 36, EC = 32, NJ = 16, ICE = 8, D = 8, EN = 8 }
 
 [[corridors]]
 id = "koralm"
@@ -921,11 +921,11 @@ from = "Salzburg Hbf"
 to = "Wörgl Hbf"
 km = 191.2
 stations = 49
-trains = 265
+trains = 251
 file = "gisela.toml"
 major = ["Salzburg Hbf", "Bischofshofen", "Schwarzach-St. Veit", "Zell am See", "Saalfelden", "Kitzbühel", "Wörgl Hbf"]
 names = ["Salzburg Hbf", "Salzburg Sam S-Bahn", "Salzburg Gnigl S-Bahn", "Salzburg Parsch S-Bahn", "Salzburg Aigen S-Bahn", "Salzburg-Süd S-Bahn", "Elsbethen S-Bahn", "Puch Urstein (FH)", "Puch S-Bahn", "Oberalm S-Bahn", "Hallein", "Hallein Burgfried S-Bahn", "Bad Vigaun S-Bahn", "Kuchl Garnei S-Bahn", "Kuchl S-Bahn", "Golling-Abtenau", "Tenneck", "Werfen", "Pfarrwerfen", "Bischofshofen", "Mitterberghütten", "St.Johann", "Schwarzach-St. Veit", "Lend", "Taxenbach-Rauris", "Gries", "Bruck-Fusch", "Zell am See", "Maishofen-Saalbach", "Saalfelden", "Leogang-Steinberge", "Leogang", "Hochfilzen", "Pfaffenschwendt", "Fieberbrunn", "St. Johann i. T. Grieswirt", "St. Johann i. T.", "Oberndorf i. T.", "Kitzbühel", "Kitzbühel Hahnenkamm", "Kitzbühel Schwarzsee", "Kirchberg i. T.", "Brixen i. Th.", "Westendorf", "Windau", "Hopfgarten i. Br. Berglift", "Hopfgarten i. Br.", "Wörgl Süd-Bruckhäusl", "Wörgl Hbf"]
-cats = { S = 119, R = 38, IR = 31, REX = 17, IC = 16, RJX = 13, RJ = 9, EC = 6, ICE = 6, D = 4, NJ = 3, EN = 3 }
+cats = { S = 119, R = 38, IR = 31, REX = 17, IC = 16, RJ = 8, EC = 6, ICE = 6, D = 4, NJ = 3, EN = 3 }
 
 [[corridors]]
 id = "stammstrecke"

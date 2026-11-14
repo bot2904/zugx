@@ -6,7 +6,9 @@ import {
   corridorRuns,
   corridorStations,
   encodeDays,
+  shapeOnLine,
 } from "../src/corridors.ts";
+import { shapeDistanceKm, type Shape } from "../src/gtfs.ts";
 import { feed, lineStations, trip } from "./helpers.ts";
 
 // A —10— a1 —10— B —20— C, plus a parallel line B — x1 — C (longer) and a branch y1
@@ -164,5 +166,57 @@ describe("corridorStations: local trains between anchors", () => {
       anchors: ["A", "C"],
     });
     expect(sheet.map((s) => s.id)).toEqual(["A", "a1", "l1", "B", "C"]);
+  });
+});
+
+describe("trains on a parallel line (GTFS shapes)", () => {
+  // stations along lat 47, lon 13 … ; shape: a straight line at lat 47 (on the line), or a
+  // detour 0.1° (≈ 11 km) north between the 2nd and 3rd point (parallel line)
+  const st0 = lineStations(["A", "m1", "m2", "B"], [10, 10, 10]);
+  const shape = (northKm: number): Shape => {
+    const lon = [13, 13 + 10 / 75.8, 13 + 20 / 75.8, 13 + 30 / 75.8];
+    const lat = [47, 47 + northKm / 111, 47 + northKm / 111, 47];
+    return {
+      lat: Float32Array.from(lat),
+      lon: Float32Array.from(lon),
+      dist: Float32Array.from([0, 10000, 20000, 30000]),
+    };
+  };
+  const express = (shapeId: string) => ({
+    ...trip("RJ", "1", [
+      ["A", 0, 0, 0],
+      ["B", 15, 15, 30],
+    ]),
+    shape: shapeId,
+  });
+  const def = { id: "t", name: "T", anchors: ["A", "B"] };
+  const local = trip("R", "2", [
+    ["A", 0, 0, 0],
+    ["m1", 8, 8, 10],
+    ["m2", 16, 16, 20],
+    ["B", 24, 24, 30],
+  ]);
+  const f = feed(st0, [local]);
+  const stations = corridorStations(f, def);
+  const idx = new Map(stations.map((s, i) => [s.id, i]));
+  const shapes = new Map([
+    ["on", shape(0)],
+    ["bypass", shape(1.5)],
+    ["parallel", shape(11)],
+  ]);
+  const onLine = shapeOnLine(f, stations, shapes);
+
+  it("measures the distance to the part of the shape between two stops", () => {
+    expect(shapeDistanceKm(shapes.get("parallel")!, 47, 13 + 15 / 75.8)).toBeCloseTo(11, 0);
+    expect(shapeDistanceKm(shapes.get("on")!, 47, 13 + 15 / 75.8)).toBeLessThan(0.01);
+  });
+
+  it("draws trains skipping stations only if they run along the line (bypasses ≤ 3 km)", () => {
+    expect(corridorRuns(express("on"), idx, onLine)).toHaveLength(1);
+    expect(corridorRuns(express("bypass"), idx, onLine)).toHaveLength(1);
+    // parallel line: A and B are not connected on this sheet (single points are no run)
+    expect(corridorRuns(express("parallel"), idx, onLine)).toEqual([]);
+    // without shape: drawn as before
+    expect(corridorRuns({ ...express("x"), shape: undefined }, idx, onLine)).toHaveLength(1);
   });
 });

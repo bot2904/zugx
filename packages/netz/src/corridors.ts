@@ -8,7 +8,7 @@
  * their relative position between the two anchors (haversine fallback).
  */
 import { toToml } from "@zugx/toml";
-import { haversineKm, type Feed, type Trip } from "./gtfs.ts";
+import { haversineKm, shapeDistanceKm, type Feed, type Shape, type Trip } from "./gtfs.ts";
 import type { Corridor, CorridorStation, CorridorTrain } from "./types.ts";
 
 export interface CorridorDef {
@@ -975,7 +975,50 @@ export function corridorStations(feed: Feed, def: CorridorDef, names?: Map<strin
  */
 export type CorridorRun = Omit<CorridorTrain, "days" | "origin">;
 
-export function corridorRuns(trip: Trip, stationIdx: Map<string, number>): CorridorRun[] {
+/**
+ * Does the trip run along the corridor between its stops i and j, which skip the corridor
+ * stations `skipped` (indexes)? false = it took a parallel line (e.g. the high-speed line Wien –
+ * St. Pölten instead of the old line via Neulengbach), so the run is cut there.
+ */
+export type OnLine = (trip: Trip, i: number, j: number, skipped: number[]) => boolean;
+
+/**
+ * {@link OnLine} from the GTFS shapes: the train's route between the two stops must pass within
+ * `maxKm` of every skipped station. 3 km separates the cases in the ÖBB data: bypasses of the same
+ * corridor stay within 1.5 km (Westbahn at Säusenstein, Unterinntal line at Schwaz), parallel lines
+ * are ≥ 3.6 km away (high-speed line vs. Neulengbach 8.7 km, Pottendorfer Linie 13 km, Jauntal
+ * 3.6 km). Trips without shape or unknown stations count as on the line.
+ */
+export function shapeOnLine(
+  feed: Feed,
+  stations: CorridorStation[],
+  shapes: Map<string, Shape>,
+  maxKm = 3,
+): OnLine {
+  const cache = new Map<string, boolean>();
+  return (trip, i, j, skipped) => {
+    const shape = trip.shape ? shapes.get(trip.shape) : undefined;
+    if (!shape) return true;
+    const a = trip.stops[i]!;
+    const b = trip.stops[j]!;
+    const key = `${trip.shape}|${a.st}|${b.st}|${skipped.join(",")}`;
+    let ok = cache.get(key);
+    if (ok === undefined) {
+      ok = skipped.every((k) => {
+        const st = feed.stations.get(stations[k]!.id);
+        return !st || shapeDistanceKm(shape, st.lat, st.lon, a.dist, b.dist) <= maxKm;
+      });
+      cache.set(key, ok);
+    }
+    return ok;
+  };
+}
+
+export function corridorRuns(
+  trip: Trip,
+  stationIdx: Map<string, number>,
+  onLine?: OnLine,
+): CorridorRun[] {
   const out: CorridorRun[] = [];
   let cur: [number, number | null, number | null][] = [];
   let dir: 1 | -1 | 0 = 0;
@@ -989,12 +1032,21 @@ export function corridorRuns(trip: Trip, stationIdx: Map<string, number>): Corri
     cur = [];
     dir = 0;
   };
+  let lastI = -1;
   trip.stops.forEach((s, i) => {
     const k = stationIdx.get(s.st);
     if (k === undefined) {
       flush();
       return;
     }
+    // skipping stations of the corridor: only on the corridor's line (else the train left it)
+    const prev = cur[cur.length - 1];
+    if (prev && onLine && Math.abs(k - prev[0]) > 1) {
+      const [lo, hi] = prev[0] < k ? [prev[0], k] : [k, prev[0]];
+      const skipped = Array.from({ length: hi - lo - 1 }, (_, n) => lo + 1 + n);
+      if (!onLine(trip, lastI, i, skipped)) flush();
+    }
+    lastI = i;
     const pt: [number, number | null, number | null] = [k, s.arr, s.dep];
     if (i === 0) pt[1] = null;
     if (i === trip.stops.length - 1) pt[2] = null;
@@ -1040,9 +1092,11 @@ export function buildCorridor(
   source: string,
   names?: Map<string, string>,
   year?: YearTrips,
+  shapes?: Map<string, Shape>,
 ): Corridor {
   const stations = corridorStations(feed, def, names);
   const idx = new Map(stations.map((s, i) => [s.id, i]));
+  const onLine = shapes ? shapeOnLine(year?.feed ?? feed, stations, shapes) : undefined;
   const begin = year?.begin ?? day;
   const end = year?.end ?? day;
   const n = Temporal.PlainDate.from(begin).until(end).days + 1;
@@ -1053,7 +1107,7 @@ export function buildCorridor(
     if (!tripDays?.size) continue;
     const first = trip.stops[0]!.st;
     const origin = src.stations.get(first)?.name ?? first;
-    for (const run of corridorRuns(trip, idx)) {
+    for (const run of corridorRuns(trip, idx, onLine)) {
       const { pts, headsign, ...head } = run;
       const t = { ...head, origin, headsign, pts }; // key order of the JSON lines
       const key = JSON.stringify(t);
