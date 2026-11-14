@@ -285,3 +285,20 @@ test("bildfahrplan hover shows train, departure station and destination", async 
   await train.dispatchEvent("mouseenter"); // the first run may lie partly outside the clipped plot
   await expect(page.locator("p.mono").filter({ hasText: "→" })).toHaveText(/\S+ \d+\s+.+ → .+/);
 });
+
+test("netzgrafik opens the Netzgrafik-Editor with the network in the URL fragment", async ({
+  page,
+  context,
+}) => {
+  await context.route("https://openrailassociation.github.io/**", (r) =>
+    r.fulfill({ contentType: "text/html", body: "<title>NGE</title>" }),
+  );
+  await page.goto("/netz");
+  const [popup] = await Promise.all([
+    page.waitForEvent("popup"),
+    page.getByRole("link", { name: /Netzgrafik-Editor/ }).click(),
+  ]);
+  await popup.waitForURL(/#netzgrafik=/);
+  const data = new URL(popup.url()).hash.replace("#netzgrafik=", "");
+  expect(data).toMatch(/^[\w-]{1000,}$/);
+});

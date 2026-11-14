@@ -178,7 +178,7 @@ export default {
     noData: "Netzgrafik noch nicht erzeugt.",
     export: "NGE-JSON herunterladen",
     openNge: "Netzgrafik-Editor",
-    openNgeHint: "NGE-JSON herunterladen und im Netzgrafik-Editor importieren",
+    openNgeHint: "Öffnet dieses Netz im Netzgrafik-Editor",
     knoten: "Knotenzeiten",
     takt: "Takt",
     symmetry: "Symmetrie",

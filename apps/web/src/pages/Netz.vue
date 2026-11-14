@@ -3,6 +3,7 @@
 import type { EdgeLine, NetzLine, NetzModel, NetzNode } from "@zugx/netz";
 import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { NGE_APP, ngeLink } from "../lib/nge.ts";
 import { categoryColor } from "../lib/products.ts";
 
 // one model per day type: netz.json (Mon–Fri), netz-saturday.json, netz-sunday.json
@@ -38,13 +39,29 @@ const dayType = computed<DayType>(() =>
 const availableTypes = computed(() =>
   DAY_TYPES.filter((d) => pathFor("netz", d.id, Object.keys(files))),
 );
-/** public Netzgrafik-Editor web app (OpenRail Association) */
-const NGE_APP = "https://openrailassociation.github.io/netzgrafik-editor-frontend/";
 
 const ngeUrl = computed(() => {
   const p = pathFor("nge", dayType.value, Object.keys(ngeUrls));
   return p ? ngeUrls[p] : undefined;
 });
+
+// open the editor with the current day type's network: the window opens synchronously (popup
+// blockers), the address follows once the JSON is loaded and compressed
+async function openNge(e: MouseEvent) {
+  const url = ngeUrl.value;
+  if (!url) return;
+  e.preventDefault();
+  const w = window.open("", "_blank");
+  try {
+    const href = await ngeLink(await (await fetch(url)).text());
+    if (w) {
+      w.opener = null;
+      w.location.href = href;
+    } else location.href = href;
+  } catch {
+    if (w) w.location.href = NGE_APP;
+  }
+}
 
 async function load() {
   loading.value = true;
@@ -186,6 +203,8 @@ const lineWidth = (l: NetzLine) => (l.takt && l.takt <= 30 ? 3 : l.takt === 60 ?
         class="btn text-xs"
         :class="!ngeUrl && 'ml-auto'"
         target="_blank"
+        rel="noopener"
+        @click="openNge"
         :title="$t('netz.openNgeHint')"
         >{{ $t("netz.openNge") }} ↗</a
       >
