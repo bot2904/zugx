@@ -219,6 +219,9 @@ for a synthetic model and for the generated file.
   3 km of each of them, else it took a parallel line and the run is cut (e.g. sheet 110 Westbf –
   Neulengbach – St. Pölten: D/IC/CJX via the high-speed line end at Hütteldorf; bypasses of the same
   line such as Säusenstein or Schwaz stay ≤ 1.5 km). Shapes are streamed from `shapes.txt`.
+  Stations a train runs through without stopping get **passing points** (its shape passes within
+  300 m), with times interpolated by track distance between its stops — otherwise trains crossing a
+  sheet non-stop (RJX Wien – Graz on sheet 500) would be missing entirely.
   A non-corridor stop in between (train left the corridor) splits the run; a
   train can therefore appear more than once (e.g. Tullnerfelder Bahn trains).
 

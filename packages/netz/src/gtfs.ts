@@ -400,3 +400,38 @@ export function shapeDistanceKm(
   if (i1 === i0) best = Math.hypot((shape.lon[i0]! - lon) * kx, (shape.lat[i0]! - lat) * ky);
   return best;
 }
+
+/**
+ * Closest point of a shape to a station: distance (km) and position along the shape
+ * (shape_dist_traveled, metres; NaN if the shape has no distances).
+ */
+export function shapeProjection(
+  shape: Shape,
+  lat: number,
+  lon: number,
+  /** segments farther than this (km) on one side are skipped quickly */
+  near = 5,
+): { km: number; alongM: number } {
+  const kx = 111.32 * Math.cos((lat * Math.PI) / 180);
+  const ky = 110.57;
+  let best = Infinity;
+  let along = NaN;
+  for (let i = 0; i + 1 < shape.lat.length; i++) {
+    const ay = (shape.lat[i]! - lat) * ky;
+    const by = (shape.lat[i + 1]! - lat) * ky;
+    if ((ay > near && by > near) || (ay < -near && by < -near)) continue;
+    const ax = (shape.lon[i]! - lon) * kx;
+    const bx = (shape.lon[i + 1]! - lon) * kx;
+    if ((ax > near && bx > near) || (ax < -near && bx < -near)) continue;
+    const dx = bx - ax;
+    const dy = by - ay;
+    const len2 = dx * dx + dy * dy;
+    const t = len2 ? Math.max(0, Math.min(1, -(ax * dx + ay * dy) / len2)) : 0;
+    const d = Math.hypot(ax + t * dx, ay + t * dy);
+    if (d < best) {
+      best = d;
+      along = shape.dist[i]! + t * (shape.dist[i + 1]! - shape.dist[i]!);
+    }
+  }
+  return { km: best, alongM: along };
+}

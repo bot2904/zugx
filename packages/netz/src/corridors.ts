@@ -8,7 +8,15 @@
  * their relative position between the two anchors (haversine fallback).
  */
 import { toToml } from "@zugx/toml";
-import { haversineKm, shapeDistanceKm, type Feed, type Shape, type Trip } from "./gtfs.ts";
+import {
+  haversineKm,
+  shapeDistanceKm,
+  shapeProjection,
+  type Feed,
+  type Shape,
+  type StopTime,
+  type Trip,
+} from "./gtfs.ts";
 import type { Corridor, CorridorStation, CorridorTrain } from "./types.ts";
 
 export interface CorridorDef {
@@ -1014,6 +1022,80 @@ export function shapeOnLine(
   };
 }
 
+/**
+ * Adds passing points: sheet stations the train passes without stopping (its shape runs within
+ * `maxKm` of them) between two of its stops, with times interpolated by track distance. Without
+ * them, trains running through a sheet non-stop (e.g. RJX Wien – Graz through Wiener Neustadt and
+ * Mürzzuschlag on sheet 500) would have no points on it at all. 300 m: trains running through a
+ * station pass within 0–140 m of its coordinate, lines alongside stay ≥ 640 m away (high-speed line
+ * near Hütteldorf/Pottenbrunn).
+ */
+export function passingPoints(
+  feed: Feed,
+  stations: CorridorStation[],
+  shapes: Map<string, Shape>,
+  maxKm = 0.3,
+): (trip: Trip) => Trip {
+  const coords = stations.flatMap((s) => {
+    const st = feed.stations.get(s.id);
+    return st ? [{ id: s.id, lat: st.lat, lon: st.lon }] : [];
+  });
+  const pad = 0.02; // ≈ 2 km
+  const box = coords.reduce(
+    (b, c) => ({
+      s: Math.min(b.s, c.lat - pad),
+      n: Math.max(b.n, c.lat + pad),
+      w: Math.min(b.w, c.lon - pad),
+      e: Math.max(b.e, c.lon + pad),
+    }),
+    { s: 90, n: -90, w: 180, e: -180 },
+  );
+  // per shape: sheet stations on its route, with their position along the shape
+  const perShape = new Map<string, { id: string; alongM: number }[]>();
+  const onShape = (id: string, shape: Shape) => {
+    let r = perShape.get(id);
+    if (r) return r;
+    r = [];
+    // shape's bounding box overlaps the sheet's (also long segments without a vertex inside)
+    let [s, n, w, e] = [90, -90, 180, -180];
+    for (let i = 0; i < shape.lat.length; i++) {
+      s = Math.min(s, shape.lat[i]!);
+      n = Math.max(n, shape.lat[i]!);
+      w = Math.min(w, shape.lon[i]!);
+      e = Math.max(e, shape.lon[i]!);
+    }
+    if (s <= box.n && n >= box.s && w <= box.e && e >= box.w)
+      for (const c of coords) {
+        const p = shapeProjection(shape, c.lat, c.lon);
+        if (p.km <= maxKm && Number.isFinite(p.alongM)) r.push({ id: c.id, alongM: p.alongM });
+      }
+    perShape.set(id, r);
+    return r;
+  };
+  return (trip) => {
+    const shape = trip.shape ? shapes.get(trip.shape) : undefined;
+    if (!shape) return trip;
+    const passed = onShape(trip.shape!, shape);
+    if (!passed.length) return trip;
+    const stopped = new Set(trip.stops.map((s) => s.st));
+    const extra: StopTime[] = [];
+    for (let i = 0; i + 1 < trip.stops.length; i++) {
+      const a = trip.stops[i]!;
+      const b = trip.stops[i + 1]!;
+      if (!(b.dist > a.dist) || !Number.isFinite(a.dep) || !Number.isFinite(b.arr)) continue;
+      for (const p of passed) {
+        if (stopped.has(p.id) || p.alongM <= a.dist || p.alongM >= b.dist) continue;
+        const t = a.dep + ((p.alongM - a.dist) / (b.dist - a.dist)) * (b.arr - a.dep);
+        const tm = Math.round(t * 10) / 10;
+        extra.push({ st: p.id, arr: tm, dep: tm, dist: p.alongM });
+      }
+    }
+    if (!extra.length) return trip;
+    const stops = [...trip.stops, ...extra].sort((x, y) => x.dist - y.dist);
+    return { ...trip, stops };
+  };
+}
+
 export function corridorRuns(
   trip: Trip,
   stationIdx: Map<string, number>,
@@ -1097,6 +1179,7 @@ export function buildCorridor(
   const stations = corridorStations(feed, def, names);
   const idx = new Map(stations.map((s, i) => [s.id, i]));
   const onLine = shapes ? shapeOnLine(year?.feed ?? feed, stations, shapes) : undefined;
+  const withPassing = shapes ? passingPoints(year?.feed ?? feed, stations, shapes) : undefined;
   const begin = year?.begin ?? day;
   const end = year?.end ?? day;
   const n = Temporal.PlainDate.from(begin).until(end).days + 1;
@@ -1107,7 +1190,7 @@ export function buildCorridor(
     if (!tripDays?.size) continue;
     const first = trip.stops[0]!.st;
     const origin = src.stations.get(first)?.name ?? first;
-    for (const run of corridorRuns(trip, idx, onLine)) {
+    for (const run of corridorRuns(withPassing ? withPassing(trip) : trip, idx, onLine)) {
       const { pts, headsign, ...head } = run;
       const t = { ...head, origin, headsign, pts }; // key order of the JSON lines
       const key = JSON.stringify(t);

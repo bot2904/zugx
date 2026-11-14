@@ -6,6 +6,7 @@ import {
   corridorRuns,
   corridorStations,
   encodeDays,
+  passingPoints,
   shapeOnLine,
 } from "../src/corridors.ts";
 import { shapeDistanceKm, type Shape } from "../src/gtfs.ts";
@@ -218,5 +219,59 @@ describe("trains on a parallel line (GTFS shapes)", () => {
     expect(corridorRuns(express("parallel"), idx, onLine)).toEqual([]);
     // without shape: drawn as before
     expect(corridorRuns({ ...express("x"), shape: undefined }, idx, onLine)).toHaveLength(1);
+  });
+});
+
+describe("passing points (trains running through a sheet without stopping)", () => {
+  // sheet A – m1 – m2 – B on a straight line; an express from X (before A) to Y (after B) stops
+  // nowhere on it, its shape runs straight through all four stations
+  const st0 = lineStations(["X", "A", "m1", "m2", "B", "Y"], [10, 10, 10, 10, 10]);
+  const local = trip("R", "1", [
+    ["A", 0, 0, 0],
+    ["m1", 8, 8, 10],
+    ["m2", 16, 16, 20],
+    ["B", 24, 24, 30],
+  ]);
+  const lon = (km: number) => 13 + km / 75.8;
+  const straight: Shape = {
+    lat: Float32Array.from([47, 47]),
+    lon: Float32Array.from([lon(0), lon(50)]),
+    dist: Float32Array.from([0, 50000]),
+  };
+  const express = {
+    ...trip("RJX", "9", [
+      ["X", 100, 100, 0],
+      ["Y", 125, 125, 50],
+    ]),
+    shape: "s",
+  };
+  const f = feed(st0, [local, express]);
+  const stations = corridorStations(feed(st0, [local]), {
+    id: "t",
+    name: "T",
+    anchors: ["A", "B"],
+  });
+  const idx = new Map(stations.map((s, i) => [s.id, i]));
+  const add = passingPoints(f, stations, new Map([["s", straight]]));
+
+  it("interpolates passing times by track distance", () => {
+    const t = add(express);
+    expect(t.stops.map((s) => [s.st, s.arr])).toEqual([
+      ["X", 100],
+      ["A", 105],
+      ["m1", 110],
+      ["m2", 115],
+      ["B", 120],
+      ["Y", 125],
+    ]);
+    const runs = corridorRuns(t, idx);
+    expect(runs).toHaveLength(1);
+    expect(runs[0]!.pts.map((p) => p[0])).toEqual([0, 1, 2, 3]);
+  });
+
+  it("ignores lines running alongside (> 300 m from the stations)", () => {
+    const beside: Shape = { ...straight, lat: Float32Array.from([47.01, 47.01]) }; // ≈ 1.1 km north
+    const t = passingPoints(f, stations, new Map([["s", beside]]))(express);
+    expect(t.stops.map((s) => s.st)).toEqual(["X", "Y"]);
   });
 });
