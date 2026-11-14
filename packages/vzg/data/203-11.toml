@@ -1,5 +1,7 @@
+id = "203-11"
 ref = "203 11"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Abzw Mh 1"
 to = "Abzw Sv 11"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

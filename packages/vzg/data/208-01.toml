@@ -1,6 +1,8 @@
+id = "208-01"
 ref = "208 01"
 name = "Westbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Abzw Ast 1"
 to = "Linz Hbf (in Lz)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

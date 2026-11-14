@@ -1,6 +1,8 @@
+id = "302-01"
 ref = "302 01"
 name = "Unterinntalbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Staatsgrenze nächst Kufstein"
 to = "Wörgl Hbf (in W)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

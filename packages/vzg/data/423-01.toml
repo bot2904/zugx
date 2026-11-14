@@ -1,6 +1,8 @@
+id = "423-01"
 ref = "423 01"
 name = "Drautalbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Staatsgrenze nächst Bleiburg"
 to = "Bleiburg"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

@@ -1,6 +1,8 @@
+id = "173-01"
 ref = "173 01"
 name = "Kremser Bahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Krems a.d.Donau (in Kr)"
 to = "Herzogenburg (in Ho)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

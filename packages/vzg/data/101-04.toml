@@ -1,6 +1,8 @@
+id = "101-04"
 ref = "101 04"
 name = "Unterinntalbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wörgl Hbf (in W)"
 to = "Innsbruck Hbf (in I)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

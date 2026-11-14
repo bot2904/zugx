@@ -1,0 +1,21 @@
+id = "178-01"
+ref = "178 01"
+name = "Altnagelberg – Heidenreichstein"
+operator = "NÖVOG"
+gauge = "760"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 1.1
+kmTo = 4.203
+length = 3.096
+speeds = [[1.1, 4.203, 25, 25]]
+curves = [[1.2, 1.476, 620], [1.551, 1.902, 330], [1.977, 2.528, 390], [2.578, 2.929, 220], [2.979, 3.856, 220], [3.931, 4.082, 270]]
+points = [
+  { km = 1.131, kind = "signal", signal = "snowplow" },
+  { km = 1.347, kind = "signal", signal = "snowplow" },
+  { km = 1.397, kind = "signal", signal = "snowplow" },
+  { km = 1.758, kind = "signal", signal = "stop" },
+  { km = 1.758, kind = "halt", label = "Alt Nagelberg Ergo" },
+]

@@ -1,6 +1,8 @@
+id = "182-01"
 ref = "182 01"
 name = "Weinviertler Landesbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Obersdorf"
 to = "Groß Schweinbarth"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

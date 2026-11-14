@@ -1,6 +1,8 @@
+id = "252-01"
 ref = "252 01"
 name = "Almtalbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wels Hbf"
 to = "Grünau im Almtal"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

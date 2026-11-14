@@ -1,0 +1,19 @@
+id = "167-11"
+ref = "167 11"
+operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 0.454
+length = 0.454
+speeds = [[0, 0.454, "", ""]]
+curves = [[0.15, 0.35, 720]]
+points = [
+  { km = 0.08, kind = "signal", label = "V05", signal = "shunting" },
+  { km = 0.096, kind = "signal", label = "V01", signal = "shunting" },
+  { km = 0.134, kind = "signal", signal = "shunting" },
+  { km = 0.454, kind = "signal", label = "FE 570R", signal = "minor" },
+]

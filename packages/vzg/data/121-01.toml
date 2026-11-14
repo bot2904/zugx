@@ -1,6 +1,8 @@
+id = "121-01"
 ref = "121 01"
 name = "Verbindungsbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Penzing (in Pz)"
 to = "Abzw Hf 1"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

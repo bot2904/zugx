@@ -1,6 +1,8 @@
+id = "434-01"
 ref = "434 01"
 name = "Köflacherbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Graz Hbf"
 to = "Köflach"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

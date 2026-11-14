@@ -1,6 +1,8 @@
+id = "101-05"
 ref = "101 05"
 name = "Arlbergbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Innsbruck Hbf (in I)"
 to = "Lindau Hbf"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

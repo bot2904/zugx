@@ -3,6 +3,7 @@
  * kilometres (chainage) to OSM `railway:position` values, derive speed sections per direction,
  * curve radii and operating points.
  */
+import { lineId } from "./types.ts";
 import type { RailExtract, VzgLine, VzgPoint, VzgTrack } from "./types.ts";
 
 type Way = RailExtract["ways"][number];
@@ -290,9 +291,12 @@ export function buildTrack(
     const kind = t.railway ?? "";
     const pos = parsePosition(t["railway:position:exact"] ?? t["railway:position"]);
     const km = round(pos ?? kmAt[i]!);
-    if (kind === "station" || kind === "halt" || kind === "stop") {
+    if (kind === "station" || kind === "halt" || kind === "stop" || kind === "tram_stop") {
       if (!t.name) return;
-      points.push({ km, kind, label: t.name, ...(pos !== null ? { measured: true } : {}) });
+      // tram stops lie on the track (light rail such as the Innsbrucker Mittelgebirgsbahn): halts
+      const k = kind === "tram_stop" ? "halt" : kind;
+      if (k === "halt" && points.some((p) => p.kind === "halt" && p.label === t.name)) return;
+      points.push({ km, kind: k, label: t.name, ...(pos !== null ? { measured: true } : {}) });
     } else if (kind === "signal") {
       const types = Object.keys(t)
         .filter(
@@ -433,6 +437,25 @@ export function kmExtremes(
  * cheaper than connectors without line number (station through tracks), other lines expensive;
  * single-track lines as the cheapest path between the line's kilometre extremes.
  */
+/** the two ends of a line's ways (nodes used by one way end only) that are farthest apart */
+export function farthestEnds(ways: Way[], coords: RailExtract["coords"]) {
+  const deg = new Map<number, number>();
+  for (const w of ways)
+    for (const n of [w.nodes[0]!, w.nodes.at(-1)!]) deg.set(n, (deg.get(n) ?? 0) + 1);
+  const ends = [...deg].filter(([n, d]) => d === 1 && coords[n]).map(([n]) => n);
+  let best: { lo: { n: number; km: number }; hi: { n: number; km: number } } | null = null;
+  let max = 0;
+  for (let i = 0; i < ends.length; i++)
+    for (let j = i + 1; j < ends.length; j++) {
+      const d = distKm(coords[ends[i]!]!, coords[ends[j]!]!);
+      if (d > max) {
+        max = d;
+        best = { lo: { n: ends[i]!, km: 0 }, hi: { n: ends[j]!, km: d } };
+      }
+    }
+  return best;
+}
+
 export function lineTracks(
   ref: string,
   lineWays: Way[],
@@ -458,7 +481,8 @@ export function lineTracks(
     ? directions.map((d) => [d, seeds[d], d])
     : [["1", lineWays, undefined]];
   for (const [track, ws, d] of runs) {
-    const ext = kmExtremes(ws, nodeTags, adj, ex.coords);
+    // lines without (enough) OSM km positions: between their two farthest ends, km from 0
+    const ext = kmExtremes(ws, nodeTags, adj, ex.coords) ?? farthestEnds(ws, ex.coords);
     if (!ext) continue;
     const path = shortestPath(adj, ext.lo.n, ext.hi.n, (e) => cost(e, d));
     const t = path && buildTrack(track, path, ex, nodeTags);
@@ -468,6 +492,21 @@ export function lineTracks(
 }
 
 /** All lines with ÖBB-style numbers ("101 01") from the extract. */
+const OEBB = /^\d{3} \d{2}$/;
+
+/** most common value of a way tag */
+function common(ways: Way[], key: string): string | undefined {
+  const c = new Map<string, number>();
+  for (const w of ways) if (w.tags[key]) c.set(w.tags[key]!, (c.get(w.tags[key]!) ?? 0) + 1);
+  return [...c].sort((a, b) => b[1] - a[1])[0]?.[0];
+}
+
+/**
+ * All lines: ÖBB lines by their number (route=tracks relations + ways with a line `ref`), and the
+ * other `route=tracks` relations with a name whose ways are mostly in the extract (private and
+ * narrow-gauge railways, light rail such as the Stubaitalbahn; foreign and abandoned lines drop
+ * out), merged by name.
+ */
 export function buildLines(ex: RailExtract): VzgLine[] {
   const nodeTags = new Map(ex.nodes.map((n) => [n.id, n.tags]));
   const byId = new Map(ex.ways.map((w) => [w.id, w]));
@@ -476,39 +515,65 @@ export function buildLines(ex: RailExtract): VzgLine[] {
     ex.ways.filter((w) => w.tags.service !== "crossover"),
     ex.coords,
   );
-  const out: VzgLine[] = [];
-  const refs = new Map<string, RailExtract["lines"][number]>();
-  for (const l of ex.lines) if (/^\d{3} \d{2}$/.test(l.ref)) refs.set(l.ref, l);
+  type Group = { key: string; oebb: boolean; rels: RailExtract["lines"]; ways: Way[] };
+  const groups = new Map<string, Group>();
+  const group = (key: string, oebb: boolean) => {
+    let g = groups.get(key);
+    if (!g) groups.set(key, (g = { key, oebb, rels: [], ways: [] }));
+    return g;
+  };
   // ways tagged with a line ref but without relation still count
-  const waysOf = new Map<string, Way[]>();
-  for (const w of ex.ways) {
-    const ref = w.tags.ref;
-    if (ref && /^\d{3} \d{2}$/.test(ref)) {
-      const l = waysOf.get(ref) ?? [];
-      l.push(w);
-      waysOf.set(ref, l);
+  for (const w of ex.ways)
+    if (w.tags.ref && OEBB.test(w.tags.ref)) group(w.tags.ref, true).ways.push(w);
+  const oebbWays = new Set([
+    ...ex.ways.filter((w) => w.tags.ref && OEBB.test(w.tags.ref)).map((w) => w.id),
+    ...ex.lines.filter((r) => OEBB.test(r.ref)).flatMap((r) => r.ways),
+  ]);
+  for (const rel of ex.lines) {
+    const members = rel.ways.map((id) => byId.get(id)).filter((w): w is Way => !!w);
+    let g: Group;
+    if (OEBB.test(rel.ref)) g = group(rel.ref, true);
+    else {
+      if (!rel.name || OEBB.test(rel.name) || members.length < Math.max(1, rel.ways.length / 2))
+        continue;
+      // already an ÖBB line (e.g. NÖVOG's Waldviertelbahn = 177 01 / 179 01)
+      if (members.filter((w) => oebbWays.has(w.id)).length >= members.length / 2) continue;
+      g = group(rel.name, false);
     }
+    g.rels.push(rel);
+    for (const w of members) if (!g.ways.includes(w)) g.ways.push(w);
   }
-  for (const [ref, rel] of refs) {
-    const l = waysOf.get(ref) ?? [];
-    for (const id of rel.ways) {
-      const w = byId.get(id);
-      if (w && !l.includes(w)) l.push(w);
-    }
-    waysOf.set(ref, l);
-  }
-  for (const [ref, ways] of [...waysOf].sort((a, b) => a[0].localeCompare(b[0]))) {
-    const lineWays = ways.filter((w) => w.tags.service !== "crossover");
-    const members = new Set(refs.get(ref)?.ways ?? []);
-    const tracks = lineTracks(ref, lineWays, adj, ex, nodeTags, members);
+  const out: VzgLine[] = [];
+  const sorted = [...groups.values()].sort(
+    (a, b) => Number(b.oebb) - Number(a.oebb) || a.key.localeCompare(b.key),
+  );
+  for (const g of sorted) {
+    const lineWays = g.ways.filter((w) => w.tags.service !== "crossover");
+    const members = new Set(g.rels.flatMap((r) => r.ways));
+    const ref = g.oebb ? g.key : g.rels.find((r) => r.ref)?.ref;
+    const tracks = lineTracks(
+      g.oebb ? g.key : `\u0000${g.key}`,
+      lineWays,
+      adj,
+      ex,
+      nodeTags,
+      members,
+    );
     if (!tracks.length) continue;
-    const rel = refs.get(ref);
-    const name =
-      rel?.name && rel.name !== ref ? rel.name : ways.find((w) => w.tags.name)?.tags.name;
+    const rel = g.rels[0];
+    const name = g.oebb
+      ? rel?.name && rel.name !== g.key
+        ? rel.name
+        : g.ways.find((w) => w.tags.name)?.tags.name
+      : g.key;
+    const gauge = common(lineWays, "gauge");
+    const operator = rel?.operator || common(lineWays, "operator");
     out.push({
-      ref,
+      id: lineId(g.key),
+      ...(ref ? { ref } : {}),
       ...(name ? { name } : {}),
-      ...(rel?.operator ? { operator: rel.operator } : {}),
+      ...(operator ? { operator } : {}),
+      ...(gauge ? { gauge } : {}),
       ...(rel?.from ? { from: rel.from } : {}),
       ...(rel?.to ? { to: rel.to } : {}),
       source: `OpenStreetMap (${ex.source}), © OpenStreetMap contributors, ODbL 1.0`,

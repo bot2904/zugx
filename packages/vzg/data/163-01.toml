@@ -1,6 +1,8 @@
+id = "163-01"
 ref = "163 01"
 name = "Schneebergbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wiener Neustadt Hbf (in Nb)"
 to = "Puchberg am Schneeberg"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

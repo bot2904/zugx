@@ -1,6 +1,8 @@
+id = "112-01"
 ref = "112 01"
 name = "Nordwestbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Floridsdorf (in F)"
 to = "Staatsgrenze nächst Retz"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

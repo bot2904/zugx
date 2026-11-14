@@ -1,6 +1,8 @@
+id = "120-01"
 ref = "120 01"
 name = "Vorortelinie"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Brigittenau (in Wv)"
 to = "Wien Hütteldorf (in Hf)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

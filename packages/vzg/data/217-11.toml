@@ -1,5 +1,7 @@
+id = "217-11"
 ref = "217 11"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Staatsgrenze nächst Liefering"
 to = "Salzburg Liefering (in Sb)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

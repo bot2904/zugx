@@ -1,6 +1,8 @@
+id = "110-01"
 ref = "110 01"
 name = "Tullnerfelder Bahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Tulln a.d.Donau (in Tu)"
 to = "St.Pölten Hbf (in Pb)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

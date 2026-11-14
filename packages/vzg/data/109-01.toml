@@ -1,6 +1,8 @@
+id = "109-01"
 ref = "109 01"
 name = "Franz-Josefs-Bahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Franz-Josefs-Bf (in Wf)"
 to = "Staatsgrenze nächst Gmünd N.Ö."
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

@@ -1,6 +1,8 @@
+id = "116-01"
 ref = "116 01"
 name = "Laaer Ostbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "W.Mat.-Laxenburg (in Wbf)"
 to = "Laa a.d.Thaya"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

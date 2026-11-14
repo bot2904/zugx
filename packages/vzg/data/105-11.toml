@@ -1,5 +1,7 @@
+id = "105-11"
 ref = "105 11"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wiener Neustadt Hbf (in Nb)"
 to = "Abzww Ne (in Nb)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

@@ -1,5 +1,7 @@
+id = "118-15"
 ref = "118 15"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Abzww Str 11815 (in Goe)"
 to = "Mannersdorf (in Goe)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

@@ -1,6 +1,8 @@
+id = "191-01"
 ref = "191 01"
 name = "Pressburger Bahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Rennweg (in Nw)"
 to = "Wolfsthal"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

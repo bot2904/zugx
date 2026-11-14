@@ -1,6 +1,8 @@
+id = "109-11"
 ref = "109 11"
 name = "Tullner Westschleife"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Tulln-Donaubrücke (in Tu)"
 to = "Tulln Stadt (in Tu)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

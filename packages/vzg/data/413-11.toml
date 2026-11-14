@@ -1,6 +1,8 @@
+id = "413-11"
 ref = "413 11"
 name = "Brucker Schleife"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Bruck a.d.Mur-Übelstein (in Bm)"
 to = "Bruck a.d.Mur-Stadtwald (in Bm)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

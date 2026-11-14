@@ -1,6 +1,8 @@
+id = "454-01"
 ref = "454 01"
 name = "Görtschitztalbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "STRE km 17,800 AB (Awanst)"
 to = "Launsdorf-Hochosterwitz"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

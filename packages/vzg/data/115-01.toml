@@ -1,6 +1,8 @@
+id = "115-01"
 ref = "115 01"
 name = "ÖBB Gänserndorf – Marchegg"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Gänserndorf"
 to = "Marchegg"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

@@ -1,0 +1,77 @@
+id = "raaberbahn"
+name = "Raaberbahn"
+operator = "GySEV"
+gauge = "1435"
+from = "Staatsgrenze nächst Baumgarten"
+to = "Grenze ÖBB-ROeEE (Ebenfurth)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 101.529
+kmTo = 111.979
+length = 10.41
+speeds = [[101.529, 105.873, 100, 100], [105.873, 106.38, 70, 70], [106.38, 107.707, 60, 60], [107.707, 108.054, 80, 80], [108.054, 108.986, 100, 100], [108.986, 110.061, 100, 120], [110.061, 110.639, 100, 110], [110.639, 111.614, 100, 100], [111.614, 111.979, 110, 100]]
+curves = [[101.655, 102.182, 990], [102.96, 103.186, 870], [103.663, 103.989, 1120], [104.642, 104.742, 1980], [105.42, 105.696, 770], [105.822, 106.223, 340], [106.324, 106.625, 460], [107.202, 108.054, 350], [108.632, 108.934, 760], [109.136, 109.413, 1290], [109.689, 109.992, 910], [110.117, 110.394, 830], [110.494, 110.869, 640], [110.944, 111.619, 450], [111.719, 111.844, 2410]]
+points = [
+  { km = 101.551, kind = "signal", label = "V1", signal = "shunting" },
+  { km = 101.809, kind = "signal", signal = "electricity" },
+  { km = 101.894, kind = "signal", signal = "shunting" },
+  { km = 101.946, kind = "signal", label = "Ac40/r", signal = "distant,main" },
+  { km = 102.8, kind = "signal", signal = "crossing_distant" },
+  { km = 103.037, kind = "signal", signal = "electricity" },
+  { km = 103.15, kind = "signal", label = "ac40", signal = "distant" },
+  { km = 103.279, kind = "signal", signal = "crossing_distant" },
+  { km = 103.324, kind = "signal", signal = "electricity" },
+  { km = 103.327, kind = "signal", signal = "electricity" },
+  { km = 103.5, kind = "signal", signal = "electricity" },
+  { km = 103.508, kind = "signal", signal = "electricity" },
+  { km = 103.812, kind = "signal", signal = "electricity" },
+  { km = 103.829, kind = "signal", signal = "crossing_distant" },
+  { km = 104.431, kind = "signal", label = "zc30", signal = "distant" },
+  { km = 104.432, kind = "signal", signal = "crossing_distant" },
+  { km = 105.063, kind = "signal", signal = "crossing_distant" },
+  { km = 105.314, kind = "signal", label = "Zc30/zc10", signal = "distant,main" },
+  { km = 105.415, kind = "signal", label = "Ac10", signal = "main" },
+  { km = 105.863, kind = "signal", signal = "speed_limit" },
+  { km = 105.873, kind = "signal", signal = "speed_limit" },
+  { km = 105.912, kind = "signal", signal = "crossing_distant" },
+  { km = 106.226, kind = "signal", label = "ac10", signal = "distant" },
+  { km = 106.25, kind = "signal", label = "Zc10/h", signal = "distant,main" },
+  { km = 106.38, kind = "signal", signal = "speed_limit" },
+  { km = 106.389, kind = "signal", signal = "speed_limit" },
+  { km = 106.394, kind = "signal", signal = "shunting" },
+  { km = 106.577, kind = "signal", label = "V252", signal = "shunting" },
+  { km = 106.739, kind = "signal", label = "R201", signal = "main" },
+  { km = 106.914, kind = "stop", label = "Müllendorf" },
+  { km = 107.034, kind = "signal", label = "H201", signal = "main" },
+  { km = 107.3, kind = "signal", label = "V201", signal = "shunting" },
+  { km = 107.479, kind = "signal", signal = "shunting" },
+  { km = 107.63, kind = "signal", label = "Ab20/r", signal = "distant,main" },
+  { km = 107.639, kind = "signal", signal = "crossing_distant" },
+  { km = 107.707, kind = "signal", signal = "speed_limit" },
+  { km = 107.717, kind = "signal", signal = "speed_limit" },
+  { km = 107.826, kind = "signal", label = "1Ab20", signal = "main_repeated" },
+  { km = 108.027, kind = "signal", signal = "speed_limit" },
+  { km = 108.054, kind = "signal", signal = "speed_limit" },
+  { km = 108.402, kind = "signal", signal = "speed_limit_distant" },
+  { km = 108.667, kind = "signal", label = "zb20", signal = "distant" },
+  { km = 108.694, kind = "signal", signal = "crossing_distant" },
+  { km = 108.935, kind = "signal", label = "ab20", signal = "distant" },
+  { km = 108.986, kind = "signal", signal = "speed_limit" },
+  { km = 109.023, kind = "signal", signal = "speed_limit_distant" },
+  { km = 109.263, kind = "signal", signal = "crossing_distant" },
+  { km = 109.572, kind = "signal", label = "Zb20", signal = "main" },
+  { km = 109.644, kind = "signal", label = "Ab10", signal = "main" },
+  { km = 109.668, kind = "signal", signal = "crossing" },
+  { km = 110.061, kind = "signal", signal = "speed_limit" },
+  { km = 110.639, kind = "signal", signal = "speed_limit" },
+  { km = 110.816, kind = "signal", signal = "crossing_distant" },
+  { km = 110.917, kind = "signal", label = "ab10", signal = "distant" },
+  { km = 111.119, kind = "signal", signal = "crossing_distant" },
+  { km = 111.199, kind = "signal", signal = "crossing" },
+  { km = 111.502, kind = "signal", signal = "crossing" },
+  { km = 111.564, kind = "signal", signal = "crossing_distant" },
+  { km = 111.614, kind = "signal", signal = "speed_limit" },
+  { km = 111.815, kind = "signal", signal = "crossing_distant" },
+]

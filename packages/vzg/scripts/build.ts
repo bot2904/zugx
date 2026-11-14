@@ -17,17 +17,22 @@ const t0 = Date.now();
 const ex = JSON.parse(readFileSync(input, "utf8")) as RailExtract;
 const lines = buildLines(ex);
 mkdirSync(out, { recursive: true });
-for (const f of readdirSync(out)) if (/^\d{3}-\d{2}\.toml$/.test(f)) rmSync(join(out, f));
+for (const f of readdirSync(out))
+  if (f.endsWith(".toml") && f !== "index.toml") rmSync(join(out, f));
 const index: VzgIndexEntry[] = [];
 for (const l of lines) {
-  const file = `${l.ref.replace(" ", "-")}.toml`;
+  const file = `${l.id}.toml`;
   writeToml(join(out, file), l);
   const t = l.tracks;
   const covered = (tr: (typeof t)[number]) =>
     tr.speeds.filter((s) => s[2] !== null || s[3] !== null).reduce((a, s) => a + s[1] - s[0], 0) /
     Math.max(0.001, tr.kmTo - tr.kmFrom);
   index.push({
-    ref: l.ref,
+    id: l.id,
+    ...(l.ref ? { ref: l.ref } : {}),
+    oebb: /^\d{3} \d{2}$/.test(l.ref ?? ""),
+    ...(l.operator ? { operator: l.operator } : {}),
+    ...(l.gauge ? { gauge: l.gauge } : {}),
     ...(l.name ? { name: l.name } : {}),
     ...(l.from ? { from: l.from } : {}),
     ...(l.to ? { to: l.to } : {}),

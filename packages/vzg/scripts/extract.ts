@@ -22,6 +22,8 @@ const output = process.argv[3] ?? join(root, ".cache", "osm-rail.json");
 
 /** way tags kept (the rest is not needed for speed profiles / line diagrams) */
 const WAY_TAGS = [
+  "railway",
+  "gauge",
   "ref",
   "name",
   "railway:track_ref",
@@ -41,7 +43,9 @@ const WAY_TAGS = [
   "railway:track_class",
   "operator",
 ];
+const RAIL_KINDS = new Set(["rail", "narrow_gauge", "light_rail", "tram"]);
 const NODE_KINDS = new Set([
+  "tram_stop",
   "signal",
   "station",
   "halt",
@@ -65,7 +69,9 @@ const candidates = new Map<number, { refs: number[]; tags: Tags }>();
 readPbf(input, {
   way: (w) => {
     const t = w.tags;
-    if (t.railway !== "rail") return;
+    // standard and narrow gauge (Mariazellerbahn, Pinzgaubahn …), light rail and trams
+    // (Stubaitalbahn, Innsbrucker Mittelgebirgsbahn); a line needs a route=tracks relation
+    if (!RAIL_KINDS.has(t.railway ?? "")) return;
     if (t.service === "yard" || t.service === "siding" || t.service === "spur") return;
     if (t.usage === "industrial" || t.usage === "military" || t.usage === "test") return;
     candidates.set(w.id, { refs: w.refs, tags: pick(t, WAY_TAGS) });

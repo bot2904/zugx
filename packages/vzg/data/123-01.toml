@@ -1,6 +1,8 @@
+id = "123-01"
 ref = "123 01"
 name = "Verbindungsbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Hütteldorf (in Hf)"
 to = "Unter Purkersdorf"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

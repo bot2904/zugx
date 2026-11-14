@@ -1,6 +1,8 @@
+id = "304-11"
 ref = "304 11"
 name = "ÖBB Lauterach Süd – Lauterach West"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Lauterach Unterfeld (in Wo)"
 to = "Wolfurt Nord (in Wo)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

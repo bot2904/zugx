@@ -1,0 +1,90 @@
+id = "gleichenberger-bahn"
+name = "Gleichenberger Bahn"
+operator = "StB"
+gauge = "1435"
+from = "Feldbach"
+to = "Bad Gleichenberg"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 1
+kmTo = 18.79
+length = 17.768
+speeds = [[1, 4.705, 40, 40], [4.705, 6.607, 40, 30], [6.607, 9.989, 40, 40], [9.989, 10.522, 35, 40], [10.522, 10.578, 40, 40], [10.578, 10.813, 30, 40], [10.813, 12.059, 40, 40], [12.059, 12.178, 20, 40], [12.178, 12.459, 40, 40], [12.459, 14.274, 30, 40], [14.274, 15.384, 40, 40], [15.384, 17.122, 40, 30], [17.122, 17.556, 40, 40], [17.556, 18.029, 30, 40], [18.029, 18.365, 40, 40], [18.365, 18.592, 30, 40], [18.592, 18.79, 40, 40]]
+curves = [[1.397, 1.67, 650], [1.744, 1.918, 620], [1.992, 2.194, 840], [2.622, 2.925, 460], [3.732, 4.118, 640], [4.366, 4.714, 280], [4.764, 5.236, 200], [5.286, 6.653, 200], [6.702, 7, 400], [7.05, 8.044, 270], [8.193, 8.516, 1150], [8.69, 8.889, 630], [9.013, 9.162, 440], [9.212, 9.535, 390], [9.709, 9.884, 480], [9.934, 10.385, 290], [10.435, 10.585, 390], [10.636, 10.814, 410], [10.865, 11.368, 950], [11.418, 11.568, 240], [11.618, 12.243, 260], [12.469, 12.894, 190], [13.044, 13.994, 260], [14.17, 14.67, 360], [14.77, 14.87, 610], [14.92, 15.12, 340], [15.295, 15.82, 280], [15.871, 16.371, 240], [16.421, 17.271, 220], [17.321, 17.672, 160], [17.722, 18.672, 270]]
+points = [
+  { km = 1.004, kind = "signal", label = "y", signal = "distant" },
+  { km = 1.125, kind = "signal", signal = "crossing_distant" },
+  { km = 1.414, kind = "signal", signal = "crossing" },
+  { km = 1.42, kind = "signal", signal = "whistle" },
+  { km = 1.454, kind = "signal", signal = "crossing" },
+  { km = 1.667, kind = "station", label = "Feldbach Landesbahn" },
+  { km = 1.7, kind = "signal", signal = "crossing_distant" },
+  { km = 1.788, kind = "signal", signal = "crossing" },
+  { km = 1.834, kind = "signal", signal = "crossing" },
+  { km = 1.839, kind = "signal", signal = "whistle" },
+  { km = 1.912, kind = "signal", signal = "main" },
+  { km = 1.973, kind = "signal", signal = "crossing" },
+  { km = 2.086, kind = "signal", signal = "crossing_distant" },
+  { km = 2.366, kind = "signal", signal = "crossing" },
+  { km = 2.411, kind = "signal", signal = "crossing_distant" },
+  { km = 2.462, kind = "signal", signal = "crossing" },
+  { km = 2.697, kind = "signal", signal = "crossing" },
+  { km = 2.927, kind = "signal", signal = "crossing_distant" },
+  { km = 3.292, kind = "signal", signal = "crossing" },
+  { km = 3.308, kind = "halt", label = "Oedt Siedlung" },
+  { km = 3.539, kind = "signal", signal = "whistle" },
+  { km = 3.543, kind = "signal", signal = "crossing_distant" },
+  { km = 3.766, kind = "signal", signal = "whistle" },
+  { km = 4.304, kind = "signal", signal = "whistle" },
+  { km = 4.358, kind = "halt", label = "Oedt" },
+  { km = 4.364, kind = "signal", signal = "whistle" },
+  { km = 4.421, kind = "signal", signal = "whistle" },
+  { km = 4.465, kind = "signal", signal = "whistle" },
+  { km = 5.19, kind = "signal", signal = "whistle" },
+  { km = 5.323, kind = "signal", signal = "whistle" },
+  { km = 5.531, kind = "signal", signal = "whistle" },
+  { km = 6.15, kind = "signal", signal = "whistle" },
+  { km = 6.209, kind = "signal", signal = "whistle" },
+  { km = 6.261, kind = "signal", signal = "whistle" },
+  { km = 6.392, kind = "signal", signal = "whistle" },
+  { km = 6.607, kind = "signal", signal = "whistle" },
+  { km = 6.855, kind = "signal", signal = "crossing_distant" },
+  { km = 7.008, kind = "signal", signal = "whistle" },
+  { km = 7.202, kind = "halt", label = "Prädiberg" },
+  { km = 7.345, kind = "signal", signal = "crossing" },
+  { km = 7.379, kind = "signal", signal = "electricity" },
+  { km = 7.639, kind = "signal", signal = "whistle" },
+  { km = 7.778, kind = "signal", signal = "crossing_distant" },
+  { km = 7.803, kind = "signal", signal = "crossing" },
+  { km = 7.94, kind = "signal", signal = "whistle" },
+  { km = 8.236, kind = "signal", signal = "whistle" },
+  { km = 8.384, kind = "signal", signal = "whistle" },
+  { km = 9.636, kind = "halt", label = "Fischa" },
+  { km = 10.545, kind = "signal", signal = "whistle" },
+  { km = 10.829, kind = "signal", signal = "whistle" },
+  { km = 10.958, kind = "signal", signal = "whistle" },
+  { km = 11.067, kind = "halt", label = "Burgfried" },
+  { km = 11.276, kind = "signal", signal = "whistle" },
+  { km = 12.036, kind = "signal", signal = "main" },
+  { km = 12.336, kind = "stop", label = "Gnas" },
+  { km = 12.573, kind = "signal", signal = "main" },
+  { km = 12.657, kind = "signal", signal = "whistle" },
+  { km = 13.6, kind = "signal", signal = "whistle" },
+  { km = 13.926, kind = "signal", signal = "whistle" },
+  { km = 14.168, kind = "signal", signal = "whistle" },
+  { km = 14.582, kind = "halt", label = "Katzendorf" },
+  { km = 14.989, kind = "signal", signal = "main" },
+  { km = 15.173, kind = "halt", label = "Maierdorf" },
+  { km = 15.384, kind = "signal", signal = "main" },
+  { km = 16.261, kind = "signal", signal = "whistle" },
+  { km = 16.34, kind = "signal", signal = "whistle" },
+  { km = 16.81, kind = "signal", signal = "whistle" },
+  { km = 17.319, kind = "halt", label = "Hofstätten bei Bad Gleichenberg" },
+  { km = 17.684, kind = "signal", signal = "whistle" },
+  { km = 17.84, kind = "signal", signal = "whistle" },
+  { km = 18.393, kind = "signal", signal = "whistle" },
+  { km = 18.692, kind = "signal", signal = "whistle" },
+  { km = 18.774, kind = "signal", signal = "whistle" },
+]

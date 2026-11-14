@@ -1,5 +1,8 @@
+id = "130-02"
 ref = "130 02"
 name = "Neue Westbahn"
+operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
 
 [[tracks]]

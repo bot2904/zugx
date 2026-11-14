@@ -1,6 +1,8 @@
+id = "106-15"
 ref = "106 15"
 name = "Donauländebahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Maxing"
 to = "W.Mat.-Altmannsdorf (in Wbf)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

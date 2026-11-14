@@ -1,6 +1,8 @@
+id = "413-15"
 ref = "413 15"
 name = "Fürnitzer Schleife"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Villach Süd Gvbf-Ausfgr (in Vsv)"
 to = "Villach Süd Gvbf-Einfgr (in Vsv)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

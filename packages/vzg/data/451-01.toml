@@ -1,6 +1,8 @@
+id = "451-01"
 ref = "451 01"
 name = "Gailtalbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Arnoldstein"
 to = "Hermagor"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

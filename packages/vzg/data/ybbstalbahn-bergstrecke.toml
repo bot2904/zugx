@@ -1,0 +1,25 @@
+id = "ybbstalbahn-bergstrecke"
+name = "Ybbstalbahn (Bergstrecke)"
+operator = "NÖLB Niederösterreichische Lokalbahnen Betriebsges.m.b.H"
+gauge = "760"
+from = "Stiegengraben"
+to = "Kienberg-Gaming"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 52.1
+kmTo = 70.9
+length = 18.699
+speeds = [[52.1, 70.9, "", ""]]
+curves = [[52.245, 52.439, 850], [52.487, 52.609, 280], [52.657, 52.802, 400], [53.117, 53.311, 370], [53.432, 53.48, 2470], [53.529, 53.747, 360], [53.819, 54.379, 210], [54.435, 55.397, 330], [55.448, 55.679, 1370], [55.782, 55.987, 250], [56.038, 56.44, 510], [56.49, 57.519, 230], [57.569, 57.845, 140], [57.896, 58.046, 140], [58.096, 59.025, 260], [59.226, 59.402, 610], [59.477, 59.703, 410], [59.844, 60.433, 520], [60.48, 62.175, 260], [62.222, 62.269, 310], [62.316, 62.787, 450], [62.834, 62.951, 290], [62.998, 64.775, 220], [64.826, 65.897, 290], [66.025, 67.3, 300], [67.351, 67.555, 940], [67.606, 67.682, 710], [67.733, 67.886, 470], [67.938, 68.302, 470], [68.354, 68.614, 940], [68.847, 68.977, 1980], [69.029, 69.575, 230], [69.757, 70.095, 220], [70.173, 70.433, 400], [70.511, 70.771, 740]]
+points = [
+  { km = 53.485, kind = "station", label = "Lunz am See" },
+  { km = 54, kind = "halt", label = "Lunz Amonhaus", measured = true },
+  { km = 55.2, kind = "halt", label = "Gasthof zur Paula", measured = true },
+  { km = 56, kind = "halt", label = "Holzapfel", measured = true },
+  { km = 59.7, kind = "station", label = "Pfaffenschlag", measured = true },
+  { km = 63.1, kind = "stop", label = "Hühnernest", measured = true },
+  { km = 67.9, kind = "halt", label = "Gaming", measured = true },
+  { km = 70.9, kind = "station", label = "Kienberg" },
+]

@@ -1,6 +1,8 @@
+id = "174-01"
 ref = "174 01"
 name = "Kamptalbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Sigmundsherberg"
 to = "Hadersdorf am Kamp"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

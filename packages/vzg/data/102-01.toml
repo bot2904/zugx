@@ -1,6 +1,8 @@
+id = "102-01"
 ref = "102 01"
 name = "Ennstalbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Abzw Ams 11"
 to = "Bischofshofen (in Bo)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

@@ -392,3 +392,12 @@ test("bildfahrplan live overlay: only for today, toggles ?live=1", async ({ page
   await expect(live).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByRole("status")).toBeVisible();
 });
+
+test("VzG also lists railways without an ÖBB line number", async ({ page }) => {
+  await page.goto("/vzg?q=fulpmes");
+  await expect(page.locator("tbody tr")).toHaveCount(1);
+  await expect(page.locator("tbody tr").first()).toContainText("1000 mm");
+  await page.getByRole("searchbox").press("Enter");
+  await expect(page).toHaveURL(/\/vzg\/stubaitalbahn/);
+  await expect(page.locator("svg.vzg text", { hasText: "Fulpmes" }).first()).toBeVisible();
+});

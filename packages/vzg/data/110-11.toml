@@ -1,5 +1,7 @@
+id = "110-11"
 ref = "110 11"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Tullnerfeld-Nord (in Tfd)"
 to = "Tullnerfeld-Ost (in Tfd)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

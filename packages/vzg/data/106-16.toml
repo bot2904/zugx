@@ -1,6 +1,8 @@
+id = "106-16"
 ref = "106 16"
 name = "Oswaldschleife"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "W.Mat.-Oswaldgasse (in Wbf)"
 to = "Wien Meidling (in Wbf)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

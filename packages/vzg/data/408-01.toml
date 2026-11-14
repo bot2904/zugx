@@ -1,6 +1,8 @@
+id = "408-01"
 ref = "408 01"
 name = "Rudolfsbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "St.Veit a.d.Glan (in Vps)"
 to = "Villach Hbf (in Vb)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

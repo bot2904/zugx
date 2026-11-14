@@ -1,6 +1,8 @@
+id = "304-01"
 ref = "304 01"
 name = "ÖBB St. Margrethen – Lauterach Nord"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "St.Margrethen"
 to = "Abzww Lauterach Nord (in Wo)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

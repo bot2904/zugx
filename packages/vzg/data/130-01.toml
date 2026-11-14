@@ -1,6 +1,8 @@
+id = "130-01"
 ref = "130 01"
 name = "Neue Westbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Meidling (in Wbf)"
 to = "Linz Hbf (in Lz)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

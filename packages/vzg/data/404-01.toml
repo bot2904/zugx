@@ -1,6 +1,8 @@
+id = "404-01"
 ref = "404 01"
 name = "Rudolfsbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "St.Michael (in M)"
 to = "Selzthal (in Sl)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

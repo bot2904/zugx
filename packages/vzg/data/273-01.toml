@@ -1,0 +1,28 @@
+id = "273-01"
+ref = "273 01"
+name = "Schafbergbahn"
+operator = "SKGB"
+gauge = "1000"
+from = "St. Wolfgang Schafbergbf"
+to = "Schafbergspitze"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.26
+kmTo = 5.5
+length = 5.098
+speeds = [[0.26, 0.267, 12, 12], [0.267, 0.4, 15, 12], [0.4, 1.4, 20, 12], [1.4, 5.5, 15, 12]]
+curves = [[0.364, 0.488, 690], [0.538, 0.967, 400], [1.018, 1.398, 290], [1.453, 1.526, 950], [1.583, 2.276, 310], [2.33, 2.615, 230], [2.662, 3.422, 340], [3.47, 3.523, 1610], [3.585, 3.752, 490], [3.879, 4.57, 220], [4.616, 5.053, 600], [5.196, 5.368, 600]]
+points = [
+  { km = 0, kind = "station", label = "St. Wolfgang Schafbergbf", measured = true },
+  { km = 0.284, kind = "signal", label = "EKÜS 12", signal = "crossing" },
+  { km = 0.919, kind = "signal", signal = "whistle" },
+  { km = 1.261, kind = "signal", signal = "whistle" },
+  { km = 1.321, kind = "signal", signal = "whistle" },
+  { km = 4.2, kind = "station", label = "Schafbergalm", measured = true },
+  { km = 4.236, kind = "stop", label = "Schafbergalm (Bergfahrt)" },
+  { km = 4.711, kind = "signal", signal = "whistle" },
+  { km = 4.763, kind = "signal", signal = "whistle" },
+  { km = 5.9, kind = "station", label = "Schafbergspitze", measured = true },
+]

@@ -1,6 +1,8 @@
+id = "191-11"
 ref = "191 11"
 name = "Friedhofschleife"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Zentralfriedhof"
 to = "Wien Zvbf (in Zur)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

@@ -1,6 +1,8 @@
+id = "122-12"
 ref = "122 12"
 name = "Verbindungsbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Hetzendorf (in Wbf)"
 to = "Wien Meidling (in Wbf)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

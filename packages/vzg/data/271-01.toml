@@ -1,5 +1,7 @@
+id = "271-01"
 ref = "271 01"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Linz Vbf-West (in Lzv)"
 to = "Linz Vbf-Stadthafen (in Lzv)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

@@ -1,6 +1,8 @@
+id = "203-01"
 ref = "203 01"
 name = "Rudolfsbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Mauthausen"
 to = "Abzw Wey 1"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

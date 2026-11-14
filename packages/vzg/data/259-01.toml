@@ -1,6 +1,8 @@
+id = "259-01"
 ref = "259 01"
 name = "Lokalbahn Lambach – Gmunden"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Lambach (in La)"
 to = "Laakirchen (Gf)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

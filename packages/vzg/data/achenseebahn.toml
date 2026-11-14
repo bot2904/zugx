@@ -1,0 +1,30 @@
+id = "achenseebahn"
+name = "Achenseebahn"
+operator = "Achenseebahn AG"
+gauge = "1000"
+from = "Jenbach"
+to = "Achensee Schiffstation"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 6.7
+length = 6.63
+speeds = [[0, 6.7, "", ""]]
+curves = [[0.2, 0.625, 240], [0.7, 1, 480], [1.05, 1.15, 860], [1.2, 1.732, 420], [1.851, 2.587, 300], [2.635, 2.801, 810], [2.848, 3.038, 280], [3.086, 3.679, 380], [3.788, 3.951, 720], [4.115, 4.196, 1390], [4.251, 4.414, 410], [4.469, 5.242, 480], [5.319, 5.467, 930], [5.516, 5.639, 650], [5.688, 5.909, 530], [6.032, 6.253, 730], [6.302, 6.376, 1590], [6.474, 6.572, 1180]]
+points = [
+  { km = 0, kind = "station", label = "Jenbach Achenseebahn", measured = true },
+  { km = 0, kind = "station", label = "Jenbach Zillertalbahn", measured = true },
+  { km = 0.705, kind = "signal", signal = "whistle" },
+  { km = 1.286, kind = "signal", signal = "whistle" },
+  { km = 1.4, kind = "halt", label = "Burgeck", measured = true },
+  { km = 2.06, kind = "signal", signal = "whistle" },
+  { km = 3.407, kind = "signal", signal = "whistle" },
+  { km = 3.59, kind = "stop", label = "Eben in Tirol" },
+  { km = 4.8, kind = "halt", label = "Maurach", measured = true },
+  { km = 5.3, kind = "halt", label = "Maurach Mitte", measured = true },
+  { km = 5.613, kind = "signal", signal = "whistle" },
+  { km = 6.7, kind = "station", label = "Achensee Seespitz", measured = true },
+  { km = 40.882, kind = "station", label = "Jenbach", measured = true },
+]

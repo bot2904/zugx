@@ -1,0 +1,19 @@
+id = "102-11"
+ref = "102 11"
+operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
+from = "Abzww Hieflau (in Hi)"
+to = "Hieflau Vbf (in Hi)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 0.351
+length = 0.351
+speeds = [[0, 0.351, 40, 40]]
+curves = [[0.1, 0.25, 200]]
+points = [
+  { km = 0.072, kind = "signal", label = "V211H", signal = "shunting" },
+  { km = 0.276, kind = "signal", label = "V211R", signal = "shunting" },
+]

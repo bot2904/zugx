@@ -1,6 +1,8 @@
+id = "109-12"
 ref = "109 12"
 name = "Stetteldorfer Schleife"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Absdorf-Hippersdorf Süd (in Ah)"
 to = "Absdorf-Hippersdorf Ost (in Ah)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

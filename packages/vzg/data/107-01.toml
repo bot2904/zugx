@@ -1,8 +1,10 @@
+id = "107-01"
 ref = "107 01"
-name = "Traisentalbahn"
-operator = "ÖBB-Infrastruktur AG"
-from = "Leobersdorf"
-to = "St.Pölten Hbf (in Pb)"
+name = "Leobersdorfer Bahn (stillgelegt)"
+operator = "NÖVOG"
+gauge = "1435"
+from = "Weißenbach-Neuhaus"
+to = "Hainfeld"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
 
 [[tracks]]

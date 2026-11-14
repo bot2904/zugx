@@ -1,6 +1,8 @@
+id = "116-12"
 ref = "116 12"
 name = "Nordschleife"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Süßenbrunn-Mitte (in Sue)"
 to = "Abzww Süßenbrunn-Ost (in Sue)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

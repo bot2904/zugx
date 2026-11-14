@@ -1,6 +1,8 @@
+id = "261-01"
 ref = "261 01"
 name = "Mattigtalbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Steindorf bei Straßwalchen (in Nst)"
 to = "Abzw Mig 1"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

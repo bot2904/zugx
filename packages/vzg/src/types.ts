@@ -28,8 +28,12 @@ export interface RailExtract {
 
 /** One line (Streckennummer) with its tracks, as stored in `data/<ref>.toml`. */
 export interface VzgLine {
-  /** ÖBB line number, e.g. "101 01" */
-  ref: string;
+  /** file and URL id: ÖBB "101-01", others from the name, e.g. "stubaitalbahn" */
+  id: string;
+  /** ÖBB line number, e.g. "101 01"; other lines: their own ref if any (e.g. "N") */
+  ref?: string;
+  /** track gauge in mm (most common on the line), e.g. "1435", "1000", "760" */
+  gauge?: string;
   name?: string;
   operator?: string;
   from?: string;
@@ -76,7 +80,12 @@ export interface VzgIndex {
   lines: VzgIndexEntry[];
 }
 export interface VzgIndexEntry {
-  ref: string;
+  id: string;
+  ref?: string;
+  /** ÖBB line (Streckennummer per VzG) */
+  oebb: boolean;
+  operator?: string;
+  gauge?: string;
   name?: string;
   from?: string;
   to?: string;
@@ -92,4 +101,19 @@ export interface VzgIndexEntry {
   signals: number;
   /** names of the stations and halts along the line (for the search) */
   names: string[];
+}
+
+/** URL/file id of a line: "101 01" → "101-01", "Lokalbahn Wien – Baden" → "lokalbahn-wien-baden" */
+export function lineId(refOrName: string): string {
+  if (/^\d{3} \d{2}$/.test(refOrName)) return refOrName.replace(" ", "-");
+  return refOrName
+    .toLowerCase()
+    .replace(/ä/g, "ae")
+    .replace(/ö/g, "oe")
+    .replace(/ü/g, "ue")
+    .replace(/ß/g, "ss")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 }

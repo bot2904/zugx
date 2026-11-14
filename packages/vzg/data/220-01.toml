@@ -1,6 +1,8 @@
+id = "220-01"
 ref = "220 01"
 name = "Erzbergbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Eisenerz"
 to = "Hieflau (in Hi)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

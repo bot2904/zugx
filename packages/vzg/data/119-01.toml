@@ -1,6 +1,8 @@
+id = "119-01"
 ref = "119 01"
 name = "Gramatneusiedl – Wampersdorf"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Gramatneusiedl"
 to = "Wampersdorf"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

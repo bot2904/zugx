@@ -1,6 +1,8 @@
+id = "183-01"
 ref = "183 01"
 name = "Lokalbahn Gänserndorf – Mistelbach"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Gänserndorf"
 to = "Bad Pirawarth"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

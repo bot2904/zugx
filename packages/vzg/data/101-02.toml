@@ -1,6 +1,8 @@
+id = "101-02"
 ref = "101 02"
 name = "Westbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Knoten Rohr"
 to = "Salzburg Hbf"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

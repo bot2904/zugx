@@ -1,0 +1,15 @@
+id = "krumpe"
+name = "Krumpe"
+gauge = "760"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 3.19
+kmTo = 3.5
+length = 0.301
+speeds = [[3.19, 3.5, 40, 40]]
+curves = [[3.293, 3.396, 270]]
+points = [
+  { km = 3.5, kind = "halt", label = "St. Margarethen - Rammersdorf" },
+]

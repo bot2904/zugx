@@ -1,6 +1,8 @@
+id = "208-13"
 ref = "208 13"
 name = "Voestschleife"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Voest Alpine Linz"
 to = "Linz Vbf-Gleisdreieck (in Lzv)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

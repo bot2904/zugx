@@ -1,5 +1,7 @@
+id = "131-01"
 ref = "131 01"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Zvbf-Einfgr (in Zur)"
 to = "Wien Erdbergerlände (in El)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

@@ -1,8 +1,10 @@
+id = "187-01"
 ref = "187 01"
 name = "Pulkautalbahn"
-operator = "ÖBB-Infrastruktur AG"
-from = "Laa a.d.Thaya"
-to = "Zellerndorf (in Zd)"
+operator = "NÖVOG"
+gauge = "1435"
+from = "Zellerndorf"
+to = "Sigmundsherberg"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
 
 [[tracks]]

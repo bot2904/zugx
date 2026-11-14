@@ -1,5 +1,7 @@
+id = "108-11"
 ref = "108 11"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wiener Neustadt Hbf-Gleisgr 500 (in Nb)"
 to = "Wiener Neustadt Hbf-Ausfahrbf (in Nb)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

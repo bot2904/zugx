@@ -1,6 +1,8 @@
+id = "612-01"
 ref = "612 01"
 name = "Wieserbahn"
 operator = "GKB"
+gauge = "1435"
 from = "Groß St. Florian"
 to = "Abzw Groß St. Florian 1"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

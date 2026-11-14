@@ -1,6 +1,8 @@
+id = "118-19"
 ref = "118 19"
 name = "Ausfahrüberwerfung"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Zvbf-Ost (in Zur)"
 to = "Lanzendorf-Rannersdorf (in Zur)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

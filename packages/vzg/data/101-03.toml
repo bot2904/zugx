@@ -1,6 +1,8 @@
+id = "101-03"
 ref = "101 03"
 name = "Salzburg-Tiroler-Bahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Salzburg Hbf (in Sb)"
 to = "Wörgl Hbf (in W)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

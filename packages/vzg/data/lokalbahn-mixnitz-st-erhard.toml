@@ -1,0 +1,27 @@
+id = "lokalbahn-mixnitz-st-erhard"
+name = "Lokalbahn Mixnitz – St. Erhard"
+operator = "MStE (Lokalbahn Mixnitz – St. Erhard AG)"
+gauge = "760"
+from = "Mixnitz-Bärenschützklamm"
+to = "Magnesitwerk Veitsch-Radex"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.4
+kmTo = 3.1
+length = 2.697
+speeds = [[0.4, 1.305, 25, 25], [1.305, 1.334, 10, 25], [1.334, 1.372, 25, 10], [1.372, 3.1, 25, 25]]
+curves = [[0.5, 0.749, 1170], [0.824, 0.899, 1800], [1.049, 1.348, 580], [1.398, 1.597, 220], [1.647, 1.897, 430], [1.947, 2.121, 410], [2.171, 2.97, 450]]
+points = [
+  { km = 1.117, kind = "signal", signal = "whistle" },
+  { km = 1.423, kind = "signal", signal = "whistle" },
+  { km = 1.557, kind = "signal", signal = "whistle" },
+  { km = 1.64, kind = "signal", signal = "whistle" },
+  { km = 2.105, kind = "signal", signal = "whistle" },
+  { km = 2.173, kind = "signal", signal = "whistle" },
+  { km = 2.591, kind = "signal", signal = "whistle" },
+  { km = 2.748, kind = "signal", signal = "whistle" },
+  { km = 2.962, kind = "signal", signal = "whistle" },
+  { km = 2.996, kind = "signal", signal = "whistle" },
+]

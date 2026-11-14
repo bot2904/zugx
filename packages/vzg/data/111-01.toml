@@ -1,6 +1,8 @@
+id = "111-01"
 ref = "111 01"
 name = "ÖBB Absdorf-Hippersdorf – Krems"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Absdorf-Hippersdorf (in Ah)"
 to = "Krems a.d.Donau (in Kr)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

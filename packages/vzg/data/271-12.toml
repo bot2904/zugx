@@ -1,5 +1,7 @@
+id = "271-12"
 ref = "271 12"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Linz Vbf-Ost Reihungsgr (in Lzv)"
 to = "Linz Hbf (in Lz)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

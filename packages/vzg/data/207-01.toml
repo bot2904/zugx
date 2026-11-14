@@ -1,6 +1,8 @@
+id = "207-01"
 ref = "207 01"
 name = "Innkreisbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Neumarkt-Kallham (in Neu)"
 to = "Staatsgrenze nächst Braunau am Inn"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

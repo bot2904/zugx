@@ -230,7 +230,7 @@ const curves = computed(() =>
 const curveLabels = computed(() => new Set(place(curves.value, (c) => y((c[0] + c[1]) / 2), 11)));
 const curveOpacity = (r: number) => Math.max(0.15, Math.min(0.9, 300 / r));
 
-const entry = computed(() => index.value?.lines.find((l) => l.ref === data.value?.ref));
+const entry = computed(() => index.value?.lines.find((l) => l.id === data.value?.id));
 const fmt = (km: number) => km.toFixed(3);
 </script>
 
@@ -250,8 +250,8 @@ const fmt = (km: number) => km.toFixed(3);
         :aria-label="$t('vzg.line')"
         @change="router.push({ path: `/vzg/${($event.target as HTMLSelectElement).value}` })"
       >
-        <option v-for="l in index.lines" :key="l.ref" :value="l.ref.replace(' ', '-')">
-          {{ l.ref }}{{ l.name ? ` · ${l.name}` : "" }}
+        <option v-for="l in index.lines" :key="l.id" :value="l.id">
+          {{ [l.ref, l.name].filter(Boolean).join(" · ") }}
         </option>
       </select>
       <span v-if="data" class="flex flex-wrap items-center gap-1 text-xs">
@@ -300,8 +300,10 @@ const fmt = (km: number) => km.toFixed(3);
     <p v-if="missing" class="muted">{{ $t("vzg.noData") }}</p>
     <template v-if="data && track">
       <p class="muted my-1 text-xs">
-        <span class="mono">{{ data.ref }}</span>
+        <span v-if="data.ref" class="mono">{{ data.ref }}</span>
         {{ data.name }}
+        <template v-if="data.operator"> · {{ data.operator }}</template>
+        <template v-if="data.gauge && data.gauge !== '1435'"> · {{ data.gauge }} mm</template>
         <template v-if="data.from || data.to">
           · {{ [data.from, data.to].filter(Boolean).join(" – ") }}</template
         >
@@ -318,7 +320,7 @@ const fmt = (km: number) => km.toFixed(3);
           :height="H"
           class="vzg block font-[inherit]"
           role="img"
-          :aria-label="`${$t('vzg.title')} ${data.ref} ${$t('vzg.track')} ${track.track}`"
+          :aria-label="`${$t('vzg.title')} ${data.ref ?? data.name} ${$t('vzg.track')} ${track.track}`"
         >
           <!-- column headers -->
           <g class="hdr" font-size="10">

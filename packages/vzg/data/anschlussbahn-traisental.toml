@@ -1,0 +1,49 @@
+id = "anschlussbahn-traisental"
+name = "Anschlussbahn Traisental"
+operator = "AB Traisental"
+gauge = "1435"
+from = "Freiland"
+to = "St. Aegyd am Neuwalde Markt"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 12.725
+kmTo = 29.455
+length = 16.713
+speeds = [[12.725, 29.455, 40, 40]]
+curves = [[12.832, 13.045, 210], [13.419, 13.686, 790], [14.151, 14.226, 2390], [14.451, 14.676, 840], [14.726, 14.951, 640], [15.476, 15.776, 600], [16.625, 17.375, 910], [17.705, 17.953, 520], [18.103, 18.379, 860], [18.705, 18.905, 490], [19.082, 19.131, 2900], [19.53, 19.73, 800], [20.28, 20.884, 660], [20.985, 21.514, 350], [22.008, 22.204, 400], [22.278, 22.453, 510], [22.503, 22.754, 480], [22.904, 23.13, 560], [23.255, 23.431, 1030], [23.556, 23.681, 1430], [24.007, 24.233, 490], [24.333, 25.537, 350], [26.584, 26.659, 1370], [26.709, 27.08, 730], [27.317, 27.53, 670], [27.712, 28.263, 290], [28.537, 28.587, 2180], [28.712, 28.99, 430], [29.216, 29.342, 560]]
+points = [
+  { km = 13.681, kind = "signal", signal = "whistle" },
+  { km = 14.185, kind = "signal", signal = "whistle" },
+  { km = 14.195, kind = "signal", signal = "snowplow" },
+  { km = 14.212, kind = "signal", signal = "whistle" },
+  { km = 14.232, kind = "signal", signal = "snowplow" },
+  { km = 14.776, kind = "signal", signal = "snowplow" },
+  { km = 14.81, kind = "signal", signal = "snowplow" },
+  { km = 15.068, kind = "signal", signal = "snowplow" },
+  { km = 15.096, kind = "signal", signal = "snowplow" },
+  { km = 15.409, kind = "signal", signal = "snowplow" },
+  { km = 15.448, kind = "signal", signal = "snowplow" },
+  { km = 15.459, kind = "signal", signal = "whistle" },
+  { km = 16.299, kind = "signal", signal = "snowplow" },
+  { km = 16.336, kind = "signal", signal = "snowplow" },
+  { km = 16.397, kind = "signal", signal = "station_distant" },
+  { km = 16.422, kind = "signal", signal = "whistle" },
+  { km = 16.884, kind = "signal", signal = "snowplow" },
+  { km = 16.92, kind = "signal", signal = "snowplow" },
+  { km = 17.023, kind = "signal", signal = "snowplow" },
+  { km = 17.178, kind = "signal", signal = "whistle" },
+  { km = 17.202, kind = "signal", signal = "snowplow" },
+  { km = 17.359, kind = "signal", signal = "snowplow" },
+  { km = 17.375, kind = "signal", signal = "whistle" },
+  { km = 17.439, kind = "signal", signal = "snowplow" },
+  { km = 17.851, kind = "signal", signal = "snowplow" },
+  { km = 17.917, kind = "signal", signal = "snowplow" },
+  { km = 18.022, kind = "signal", signal = "snowplow" },
+  { km = 18.039, kind = "signal", signal = "snowplow" },
+  { km = 18.205, kind = "signal", signal = "snowplow" },
+  { km = 18.305, kind = "signal", signal = "whistle" },
+  { km = 25.83, kind = "stop", label = "Amt Mitterbach", measured = true },
+  { km = 27.545, kind = "stop", label = "St. Aegyd am Neuwalde Eisenwerk", measured = true },
+]

@@ -1,6 +1,8 @@
+id = "413-01"
 ref = "413 01"
 name = "ÖBB Bruck an der Mur – Leoben"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Bruck a.d.Mur (in Bm)"
 to = "Staatsgrenze nächst Thörl-Maglern"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

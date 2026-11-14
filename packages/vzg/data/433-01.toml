@@ -1,6 +1,8 @@
+id = "433-01"
 ref = "433 01"
 name = "Koralmbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Werndorf"
 to = "Abzw Knoten Weitendorf"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

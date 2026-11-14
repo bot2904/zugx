@@ -1,6 +1,8 @@
+id = "222-01"
 ref = "222 01"
 name = "Tauernbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Schwarzach-St.Veit"
 to = "Villach Hbf (in Vb)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

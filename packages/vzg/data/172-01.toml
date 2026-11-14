@@ -1,6 +1,8 @@
+id = "172-01"
 ref = "172 01"
 name = "Wachaubahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Sarmingstein"
 to = "Mauthausen"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

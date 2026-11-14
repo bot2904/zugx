@@ -1,0 +1,25 @@
+id = "ustrab-wien-guertel"
+name = "USTRAB Wien Gürtel"
+operator = "Wiener Linien"
+gauge = "1435"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 2.075
+length = 2.075
+speeds = [[0, 2.075, 50, 50]]
+curves = [[0.2, 0.25, 2460], [0.325, 0.425, 1570], [0.95, 1.05, 1930], [1.125, 1.225, 1800], [1.3, 1.65, 620], [1.85, 1.975, 360]]
+points = [
+  { km = 0.008, kind = "signal", signal = "train_protection" },
+  { km = 0.03, kind = "halt", label = "Hauptbahnhof" },
+  { km = 0.4, kind = "halt", label = "Wien Hauptbahnhof", measured = true },
+  { km = 0.481, kind = "halt", label = "Blechturmgasse" },
+  { km = 0.843, kind = "halt", label = "Kliebergasse" },
+  { km = 1.312, kind = "halt", label = "Matzleinsdorfer Platz" },
+  { km = 1.394, kind = "station", label = "Südtiroler Platz – Hauptbahnhof", measured = true },
+  { km = 2.003, kind = "halt", label = "Eichenstraße" },
+  { km = 2.054, kind = "signal", signal = "train_protection" },
+  { km = 9.414, kind = "halt", label = "Wien Matzleinsdorfer Platz", measured = true },
+]

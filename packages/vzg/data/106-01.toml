@@ -1,6 +1,8 @@
+id = "106-01"
 ref = "106 01"
 name = "Pottendorfer Linie"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Meidling (in Wbf)"
 to = "Wiener Neustadt Hbf (in Nb)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

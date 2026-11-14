@@ -1,6 +1,8 @@
+id = "413-14"
 ref = "413 14"
 name = "Nordschleife"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Villach Hbf-Ostbf (in Vb)"
 to = "Villach Süd Gvbf-West (in Vsv)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

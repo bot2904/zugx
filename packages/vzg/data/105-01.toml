@@ -1,6 +1,8 @@
+id = "105-01"
 ref = "105 01"
 name = "Südbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Hbf-Südosttangente (in Wbf)"
 to = "Staatsgrenze nächst Spielfeld-Straß"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

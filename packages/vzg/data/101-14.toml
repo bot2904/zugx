@@ -1,6 +1,8 @@
+id = "101-14"
 ref = "101 14"
 name = "Salzburg Hbf – Salzburg Itzling"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Salzburg Itzling"
 to = "Salzburg Gnigl-Vbf (in Sb)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

@@ -1,6 +1,8 @@
+id = "351-01"
 ref = "351 01"
 name = "Karwendelbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Innsbruck Westbf (in I)"
 to = "Staatsgrenze nächst Scharnitz"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

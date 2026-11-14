@@ -1,6 +1,8 @@
+id = "130-11"
 ref = "130 11"
 name = "Westbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Abzww Knoten Rohr Ost (in Roh)"
 to = "Knoten Rohr (in Roh)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

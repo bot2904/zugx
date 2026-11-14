@@ -1,6 +1,8 @@
+id = "138-01"
 ref = "138 01"
 name = "Floridsdorfer Hochbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Jedlersdorf (in F)"
 to = "Leopoldau"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

@@ -1,6 +1,8 @@
+id = "101-12"
 ref = "101 12"
 name = "Talgleis"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Marchtrenk"
 to = "Wels Hbf"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

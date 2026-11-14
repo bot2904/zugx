@@ -1,6 +1,8 @@
+id = "205-01"
 ref = "205 01"
 name = "Passauer Bahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wels Hbf"
 to = "Passau Gbf"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

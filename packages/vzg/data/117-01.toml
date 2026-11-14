@@ -1,6 +1,8 @@
+id = "117-01"
 ref = "117 01"
 name = "Marchegger Ostbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Stadlau Fbf (in St)"
 to = "Staatsgrenze nächst Marchegg"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

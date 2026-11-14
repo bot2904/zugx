@@ -1,6 +1,8 @@
+id = "103-02"
 ref = "103 02"
 name = "Eisbergbogentunnel"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "St.Pölten Hbf (in Pb)"
 to = "Prinzersdorf"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

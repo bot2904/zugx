@@ -1,6 +1,8 @@
+id = "190-01"
 ref = "190 01"
 name = "Ölhafenbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Stadlau Fbf (in St)"
 to = "Wien Lobau Hafen"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

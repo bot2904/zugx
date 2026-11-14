@@ -1,0 +1,25 @@
+id = "198-01"
+ref = "198 01"
+name = "Schneebergbahn"
+operator = "NÖSBB"
+gauge = "1000"
+from = "Puchberg am Schneeberg"
+to = "Hochschneeberg Bergbahnhof"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 9.838
+length = 9.838
+speeds = [[0, 9.739, 20, 20], [9.739, 9.838, "", ""]]
+curves = [[0.1, 1.875, 180], [1.925, 1.975, 540], [2.025, 2.1, 770], [2.15, 2.7, 930], [2.75, 3.1, 400], [3.175, 3.425, 420], [3.475, 3.675, 200], [3.825, 4, 700], [4.125, 4.275, 350], [4.325, 4.55, 860], [4.95, 5.05, 1010], [5.1, 5.225, 450], [5.35, 5.575, 290], [5.625, 5.9, 360], [5.95, 6.1, 220], [6.3, 6.575, 690], [6.625, 7.225, 830], [7.525, 7.625, 1030], [7.75, 7.9, 660], [7.95, 8.2, 310], [8.25, 8.775, 620], [8.9, 9.6, 350]]
+points = [
+  { km = 0, kind = "signal", signal = "minor" },
+  { km = 0.01, kind = "stop", label = "Hochschneeberg Bergbahnhof" },
+  { km = 0.04, kind = "signal", signal = "minor" },
+  { km = 2.437, kind = "station", label = "Baumgartner" },
+  { km = 5.269, kind = "halt", label = "Hengsthütte" },
+  { km = 8.619, kind = "halt", label = "Hengsttal" },
+  { km = 9.739, kind = "stop", label = "Puchberg am Schneeberg" },
+]

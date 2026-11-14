@@ -1,6 +1,8 @@
+id = "435-01"
 ref = "435 01"
 name = "Wieserbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Lieboch"
 to = "Wies-Eibiswald"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

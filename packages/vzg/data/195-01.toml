@@ -1,6 +1,8 @@
+id = "195-01"
 ref = "195 01"
 name = "Pannoniabahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wulkaprodersdorf"
 to = "Abzw Bl 1"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

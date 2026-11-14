@@ -1,6 +1,8 @@
+id = "210-01"
 ref = "210 01"
 name = "Trauner Schleife"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Marchtrenk"
 to = "Traun (in T)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

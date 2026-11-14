@@ -1,6 +1,8 @@
+id = "212-01"
 ref = "212 01"
 name = "Westbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Linz Kleinmünchen"
 to = "Linz Vbf-Durchfahrgr (in Lzv)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

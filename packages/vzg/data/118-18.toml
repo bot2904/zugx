@@ -1,5 +1,7 @@
+id = "118-18"
 ref = "118 18"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Zvbf-Ost (in Zur)"
 to = "Lanzendorf-Rannersdorf (in Zur)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

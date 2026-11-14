@@ -1,6 +1,8 @@
+id = "114-11"
 ref = "114 11"
 name = "Westschleife"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Abzww Süßenbrunn-West (in Sue)"
 to = "Abzww Süßenbrunn-Nord (in Sue)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

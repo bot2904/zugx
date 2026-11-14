@@ -1,6 +1,8 @@
+id = "136-01"
 ref = "136 01"
 name = "Schwechater Schleife"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Zvbf-Ost (in Zur)"
 to = "Kaiserebersdorf (in Kls)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

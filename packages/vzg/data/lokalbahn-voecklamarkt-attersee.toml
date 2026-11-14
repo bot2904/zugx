@@ -1,0 +1,78 @@
+id = "lokalbahn-voecklamarkt-attersee"
+name = "Lokalbahn Vöcklamarkt – Attersee"
+operator = "StH"
+gauge = "1000"
+from = "Vöcklamart Lokalbf"
+to = "Attersee"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0.175
+kmTo = 11.824
+length = 11.64
+speeds = [[0.175, 0.494, 30, 30], [0.494, 0.808, 40, 40], [0.808, 1.289, 50, 50], [1.289, 1.807, 45, 45], [1.807, 2.182, 40, 40], [2.182, 3.891, 50, 50], [3.891, 4.402, 40, 40], [4.402, 5.638, 50, 50], [5.638, 5.78, 45, 45], [5.78, 6.006, 50, 50], [6.006, 6.219, "", ""], [6.219, 6.413, 40, 40], [6.413, 6.895, 50, 50], [6.895, 7.276, 40, 40], [7.276, 7.708, 50, 50], [7.708, 7.838, 40, 40], [7.838, 8.8, 50, 50], [8.8, 9.096, 20, 20], [9.096, 11.242, 50, 50], [11.242, 11.341, 40, 40], [11.341, 11.448, 25, 25], [11.448, 11.799, 40, 40], [11.799, 11.824, 50, 50]]
+curves = [[0.275, 0.475, 330], [0.525, 0.7, 150], [0.75, 1.075, 510], [1.25, 1.4, 570], [1.475, 1.676, 490], [1.751, 2.226, 290], [2.601, 2.676, 2640], [2.801, 2.951, 760], [3.001, 3.151, 1070], [3.226, 3.301, 2370], [3.376, 3.576, 500], [3.876, 4.051, 540], [4.251, 4.427, 620], [4.927, 5.077, 920], [5.602, 5.827, 410], [5.977, 6.127, 670], [6.177, 6.452, 610], [6.852, 7.002, 380], [7.052, 7.328, 260], [7.456, 7.581, 1080], [7.681, 7.856, 430], [7.906, 8.031, 1610], [8.156, 8.206, 2570], [8.331, 8.531, 640], [8.606, 8.78, 620], [8.955, 9.03, 1890], [9.731, 9.831, 1380], [10.032, 10.182, 1000], [10.332, 10.558, 620], [11.185, 11.607, 380], [11.658, 11.708, 550]]
+points = [
+  { km = 0.175, kind = "station", label = "Vöcklamarkt" },
+  { km = 0.208, kind = "signal", signal = "crossing" },
+  { km = 0.213, kind = "signal", signal = "shunting" },
+  { km = 0.263, kind = "signal", signal = "main" },
+  { km = 0.297, kind = "signal", signal = "whistle" },
+  { km = 0.421, kind = "signal", signal = "crossing_distant" },
+  { km = 0.494, kind = "signal", signal = "speed_limit" },
+  { km = 0.526, kind = "signal", signal = "crossing" },
+  { km = 0.571, kind = "signal", signal = "crossing" },
+  { km = 0.592, kind = "signal", signal = "whistle" },
+  { km = 0.626, kind = "signal", signal = "speed_limit" },
+  { km = 0.808, kind = "signal", signal = "speed_limit" },
+  { km = 0.902, kind = "signal", signal = "whistle" },
+  { km = 1.015, kind = "signal", signal = "crossing" },
+  { km = 1.258, kind = "signal", signal = "whistle" },
+  { km = 1.289, kind = "signal", signal = "speed_limit" },
+  { km = 1.544, kind = "halt", label = "Haid" },
+  { km = 3.132, kind = "halt", label = "Walchen" },
+  { km = 4.018, kind = "halt", label = "Schmidham" },
+  { km = 5.498, kind = "stop", label = "Schmidham-Modellflugplatz" },
+  { km = 6.127, kind = "stop", label = "Walsberg" },
+  { km = 6.876, kind = "halt", label = "Hipping" },
+  { km = 7.276, kind = "signal", signal = "speed_limit" },
+  { km = 7.332, kind = "signal", signal = "crossing" },
+  { km = 7.335, kind = "signal", signal = "catenary_mast,whistle" },
+  { km = 7.365, kind = "signal", signal = "crossing" },
+  { km = 7.379, kind = "halt", label = "Kogl" },
+  { km = 8.66, kind = "signal", signal = "catenary_mast,whistle" },
+  { km = 8.843, kind = "signal", signal = "crossing_distant" },
+  { km = 8.845, kind = "signal", signal = "catenary_mast,shunting" },
+  { km = 8.848, kind = "signal", signal = "crossing,crossing_hint" },
+  { km = 8.867, kind = "signal", signal = "catenary_mast,speed_limit" },
+  { km = 8.912, kind = "signal", signal = "whistle" },
+  { km = 8.942, kind = "signal", signal = "catenary_mast,crossing_distant" },
+  { km = 9.001, kind = "stop", label = "St. Georgen im Attergau" },
+  { km = 9.096, kind = "signal", signal = "catenary_mast,crossing_distant,shunting,speed_limit" },
+  { km = 9.532, kind = "halt", label = "St. Georgen im Attergau Seniorenheim" },
+  { km = 9.983, kind = "signal", signal = "catenary_mast,whistle" },
+  { km = 10.226, kind = "halt", label = "Thern" },
+  { km = 11.025, kind = "halt", label = "Stöttham im Attergau" },
+  { km = 11.076, kind = "signal", signal = "crossing" },
+  { km = 11.098, kind = "signal", signal = "crossing" },
+  { km = 11.143, kind = "signal", signal = "crossing" },
+  { km = 11.241, kind = "signal", signal = "catenary_mast,speed_limit" },
+  { km = 11.242, kind = "signal", signal = "catenary_mast,speed_limit" },
+  { km = 11.251, kind = "signal", signal = "crossing_distant" },
+  { km = 11.322, kind = "signal", signal = "crossing_distant" },
+  { km = 11.324, kind = "signal", signal = "crossing" },
+  { km = 11.341, kind = "signal", signal = "catenary_mast,speed_limit" },
+  { km = 11.343, kind = "signal", signal = "catenary_mast,speed_limit" },
+  { km = 11.347, kind = "signal", signal = "catenary_mast,whistle" },
+  { km = 11.419, kind = "signal", signal = "catenary_mast,crossing_distant" },
+  { km = 11.426, kind = "halt", label = "Palmsdorf" },
+  { km = 11.448, kind = "signal", signal = "catenary_mast,crossing_distant,speed_limit" },
+  { km = 11.449, kind = "signal", signal = "catenary_mast,speed_limit" },
+  { km = 11.457, kind = "signal", signal = "crossing" },
+  { km = 11.524, kind = "signal", signal = "crossing" },
+  { km = 11.71, kind = "signal", signal = "catenary_mast,crossing_distant" },
+  { km = 11.799, kind = "signal", signal = "catenary_mast,speed_limit" },
+  { km = 11.801, kind = "signal", signal = "catenary_mast,speed_limit" },
+  { km = 11.809, kind = "signal", signal = "crossing" },
+]

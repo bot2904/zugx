@@ -1,6 +1,8 @@
+id = "181-01"
 ref = "181 01"
 name = "Regiobahn Leiser Berge"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Korneuburg"
 to = "Streckenende 18101 nächst Mistelbach Lokalbahn"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

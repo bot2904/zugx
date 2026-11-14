@@ -1,6 +1,8 @@
+id = "401-01"
 ref = "401 01"
 name = "Koralmbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Graz Don Bosco"
 to = "Klagenfurt Hbf"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

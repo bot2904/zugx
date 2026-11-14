@@ -1,0 +1,20 @@
+id = "stainzerbahn"
+name = "Stainzerbahn"
+operator = "PWS"
+gauge = "760"
+from = "Preding-Wieselsdorf"
+to = "Stainz"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 5.1
+kmTo = 8.5
+length = 3.389
+speeds = [[5.1, 8.5, 20, 20]]
+curves = [[6.298, 6.375, 1950], [7.063, 7.19, 950], [7.241, 7.366, 910], [7.56, 7.901, 300], [7.95, 8.388, 660]]
+points = [
+  { km = 5.1, kind = "halt", label = "Kraubath", measured = true },
+  { km = 7.3, kind = "halt", label = "Neudorf", measured = true },
+  { km = 8.5, kind = "halt", label = "Herbersdorf", measured = true },
+]

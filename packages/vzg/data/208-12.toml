@@ -1,6 +1,8 @@
+id = "208-12"
 ref = "208 12"
 name = "Voestschleife"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Anschluss Voest Alpine Linz I (in Lzv)"
 to = "Voest Alpine Linz"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

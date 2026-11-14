@@ -1,6 +1,8 @@
+id = "413-13"
 ref = "413 13"
 name = "Rudolfsbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "St.Michael (in M)"
 to = "St.Michael-West (in M)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

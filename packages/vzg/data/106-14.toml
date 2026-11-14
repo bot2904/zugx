@@ -1,5 +1,7 @@
+id = "106-14"
 ref = "106 14"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Oberlaa"
 to = "Wien Blumental (in Id)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

@@ -1,6 +1,8 @@
+id = "118-21"
 ref = "118 21"
 name = "Verbindung Ostbahn – Flughafenschnellbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Abzww Str 11821 (in Zur)"
 to = "Abzw Cf 1"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

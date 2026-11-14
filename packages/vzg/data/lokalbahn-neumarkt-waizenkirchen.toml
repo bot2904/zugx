@@ -1,0 +1,66 @@
+id = "lokalbahn-neumarkt-waizenkirchen"
+name = "Lokalbahn Neumarkt – Waizenkirchen"
+operator = "StH"
+gauge = "1435"
+from = "Neumarkt-Kallham"
+to = "Waizenkirchen"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 1
+kmTo = 12
+length = 10.997
+speeds = [[1, 8.904, 50, 50], [8.904, 9.355, 30, 30], [9.355, 9.494, 40, 40], [9.494, 12, 50, 50]]
+curves = [[1.273, 1.447, 900], [1.82, 1.894, 2100], [2.044, 2.198, 460], [2.249, 2.451, 510], [2.727, 2.877, 1090], [3.579, 3.854, 560], [4.004, 4.154, 800], [4.253, 4.453, 650], [4.677, 4.901, 610], [4.975, 5.172, 660], [5.491, 5.663, 1160], [6.109, 6.337, 640], [6.591, 6.718, 1480], [6.921, 7.147, 540], [7.722, 7.972, 530], [8.378, 8.479, 1260], [8.631, 8.834, 640], [9.239, 9.289, 1980], [9.34, 9.542, 510], [9.593, 9.694, 1130], [9.922, 10.072, 890], [10.645, 10.918, 530], [10.993, 11.141, 530], [11.19, 11.363, 360], [11.412, 11.535, 710], [11.609, 11.781, 620]]
+points = [
+  { km = 1.138, kind = "halt", label = "Kledt" },
+  { km = 1.482, kind = "signal", signal = "whistle" },
+  { km = 1.562, kind = "signal", signal = "whistle" },
+  { km = 1.667, kind = "signal", signal = "whistle" },
+  { km = 2.171, kind = "signal", signal = "whistle" },
+  { km = 2.228, kind = "signal", signal = "whistle" },
+  { km = 2.232, kind = "halt", label = "Straßhof an der Aschach" },
+  { km = 2.66, kind = "halt", label = "Oberaschach" },
+  { km = 2.748, kind = "signal", signal = "whistle" },
+  { km = 3.119, kind = "signal", signal = "whistle" },
+  { km = 3.349, kind = "signal", signal = "crossing_distant" },
+  { km = 3.423, kind = "signal", signal = "crossing" },
+  { km = 3.544, kind = "signal", signal = "whistle" },
+  { km = 3.649, kind = "halt", label = "Pötting" },
+  { km = 3.668, kind = "signal", signal = "crossing" },
+  { km = 3.679, kind = "signal", signal = "crossing" },
+  { km = 3.703, kind = "signal", signal = "whistle" },
+  { km = 3.924, kind = "signal", signal = "crossing" },
+  { km = 3.997, kind = "signal", signal = "crossing_distant" },
+  { km = 4.06, kind = "signal", signal = "whistle" },
+  { km = 4.12, kind = "signal", signal = "whistle" },
+  { km = 4.575, kind = "signal", signal = "whistle" },
+  { km = 4.641, kind = "signal", signal = "whistle" },
+  { km = 4.804, kind = "signal", signal = "whistle" },
+  { km = 4.933, kind = "halt", label = "Prambeckenhof" },
+  { km = 4.998, kind = "signal", signal = "whistle" },
+  { km = 5.425, kind = "signal", signal = "whistle" },
+  { km = 5.638, kind = "signal", signal = "whistle" },
+  { km = 6.023, kind = "signal", signal = "whistle" },
+  { km = 6.564, kind = "signal", signal = "whistle" },
+  { km = 6.68, kind = "signal", signal = "whistle" },
+  { km = 6.858, kind = "halt", label = "Stefansdorf" },
+  { km = 7.627, kind = "halt", label = "Itzling" },
+  { km = 7.845, kind = "signal", signal = "whistle" },
+  { km = 7.964, kind = "signal", signal = "whistle" },
+  { km = 8.128, kind = "signal", signal = "whistle" },
+  { km = 8.553, kind = "signal", signal = "distant" },
+  { km = 8.718, kind = "signal", signal = "whistle" },
+  { km = 8.751, kind = "signal", signal = "whistle" },
+  { km = 8.9, kind = "signal", signal = "main,speed_limit" },
+  { km = 9.266, kind = "stop", label = "Niederspaching" },
+  { km = 9.27, kind = "signal", signal = "stop" },
+  { km = 9.432, kind = "signal", signal = "shunting" },
+  { km = 9.496, kind = "signal", signal = "main,resetting_switch,speed_limit" },
+  { km = 9.824, kind = "signal", signal = "whistle" },
+  { km = 9.902, kind = "signal", signal = "distant" },
+  { km = 9.97, kind = "signal", signal = "whistle" },
+  { km = 10.947, kind = "halt", label = "Willersdorf" },
+  { km = 11.92, kind = "signal", signal = "distant" },
+]

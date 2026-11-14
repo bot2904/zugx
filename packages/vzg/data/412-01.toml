@@ -1,6 +1,8 @@
+id = "412-01"
 ref = "412 01"
 name = "Erzbergbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Leoben Hbf"
 to = "Trofaiach"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

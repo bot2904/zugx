@@ -1,6 +1,8 @@
+id = "222-11"
 ref = "222 11"
 name = "Ostschleife"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Villach Süd Gvbf-Ausfgr (in Vsv)"
 to = "Abzww Villach Süd Gvbf-Ost (in Vsv)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

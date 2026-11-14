@@ -1,6 +1,8 @@
+id = "221-01"
 ref = "221 01"
 name = "Summerauer Bahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Linz Hbf (in Lz)"
 to = "Staatsgrenze nächst Summerau"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

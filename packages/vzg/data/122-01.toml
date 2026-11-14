@@ -1,6 +1,8 @@
+id = "122-01"
 ref = "122 01"
 name = "Verbindungsbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Hütteldorf (in Hf)"
 to = "Wien Praterstern (in Nw)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

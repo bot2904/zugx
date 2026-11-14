@@ -1,6 +1,8 @@
+id = "258-01"
 ref = "258 01"
 name = "Mühlkreisbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Linz Urfahr"
 to = "Aigen-Schlägl"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

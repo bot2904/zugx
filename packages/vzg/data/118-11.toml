@@ -1,6 +1,8 @@
+id = "118-11"
 ref = "118 11"
 name = "Westschleife"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Kledering (in Zur)"
 to = "Wien Zvbf (in Zur)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

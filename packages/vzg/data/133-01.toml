@@ -1,6 +1,8 @@
+id = "133-01"
 ref = "133 01"
 name = "Donauländebahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Oberlaa"
 to = "Kledering (in Zur)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

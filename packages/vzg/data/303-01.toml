@@ -1,6 +1,8 @@
+id = "303-01"
 ref = "303 01"
 name = "ÖBB Feldkirch – Buchs"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Feldkirch"
 to = "Buchs (SG)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

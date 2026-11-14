@@ -1,6 +1,8 @@
+id = "408-11"
 ref = "408 11"
 name = "Autoverladung"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Villach Hbf-Autoverladestelle (in Vb)"
 to = "Villach Hbf-Ostbf (in Vb)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

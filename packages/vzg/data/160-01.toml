@@ -1,6 +1,8 @@
+id = "160-01"
 ref = "160 01"
 name = "Kaltenleutgebner Bahn"
 operator = "Perchtoldsdorfer Immobilien"
+gauge = "1435"
 from = "Wien Liesing"
 to = "Waldmühle"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

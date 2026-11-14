@@ -1,6 +1,8 @@
+id = "204-01"
 ref = "204 01"
 name = "Pyhrnbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Linz Hbf (in Lz)"
 to = "Selzthal (in Sl)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

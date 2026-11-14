@@ -30,6 +30,8 @@ function setQuery(patch: Record<string, string | undefined>) {
 }
 watch(q, (v) => setQuery({ q: v || undefined }));
 
+/** ÖBB lines by number first, then the other railways by name */
+const refKey = (l: VzgIndexEntry) => (l.oebb ? l.ref! : `~${l.name ?? l.id}`);
 const tokensOf = (s: string) => normalize(s).split(" ").filter(Boolean);
 const rows = computed<VzgIndexEntry[]>(() => {
   const tokens = tokensOf(q.value);
@@ -37,14 +39,14 @@ const rows = computed<VzgIndexEntry[]>(() => {
     if (!tokens.length) return true;
     // "10101" finds "101 01" too
     const hay = normalize(
-      `${l.ref} ${l.ref.replace(" ", "")} ${l.name ?? ""} ${l.from ?? ""} ${l.to ?? ""} ${l.names.join(" ")}`,
+      `${l.ref ?? ""} ${l.ref?.replace(" ", "") ?? ""} ${l.name ?? ""} ${l.operator ?? ""} ${l.from ?? ""} ${l.to ?? ""} ${l.names.join(" ")}`,
     );
     return tokens.every((tok) => hay.includes(tok));
   });
   const dir = desc.value ? -1 : 1;
   return list.sort((a, b) =>
     sort.value === "ref"
-      ? dir * a.ref.localeCompare(b.ref)
+      ? dir * refKey(a).localeCompare(refKey(b))
       : sort.value === "name"
         ? dir * (a.name ?? "").localeCompare(b.name ?? "")
         : dir * (a[sort.value] - b[sort.value]),
@@ -63,8 +65,7 @@ function sortBy(k: SortKey) {
   setQuery({ sort: k === "ref" ? undefined : k, desc: d ? "1" : undefined });
 }
 
-const slug = (l: VzgIndexEntry) => l.ref.replace(" ", "-");
-const open = (l?: VzgIndexEntry) => l && void router.push(`/vzg/${slug(l)}`);
+const open = (l?: VzgIndexEntry) => l && void router.push(`/vzg/${l.id}`);
 useKeys({
   j: () => (sel.value = Math.min(rows.value.length - 1, sel.value + 1)),
   k: () => (sel.value = Math.max(0, sel.value - 1)),
@@ -135,19 +136,20 @@ useKeys({
       <tbody>
         <tr
           v-for="(l, i) in rows"
-          :key="l.ref"
+          :key="l.id"
           :data-row="i"
           class="cursor-pointer"
           :class="i === sel && 'sel'"
           @click="open(l)"
         >
           <td class="mono whitespace-nowrap">
-            <RouterLink :to="`/vzg/${slug(l)}`" class="font-medium text-[var(--fg)]" @click.stop>{{
-              l.ref
+            <RouterLink :to="`/vzg/${l.id}`" class="font-medium text-[var(--fg)]" @click.stop>{{
+              l.oebb ? l.ref : (l.ref ?? "–")
             }}</RouterLink>
           </td>
           <td>
             {{ l.name ?? "–" }}
+            <span v-if="!l.oebb && l.operator" class="muted text-xs"> · {{ l.operator }}</span>
             <div v-if="hits(l).length" class="text-xs text-[var(--warn)]">
               ⌖ {{ hits(l).join(" · ") }}
             </div>
@@ -157,6 +159,7 @@ useKeys({
           </td>
           <td class="muted text-xs">
             {{ l.tracks.length > 1 ? $t("vzg.double") : $t("vzg.single") }}
+            <template v-if="l.gauge && l.gauge !== '1435'"> · {{ l.gauge }} mm</template>
           </td>
           <td class="mono whitespace-nowrap text-right">
             {{ Math.round(l.length) }}

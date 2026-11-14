@@ -1,6 +1,8 @@
+id = "260-01"
 ref = "260 01"
 name = "Kammerer Bahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Abzw Vk 1"
 to = "Kammer-Schörfling"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

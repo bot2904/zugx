@@ -1,5 +1,7 @@
+id = "194-01"
 ref = "194 01"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Parndorf"
 to = "Staatsgrenze nächst Kittsee"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

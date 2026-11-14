@@ -1,5 +1,7 @@
+id = "216-01"
 ref = "216 01"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Abzw Hw 3"
 to = "Salzburg Gnigl-Vbf (in Sb)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

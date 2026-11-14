@@ -1,6 +1,8 @@
+id = "221-11"
 ref = "221 11"
 name = "Summerauer Bahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Linz Vbf-West (in Lzv)"
 to = "Franckstraße (in Lzv)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

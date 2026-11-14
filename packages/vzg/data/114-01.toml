@@ -1,6 +1,8 @@
+id = "114-01"
 ref = "114 01"
 name = "Nordbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Praterstern (in Nw)"
 to = "Staatsgrenze nächst Bernhardsthal Fbf"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

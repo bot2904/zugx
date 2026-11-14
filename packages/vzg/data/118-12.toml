@@ -1,6 +1,8 @@
+id = "118-12"
 ref = "118 12"
 name = "Einfahrunterwerfung"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Hbf-Südosttangente (in Wbf)"
 to = "Lanzendorf-Rannersdorf (in Zur)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

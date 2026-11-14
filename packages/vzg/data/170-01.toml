@@ -1,0 +1,21 @@
+id = "170-01"
+ref = "170 01"
+name = "Burgenlandbahn"
+operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
+from = "Staatsgrenze nächst Deutschkreutz"
+to = "Streckenende 17001 nächst Deutschkreutz"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 0.305
+length = 0.305
+speeds = [[0, 0.076, 40, 60], [0.076, 0.225, 40, ""], [0.225, 0.305, "", ""]]
+curves = []
+points = [
+  { km = 0.076, kind = "signal", label = "H1", signal = "main" },
+  { km = 0.094, kind = "stop", label = "Deutschkreutz" },
+  { km = 0.225, kind = "signal", signal = "minor" },
+]

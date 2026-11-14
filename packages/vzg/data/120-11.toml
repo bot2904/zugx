@@ -1,5 +1,7 @@
+id = "120-11"
 ref = "120 11"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Wien Hütteldorf Güterzuggruppe (in Hf)"
 to = "Wien Hütteldorf (in Hf)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

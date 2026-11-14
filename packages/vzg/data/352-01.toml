@@ -1,6 +1,8 @@
+id = "352-01"
 ref = "352 01"
 name = "Außerfernbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Staatsgrenze nächst Ehrwald-Zugspitzbahn"
 to = "Staatsgrenze nächst Vils"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

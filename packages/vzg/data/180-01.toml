@@ -1,6 +1,8 @@
+id = "180-01"
 ref = "180 01"
 name = "Lokalbahn Retz – Drosendorf"
 operator = "NÖVOG"
+gauge = "1435"
 from = "Retz"
 to = "Drosendorf"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

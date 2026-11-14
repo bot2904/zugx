@@ -1,5 +1,7 @@
+id = "210-11"
 ref = "210 11"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Abzww Traun West (in T)"
 to = "Abzww Traun Süd (in T)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

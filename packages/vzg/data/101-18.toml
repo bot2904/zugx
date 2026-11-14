@@ -1,4 +1,7 @@
+id = "101-18"
 ref = "101 18"
+operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
 
 [[tracks]]

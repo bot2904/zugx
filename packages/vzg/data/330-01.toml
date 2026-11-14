@@ -1,6 +1,8 @@
+id = "330-01"
 ref = "330 01"
 name = "Neue Unterinntalbahn"
 operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
 from = "Abzw W 2"
 to = "Abzw Fw 2"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"

@@ -1,0 +1,21 @@
+id = "bregenzerwaldbahn"
+ref = "91501"
+name = "Bregenzerwaldbahn"
+operator = "VBM"
+gauge = "760"
+from = "Schwarzenberg"
+to = "Bezau"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 5.163
+length = 5.163
+speeds = [[0, 5.163, "", ""]]
+curves = [[0.2, 0.35, 1340], [0.425, 0.65, 400], [0.7, 0.85, 230], [0.9, 1.075, 370], [1.125, 1.825, 540], [2.025, 2.7, 350], [2.75, 2.9, 800], [2.95, 3.1, 300], [3.15, 3.4, 380], [3.45, 5.05, 190]]
+points = [
+  { km = 0.039, kind = "stop", label = "Bezau" },
+  { km = 5.034, kind = "stop", label = "Schwarzenberg" },
+  { km = 33.6, kind = "stop", label = "Reuthe", measured = true },
+]
