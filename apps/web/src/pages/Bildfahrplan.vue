@@ -189,7 +189,14 @@ function setQuery(patch: Record<string, string | number | undefined>) {
 // width follows the page (full document width, 1 SVG unit = 1 px, text stays 10 px); at least 800
 const chartBox = useTemplateRef<HTMLElement>("chartBox");
 const { width: boxWidth } = useElementSize(chartBox);
-const W = computed(() => Math.max(800, Math.round(boxWidth.value) || 1100));
+// Maßstab (distance axis): 1× fits the page, 2×/4× widen the chart (scrolls sideways), ?x=
+const SCALES = [1, 2, 4] as const;
+const scale = computed(() => {
+  const v = Number(route.query.x);
+  return (SCALES as readonly number[]).includes(v) ? v : 1;
+});
+const setScale = (v: number) => setQuery({ x: v === 1 ? undefined : v });
+const W = computed(() => Math.max(800, Math.round(boxWidth.value) || 1100) * scale.value);
 const H = 760;
 const M = { top: 110, right: 20, bottom: 20, left: 46 };
 // ---- section: first/last station (?a=, ?b= station ids) and direction (?rev=1) ----
@@ -336,6 +343,10 @@ useKeys({
   ArrowDown: (e) => id.value && shiftHour(e.shiftKey ? span.value : 2),
   h: () => id.value && shiftHour(-1),
   l: () => id.value && shiftHour(1),
+  "+": () =>
+    id.value &&
+    setScale(SCALES[Math.min(SCALES.length - 1, SCALES.indexOf(scale.value as 1) + 1)]!),
+  "-": () => id.value && setScale(SCALES[Math.max(0, SCALES.indexOf(scale.value as 1) - 1)]!),
   n: () =>
     id.value && setQuery({ d: undefined, from: Math.max(0, Math.floor(viennaMinutes() / 60) - 1) }),
 });
@@ -678,6 +689,20 @@ function toggleCat(c: string) {
           {{ h }}h
         </button>
       </span>
+      <span class="flex items-center gap-1" role="group" :aria-label="$t('bf.scale')">
+        <span class="muted">{{ $t("bf.scale") }}</span>
+        <button
+          v-for="v in SCALES"
+          :key="v"
+          class="btn"
+          :class="scale === v && 'btn-on'"
+          :aria-pressed="scale === v"
+          v-tip="`${$t('bf.scaleTip')} (+/−)`"
+          @click="setScale(v)"
+        >
+          {{ v }}×
+        </button>
+      </span>
       <span class="muted tabular-nums">{{ $t("bf.trainsOnDay", { n: trainsOnDate.length }) }}</span>
       <span v-if="data.begin && (date < data.begin || date > data.end)" class="text-[var(--warn)]">
         {{ $t("bf.outside", { begin: data.begin, end: data.end }) }}
@@ -725,7 +750,8 @@ function toggleCat(c: string) {
     <div v-if="data && part !== 'table'" ref="chartBox" class="card overflow-x-auto p-1">
       <svg
         :viewBox="`0 0 ${W} ${H}`"
-        class="block w-full min-w-[800px]"
+        class="block"
+        :style="{ width: `${W}px` }"
         role="img"
         :aria-label="data.name"
         @wheel="onWheel"

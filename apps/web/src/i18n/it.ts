@@ -151,6 +151,8 @@ export default {
     hint: "Posizioni calcolate da ÖBB HAFAS.",
   },
   bf: {
+    scale: "Scala",
+    scaleTip: "Scala delle distanze: 1× alla larghezza della pagina, 2× e 4× allargano il grafico",
     tableFrom: "da",
     transpose: "Trasponi",
     transposeTip:

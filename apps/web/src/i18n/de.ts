@@ -151,6 +151,8 @@ export default {
     hint: "Positionen werden von ÖBB HAFAS berechnet.",
   },
   bf: {
+    scale: "Maßstab",
+    scaleTip: "Wegmaßstab: 1× passt auf die Seitenbreite, 2× und 4× verbreitern den Bildfahrplan",
     tableFrom: "von",
     transpose: "Transponieren",
     transposeTip: "Kursbuch-Ansicht (eine Spalte je Zug) oder transponiert (eine Zeile je Zug)",

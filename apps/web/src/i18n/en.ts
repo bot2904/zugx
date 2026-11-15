@@ -149,6 +149,8 @@ export default {
     hint: "Positions are calculated by ÖBB HAFAS.",
   },
   bf: {
+    scale: "Scale",
+    scaleTip: "Distance scale: 1× fits the page width, 2× and 4× widen the chart",
     tableFrom: "from",
     transpose: "Transpose",
     transposeTip: "Kursbuch layout (a column per train) or transposed (a row per train)",
