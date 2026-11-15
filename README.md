@@ -22,7 +22,7 @@ packages/stations   station index build (ÖBB GTFS → HAFAS IDs) + committed st
 packages/trains     train index build (ÖBB GTFS) + committed trains-<year>.toml / .full.toml
 packages/gtfs       ÖBB GTFS download + parsing shared by the builds
 packages/toml       prebuilt data as TOML: writer/reader (null ⇔ "") + Vite plugin to import *.toml
-packages/netz       Netzgrafik / Bildfahrplan build (ÖBB GTFS, Wikidata) + committed data
+packages/netz       Netzgrafik / Bildfahrplan build (ÖBB GTFS, VzG speed limits) + committed data
 packages/vzg        VzG-Grafik build (OpenStreetMap PBF) + committed data (ODbL)
 e2e                 Playwright smoke tests (API mocked from fixtures)
 deploy              Containerfile, Caddyfile, Quadlet unit, host Caddy snippet
@@ -40,7 +40,7 @@ vp run -r test              # unit tests
 vp run --filter @zugx/e2e e2e
 vp run stations:build       # rebuild station index (downloads ÖBB GTFS, queries HAFAS)
 vp run trains:build         # rebuild train index
-vp run netz:build           # rebuild Netzgrafik + corridors (+ railway lines from Wikidata)
+vp run netz:build           # rebuild Netzgrafik + corridors (+ VzG lines and passing times)
 vp run vzg:extract          # OSM PBF in .cache/ (Geofabrik Austria) → .cache/osm-rail.json
 vp run vzg:build            # → packages/vzg/data/*.toml
 vp run hafas:record         # re-record API fixtures
