@@ -59,6 +59,10 @@ const NODE_KINDS = new Set([
 const pick = (t: Tags, keys: string[]) =>
   Object.fromEntries(keys.filter((k) => t[k] !== undefined).map((k) => [k, t[k]!]));
 
+const fromName = (f: string) => {
+  const m = /-(\d\d)(\d\d)(\d\d)\.osm\.pbf$/.exec(f);
+  return m ? `20${m[1]}-${m[2]}-${m[3]}` : undefined;
+};
 const t0 = Date.now();
 const lap = () => `${((Date.now() - t0) / 1000).toFixed(1)} s`;
 
@@ -66,7 +70,11 @@ const lap = () => `${((Date.now() - t0) / 1000).toFixed(1)} s`;
 // so collect all candidate rail ways and filter afterwards)
 const relations: RailExtract["lines"] = [];
 const candidates = new Map<number, { refs: number[]; tags: Tags }>();
+let osmDate: string | undefined;
 readPbf(input, {
+  header: (h) => {
+    if (h.timestamp) osmDate = new Date(h.timestamp * 1000).toISOString().slice(0, 10);
+  },
   way: (w) => {
     const t = w.tags;
     // standard and narrow gauge (Mariazellerbahn, Pinzgaubahn …), light rail and trams
@@ -147,6 +155,8 @@ console.log(
 const extract: RailExtract = {
   source: input.split("/").pop()!,
   created: new Date().toISOString().slice(0, 10),
+  // data as of: from the PBF header, else the Geofabrik file name (austria-YYMMDD)
+  ...((osmDate ?? fromName(input)) ? { osmDate: (osmDate ?? fromName(input))! } : {}),
   lines: relations,
   ways,
   nodes,

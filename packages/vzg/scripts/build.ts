@@ -85,6 +85,7 @@ writeToml(join(out, "geometry.toml"), {
 writeToml(join(out, "index.toml"), {
   source: `OpenStreetMap (${ex.source}), © OpenStreetMap contributors, ODbL 1.0`,
   created: ex.created,
+  ...(ex.osmDate ? { osmDate: ex.osmDate } : {}),
   lines: index,
 });
 console.log(`${lines.length} lines → ${out} (${Date.now() - t0} ms)`);

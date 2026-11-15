@@ -628,7 +628,7 @@ const print = () => window.print();
           font-size="9.5"
           :fill="C.muted"
         >
-          {{ $t("vzg.mapSources", { date: index?.created ?? "" }) }}
+          {{ $t("vzg.mapSources", { date: index?.osmDate ?? index?.created ?? "" }) }}
         </text>
         <text
           :x="PAD"

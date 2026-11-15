@@ -6,7 +6,10 @@
 /** Intermediate OSM extract (`.cache/osm-rail.json`, scripts/extract.ts). */
 export interface RailExtract {
   source: string;
+  /** when the extract was made */
   created: string;
+  /** OSM data as of (PBF header / Geofabrik file name), YYYY-MM-DD */
+  osmDate?: string;
   /** `route=tracks` relations: one per line, e.g. ref "101 01" */
   lines: {
     id: number;
@@ -105,7 +108,10 @@ export interface VzgPoint {
 /** `data/index.toml`: one entry per built line */
 export interface VzgIndex {
   source: string;
+  /** when the data was built */
   created: string;
+  /** OSM data as of, YYYY-MM-DD (shown as "Stand") */
+  osmDate?: string;
   lines: VzgIndexEntry[];
 }
 export interface VzgIndexEntry {

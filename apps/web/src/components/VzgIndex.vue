@@ -94,7 +94,8 @@ useKeys({
       </search>
     </div>
     <p class="muted my-1 text-xs">
-      {{ rows.length }} / {{ index.lines.length }} · {{ $t("vzg.asOf", { date: index.created }) }}
+      {{ rows.length }} / {{ index.lines.length }} ·
+      {{ $t("vzg.asOf", { date: index.osmDate ?? index.created }) }}
     </p>
     <table class="dense mt-1">
       <caption class="sr-only">

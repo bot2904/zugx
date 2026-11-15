@@ -40,6 +40,8 @@ export interface ReadOptions {
   taggedNodesOnly?: boolean;
   way?: (w: OsmWay) => void;
   relation?: (r: OsmRelation) => void;
+  /** the file's header: data timestamp (osmosis_replication_timestamp, seconds) if present */
+  header?: (h: { timestamp?: number }) => void;
 }
 
 const MEMBER_TYPES = ["node", "way", "relation"] as const;
@@ -59,6 +61,10 @@ export function readPbf(path: string, o: ReadOptions): void {
       const blob = Buffer.alloc(dataSize);
       readSync(fd, blob, 0, dataSize, pos + 4 + headerSize);
       pos += 4 + headerSize + dataSize;
+      if (type === "OSMHeader") {
+        if (o.header) o.header(headerBlock(blobData(blob)));
+        continue;
+      }
       if (type !== "OSMData") continue;
       primitiveBlock(blobData(blob), o);
     }
@@ -75,6 +81,13 @@ function blobHeader(buf: Buffer) {
     },
     { type: "", dataSize: 0 },
   );
+}
+
+/** HeaderBlock: field 32 = osmosis_replication_timestamp (data as of, seconds since epoch) */
+function headerBlock(data: Uint8Array): { timestamp?: number } {
+  return new PbfReader(data).readFields((tag, h: { timestamp?: number }, p) => {
+    if (tag === 32) h.timestamp = p.readVarint(true);
+  }, {});
 }
 
 function blobData(buf: Buffer): Uint8Array {

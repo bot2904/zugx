@@ -315,7 +315,7 @@ function exportSvg() {
     subtitle,
     footer: [
       t("vzg.exportLegend"),
-      t("vzg.exportData", { date: index.value?.created ?? "" }),
+      t("vzg.exportData", { date: index.value?.osmDate ?? index.value?.created ?? "" }),
       t("vzg.exportMadeWith", { url }),
     ],
   });
@@ -464,7 +464,7 @@ const fmt = (km: number) => km.toFixed(3);
         {{ track.length.toFixed(1) }} km · <span class="text-[var(--fg)]">━</span>
         {{ $t("vzg.travel") }}
         <span v-if="oppositePath">· ─·─ {{ $t("vzg.opposite") }}</span>
-        · {{ $t("vzg.asOf", { date: index?.created ?? "" }) }}
+        · {{ $t("vzg.asOf", { date: index?.osmDate ?? index?.created ?? "" }) }}
       </p>
       <p class="muted my-1 text-xs">
         <span class="inline-block h-2 w-1.5 bg-[var(--link)] align-middle" aria-hidden="true" />
