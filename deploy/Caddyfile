@@ -7,6 +7,22 @@
 	}
 }
 
+(security) {
+	header {
+		# strict CSP: no inline scripts; map tiles from OpenFreeMap / OpenRailwayMap
+		Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://tiles.openfreemap.org https://tile.openstreetmap.org https://a.tiles.openrailwaymap.org; worker-src 'self' blob:; font-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; require-trusted-types-for 'script'; trusted-types default vue"
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		Permissions-Policy "geolocation=(self), camera=(), microphone=(), payment=(), usb=()"
+		Cross-Origin-Opener-Policy same-origin
+		Cross-Origin-Resource-Policy same-origin
+		X-Frame-Options DENY
+		# HTTPS only (Cloudflare terminates TLS); no includeSubDomains — other legner.me hosts aren't ours to decide
+		Strict-Transport-Security "max-age=31536000"
+		-Server
+	}
+}
+
 :8080 {
 	# dynamic responses (/api/mgate); static files come precompressed (.zst/.gz from the build)
 	encode zstd gzip
@@ -17,17 +33,7 @@
 		respond "ok" 200
 	}
 
-	header {
-		# strict CSP: no inline scripts; map tiles from OpenFreeMap / OpenRailwayMap
-		Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://tiles.openfreemap.org https://tile.openstreetmap.org https://a.tiles.openrailwaymap.org; worker-src 'self' blob:; font-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; require-trusted-types-for 'script'; trusted-types default vue"
-		X-Content-Type-Options nosniff
-		Referrer-Policy strict-origin-when-cross-origin
-		Permissions-Policy "geolocation=(self), camera=(), microphone=(), payment=(), usb=()"
-		Cross-Origin-Opener-Policy same-origin
-		Cross-Origin-Resource-Policy same-origin
-		X-Frame-Options DENY
-		-Server
-	}
+	import security
 
 	# access log on stdout → `journalctl --user -u zugx` (stock console format, headers dropped, IPs masked)
 	log {
@@ -68,6 +74,8 @@
 			header_up -Origin
 			header_up -Referer
 			header_down -Set-Cookie
+			# live data: never stored (browser, Cloudflare)
+			header_down Cache-Control "no-store"
 		}
 	}
 
@@ -80,14 +88,16 @@
 			path_regexp ^/(assets/.+|workbox)-[A-Za-z0-9_-]{8}\.[a-z0-9]+$
 			file
 		}
-		header @hashed Cache-Control "public, max-age=31536000, immutable"
+		# no-transform everywhere: Cloudflare must not rewrite the files (Rocket Loader, Email
+		# Obfuscation, Web Analytics injection — inline scripts the CSP and Trusted Types block)
+		header @hashed Cache-Control "public, max-age=31536000, immutable, no-transform"
 		# everything else revalidates (ETag / Last-Modified, 304): index.html for every SPA route,
 		# the service worker, the manifest, icons, routing data — a deploy shows on the next load
 		@revalidate not {
 			path_regexp ^/(assets/.+|workbox)-[A-Za-z0-9_-]{8}\.[a-z0-9]+$
 			file
 		}
-		header @revalidate Cache-Control "no-cache"
+		header @revalidate Cache-Control "no-cache, no-transform"
 		# Caddy doesn't know .webmanifest
 		header /manifest.webmanifest Content-Type application/manifest+json
 		# SPA routes fall back to index.html — but not /assets/: a chunk that isn't there (an old one
@@ -101,5 +111,13 @@
 		file_server {
 			precompressed zstd gzip
 		}
+	}
+
+	# errors (a chunk gone after a deploy: 404) are never cached — without a Cache-Control,
+	# Cloudflare adds its Browser Cache TTL (4 h) and caches the 404 at the edge
+	handle_errors {
+		import security
+		header Cache-Control "no-store"
+		respond "{err.status_code} {err.status_text}" {err.status_code}
 	}
 }
