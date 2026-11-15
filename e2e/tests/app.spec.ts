@@ -156,9 +156,14 @@ test("bildfahrplan: timetable tables below the chart, both directions", async ({
   );
   // default: Kursbuch layout, stations as rows ("an"/"ab"), a column per train
   const book = page.locator(".bf-book table").first();
-  await expect(book.locator("tbody th.stn").first()).toHaveText("Wien Hbf");
+  await expect(book.locator("tbody th.stn").first()).toHaveText(/^Wien Hbf/);
   await expect(book.locator("tbody th.kind").first()).toHaveText("ab");
-  // blocks of as many trains as fit the width
+  // links to the sheets branching off at a station
+  await expect(book.locator("tbody th.stn").first().locator("a.sheet").first()).toHaveAttribute(
+    "href",
+    /^\/bf\/\w+/,
+  );
+  // one table for the whole window (horizontal scrolling)
   expect(
     await page.locator(".bf-book").first().locator("thead tr.trains th[data-c]").count(),
   ).toBeGreaterThan(10);
