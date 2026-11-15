@@ -23,11 +23,16 @@ import { feedYear } from "./build.ts";
 import { encodeDays } from "./index.ts";
 
 const COUNTRY = currentCountry();
-/** UIC codes of the other configured countries (their stations get their plan from their feed) */
-const OTHER_UIC = Object.values(COUNTRIES)
-  .filter((c) => c.id !== COUNTRY.id)
-  .map((c) => c.uic);
-const otherCountry = (hafasId: string) => OTHER_UIC.some((u) => hafasId.startsWith(u));
+/**
+ * One feed per station's plan (two plans of a station would compete in the app): a configured
+ * country's stations from its own feed, stations abroad (Zagreb, München …) from the first
+ * country in countries.toml
+ */
+const PRIMARY = Object.keys(COUNTRIES)[0];
+const planHere = (hafasId: string) => {
+  const own = Object.values(COUNTRIES).find((c) => hafasId.startsWith(c.uic));
+  return own ? own.id === COUNTRY.id : COUNTRY.id === PRIMARY;
+};
 const DATA = join(dataDir("trains", COUNTRY), "departures");
 const MAP_PATH = join(dataDir("stations", COUNTRY), "gtfs-hafas-map.toml");
 /** following stops listed per departure (the poster's "via" lines), at most */
@@ -53,6 +58,8 @@ async function main() {
   );
   const group = (id: string) => stops.get(id)?.parent || id;
   const names = new Map<string, string>();
+  /** ids that are HAFAS station ids (the others are GTFS ids of unmatched stops) */
+  const hafasIds = new Set(Object.values(map).flatMap((e) => (e.id ? [e.id] : [])));
   const idOf = (gid: string) => {
     const e = map[gid];
     const id = e?.id ?? gid;
@@ -107,8 +114,8 @@ async function main() {
       const s = sts[k]!;
       if (s.pickup === 1) continue; // no boarding here
       const id = ids[k]!;
-      if (!/^\d+$/.test(id)) continue; // stations without HAFAS id: no page to show it on
-      if (otherCountry(id)) continue; // another configured country has the station's own plan
+      if (!hafasIds.has(id)) continue; // stations without HAFAS id: no page to show it on
+      if (!planHere(id)) continue; // the station's plan comes from another feed
       const via = ids.slice(k + 1, -1).slice(0, VIA_MAX);
       const platform = stops.get(s.stopId)?.platform || null;
       const row = [Math.round(s.dep / 60), tn.cat, tn.nr, dest, via, platform] as const;
