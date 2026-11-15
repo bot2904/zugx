@@ -1,30 +1,22 @@
-// Build data/abbr.toml: the ÖBB operating-point abbreviation (Betriebsstellen-Kürzel, e.g. "Kt",
+// Build data/abbr.toml (per country, COUNTRY): the operating-point abbreviation (Betriebsstellen-Kürzel, e.g. "Kt",
 // "Vb", "Vps", "Fel") per HAFAS station, from OpenStreetMap `railway:ref` on stations and halts
 // (plain abbreviations only, not suffixed ones such as "Abf H1").
 // OSM's uic_ref holds infrastructure codes, not the HAFAS ids, so stations are matched by position
 // (≤ 600 m) and name (similarity ≥ 0.5); the best-scoring OSM node per HAFAS station wins.
 // One station per line (small diffs). Local step like the VzG build (needs the OSM extract):
-//   vp run stations:abbr   [.cache/austria-YYMMDD.osm.pbf]
-import { readdirSync, writeFileSync } from "node:fs";
+//   COUNTRY=si vp run stations:abbr   [.cache/<extract>-YYMMDD.osm.pbf]
+import { writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { dataDir, osmPbf } from "@zugx/gtfs/country";
 import { readPbf } from "../../vzg/src/pbf.ts";
 import { readToml } from "@zugx/toml";
 import { distanceMetres, nameSimilarity } from "./match.ts";
 
-const root = join(import.meta.dirname, "..", "..", "..");
-const cache = join(root, ".cache");
-const input =
-  process.argv[2] ??
-  join(
-    cache,
-    readdirSync(cache)
-      .filter((f) => /^austria-\d{6}\.osm\.pbf$/.test(f))
-      .sort()
-      .at(-1) ?? "austria.osm.pbf",
-  );
-const OUT = join(import.meta.dirname, "..", "data", "abbr.toml");
+const input = process.argv[2] ?? osmPbf();
+const DATA = dataDir("stations");
+const OUT = join(DATA, "abbr.toml");
 const KINDS = new Set(["station", "halt", "stop"]);
-const PLAIN = /^[A-ZÄÖÜ][a-zäöüß]{0,3}$/;
+const PLAIN = /^\p{Lu}\p{Ll}{0,3}$/u;
 
 interface Station {
   id: string;
@@ -32,10 +24,9 @@ interface Station {
   lat: number;
   lon: number;
 }
-const { stations } = readToml<{ stations: Station[] }>(
-  join(import.meta.dirname, "..", "data", "stations.toml"),
-  { stations: [] },
-);
+const { stations } = readToml<{ stations: Station[] }>(join(DATA, "stations.toml"), {
+  stations: [],
+});
 // grid for nearby lookups (~0.01° cells)
 const grid = new Map<string, Station[]>();
 const cell = (lat: number, lon: number) => `${Math.floor(lat * 100)},${Math.floor(lon * 100)}`;
@@ -88,7 +79,7 @@ const lines = [...best]
   .map(([id, { ref }]) => `${JSON.stringify(id)} = ${JSON.stringify(ref)}`);
 writeFileSync(
   OUT,
-  `# ÖBB operating-point abbreviations (railway:ref) per HAFAS station id, from OpenStreetMap\n# (© OpenStreetMap contributors, ODbL 1.0); built by packages/stations/src/abbr.ts\n${lines.join("\n")}\n`,
+  `# operating-point abbreviations (railway:ref) per HAFAS station id, from OpenStreetMap\n# (© OpenStreetMap contributors, ODbL 1.0); built by packages/stations/src/abbr.ts\n${lines.join("\n")}\n`,
 );
 console.log(
   `abbr: ${refs} OSM nodes with railway:ref → ${best.size} of ${stations.length} stations → ${OUT}`,

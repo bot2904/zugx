@@ -1,4 +1,4 @@
-# ÖBB operating-point abbreviations (railway:ref) per HAFAS station id, from OpenStreetMap
+# operating-point abbreviations (railway:ref) per HAFAS station id, from OpenStreetMap
 # (© OpenStreetMap contributors, ODbL 1.0); built by packages/stations/src/abbr.ts
 "1132425" = "Rw"
 "8100001" = "K"
