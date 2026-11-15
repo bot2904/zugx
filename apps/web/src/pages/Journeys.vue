@@ -61,21 +61,35 @@ const opts = () => ({
 });
 
 /**
- * Live off: journeys from the timetable, routed in the browser (lib/timetable-routing.ts); paging
- * moves a two-hour window (refs "tt:<ISO>")
+ * Live off: journeys from the timetable, routed in the browser (lib/timetable-routing.ts) — by
+ * default everything for the rest of the day; "earlier" adds the three hours before, "later" the
+ * next day (refs "tt:<ISO start>|<window minutes>")
  */
 const ttNoData = ref(false);
-async function timetableSearch(when: Temporal.ZonedDateTime): Promise<JourneysResult> {
+async function timetableSearch(
+  when: Temporal.ZonedDateTime,
+  window?: number,
+): Promise<JourneysResult> {
   const r = await timetableJourneys(from.value, to.value, when, {
     arrival: arrival.value,
     transferTime: transferTime.value,
+    ...(window ? { window } : {}),
   });
   ttNoData.value = !!r.noData;
-  const iso = (z: Temporal.ZonedDateTime) => `tt:${z.toString()}`;
+  const ref = (z: Temporal.ZonedDateTime, w: number) => `tt:${z.toString()}|${w}`;
+  const dayStart = when.startOfDay();
+  const earlier = when.subtract({ hours: 3 });
   return {
     journeys: r.journeys,
-    earlierRef: iso(when.subtract({ hours: 2 })),
-    laterRef: iso(when.add({ hours: 2 })),
+    ...(when.hour > 0
+      ? {
+          earlierRef: ref(
+            Temporal.ZonedDateTime.compare(earlier, dayStart) < 0 ? dayStart : earlier,
+            Math.min(180, when.hour * 60 + when.minute),
+          ),
+        }
+      : {}),
+    laterRef: ref(dayStart.add({ days: 1 }), 27 * 60),
   };
 }
 const whenZ = () => {
@@ -107,8 +121,9 @@ async function page(dir: "earlier" | "later") {
   loading.value = true;
   paging.value = dir;
   try {
+    const [start = "", win] = ref_.slice(3).split("|");
     const r = ref_.startsWith("tt:")
-      ? await timetableSearch(Temporal.ZonedDateTime.from(ref_.slice(3)))
+      ? await timetableSearch(Temporal.ZonedDateTime.from(start), Number(win))
       : await api().journeys(from.value, to.value, { ...opts(), ref: ref_ });
     const have = new Set(journeys.value.map(journeyKey));
     const fresh = r.journeys.filter((j) => !have.has(journeyKey(j)));

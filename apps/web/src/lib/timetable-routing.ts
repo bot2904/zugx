@@ -67,7 +67,8 @@ export interface TimetableResult {
 }
 
 /**
- * Journeys from `from` to `to` (HAFAS station ids) departing in [when, when + window] —
+ * Journeys from `from` to `to` (HAFAS station ids) departing in [when, when + window] (default:
+ * the rest of the day) —
  * all Pareto-optimal ones (no other leaves later and arrives earlier); with `arrival`, those
  * arriving by `when` (searched in the window before it).
  */
@@ -89,10 +90,12 @@ export async function timetableJourneys(
   const o1 = stopOf(from);
   const d1 = stopOf(to);
   if (!o1 || !d1) return { journeys: [] };
-  const window = o.window ?? 120;
   const minutes = t.hour * 60 + t.minute;
+  // default: the rest of the service day (trips after midnight run until ~03:00) — all
+  // Pareto-optimal connections, a few hundred milliseconds
+  const window = o.window ?? (o.arrival ? minutes : Math.max(60, 27 * 60 - minutes));
   const [start, end] = o.arrival
-    ? [Math.max(0, minutes - window - 180), minutes]
+    ? [Math.max(0, minutes - window), minutes]
     : [minutes, minutes + window];
   const router = new b.m.Router(tt, b.stops);
   let q = new b.m.RangeQuery.Builder()
