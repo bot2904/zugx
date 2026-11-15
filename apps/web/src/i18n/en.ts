@@ -4,7 +4,7 @@ export default {
     title: "Stations",
     count: "{n} stations",
     filter: "Name or abbreviation (e.g. Kt, Vb, Vps)",
-    note: "Abbreviations: ÖBB operating points from OpenStreetMap (railway:ref). A station opens its departure plan from the timetable.",
+    note: "Abbreviations: ÖBB operating points from OpenStreetMap (railway:ref). A station opens the live board with Live on, else its departure plan from the timetable.",
   },
   nav: {
     main: "Main",
@@ -18,6 +18,12 @@ export default {
     netz: "Netzgrafik",
     him: "Disruptions",
     help: "Help",
+    lines: "Lines",
+    netmap: "Network map",
+    live: "Live",
+    liveTip:
+      "Realtime instead of timetable where a page has both (station: live board instead of departure plan; graphic timetable: realtime overlay)",
+    liveOnly: "always realtime",
   },
   search: {
     from: "From",
@@ -530,7 +536,7 @@ export default {
     language: "Language",
     close: "Close",
     keyboard: "Keyboard shortcuts",
-    commandPalette: "Command palette",
+    commandPalette: "Quick jump",
     today: "today",
     tomorrow: "tomorrow",
     source: {

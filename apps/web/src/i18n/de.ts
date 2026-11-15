@@ -6,7 +6,7 @@ export default {
     title: "Bahnhöfe",
     count: "{n} Bahnhöfe",
     filter: "Name oder Kürzel (z. B. Kt, Vb, Vps)",
-    note: "Kürzel: ÖBB-Betriebsstellen aus OpenStreetMap (railway:ref). Ein Bahnhof öffnet seinen Abfahrtsplan laut Fahrplan.",
+    note: "Kürzel: ÖBB-Betriebsstellen aus OpenStreetMap (railway:ref). Ein Bahnhof öffnet mit Live die Abfahrtstafel, sonst den Abfahrtsplan laut Fahrplan.",
   },
   nav: {
     main: "Hauptnavigation",
@@ -20,6 +20,12 @@ export default {
     netz: "Netzgrafik",
     him: "Störungen",
     help: "Hilfe",
+    lines: "Strecken",
+    netmap: "Netzkarte",
+    live: "Live",
+    liveTip:
+      "Echtzeit statt Fahrplan, wo eine Seite beides hat (Bahnhof: Abfahrtstafel statt Abfahrtsplan; Bildfahrplan: Echtzeit-Überlagerung)",
+    liveOnly: "immer Echtzeit",
   },
   search: {
     from: "Von",
@@ -536,7 +542,7 @@ export default {
     language: "Sprache",
     close: "Schließen",
     keyboard: "Tastenkürzel",
-    commandPalette: "Befehlspalette",
+    commandPalette: "Schnellzugriff",
     today: "heute",
     tomorrow: "morgen",
     source: {

@@ -11,6 +11,7 @@ import { useI18n } from "../i18n/index.ts";
 import { normalize } from "../lib/normalize.ts";
 import { loadStations, type Station } from "../lib/stations.ts";
 import { usePageTitle } from "../lib/title.ts";
+import { liveMode } from "../lib/live.ts";
 
 const { t } = useI18n();
 const ABBR = abbrData as unknown as Record<string, string>;
@@ -89,7 +90,9 @@ const letters = computed(() => {
   }
   return [...m];
 });
-const link = (s: Station) => (POSTERS.has(s.id) ? `/station/${s.id}/plan` : `/station/${s.id}`);
+/** Live on: the live board; off: the departure plan (timetable), where there is one */
+const link = (s: Station) =>
+  !liveMode.value && POSTERS.has(s.id) ? `/station/${s.id}/plan` : `/station/${s.id}`;
 
 usePageTitle(() => [t("stations.title")]);
 </script>

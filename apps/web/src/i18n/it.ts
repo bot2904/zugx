@@ -6,7 +6,7 @@ export default {
     title: "Stazioni",
     count: "{n} stazioni",
     filter: "Nome o sigla (p. es. Kt, Vb, Vps)",
-    note: "Sigle: punti di esercizio ÖBB da OpenStreetMap (railway:ref). Una stazione apre il suo quadro partenze dall’orario.",
+    note: "Sigle: punti di esercizio ÖBB da OpenStreetMap (railway:ref). Con Live una stazione apre il tabellone, altrimenti il quadro partenze dall’orario.",
   },
   nav: {
     main: "Principale",
@@ -20,6 +20,12 @@ export default {
     netz: "Grafico di rete",
     him: "Perturbazioni",
     help: "Aiuto",
+    lines: "Linee",
+    netmap: "Mappa di rete",
+    live: "Live",
+    liveTip:
+      "Tempo reale invece dell’orario dove una pagina ha entrambi (stazione: tabellone invece del quadro partenze; orario grafico: sovrapposizione in tempo reale)",
+    liveOnly: "sempre in tempo reale",
   },
   search: {
     from: "Da",
@@ -537,7 +543,7 @@ export default {
     language: "Lingua",
     close: "Chiudi",
     keyboard: "Scorciatoie da tastiera",
-    commandPalette: "Palette comandi",
+    commandPalette: "Accesso rapido",
     today: "oggi",
     tomorrow: "domani",
     source: {

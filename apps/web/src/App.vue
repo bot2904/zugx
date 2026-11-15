@@ -5,11 +5,11 @@ import { useRoute, useRouter } from "vue-router";
 import CommandPalette from "./components/CommandPalette.vue";
 import ModalDialog from "./components/ModalDialog.vue";
 import DebugPanel from "./components/DebugPanel.vue";
-import VzgAbbr from "./components/VzgAbbr.vue";
 import { locale, LOCALES, setLocale, type Locale, type MessageKey } from "./i18n/index.ts";
 import { useKeys } from "./lib/keys.ts";
 import { state } from "./lib/store.ts";
 import { scheme, toggleScheme } from "./lib/theme.ts";
+import { liveMode } from "./lib/live.ts";
 
 const router = useRouter();
 const route = useRoute();
@@ -61,23 +61,79 @@ useKeys({
   t: () => void router.push("/trains"),
   r: () => void router.push("/radar"),
   g: () => void router.push("/"),
+  b: () => void router.push("/stations"),
+  e: () => toggleLive(),
   Escape: () => {
     help.value = false;
     palette.value = false;
   },
 });
 
-const nav: { to: string; key: MessageKey }[] = [
-  { to: "/", key: "nav.search" },
-  { to: "/trains", key: "nav.trains" },
-  { to: "/stations", key: "nav.stations" },
-  { to: "/radar", key: "nav.radar" },
-  { to: "/bf", key: "nav.bildfahrplan" },
-  { to: "/vzg", key: "nav.vzg" },
-  { to: "/netz", key: "nav.netz" },
-  { to: "/him", key: "nav.him" },
-  { to: "/help", key: "nav.help" },
+/**
+ * navigation: the live entries (bold, ●), stations and trains (bold), then the timetable and
+ * infrastructure groups, separated by thin lines — every page one click away (docs/sitemap.md, Plan B)
+ */
+interface NavItem {
+  to: string;
+  key: MessageKey;
+  live?: boolean;
+}
+const nav: { main?: boolean; items: NavItem[] }[] = [
+  {
+    main: true,
+    items: [
+      { to: "/", key: "nav.search", live: true },
+      { to: "/radar", key: "nav.radar", live: true },
+      { to: "/him", key: "nav.him", live: true },
+    ],
+  },
+  {
+    main: true,
+    items: [
+      { to: "/stations", key: "nav.stations" },
+      { to: "/trains", key: "nav.trains" },
+    ],
+  },
+  {
+    items: [
+      { to: "/bf", key: "nav.bildfahrplan" },
+      { to: "/netz", key: "nav.netz" },
+    ],
+  },
+  {
+    items: [
+      { to: "/vzg", key: "nav.lines" },
+      { to: "/vzg/netz", key: "nav.netmap" },
+    ],
+  },
+  { main: true, items: [{ to: "/help", key: "nav.help" }] },
 ];
+/** the entry of the current page (/vzg/netz is the network map, not the line index) */
+function isActive(to: string): boolean {
+  const p = route.path;
+  if (to === "/") return p === "/" || p.startsWith("/j/") || p.startsWith("/trip/") || p === "/s";
+  if (to === "/stations") return p === "/stations" || p.startsWith("/station/");
+  if (to === "/trains") return p.startsWith("/trains") || p.startsWith("/train/");
+  if (to === "/vzg") return p.startsWith("/vzg") && !p.startsWith("/vzg/netz");
+  return p === to || p.startsWith(`${to}/`);
+}
+
+/**
+ * Live switch: on a station page it also switches between live board and departure plan; on the
+ * Bildfahrplan the realtime overlay follows (?live)
+ */
+function toggleLive() {
+  liveMode.value = !liveMode.value;
+  const id = route.params.id;
+  if (route.path.startsWith("/station/") && typeof id === "string") {
+    const plan = route.path.endsWith("/plan");
+    if (liveMode.value && plan) void router.replace(`/station/${id}`);
+    if (!liveMode.value && !plan) void router.replace(`/station/${id}/plan`);
+  } else if (route.path.startsWith("/bf")) {
+    const { live: _, ...q } = route.query;
+    void router.replace({ query: liveMode.value ? { ...q, live: "1" } : q });
+  }
+}
 
 const shortcuts: [string, string][] = [
   ["/", "focus search"],
@@ -91,7 +147,8 @@ const shortcuts: [string, string][] = [
   ["+ / −", "Bildfahrplan: time scale"],
   ["n", "Bildfahrplan: now"],
   ["d", "raw API JSON"],
-  ["g / t / r", "home / trains / radar"],
+  ["g / b / t / r", "home / stations / trains / radar"],
+  ["e", "Live on / off"],
   ["?", "this help"],
 ];
 </script>
@@ -126,37 +183,44 @@ const shortcuts: [string, string][] = [
           class="site-menu m-0 list-none p-0"
           :class="navWide ? 'flex gap-3' : 'card p-1 shadow-lg'"
         >
-          <li v-for="n in nav" :key="n.to">
-            <RouterLink
-              :to="n.to"
-              class="block whitespace-nowrap text-[var(--muted)] hover:text-[var(--fg)]"
-              :class="!navWide && 'px-3 py-2'"
-              active-class="!text-[var(--fg)]"
-              :exact-active-class="n.to === '/' ? '!text-[var(--fg)]' : undefined"
-              @click="closeMenu"
-              ><VzgAbbr v-if="n.to === '/vzg'" :text="$t(n.key)" /><template v-else>{{
-                $t(n.key)
-              }}</template></RouterLink
+          <template v-for="(g, gi) in nav" :key="gi">
+            <li
+              v-for="(n, k) in g.items"
+              :key="n.to"
+              :class="[
+                g.main ? 'nav-main' : 'nav-expert',
+                gi > 0 && k === 0 && (navWide ? 'nav-sep' : 'nav-sep-y'),
+              ]"
             >
-          </li>
+              <RouterLink
+                :to="n.to"
+                class="block whitespace-nowrap text-[var(--muted)] hover:text-[var(--fg)]"
+                :class="[!navWide && 'px-3 py-2', isActive(n.to) && '!text-[var(--fg)]']"
+                :aria-current="isActive(n.to) ? 'page' : undefined"
+                @click="closeMenu"
+                >{{ $t(n.key)
+                }}<span
+                  v-if="n.live"
+                  class="live-dot on-static ml-0.5"
+                  v-tip="$t('nav.liveOnly')"
+                  :aria-label="$t('nav.liveOnly')"
+                  >●</span
+                ></RouterLink
+              >
+            </li>
+          </template>
         </ul>
       </nav>
       <div class="ml-auto flex items-center gap-2 text-xs">
         <button
-          class="btn hide-sm keys-only"
-          v-tip="$t('common.commandPalette')"
-          @click="palette = true"
+          class="btn whitespace-nowrap"
+          :class="liveMode && 'btn-on'"
+          :aria-pressed="liveMode"
+          v-tip="`${$t('nav.liveTip')} (e)`"
+          @click="toggleLive"
         >
-          <span class="kbd">⌘K</span>
-        </button>
-        <button
-          class="btn"
-          :class="state.debug && 'btn-on'"
-          v-tip="$t('debug.show')"
-          :aria-label="$t('debug.show')"
-          @click="state.debug = !state.debug"
-        >
-          {}
+          <span class="live-dot" :class="liveMode && 'on'" aria-hidden="true">●</span>
+          {{ $t("nav.live") }}
         </button>
         <select
           class="input py-0.5 text-xs"
@@ -210,11 +274,16 @@ const shortcuts: [string, string][] = [
         >{{ commitHash }} ({{ commitDate }})</a
       >
     </template>
+    ·
+    <button class="link-btn" @click="palette = true">
+      {{ $t("common.commandPalette") }} <span class="kbd keys-only">⌘K</span>
+    </button>
+    ·
+    <button class="link-btn" :aria-pressed="state.debug" @click="state.debug = !state.debug">
+      {{ $t("debug.show") }} <span class="kbd keys-only">d</span>
+    </button>
     <span class="keys-only"> · </span>
-    <button
-      class="keys-only cursor-pointer border-0 bg-transparent p-0 text-xs text-[var(--link)]"
-      @click="help = true"
-    >
+    <button class="link-btn keys-only" @click="help = true">
       {{ $t("common.keyboard") }} <span class="kbd">?</span>
     </button>
   </footer>

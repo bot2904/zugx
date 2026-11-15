@@ -635,15 +635,22 @@ test("VzG index filters by line number and station, opens a line", async ({ page
     await expect(svg.locator("text", { hasText: km })).toHaveCount(1);
 });
 
-test("bildfahrplan live overlay: only for today, toggles ?live=1", async ({ page }) => {
+test("bildfahrplan live overlay: only for today, follows the global Live switch", async ({
+  page,
+}) => {
   await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
-  const live = page.getByRole("button", { name: /Live|Echtzeit|Tempo reale/ });
+  const live = page.locator("main").getByRole("button", { name: /Live|Echtzeit|Tempo reale/ });
   await expect(live).toBeDisabled();
+  // today: on by default (the global Live switch); the button switches it off and on again
   await page.goto("/bf/westbahn?from=7&h=2");
+  await expect(live).toHaveAttribute("aria-pressed", "true");
+  await live.click();
+  await expect(live).toHaveAttribute("aria-pressed", "false");
+  await expect(page).not.toHaveURL(/live=1/);
   await live.click();
   await expect(page).toHaveURL(/live=1/);
   await expect(live).toHaveAttribute("aria-pressed", "true");
-  await expect(page.getByRole("status")).toBeVisible();
+  await expect(page.getByRole("status").first()).toBeVisible();
 });
 
 test("VzG also lists railways without an ÖBB line number", async ({ page }) => {
@@ -724,6 +731,8 @@ test("shortcuts ignore Ctrl/⌘ combinations of the same letter (Ctrl+R reloads,
   await page.keyboard.press("Meta+t");
   await page.waitForTimeout(300);
   await expect(page).toHaveURL(/\/$/);
+  // the start page may focus its search field once loaded: keys typed there are no shortcuts
+  await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
   await page.keyboard.press("r");
   await expect(page).toHaveURL(/\/radar$/);
 });
@@ -894,6 +903,9 @@ test("station index: A–Z with abbreviations, filter by abbreviation, opens the
   await page.locator('input[type="search"]').fill("Vb");
   await expect(page.locator(".row").first()).toContainText("Villach Hbf");
   await expect(page.locator(".row .abbr").first()).toHaveText("Vb");
+  // Live on (default): the live board; Live off: the departure plan from the timetable
+  await expect(page.locator(".row a.name").first()).toHaveAttribute("href", /^\/station\/\d+$/);
+  await page.locator("header").getByRole("button", { name: "Live" }).click();
   await page.locator(".row a.name").first().click();
   await expect(page).toHaveURL(/\/station\/\d+\/plan/);
 });

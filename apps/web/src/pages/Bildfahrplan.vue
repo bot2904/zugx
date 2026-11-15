@@ -56,6 +56,7 @@ import { assignDirections, nodeBoardStops } from "../lib/bf-node-board.ts";
 import { categoryBadgeColor, categoryColor } from "../lib/products.ts";
 import { slugToTrain, trainSlug } from "../lib/url.ts";
 import { lineFor } from "../lib/lines.ts";
+import { liveMode } from "../lib/live.ts";
 import { useKeys } from "../lib/keys.ts";
 import { usePageTitle } from "../lib/title.ts";
 import type { TipContent } from "../lib/tip.ts";
@@ -530,7 +531,11 @@ const weekday = computed(() =>
 
 // ---- live overlay (?live=1, today only): realtime paths from HAFAS, see lib/bf-live.ts ----
 // the table-only window (second monitor) draws no live paths and fetches none
-const liveOn = computed(() => route.query.live === "1" && isToday.value && part.value !== "table");
+/** realtime overlay: the global Live switch, unless the link says otherwise (?live=1 / ?live=0) */
+const liveWanted = computed(() =>
+  route.query.live === "1" ? true : route.query.live === "0" ? false : liveMode.value,
+);
+const liveOn = computed(() => liveWanted.value && isToday.value && part.value !== "table");
 const liveRuns = shallowRef(new Map<string, LiveRun>());
 const liveBusy = ref(false);
 const liveError = ref(false);
@@ -633,8 +638,10 @@ const punctuality = computed(() => {
     runs: samples.length,
   };
 });
+/** the Echtzeit button is the global Live switch (the link keeps the state for sharing) */
 function toggleLive() {
-  setQuery({ live: route.query.live === "1" ? undefined : "1" });
+  liveMode.value = !liveWanted.value;
+  setQuery({ live: liveMode.value ? "1" : undefined });
 }
 /** trains known from HAFAS only (WESTbahn & co.), drawn with their planned times */
 const hafasOnlyTrains = computed(() =>

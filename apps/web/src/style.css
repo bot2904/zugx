@@ -454,3 +454,40 @@ abbr[aria-description] {
     animation: none;
   }
 }
+
+/* navigation: everyday entries bold, expert groups lighter and smaller, groups separated */
+.nav-main {
+  font-weight: 600;
+}
+.nav-expert {
+  font-size: 0.8125rem;
+}
+.nav-sep {
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--line);
+}
+/* in the collapsed menu: a line above each group */
+.nav-sep-y {
+  margin-top: 0.25rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--line);
+}
+/* the dot after always-live entries: red, without pulsing */
+.live-dot.on-static {
+  color: var(--live);
+  font-size: 0.625rem;
+  vertical-align: 0.15em;
+}
+
+/* a button that looks like an inline link (footer actions) */
+.link-btn {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--link);
+  font: inherit;
+  cursor: pointer;
+}
+.link-btn:hover {
+  text-decoration: underline;
+}
