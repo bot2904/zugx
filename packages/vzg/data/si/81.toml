@@ -1,0 +1,89 @@
+id = "81"
+ref = "81"
+name = "Sevnica – Trebnje"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+from = "Sevnica"
+to = "Trebnje"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 31.32
+length = 31.32
+speeds = [[0, 1.162, 35, 35], [1.162, 2.079, 55, 55], [2.079, 8.008, 65, 65], [8.008, 8.288, 40, 40], [8.288, 9.69, 65, 65], [9.69, 13.171, 70, 70], [13.171, 13.783, 40, 40], [13.783, 17.951, 70, 70], [17.951, 19.355, 60, 60], [19.355, 19.372, 50, 50], [19.372, 24.878, 60, 60], [24.878, 25.35, 40, 40], [25.35, 29.651, 60, 60], [29.651, 31.32, 50, 50]]
+curves = [[0.125, 0.3, 630], [0.775, 0.95, 630], [1, 1.1, 1400], [1.6, 2.4, 240], [2.475, 2.8, 340], [2.9, 3.225, 440], [3.35, 3.775, 390], [3.825, 4.475, 270], [4.55, 4.75, 800], [4.8, 5, 480], [5.05, 5.25, 440], [5.9, 6.025, 1810], [6.325, 6.5, 900], [6.65, 6.9, 560], [7.075, 7.3, 580], [7.4, 7.55, 840], [7.7, 8.075, 400], [8.35, 8.675, 360], [9.15, 9.575, 320], [9.65, 10, 600], [10.225, 10.5, 710], [11.25, 11.45, 920], [12.9, 13.175, 490], [14.15, 14.55, 630], [15.3, 15.625, 710], [15.95, 16.05, 1780], [16.65, 17.3, 570], [17.625, 18, 410], [18.05, 18.675, 330], [18.825, 19.15, 680], [19.375, 19.85, 380], [19.9, 20.275, 400], [20.5, 20.675, 1210], [20.95, 21.2, 570], [21.35, 21.8, 320], [22.2, 22.425, 930], [22.675, 23.075, 330], [23.3, 23.9, 640], [23.95, 24.7, 480], [24.9, 25.25, 380], [25.375, 25.675, 410], [25.725, 26.175, 370], [26.225, 26.675, 600], [26.75, 27.425, 590], [27.475, 27.975, 520], [28.05, 28.75, 360], [28.8, 29.025, 530], [29.25, 30.15, 430], [30.225, 30.675, 340], [30.75, 31.2, 280]]
+points = [
+  { km = 0.518, kind = "station", label = "Trebnje", pos = [45.90672, 15.00868] },
+  { km = 1.742, kind = "halt", label = "Trebnje Kamna Gora", pos = [45.90604, 15.02433] },
+  { km = 5.851, kind = "station", label = "Gomila", pos = [45.93474, 15.04498] },
+  { km = 8.123, kind = "halt", label = "Mirna", pos = [45.94929, 15.06308] },
+  { km = 10.546, kind = "station", label = "Šentrupert", pos = [45.95947, 15.08771] },
+  { km = 13.251, kind = "station", label = "Mokronog", pos = [45.95827, 15.12208] },
+  { km = 16.747, kind = "station", label = "Pijavice", pos = [45.96832, 15.1633] },
+  { km = 19.032, kind = "station", label = "Tržišče", pos = [45.96651, 15.19104] },
+  { km = 25.11, kind = "halt", label = "Jelovec", pos = [45.98916, 15.23984] },
+  { km = 29.998, kind = "halt", label = "Boštanj", pos = [46.0074, 15.29007] },
+]
+structures = [
+  { kind = "bridge", kmFrom = 4.436, kmTo = 4.448, length = 11 },
+  { kind = "bridge", kmFrom = 8.878, kmTo = 8.905, length = 26 },
+  { kind = "bridge", kmFrom = 9.2, kmTo = 9.21, length = 11 },
+  { kind = "bridge", kmFrom = 9.68, kmTo = 9.69, length = 10 },
+  { kind = "bridge", kmFrom = 12.687, kmTo = 12.705, length = 18 },
+  { kind = "bridge", kmFrom = 14.643, kmTo = 14.654, length = 11 },
+  { kind = "bridge", kmFrom = 18.152, kmTo = 18.182, length = 29 },
+  { kind = "bridge", kmFrom = 18.337, kmTo = 18.351, length = 14 },
+  { kind = "bridge", kmFrom = 19.355, kmTo = 19.372, length = 17 },
+  { kind = "bridge", kmFrom = 22.806, kmTo = 22.829, length = 24 },
+  { kind = "tunnel", kmFrom = 23.908, kmTo = 24.23, length = 322 },
+  { kind = "tunnel", kmFrom = 25.45, kmTo = 25.731, length = 281 },
+  { kind = "tunnel", kmFrom = 26.218, kmTo = 26.411, length = 193 },
+  { kind = "tunnel", kmFrom = 27.71, kmTo = 27.806, length = 97 },
+  { kind = "tunnel", kmFrom = 28.509, kmTo = 28.627, length = 118 },
+  { kind = "bridge", kmFrom = 30.634, kmTo = 30.795, length = 160 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "weewGcbqzA`BmPiBgq@~A{W", v = 35 },
+  { line = "_cewGu~szAzBuf@SsE{@yCqBeCyBs@mEB", v = 55 },
+  { line = "moewGowuzAcDc@kCiCaF_V{AoCgBiAmLiCeDJmAr@yLdP{BvA{CBaF}AaHAoBw@aCkDy@uD{@qJ}AcEaNuIkIaKiJcDiB{Ag^uh@{O}ZiG{UaBkDaPkOsOaC{NqGoCyCgBeH", v = 65 },
+  { line = "}lmwGcv|zAyAgU", v = 40 },
+  { line = "womwGkl}zAeAuLwBaFo_@sT{CyDsAwDc@}DBoO", v = 65 },
+  { line = "u~nwGwx_{AK{Gm@oFuIyZ}@{GsAchA`NccCUoGoA}E", v = 70 },
+  { line = "{cowGojh{AyPii@", v = 40 },
+  { line = "uuowGyti{AuKk]iBwMKiGvAccAc@yIkKqe@_Rqo@kBcQAoGl@kHpOyg@l@aG?sF", v = 70 },
+  { line = "yspwGyls{AkAqJBwGbDaNZgH_Haa@S_IVwR", v = 60 },
+  { line = "}xpwGgyv{A?k@", v = 50 },
+  { line = "}xpwGszv{AKoJoBaJkDkFaGqE}DoIk@cEaBwZ{Fea@aCeHkIiMkFsDmGBk`@bWcUpE_ESoBiAaBgCsKq\\[iERmI`D_R", v = 60 },
+  { line = "sfuwGot|{AnBwKeAuJ", tunnel = true, v = 60 },
+  { line = "ieuwG}l}{AeE{Nm@sEFiFdC}Q", v = 60 },
+  { line = "ohuwGu}~{At@_HMiH_AqEyCaI", v = 40 },
+  { line = "anuwGs``|AiBoE", v = 60 },
+  { line = "kquwGcg`|AgDoFeGeA", tunnel = true, v = 60 },
+  { line = "y~uwGyp`|AcDiAsDuEsBwFq@kJ", v = 60 },
+  { line = "wnvwG}la|Ae@}FgAwE", tunnel = true, v = 60 },
+  { line = "ervwGs{a|AwE}HyKwKsCcIs@mOj@aIVoOfBaK", v = 60 },
+  { line = "sfwwGosd|Af@qF", tunnel = true, v = 60 },
+  { line = "kewwGa{d|AOqGiBsRP{GpAgJ@gF", v = 60 },
+  { line = "_fwwGsrf|AoAsG", tunnel = true, v = 60 },
+  { line = "ohwwGg{f|A_BkCqG{EmBaDqIsVyEmX", v = 60 },
+  { line = "{hxwGs|h|AwDeGaFmCiESoObDeDk@eEqEiFgOq@yIrAcIjHoK", v = 50 },
+]
+posts = [[0, 45.907, 15.0021], [1, 45.90681, 15.01485], [2, 45.90785, 15.02603], [3, 45.91465, 15.03237], [4, 45.92263, 15.02991], [5, 45.92886, 15.03819], [6, 45.93575, 15.04624], [7, 45.94133, 15.05615], [8, 45.94909, 15.06152], [9, 45.95398, 15.07086], [10, 45.95778, 15.08121], [11, 45.95966, 15.09358], [12, 45.95884, 15.10639], [13, 45.95738, 15.11915], [14, 45.96177, 15.13037], [15, 45.96311, 15.14276], [16, 45.965, 15.15507], [17, 45.9687, 15.16671], [18, 45.96569, 15.1785], [19, 45.96643, 15.19065], [20, 45.96939, 15.20162], [21, 45.97206, 15.2138], [22, 45.97934, 15.21674], [23, 45.9877, 15.21459], [24, 45.98868, 15.22626], [25, 45.98908, 15.23843], [26, 45.99488, 15.24696], [27, 45.99987, 15.25704], [28, 45.99938, 15.26968], [29, 46.00217, 15.28047], [30, 46.00742, 15.29007], [31, 46.01365, 15.29538]]
+
+[[connections]]
+km = 0.518
+station = "Trebnje"
+lines = [
+  { id = "80", ref = "80", name = "Metlika – Ljubljana", km = 67.519 },
+]
+
+[[connections]]
+km = 1.742
+station = "Trebnje Kamna Gora"
+lines = [
+  { id = "80", ref = "80", name = "Metlika – Ljubljana", km = 66.311 },
+]

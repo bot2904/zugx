@@ -376,6 +376,9 @@ importers:
       '@zugx/db':
         specifier: workspace:*
         version: link:../db
+      '@zugx/gtfs':
+        specifier: workspace:*
+        version: link:../gtfs
       '@zugx/toml':
         specifier: workspace:*
         version: link:../toml
@@ -480,6 +483,9 @@ importers:
 
   packages/vzg:
     dependencies:
+      '@zugx/gtfs':
+        specifier: workspace:*
+        version: link:../gtfs
       '@zugx/toml':
         specifier: workspace:*
         version: link:../toml

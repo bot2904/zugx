@@ -1,0 +1,52 @@
+id = "63"
+ref = "63"
+name = "Ferrovia Meridionale"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 27.126
+length = 27.126
+speeds = [[0, 1.23, 40, 40], [1.23, 3.114, 155, 155], [3.114, 26.432, 160, 160], [26.432, 27.126, 100, 100]]
+curves = [[0.175, 0.475, 1580], [0.775, 1.125, 710], [1.275, 3.075, 790], [3.7, 3.775, 2180], [3.825, 4.125, 1370], [4.225, 4.35, 1030], [4.475, 4.6, 1300], [4.675, 5, 1810], [5.125, 5.275, 750], [5.375, 5.5, 1080], [5.575, 5.675, 1440], [5.825, 7.075, 1270], [7.125, 7.275, 980], [7.35, 7.475, 1330], [7.55, 7.775, 1360], [8.125, 8.2, 2110], [9.175, 9.225, 2510], [9.375, 9.525, 1300], [9.625, 9.75, 740], [9.9, 10.05, 1380], [10.2, 10.325, 1130], [10.375, 10.525, 1080], [10.575, 10.675, 1690], [10.75, 11.675, 1550], [11.775, 12.125, 1120], [12.325, 12.75, 1010], [17.85, 18.2, 2030], [21.3, 21.425, 1380]]
+points = []
+structures = [
+  { kind = "bridge", kmFrom = 0.694, kmTo = 0.706, length = 12 },
+  { kind = "bridge", kmFrom = 0.796, kmTo = 0.834, length = 38 },
+  { kind = "tunnel", kmFrom = 1.993, kmTo = 5.77, length = 3777 },
+  { kind = "bridge", kmFrom = 5.82, kmTo = 6.451, length = 632, name = "2TDK - V2 (Viadukt Vinjan)" },
+  { kind = "tunnel", kmFrom = 7.049, kmTo = 8.161, length = 1112 },
+  { kind = "tunnel", kmFrom = 8.376, kmTo = 8.842, length = 466 },
+  { kind = "tunnel", kmFrom = 8.885, kmTo = 10.809, length = 1924 },
+  { kind = "tunnel", kmFrom = 10.962, kmTo = 11.263, length = 301 },
+  { kind = "bridge", kmFrom = 11.425, kmTo = 11.844, length = 419, name = "2TDK - V1 (Viadukt Gabrovica)" },
+  { kind = "tunnel", kmFrom = 12.1, kmTo = 18.097, length = 5997 },
+  { kind = "bridge", kmFrom = 18.12, kmTo = 18.339, length = 219, name = "2TDK - V (Viadukt Glinščica)" },
+  { kind = "tunnel", kmFrom = 18.354, kmTo = 25.061, length = 6707 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "s``uGk|asA|BwYx@gk@dAeIlDmM", v = 40 },
+  { line = "gs_uG_|dsA|C{LfAmLMkNgBsN", v = 155 },
+  { line = "wo_uGivfsAgAwDcEiI}G_HoDmBgF}@{G@eNlD", tunnel = true, v = 155 },
+  { line = "{eauGgogsAc`@tNuG~AgHh@aLGaLmBcTyJiKyKqGwMuGgV", tunnel = true, v = 160 },
+  { line = "weeuGq}hsAmDiUe@gXxAmYv@iHzCsN", v = 160 },
+  { line = "}beuGo`lsA|C_JrFaKrFkHxD{D|TsO", tunnel = true, v = 160 },
+  { line = "_scuGmwmsAbJwE", v = 160 },
+  { line = "{gcuGe~msAzVeN", tunnel = true, v = 160 },
+  { line = "_pbuGkmnsAfAk@", v = 160 },
+  { line = "wmbuGwnnsA~[iQbJyI`JyO`HmQvCuLxCg[", tunnel = true, v = 160 },
+  { line = "}g`uGayqsAReK", v = 160 },
+  { line = "ig`uGgersAg@aW", tunnel = true, v = 160 },
+  { line = "qh`uGi}rsA}DgYwGiVyDaI", v = 160 },
+  { line = "a}`uG}xtsAuNwSyI_GshFk{A_b@iNyUmK", tunnel = true, v = 160 },
+  { line = "_{juGymysAaKmJ", v = 160 },
+  { line = "agkuGgyysA}jCyhCyuDcjC", tunnel = true, v = 160 },
+  { line = "yiuuGenbtAacAqr@", v = 160 },
+  { line = "{mwuGwadtAob@aV", v = 100 },
+]
+posts = [[0, 45.5529, 13.7775], [1, 45.55172, 13.79017], [2, 45.55023, 13.80221], [3, 45.55788, 13.80659], [4, 45.56649, 13.803], [5, 45.57508, 13.80591], [6, 45.58005, 13.81628], [7, 45.57908, 13.82881], [8, 45.57249, 13.8372], [9, 45.56428, 13.84244], [10, 45.55693, 13.84948], [11, 45.55396, 13.86133], [12, 45.55686, 13.87326], [13, 45.56429, 13.87998], [14, 45.57296, 13.88338], [15, 45.58163, 13.88678], [16, 45.5903, 13.89018], [17, 45.59898, 13.89358], [18, 45.60753, 13.89754], [19, 45.61504, 13.90458], [20, 45.62244, 13.91189], [21, 45.62984, 13.91919], [22, 45.63759, 13.92568], [23, 45.64554, 13.9317], [24, 45.65348, 13.93773], [25, 45.6614, 13.94382], [26, 45.66935, 13.94983], [27, 45.67743, 13.95546]]

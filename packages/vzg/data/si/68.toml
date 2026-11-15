@@ -1,0 +1,22 @@
+id = "68"
+ref = "68"
+operator = "Rete Ferroviaria Italiana"
+gauge = "1435"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 1.398
+length = 1.398
+speeds = [[0, 1.398, 30, 30]]
+curves = [[0.1, 0.525, 350]]
+points = [
+  { km = 0.84, kind = "signal", signal = "distant", dir = 1 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "ghhwGqlarAlDWbC{B|@uD`@oJ_NykA", v = 30 },
+]
+posts = [[0, 45.92276, 13.61113], [1, 45.92215, 13.62197]]

@@ -1,0 +1,135 @@
+id = "31"
+ref = "31"
+name = "Celje – Velenje"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+from = "Celje"
+to = "Velenje"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 38.064
+length = 38.064
+speeds = [[0, 0.843, 40, 40], [0.843, 1.877, 65, 65], [1.877, 4.535, 60, 60], [4.535, 5.059, 40, 40], [5.059, 14.74, 60, 60], [14.74, 20.268, 65, 65], [20.268, 21.408, 50, 50], [21.408, 28.955, 80, 80], [28.955, 29.717, 50, 50], [29.717, 31.326, 80, 80], [31.326, 37.074, 65, 65], [37.074, 38.064, 50, 50]]
+curves = [[0.6, 0.65, 2350], [0.95, 1.4, 1530], [2.6, 2.925, 720], [3.025, 3.35, 720], [3.75, 4, 770], [4.625, 4.975, 1050], [5.375, 5.7, 470], [6.35, 6.625, 490], [6.675, 6.85, 660], [6.925, 7.875, 520], [7.925, 9.6, 210], [9.9, 10.225, 350], [10.325, 10.55, 580], [10.65, 11.2, 280], [11.25, 11.4, 310], [11.45, 11.5, 1210], [11.55, 12.375, 310], [12.45, 12.675, 580], [12.875, 13.125, 420], [13.175, 13.4, 480], [14.95, 15.475, 1020], [16.625, 17.075, 580], [17.425, 17.7, 610], [18.8, 19.125, 820], [19.275, 19.65, 310], [19.7, 20, 310], [20.775, 21.05, 710], [21.925, 22.225, 1660], [24.075, 24.45, 920], [28.25, 28.325, 2790], [30.55, 30.8, 1610], [33.275, 33.35, 2790], [33.525, 33.6, 2810], [33.725, 33.775, 2850], [36.75, 37.5, 440], [37.575, 37.725, 1270]]
+points = [
+  { km = 0.424, kind = "station", label = "Velenje", pos = [46.36345, 15.10421] },
+  { km = 2.279, kind = "station", label = "Velenje Pesje", uic = "7900274", pos = [46.36814, 15.08127] },
+  { km = 4.934, kind = "stop", label = "Šoštanj", pos = [46.37684, 15.04974] },
+  { km = 6.68, kind = "halt", label = "Florjan", uic = "7900101", pos = [46.38114, 15.02984] },
+  { km = 12.568, kind = "halt", label = "Paška vas", pos = [46.34149, 15.01964] },
+  { km = 14.625, kind = "station", label = "Šmartno ob Paki", pos = [46.32815, 15.0377] },
+  { km = 20.387, kind = "station", label = "Polzela", pos = [46.28269, 15.0659], uic = "7900186" },
+  { km = 24.763, kind = "halt", label = "Šempeter v Savinjski dolini", pos = [46.26061, 15.11221] },
+  { km = 29.101, kind = "station", label = "Žalec", pos = [46.2495, 15.16621] },
+  { km = 30.947, kind = "halt", label = "Petrovče", uic = "7900172", pos = [46.24613, 15.18967] },
+  { km = 36.196, kind = "halt", label = "Celje Lava", pos = [46.2367, 15.25585] },
+  { km = 37.892, kind = "station", label = "Celje", pos = [46.22853, 15.26823] },
+]
+structures = [
+  { kind = "bridge", kmFrom = 1.732, kmTo = 1.753, length = 21 },
+  { kind = "bridge", kmFrom = 2.84, kmTo = 2.875, length = 35 },
+  { kind = "bridge", kmFrom = 2.973, kmTo = 3.008, length = 35 },
+  { kind = "bridge", kmFrom = 5.633, kmTo = 5.644, length = 11 },
+  { kind = "bridge", kmFrom = 6.524, kmTo = 6.539, length = 15 },
+  { kind = "bridge", kmFrom = 6.606, kmTo = 6.617, length = 11 },
+  { kind = "tunnel", kmFrom = 7.177, kmTo = 7.34, length = 163 },
+  { kind = "bridge", kmFrom = 7.351, kmTo = 7.391, length = 40 },
+  { kind = "bridge", kmFrom = 8.953, kmTo = 8.966, length = 12 },
+  { kind = "bridge", kmFrom = 9.461, kmTo = 9.499, length = 38 },
+  { kind = "bridge", kmFrom = 9.663, kmTo = 9.705, length = 41 },
+  { kind = "bridge", kmFrom = 20.871, kmTo = 20.882, length = 11 },
+  { kind = "bridge", kmFrom = 20.991, kmTo = 21.016, length = 25 },
+  { kind = "bridge", kmFrom = 21.585, kmTo = 21.598, length = 14 },
+  { kind = "bridge", kmFrom = 35.09, kmTo = 35.108, length = 18 },
+  { kind = "bridge", kmFrom = 36.784, kmTo = 36.808, length = 25 },
+  { kind = "bridge", kmFrom = 37.271, kmTo = 37.314, length = 43 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "_`~yGe_f{AsT`|@", v = 40 },
+  { line = "su~yGcbd{AsCnLkC|PuDjp@", v = 65 },
+  { line = "id_zGiqa{AqFtbAwA`HeF`NsBxHs@tGaDzk@ePzn@", v = 60 },
+  { line = "iq`zGgf{zAcGzQ_IjM", v = 40 },
+  { line = "mcazG_ezzAqO|TkBxFk@jFiDxz@ZjHzDhOpBnSvA|DvBjB", v = 60 },
+  { line = "gmazGqluzApGjC", tunnel = true, v = 60 },
+  { line = "udazGehuzAtGxEfDf@jGk@zKcGzEb@jBnBlAlDVtCG|Jh@fDdAzBvD`CpGQvBh@|AtA`ErI|DnBjDg@~B_CfOsc@~DwBpM?lP|KrBV~Fc@pCz@hBxBjCjJhAnBxMvNdCpAxCDvBcAtAiBdCmLvAkDnNiLrNeXjCqBhHgCtCsCxt@cqA", v = 60 },
+  { line = "oiwyGogxzAnLyRzKoJteAi^bF_@xGnBrDRpVAdG}Al}@iq@fDmEnJiSvBkCbFmA~HhB~DSzCuBtLaO", v = 65 },
+  { line = "ovnyG}j}zApZw_@tBmF`Im[", v = 50 },
+  { line = "emmyGqo_{AnLme@pDiLdeA}}BjD}Lh\\_}Cvc@csCtC_XxB{[", v = 80 },
+  { line = "_dhyGexp{AtF{{@", v = 50 },
+  { line = "i|gyGaur{AjHkhAbL{s@", v = 80 },
+  { line = "yegyGisv{A~a@gfClEgb@jAsZtHkkF|@sIzB{G", v = 65 },
+  { line = "ojeyGiyd|AhFeGrHwB`L`@vUnE", v = 50 },
+]
+posts = [[0, 46.36176, 15.10915], [1, 46.36586, 15.09756], [2, 46.36774, 15.08487], [3, 46.37003, 15.07246], [4, 46.37249, 15.0601], [5, 46.37727, 15.04916], [6, 46.38147, 15.03839], [7, 46.38031, 15.02586], [8, 46.37234, 15.02375], [9, 46.36641, 15.01707], [10, 46.36041, 15.02097], [11, 46.35199, 15.01982], [12, 46.34498, 15.01469], [13, 46.33888, 15.02378], [14, 46.33203, 15.03182], [15, 46.32583, 15.04125], [16, 46.31767, 15.04633], [17, 46.309, 15.04835], [18, 46.30046, 15.05111], [19, 46.29271, 15.05766], [20, 46.28531, 15.06275], [21, 46.27851, 15.0712], [22, 46.2744, 15.08278], [23, 46.26891, 15.09307], [24, 46.26328, 15.10321], [25, 46.26007, 15.1152], [26, 46.2578, 15.12778], [27, 46.25502, 15.14014], [28, 46.25196, 15.15237], [29, 46.24967, 15.16492], [30, 46.24807, 15.17772], [31, 46.24596, 15.19032], [32, 46.2428, 15.20249], [33, 46.23964, 15.21467], [34, 46.23787, 15.22736], [35, 46.23733, 15.24033], [36, 46.2368, 15.25331], [37, 46.23583, 15.26615], [38, 46.22757, 15.26773]]
+
+[[tracks]]
+track = "2"
+kmFrom = 0
+kmTo = 38.064
+length = 38.064
+speeds = [[0, 0.843, 40, 40], [0.843, 1.877, 65, 65], [1.877, 4.535, 60, 60], [4.535, 5.059, 40, 40], [5.059, 14.74, 60, 60], [14.74, 20.268, 65, 65], [20.268, 21.408, 50, 50], [21.408, 28.955, 80, 80], [28.955, 29.717, 50, 50], [29.717, 31.326, 80, 80], [31.326, 37.074, 65, 65], [37.074, 38.064, 50, 50]]
+curves = [[0.6, 0.65, 2350], [0.95, 1.4, 1530], [2.6, 2.925, 720], [3.025, 3.35, 720], [3.75, 4, 770], [4.625, 4.975, 1050], [5.375, 5.7, 470], [6.35, 6.625, 490], [6.675, 6.85, 660], [6.925, 7.875, 520], [7.925, 9.6, 210], [9.9, 10.225, 350], [10.325, 10.55, 580], [10.65, 11.2, 280], [11.25, 11.4, 310], [11.45, 11.5, 1210], [11.55, 12.375, 310], [12.45, 12.675, 580], [12.875, 13.125, 420], [13.175, 13.4, 480], [14.95, 15.475, 1020], [16.625, 17.075, 580], [17.425, 17.7, 610], [18.8, 19.125, 820], [19.275, 19.65, 310], [19.7, 20, 310], [20.775, 21.05, 710], [21.925, 22.225, 1660], [24.075, 24.45, 920], [28.25, 28.325, 2790], [30.55, 30.8, 1610], [33.275, 33.35, 2790], [33.525, 33.6, 2810], [33.725, 33.775, 2850], [36.75, 37.5, 440], [37.575, 37.725, 1270]]
+points = [
+  { km = 0.424, kind = "station", label = "Velenje", pos = [46.36345, 15.10421] },
+  { km = 2.279, kind = "station", label = "Velenje Pesje", uic = "7900274", pos = [46.36814, 15.08127] },
+  { km = 4.934, kind = "stop", label = "Šoštanj", pos = [46.37684, 15.04974] },
+  { km = 6.68, kind = "halt", label = "Florjan", uic = "7900101", pos = [46.38114, 15.02984] },
+  { km = 12.568, kind = "halt", label = "Paška vas", pos = [46.34149, 15.01964] },
+  { km = 14.625, kind = "station", label = "Šmartno ob Paki", pos = [46.32815, 15.0377] },
+  { km = 20.387, kind = "station", label = "Polzela", pos = [46.28269, 15.0659], uic = "7900186" },
+  { km = 24.763, kind = "halt", label = "Šempeter v Savinjski dolini", pos = [46.26061, 15.11221] },
+  { km = 29.101, kind = "station", label = "Žalec", pos = [46.2495, 15.16621] },
+  { km = 30.947, kind = "halt", label = "Petrovče", uic = "7900172", pos = [46.24613, 15.18967] },
+  { km = 36.196, kind = "halt", label = "Celje Lava", pos = [46.2367, 15.25585] },
+  { km = 37.892, kind = "station", label = "Celje", pos = [46.22853, 15.26823] },
+]
+structures = [
+  { kind = "bridge", kmFrom = 1.732, kmTo = 1.753, length = 21 },
+  { kind = "bridge", kmFrom = 2.84, kmTo = 2.875, length = 35 },
+  { kind = "bridge", kmFrom = 2.973, kmTo = 3.008, length = 35 },
+  { kind = "bridge", kmFrom = 5.633, kmTo = 5.644, length = 11 },
+  { kind = "bridge", kmFrom = 6.524, kmTo = 6.539, length = 15 },
+  { kind = "bridge", kmFrom = 6.606, kmTo = 6.617, length = 11 },
+  { kind = "tunnel", kmFrom = 7.177, kmTo = 7.34, length = 163 },
+  { kind = "bridge", kmFrom = 7.351, kmTo = 7.391, length = 40 },
+  { kind = "bridge", kmFrom = 8.953, kmTo = 8.966, length = 12 },
+  { kind = "bridge", kmFrom = 9.461, kmTo = 9.499, length = 38 },
+  { kind = "bridge", kmFrom = 9.663, kmTo = 9.705, length = 41 },
+  { kind = "bridge", kmFrom = 20.871, kmTo = 20.882, length = 11 },
+  { kind = "bridge", kmFrom = 20.991, kmTo = 21.016, length = 25 },
+  { kind = "bridge", kmFrom = 21.585, kmTo = 21.598, length = 14 },
+  { kind = "bridge", kmFrom = 35.09, kmTo = 35.108, length = 18 },
+  { kind = "bridge", kmFrom = 36.784, kmTo = 36.808, length = 25 },
+  { kind = "bridge", kmFrom = 37.271, kmTo = 37.314, length = 43 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "_`~yGe_f{AsT`|@", v = 40 },
+  { line = "su~yGcbd{AsCnLkC|PuDjp@", v = 65 },
+  { line = "id_zGiqa{AqFtbAwA`HeF`NsBxHs@tGaDzk@ePzn@", v = 60 },
+  { line = "iq`zGgf{zAcGzQ_IjM", v = 40 },
+  { line = "mcazG_ezzAqO|TkBxFk@jFiDxz@ZjHzDhOpBnSvA|DvBjB", v = 60 },
+  { line = "gmazGqluzApGjC", tunnel = true, v = 60 },
+  { line = "udazGehuzAtGxEfDf@jGk@zKcGzEb@jBnBlAlDVtCG|Jh@fDdAzBvD`CpGQvBh@|AtA`ErI|DnBjDg@~B_CfOsc@~DwBpM?lP|KrBV~Fc@pCz@hBxBjCjJhAnBxMvNdCpAxCDvBcAtAiBdCmLvAkDnNiLrNeXjCqBhHgCtCsCxt@cqA", v = 60 },
+  { line = "oiwyGogxzAnLyRzKoJteAi^bF_@xGnBrDRpVAdG}Al}@iq@fDmEnJiSvBkCbFmA~HhB~DSzCuBtLaO", v = 65 },
+  { line = "ovnyG}j}zApZw_@tBmF`Im[", v = 50 },
+  { line = "emmyGqo_{AnLme@pDiLdeA}}BjD}Lh\\_}Cvc@csCtC_XxB{[", v = 80 },
+  { line = "_dhyGexp{AtF{{@", v = 50 },
+  { line = "i|gyGaur{AjHkhAbL{s@", v = 80 },
+  { line = "yegyGisv{A~a@gfClEgb@jAsZtHkkF|@sIzB{G", v = 65 },
+  { line = "ojeyGiyd|AhFeGrHwB`L`@vUnE", v = 50 },
+]
+posts = [[0, 46.36176, 15.10915], [1, 46.36586, 15.09756], [2, 46.36774, 15.08487], [3, 46.37003, 15.07246], [4, 46.37249, 15.0601], [5, 46.37727, 15.04916], [6, 46.38147, 15.03839], [7, 46.38031, 15.02586], [8, 46.37234, 15.02375], [9, 46.36641, 15.01707], [10, 46.36041, 15.02097], [11, 46.35199, 15.01982], [12, 46.34498, 15.01469], [13, 46.33888, 15.02378], [14, 46.33203, 15.03182], [15, 46.32583, 15.04125], [16, 46.31767, 15.04633], [17, 46.309, 15.04835], [18, 46.30046, 15.05111], [19, 46.29271, 15.05766], [20, 46.28531, 15.06275], [21, 46.27851, 15.0712], [22, 46.2744, 15.08278], [23, 46.26891, 15.09307], [24, 46.26328, 15.10321], [25, 46.26007, 15.1152], [26, 46.2578, 15.12778], [27, 46.25502, 15.14014], [28, 46.25196, 15.15237], [29, 46.24967, 15.16492], [30, 46.24807, 15.17772], [31, 46.24596, 15.19032], [32, 46.2428, 15.20249], [33, 46.23964, 15.21467], [34, 46.23787, 15.22736], [35, 46.23733, 15.24033], [36, 46.2368, 15.25331], [37, 46.23583, 15.26615], [38, 46.22757, 15.26773]]
+
+[[connections]]
+km = 37.892
+station = "Celje"
+lines = [
+  { id = "30", ref = "30", name = "Zidani Most – Šentilj", km = 24.785 },
+]

@@ -2,7 +2,7 @@
  * Borders of Austria and its nine federal states from the OSM PBF → packages/vzg/data/
  * boundaries.toml (simplified polygons, ODbL), for the network map.
  *
- *   node packages/vzg/scripts/extract-boundaries.ts [.cache/austria-YYMMDD.osm.pbf]
+ *   COUNTRY=si vpx packages/vzg/scripts/extract-boundaries.ts [.cache/<extract>-YYMMDD.osm.pbf]
  *
  * Three passes over the file (PBF order: nodes, ways, relations — we need them the other way
  * round): relations (boundary=administrative, admin_level 2 with ISO3166-1 AT, admin_level 4
@@ -10,14 +10,15 @@
  * assembled from the outer ways by joining shared end nodes.
  */
 import { join } from "node:path";
+import { currentCountry, dataDir, osmPbf } from "@zugx/gtfs/country";
 import { writeToml } from "@zugx/toml";
 import { encodePolyline, simplify } from "../src/geo.ts";
 import { readPbf } from "../src/pbf.ts";
 
 type Coord = [number, number];
-const root = join(import.meta.dirname, "..", "..", "..");
-const input = process.argv[2] ?? join(root, ".cache", "austria-261113.osm.pbf");
-const out = join(import.meta.dirname, "..", "data", "boundaries.toml");
+const CC = currentCountry().id.toUpperCase();
+const input = process.argv[2] ?? osmPbf();
+const out = join(dataDir("vzg"), "boundaries.toml");
 const t0 = Date.now();
 const lap = () => `${((Date.now() - t0) / 1000).toFixed(1)} s`;
 
@@ -32,9 +33,9 @@ readPbf(input, {
     const t = r.tags;
     if (t.type !== "boundary" || t.boundary !== "administrative") return;
     const code =
-      t.admin_level === "2" && t["ISO3166-1"] === "AT"
-        ? "AT"
-        : t.admin_level === "4" && /^AT-\d$/.test(t["ISO3166-2"] ?? "")
+      t.admin_level === "2" && t["ISO3166-1"] === CC
+        ? CC
+        : t.admin_level === "4" && t["ISO3166-2"]?.startsWith(`${CC}-`)
           ? t["ISO3166-2"]!
           : undefined;
     if (!code) return;

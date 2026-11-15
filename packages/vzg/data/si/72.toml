@@ -1,0 +1,88 @@
+id = "72"
+ref = "72"
+name = "Železniška proga Privačina – Ajdovščina"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+wikidata = "Q776293"
+from = "Privačina"
+to = "Ajdovščina"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 14.798
+length = 14.798
+speeds = [[0, 0.752, 20, 20], [0.752, 10.917, 60, 60], [10.917, 11.385, 50, 50], [11.385, 14.707, 60, 60], [14.707, 14.798, 40, 40]]
+curves = [[0.8, 1, 770], [1.875, 2.15, 1610], [2.625, 2.775, 1190], [3.25, 3.725, 350], [3.85, 4.5, 460], [4.55, 4.75, 410], [5.25, 5.525, 680], [6, 6.45, 300], [6.5, 6.825, 350], [6.875, 7.125, 400], [7.3, 7.55, 530], [7.775, 8, 940], [8.625, 8.9, 770], [9.375, 9.6, 1030], [9.725, 9.9, 510], [9.95, 10.1, 740], [10.325, 10.5, 600], [10.55, 10.775, 460], [10.85, 11.075, 660], [11.475, 11.85, 780], [12, 12.325, 380], [12.375, 12.525, 480], [12.6, 12.875, 530], [12.925, 13.1, 770], [13.525, 13.95, 340], [14.2, 14.6, 370]]
+points = [
+  { km = 0.198, kind = "station", label = "Ajdovščina", pos = [45.88589, 13.90002] },
+  { km = 1.821, kind = "signal", signal = "crossing_distant", dir = 1 },
+  { km = 2.006, kind = "signal", signal = "crossing", dir = 1 },
+  { km = 2.88, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 2.929, kind = "halt", label = "Cesta", pos = [45.88683, 13.86529] },
+  { km = 3.404, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 3.562, kind = "signal", signal = "crossing_distant", dir = -1 },
+  { km = 3.766, kind = "signal", signal = "crossing_distant", dir = 1 },
+  { km = 3.992, kind = "signal", signal = "crossing", dir = 1 },
+  { km = 4.597, kind = "signal", signal = "crossing_distant", dir = 1 },
+  { km = 4.779, kind = "halt", label = "Dobravlje", pos = [45.88248, 13.84504] },
+  { km = 4.845, kind = "signal", signal = "crossing", dir = 1 },
+  { km = 5.373, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 5.49, kind = "signal", signal = "crossing_distant", dir = -1 },
+  { km = 6.098, kind = "signal", signal = "crossing_distant", dir = 1 },
+  { km = 6.153, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 6.207, kind = "signal", signal = "crossing", dir = 1 },
+  { km = 6.269, kind = "signal", signal = "crossing_distant", dir = -1 },
+  { km = 7.168, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 7.179, kind = "halt", label = "Kamnje", pos = [45.87698, 13.81756] },
+  { km = 7.716, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 7.848, kind = "signal", signal = "crossing_distant", dir = -1 },
+  { km = 10.049, kind = "signal", signal = "crossing_distant", dir = 1 },
+  { km = 10.223, kind = "signal", signal = "crossing", dir = 1 },
+  { km = 11.18, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 11.219, kind = "halt", label = "Batuje", pos = [45.8873, 13.76972] },
+  { km = 11.628, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 11.762, kind = "signal", signal = "crossing_distant", dir = -1 },
+  { km = 13.089, kind = "signal", signal = "crossing_distant", dir = 1 },
+  { km = 13.253, kind = "signal", signal = "crossing", dir = 1 },
+  { km = 13.813, kind = "signal", signal = "distant", dir = 1 },
+  { km = 13.968, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 14.024, kind = "halt", label = "Dornberk vas", pos = [45.89005, 13.73621] },
+  { km = 14.41, kind = "halt", label = "Dornberk", pos = [45.88576, 13.7343] },
+  { km = 14.61, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 14.723, kind = "signal", signal = "crossing_distant", dir = -1 },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0.863, kmTo = 0.9, length = 38 },
+  { kind = "bridge", kmFrom = 2.023, kmTo = 2.037, length = 13 },
+  { kind = "bridge", kmFrom = 3.473, kmTo = 3.487, length = 14 },
+  { kind = "bridge", kmFrom = 4.004, kmTo = 4.023, length = 19 },
+  { kind = "tunnel", kmFrom = 4.04, kmTo = 4.143, length = 103 },
+  { kind = "bridge", kmFrom = 4.519, kmTo = 4.53, length = 11 },
+  { kind = "bridge", kmFrom = 5.192, kmTo = 5.205, length = 12 },
+  { kind = "bridge", kmFrom = 6.678, kmTo = 6.694, length = 16 },
+  { kind = "bridge", kmFrom = 7.755, kmTo = 7.782, length = 27 },
+  { kind = "bridge", kmFrom = 9.107, kmTo = 9.117, length = 10 },
+  { kind = "bridge", kmFrom = 10.589, kmTo = 10.601, length = 12 },
+  { kind = "bridge", kmFrom = 12.333, kmTo = 12.342, length = 10 },
+  { kind = "tunnel", kmFrom = 12.649, kmTo = 12.874, length = 225 },
+  { kind = "bridge", kmFrom = 13.313, kmTo = 13.364, length = 50 },
+  { kind = "bridge", kmFrom = 13.683, kmTo = 13.692, length = 10 },
+  { kind = "bridge", kmFrom = 14.229, kmTo = 14.239, length = 10 },
+  { kind = "bridge", kmFrom = 14.413, kmTo = 14.428, length = 15 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "idawGuizsApHbz@", v = 20 },
+  { line = "wz`wGqnxsAv@lOeBpmAcAvOaGxj@qB|s@|@lH|B~EfPlK`C`D", v = 60 },
+  { line = "wn`wGc|psAzAfF", tunnel = true, v = 60 },
+  { line = "{k`wG{tpsAXpJaBz\\rIfq@dD~JrU`a@fAnDb@fEWxIkDtLi@tEBdF`BlLPdGqDl_@jDzd@c@x|@y@jKwLhi@_ChHmHjPyBbNmJjYmCjSiHjM", v = 60 },
+  { line = "icawGsaasA}AjE}F|Z", v = 50 },
+  { line = "enawGi_`sAmBpKs@hJb@r\\MfEmAvFmFxJ}CvM", v = 60 },
+  { line = "kabwGga}rAm@rGBfH", tunnel = true, v = 60 },
+  { line = "ubbwGko|rAR|JuDhl@NzHx@xDxA`DnPvPlClEtAxHKrO", v = 60 },
+  { line = "kjawGwnxrA@hF", v = 40 },
+]
+posts = [[0, 45.88629, 13.90251], [1, 45.8845, 13.88988], [2, 45.88507, 13.87699], [3, 45.8869, 13.86438], [4, 45.88309, 13.85462], [5, 45.88189, 13.84231], [6, 45.87704, 13.83176], [7, 45.87663, 13.81981], [8, 45.87665, 13.8072], [9, 45.87775, 13.79453], [10, 45.88201, 13.78326], [11, 45.88655, 13.77234], [12, 45.88854, 13.76], [13, 45.89104, 13.74819], [14, 45.89023, 13.73639]]

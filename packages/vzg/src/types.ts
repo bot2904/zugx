@@ -128,7 +128,7 @@ export interface VzgIndex {
 export interface VzgIndexEntry {
   id: string;
   ref?: string;
-  /** ÖBB line (Streckennummer per VzG) */
+  /** a line of the national numbering (Austria: ÖBB Streckennummer per VzG) */
   oebb: boolean;
   operator?: string;
   gauge?: string;

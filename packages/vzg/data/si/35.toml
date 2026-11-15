@@ -1,0 +1,45 @@
+id = "35"
+ref = "35"
+name = "Lok Maribor Tezno – Maribor Studenci"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 2.42
+length = 2.42
+speeds = [[0, 0.109, "", ""], [0.109, 1.031, 80, 80], [1.031, 2.42, "", ""]]
+curves = [[0.1, 0.675, 390]]
+points = [
+  { km = 0.901, kind = "stop", label = "Maribor Tabor", pos = [46.55163, 15.64578], uic = "7900233" },
+  { km = 1.9, kind = "station", label = "Maribor Studenci", uic = "7900148", pos = [46.5542, 15.63482], measured = true },
+  { km = 2.6, kind = "halt", label = "Maribor Sokolska", uic = "7900111", pos = [46.55654, 15.62469], measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0.511, kmTo = 0.561, length = 50 },
+  { kind = "bridge", kmFrom = 1.183, kmTo = 1.196, length = 13 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "ebb{G}~o~A}DgA" },
+  { line = "chb{Geap~AsDFeCx@}BfBsChEoBbHsFr_@", v = 80 },
+  { line = "sec{Gykn~AcXjjB" },
+]
+posts = [[0, 46.54643, 15.65183], [1, 46.55201, 15.64404], [2, 46.55487, 15.63164]]
+
+[[connections]]
+km = 0.901
+station = "Maribor Tabor"
+lines = [
+  { id = "34", ref = "34", name = "Maribor – Prevalje", km = 81.186 },
+]
+
+[[connections]]
+km = 2.6
+station = "Maribor Sokolska"
+lines = [
+  { id = "34", ref = "34", name = "Maribor – Prevalje", km = 79.464 },
+]

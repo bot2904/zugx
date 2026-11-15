@@ -2,22 +2,24 @@
  * Step 2: VzG data per line (Streckennummer) and track from the OSM extract →
  * packages/vzg/data/<ref>.toml (e.g. 101-01.toml) + data/index.toml. ODbL (see data/LICENSE.md).
  *
- *   node packages/vzg/scripts/build.ts [.cache/osm-rail.json]
+ *   COUNTRY=si vpx packages/vzg/scripts/build.ts [.cache/osm-rail-si.json]
  */
 import { mkdirSync, readFileSync, readdirSync, rmSync } from "node:fs";
 import { join } from "node:path";
+import { currentCountry, dataDir, osmRailPath } from "@zugx/gtfs/country";
 import { writeToml } from "@zugx/toml";
 import { connections } from "../src/connections.ts";
 import { decodePolyline, encodePolyline, simplify } from "../src/geo.ts";
 import { buildLines } from "../src/lines.ts";
 import type { RailExtract, VzgIndexEntry } from "../src/types.ts";
 
-const root = join(import.meta.dirname, "..", "..", "..");
-const input = process.argv[2] ?? join(root, ".cache", "osm-rail.json");
-const out = join(import.meta.dirname, "..", "data");
+// the country's rail extract (COUNTRY, default at) → packages/vzg/data (Austria) or data/<country>
+const input = process.argv[2] ?? osmRailPath();
+const out = dataDir("vzg");
 const t0 = Date.now();
 const ex = JSON.parse(readFileSync(input, "utf8")) as RailExtract;
-const lines = buildLines(ex);
+const lineRef = new RegExp(currentCountry().lineRef);
+const lines = buildLines(ex, lineRef);
 // connecting lines at the stations (after all lines are built)
 for (const [l, c] of connections(lines)) l.connections = c;
 mkdirSync(out, { recursive: true });
@@ -61,7 +63,7 @@ for (const l of lines) {
   index.push({
     id: l.id,
     ...(l.ref ? { ref: l.ref } : {}),
-    oebb: /^\d{3} \d{2}$/.test(l.ref ?? ""),
+    oebb: lineRef.test(l.ref ?? ""),
     ...(l.operator ? { operator: l.operator } : {}),
     ...(l.gauge ? { gauge: l.gauge } : {}),
     ...(l.wikidata ? { wikidata: l.wikidata } : {}),

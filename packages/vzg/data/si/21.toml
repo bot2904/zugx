@@ -1,0 +1,82 @@
+id = "21"
+ref = "21"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 24.654
+length = 24.654
+speeds = [[0, 1.8, 40, 40], [1.8, 1.818, 35, 35], [1.818, 3.744, 50, 50], [3.744, 4.742, 80, 80], [4.742, 7.502, 50, 50], [7.502, 10.145, 60, 60], [10.145, 11.916, 100, 100], [11.916, 13.514, 80, 80], [13.514, 14.524, 55, 55], [14.524, 16.69, 75, 75], [16.69, 17.253, 40, 40], [17.253, 19.129, 75, 75], [19.129, 19.757, 70, 70], [19.757, 20.197, 50, 50], [20.197, 21.792, 70, 70], [21.792, 23.284, 75, 75], [23.284, 24.139, 40, 40], [24.139, 24.654, 30, 30]]
+curves = [[0.2, 0.475, 1070], [0.625, 1.25, 500], [1.65, 1.825, 880], [4.7, 5.375, 250], [5.425, 5.8, 560], [6.05, 6.325, 1350], [7.35, 7.425, 1610], [7.55, 7.75, 430], [7.975, 8.575, 620], [9.15, 9.425, 710], [10.275, 10.375, 2560], [10.7, 11.225, 2360], [11.5, 11.875, 770], [13.55, 13.925, 250], [16.125, 16.275, 1470], [17.1, 17.3, 650], [19.8, 20.075, 580], [20.15, 20.325, 1410], [20.85, 20.975, 1490], [21.05, 21.2, 1240], [21.425, 21.55, 1700], [22.45, 22.6, 1050], [22.7, 22.9, 1210], [22.975, 23.15, 1790], [23.525, 23.675, 580], [23.725, 24.35, 280]]
+points = [
+  { km = 0.125, kind = "station", label = "Ljubljana", pos = [46.05817, 14.51028], uic = "7942300" },
+  { km = 1.058, kind = "halt", label = "Ljubljana Šiška", pos = [46.06071, 14.50091] },
+  { km = 2.804, kind = "halt", label = "Ljubljana Brinje", pos = [46.0762, 14.50296] },
+  { km = 4.334, kind = "halt", label = "Ljubljana Ježica", pos = [46.08962, 14.50727] },
+  { km = 6.643, kind = "station", label = "Ljubljana Črnuče", pos = [46.10105, 14.52804] },
+  { km = 9.783, kind = "halt", label = "Trzin industrijska cona", pos = [46.1189, 14.55097] },
+  { km = 11.056, kind = "halt", label = "Trzin Mlake", pos = [46.12859, 14.55967] },
+  { km = 11.835, kind = "halt", label = "Trzin", pos = [46.13275, 14.56764] },
+  { km = 14.151, kind = "station", label = "Domžale", pos = [46.14023, 14.59243] },
+  { km = 15.155, kind = "halt", label = "Rodica", pos = [46.14899, 14.59245] },
+  { km = 17.014, kind = "station", label = "Jarše-Mengeš", pos = [46.16566, 14.59381] },
+  { km = 18.627, kind = "halt", label = "Homec", pos = [46.17991, 14.59056] },
+  { km = 20.137, kind = "halt", label = "Šmarca", pos = [46.19312, 14.58856] },
+  { km = 21.696, kind = "halt", label = "Duplica-Bakovnik", pos = [46.20652, 14.59439] },
+  { km = 23.484, kind = "station", label = "Kamnik", pos = [46.22088, 14.60371] },
+  { km = 24.125, kind = "halt", label = "Kamnik mesto", pos = [46.22491, 14.60931] },
+  { km = 24.58, kind = "halt", label = "Kamnik Graben", pos = [46.22883, 14.60956] },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0.522, kmTo = 0.564, length = 42 },
+  { kind = "bridge", kmFrom = 1.665, kmTo = 1.718, length = 53 },
+  { kind = "bridge", kmFrom = 3.666, kmTo = 3.744, length = 78 },
+  { kind = "bridge", kmFrom = 5.906, kmTo = 6.053, length = 147 },
+  { kind = "bridge", kmFrom = 11.303, kmTo = 11.326, length = 24 },
+  { kind = "bridge", kmFrom = 16.406, kmTo = 16.426, length = 20 },
+  { kind = "tunnel", kmFrom = 24.139, kmTo = 24.21, length = 71 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "u|bxGqtqwA~@dv@m@tGgBlFcClC_GxB__@pCoC]", v = 40 },
+  { line = "_pdxGkaowA_@G", v = 35 },
+  { line = "_qdxGsaowAyhBm`@", v = 50 },
+  { line = "yzgxGacpwAuu@qP", v = 80 },
+  { line = "oqixGstpwAwCsAsBoDk@}DIgJwAqF_C{B}JmE_DwDcJw]gAiOeFw~A", v = 50 },
+  { line = "ygkxGktvwAa@_HaB_GkKyUyGeHwJaDek@oAiD{Ayd@e[", v = 60 },
+  { line = "edoxG_lywAkZ{VoQwTgQu\\gBwHcAaK", v = 100 },
+  { line = "uiqxGcm|wAgPe~B", v = 80 },
+  { line = "}zqxGil`xAsAsLuA_CkBqAcf@c@", v = 55 },
+  { line = "wjsxGsaaxAy|AGwZcD", v = 75 },
+  { line = "idwxG_gaxAsXsCwDH", v = 40 },
+  { line = "ucxxGikaxAofBb\\", v = 75 },
+  { line = "ek{xGen`xAua@rH", v = 70 },
+  { line = "{m|xGqd`xA_Fz@wBIkKyG", v = 50 },
+  { line = "_e}xGyk`xAeWaKkYcHuRmHwNgD", v = 70 },
+  { line = "_{_yGuoaxAcd@oKoHcD}FeDkHoGeKoM", v = 75 },
+  { line = "cgbyGo}bxAqKoNiFeMiHmE{CoI", v = 40 },
+  { line = "eicyGcldxAkB_B", tunnel = true, v = 30 },
+  { line = "qlcyGcodxAoBWeT|B", v = 30 },
+]
+posts = [[0, 46.05915, 14.51353], [1, 46.06028, 14.50139], [2, 46.06913, 14.50076], [3, 46.07792, 14.50351], [4, 46.08669, 14.50633], [5, 46.09475, 14.51061], [6, 46.09997, 14.51991], [7, 46.10135, 14.53265], [8, 46.10403, 14.54463], [9, 46.11232, 14.54794], [10, 46.12063, 14.55226], [11, 46.12821, 14.55919], [12, 46.13306, 14.56973], [13, 46.13483, 14.58245], [14, 46.13861, 14.59237], [15, 46.1476, 14.59245], [16, 46.15659, 14.59245], [17, 46.16553, 14.59379], [18, 46.17438, 14.59211], [19, 46.18321, 14.58964], [20, 46.19203, 14.58774], [21, 46.20049, 14.59198], [22, 46.20918, 14.59527], [23, 46.21756, 14.59966], [24, 46.22432, 14.60794]]
+
+[[connections]]
+km = 0.125
+station = "Ljubljana"
+lines = [
+  { id = "50", ref = "50", name = "Ljubljana - Sežana", km = 115.828 },
+  { id = "70", ref = "70", name = "Jesenice – Sežana", km = 115.522 },
+  { id = "80", ref = "80", name = "Metlika – Ljubljana", km = 124.248 },
+]
+
+[[connections]]
+km = 1.058
+station = "Ljubljana Šiška"
+lines = [
+  { id = "20", ref = "20", name = "Ljubljana - Jesenice državna meja", km = 567.265 },
+  { id = "70", ref = "70", name = "Jesenice – Sežana", km = 116.632 },
+]

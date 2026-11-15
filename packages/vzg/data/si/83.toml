@@ -1,0 +1,28 @@
+id = "83"
+ref = "83"
+name = "Novo mesto – Straža"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+from = "Novo mesto"
+to = "Straža"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 8.207
+length = 8.207
+speeds = [[0, 0.455, "", ""], [0.455, 8.207, 40, 40]]
+curves = [[0.4, 0.725, 370], [1.45, 1.7, 1270], [2.575, 2.85, 670], [3.575, 4.025, 620], [4.4, 4.65, 1060], [5.05, 5.25, 1250], [5.525, 5.95, 630], [6.075, 6.6, 400], [6.775, 6.975, 580], [7.1, 7.375, 490], [7.65, 8.1, 250]]
+points = []
+structures = [
+  { kind = "bridge", kmFrom = 3.809, kmTo = 3.823, length = 14 },
+  { kind = "bridge", kmFrom = 3.983, kmTo = 3.998, length = 14 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "gdmvG{k_{AgSkU" },
+  { line = "oxmvGgb`{A}A{Cw@yEOanAcJcpAsB}JsZet@wCwLm@cJSim@oGyn@gA{c@mA}KmB{F_I}NwCuCoCm@{E~@oTpPkMlBqEc@gSgP{CoFs@}FPmFhAgE`CqD", v = 40 },
+]
+posts = [[0, 45.78388, 15.07534], [1, 45.7879, 15.08561], [2, 45.78862, 15.09841], [3, 45.79139, 15.11046], [4, 45.79573, 15.12146], [5, 45.79688, 15.13416], [6, 45.7992, 15.14627], [7, 45.80701, 15.14526], [8, 45.81368, 15.15132]]

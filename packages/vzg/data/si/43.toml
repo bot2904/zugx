@@ -1,0 +1,34 @@
+id = "43"
+ref = "43"
+name = "Državna meja – Lendava"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+from = "Lendava d.m."
+to = "Lendava"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 5.211
+length = 5.211
+speeds = [[0, 4.09, 40, 40], [4.09, 4.763, 35, 35], [4.763, 4.775, "", ""], [4.775, 5.211, 35, 35]]
+curves = [[0.15, 0.45, 1180]]
+points = [
+  { km = 4.591, kind = "station", label = "Lendava / Lendva", pos = [46.55661, 16.44618] },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0, kmTo = 0.076, length = 76 },
+  { kind = "bridge", kmFrom = 2.687, kmTo = 2.708, length = 20 },
+  { kind = "bridge", kmFrom = 4.763, kmTo = 4.775, length = 12 },
+  { kind = "bridge", kmFrom = 4.937, kmTo = 4.949, length = 12 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "m`|zGivjcB{JvBuI\\wmE{N", v = 40 },
+  { line = "wec{GoakcBwd@}A", v = 35 },
+  { line = "okd{GmdkcBU?" },
+  { line = "eld{GmdkcBoW{@", v = 35 },
+]
+posts = [[0, 46.51543, 16.44405], [1, 46.52437, 16.44371], [2, 46.53335, 16.44441], [3, 46.54233, 16.4451], [4, 46.55131, 16.44577], [5, 46.56029, 16.44647]]

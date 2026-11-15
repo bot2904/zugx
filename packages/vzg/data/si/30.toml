@@ -1,0 +1,311 @@
+id = "30"
+ref = "30"
+name = "Zidani Most – Šentilj"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+wikidata = "Q12807559"
+from = "Zidani Most"
+to = "Šentilj d.m."
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 108.014
+length = 108.014
+speeds = [[0, 0.774, 40, 40], [0.774, 15.107, 90, 90], [15.107, 18.051, 125, 125], [18.051, 21.416, 85, 85], [21.416, 24.252, 100, 100], [24.252, 24.941, 80, 80], [24.941, 25.362, 70, 70], [25.362, 27.196, 80, 80], [27.196, 30.833, 110, 110], [30.833, 35.787, 140, 140], [35.787, 37.843, 160, 160], [37.843, 42.275, 100, 100], [42.275, 43.079, 95, 95], [43.079, 51.077, 100, 100], [51.077, 51.316, 85, 85], [51.316, 54.451, 90, 90], [54.451, 54.712, 85, 85], [54.712, 58.431, 120, 120], [58.431, 63.461, 100, 100], [63.461, 64.654, 80, 80], [64.654, 65.261, 120, 120], [65.261, 67.133, 160, 160], [67.133, 68.966, 115, 115], [68.966, 88.997, 160, 160], [88.997, 90.872, 130, 130], [90.872, 93.533, 80, 80], [93.533, 93.965, 130, 130], [93.965, 97.191, 120, 120], [97.191, 99.784, 110, 110], [99.784, 103.791, 125, 125], [103.791, 105.192, 80, 80], [105.192, 108.014, 120, 120]]
+curves = [[0.1, 0.375, 200], [0.425, 0.7, 380], [0.95, 1.05, 1540], [1.375, 1.675, 470], [1.975, 2.1, 970], [2.15, 2.3, 730], [2.5, 2.825, 690], [2.9, 3.025, 960], [3.075, 3.375, 370], [3.425, 3.65, 520], [3.7, 4.325, 600], [4.725, 6.1, 370], [6.15, 6.4, 460], [6.65, 7, 350], [7.05, 7.25, 530], [7.35, 7.475, 1270], [7.575, 8.15, 500], [8.25, 8.45, 820], [8.85, 9.325, 340], [9.575, 9.825, 730], [10.075, 10.25, 830], [10.3, 10.925, 360], [11, 11.125, 1510], [11.375, 11.525, 880], [11.575, 11.9, 470], [12.075, 12.225, 1680], [12.55, 13.5, 320], [13.6, 13.825, 620], [13.9, 14.325, 350], [15.225, 15.875, 1590], [16.025, 16.4, 1700], [16.6, 17.025, 830], [17.525, 17.7, 1310], [18.15, 19.5, 400], [20.05, 20.525, 880], [20.575, 21.2, 380], [21.25, 21.35, 1440], [21.4, 21.55, 1300], [21.875, 22.375, 640], [22.7, 23.225, 1470], [23.6, 23.725, 1330], [23.975, 24.25, 790], [24.475, 24.675, 960], [24.925, 25.325, 340], [25.45, 25.7, 780], [26.825, 27.325, 520], [27.675, 27.975, 480], [29.475, 29.75, 820], [29.825, 30.125, 570], [30.375, 30.675, 740], [31.375, 31.575, 2040], [32.225, 32.35, 2190], [32.975, 33.225, 2170], [37.85, 38.875, 1060], [38.975, 39.575, 490], [40.275, 40.625, 630], [40.75, 41.075, 550], [41.125, 41.525, 460], [41.7, 42.175, 450], [42.25, 42.725, 320], [42.775, 43.075, 490], [43.375, 43.95, 710], [44.1, 44.45, 690], [44.525, 45.075, 400], [45.175, 45.525, 430], [45.575, 45.875, 570], [46.175, 46.925, 1150], [47.85, 48.175, 1000], [48.225, 48.775, 380], [48.9, 49.15, 600], [49.325, 49.65, 510], [49.7, 50.375, 490], [50.575, 50.9, 420], [50.95, 51.125, 480], [51.4, 51.55, 840], [51.625, 52.35, 560], [52.4, 52.625, 460], [52.675, 53.2, 470], [53.25, 53.975, 360], [54.025, 54.275, 490], [54.425, 54.7, 960], [55.05, 55.35, 700], [55.625, 56.45, 960], [57.75, 58.225, 590], [58.425, 58.9, 360], [59.75, 60.1, 490], [60.575, 60.925, 700], [61.125, 61.55, 1040], [61.825, 62.9, 1920], [63, 63.425, 670], [63.75, 63.975, 530], [64.025, 65.2, 960], [67.55, 68.225, 680], [68.575, 68.9, 650], [71.275, 71.8, 1810], [72.3, 72.7, 1710], [73.15, 73.775, 1550], [85.85, 86.3, 1900], [89.25, 89.7, 640], [90.475, 90.775, 970], [91.125, 91.325, 700], [92.025, 92.35, 390], [92.4, 92.725, 1220], [92.925, 93.075, 1080], [93.275, 93.65, 540], [93.725, 94.15, 630], [94.225, 95, 970], [95.525, 95.9, 1790], [96.35, 97.05, 860], [98.075, 98.325, 850], [98.55, 98.825, 930], [98.975, 99.3, 520], [99.375, 99.775, 470], [100.05, 100.425, 1010], [101.575, 101.8, 1210], [102.775, 102.975, 710], [103.1, 103.35, 780], [103.725, 104.375, 960], [104.575, 105.225, 490], [105.975, 106.225, 970], [106.9, 107.05, 1090], [107.775, 107.9, 960]]
+points = [
+  { km = 0, kind = "station", label = "Zidani Most", pos = [46.08545, 15.17029] },
+  { km = 7.488, kind = "station", label = "Rimske Toplice", pos = [46.12367, 15.20305] },
+  { km = 14.455, kind = "station", label = "Laško", pos = [46.1548, 15.23192] },
+  { km = 24.785, kind = "station", label = "Celje", pos = [46.22853, 15.26823] },
+  { km = 29.495, kind = "stop", label = "Štore", pos = [46.22157, 15.32128] },
+  { km = 35.36, kind = "station", label = "Šentjur", pos = [46.21302, 15.39601] },
+  { km = 38.819, kind = "station", label = "Grobelno", pos = [46.21291, 15.43959] },
+  { km = 43.079, kind = "station", label = "Ponikva", pos = [46.24789, 15.43061] },
+  { km = 47.732, kind = "stop", label = "Ostrožno", pos = [46.26406, 15.47275] },
+  { km = 50.632, kind = "station", label = "Dolga Gora", uic = "7900096", pos = [46.27722, 15.49803] },
+  { km = 59.003, kind = "station", label = "Poljčane", pos = [46.31346, 15.5765], uic = "7900185" },
+  { km = 66.542, kind = "station", label = "Slovenska Bistrica", pos = [46.36319, 15.59805] },
+  { km = 72.84, kind = "station", label = "Pragersko", pos = [46.39506, 15.6617] },
+  { km = 79.421, kind = "station", label = "Rače", pos = [46.45333, 15.66383] },
+  { km = 81.618, kind = "halt", label = "Orehova vas", pos = [46.47309, 15.66347] },
+  { km = 84.7, kind = "station", label = "Hoče", pos = [46.5008, 15.6629] },
+  { km = 89.079, kind = "stop", label = "Maribor Tezno", pos = [46.53899, 15.65114], uic = "7900234" },
+  { km = 91.763, kind = "station", label = "Maribor", pos = [46.56195, 15.65811] },
+  { km = 97.836, kind = "station", label = "Pesnica", pos = [46.60944, 15.68057] },
+  { km = 102.061, kind = "halt", label = "Cirknica", pos = [46.64489, 15.66355] },
+  { km = 105.738, kind = "station", label = "Šentilj", uic = "7900064", pos = [46.67511, 15.65694] },
+  { km = 108.014, kind = "signal", signal = "speed_limit", dir = -1 },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0.102, kmTo = 0.212, length = 110 },
+  { kind = "bridge", kmFrom = 5.277, kmTo = 5.314, length = 36 },
+  { kind = "bridge", kmFrom = 6.913, kmTo = 6.922, length = 10 },
+  { kind = "bridge", kmFrom = 6.937, kmTo = 6.976, length = 39 },
+  { kind = "bridge", kmFrom = 13.041, kmTo = 13.071, length = 30 },
+  { kind = "bridge", kmFrom = 13.095, kmTo = 13.147, length = 52 },
+  { kind = "bridge", kmFrom = 13.169, kmTo = 13.197, length = 28 },
+  { kind = "bridge", kmFrom = 13.808, kmTo = 13.959, length = 151 },
+  { kind = "bridge", kmFrom = 15.107, kmTo = 15.156, length = 49 },
+  { kind = "bridge", kmFrom = 20.249, kmTo = 20.37, length = 121 },
+  { kind = "bridge", kmFrom = 21.527, kmTo = 21.541, length = 14 },
+  { kind = "bridge", kmFrom = 22.888, kmTo = 22.91, length = 22 },
+  { kind = "bridge", kmFrom = 23.917, kmTo = 23.984, length = 67 },
+  { kind = "bridge", kmFrom = 25.776, kmTo = 25.822, length = 47 },
+  { kind = "bridge", kmFrom = 34.993, kmTo = 35.005, length = 12 },
+  { kind = "bridge", kmFrom = 35.151, kmTo = 35.167, length = 15 },
+  { kind = "bridge", kmFrom = 35.787, kmTo = 35.808, length = 20 },
+  { kind = "bridge", kmFrom = 36.477, kmTo = 36.493, length = 16 },
+  { kind = "bridge", kmFrom = 39.462, kmTo = 39.473, length = 11 },
+  { kind = "bridge", kmFrom = 42.517, kmTo = 42.53, length = 13 },
+  { kind = "tunnel", kmFrom = 51.077, kmTo = 51.316, length = 239 },
+  { kind = "bridge", kmFrom = 52.078, kmTo = 52.094, length = 16 },
+  { kind = "bridge", kmFrom = 52.493, kmTo = 52.522, length = 28 },
+  { kind = "bridge", kmFrom = 52.881, kmTo = 52.892, length = 12 },
+  { kind = "bridge", kmFrom = 53.084, kmTo = 53.101, length = 17 },
+  { kind = "bridge", kmFrom = 53.891, kmTo = 53.903, length = 12 },
+  { kind = "bridge", kmFrom = 54.149, kmTo = 54.159, length = 10 },
+  { kind = "bridge", kmFrom = 54.451, kmTo = 54.712, length = 262 },
+  { kind = "bridge", kmFrom = 55.018, kmTo = 55.033, length = 15 },
+  { kind = "bridge", kmFrom = 55.302, kmTo = 55.315, length = 13 },
+  { kind = "bridge", kmFrom = 56.296, kmTo = 56.311, length = 15 },
+  { kind = "bridge", kmFrom = 58.931, kmTo = 58.945, length = 14 },
+  { kind = "bridge", kmFrom = 66.886, kmTo = 66.917, length = 31 },
+  { kind = "tunnel", kmFrom = 68.222, kmTo = 68.465, length = 243 },
+  { kind = "bridge", kmFrom = 69.608, kmTo = 69.618, length = 10 },
+  { kind = "bridge", kmFrom = 70.394, kmTo = 70.412, length = 18 },
+  { kind = "bridge", kmFrom = 72.767, kmTo = 72.783, length = 15 },
+  { kind = "bridge", kmFrom = 74.175, kmTo = 74.189, length = 15 },
+  { kind = "bridge", kmFrom = 76.182, kmTo = 76.193, length = 11 },
+  { kind = "bridge", kmFrom = 83.262, kmTo = 83.363, length = 101 },
+  { kind = "bridge", kmFrom = 84.75, kmTo = 84.794, length = 44 },
+  { kind = "bridge", kmFrom = 85.884, kmTo = 85.902, length = 18 },
+  { kind = "bridge", kmFrom = 88.997, kmTo = 89.028, length = 32 },
+  { kind = "bridge", kmFrom = 89.21, kmTo = 89.257, length = 47 },
+  { kind = "bridge", kmFrom = 89.676, kmTo = 89.718, length = 42 },
+  { kind = "bridge", kmFrom = 90.872, kmTo = 91.118, length = 245 },
+  { kind = "bridge", kmFrom = 91.564, kmTo = 91.615, length = 51 },
+  { kind = "tunnel", kmFrom = 94.333, kmTo = 95.877, length = 1545, name = "predor Pekel" },
+  { kind = "bridge", kmFrom = 95.926, kmTo = 96.839, length = 912, name = "Viadukt Pesnica" },
+  { kind = "bridge", kmFrom = 97.163, kmTo = 97.173, length = 10 },
+  { kind = "bridge", kmFrom = 97.944, kmTo = 97.959, length = 15 },
+  { kind = "bridge", kmFrom = 101.684, kmTo = 101.696, length = 12 },
+  { kind = "bridge", kmFrom = 103.7, kmTo = 103.709, length = 10 },
+  { kind = "bridge", kmFrom = 105.003, kmTo = 105.013, length = 10 },
+  { kind = "tunnel", kmFrom = 106.393, kmTo = 106.626, length = 233 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "o}gxGqar{AlB{F?uGgA_EwE{FgAgCy@aFa@aK", v = 40 },
+  { line = "ehhxGkws{As@kQwCe^s@wFcA}C}RuUsGaKgRiRiCyF}C}J{B{McBqEqL_KcIsPuIwGmEoGuA}DwKgh@gCeFqCkC}EaAsF|A{CfEiDxOeG~KsEvB}JDyBj@uUjSgCdIm@tNw@jFwDbNaDhPmArDwB`DeCfBwDhAyQRm\\lJmFTyCiAsCuD_Ku\\iB{D{OaSyKaIiBiDaA}DO_IjA}KBwNsA}]_B}LWqF\\cHtEaXpEeb@G{Jw@aEsBcEyCaEoDgBkDGgE|AeLvQaGjXeBpCcCdBsq@xF", v = 90 },
+  { line = "gxvxGsy}{AmJh@{IQuQwD}OuHuG}EeN_N{JoEqg@{CyVnB", v = 125 },
+  { line = "iv{xGcf_|AeLlBgFbEmEfJsA|OyBzHqEvDoFT{CyA_DiDyW_a@eGqH{FwBsOuAwEuDqCwG}@cGVmZ", v = 85 },
+  { line = "qu_yGe|`|AUsk@qB}M}A{EmBuCqS{UwKuH{_@sLgSsJuIs@", v = 100 },
+  { line = "iacyGw~d|A_R@iR{D", v = 80 },
+  { line = "sgdyGqde|AcDiAwCwCgByEaAeH", v = 70 },
+  { line = "yvdyGs{e|AuAcMMeG|CqbBrAsLtCaI", v = 80 },
+  { line = "umdyGemj|ArWcZlByD`AwDv[i|B^gHEqXvJie@h@{GRiQ", v = 110 },
+  { line = "idbyGour|Ap@qm@t@{PxEas@hJay@`A{MjPwnE", v = 140 },
+  { line = "o{`yGub_}AxLydD", v = 160 },
+  { line = "um`yGohd}AL_Nm@cSeA{IaBuG{FwLgIqIaFoD}GmA}DZ_EzAkk@bc@gGpAuQf@mDhB{HdIgEdBiDHsRiCeERaGjDwGrK", v = 100 },
+  { line = "ynfyGmtd}AaEjEyFx@gD_AaKgHsCg@wDF", v = 95 },
+  { line = "kxgyGoxd}AmUhAuJaBiH{EgO{PaFeC{LwCuCuB{CkFyAoGeA{U_A}FkB}EuGcJyBmH{Ema@s@gQLyLbAuMtTwtAb@gHDwOw@yKyAyE{BoDkSeLkMsSqCcKyAqU}AcFiCaEqDyCmDqAmSaAwD_AwC{BcF}HeBuA", v = 100 },
+  { line = "mfnyGopr}AoK{E", tunnel = true, v = 85 },
+  { line = "}rnyGkwr}A_HsCuIsA}F{BsFmD}CqFsAoIQcToE{Qm@}H~@eNtEwNj@_E?}FcA}HqAsFaCiEuC}ByJeEkKyO", v = 90 },
+  { line = "yaqyGskx}AoC{FyBqH", v = 85 },
+  { line = "cjqyGa}x}AkK{`@qC}EuSeX{DcJuCsLkBkTmCutBeAqHiB}FcL{Q", v = 120 },
+  { line = "wtsyGgga~AsBkCoCgB}Cg@wCTqs@``@wEbAqE]ma@kMiFSmEl@iNbDuEnB}FhEwPnQ{JtHsN|GwLtCiKz@_LAyGsBgGcF", v = 100 },
+  { line = "}{{yG}j_~AwQgPwLyA{GcE_GyF_GsJ", v = 80 },
+  { line = "iu}yGqx`~AkCgHuB{IgAoIo@{M", v = 120 },
+  { line = "ca~yGafb~AyIuvC", v = 160 },
+  { line = "}k~yGw}f~AsAgc@gAqJeByFiEgIwH{H", v = 115 },
+  { line = "ad_zGoii~AcKcH", tunnel = true, v = 115 },
+  { line = "ep_zGsri~AyK{I}FkN", v = 115 },
+  { line = "}d`zG{lj~AedA_`DgKeUk[ya@qJiJya@uUeH_CaIqAoOWubTdLaLjA}JhC{lCr~@", v = 160 },
+  { line = "mo`{Gu|o~AoRfGgI?gFaB}l@}XqFmAeIY", v = 130 },
+  { line = "ctc{Gutp~A_TaA{i@aYwCs@cE\\qHrEcDt@}VPkT|BeHsA", v = 80 },
+  { line = "adh{Gigq~AqK}JgE}H", v = 130 },
+  { line = "{vh{Ge}q~AyAaGwCyR", v = 120 },
+  { line = "m~h{Gayr~AyCuLeCeGkGiHye@{UsM{J", tunnel = true, v = 120 },
+  { line = "gek{G_{t~AqWwW}IkF{LgBsP`B", v = 120 },
+  { line = "ghm{Gi{u~Aaw@fMoVrOsWrFsDjD_KhOkErBgFX", v = 110 },
+  { line = "uoq{Guzs~A{SN_JhBgfAvh@q|@`OmTjLg]nB", v = 125 },
+  { line = "ahx{Gelq~AsIc@eIeCcG{DsMuLmEmBwDMuDx@}DjCqChD", v = 80 },
+  { line = "_pz{Gm}q~A_b@tn@mDtDkJ|G", v = 120 },
+  { line = "yc|{Gc_p~AoJdH", tunnel = true, v = 120 },
+  { line = "io|{G}uo~AyOhLse@li@iHzE", v = 120 },
+]
+posts = [[0, 46.08488, 15.17097], [1, 46.08684, 15.18249], [2, 46.09126, 15.193], [3, 46.09753, 15.20197], [4, 46.10373, 15.21072], [5, 46.10852, 15.22139], [6, 46.11516, 15.21518], [7, 46.12215, 15.20891], [8, 46.12673, 15.19859], [9, 46.13554, 15.19648], [10, 46.1415, 15.20563], [11, 46.14501, 15.2157], [12, 46.14529, 15.22834], [13, 46.14514, 15.24027], [14, 46.15139, 15.23403], [15, 46.15988, 15.23127], [16, 46.16871, 15.23263], [17, 46.17672, 15.23823], [18, 46.18568, 15.23835], [19, 46.19163, 15.23044], [20, 46.19888, 15.23578], [21, 46.20642, 15.24156], [22, 46.20668, 15.25448], [23, 46.213, 15.26316], [24, 46.22151, 15.26728], [25, 46.23037, 15.26892], [26, 46.23257, 15.28061], [27, 46.23174, 15.29354], [28, 46.22578, 15.30285], [29, 46.22295, 15.31519], [30, 46.22124, 15.32779], [31, 46.21902, 15.34017], [32, 46.21796, 15.35305], [33, 46.21572, 15.36563], [34, 46.21449, 15.37849], [35, 46.2134, 15.3914], [36, 46.21233, 15.4043], [37, 46.21125, 15.4172], [38, 46.21027, 15.43011], [39, 46.21439, 15.44084], [40, 46.22257, 15.43819], [41, 46.23098, 15.43449], [42, 46.23943, 15.43239], [43, 46.24719, 15.43069], [44, 46.25571, 15.43284], [45, 46.26284, 15.43967], [46, 46.26649, 15.45105], [47, 46.26642, 15.46373], [48, 46.26338, 15.47596], [49, 46.26767, 15.48544], [50, 46.27216, 15.49614], [51, 46.28028, 15.50051], [52, 46.28866, 15.50495], [53, 46.29099, 15.51706], [54, 46.29227, 15.52758], [55, 46.29797, 15.53712], [56, 46.30398, 15.5466], [57, 46.30533, 15.55933], [58, 46.30619, 15.57222], [59, 46.31344, 15.57658], [60, 46.32179, 15.57209], [61, 46.33052, 15.57415], [62, 46.3384, 15.56821], [63, 46.347, 15.56494], [64, 46.35513, 15.56976], [65, 46.36152, 15.57796], [66, 46.36261, 15.59088], [67, 46.36355, 15.60383], [68, 46.36591, 15.61601], [69, 46.37295, 15.62371], [70, 46.37772, 15.63476], [71, 46.38246, 15.64584], [72, 46.38824, 15.65569], [73, 46.39585, 15.66248], [74, 46.40458, 15.66481], [75, 46.41357, 15.66464], [76, 46.42257, 15.66446], [77, 46.43156, 15.66429], [78, 46.44055, 15.66411], [79, 46.44954, 15.66394], [80, 46.45854, 15.66376], [81, 46.46753, 15.6636], [82, 46.47652, 15.66342], [83, 46.48551, 15.66325], [84, 46.49451, 15.66308], [85, 46.5035, 15.6629], [86, 46.51249, 15.6626], [87, 46.52115, 15.65917], [88, 46.52974, 15.65531], [89, 46.53834, 15.65145], [90, 46.54694, 15.65218], [91, 46.55556, 15.65537], [92, 46.56402, 15.65944], [93, 46.57273, 15.65849], [94, 46.58062, 15.66218], [95, 46.58581, 15.67216], [96, 46.59391, 15.67772], [97, 46.60202, 15.68236], [98, 46.6109, 15.68024], [99, 46.61937, 15.67622], [100, 46.62734, 15.67162], [101, 46.63586, 15.66782], [102, 46.64435, 15.66369], [103, 46.65311, 15.66094], [104, 46.66188, 15.6593], [105, 46.67009, 15.66322], [106, 46.67682, 15.65458], [107, 46.68459, 15.64802], [108, 46.69189, 15.64044]]
+
+[[tracks]]
+track = "2"
+kmFrom = 0
+kmTo = 108.082
+length = 108.082
+speeds = [[0, 0.828, 40, 40], [0.828, 15.177, 90, 90], [15.177, 18.121, 125, 125], [18.121, 21.491, 85, 85], [21.491, 24.32, 100, 100], [24.32, 25.011, 80, 80], [25.011, 25.441, 70, 70], [25.441, 27.272, 80, 80], [27.272, 30.912, 110, 110], [30.912, 35.868, 140, 140], [35.868, 37.923, 160, 160], [37.923, 42.344, 100, 100], [42.344, 43.151, 95, 95], [43.151, 51.151, 100, 100], [51.151, 51.389, 85, 85], [51.389, 54.528, 90, 90], [54.528, 54.789, 85, 85], [54.789, 58.506, 120, 120], [58.506, 63.534, 100, 100], [63.534, 64.727, 80, 80], [64.727, 65.337, 120, 120], [65.337, 67.208, 160, 160], [67.208, 69.039, 115, 115], [69.039, 89.053, 160, 160], [89.053, 90.942, 130, 130], [90.942, 93.6, 80, 80], [93.6, 94.032, 130, 130], [94.032, 97.258, 120, 120], [97.258, 99.851, 110, 110], [99.851, 103.858, 125, 125], [103.858, 105.259, 80, 80], [105.259, 108.082, 120, 120]]
+curves = [[0.125, 0.775, 310], [1.025, 1.125, 1530], [1.45, 1.75, 430], [2.025, 2.15, 1150], [2.2, 2.375, 1010], [2.575, 2.9, 730], [2.95, 3.1, 870], [3.15, 3.725, 450], [3.775, 3.975, 460], [4.025, 4.4, 600], [4.8, 5.6, 300], [5.65, 6.15, 450], [6.2, 6.45, 500], [6.7, 7.05, 370], [7.1, 7.325, 650], [7.375, 7.5, 1480], [7.625, 8.2, 510], [8.3, 8.6, 1350], [8.65, 8.725, 2740], [8.9, 9.4, 350], [9.65, 9.9, 740], [10.15, 11, 510], [11.075, 11.2, 1480], [11.45, 11.6, 870], [11.65, 11.975, 480], [12.15, 12.325, 1750], [12.625, 13.55, 320], [13.65, 13.9, 730], [13.975, 14.425, 390], [14.8, 14.85, 2880], [15.3, 15.925, 1600], [16.075, 16.5, 1960], [16.675, 17.1, 840], [17.625, 17.775, 1240], [18.225, 18.8, 470], [18.85, 19.575, 300], [20.15, 21.425, 540], [21.475, 21.625, 1340], [21.95, 22.45, 610], [22.775, 23.325, 1370], [23.675, 23.8, 1600], [24.05, 24.325, 760], [24.575, 24.775, 910], [25, 25.4, 350], [25.55, 25.775, 740], [26.9, 27.4, 520], [27.75, 28.075, 550], [29.575, 29.825, 740], [29.925, 30.2, 590], [30.45, 30.75, 720], [31.45, 31.65, 2070], [32.3, 32.45, 2290], [33.075, 33.325, 2020], [37.95, 38.95, 940], [39.05, 39.65, 480], [40.35, 40.7, 630], [40.825, 41.15, 530], [41.2, 41.575, 440], [41.775, 42.25, 460], [42.325, 42.8, 320], [42.85, 43.15, 490], [43.45, 44.025, 720], [44.175, 44.525, 720], [44.6, 45.15, 390], [45.25, 45.6, 430], [45.65, 45.95, 550], [46.25, 47, 1170], [47.925, 48.25, 910], [48.325, 48.85, 380], [48.975, 49.225, 580], [49.4, 49.725, 510], [49.775, 50.45, 490], [50.65, 50.975, 430], [51.025, 51.2, 490], [51.475, 51.625, 840], [51.7, 52.425, 550], [52.475, 52.7, 490], [52.75, 53.275, 480], [53.325, 54.05, 360], [54.1, 54.35, 490], [54.5, 54.775, 970], [55.125, 55.425, 690], [55.7, 56.525, 970], [57.825, 58.3, 590], [58.5, 58.95, 350], [59.825, 60.175, 460], [60.65, 61, 690], [61.2, 61.625, 1040], [61.875, 62.975, 1950], [63.075, 63.5, 670], [63.825, 65.3, 950], [67.625, 68.275, 670], [68.65, 68.975, 610], [71.35, 71.875, 1700], [72.375, 72.775, 1670], [73.225, 73.85, 1550], [85.9, 86.375, 1960], [89.3, 89.75, 620], [90.55, 90.85, 900], [91.2, 91.4, 730], [92.1, 92.425, 400], [92.475, 92.825, 1050], [92.975, 93.125, 1070], [93.35, 93.725, 500], [93.775, 94.2, 660], [94.3, 95.05, 960], [95.6, 95.975, 1880], [96.425, 97.1, 860], [98.15, 98.4, 850], [98.6, 98.9, 880], [99.05, 99.375, 530], [99.45, 99.85, 460], [100.125, 100.5, 980], [101.65, 101.875, 1300], [102.85, 103.05, 790], [103.175, 103.425, 680], [103.8, 104.45, 960], [104.625, 105.275, 490], [106.05, 106.3, 990], [106.95, 107.1, 1120], [107.85, 107.975, 880]]
+points = [
+  { km = 0, kind = "station", label = "Zidani Most", pos = [46.08545, 15.17029] },
+  { km = 7.547, kind = "station", label = "Rimske Toplice", pos = [46.12367, 15.20305] },
+  { km = 14.525, kind = "station", label = "Laško", pos = [46.1548, 15.23192] },
+  { km = 24.855, kind = "station", label = "Celje", pos = [46.22853, 15.26823] },
+  { km = 29.575, kind = "stop", label = "Štore", pos = [46.22157, 15.32128] },
+  { km = 35.439, kind = "station", label = "Šentjur", pos = [46.21302, 15.39601] },
+  { km = 38.892, kind = "station", label = "Grobelno", pos = [46.21291, 15.43959] },
+  { km = 43.151, kind = "station", label = "Ponikva", pos = [46.24789, 15.43061] },
+  { km = 47.941, kind = "stop", label = "Ostrožno", pos = [46.26406, 15.47275] },
+  { km = 50.649, kind = "station", label = "Dolga Gora", uic = "7900096", pos = [46.27722, 15.49803] },
+  { km = 59.072, kind = "station", label = "Poljčane", pos = [46.31346, 15.5765], uic = "7900185" },
+  { km = 66.626, kind = "station", label = "Slovenska Bistrica", pos = [46.36319, 15.59805] },
+  { km = 72.911, kind = "station", label = "Pragersko", pos = [46.39506, 15.6617] },
+  { km = 79.491, kind = "station", label = "Rače", pos = [46.45333, 15.66383] },
+  { km = 81.687, kind = "halt", label = "Orehova vas", pos = [46.47309, 15.66347] },
+  { km = 84.769, kind = "station", label = "Hoče", pos = [46.5008, 15.6629] },
+  { km = 89.147, kind = "stop", label = "Maribor Tezno", pos = [46.53899, 15.65114], uic = "7900234" },
+  { km = 91.834, kind = "station", label = "Maribor", pos = [46.56195, 15.65811] },
+  { km = 97.903, kind = "station", label = "Pesnica", pos = [46.60944, 15.68057] },
+  { km = 102.128, kind = "halt", label = "Cirknica", pos = [46.64489, 15.66355] },
+  { km = 105.805, kind = "station", label = "Šentilj", uic = "7900064", pos = [46.67511, 15.65694] },
+  { km = 108.081, kind = "signal", signal = "speed_limit", dir = -1 },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0.174, kmTo = 0.281, length = 107 },
+  { kind = "bridge", kmFrom = 5.34, kmTo = 5.376, length = 36 },
+  { kind = "bridge", kmFrom = 6.971, kmTo = 6.981, length = 10 },
+  { kind = "bridge", kmFrom = 6.999, kmTo = 7.036, length = 37 },
+  { kind = "bridge", kmFrom = 13.112, kmTo = 13.142, length = 30 },
+  { kind = "bridge", kmFrom = 13.17, kmTo = 13.22, length = 50 },
+  { kind = "bridge", kmFrom = 13.24, kmTo = 13.267, length = 27 },
+  { kind = "bridge", kmFrom = 13.871, kmTo = 14.022, length = 151 },
+  { kind = "bridge", kmFrom = 15.177, kmTo = 15.226, length = 49 },
+  { kind = "bridge", kmFrom = 20.32, kmTo = 20.441, length = 121 },
+  { kind = "bridge", kmFrom = 21.601, kmTo = 21.616, length = 14 },
+  { kind = "bridge", kmFrom = 22.959, kmTo = 22.981, length = 21 },
+  { kind = "bridge", kmFrom = 23.985, kmTo = 24.05, length = 65 },
+  { kind = "bridge", kmFrom = 25.857, kmTo = 25.901, length = 44 },
+  { kind = "bridge", kmFrom = 35.076, kmTo = 35.086, length = 10 },
+  { kind = "bridge", kmFrom = 35.232, kmTo = 35.247, length = 15 },
+  { kind = "bridge", kmFrom = 35.868, kmTo = 35.887, length = 19 },
+  { kind = "bridge", kmFrom = 36.557, kmTo = 36.573, length = 17 },
+  { kind = "bridge", kmFrom = 39.533, kmTo = 39.544, length = 11 },
+  { kind = "bridge", kmFrom = 42.589, kmTo = 42.603, length = 14 },
+  { kind = "tunnel", kmFrom = 51.151, kmTo = 51.389, length = 239 },
+  { kind = "bridge", kmFrom = 51.918, kmTo = 51.928, length = 10 },
+  { kind = "bridge", kmFrom = 52.154, kmTo = 52.17, length = 16 },
+  { kind = "bridge", kmFrom = 52.571, kmTo = 52.6, length = 28 },
+  { kind = "bridge", kmFrom = 52.96, kmTo = 52.971, length = 11 },
+  { kind = "bridge", kmFrom = 53.164, kmTo = 53.181, length = 17 },
+  { kind = "bridge", kmFrom = 53.966, kmTo = 53.978, length = 12 },
+  { kind = "bridge", kmFrom = 54.223, kmTo = 54.234, length = 11 },
+  { kind = "bridge", kmFrom = 54.528, kmTo = 54.789, length = 262 },
+  { kind = "bridge", kmFrom = 55.095, kmTo = 55.109, length = 14 },
+  { kind = "bridge", kmFrom = 55.377, kmTo = 55.39, length = 13 },
+  { kind = "bridge", kmFrom = 56.372, kmTo = 56.386, length = 15 },
+  { kind = "bridge", kmFrom = 59, kmTo = 59.014, length = 14 },
+  { kind = "bridge", kmFrom = 66.962, kmTo = 66.993, length = 31 },
+  { kind = "bridge", kmFrom = 67.513, kmTo = 67.524, length = 10 },
+  { kind = "tunnel", kmFrom = 68.293, kmTo = 68.537, length = 243 },
+  { kind = "bridge", kmFrom = 69.682, kmTo = 69.692, length = 10 },
+  { kind = "bridge", kmFrom = 70.468, kmTo = 70.486, length = 18 },
+  { kind = "bridge", kmFrom = 72.841, kmTo = 72.857, length = 15 },
+  { kind = "bridge", kmFrom = 74.244, kmTo = 74.258, length = 14 },
+  { kind = "bridge", kmFrom = 76.252, kmTo = 76.263, length = 10 },
+  { kind = "bridge", kmFrom = 76.339, kmTo = 76.349, length = 10 },
+  { kind = "bridge", kmFrom = 83.331, kmTo = 83.432, length = 100 },
+  { kind = "bridge", kmFrom = 84.818, kmTo = 84.862, length = 44 },
+  { kind = "bridge", kmFrom = 85.954, kmTo = 85.971, length = 18 },
+  { kind = "bridge", kmFrom = 89.065, kmTo = 89.097, length = 32 },
+  { kind = "bridge", kmFrom = 89.278, kmTo = 89.326, length = 48 },
+  { kind = "bridge", kmFrom = 89.746, kmTo = 89.788, length = 41 },
+  { kind = "bridge", kmFrom = 90.942, kmTo = 91.188, length = 245 },
+  { kind = "bridge", kmFrom = 91.641, kmTo = 91.686, length = 45 },
+  { kind = "tunnel", kmFrom = 94.4, kmTo = 95.945, length = 1545, name = "predor Pekel" },
+  { kind = "bridge", kmFrom = 95.994, kmTo = 96.906, length = 912, name = "Viadukt Pesnica" },
+  { kind = "bridge", kmFrom = 97.23, kmTo = 97.24, length = 10 },
+  { kind = "bridge", kmFrom = 98.012, kmTo = 98.027, length = 15 },
+  { kind = "bridge", kmFrom = 101.751, kmTo = 101.763, length = 12 },
+  { kind = "bridge", kmFrom = 103.767, kmTo = 103.777, length = 10 },
+  { kind = "bridge", kmFrom = 105.071, kmTo = 105.081, length = 10 },
+  { kind = "tunnel", kmFrom = 106.46, kmTo = 106.694, length = 233 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "o}gxGqar{AhBqGA}FgA{DmEiFoAqC{@aF_@eJ", v = 40 },
+  { line = "ihhxGavs{Ay@oScDc`@eBwH}RsUsGaK_QuPeE{IaDwKeBuKaBoEqL_KcIsPsIwGiEeG_BoEuKah@oBeEeDgDoC}@kC@kFpCaCvEaDbOwCbG}BjCkDrA}JDwBh@uUjSeC~HaApRcE|OsCdOsBpGyCbEsDnBmDp@{PLi[lJqFT}CkAwCyD_Kw\\gByDyO_S{KaImBmDaA_EOkIjA{KBsNsA}]sBaQ?aGlGu`@~Dob@cAeL_DgG{CgDuDiAaEXgDrBeKnQiF|V}BlDoBrAeHjAsh@jD", v = 90 },
+  { line = "gxvxGiy}{AsR`@}JmAaHmBaQmIyWuUqHaDkh@_DsVjB", v = 125 },
+  { line = "iv{xG}e_|AcLlBeFbEkEdJuAzOyB|HsExDqFT_DwA_DkD}Waa@aGkHiEiBcQeByEyDsCwG{@eGRqZ", v = 85 },
+  { line = "yu_yGg|`|ASok@oB{M}AyEmBsCqS{UuKuHg_@iLuSwJyIu@", v = 100 },
+  { line = "iacyGk~d|AeRJeR{D", v = 80 },
+  { line = "ugdyG{ce|AeDmAyC{C_BaEmAkI", v = 70 },
+  { line = "cwdyGs{e|AoA}KS{G|CuaBx@gKjDuK", v = 80 },
+  { line = "cndyGamj|A|WoZlDmJt[e|B^gHEsXxJme@h@{GPcQ", v = 110 },
+  { line = "qdbyGour|Ar@qm@r@{PxEcs@rIeu@tAaQlPooE", v = 140 },
+  { line = "w{`yGyb_}AzLudD", v = 160 },
+  { line = "{m`yGohd}ANyJo@qUs@cHuBaJkEoJcDiE_K}IaHeBmEPwE`Bik@bc@yEjA_ON{Cd@sDzB_HjHgEbBoDJoRiCgF`@}E|CuGnK", v = 100 },
+  { line = "unfyGgtd}AqDdEqBv@yCJiD_AeKgHgI]", v = 95 },
+  { line = "kxgyGcxd}AiTjAcF]kEoAaG{D_PwQqDoByNuDsDeDkBmDcB_IaAwT}@yFkB{EuGaJyBsHyEga@u@uQLsLbA_NtTstAf@iK?qLu@uKyAwEyBiDmSkLkMsScC}HaA}Qq@cF}DwIaDyCkEmBwScA{DaAwCyBaF}HeBuA", v = 100 },
+  { line = "ofnyGepr}AqKwE", tunnel = true, v = 85 },
+  { line = "asnyG}vr}AaHyCqIqAiE{AiHmEqCuEcBuJQaTmEwQm@cI|@iNjEyMt@{E?{FsAcKqAmEoBeDoCuB}JiEmK{O", v = 90 },
+  { line = "_bqyGmkx}AkCuF}BwH", v = 85 },
+  { line = "ijqyG{|x}AkK{`@{B_EiT_Y_EiJuCuLiBkTkCgtBy@kGqBaHgLeR", v = 120 },
+  { line = "{tsyG_ga~AsBkCoCcBuGSgs@l_@}FvAsE]ma@kMeFSmEl@iNbDwEpByFdEyPnQyJvH{N~GsLrCiKz@_LA}GsBgGcF", v = 100 },
+  { line = "a|{yGsj_~AgPkO}CgAiIo@{GcEgHiHwEcI", v = 80 },
+  { line = "mu}yGix`~AqCqHqBsIgAsIq@}M", v = 120 },
+  { line = "ka~yGafb~AyIqvC", v = 160 },
+  { line = "el~yGs}f~AyAie@_AqHeBuFiEgIsHwH", v = 115 },
+  { line = "cd_zGeii~AeKcH", tunnel = true, v = 115 },
+  { line = "ip_zGiri~A{K_J}FiN", v = 115 },
+  { line = "ce`zGslj~AedAc`DeK_Um[ya@eLsKa`@iTeH_C_IqAoOWubTbL{KhA}JhCklCl~@", v = 160 },
+  { line = "wn`{Gs|o~AaRfGmJHct@a\\uFmAaIY", v = 130 },
+  { line = "ctc{Gktp~A_T_A{n@mZcEZeHjEuCt@oWFkT|BeHsA", v = 80 },
+  { line = "adh{Gigq~AqK}JgE}H", v = 130 },
+  { line = "{vh{Ge}q~AyAaGwCyR", v = 120 },
+  { line = "m~h{Gayr~AyCuLeCeGkGiHye@{UsM{J", tunnel = true, v = 120 },
+  { line = "gek{G_{t~AqWwW}IkF{LgBsP`B", v = 120 },
+  { line = "ghm{Gi{u~Aaw@fMoVrOsWrFsDjD_KhOkErBgFX", v = 110 },
+  { line = "uoq{Guzs~A{SN_JhBgfAvh@q|@`OmTjLg]nB", v = 125 },
+  { line = "ahx{Gelq~AsIc@eIeCcG{DsMuLmEmBwDMuDx@}DjCqChD", v = 80 },
+  { line = "_pz{Gm}q~A_b@tn@mDtDkJ|G", v = 120 },
+  { line = "yc|{Gc_p~AoJdH", tunnel = true, v = 120 },
+  { line = "io|{G}uo~AyOhLse@li@iHzE", v = 120 },
+]
+posts = [[0, 46.08488, 15.17097], [1, 46.08679, 15.18159], [2, 46.0908, 15.19244], [3, 46.0973, 15.20115], [4, 46.10321, 15.21031], [5, 46.10807, 15.22082], [6, 46.1146, 15.21535], [7, 46.12205, 15.20966], [8, 46.12616, 15.19875], [9, 46.13495, 15.19643], [10, 46.14104, 15.20498], [11, 46.14507, 15.2147], [12, 46.14559, 15.2274], [13, 46.14469, 15.2396], [14, 46.15112, 15.23477], [15, 46.15925, 15.2313], [16, 46.16811, 15.23227], [17, 46.17609, 15.23806], [18, 46.18505, 15.23842], [19, 46.1912, 15.23106], [20, 46.19842, 15.23511], [21, 46.20612, 15.24072], [22, 46.20659, 15.25353], [23, 46.21244, 15.26272], [24, 46.22094, 15.26689], [25, 46.22977, 15.26858], [26, 46.23266, 15.27959], [27, 46.23197, 15.29255], [28, 46.22605, 15.30188], [29, 46.22322, 15.31421], [30, 46.22138, 15.32677], [31, 46.21909, 15.33914], [32, 46.21813, 15.35204], [33, 46.21596, 15.36464], [34, 46.21461, 15.37747], [35, 46.21353, 15.39037], [36, 46.21246, 15.40328], [37, 46.21138, 15.41618], [38, 46.21031, 15.42908], [39, 46.21385, 15.44026], [40, 46.222, 15.43861], [41, 46.23039, 15.43483], [42, 46.23884, 15.43271], [43, 46.24655, 15.43054], [44, 46.25522, 15.43217], [45, 46.26266, 15.4387], [46, 46.26633, 15.45007], [47, 46.2667, 15.46278], [48, 46.26357, 15.47497], [49, 46.26708, 15.48498], [50, 46.27174, 15.49537], [51, 46.27983, 15.49978], [52, 46.28811, 15.50439], [53, 46.29111, 15.51604], [54, 46.29165, 15.52726], [55, 46.29769, 15.5362], [56, 46.30365, 15.54573], [57, 46.30533, 15.55831], [58, 46.30595, 15.57127], [59, 46.31285, 15.57684], [60, 46.32116, 15.57198], [61, 46.3299, 15.5743], [62, 46.33786, 15.56862], [63, 46.34637, 15.56491], [64, 46.3545, 15.56965], [65, 46.36132, 15.57702], [66, 46.36258, 15.58988], [67, 46.36352, 15.60284], [68, 46.3655, 15.61527], [69, 46.37263, 15.62286], [70, 46.3774, 15.63392], [71, 46.38215, 15.64498], [72, 46.38776, 15.65505], [73, 46.39528, 15.66205], [74, 46.40396, 15.66476], [75, 46.41295, 15.6646], [76, 46.42194, 15.66442], [77, 46.43093, 15.66425], [78, 46.43993, 15.66407], [79, 46.44892, 15.6639], [80, 46.45791, 15.66371], [81, 46.4669, 15.66356], [82, 46.4759, 15.66338], [83, 46.48489, 15.66321], [84, 46.49388, 15.66304], [85, 46.50287, 15.6628], [86, 46.51186, 15.66264], [87, 46.52055, 15.65938], [88, 46.52914, 15.65552], [89, 46.53774, 15.65167], [90, 46.54636, 15.65179], [91, 46.55494, 15.65528], [92, 46.56346, 15.65894], [93, 46.57212, 15.65852], [94, 46.58029, 15.66144], [95, 46.58525, 15.67182], [96, 46.59341, 15.67721], [97, 46.60142, 15.68244], [98, 46.6103, 15.68038], [99, 46.61877, 15.67636], [100, 46.62673, 15.67162], [101, 46.6353, 15.66816], [102, 46.64376, 15.66384], [103, 46.65257, 15.66134], [104, 46.66128, 15.65916], [105, 46.66953, 15.66352], [106, 46.67638, 15.65518], [107, 46.68408, 15.6485], [108, 46.69134, 15.64078]]
+
+[[connections]]
+km = 0
+station = "Zidani Most"
+lines = [
+  { id = "10", ref = "10", name = "Dobova – Ljubljana", km = 62.474 },
+]
+
+[[connections]]
+km = 24.785
+station = "Celje"
+lines = [
+  { id = "31", ref = "31", name = "Celje – Velenje", km = 37.892 },
+]
+
+[[connections]]
+km = 38.819
+station = "Grobelno"
+lines = [
+  { id = "32", ref = "32", km = 36.694 },
+]
+
+[[connections]]
+km = 72.84
+station = "Pragersko"
+lines = [
+  { id = "40", ref = "40", name = "Pragersko – Ormož", km = 40.193 },
+]
+
+[[connections]]
+km = 91.763
+station = "Maribor"
+lines = [
+  { id = "34", ref = "34", name = "Maribor – Prevalje", km = 83.036 },
+]

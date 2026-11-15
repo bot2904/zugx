@@ -1,0 +1,24 @@
+id = "51"
+ref = "51"
+name = "Lok Divača"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 1.049
+length = 1.049
+speeds = [[0, 1.049, 50, 50]]
+curves = [[0.1, 0.75, 390], [0.8, 0.925, 380]]
+points = [
+  { km = 0.077, kind = "signal", signal = "electricity", dir = -1 },
+  { km = 0.945, kind = "signal", signal = "electricity", dir = 1 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "egzuGqdetAjCwGnCaDpDsA~DAjCl@~CnBlItMdGfD", v = 50 },
+]
+posts = [[0, 45.68707, 13.95801], [1, 45.67973, 13.95688]]

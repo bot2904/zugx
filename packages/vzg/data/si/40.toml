@@ -1,0 +1,68 @@
+id = "40"
+ref = "40"
+name = "Pragersko – Ormož"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+from = "Pragersko"
+to = "Ormož"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 41.13
+length = 41.13
+speeds = [[0, 5.859, 80, 80], [5.859, 20.721, 120, 120], [20.721, 23.941, 100, 100], [23.941, 38.734, 120, 120], [38.734, 38.866, 160, 160], [38.866, 41.13, 80, 80]]
+curves = [[0.275, 0.775, 850], [1.325, 1.65, 800], [1.75, 2.1, 810], [2.4, 2.925, 780], [4.325, 4.95, 990], [20.775, 21.7, 950], [24.575, 25.025, 1610], [25.125, 25.475, 1380], [25.55, 25.925, 1550], [39.125, 39.85, 590], [40.35, 40.65, 1710], [40.725, 40.85, 1580]]
+points = [
+  { km = 0, kind = "station", label = "Ormož", pos = [46.40275, 16.15664], uic = "7900026" },
+  { km = 4.446, kind = "halt", label = "Velika Nedelja", pos = [46.41507, 16.1054] },
+  { km = 8.79, kind = "halt", label = "Osluševci", pos = [46.41947, 16.04932] },
+  { km = 11.27, kind = "halt", label = "Zamušani", pos = [46.42136, 16.0171] },
+  { km = 13.841, kind = "station", label = "Moškanjci", pos = [46.42336, 15.98368] },
+  { km = 22.166, kind = "station", label = "Ptuj", pos = [46.42232, 15.87886] },
+  { km = 24.978, kind = "halt", label = "Hajdina", pos = [46.40316, 15.85505] },
+  { km = 29.229, kind = "station", label = "Kidričevo", pos = [46.40066, 15.80031] },
+  { km = 31.524, kind = "halt", label = "Strnišče", pos = [46.40075, 15.77052] },
+  { km = 34.542, kind = "halt", label = "Cirkovce", pos = [46.40088, 15.73116] },
+  { km = 37.165, kind = "halt", label = "Šikole", pos = [46.40098, 15.69695] },
+  { km = 40.193, kind = "station", label = "Pragersko", pos = [46.39506, 15.6617] },
+]
+structures = [
+  { kind = "bridge", kmFrom = 1.473, kmTo = 1.498, length = 25 },
+  { kind = "bridge", kmFrom = 8.694, kmTo = 8.708, length = 13 },
+  { kind = "bridge", kmFrom = 11.894, kmTo = 11.944, length = 50 },
+  { kind = "bridge", kmFrom = 20.616, kmTo = 20.64, length = 25 },
+  { kind = "bridge", kmFrom = 22.973, kmTo = 23.225, length = 252 },
+  { kind = "bridge", kmFrom = 23.488, kmTo = 23.505, length = 17 },
+  { kind = "bridge", kmFrom = 23.789, kmTo = 23.822, length = 34 },
+  { kind = "bridge", kmFrom = 30.993, kmTo = 31.011, length = 18 },
+  { kind = "bridge", kmFrom = 36.94, kmTo = 36.95, length = 10 },
+  { kind = "bridge", kmFrom = 40.314, kmTo = 40.329, length = 15 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "q`fzG_rraBiMnYsAxHe@dIm@l~@t@xIpDvRf@dMa@ha@{@rM}AxHuBdGit@f|AsElNsAbI}@vKwCjnA", v = 80 },
+  { line = "mzhzGmaeaBafAnvd@", v = 120 },
+  { line = "oakzG}i_`BEhRfA~NlCrMrEdLveBx{B", v = 100 },
+  { line = "smgzG_ny_B~]ld@zJnRrDrK|C`N`CzQv@hOcBd|_@", v = 120 },
+  { line = "ouezG_yt~A?vI", v = 160 },
+  { line = "ouezGgnt~AA`X\\~HtB|KbDlHbGlGh\\xQdHbFvJ|JpLhP", v = 80 },
+]
+posts = [[0, 46.40281, 16.15664], [1, 46.40586, 16.14489], [2, 46.40459, 16.13218], [3, 46.4068, 16.11995], [4, 46.41255, 16.10992], [5, 46.41653, 16.09859], [6, 46.4173, 16.08559], [7, 46.41807, 16.07259], [8, 46.41884, 16.0596], [9, 46.41962, 16.0466], [10, 46.42039, 16.0336], [11, 46.42115, 16.0206], [12, 46.42192, 16.00761], [13, 46.42269, 15.99461], [14, 46.42345, 15.98161], [15, 46.42422, 15.96861], [16, 46.42498, 15.95561], [17, 46.42574, 15.94261], [18, 46.4265, 15.92961], [19, 46.42726, 15.91661], [20, 46.42801, 15.9036], [21, 46.42855, 15.8906], [22, 46.42345, 15.88033], [23, 46.41653, 15.872], [24, 46.40961, 15.86367], [25, 46.40305, 15.85481], [26, 46.40048, 15.84255], [27, 46.40053, 15.82951], [28, 46.40058, 15.81647], [29, 46.40063, 15.80343], [30, 46.40068, 15.79038], [31, 46.40073, 15.77734], [32, 46.40077, 15.7643], [33, 46.40082, 15.75126], [34, 46.40086, 15.73822], [35, 46.4009, 15.72518], [36, 46.40094, 15.71214], [37, 46.40098, 15.6991], [38, 46.40101, 15.68606], [39, 46.40105, 15.67302], [40, 46.39652, 15.66314], [41, 46.38885, 15.65652]]
+
+[[connections]]
+km = 0
+station = "Ormož"
+lines = [
+  { id = "41", ref = "41", name = "Predor Stanjevci (novi)", km = 0 },
+  { id = "44", ref = "44", name = "Ormož – Središče – d.m.", km = 11.543 },
+]
+
+[[connections]]
+km = 40.193
+station = "Pragersko"
+lines = [
+  { id = "30", ref = "30", name = "Zidani Most – Šentilj", km = 72.84 },
+]

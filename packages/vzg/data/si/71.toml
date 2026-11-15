@@ -1,0 +1,30 @@
+id = "71"
+ref = "71"
+name = "Nova Gorica – Vrtojba"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+from = "Nova Gorica"
+to = "Vrtojba d.m."
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 1.843
+length = 1.843
+speeds = [[0, 1.843, 50, 50]]
+curves = [[0.1, 0.475, 220]]
+points = [
+  { km = 0.188, kind = "halt", label = "Šempeter pri Gorici", pos = [45.92822, 13.64687] },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0.436, kmTo = 0.474, length = 38 },
+  { kind = "bridge", kmFrom = 0.651, kmTo = 0.662, length = 11 },
+  { kind = "bridge", kmFrom = 1.648, kmTo = 1.682, length = 34 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "wtiwGoehrAjDeBfDIrC~AnBhEhVnoB", v = 50 },
+]
+posts = [[0, 45.92988, 13.64584], [1, 45.92525, 13.63738]]

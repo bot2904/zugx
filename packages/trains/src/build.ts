@@ -7,6 +7,7 @@ import {
   dayFromIso,
   configuredFeeds,
   currentCountry,
+  sourceLabel,
   dataDir,
   isoDay,
   isRailRouteType,
@@ -433,7 +434,7 @@ async function main() {
   // the country's feeds: its licence line; feeds given with GTFS_ZIP: their file names
   const source = process.env.GTFS_ZIP
     ? feeds.map((f) => f.source.split("/").pop()).join(" + ")
-    : `${COUNTRY.licence.source} ${year} (${COUNTRY.licence.name})`;
+    : sourceLabel(year, COUNTRY);
   const write = async (file: string, list: TrainEntry[]) => {
     const ids = new Set<string>();
     for (const e of list) {

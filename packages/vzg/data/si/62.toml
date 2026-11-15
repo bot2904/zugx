@@ -1,0 +1,57 @@
+id = "62"
+ref = "62"
+name = "Prešnica – Koper"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+from = "Cepišče Prešnica"
+to = "Koper"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 31.526
+length = 31.526
+speeds = [[0, 6.075, 65, 65], [6.075, 13.948, 80, 80], [13.948, 14.719, 65, 65], [14.719, 14.814, 65, 80], [14.814, 28.16, 80, 80], [28.16, 30.956, 90, 90], [30.956, 31.526, 30, 30]]
+curves = [[0.175, 0.55, 360], [0.725, 0.95, 910], [1.175, 1.35, 900], [1.4, 1.675, 500], [1.825, 2.725, 350], [2.825, 3.575, 610], [4, 4.075, 2480], [4.675, 5.1, 440], [5.55, 6.5, 250], [6.6, 6.85, 510], [6.975, 7.25, 440], [7.3, 7.425, 860], [7.775, 7.925, 920], [8, 8.4, 470], [8.45, 8.65, 540], [8.725, 9.025, 500], [9.075, 9.475, 430], [9.525, 9.725, 550], [9.775, 10.05, 700], [10.2, 10.425, 600], [10.475, 11.025, 540], [11.075, 11.575, 400], [11.675, 12.1, 790], [12.4, 12.55, 1220], [12.65, 12.725, 2280], [12.9, 13.9, 260], [13.95, 14.25, 830], [14.4, 14.725, 450], [14.775, 15.175, 490], [15.75, 16.025, 1670], [16.325, 16.625, 430], [16.675, 16.9, 530], [16.95, 17.125, 1070], [17.175, 17.4, 460], [17.45, 17.85, 370], [17.925, 18.275, 400], [18.325, 18.7, 450], [18.775, 19.1, 450], [19.15, 19.425, 420], [19.475, 19.675, 580], [19.725, 20, 630], [20.125, 20.2, 1910], [20.25, 20.45, 1010], [20.625, 20.975, 490], [21.025, 21.525, 320], [21.575, 22.075, 760], [22.125, 22.55, 320], [22.6, 22.95, 480], [23.175, 23.35, 1390], [23.8, 24.175, 390], [24.225, 24.525, 460], [24.6, 24.775, 700], [24.975, 25.3, 490], [26.9, 27.25, 720], [27.625, 27.8, 1200], [28.05, 28.55, 490], [29, 29.275, 760], [29.35, 29.6, 720], [29.725, 29.875, 1750], [30.15, 30.35, 1120]]
+points = [
+  { km = 5.467, kind = "station", label = "Črnotiče", pos = [45.55191, 13.89168] },
+  { km = 14.379, kind = "station", label = "Hrastovlje", pos = [45.50113, 13.90925] },
+  { km = 28.186, kind = "signal", signal = "electricity", dir = -1 },
+  { km = 31.48, kind = "station", label = "Koper / Capodistria", pos = [45.53918, 13.73897] },
+]
+structures = [
+  { kind = "bridge", kmFrom = 9.749, kmTo = 9.762, length = 14 },
+  { kind = "bridge", kmFrom = 9.927, kmTo = 9.969, length = 42 },
+  { kind = "tunnel", kmFrom = 10.391, kmTo = 10.648, length = 257, name = "Zanigrad" },
+  { kind = "bridge", kmFrom = 11.016, kmTo = 11.027, length = 11 },
+  { kind = "tunnel", kmFrom = 13.336, kmTo = 13.948, length = 612, name = "Dol" },
+  { kind = "tunnel", kmFrom = 19.252, kmTo = 19.354, length = 101, name = "Loka" },
+  { kind = "tunnel", kmFrom = 19.652, kmTo = 19.72, length = 68, name = "Rižana" },
+  { kind = "bridge", kmFrom = 19.788, kmTo = 19.821, length = 33 },
+  { kind = "bridge", kmFrom = 19.888, kmTo = 19.943, length = 55 },
+  { kind = "bridge", kmFrom = 21.458, kmTo = 21.47, length = 13 },
+  { kind = "bridge", kmFrom = 22.508, kmTo = 22.52, length = 12 },
+  { kind = "bridge", kmFrom = 22.782, kmTo = 22.816, length = 35 },
+  { kind = "bridge", kmFrom = 27.2, kmTo = 27.239, length = 40 },
+  { kind = "bridge", kmFrom = 27.327, kmTo = 27.339, length = 11 },
+  { kind = "bridge", kmFrom = 28.64, kmTo = 28.674, length = 34 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "qfbuGiabtAbMaA`GxA~BhCpJhPfUlSxGhK`F`DbMlCjDlB`DnE|A~F\\~J{@hHwCpGkJhJmFxIcCvJw@|JJjJfEpf@nJvr@d@fHKhFaAtG}Pze@mAbGApFn@|DtA~CzCfC", v = 65 },
+  { line = "ax_uGk}vsAnFT`FcDdBmEnC}MlA_DjNaPpC_AhKEfXwEdKDlDe@~GwFbHcLtJgFvD{EbHeRrCwCxCwAtKcCpL_JzRaDhDqB", v = 80 },
+  { line = "ujytGsl{sA`FaFjDeB", tunnel = true, v = 80 },
+  { line = "g~xtG{v{sApHyBvCEzMfEpFGdFgCtLsOhFoCfDgAtXsClZ}KnCGpDtAxBnC|@pC", v = 80 },
+  { line = "csttGqv|sAl@zI[nD_B|EuDjCiIL", tunnel = true, v = 80 },
+  { line = "qeutGmz{sA_J^_SrGsDMiD{A", v = 65 },
+  { line = "oovtGct{sAmGaDqFAiEfBk`@~VsH`D}V|G_DxC{GxNsIlGeIzI_C|AkKhBmD~BkChFkCtNcCfGsChCsLzFgDlG{C`Pa@~Fn@hIzBtL", v = 80 },
+  { line = "ef|tG{xusA@bG", tunnel = true, v = 80 },
+  { line = "cf|tGwpusAwApMCvG", v = 80 },
+  { line = "_i|tGmytsAJlD", tunnel = true, v = 80 },
+  { line = "sh|tG_ttsAWjNiF|\\cI~XiAtCqChD_NvEsBlBmBzDgAlHCdQu@|KqBzJeE|Ku@pDQnFV|DhF|Pr@`FB|CeCd^oJ~k@c@dGf@nHrEvMn@zEm@zVzA|YAjHy@fFsQxi@__@lpAgAjKu@~j@iDfa@", v = 80 },
+  { line = "wa`uGorasA@pI`BrJzVre@nHz\\~IfR`LvZnNdu@", v = 90 },
+  { line = "uu}tGsr{rAzJli@", v = 30 },
+]
+posts = [[0, 45.56409, 13.94213], [1, 45.55649, 13.93703], [2, 45.54872, 13.93113], [3, 45.5511, 13.92124], [4, 45.55141, 13.90902], [5, 45.54961, 13.89668], [6, 45.55211, 13.88564], [7, 45.54569, 13.89229], [8, 45.53693, 13.89426], [9, 45.52955, 13.90077], [10, 45.52206, 13.90696], [11, 45.51361, 13.91011], [12, 45.50563, 13.91378], [13, 45.49691, 13.91665], [14, 45.49783, 13.91031], [15, 45.50648, 13.91016], [16, 45.51466, 13.9049], [17, 45.52225, 13.89889], [18, 45.52891, 13.89152], [19, 45.53411, 13.88236], [20, 45.53408, 13.86993], [21, 45.53893, 13.85986], [22, 45.54251, 13.84934], [23, 45.54248, 13.83758], [24, 45.54488, 13.82531], [25, 45.54322, 13.81307], [26, 45.54715, 13.80179], [27, 45.55155, 13.79058], [28, 45.55278, 13.77793], [29, 45.54928, 13.76708], [30, 45.54452, 13.75632], [31, 45.54077, 13.7447]]

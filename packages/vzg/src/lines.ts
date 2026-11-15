@@ -720,8 +720,8 @@ export function lineTracks(
   return fallback?.ts ?? tracks;
 }
 
-/** All lines with ÖBB-style numbers ("101 01") from the extract. */
-const OEBB = /^\d{3} \d{2}$/;
+/** ÖBB line numbers ("101 01"), the default pattern of the national line numbers */
+export const OEBB_LINE_REF = /^\d{3} \d{2}$/;
 
 /** most common value of a way tag */
 function common(ways: Way[], key: string): string | undefined {
@@ -731,12 +731,13 @@ function common(ways: Way[], key: string): string | undefined {
 }
 
 /**
- * All lines: ÖBB lines by their number (route=tracks relations + ways with a line `ref`), and the
- * other `route=tracks` relations with a name whose ways are mostly in the extract (private and
- * narrow-gauge railways, light rail such as the Stubaitalbahn; foreign and abandoned lines drop
- * out), merged by name.
+ * All lines: the national lines by their number (`lineRef`, e.g. ÖBB "101 01"; route=tracks
+ * relations + ways with a line `ref`), and the other `route=tracks` relations with a name whose
+ * ways are mostly in the extract (private and narrow-gauge railways, light rail such as the
+ * Stubaitalbahn; foreign and abandoned lines drop out), merged by name.
  */
-export function buildLines(ex: RailExtract): VzgLine[] {
+export function buildLines(ex: RailExtract, lineRef: RegExp = OEBB_LINE_REF): VzgLine[] {
+  const NUMBERED = lineRef;
   const nodeTags = new Map(ex.nodes.map((n) => [n.id, n.tags]));
   const byId = new Map(ex.ways.map((w) => [w.id, w]));
   // one graph of all tracks (crossovers excluded: a Regelgleis does not change tracks)
@@ -753,17 +754,17 @@ export function buildLines(ex: RailExtract): VzgLine[] {
   };
   // ways tagged with a line ref but without relation still count
   for (const w of ex.ways)
-    if (w.tags.ref && OEBB.test(w.tags.ref)) group(w.tags.ref, true).ways.push(w);
+    if (w.tags.ref && NUMBERED.test(w.tags.ref)) group(w.tags.ref, true).ways.push(w);
   const oebbWays = new Set([
-    ...ex.ways.filter((w) => w.tags.ref && OEBB.test(w.tags.ref)).map((w) => w.id),
-    ...ex.lines.filter((r) => OEBB.test(r.ref)).flatMap((r) => r.ways),
+    ...ex.ways.filter((w) => w.tags.ref && NUMBERED.test(w.tags.ref)).map((w) => w.id),
+    ...ex.lines.filter((r) => NUMBERED.test(r.ref)).flatMap((r) => r.ways),
   ]);
   for (const rel of ex.lines) {
     const members = rel.ways.map((id) => byId.get(id)).filter((w): w is Way => !!w);
     let g: Group;
-    if (OEBB.test(rel.ref)) g = group(rel.ref, true);
+    if (NUMBERED.test(rel.ref)) g = group(rel.ref, true);
     else {
-      if (!rel.name || OEBB.test(rel.name) || members.length < Math.max(1, rel.ways.length / 2))
+      if (!rel.name || NUMBERED.test(rel.name) || members.length < Math.max(1, rel.ways.length / 2))
         continue;
       // already an ÖBB line (e.g. NÖVOG's Waldviertelbahn = 177 01 / 179 01)
       if (members.filter((w) => oebbWays.has(w.id)).length >= members.length / 2) continue;

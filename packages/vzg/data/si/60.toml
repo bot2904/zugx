@@ -1,0 +1,46 @@
+id = "60"
+ref = "60"
+name = "Divača – Prešnica"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+from = "Divača"
+to = "Cepišče Prešnica"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 17.22
+length = 17.22
+speeds = [[0, 1.614, 50, 50], [1.614, 12.04, 80, 80], [12.04, 13.227, 70, 70], [13.227, 15.133, 85, 85], [15.133, 15.963, 65, 85], [15.963, 17.22, 85, 85]]
+curves = [[0.1, 0.3, 390], [0.7, 1, 330], [1.075, 1.325, 430], [1.4, 1.475, 2140], [1.95, 2.3, 370], [2.55, 3.3, 530], [3.35, 3.775, 330], [3.825, 4.4, 530], [4.5, 4.675, 820], [4.725, 4.875, 790], [5.15, 5.5, 430], [5.55, 5.8, 430], [6.05, 6.175, 1450], [6.35, 6.9, 500], [6.975, 7.225, 660], [7.625, 8.375, 430], [8.425, 8.75, 550], [8.85, 8.95, 1760], [9.45, 9.75, 760], [10.475, 10.8, 400], [11.125, 11.575, 350], [11.725, 12.2, 330], [12.35, 12.4, 2210], [12.75, 13.05, 590], [13.125, 13.625, 660], [13.95, 14.2, 640], [14.45, 14.675, 1040], [14.9, 15.325, 730], [15.525, 15.65, 1210], [15.7, 15.825, 730], [15.875, 16.075, 700], [16.125, 16.275, 1080], [16.5, 16.65, 920], [16.825, 17.075, 520]]
+points = [
+  { km = 0.468, kind = "station", label = "Divača", pos = [45.68135, 13.96548] },
+  { km = 8.136, kind = "station", label = "Rodik", pos = [45.62719, 13.9752] },
+  { km = 12.525, kind = "station", label = "Hrpelje-Kozina", pos = [45.60372, 13.93516] },
+  { km = 16.481, kind = "halt", label = "Prešnica", pos = [45.57054, 13.94108] },
+  { km = 17.188, kind = "signal", signal = "electricity", dir = 1 },
+]
+structures = [
+  { kind = "bridge", kmFrom = 3.536, kmTo = 3.55, length = 13 },
+  { kind = "bridge", kmFrom = 6.411, kmTo = 6.429, length = 18 },
+  { kind = "bridge", kmFrom = 11.732, kmTo = 11.754, length = 23 },
+  { kind = "bridge", kmFrom = 15.091, kmTo = 15.102, length = 12 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "u~xuGq{gtAh@tG?jFmIri@?nI|DtNjB|CbJtF|HbD", v = 50 },
+  { line = "mixuG}tdtAzTfJtDXxD_AlUuOvHoAvNxCfCnClEnJ~ElDvFJ`JaCfOhB~Ce@`LuIjLcDlSuLtA}AvAiDdCsRlAcE|MaS~KqSvCoD|M}FdI_MjEkCfZeKtC_@xDTdEjB~FvGdBbG|@lPnBpIzHxNlZld@rAvDvRt{@zA`EtEjEhVhJhCnBbCdEdAfGp@x\\bAbEhBzC", v = 80 },
+  { line = "oxjuGk_atAhGjC`d@fIxDnChIdK", v = 70 },
+  { line = "_{huGa``tAzE|CtFrAt^q@f[iPjTmErIVzCo@hO_H`GgEvIkDfLqJdP}IlS}E`NhB", v = 85 },
+]
+posts = [[0, 45.68059, 13.97193], [1, 45.68164, 13.95967], [2, 45.67392, 13.95382], [3, 45.66549, 13.95672], [4, 45.65758, 13.9533], [5, 45.64919, 13.95657], [6, 45.64356, 13.96583], [7, 45.63662, 13.97357], [8, 45.62819, 13.97621], [9, 45.62347, 13.96585], [10, 45.61797, 13.95592], [11, 45.61237, 13.94689], [12, 45.60819, 13.93703], [13, 45.59965, 13.93355], [14, 45.5913, 13.93062], [15, 45.5828, 13.93452], [16, 45.57434, 13.93817], [17, 45.56604, 13.94263]]
+
+[[connections]]
+km = 0.468
+station = "Divača"
+lines = [
+  { id = "50", ref = "50", name = "Ljubljana - Sežana", km = 10.577 },
+  { id = "70", ref = "70", name = "Jesenice – Sežana", km = 10.27 },
+]

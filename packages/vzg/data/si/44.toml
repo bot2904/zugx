@@ -1,0 +1,45 @@
+id = "44"
+ref = "44"
+name = "Ormož – Središče – d.m."
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+from = "Ormož"
+to = "Središče d.m."
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 11.8
+length = 11.8
+speeds = [[0, 1.07, 100, 100], [1.07, 2.325, 80, 80], [2.325, 8.386, 100, 100], [8.386, 11.692, 80, 80], [11.692, 11.8, 50, 50]]
+curves = [[5.65, 5.75, 2580], [5.85, 5.9, 2640], [10.525, 10.85, 1270], [11.025, 11.25, 1280]]
+points = [
+  { km = 2.076, kind = "station", label = "Središče", pos = [46.38911, 16.2771], uic = "7900066" },
+  { km = 6.034, kind = "halt", label = "Obrež", uic = "7900161", pos = [46.39105, 16.22559] },
+  { km = 7.75, kind = "halt", label = "Frankovci", uic = "7900102", pos = [46.39383, 16.20358] },
+  { km = 11.543, kind = "station", label = "Ormož", pos = [46.40275, 16.15664], uic = "7900026" },
+]
+structures = [
+  { kind = "bridge", kmFrom = 2.547, kmTo = 2.56, length = 13 },
+  { kind = "bridge", kmFrom = 6.943, kmTo = 6.955, length = 12 },
+  { kind = "bridge", kmFrom = 10.005, kmTo = 10.014, length = 10 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "keczGykobByA`vA", v = 100 },
+  { line = "ehczGwtlbBiBdeB", v = 80 },
+  { line = "okczGqnibB_HztGkYhsE", v = 100 },
+  { line = "{ndzGkdzaBsVlvDkJh`@sRpb@", v = 80 },
+  { line = "oefzGahraBeCfE", v = 50 },
+]
+posts = [[0, 46.38822, 16.30413], [1, 46.38864, 16.29111], [2, 46.38906, 16.27809], [3, 46.38947, 16.26506], [4, 46.38989, 16.25204], [5, 46.3903, 16.23901], [6, 46.391, 16.22603], [7, 46.39261, 16.2132], [8, 46.39423, 16.20038], [9, 46.39585, 16.18755], [10, 46.39746, 16.17472], [11, 46.39987, 16.16226]]
+
+[[connections]]
+km = 11.543
+station = "Ormož"
+lines = [
+  { id = "40", ref = "40", name = "Pragersko – Ormož", km = 0 },
+  { id = "41", ref = "41", name = "Predor Stanjevci (novi)", km = 0 },
+]

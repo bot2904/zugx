@@ -1,0 +1,21 @@
+id = "14"
+ref = "14"
+name = "Lok Zidani Most"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 1.278
+length = 1.278
+speeds = [[0, 1.278, 40, 40]]
+curves = [[0.1, 0.575, 320], [0.825, 1.175, 470]]
+points = []
+
+[tracks.geo]
+segments = [
+  { line = "otfxGe{r{AuClJkBjCsDlA{E{@wR}MyDaEoByFy@yK", v = 40 },
+]
+posts = [[0, 46.07832, 15.17507], [1, 46.0857, 15.17581]]

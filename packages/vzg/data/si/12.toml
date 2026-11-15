@@ -1,0 +1,30 @@
+id = "12"
+ref = "12"
+name = "Ljubljana Zalog – Ljubljana"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+from = "Ljubljana Zalog"
+to = "Ljubljana"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 3.747
+length = 3.747
+speeds = [[0, 0.01, 30, 30], [0.01, 3.7, 50, 50], [3.7, 3.747, 40, 40]]
+curves = [[0.1, 0.15, 1610], [0.225, 0.5, 640], [0.55, 0.75, 840], [0.975, 1.025, 1900], [1.1, 1.15, 1880], [2.4, 2.45, 1700], [2.6, 2.65, 2440], [2.7, 2.775, 2220]]
+points = []
+structures = [
+  { kind = "bridge", kmFrom = 0, kmTo = 0.01, length = 10 },
+  { kind = "bridge", kmFrom = 2.577, kmTo = 2.61, length = 33 },
+  { kind = "bridge", kmFrom = 3.557, kmTo = 3.576, length = 19 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "q}bxG_l}wAAX", v = 30 },
+  { line = "s}bxGek}wAkB|ZrBbZvBrqF", v = 50 },
+  { line = "sybxGoatwA@xB", v = 40 },
+]
+posts = [[0, 46.05929, 14.5736], [1, 46.05922, 14.56081], [2, 46.05902, 14.54786], [3, 46.05873, 14.53491]]

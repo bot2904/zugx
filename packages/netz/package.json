@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@zugx/db": "workspace:*",
+    "@zugx/gtfs": "workspace:*",
     "@zugx/toml": "workspace:*",
     "@zugx/vzg": "workspace:*"
   },

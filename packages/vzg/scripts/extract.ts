@@ -2,7 +2,7 @@
  * Step 1: extract the railway line network from an OSM PBF into a compact JSON (intermediate,
  * `.cache/osm-rail.json`, not committed; ODbL).
  *
- *   node packages/vzg/scripts/extract.ts [.cache/austria-YYMMDD.osm.pbf] [.cache/osm-rail.json]
+ *   COUNTRY=si vpx packages/vzg/scripts/extract.ts [.cache/<extract>-YYMMDD.osm.pbf] [out.json]
  *
  * Pass 1 (ways + relations): `railway=rail` ways except yard/siding/spur and industrial/military
  * (line tracks have a line `ref` such as "101 01" or are in a `route=tracks` relation; the others
@@ -13,12 +13,14 @@
  */
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { currentCountry, osmPbf, osmRailPath } from "@zugx/gtfs/country";
 import { readPbf, type Tags } from "../src/pbf.ts";
 import type { RailExtract } from "../src/types.ts";
 
-const root = join(import.meta.dirname, "..", "..", "..");
-const input = process.argv[2] ?? join(root, ".cache", "austria-261113.osm.pbf");
-const output = process.argv[3] ?? join(root, ".cache", "osm-rail.json");
+// default: the newest extract of the country (COUNTRY, default at) → its rail extract
+const input = process.argv[2] ?? osmPbf();
+const output = process.argv[3] ?? osmRailPath();
+const lineMembers = currentCountry().osmLineMembers ?? false;
 
 /** way tags kept (the rest is not needed for speed profiles / line diagrams) */
 const WAY_TAGS = [
@@ -72,6 +74,7 @@ const lap = () => `${((Date.now() - t0) / 1000).toFixed(1)} s`;
 // so collect all candidate rail ways and filter afterwards)
 const relations: RailExtract["lines"] = [];
 const candidates = new Map<number, { refs: number[]; tags: Tags }>();
+const memberOnly = new Map<number, { refs: number[]; tags: Tags }>();
 let osmDate: string | undefined;
 readPbf(input, {
   header: (h) => {
@@ -81,10 +84,18 @@ readPbf(input, {
     const t = w.tags;
     // standard and narrow gauge (Mariazellerbahn, Pinzgaubahn …), light rail and trams
     // (Stubaitalbahn, Innsbrucker Mittelgebirgsbahn); a line needs a route=tracks relation
-    if (!RAIL_KINDS.has(t.railway ?? "")) return;
-    if (t.service === "yard" || t.service === "siding" || t.service === "spur") return;
     if (t.usage === "industrial" || t.usage === "military" || t.usage === "test") return;
-    candidates.set(w.id, { refs: w.refs, tags: pick(t, WAY_TAGS) });
+    // tracks under renewal on a line in service (railway=construction + construction:railway)
+    const kind =
+      lineMembers && t.railway === "construction" ? t["construction:railway"] : t.railway;
+    if (!RAIL_KINDS.has(kind ?? "")) return;
+    const tags = pick(t, WAY_TAGS);
+    if (kind !== t.railway) tags.railway = kind!;
+    const side = t.service === "yard" || t.service === "siding" || t.service === "spur";
+    if (side && !lineMembers) return;
+    // with osmLineMembers: sidings, yard tracks and tracks under construction only where a line
+    // relation lists them (countries.toml)
+    (side || kind !== t.railway ? memberOnly : candidates).set(w.id, { refs: w.refs, tags });
   },
   relation: (r) => {
     const t = r.tags;
@@ -101,6 +112,9 @@ readPbf(input, {
     });
   },
 });
+const members = new Set(relations.flatMap((r) => r.ways));
+for (const [id, w] of memberOnly) if (members.has(id)) candidates.set(id, w);
+memberOnly.clear();
 const ways: RailExtract["ways"] = [];
 for (const [id, w] of candidates) ways.push({ id, nodes: w.refs, tags: w.tags });
 candidates.clear();

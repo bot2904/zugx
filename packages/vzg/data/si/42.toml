@@ -1,0 +1,44 @@
+id = "42"
+ref = "42"
+name = "Ljutomer – Gornja Radgona"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+from = "Gornja Radgona"
+to = "Ljutomer"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 23.285
+length = 23.285
+speeds = [[0, 1.035, 50, 50], [1.035, 4.822, 60, 60], [4.822, 5.057, 50, 50], [5.057, 17.298, 60, 60], [17.298, 17.619, 50, 50], [17.619, 22.679, 60, 60], [22.679, 23.285, 50, 50]]
+curves = [[0.4, 0.5, 1920], [1.15, 1.75, 2020], [4, 4.175, 2190], [5.025, 5.25, 530], [5.5, 5.875, 620], [8.15, 8.325, 1730], [8.925, 9.125, 1190], [10.45, 10.675, 1330], [14.5, 14.925, 1100], [15.8, 16.2, 1040], [17.125, 17.375, 840], [17.65, 17.9, 760], [18.725, 18.8, 2550], [19.05, 19.125, 2760], [20, 20.475, 2070], [21.275, 21.45, 1900], [21.95, 22.375, 440], [22.425, 22.625, 870], [22.775, 23.175, 470]]
+points = [
+  { km = 0.204, kind = "station", label = "Ljutomer", uic = "7900065", pos = [46.52865, 16.18922] },
+]
+structures = [
+  { kind = "bridge", kmFrom = 8.368, kmTo = 8.378, length = 10 },
+  { kind = "bridge", kmFrom = 9.985, kmTo = 9.995, length = 10 },
+  { kind = "bridge", kmFrom = 13.048, kmTo = 13.059, length = 11 },
+  { kind = "bridge", kmFrom = 17.133, kmTo = 17.149, length = 16 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "cm~zGykyaBsKt_@}Lli@", v = 50 },
+  { line = "ug_{Gu`waBqItZgKxTmwA``C_c@ni@", v = 60 },
+  { line = "}zc{GscpaBkI|J", v = 50 },
+  { line = "ied{GuwoaBkC`FgHh_@yBpFcChDwnBziByj@b^ebAvdAooAl}BclAhnBsKjKir@h_@oFfEgGbIge@|x@{BbH", v = 60 },
+  { line = "aqt{Gye|`BsEnW", v = 50 },
+  { line = "uwt{Gim{`BoAfH_BvE}`@|u@wNjSsg@xi@eJvLge@t`AyHzLqRzXwK|D}IxKqF|D", v = 60 },
+  { line = "qe{{Giwr`BwGhE_E~@sEQyIiD", v = 50 },
+]
+posts = [[0, 46.5277, 16.19149], [1, 46.53181, 16.17988], [2, 46.53708, 16.16941], [3, 46.54342, 16.16014], [4, 46.54977, 16.15088], [5, 46.55676, 16.14266], [6, 46.56199, 16.13251], [7, 46.56951, 16.12532], [8, 46.57702, 16.11813], [9, 46.58502, 16.11218], [10, 46.59237, 16.10465], [11, 46.59916, 16.09617], [12, 46.60524, 16.08652], [13, 46.61144, 16.07704], [14, 46.61782, 16.06782], [15, 46.62479, 16.05974], [16, 46.63296, 16.05433], [17, 46.63931, 16.04508], [18, 46.64387, 16.034], [19, 46.65004, 16.0245], [20, 46.65729, 16.01674], [21, 46.66342, 16.00721], [22, 46.66972, 15.99789], [23, 46.67767, 15.99231]]
+
+[[connections]]
+km = 0.204
+station = "Ljutomer"
+lines = [
+  { id = "41", ref = "41", name = "Predor Stanjevci (novi)", km = 20.626 },
+]

@@ -1,0 +1,27 @@
+id = "25"
+ref = "25"
+operator = "GYSEV"
+gauge = "1435"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 0.643
+length = 0.643
+speeds = [[0, 0.643, 120, 120]]
+curves = []
+points = [
+  { km = 0.143, kind = "signal", signal = "electricity", dir = -1 },
+  { km = 0.327, kind = "signal", signal = "electricity", dir = 1 },
+  { km = 0.615, kind = "signal", signal = "electricity", dir = -1 },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0, kmTo = 0.011, length = 11 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "miw|GmdxbBcBps@", v = 120 },
+]
+posts = [[0, 46.81895, 16.34903]]

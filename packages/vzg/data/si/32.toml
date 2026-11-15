@@ -1,0 +1,87 @@
+id = "32"
+ref = "32"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 37.334
+length = 37.334
+speeds = [[0, 4.418, 50, 50], [4.418, 8.396, 45, 45], [8.396, 8.955, 40, 40], [8.955, 14.928, 45, 45], [14.928, 15.306, 40, 40], [15.306, 22.506, 45, 45], [22.506, 22.798, 40, 40], [22.798, 24.53, 65, 65], [24.53, 25.184, 50, 50], [25.184, 26.047, 65, 65], [26.047, 30.013, 80, 80], [30.013, 30.082, 40, 40], [30.082, 31.111, 70, 70], [31.111, 36.289, 80, 80], [36.289, 36.62, 55, 55], [36.62, 37.334, 50, 50]]
+curves = [[0.1, 0.175, 480], [0.225, 0.375, 680], [0.475, 0.75, 480], [0.8, 1.1, 360], [1.65, 2.55, 400], [2.675, 3.35, 470], [3.525, 3.675, 1310], [4.075, 4.35, 570], [4.45, 4.725, 380], [4.775, 5.075, 430], [5.125, 6.4, 200], [6.525, 6.825, 720], [7.15, 7.3, 690], [7.625, 7.8, 740], [8.15, 8.4, 680], [8.975, 9.1, 1690], [9.425, 9.5, 2150], [9.825, 10.075, 790], [10.25, 10.675, 530], [10.725, 11.025, 190], [11.075, 11.4, 320], [12.15, 12.35, 890], [12.65, 13.55, 250], [13.625, 13.75, 750], [13.8, 14.6, 390], [14.65, 15.225, 560], [15.3, 15.45, 830], [15.5, 15.95, 420], [16, 16.4, 480], [16.6, 17.35, 350], [17.5, 17.575, 1060], [17.625, 18.025, 260], [18.075, 18.3, 350], [18.35, 18.9, 410], [18.95, 19.125, 490], [19.2, 19.375, 720], [19.425, 19.55, 900], [19.7, 19.85, 950], [19.95, 20.1, 760], [20.175, 20.325, 420], [20.375, 20.525, 600], [20.85, 21.25, 660], [21.4, 21.95, 360], [22, 22.075, 1580], [22.325, 22.425, 1750], [23.25, 23.475, 610], [23.625, 23.875, 480], [24.225, 24.675, 390], [24.825, 25.325, 340], [25.425, 25.9, 430], [26.15, 26.45, 700], [26.525, 26.7, 790], [26.775, 27.3, 550], [27.65, 27.9, 800], [28.175, 28.45, 710], [28.675, 29, 610], [29.2, 29.4, 890], [29.6, 29.95, 560], [30.125, 30.525, 380], [30.575, 31.05, 340], [31.15, 31.65, 730], [31.9, 32.225, 860], [32.325, 32.475, 930], [33.2, 33.95, 1230], [34.175, 34.225, 2730], [34.7, 34.95, 740], [35.1, 35.4, 450], [35.45, 35.8, 490], [36.25, 36.425, 490], [36.475, 36.575, 370], [36.625, 36.725, 650], [36.9, 37.225, 620]]
+points = [
+  { km = 1.407, kind = "halt", label = "Sveti Rok ob Sotli", uic = "7900214", pos = [46.20876, 15.76001] },
+  { km = 3.457, kind = "halt", label = "Dobovec", uic = "7900092", pos = [46.22076, 15.75124] },
+  { km = 5.403, kind = "halt", label = "Vidina", pos = [46.21671, 15.7296] },
+  { km = 8.596, kind = "station", label = "Rogatec", pos = [46.22445, 15.69788] },
+  { km = 12.442, kind = "halt", label = "Rjavica", pos = [46.2198, 15.6526] },
+  { km = 15.134, kind = "station", label = "Rogaška Slatina", pos = [46.23187, 15.63848], uic = "7900068" },
+  { km = 17.564, kind = "halt", label = "Tekačevo", uic = "7900232", pos = [46.23989, 15.61809] },
+  { km = 21.312, kind = "halt", label = "Podplat", uic = "7900183", pos = [46.244, 15.57283] },
+  { km = 22.623, kind = "halt", label = "Mestinje", uic = "7900151", pos = [46.235, 15.56442] },
+  { km = 25.567, kind = "station", label = "Stranje", pos = [46.21742, 15.5602], uic = "7900062" },
+  { km = 28.241, kind = "signal", signal = "crossing_distant", dir = -1 },
+  { km = 28.521, kind = "signal", signal = "crossing_distant", dir = 1 },
+  { km = 28.681, kind = "signal", signal = "crossing", dir = 1 },
+  { km = 29.285, kind = "signal", signal = "crossing_distant", dir = 1 },
+  { km = 29.405, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 29.44, kind = "signal", signal = "crossing", dir = 1 },
+  { km = 29.541, kind = "signal", signal = "crossing_distant", dir = -1 },
+  { km = 29.73, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 29.942, kind = "station", label = "Šmarje pri Jelšah", pos = [46.23062, 15.51689] },
+  { km = 29.944, kind = "stop", label = "Šmrnje pri Jelšah", pos = [46.23065, 15.51689] },
+  { km = 30.131, kind = "signal", signal = "crossing", dir = 1 },
+  { km = 30.174, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 30.352, kind = "signal", signal = "crossing_distant", dir = -1 },
+  { km = 31.076, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 31.262, kind = "signal", signal = "crossing_distant", dir = -1 },
+  { km = 32.233, kind = "signal", signal = "crossing_distant", dir = 1 },
+  { km = 32.391, kind = "signal", signal = "crossing", dir = 1 },
+  { km = 33.731, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 33.776, kind = "halt", label = "Šentvid pri Grobelnem", uic = "7900275", pos = [46.22742, 15.47028] },
+  { km = 34.287, kind = "signal", signal = "crossing", dir = -1 },
+  { km = 36.694, kind = "station", label = "Grobelno", pos = [46.21291, 15.43959] },
+  { km = 61.3, kind = "signal", signal = "crossing_distant", dir = -1, measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0, kmTo = 0.01, length = 10 },
+  { kind = "bridge", kmFrom = 3.069, kmTo = 3.079, length = 10 },
+  { kind = "bridge", kmFrom = 8.396, kmTo = 8.409, length = 13 },
+  { kind = "bridge", kmFrom = 16.267, kmTo = 16.281, length = 14 },
+  { kind = "bridge", kmFrom = 16.815, kmTo = 16.832, length = 16 },
+  { kind = "bridge", kmFrom = 23.118, kmTo = 23.129, length = 11 },
+  { kind = "bridge", kmFrom = 30.311, kmTo = 30.324, length = 12 },
+  { kind = "tunnel", kmFrom = 32.426, kmTo = 32.869, length = 443 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "}y`yGclh_BDhFnCjMvBrVnA~DpGbKjAdFBty@g@jHwAbFeCvDiFtDoBVsJiDcNoKqCkAqKWcE`CgBhFyCtTkDxg@ArJ`BhL", v = 50 },
+  { line = "ksbyGg`a_BnChLrBzB~GxDvD`JrExGn@jCLlDa@lDeA~BuIfHoESgFwFwCy@wDlA}BhFOjEz@dS_@|Ll@bc@{Dxe@|@fg@{@pN", v = 45 },
+  { line = "abcyGany~AiI|i@", v = 40 },
+  { line = "klcyGccx~AwEnh@{Ena@IdGn@lXtChPnBhCnEjCbBdEP`GsApHUdEr@dJdZ||@`Izg@tBrDtHlGfAhDPfEoAjGkCdCyBTeKeAqFd@oFiAmBFwBdA}FbHsJ`C}IvHkIdB", v = 45 },
+  { line = "uhdyGkkm~AkIOiIzC", v = 40 },
+  { line = "k}dyG_gm~AaNbC{C~BoEzMiFbIoDjMaRpVyAfFg@~F\\~IdCbI|MlM`GvDtAjCh@~Ee@`H}BnNH`EvAtHNdEiCpNk@~Hn@dRgBzRJvOeAnUuCdSsEvNgAzMeKna@o@vMHxFbCnVhDbHdB`HlAtBnBjAr_@lJ", v = 45 },
+  { line = "eneyGq~~}AbOvC", v = 40 },
+  { line = "a~dyGyy~}Av\\jG~P{D`FoDzRg]tC}AjEH", v = 65 },
+  { line = "ihbyGu}_~ArC|@rOfKlB|GOpG", v = 50 },
+  { line = "cpayG_~~}AcFrUmDfHiFtDeMrB", v = 65 },
+  { line = "erbyGyt}}A}LbCqNlLsL`F}CzDcBrGqEns@cM|f@u@t[XjM~Ip]bD|[FbLkBhN", v = 80 },
+  { line = "}mdyGgnu}Ai@hD", v = 40 },
+  { line = "godyG}hu}AiA`JNfIz@|DpFfN`AjIi@nIsDdK", v = 70 },
+  { line = "oldyGk}r}AaFxO_ApHY~HXla@p@dHvDnT", v = 80 },
+  { line = "gndyG{wo}ArCjb@", tunnel = true, v = 80 },
+  { line = "sidyGotn}AjC`_@bBzKtBpInHjQhNlTpSz^zIja@zBdDpHvGnBnDvAjHbGzg@", v = 80 },
+  { line = "kjayGgmg}AbAxElDzFrAhF", v = 55 },
+  { line = "e`ayGgwf}A~LpYhBbKXhJ", v = 50 },
+]
+posts = [[0, 46.21231, 15.77682], [1, 46.20878, 15.7653], [2, 46.2099, 15.75279], [3, 46.21814, 15.75494], [4, 46.22182, 15.74435], [5, 46.21801, 15.73392], [6, 46.22129, 15.72922], [7, 46.22303, 15.71825], [8, 46.22368, 15.70541], [9, 46.22562, 15.6929], [10, 46.22774, 15.68029], [11, 46.22462, 15.66916], [12, 46.2215, 15.65776], [13, 46.21713, 15.6469], [14, 46.22252, 15.64305], [15, 46.23068, 15.63854], [16, 46.23824, 15.63319], [17, 46.2433, 15.62308], [18, 46.23845, 15.61374], [19, 46.23909, 15.60133], [20, 46.24055, 15.58861], [21, 46.24416, 15.57684], [22, 46.24044, 15.56636], [23, 46.23168, 15.56345], [24, 46.22351, 15.56623], [25, 46.21604, 15.56694], [26, 46.2209, 15.55815], [27, 46.22902, 15.55312], [28, 46.23148, 15.54077], [29, 46.23241, 15.52847], [30, 46.23083, 15.5162], [31, 46.23004, 15.50426], [32, 46.23213, 15.4921], [33, 46.22998, 15.47952], [34, 46.22602, 15.46818], [35, 46.22031, 15.45832], [36, 46.21565, 15.44782], [37, 46.21122, 15.43679]]
+
+[[connections]]
+km = 36.694
+station = "Grobelno"
+lines = [
+  { id = "30", ref = "30", name = "Zidani Most – Šentilj", km = 38.819 },
+]

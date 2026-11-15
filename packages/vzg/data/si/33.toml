@@ -1,0 +1,32 @@
+id = "33"
+ref = "33"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 12.865
+length = 12.865
+speeds = [[0, 12.865, 80, 80]]
+curves = [[0.15, 0.575, 1800], [1, 1.475, 1030], [1.775, 2.15, 610], [2.375, 3.25, 410], [3.85, 4.825, 460], [4.9, 5.65, 410], [5.725, 6.3, 420], [7.1, 7.425, 550], [7.75, 8, 570], [8.05, 8.55, 330], [8.925, 9.15, 1500], [9.825, 10, 1090], [10.1, 10.5, 460], [10.55, 10.825, 590], [10.9, 11.2, 510], [11.9, 11.95, 1990], [12, 12.375, 410]]
+points = [
+  { km = 0.348, kind = "station", label = "Imeno", uic = "7900061", pos = [46.127, 15.60121] },
+  { km = 3.308, kind = "halt", label = "Podčetrtek", uic = "7900177", pos = [46.15034, 15.5996] },
+  { km = 4.581, kind = "halt", label = "Atomske Toplice hotel", uic = "7900072", pos = [46.15817, 15.60858] },
+  { km = 5.642, kind = "halt", label = "Podčetrtek Toplice", uic = "7900178", pos = [46.16591, 15.6047] },
+  { km = 6.919, kind = "halt", label = "Sodna vas", uic = "7900209", pos = [46.17605, 15.60201] },
+  { km = 10.344, kind = "halt", label = "Pristava", uic = "7900194", pos = [46.19875, 15.58175] },
+]
+structures = [
+  { kind = "bridge", kmFrom = 5.955, kmTo = 5.979, length = 24 },
+  { kind = "bridge", kmFrom = 8.163, kmTo = 8.182, length = 19 },
+  { kind = "bridge", kmFrom = 8.947, kmTo = 8.96, length = 13 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "eqoxGqaf~AeMIgIw@gd@cLcH]uFZwUnEeDpA_EfEcMtVwBpCmG|CmFD_GcCsEmGmRws@iCmGwBsC{CsByHsAgFr@oEnCiCfD}ItReDnCkDhAcEDkEmAaPqPkD_BiD[qH~Aik@zc@eG`Cw\\{AoDqAuJiHuCc@cD^}BnAwBfCoTp`@uWru@uE`V_DpH_CfCsLxHoI`PmEvEqq@zVmCfBgEpHyLrg@", v = 80 },
+]
+posts = [[0, 46.12387, 15.60105], [1, 46.1327, 15.60316], [2, 46.14144, 15.60156], [3, 46.14868, 15.59648], [4, 46.15336, 15.60744], [5, 46.16071, 15.60465], [6, 46.16867, 15.60693], [7, 46.17669, 15.60147], [8, 46.18528, 15.60129], [9, 46.19244, 15.59653], [10, 46.19725, 15.58558], [11, 46.20334, 15.57664], [12, 46.21176, 15.57224]]

@@ -1,0 +1,27 @@
+id = "11"
+ref = "11"
+name = "Ljubljana Zalog – cepišče Kajuhova"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+from = "Ljubljana Zalog"
+to = "cepišče Kajuhova"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 2.647
+length = 2.647
+speeds = [[0, 2.584, 65, 65], [2.584, 2.647, 30, 30]]
+curves = [[0.1, 0.175, 2150], [1.275, 1.35, 2160], [1.5, 1.575, 2290], [1.825, 2, 950], [2.075, 2.325, 570], [2.425, 2.525, 1150]]
+points = []
+structures = [
+  { kind = "bridge", kmFrom = 2.547, kmTo = 2.621, length = 75 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "ezbxG}}vwA}AguCqBaZrBy]", v = 65 },
+  { line = "a}bxGan}wAHcD", v = 30 },
+]
+posts = [[0, 46.05875, 14.54063], [1, 46.05895, 14.55359], [2, 46.05944, 14.5665]]

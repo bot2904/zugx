@@ -12,6 +12,8 @@ timezone = "Europe/Vienna"
 feeds = ["https://static.web.oebb.at/open-data/soll-fahrplan-gtfs/GTFS_Fahrplan_2026.zip"]
 # Geofabrik extract name: the newest .cache/<osm>-YYMMDD.osm.pbf is used
 osm = "austria"
+# line numbers of the national infrastructure manager in OSM (route=tracks ref; ÖBB: "101 01")
+lineRef = '^\d{3} \d{2}$'
 licence = { name = "CC BY 4.0", url = "https://creativecommons.org/licenses/by/4.0/", source = "ÖBB GTFS" }
 
 [si]
@@ -23,6 +25,11 @@ feeds = [
   "https://gitlab.com/api/v4/projects/derp-si%2Fgtfs-generators/packages/generic/IJPP/latest/ijpp_intl_gtfs.zip",
 ]
 osm = "slovenia"
+# SŽ-Infrastruktura line numbers ("10" Dobova – Ljubljana)
+lineRef = '^\d{2}$'
+# through-station tracks are often tagged service=siding and renewed tracks railway=construction:
+# keep those ways where a line relation lists them (else the lines fall apart at the stations)
+osmLineMembers = true
 licence = { name = "CC BY-SA 4.0", url = "https://creativecommons.org/licenses/by-sa/4.0/", source = "IJPP / NAP Slovenija" }
 # SŽ and the foreign rail operators name the train in the route ("ICS 20", "LP 2100"); the trip's
 # short name is empty

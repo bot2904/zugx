@@ -1,0 +1,770 @@
+[[lines]]
+id = "10"
+ref = "10"
+name = "Dobova – Ljubljana"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "eybxGqktwACcG", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "iybxGustwAYeeA", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "czbxG{yvwA_Ak`DoEup@dBe`@K_k@kFow@vFwjA", v = 120, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "m_cxGk~cxAgAydAod@{fA", v = 100, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "egdxGalhxAyFwNoU{PoXmg@cAyIf@wo@_Naj@qBgf@aZcaA}H{J_LmFqEkJyJegAf@qVpDwW", v = 90, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "_phxGi}uxAzYo`BpBmdA_Cot@cPuaAcY{t@wBafAoDkU_FeLiQeU}_@s\\cHaOgDcQ", v = 120, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "urkxG}rfyAi@iXdCsOrEsGbVyN", v = 110, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "arjxGiuhyAxn@q_@hWg^`Muc@a@mi@", v = 120, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "}|gxGgdmyAKwSnCwK~F}D|MkB", v = 90, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "{agxGaonyAxQB`a@zP", v = 95, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "_mexGa}myAlg@xa@bLjDtMT", v = 120, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "whcxGetlyAfHcBdFuFdDuMToLuDqVkUib@", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "oncxGavoyAoIiQaIaf@gn@etBwIyPub@}i@}Yeq@yGu[mGit@", v = 140, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "}lhxGqe{yA}Ju`AcMiV", v = 105, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "_gixGq~}yA{KoYc@{[", v = 95, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "_uixG}u_zAhFia@mBwu@zFin@FqOqCaQiB}c@qJ{d@iKuSkRuJa_@m[wKy[yW}f@uK{n@ib@cf@", v = 70, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "wqnxGidnzAaCgE", v = 90, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "yunxGqjnzAqEwNZuS", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "o{nxG_oozAfMqP", v = 90, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "gmnxGq`pzApZyYlEoMhAo`@wK_b@", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "uumxGknszAwKmf@kLqVkTqZe[st@kCis@jFerAcCij@zEiOdJ}E", v = 95, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "mpoxGsh~zAzKsFbHiVHwWgOulAdAcQxGoO|i@kf@~AqJKk`@fEq`@rJmWrP}HrJcOzB{Vc@oYlXe`Ab`@a`ApLwNr\\cUzEcU", v = 90, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ishxGsip{AJsA", v = 40, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "}rhxGglp{A`@oD", tr = 1 },
+  { line = "{qhxGwqp{AbFa]zNmTpHgE~Rn@bDqElFcS", v = 40, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "wpfxGuds{A~FeNvNgIdp@eu@bMc[hIwc@", v = 110, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "kocxGeuw{AzEaWxFwJvGiA|QlDdR}D|EgEbVajAbAs`@jFkK", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "gj`xGc{|{AtPmRrEcLrAgMHca@cDgS}VcViIk[cBoTh@gc@pGmb@fR{PpWoB`QNz|@hVdIs@fIeF`GiKxWg~AnRqh@vG__@xo@az@|CkR", v = 90, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "qlxwG}zl|AIgdAvBsm@nCeTnDaRjIaQr\\yYnFgQzC}UmC{y@`Hic@pEmgBnYmoCwNwoAqDayAtA{ZfN{lAzKsd@CgRsFme@lEwr@bXcm@fb@k]nfAai@b`@fApKiE~p@mhAbF}TfQonBxAcqAjCaTxxFi`QnUieA", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "mhdwGcen~A|h@ifC", v = 30, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "o~bwGmlr~A|]qbB", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113], line = "eybxGqktwA_@_pA]_pAc@}oAeBqnAkDgoArB{nATuoAw_@g`Ayg@ms@oTucAuOojAeS{gAge@mu@gKqmAlNolAnRgjA@qoA}LolAq\\_cAuDeoAcc@mz@kg@{s@rS__Azq@ga@jg@su@dC}mAfn@}Wnq@z`@ds@jWfNw}@kb@g}@iWqgAc[ceAwg@gv@qb@i}@aOglAaOelAsW{bAfC{mAnFonAkN_lAog@{q@mg@us@g]caA{e@}u@h@e_A~b@mw@{PgiAyb@_|@ga@w~@gAqoAv@{nAl`@}s@BelAi@ijAlm@yk@xG}mApg@yq@lKikAv^aaA~d@kx@j_@gy@ng@}i@nf@wo@|l@am@b^}`Afb@}l@`k@q`@nOikAfa@k{@{KwgAi[i_A`M_kAzt@kNlu@`Sxj@c_@pRyjA|YkeAvg@mu@dNyfAhCkoAf^m~@v]g}@h@smApFynAzIymAvLkmA_E}lAkHknAlB}nAbPykAd@gkAjM{jApi@gr@hr@s_@tt@}Mrl@{f@h`@s~@~KsmAvE}nApMakAt\\scAv\\scAt\\qcA|\\kcAp\\wcAt\\qcAx\\qcAr\\scAbW{gAjUaiAjVmhAzUwhA" }
+
+[[lines]]
+id = "11"
+ref = "11"
+name = "Ljubljana Zalog – cepišče Kajuhova"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "ezbxG}}vwA}AguCqBaZrBy]", v = 65, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "a}bxGan}wAHcD", v = 30, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2], line = "ezbxG}}vwAg@_pAaBuoA" }
+
+[[lines]]
+id = "12"
+ref = "12"
+name = "Ljubljana Zalog – Ljubljana"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "q}bxG_l}wAAX", v = 30, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "s}bxGek}wAkB|ZrBbZvBrqF", v = 50, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "sybxGoatwA@xB", v = 40, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3], line = "q}bxG_l}wAL|nAf@|oAx@|oA" }
+
+[[lines]]
+id = "13"
+ref = "13"
+name = "Ljubljana Zalog – Ljubljana"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "_ybxGymtwADuD", v = 40, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "yxbxGostwAk@o}B", v = 50, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ezbxG_rxwAAqB", v = 25, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "gzbxGquxwAcA}xC", v = 50, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "k|bxGoo}wA?o@", v = 30, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "k|bxG_q}wA?mA", e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3], line = "_ybxGymtwAS}oA]_pAa@_pA" }
+
+[[lines]]
+id = "14"
+ref = "14"
+name = "Lok Zidani Most"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "otfxGe{r{AaGxNoKPqX_TiDsS", v = 40, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1], line = "otfxGe{r{Acm@sC" }
+
+[[lines]]
+id = "20"
+ref = "20"
+name = "Ljubljana - Jesenice državna meja"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "kzbxGo}owAI`B", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "uzbxGmzowAuB~JiFxFuf@dF}MbK", v = 90, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "i|dxGisnwAasD|xDq[rj@", v = 110, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "}lkxGwmgwAiR`_@kPhm@yFxJsZzSqjA~k@", v = 115, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "s`pxGuqbwA{GpNgBnS", v = 105, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "wlpxGsmawAw@dUqFlQ", v = 115, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "avpxG_e`wA_MdWqLvJ", v = 105, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "sqqxGaa_wAuMpN_Z~dA", v = 50, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "i{rxGok|vAsTtSeFrKgBdLu@~_@wDpNwYvUkGtM", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "}euxG_gxvAwF|e@_`@|rA}K~Nec@jSqJpM}Rzu@gHpm@", v = 115, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "qhyxGwsovAeGz^{LvPaRhCeRgJ", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "{d{xGainvAkp@{f@mrCafDoK}GiLe@yLnF{TbVa[pTeW|c@", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "m{dyG_irvAmFbOgHxHeh@lF_O`M", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "iegyGqypvAiMnVkJdj@", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "__hyG{vnvAwBj[Vd_@iPr]kI~E", v = 90, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "u}hyGutkvAgLtA}GjE}d@dm@gEjb@wIhZ}Dhh@sUpeAiBza@}Hna@wYdb@qV|Aob@nX", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "mjoyG{i`vA{GnDiOkBaItC", v = 90, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "umpyGac`vA_o@hg@", v = 75, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "u}qyGwz~uAyOfMwF`KqYpvAc[`[oLdo@oLzKge@by@eA`M~Dpk@uBlMiXxT_T{DqIpEkJtQgH~U^`LrGhS{AtQi[dY{Pdd@uF~UsDrCaT|B", v = 95, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "ke{yGkymuAqq@b_@", v = 140, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "}w|yGgyluAki@zY", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "ib~yGk~kuAym@~^mWrY{_EpnA", v = 140, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "mjfzGetguAuc@`HuDvF}DlToJfNgN`cA{B~\\yS|TiMxH{GxOuBnRwGrR}F|{@wFpO}@fN", v = 95, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "mckzGeh}tAu@nO}IbU{B|UqHvTsNp}@", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "cmlzGivxtAcJfmA", v = 35, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "gxlzGahvtAkEr\\kW`x@mFl]_P`WsCn^eGtKqKbA", v = 70, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "yhozGqlptAsbEqZ", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637], line = "}{bxGktowAor@vTgm@vl@ul@dn@wl@dn@ul@dn@}f@nw@o^naA}k@bl@ks@j\\o\\d{@i`@b}@ia@`|@_e@zw@mQ~gAy`@jx@mYffA{g@tq@qf@|r@eRzjAsc@~r@sq@m`@km@ml@ek@eq@ek@eq@kl@mn@{p@xZsl@vl@_j@bk@{o@x^wQ|jAiRbeAmo@|b@a[h`AuQpjA}S~iAiWjdAeq@xZ{r@xS{o@bg@kd@pw@qX`fAc_@t{@{f@tv@cJpfA{d@`j@oh@jf@mDhbAuc@ty@km@ba@qr@p_@ir@b`@en@xi@au@lUau@hUau@fUsu@bQwd@bs@aN~lAwf@rq@yThhAcNrkAeVdgAkRfkAmJznAoYjfAo[fbAed@ze@_w@{F}v@}F}v@{F" }
+
+[[lines]]
+id = "21"
+ref = "21"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "u|bxGqtqwA~@dv@}BxMeKjHa`@vC", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "{kdxGm`owAcC]", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "_pdxGkaowA_@G", v = 35, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "_qdxGsaowAyhBm`@", v = 50, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "yzgxGacpwAuu@qP", v = 80, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "oqixGstpwAkGcGmCwW}SaOcJw]mHaoB", v = 50, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "ygkxGktvwAcC_PkKyUyGeHwJaDek@oAcj@a^", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "edoxG_lywAkZ{VoQwTgQu\\kDyT", v = 100, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "uiqxGcm|wAgPe~B", v = 80, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "}zqxGil`xAsAsLaEqEcf@c@", v = 55, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "wjsxGsaaxAy|AGwZcD", v = 75, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "idwxG_gaxAk^iC", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "ucxxGikaxAofBb\\", v = 75, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "ek{xGen`xAua@rH", v = 70, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "{m|xGqd`xAwIp@kKyG", v = 50, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "_e}xGyk`xA_uA{b@", v = 70, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "_{_yGuoaxAsm@sPo\\e[", v = 75, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "cgbyGo}bxA{Ru\\iHmE{CoI", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "eicyGcldxA}DwBcU|B", v = 30, e = false, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], line = "u|bxGqtqwAaFzjAiv@|B}u@ePyu@sPkq@wYs_@cy@sGsnAwO{iAyr@uS}r@_Zkn@ij@i]{`AaJonAsV_}@ew@Oew@?{v@kGiv@nIev@lNcv@zJ{s@oYiu@qSks@mZgi@wr@" }
+
+[[lines]]
+id = "25"
+ref = "25"
+operator = "GYSEV"
+pieces = [
+  { line = "miw|GmdxbBcBps@", v = 120, e = true, etcs = 1, g = "1435", tr = 1 },
+]
+
+[[lines]]
+id = "30"
+ref = "30"
+name = "Zidani Most – Šentilj"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "o}gxGqar{AdB{E", v = 40, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "izgxGmhr{AGwJwIaO{AcR", v = 40, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "ehhxGkws{AcIg}@yn@au@gOeh@qL_KcIsPcPgPmNen@yGqJ}EaAsF|AkQ`c@kUhDuUjSgCdIeB`VyIl_@eEtI}HpDyQR{c@bKmH_GiNqb@u\\c]kDgJ~@ue@kEms@dMkdAG{JkDeKiIiHsJtAeLvQaGjXiFvFsq@xF", v = 90, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "gxvxGsy}{AiUVuQwDus@ce@qg@{CyVnB", v = 125, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "iv{xGcf_|AeLlBgFbEmEfJmExYqEvDoFT{HcG_`@qj@oWmEwEuDoE{OVmZ", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "qu_yGe|`|AUsk@qB}MkEqJi`@q_@ct@gXuIs@", v = 100, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "iacyGw~d|A_R@iR{D", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "sgdyGqde|A{HaFiD_O", v = 70, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "yvdyGs{e|AcBiU|CqbBhFuV", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "umdyGemj|ArWcZnDqJv[i|BXya@vJie@|@eZ", v = 110, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "idbyGour|AfBm_AdS_|BjPwnE", v = 140, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "o{`yGub_}AxLydD", v = 160, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "um`yGohd}A_@cb@gDqRcQiW_O}F}JvBkk@bc@}YxBqTtOc^kBaGjDwGrK", v = 100, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "ynfyGmtd}AaEjEyFx@iPgJkI_@", v = 95, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "kxgyGoxd}AmUhAuJaBqXwW}S}GqHaJ_Fif@{NoZoGus@pAo[tTwtAMye@uEiKkSeLkMsSqCcKyAqUgFeL_JkFeYaCaNoO", v = 100, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "mfnyGopr}AoK{E", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "}rnyGkwr}AsZcJqK_LeBs^}Fy[~@eN`GwTcA{PsE}LoOcIkKyO", v = 90, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "yaqyGskx}AiGmP", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "cjqyGa}x}AkK{`@gXc_@qIwWkBkTmCutBoDoPcL{Q", v = 120, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "wtsyGgga~AcGsFuHQiz@db@_h@iNwLX_UrGqd@na@k\\rLiXx@aPwI", v = 100, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "}{{yG}j_~AwQgPwLyA{GcE_OmR", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "iu}yGqx`~AaGcSwBkX", v = 120, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "ca~yGafb~AyIuvC", v = 160, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "}k~yGw}f~AaByf@_DyNeJaOu[wUaHuO", v = 115, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "}d`zG{lj~AedA_`DgKeU}f@cm@ya@uUgRqEesTlK_XtE{lCr~@", v = 160, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "mo`{Gu|o~AoRfGgI?et@_\\wPgB", v = 130, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "ctc{Gutp~A_TaA}m@sZeS|GmQ\\", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 2 },
+  { line = "u~f{Gohq~Ae[xBeHsA", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "adh{Gigq~AyQ{T", v = 130, e = true, etcs = 1, g = "1435", tr = 1 },
+  { line = "{vh{Ge}q~AkKqh@kGqLir@_`@md@mb@}KcDqLJ", v = 120, e = true, etcs = 1, g = "1435", tr = 1 },
+  { line = "{~l{Go}u~AkHdA", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "ghm{Gi{u~Aaw@fMoVrOsWrFsPtTsLlC", v = 110, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "uoq{Guzs~A{^xBgfAvh@q|@`OmTjLg]nB", v = 125, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "ahx{Gelq~AySiDe\\_VmJj@oItH", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "_pz{Gm}q~Agd@fq@yh@p`@_p@hq@", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108], line = "o}gxGqar{AgK_gAsZu`Aef@aw@we@uu@}\\uaAoh@xe@uj@df@s[n_Aav@dLgd@ex@}T}}@w@_nA\\qiAaf@~e@at@fPev@oGaq@_b@_w@Wed@lp@il@k`@cn@cc@s@woAof@gu@et@wXkv@gIwLahAdDyoAfd@ey@tPclAtIwmAzLklArEooA~LsmAtFkoAxEuoAtEsoAvEsoAbEuoAwXabAcr@pOqs@bVys@bLoo@rIgt@mLqk@ui@yUcfALgnA~QmkAyYgz@a[{aAwq@iZks@wZqMujA_Gw`Asb@sz@qd@gz@mGqnAkDqoAil@gZes@`[qu@{Kgp@bd@wt@lSyq@c]}f@gr@yEwoA{D}oAwMckA_k@co@y\\adAs\\gdAcc@q|@qn@mi@qu@qMew@`@gw@b@ew@`@ew@b@ew@`@gw@b@ew@^ew@b@ew@`@gw@`@ew@b@ew@z@cu@lTut@bWwt@bWwt@qC{t@}R{s@mXmu@|Dip@aVm_@k}@sq@wa@uq@_\\ov@fL}s@bXyp@v[gt@vVat@xXwu@dPyu@fIir@oWai@~t@qo@~g@sl@jn@" }
+
+[[lines]]
+id = "31"
+ref = "31"
+name = "Celje – Velenje"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "_`~yGe_f{AsT`|@", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "su~yGcbd{A_Hl^uDjp@", v = 65, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "id_zGiqa{AqFtbAqL|`@uEpt@ePzn@", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "iq`zGgf{zAcGzQ_IjM", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "mcazG_ezzAqO|TqCjLmDn`A|Ilk@rClExS|KfJc@zKcGzEb@xD|GNrOnBbHvD`ChKVxLrOnIaDfOsc@vQ_CfRdLdOn@rGzO~LtN`FtCdE]dDeEbEePnNiLtMaWhRqLxt@cqA", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "oiwyGogxzAnLyRzKoJteAi^pTbBv^_Bl}@iq@nSc^bFmA~NtApQwR", v = 65, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "ovnyG}j}zApZw_@vL{b@", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "emmyGqo_{A`Rwr@pjA{kCh\\_}Cvc@csCnG{t@", v = 80, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "_dhyGexp{AtF{{@", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "i|gyGaur{AjHkhAbL{s@", v = 80, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "yegyGisv{A~a@gfClEgb@`K_gGxDoR", v = 65, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "ojeyGiyd|AdJmI", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "i_eyGwce|ApUR", v = 50, e = false, g = "1435", tr = 1 },
+  { line = "whdyGcce|A~QlD", v = 50, e = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38], line = "_`~yGe_f{AsXlgAwJhnAiMplAkNflA{\\jcAgYhbAfFhmAxp@dL`d@vh@nd@kWrs@dFxj@`_@be@yw@xi@gq@ve@}y@~q@w^du@sKjt@gPlo@}g@fm@y^ni@ys@tXkgAha@i_Adb@k~@`S}iAdMsmAjPglAbRmkAhMmmA~H_oAdLwmAvRakAvRckA`JinAjBapAhBcpA`EgoArr@{H" }
+
+[[lines]]
+id = "32"
+ref = "32"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "}y`yGclh_BlGhl@lLhXc@`cA}EzKyIlEi^eSqKWcE`CaG~[kDxg@~A|W", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "ksbyGg`a_BnChLrKtHjKzR|@xHgBlHuIfHoES_KqHwDlA}BhFx@rkA{Dxe@|@fg@{@pN", v = 45, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "abcyGany~AiI|i@", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "klcyGccx~AsL~jAd@r`@tChPbLzMwAxVr@dJdZ||@`Izg@jL`MxApJ{EpKoa@kAuJhJ}_@~O", v = 45, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "uhdyGkkm~AkIOiIzC", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "k}dyG_gm~A}RbGiRjf@aRpVaCfNbDbT~UdS~BjJcDpWpB|TuDpXn@dRaDbz@wXhtAe@pUbCnV|IzTbc@xL", v = 45, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "eneyGq~~}AbOvC", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "a~dyGyy~}Av\\jG~P{D`FoDzRg]`JsA", v = 65, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "ihbyGu}_~AfTdMlB|GOpG", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "cpayG_~~}AqKz^oThH", v = 65, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "erbyGyt}}A}LbCe\\nSaGnMqEns@cM|f@u@t[XjM~Ip]bD|[cBl[", v = 80, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "}mdyGgnu}Ai@hD", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "godyG}hu}Ay@hTnJp^i@nIsDdK", v = 70, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "oldyGk}r}AaHjYM|e@`RvpB`Kr[de@bx@nIr`@|OlRzIfq@", v = 80, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "kjayGgmg}AdI~T", v = 55, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "e`ayGgwf}AJ`@", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "y_ayGevf}AxAhD", v = 50, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "_}`yG{pf}AhA`C", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "uz`yGylf}AnGbOzBjP", v = 50, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "in`yGike}AF`E", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37], line = "}y`yGclh_B`U~fA_FdmAor@mL_VdaAxVd`AoSj\\{IpcAaCfoAcKdmAgLxmAnRpdAnRffAhZzbAu`@`W_r@d[gn@l`@s^d~@h]jy@_CplAcHnnAqUphAfVn`Avu@dQ`r@kPtm@mCk]|u@wq@l^kNdlAyDzkAzHtkA|CriAaL~jAlLrmAvWzeAtb@r|@b\\r`AtZ|cA" }
+
+[[lines]]
+id = "33"
+ref = "33"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "eqoxGqaf~AmWaAgd@cLyOA}Z`H{Vna@{NbDsMqKwVe|@sGgGyHsAwLbEgN|WqIxEoKgAaPqPuI{BqH~Aos@|g@w\\{AeP{JyHCuFvEoTp`@kc@fvAsP`M}OxV_v@bZgEpHyLrg@", v = 80, e = false, pzb = false, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], line = "eqoxGqaf~Aev@eLsu@~Hgl@v^g\\ocA}l@lPwp@gMcq@ba@ut@b@wk@v\\a]lcAae@zv@ss@nZ" }
+
+[[lines]]
+id = "34"
+ref = "34"
+name = "Maribor – Prevalje"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "u`f{GulqyAzAoJbMi[bFco@tPiVxF_a@tOqU`Cs[rCuKpOs\\zUkOpCuGoA}[gGu`@F{IfH_RrFyXvUcXnC{P_DuMa\\kW_EmO", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "cpb{Gim`zAaJeg@a@eN", v = 35, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "g|b{GudbzALcOlG{h@yDa\\x@m[vR{sAJeX", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "gcb{GgfizAqFo[@cm@_FeR", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "wqb{GadlzAePuvA}J_Hm[bJoLgFeE}M{MmeA{b@um@qJef@eV}OaPmRie@tI_Fc@iUmh@yLsN", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "_wj{G_`wzA_DaE", v = 20, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "_|j{GafwzA_Uoh@_RwrAuIsXaKwQsMqj@Vub@bJ}o@dCan@gRstAwDwh@~@aLpHuVlN_QfXgSlWci@vDoo@rKcm@iA}ZkJqk@", v = 70, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "}ak{Gqzn{AwMsn@", v = 35, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "upk{Gejp{A}n@yj@cMqFeRgAoEkCySig@qBeb@dBmSdDaKdk@gb@jL_XlA_OoC_ZV_KzQ{]nRqv@lCy]kCma@", v = 70, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "wyk{Gc{}{AiBct@", v = 35, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "a}k{Ggp_|AyOqm@R}TtCkLdIaO`B}XfGcShIsJ|]}PfF{G`CoJrBoa@iEc~@{Gga@xDmb@o@_TaIgS}a@yU", v = 70, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "wrk{Gqyl|AgF{E_BaJtAeJ~E_E", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "isk{Gu|m|A|NqDjTmYhDsZyEa\\", v = 70, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "ooj{Gkup|AwMoe@u@kL", v = 35, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "}_k{Ggir|AlJk{@zVo[d]kP|DcJdE_XOqa@cDiLsPgZwDuSf@qKtIc`@j@qzAtFu[lFyIjW{Kpb@}y@jY}ZbPu]hCqM", v = 70, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "cge{Geyc}A~@aQgKwq@", v = 35, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "kqe{G_~e}A}KoTeNsIyTIy_@bJuHw@{E{EwBoMfBgMrj@wo@bb@{Klp@nH|^Mr\\zFhSdQtIhD", v = 70, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "mxa{G{mh}A`Nx@zVoP", v = 55, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "oq`{Gq}h}AfN}DbSa]~H{sB]{YsGgx@{KiW{RmT", v = 70, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "mn`{Gixq}AcY_`A", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "qha{Giys}Ayo@qbC", v = 70, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "kyb{G{|w}AGQ", e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "syb{Gm}w}Aa]upA_U{eB", v = 70, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "umd{G_v}}A{@iYCy|HdLeaA", v = 100, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "obd{Gipj~AdVgcB", v = 30, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "ikc{Gqtm~AlDkV", v = 30, e = false, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "{ec{G}kn~A|F_b@KaNaGkOwLuD", v = 80, e = false, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ctc{Gatp~AsOY", e = false, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "wdd{G{tp~AoFwA", v = 80, e = false, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "gld{Gswp~AiKgF", v = 50, e = false, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "qxd{G{~p~Aq@[", v = 50, e = true, etcs = 1, pzb = false, g = "1435", tr = 1 },
+  { line = "czd{Gw_q~AiAm@", v = 50, e = true, g = "1435", tr = 1 },
+  { line = "m|d{Geaq~AmNiH", v = 50, e = true, etcs = 1, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83], line = "u`f{GulqyAnTkhApYubAtYsbAli@gq@uGgmAl`@o}@mMow@sY{cA`FmnAxBanAtLylAqG_nAsOclA_h@qXk^ws@}\\{`Ai_@}}@gp@y[}l@sSye@gy@sS{iAu[}cA}NakAlNkmAcKqmAwJinAbe@_w@ve@ex@zM}lAsGqmAw[sbAgp@se@ek@yf@bAikAbo@eh@dG}jAb_@w`AvDsmAuI_nAbBgfAb[o`Azf@ao@sB}oAqB{lA_c@it@Ewk@l^m{@_V}hAjR{hAlo@_f@`E{kAwUgcA`IomAzJ{lAfk@al@bi@it@nZmcAuW{fAkt@sCma@k_@jk@yp@|u@wItv@|Eps@xVtr@wF`e@{q@|DapAkCioAc]c_Ai]ybAuY}fAwY{fAqYagAiPwlAeFmoAAwpA?wpAAwpAbEooAzPolA|PmlAmEeeA_u@eQ" }
+
+[[lines]]
+id = "35"
+ref = "35"
+name = "Lok Maribor Tezno – Maribor Studenci"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "ebb{G}~o~A}DgA", e = false, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "chb{Geap~AyH`AqGpHcJvh@", v = 80, e = false, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "sec{Gykn~AmDjV", e = false, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "akc{Gmtm~AuR~rA", e = false, pzb = false, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2], line = "ebb{G}~o~A{a@to@{PnlA" }
+
+[[lines]]
+id = "40"
+ref = "40"
+name = "Pragersko – Ormož"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "q`fzG_rraBiMnYyB~Rm@l~@nGvk@}A|o@sE~P}z@tkBqCzUwCjnA", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "mzhzGmaeaBafAnvd@", v = 120, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "oakzG}i_`B`Ahb@`JxZveBx{B", v = 100, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "smgzG_ny_B~]ld@zJnRpItZxDdb@cBd|_@", v = 120, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ouezG_yt~A?vI", v = 160, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ouezGgnt~AZ`b@xGjUrm@ja@hXf\\", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41], line = "q`fzG_rraBaRlhA|FlnAyLlkA}b@t}@{WxeAyCfpAyCfpAyCdpA{CfpAyCfpAwCfpAyCdpAyCfpAwCfpAyCfpAwCfpAwCfpAwCfpAwCfpAuChpAkBfpAz^d_Afj@`s@fj@`s@~g@jv@`OrkAInpAInpAInpAIppAInpAGnpAInpAGnpAGnpAGnpAGnpAEnpAGnpAh[v|@|n@jh@" }
+
+[[lines]]
+id = "41"
+ref = "41"
+name = "Predor Stanjevci (novi)"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "q`fzG_rraBbO}\\hHs^_Ds\\cFkHyHyC", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "a}ezGk{uaBkhAyXwa@xCm\\}H{N`@wd@x[oRlVmStO}VnKcWhFcm@ja@km@~R}NbJ", v = 140, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "u`rzG__raBuTdFaj@uFsz@xQ", v = 130, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "a}uzGulqaBgcAgCie@uY", v = 120, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "sgyzGskraBoOuHa[_BgFoCoE_PdCoV", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "w}zzGietaBdAyTcFyb@EuPvQecA|@aSmAo]oN{s@", v = 120, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "c`{zGg|{aBsHyOoMBglAlqAoRpk@{Mbl@", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "{g_{Gy`waBoNfd@}R`[kStHiUeD", v = 100, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "_va{G_{taB{yEgdB", v = 160, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "{ph{Gg`xaBsO}Cis@z@wLaF", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "qck{GkjxaBiyCkrC", v = 160, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "{}o{Gw}|aByIaFwm@eDgHrA}F|F", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "shr{Gm_}aBq`CjhF", v = 160, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ejv{GavuaBaIhLuIjB_gAuUeLPgMjIoXnf@u]jXaNtCqpAzA}fAfq@", v = 100, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "cca|GmvqaB_IlCuIkB", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ywa|GkuqaB_u@iXat@ol@{^_Nmr@eBqT~Eec@xQ}RhCyr@uIgs@xFux@sAut@sTuh@UeOkCi\\oNoTaXsIa^cBaa@xBo[hOsv@dJe{ACy_@aIkwAw`@qhD_^e|@o_@yf@qKgUuHs]cHy~@W}^dJypAfIgvD", v = 120, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68], line = "q`fzG_rraB`XkeAyh@gi@su@yQev@oAis@xRcm@~l@st@nViq@|b@at@bY{u@jAyu@zL}v@r@st@qQ_t@mUuK_~@uA{mArNclAmQokA}l@~Hel@po@m_@d`AuYtfA}m@~d@{t@{Uqt@wWqt@yWqt@uWyu@uLau@oJ}m@_l@_n@{k@_n@{k@ot@_Qyk@he@ib@r~@ib@v~@ib@t~@kn@lW}u@oPik@fj@ip@hd@ew@b@ot@fRqq@tb@}t@wQ_q@mc@gr@}^_w@qAmt@zWmv@_Byv@pAcw@Fou@iPsv@}Dus@mYqZocAhM_mArKunAjAkpAyHyoAaNcnA_OsmA{_@iaAqh@_v@uQqkAe@gpAvHuoApC{pA" }
+
+[[lines]]
+id = "42"
+ref = "42"
+name = "Ljutomer – Gornja Radgona"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "cm~zGykyaBkVn`A", v = 50, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "od_{GijwaBeBrH", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "ug_{Gu`waB_C|J", v = 60, e = false, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "uk_{GwtvaBsU`j@ssApzB_c@ni@", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "}zc{GscpaBkI|J", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "ied{GuwoaBkC`FgHh_@}FzKwnBziByj@b^ebAvdAooAl}BclAhnBsKjKyy@pe@kq@dlA", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "aqt{Gye|`BsEnW", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "uwt{Gim{`BoD~N}`@|u@qbA|kAao@pnAqRzXwK|DoQvQ", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "qe{{Giwr`BwMhGmP{D", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], line = "cm~zGykyaBuXpgA}_@l`Asf@|x@uf@zx@uj@jr@u_@l~@_n@|k@}m@|k@_q@dd@}l@`n@mi@~s@_e@h{@we@fz@{f@rx@qj@nq@ar@x`@uf@xx@o[fdAqe@jz@il@no@ie@pz@kf@fy@up@za@" }
+
+[[lines]]
+id = "43"
+ref = "43"
+name = "Državna meja – Lendava"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "m`|zGivjcBqUtCwmE{N", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "wec{GoakcBwd@}A", v = 35, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "okd{GmdkcBU?", e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "eld{GmdkcBoW{@", v = 35, e = false, pzb = false, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5], line = "m`|zGivjcB{v@bAcw@kCcw@iCcw@eCcw@kC" }
+
+[[lines]]
+id = "44"
+ref = "44"
+name = "Ormož – Središče – d.m."
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "keczGykobByA`vA", v = 100, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "ehczGwtlbBiBdeB", v = 80, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "okczGqnibB_HztGkYhsE", v = 100, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "{ndzGkdzaBqTrjDaDlU", v = 80, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "oiezGibtaB[lA", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "kjezG{_taBmGfUuQp`@", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "oefzGahraBeCfE", v = 50, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], line = "keczGykobBsAjpAsAjpAqAlpAsAjpAqAlpAkCbpAaIdoAcIboAcIdoAaIdoAaNzlA" }
+
+[[lines]]
+id = "45"
+ref = "45"
+name = "Lok Pragersko"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "yuezGgnt~AeBrq@eG|GkOnA", v = 65, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "qqfzGepr~AwBH", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1], line = "yuezGgnt~AuTh|@" }
+
+[[lines]]
+id = "50"
+ref = "50"
+name = "Ljubljana - Sežana"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "kz|uG_|psAkFsFgLyXiCw~@eCeHcHcF", v = 60, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "s`~uGomtsAkOeNcJef@a@wMbB{f@vDsSdQq`@xOwIdE}JDkLeF_VfCwa@Mqf@p]kmAfNogApFqHrVmMh]shArTeN~DkHjH_f@cDwo@", v = 75, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ccyuG{~htAmCyc@}D}K}GmCg\\zA}]u^cCeQpEyX|VksA`F}JbVkN|R}[dG}@db@zDlk@ed@", v = 90, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "invuGwkrtAhRw]rAyM_BoKaQ{[uMi{BtEeTdT}GhF{GhA}NgEmM", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "{|uuGkd{tAqUkZg@iL|DcL", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "wnvuGez|tAtb@_`@~Lcw@e@aLgVkx@", v = 70, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ouuuGwyauAyHeCeUhE{F}C}EeJ", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "idwuGwgbuAkj@usAmD}PmDgg@gYon@iAsJjY{hBl\\sx@PgMoC{Tt@}f@pCoMxIiL", v = 90, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "erwuGc}puA`KqOBsP{DeHu\\kUcOcFgFvBwMxO}EVqIgD", v = 65, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "eazuG}uruAiGkBaGdA_RlUwFLyPgFmXvN{V{JkPrByNuGeu@yEav@v]qGDqHyFaNkWiVuUuIcc@kFaI{IeB}TtFuPiK{P|@aHuCqNmWmEqZsRkO}GeYiIyNeS{AmRkJkRdI", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "wmjvGsrxuAsRo@qSrIwQiDyVnAmZiUgKeZcUeGoFqN", v = 75, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "yeovGquzuAqPep@gOatBoToo@iNiSsBq]gUm_@_FeVT{QrKo}@rFkI|PgBjF_FdLq[^iKmAyJeZke@aKsGy\\pAwb@z[mKiAgKqK", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "yttvG}ojvA{G{FqGe@ka@rQae@rpAiZhPsf@~p@}]|HqNj[_x@`v@i[dGmo@lj@gID_a@eOcKlCoOp^aPbTsH|YkNpQqKv]oQvSyHdPam@j\\yWH", v = 100, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "qhfwGmg{uAyPg@gk@kKeWoSuZpIgFa@ue@cm@}HqCc[Q_FiBgKkYeLoMgC{i@yMkY`@_RvFyH~w@_\\xDqG|@wKqG}Xi@sVoIcVhBgl@mCwZ}F{Im`@qL_P_VeJao@X}InDkJ", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "emnwGk{kvAlKuSlGwTxGsJ~b@yTnWoHtf@a`@|Z}\\jDmJToT|CeJnSqWfUeHjLke@l`@qQ`g@yp@bCkQoEqO", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ceewGikwvAeH}CaIvBqPzf@oX~N", v = 85, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "mcgwGstuvAKD", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ycgwGmtuvAkj@xR", v = 85, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "eohwGs`uvAQF", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "wohwGk`uvA{J`D", v = 85, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "s{hwGi{tvAel@nQiKOmMwE_UcVoa@cY{o@{qA", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "}lnwGetxvAkN_Tg`@cSoZg[_]cH", g = "1435", tr = 1 },
+  { line = "awqwGub{vA}|@oIuwD}oAkXyP{U_\\", v = 50, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "}}zwG}l_wAmd@gsA", g = "1435", tr = 1 },
+  { line = "kc|wGeabwAsbDc}J_JmMyVyI}HgJ", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "wsbxGycowAeCqI", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "}wbxGknowAu@kI", g = "1435", tr = 1 },
+  { line = "sybxGwxowAGyL", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "{ybxGqfpwA?C", e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "{ybxGufpwAAkC", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "}ybxGakpwAPwzA", v = 40, e = true, g = "1435", tr = 1 },
+  { line = "kybxGyfswACeF", v = 40, g = "1435", tr = 1 },
+  { line = "oybxG_nswA[|sA", v = 40, e = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116], line = "kz|uG_|psAmVgcA_]{x@}JqkArVweAlQqx@lBknAtZaeAjOukAxh@ko@x_@o}@|Wq_A_IcnA}q@{OyUm|@`TqiAtf@gr@xo@uQxp@g`@xUq~@oUwdAmHgnAhd@ep@a]w|@ni@ip@fHyjAqb@as@mj@}`@w_@i`AoRuhAoK}dAvRijAv]caAUumAhR}{@ar@oZiq@nK{o@nPas@hBqu@mIgu@zJ{p@f@uf@su@ch@mYwr@iSu`@yy@ie@yo@ws@kAcu@vCiq@mWsf@kn@ySaiAiIgnAa\\}bA_[q_AoHcgA`\\ow@rUu}@gk@gl@er@~Yuq@iRyl@vg@m_@v_Aem@pj@_p@j_@mh@ts@aq@n_@{n@lh@ot@qJgg@~s@o`@x}@}d@zx@es@b[wv@_Gqr@yYwo@{L_q@}Zgh@em@_RagA`j@yg@nX_r@sLoiAwOgbAem@}f@~AghAdf@kt@bs@o[nn@_j@l[k~@xk@ei@hh@gk@vh@yt@}]gQki@ll@ut@~Vmu@~Noo@cf@gi@ar@oc@k|@ep@od@ar@i[{v@}Gyt@cVwt@uVwt@sVcs@k\\kd@kz@o\\}cAo\\}cAo\\{cAm\\}cAo\\}cAm\\_dAoi@om@iPwdAQ_pAc@lbA" }
+
+[[lines]]
+id = "51"
+ref = "51"
+name = "Lok Divača"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "egzuGqdetAzGyLpJuAjH|ClItMdGfD", v = 50, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1], line = "egzuGqdetAzl@`F" }
+
+[[lines]]
+id = "60"
+ref = "60"
+name = "Divača – Prešnica"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "u~xuGq{gtAh@`OmIri@?nIhHrS`TxK", v = 50, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "mixuG}tdtApZ`Kf[uQvHoAvNxCtPlTxQuBfTbApp@m_@jHa^t_@cm@|M}FpOkQfZeKnIIdMbKrGbc@hd@ft@fXngA~\\tPlGtHvB`e@lD~I", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "oxjuGk_atAjl@rMbOtO", v = 70, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "_{huGa``tApMpFt^q@f[iPzc@eFp`Acj@lS}E`NhB", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], line = "u~xuGq{gtAqErkAfo@pc@ts@cQlp@jTls@mSdb@{x@jj@ko@ts@oOn\\v_Aja@`}@~a@lw@bYr|@jt@vTds@hQbt@kWzs@yUzr@{Z" }
+
+[[lines]]
+id = "61"
+ref = "61"
+name = "Prešnica – Rakitovec"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "qbmtGucdtAcJiE{^y@}r@{RiIjC_OtXgFrDeHKmSoJ_]fIs`@xa@gKrGkc@vGeMtViVbVic@bn@}PzIwSz]qGpDsJqEySkm@yAsJCyf@oCyHmJaHa_@h@_c@m`@iUtE_[{H_V|C{g@GeNhIkQpD", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "cuauGefbtAmPzC", v = 50, e = false, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], line = "qbmtGucdtAuu@sKgt@sF_m@xOqr@~X_q@`^ok@tj@ei@hs@yj@rn@id@mp@uO{dAyr@kPyr@{Kev@s@eu@vL" }
+
+[[lines]]
+id = "62"
+ref = "62"
+name = "Prešnica – Koper"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "qfbuGiabtAbMaA`GxApNrTfUlSxGhKpY|K~FnM]hTqVt]{DtVrE|q@tK~{@mA~NkS~m@l@nLpFfH", v = 65, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ax_uGk}vsAnFT`FcDbIkYjNaPvz@}HbQ{StJgFnRy]nP{EpL_JdTsDlMiK~LaDvWbEd[kX|]{Et\\kLrJjFjBlNqDfMiM~A", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "qeutGmz{sA_^rH}IiB", v = 65, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "oovtGct{sA_OcDuf@fZq`@~L{LrSyShRyTfI{Kf^gQdKgDlG}D`XrDtYeB|TRjSeGdd@uMx`@iQtHaEpGaCpg@mJj]DlLhF|Pv@~JeCd^sKdt@jHb^m@zVxAhc@ms@nbC}Bjw@iDfa@", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "wa`uGorasAbBdUzVre@nHz\\`W~m@nNdu@", v = 90, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "uu}tGsr{rAzJli@", v = 30, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], line = "qfbuGiabtAnn@z^po@zc@{Mx|@}@jkAfJblAsN~cAbg@qh@vu@iKbm@ug@xm@ue@xs@uRzp@}Unu@}PwDrf@au@\\cr@z_@mn@pd@sh@`m@o_@fx@DtlAi]|}@kUv`ADnhA_NtkAjInkAqWneAoZ`eAuF`nAzTxbAv\\fbAlVrgA" }
+
+[[lines]]
+id = "63"
+ref = "63"
+name = "Ferrovia Meridionale"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "s``uGk|asA|BwYx@gk@rFsW", v = 40, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "gs_uG_|dsAxDwPn@{OyAgSiEwMgHiJ{I{EoL[eNlD", v = 155, g = "1435", tr = 1 },
+  { line = "{eauGgogsAc`@tN}PhCcYuBaP}GkOuNqGwMyJw`@qBk^lEgo@rN{^lLgN|TsOfaAsh@bJyIbSgb@pH}h@Sgc@}Jej@_Sk_@}G{GiQqHm|EwuAyx@wZ_wCgtC{yFu}D", v = 160, g = "1435", tr = 1 },
+  { line = "{mwuGwadtA}GcE", v = 100, g = "1435", tr = 1 },
+  { line = "yvwuG{gdtAcOgI", v = 100, e = false, g = "1435", tr = 1 },
+  { line = "}fxuGcrdtAmIuE", v = 100, e = true, etcs = 1, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], line = "s``uGk|asAjFenAhHgjAyn@kZyt@lUut@eQa^y_A`EimAdh@ms@hr@w_@|l@_k@pQaiAcQqiAmm@_i@eu@gTeu@gTeu@gTgu@gTmt@wW}m@_k@gm@ul@gm@sl@mo@qg@up@sd@sp@ud@op@ae@up@qd@oq@eb@" }
+
+[[lines]]
+id = "64"
+ref = "64"
+name = "Pivka – Ilirska Bistrica"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "cvvtGg`}uAkWpN", v = 50, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "onwtGup|uA}IbCmOkIkGJyOzUwFlCoHuAmEqH", v = 70, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "wzytGog|uAwNci@iK}HgI~A}^zYsHJcWeGeJ`Amt@bu@oHfDqNcB_z@cj@}HcAwIvA{KnKi`@z_A}uAds@aEfGcIjYuEnGob@bJiPrKyPiDyHxBqKjXmPpS_Zby@yL`O", v = 75, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "k_luGszruAcEfIqDxc@eFrJoFxB", v = 70, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "wyluGc|puAmSnAyOaOuIMqGlHsC`XcFnOmLdGyK_BiGeHwMeb@mEyw@uIg^oGgJyZqP_KtBqa@hd@c^`P{KbUaF|CsZ_BwRwWkKq@", v = 75, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "cbwuGk{ruAyBlA", v = 50, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "}ewuG}xruA_JjFkJ}B", v = 50, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], line = "cvvtGg`}uAur@jH{m@nRua@_w@mq@`\\mr@dLin@lh@yq@q_@qr@}B_`@z_Acr@l_@in@~e@ol@jc@wr@lOsb@r{@wb@x{@a\\zy@_q@iEma@`p@k\\k_AkP{iAiq@eNan@vi@en@l`@qo@yZ" }
+
+[[lines]]
+id = "68"
+ref = "68"
+operator = "Rete Ferroviaria Italiana"
+pieces = [
+  { line = "ghhwGqlarApHsC~AeP_NykA", v = 30, e = false, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1], line = "ghhwGqlarAxBwbA" }
+
+[[lines]]
+id = "70"
+ref = "70"
+name = "Jesenice – Sežana"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "{j}uGiuqsAiDoM}@ao@", v = 60, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "cr}uG{sssAAjD", v = 35, e = true, g = "1435", tr = 1 },
+  { line = "er}uGonssAeBmSgJqI", v = 60, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "s`~uGomtsAkOeNcJef@a@wMbB{f@vDsSdQq`@xOwIdE}JDkLeF_VfCwa@Mqf@p]kmAfNogApFqHrVmMh]shArTeN~DkHjH_f@cDwo@", v = 75, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ccyuG{~htAmCyc@}D}K}GmCg\\zA}]u^cCeQpEyX|VksA`F}JbVkN|R}[dG}@db@zDlk@ed@", v = 90, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "invuGwkrtAhRw]rAyM_BoKaQ{[uMi{BtEeTdT}GhF{GhA}NgEmM", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "{|uuGkd{tAqUkZg@iL|DcL", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "wnvuGez|tAtb@_`@~Lcw@e@aLgVkx@", v = 70, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ouuuGwyauAyHeCeUhE{F}C}EeJ", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "idwuGwgbuAkj@usAmD}PmDgg@gYon@iAsJjY{hBl\\sx@PgMoC{Tt@}f@pCoMxIiL", v = 90, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "erwuGc}puA`KqOBsP{DeHu\\kUcOcFgFvBwMxO}EVqIgD", v = 65, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "eazuG}uruAiGkBaGdA_RlUwFLyPgFmXvN{V{JkPrByNuGeu@yEav@v]qGDqHyFaNkWiVuUuIcc@kFaI{IeB}TtFuPiK{P|@aHuCqNmWmEqZsRkO}GeYiIyNeS{AmRkJkRdI", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "wmjvGsrxuAsRo@qSrIwQiDyVnAmZiUgKeZcUeGoFqN", v = 75, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "yeovGquzuAqPep@gOatBoToo@iNiSsBq]gUm_@_FeVT{QrKo}@rFkI|PgBjF_FdLq[^iKmAyJeZke@aKsGy\\pAwb@z[mKiAgKqK", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "yttvG}ojvA{G{FqGe@ka@rQae@rpAiZhPsf@~p@}]|HqNj[_x@`v@i[dGmo@lj@gID_a@eOcKlCoOp^aPbTsH|YkNpQqKv]oQvSyHdPam@j\\yWH", v = 100, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "qhfwGmg{uAyPg@gk@kKeWoSuZpIgFa@ue@cm@}HqCc[Q_FiBgKkYeLoMgC{i@yMkY`@_RvFyH~w@_\\xDqG|@wKqG}Xi@sVoIcVhBgl@mCwZ}F{Im`@qL_P_VeJao@X}InDkJ", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "emnwGk{kvAlKuSlGwTxGsJ~b@yTnWoHtf@a`@|Z}\\jDmJToT|CeJnSqWfUeHjLke@l`@qQ`g@yp@bCkQoEqO", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ceewGikwvAeH}CaIvBqPzf@oX~N", v = 85, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "mcgwGstuvAKD", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "ycgwGmtuvAkj@xR", v = 85, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "eohwGs`uvAQF", v = 85, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
+  { line = "wohwGk`uvA{J`D", v = 85, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "s{hwGi{tvAel@nQiKOmMwE_UcVoa@cY{o@{qA", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "}lnwGetxvAkN_Tg`@cSoZg[_]cH", g = "1435", tr = 1 },
+  { line = "awqwGub{vA}|@oIuwD}oAkXyP{U_\\", v = 50, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "}}zwG}l_wAmd@gsA", g = "1435", tr = 1 },
+  { line = "kc|wGeabwAsbDc}J_JmMyVyI}HgJ", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "wsbxGycowAeCqI", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "}wbxGknowAu@kI", g = "1435", tr = 1 },
+  { line = "sybxGwxowAGyL", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "{ybxGqfpwA?C", e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "{ybxGufpwAAkC", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "}ybxGakpwAPwzA", v = 40, e = true, g = "1435", tr = 1 },
+  { line = "kybxGyfswACeF", v = 40, g = "1435", tr = 1 },
+  { line = "oybxG_nswA[|sA", v = 40, e = true, g = "1435", tr = 1 },
+  { line = "kzbxGaypwADvW", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "ezbxGi`pwAExA", v = 40, pzb = true, g = "1435", tr = 1 },
+  { line = "kzbxGo}owAI`B", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "uzbxGmzowAuB~JiFxFuf@dF}MbK", v = 90, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "i|dxGisnwAasD|xDq[rj@", v = 110, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "}lkxGwmgwAiR`_@kPhm@yFxJsZzSqjA~k@", v = 115, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "s`pxGuqbwA{GpNgBnS", v = 105, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "wlpxGsmawAw@dUqFlQ", v = 115, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "avpxG_e`wA_MdWqLvJ", v = 105, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "sqqxGaa_wAcMdO_ZncAwZj]{C~Ou@~_@mChLoF|HqS`NkGtM", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "}euxG_gxvAwF|e@_`@|rA}K~Nec@jSqJpM}Rzu@gHpm@", v = 115, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "qhyxGwsovAeGz^{LvPaRhCeRgJ", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "{d{xGainvAkp@{f@mrCafDoK}GiLe@yLnF{TbVa[pTeW|c@", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "m{dyG_irvAwGbQgLjI", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "mqeyGolqvAC@", e = true, g = "1435", tr = 1 },
+  { line = "qqeyGmlqvAwb@xC_O`M", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "iegyGqypvAiMnVkJdj@", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "__hyG{vnvAwBj[Vd_@iPr]kI~E", v = 90, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "u}hyGutkvAgLtA}GjE}d@dm@gEjb@wIhZ}Dhh@sUpeAiBza@}Hna@wYdb@qV|Aob@nX", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "mjoyG{i`vA{GnDiOkBaItC", v = 90, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "umpyGac`vA_o@hg@", v = 75, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "u}qyGwz~uAyOfMwF`KqYpvAc[`[oLdo@oLzKge@by@eA`M~Dpk@uBlMiXxT_T{DqIpEkJtQgH~U^`LrGhS{AtQi[dY{Pdd@uF~UsDrCaT|B", v = 95, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "ke{yGkymuAqq@b_@", v = 140, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "}w|yGgyluAki@zY", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "ib~yGk~kuAym@~^mWrY{_EpnA", v = 140, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "mjfzGetguAuc@`HuDvF}DlToJfNgN`cA{B~\\yS|TiMxH{GxOuBnRwGrR}F|{@wFpO}@fN", v = 95, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "mckzGeh}tAu@nO}IbU{B|UqHvTsNp}@", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
+  { line = "cmlzGivxtA_B~S", v = 35, e = true, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179], line = "{j}uGiuqsAwFsbAgc@uv@mAomA`c@ox@nDueAtHwkArXifA`VodAld@cu@bf@ys@hFclAqSccAmr@_QmAydAvTaiAxj@qn@|t@oCbm@wk@qAe_AuKmlAWslAbYqo@oMgy@he@yt@wCsiAik@kX_d@oy@_[ycA}WmdAlCciA`V{gAdPcdA|N}fAgGkv@{o@Eop@rLwr@hKqt@wGav@uK}s@bWsl@wYw`@qz@er@eKsn@u\\}^wz@qk@ed@qt@xEgu@jEoh@}o@of@{n@}NqkA{LklAw`@e~@yZm`A|DolA|e@cl@qBsbAkp@sYoq@~\\oq@uNoe@bu@sf@tr@{i@zr@ul@lc@am@dm@er@d\\}o@tb@mr@uC{a@~|@y`@t}@ik@ln@wt@dPmv@}J_r@gMal@oe@yt@_O_Zu`AeIkdAxs@iZbEqaAgGkjAyb@mo@qa@yx@dQsdAxk@mj@jr@y]jm@ml@vZs_Ajd@_p@`p@{c@b[_}@ke@pZer@x]ut@|Vcu@B}n@gh@qd@uz@}f@yv@qo@{e@qu@uNgv@iLwt@sVwt@uVwt@sVgp@kd@y_@g`Am\\}cAo\\}cAo\\{cAo\\_dAm\\}cAq\\{cAwm@og@{BqnAy@yk@J|oAu_@pn@}p@~^ul@dn@wl@dn@ul@dn@}i@tr@ac@~|@mb@dz@}r@v]am@`i@}RbhAag@`u@o_@d_AeUbcAqg@~r@mUhhAg^z`Ayo@~c@iVphA{U`gA_s@aJgo@oh@ek@cq@ek@eq@ek@gq@wq@eDqn@ri@od@nz@_u@~O}[rbAcI|kAcn@`e@ud@xw@kP~jA{TriAiNflAwl@ve@ar@n_@gr@zUom@rk@uUjiAad@dw@s^d~@a]f~@qMxaAep@~RyA~fAyf@vt@qe@jn@sr@b_@or@l_@ip@de@yq@n^au@fUau@hUau@dU_k@`b@gV~eAwZr_A_a@hz@oMrlAyS`hAgUbiA" }
+
+[[lines]]
+id = "71"
+ref = "71"
+name = "Nova Gorica – Vrtojba"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "wtiwGoehrArIoBbGhHhVnoB", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1], line = "wtiwGoehrA|[zs@" }
+
+[[lines]]
+id = "72"
+ref = "72"
+name = "Železniška proga Privačina – Ajdovščina"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "idawGuizsApHbz@", v = 20, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "wz`wGqnxsAv@lOeBpmAeIp{@gBbw@pDfLfPlKtDrGbAdLcB|^rIfq@xZ`m@nBtMuFl]|B`XsD~`@nDfh@iArbAyN|o@cJzSgOzj@qB`QeItO", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "icawGsaasA{Iha@", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "enawGi_`sAaDzVTzb@wIvTcDtPFpYuDfl@~AbN", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "{dbwGeezrAdW~ZtAxHKrO", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "kjawGwnxrA@hF", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], line = "idawGuizsAdJ|mAqBpoAmJxmAxV~{@nF|kAh]|`ApAtiACxmA{EdnAsYleAk[fcAmKblAsNxhA`DvhA" }
+
+[[lines]]
+id = "80"
+ref = "80"
+name = "Metlika – Ljubljana"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "ucruGats|Am@jB", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "ceruGups|A_Ll]_IhMyAjLfDtc@pE`FpNzC", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "qcruG}ep|A~P`KpEfN", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "_kquGsjo|ArLdSpSti@lLxIrDfL|EddAqQ|`ArDjgAxAbKzK~RjJl_@f[vp@VxJmIphAf@bKvEdJrIfB~i@uV", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "opluGsy_|Ar@@", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "{nluGqy_|AfSZ", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "szkuGux_|A|GL", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "uqkuGgx_|A|X`AxRdOjQpf@la@~Qbi@|u@pLl_@~EvXbKpQnFnU`@dL_CfZnExQ", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "gyeuG_vv{AhOfZEtJgDjN", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "kneuGu_u{AmFjJ{UxEsGxGoDh_@kMt[}Flk@mCtH_FvCkNMiNvC", v = 70, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "g{huGohp{AaKbAuHmG", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "_qiuGynp{AcFwDsFDiKvFyIjK{LvBuO~JeG}AwIkJeU}CmJbFc^~EcZjRcSvE_FmAme@g^", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "yequGe}o{AuKoGyG_T", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "i{quGuzp{AiPg]kOcKiK@sGdGmbA|cBiL~AeXeEsIfDiNBePtGoKbMk]hPsMxLqWfNwJ`[yN`LoLgAoNsTeR{@kLtMeErPoOhXaYnI", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "}b_vG_}i{AuVrK", v = 65, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "sz_vGkpi{A}FnB", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "qb`vG{li{A}GAsEeEiKm\\cZsi@}GWkgAtd@wt@{NuUqi@eFqCyO_A}NuU", v = 65, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "g_hvG}mm{AyOmZ", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "aphvGkin{AmGgN_A{WsH}OwCkSmIwIu[jBy]zM{UaBkGlGgHj\\}NvG_IkAaLqNqb@wT{\\xI", v = 65, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "w_pvGu`p{Asf@wGoOnK{c@ll@_Ht@_LiF", v = 50, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "wrsvGcun{A{GkAmJhEgQpBqDtJ}A`YoMlXaGv@cNyEaIbF{D`WgJpYkFrh@gLx_@_MfRcFrPePxSyGbe@y\\v^_E`^eJlE_SgOwTvHyUyIgHt@gIbOa@jY}Kdo@", v = 65, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "ow}vGe_a{A{FnVeJnNaVsAqKtIc[`JmIth@w@|a@wExSuIvQwBb]cG~I", v = 70, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "ysawGwgzzAyr@j\\qJv^yUj\\mJdg@", v = 75, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "mudwGaevzAUnA", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "cvdwGqbvzAiHrc@cE`z@", v = 75, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "qeewG{bszA`Bro@oJ~v@zA`r@mB`L_T`]u`A`NmVp]s]|U", v = 70, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "i{iwGowjzAq@P", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "{|iwG}vjzAqSdFeG`GeGzTCh^mQzRaCtJtCr[aB~ZjOnX`I``A{Ady@wSns@eFpb@yEdFo\\vIuE|LfCj^lKv_@qBnYNxRvKfs@", v = 70, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "yklwG}jxyAhJrm@", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "o`lwGi|vyAxJvr@mDtj@TtMl\\dmAfGrbAm@dLeLv`@Bl^}EnZh@d_@", v = 70, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "{gkwGirjyAhAvv@", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "qekwGqzhyAl@bYfFng@_AfTwEdHgQ|Fi`@|^yCdOeF~z@qR|g@yZjb@{Lxb@", v = 70, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "mbowGiu~xAkHpj@", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "ykowGwi}xAThUnKrUfPjFrj@nDhLrYbF|B~Pa@tPnRFjNoIhUNjPvClv@tN``@^~KmDzSoNxPiDpZ_KbG", v = 65, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "edlwG_xrxAqT~AoHfDqFtHgKjZiC|Pe@lTzIz`AsBtKqFbG", v = 70, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "{|mwGslmxAyb@`[", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "u`owGqplxAaHhJkF`[gLjV}CfYkMl]uGvGoTlEmHpK_`@t{AYxc@", v = 70, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "c{rwG{{cxA}Ab[r@jW_CpHeElDyFNmPgFo\\e]sIp@gGfISlOfLjTbGjm@|]fx@kA~OuRnV", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "srtwGq{|wA}MvYqk@`g@gLnZ_GjG", v = 70, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "kcwwG{tywAk`@`PyPbf@sF`GgVzIoY_BoMfB_i@x_@{K`Mci@p`A", v = 85, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "m_~wGayswAmY~q@_LpFkLaBiFqDcMwp@}c@}c@qHa@{MbG{M~S", v = 65, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "}ubxGwatwAiAhJ\\nxA", v = 40, e = false, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124], line = "ucruGats|AuYvbAxb@zn@xc@xx@z_@p{@x@pmAuKxjAdQrgAj]~aArC`hA`Rvv@~s@wTnu@vJzd@fv@tm@fh@~`@v}@xXjdAlN~cA}Yps@m\\`|@kV~cAqt@mAqq@tQoq@qEgu@|Nes@bSgp@ce@kc@oy@cl@`]qe@ly@{q@tKmr@dXeq@fb@wg@rp@io@_Tof@dq@ar@d\\uh@}_@oi@gc@ms@`[ku@{Eag@sq@_k@yh@mYibAui@o[_u@tJef@|m@}o@wc@_u@zBap@~Vsn@dVek@|[uc@ld@y]|z@_TphAge@rx@s^x{@aa@zc@ur@eGgZpw@kW`fAms@hNqXt|@aSlgAwf@~l@me@~r@m]z_AwLzlAg@tnA_FvmAe\\b{@iv@|Icl@rm@mo@|a@gVp_AnA`kArSbfAaD`mAwTnhAgl@he@|NdjAnGrlAtQdkAZnmApWvfAnLvlA}LhjA_DvmAlCjoAyI|`A_m@hj@aLtlAed@xz@gZndAzOzaAjv@jIfk@ha@b@|bA~LfkAmL~_Aqf@xe@_`@z{@jHtmAoe@jq@u`@p{@uYndAcj@ni@wXzfAkA~mAqh@dOwj@kG|R|fAb`@t_Am`@|{@}m@vj@si@jn@me@bu@wu@nGiq@ja@qg@nv@ib@z}@gl@|Aa_@e{@}n@VsFhlA" }
+
+[[lines]]
+id = "81"
+ref = "81"
+name = "Sevnica – Trebnje"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "weewGcbqzA`BmPiBgq@~A{W", v = 35, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "_cewGu~szAfBim@mD_HgIo@", v = 55, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "moewGowuzAoHmD}HoZuOsEsF~@uP|RoWsCaCkDsEkVmXwUsM_Gg^uh@{O}ZkJg[aPkOo_@sKwF_M", v = 65, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "}lmwGcv|zAyAgU", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "womwGkl}zA}DwSkd@mZwBuJBoO", v = 65, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "u~nwGwx_{Ay@kOsKuc@sAchA`NccCeBmN", v = 70, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "{cowGojh{AyPii@", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "uuowGyti{AuKk]iBwMf@gvAk^cvAkBcQj@{PpOyg@l@uN", v = 70, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "yspwGyls{AgAiS~DiW_Haa@Bw\\", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "}xpwGgyv{A?k@", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "}xpwGszv{A{BqUkRmWeD}d@aGc`@_NeUiMyBo[nTmVjGqHDqEqEoL{b@x@mOjFwXyHea@lCgY", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "ohuwGu}~{Af@iQyEsO", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "anuwGs``|AqG_MkPwGeDeI_DaYkVw\\oAaQdA_[nCsRyBe[tAm]{BsGcLgLqIsVyEmX", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "{hxwGs|h|AyKsKyUnCkJ}FiFgOq@yIrAcIjHoK", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], line = "weewGcbqzAd@unAoE{dAoi@sf@{p@jN}e@wr@aj@iq@{a@}|@oo@q`@q]ky@wVu_AwJilAbDaoAbHwnAmZceAkGmlAyJ}kAcVwgAxQuhAsC}jAoQqcAuOckAol@kQgs@lLcE}gAoAakAgc@it@e^_~@`B_nAmPmbAy_@_{@}e@e`@" }
+
+[[lines]]
+id = "82"
+ref = "82"
+name = "Grosuplje – Kočevje"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "{druGcztyAgUzM", v = 50, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "c{ruGgktyAgo@v_@u|@fw@_z@`hAwt@``@wjB`rBslFziLag@lnAi~ArfBoOzWyGhSqKzs@", v = 100, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "m`jvGaqtxAgChO}DtEeNTwJnH}LNaQxNyKyC_IRkX~Teo@fQyTxAeEjGaFl[yHjM}KjC_[zToEq@oQ{MeQ|IyOv`@o_@dn@gPlCcQbKsOcJoQlB_KxQ}LxEkIfJgQhGoQ]gH{QeL_GcC}EIs]fOw^wBoMuF{ByNzCgYwD_EuDiMuk@hDmXBkP", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "yv{vGi{qxAEaa@", v = 50, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "_w{vGk}rxAc@yN`Bo]sCk|@mC}Iw[eIuS}PqP|@{M|JkP}HyQ`EiLkNqLcFkh@~_@qJzj@wPnUeFrQ{UxKmN\\aIfK", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "imdwGslsxAyVfk@eGzCkJq@", v = 80, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "uxewGa}qxA_JNq`@zM", v = 70, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "gegwGumqxAy_@nHc[nUaOwA}IpFwBbGNrQeC`OhBrVeA`MoHxJkKzB", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "kyjwGuhmxAmf@s@", v = 70, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "y`lwGijmxAuy@aA", v = 80, e = false, pzb = true, g = "1435", tr = 1 },
+  { line = "o{mwGklmxAmFnD", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48], line = "{druGcztyA}q@ba@uo@zf@cm@rl@ai@lt@gr@j_@yl@jm@cl@zn@ug@|u@{a@`~@{a@b~@cb@z}@ua@j~@{a@b~@{a@b~@g`@|_Ame@tx@cl@bo@yi@vr@{UvgAgi@de@as@fKer@~\\eq@fXie@dq@cq@Msd@|x@am@|f@mr@rCgm@tg@_n@o[pL{eAsp@{MwTy`At@ynA[_oAmi@qf@kr@x@ip@_T_p@~]y[j`Akm@z_@ed@jz@ku@pLis@hWel@l\\oGpiAiv@tCcw@_B" }
+
+[[lines]]
+id = "83"
+ref = "83"
+name = "Novo mesto – Straža"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "gdmvG{k_{AgSkU", e = false, pzb = false, g = "1435", tr = 1 },
+  { line = "oxmvGgb`{AuCuJOanAcJcpA_c@{mAaAmx@oGyn@uCyp@mLyVgHcE{E~@oTpP}ShAcXwWa@kNjEyJ", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8], line = "gdmvG{k_{AcXe_AoC_oAiPijAcZwcAeFknAoMujAyo@hEuh@{d@" }
+
+[[lines]]
+id = "dravograd-otiski-vrh"
+ref = "?"
+name = "Dravograd – Otiški Vrh"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "cei{GghuzArJ}CrJyMjn@s_@", e = false, pzb = false, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1], line = "cei{GghuzA`p@od@" }
+
+[[lines]]
+id = "kranj-naklo"
+ref = "?"
+name = "Kranj – Naklo"
+operator = "SŽ Infrastruktura"
+pieces = [
+  { line = "mqeyGolqvAab@|BgL`I", e = true, g = "1435", tr = 1 },
+  { line = "wagyGo~pvAwBrC", e = false, g = "1435", tr = 1 },
+  { line = "oegyG{ypvAgu@xu@{QdK}Rjo@uSrJcR|X_b@rdA", v = 40, e = false, g = "1435", tr = 1 },
+]
+posts = { km = [0, 1, 2, 3, 4, 5], line = "mqeyGolqvAys@nRcm@bm@uf@ns@mi@|n@y`@t_A" }

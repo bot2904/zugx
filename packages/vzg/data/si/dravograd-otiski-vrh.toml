@@ -1,0 +1,26 @@
+id = "dravograd-otiski-vrh"
+ref = "?"
+name = "Dravograd – Otiški Vrh"
+operator = "SŽ Infrastruktura"
+gauge = "1435"
+from = "Dravograd"
+to = "Otiški Vrh"
+source = "OpenStreetMap (slovenia-261114.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 0
+kmTo = 1.425
+length = 1.425
+speeds = [[0, 1.425, "", ""]]
+curves = [[0.125, 0.325, 410], [0.375, 0.55, 610]]
+points = []
+structures = [
+  { kind = "bridge", kmFrom = 0.912, kmTo = 0.924, length = 12 },
+]
+
+[tracks.geo]
+segments = [
+  { line = "cei{GghuzArJ}CrJyMjn@s_@" },
+]
+posts = [[0, 46.58274, 15.02356], [1, 46.57489, 15.02956]]
