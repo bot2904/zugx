@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Live train positions (HAFAS JourneyGeoPos) for the visible map area.
 import { useAutoRefresh } from "../lib/refresh.ts";
-import type { Line, Movement, Trip } from "@zugx/hafas";
+import { groupMovements, type Line, type Movement, type Trip } from "@zugx/hafas";
 import type { Map as MlMap } from "maplibre-gl";
 import { useDebounceFn, useLocalStorage } from "@vueuse/core";
 import { computed, ref, shallowRef, watch } from "vue";
@@ -116,6 +116,9 @@ const routeLines = computed<MapLine[]>(() => {
 // colour by delay (scale like MÁV's vonatinfo) or by train category
 const mode = useLocalStorage<"delay" | "category">("zugx:radar-mode", "delay");
 
+/** coupled train parts at the same position as one train set, likely operational part first */
+const groups = computed(() => groupMovements(movements.value));
+
 const counts = computed(() => {
   const c: Record<string, number> = {
     nodata: 0,
@@ -125,8 +128,8 @@ const counts = computed(() => {
     late: 0,
     verylate: 0,
   };
-  for (const m of movements.value) {
-    const cls = delayClass(m.delay);
+  for (const [m] of groups.value) {
+    const cls = delayClass(m!.delay);
     c[cls]!++;
   }
   return c;
@@ -137,7 +140,8 @@ const counts = computed(() => {
 /** category legend: categories in view, most frequent first (max. 10) */
 const catCounts = computed(() => {
   const m = new Map<string, { cat: string; n: number; color: string }>();
-  for (const mv of movements.value) {
+  for (const [mv] of groups.value) {
+    if (!mv) continue;
     const cat = mv.line.category.toUpperCase() || "?";
     const e = m.get(cat) ?? { cat, n: 0, color: lineColor(mv.line) };
     e.n++;
@@ -150,17 +154,20 @@ const fmtDelay = (d?: number) =>
   ` · ${d === undefined ? t("radar.delay.nodata") : d > 0 ? `+${d}′` : d < 0 ? `−${-d}′` : "±0′"}`;
 
 const points = computed<MapPoint[]>(() =>
-  movements.value.map((m) => ({
-    lat: m.lat,
-    lon: m.lon,
-    id: m.journeyId,
-    color: mode.value === "delay" ? delayColor(m.delay) : lineColor(m.line),
-    // train as a line badge, as in the journey search
-    badge: { text: m.line.name, color: lineColor(m.line) },
-    label: `→ ${m.direction}${fmtDelay(m.delay)}`,
-    bearing: m.bearing,
-    big: m.journeyId === selectedId.value,
-  })),
+  groups.value.map((parts) => {
+    const m = parts[0]!;
+    return {
+      lat: m.lat,
+      lon: m.lon,
+      id: m.journeyId,
+      color: mode.value === "delay" ? delayColor(m.delay) : lineColor(m.line),
+      // train as a line badge, as in the journey search; coupled parts "NJ 466 / EN 40462"
+      badge: { text: parts.map((p) => p.line.name).join(" / "), color: lineColor(m.line) },
+      label: `→ ${m.direction}${fmtDelay(m.delay)}`,
+      bearing: m.bearing,
+      big: parts.some((p) => p.journeyId === selectedId.value),
+    };
+  }),
 );
 
 function toggle(cls: number) {
@@ -173,7 +180,7 @@ function toggle(cls: number) {
   <section>
     <div class="mb-2 flex flex-wrap items-center gap-2">
       <h1 class="m-0 text-xl">{{ $t("radar.title") }}</h1>
-      <span class="muted text-sm">{{ $t("radar.trains", { n: movements.length }) }}</span>
+      <span class="muted text-sm">{{ $t("radar.trains", { n: groups.length }) }}</span>
       <span v-if="loading" class="muted animate-pulse text-xs">●</span>
       <span
         class="flex items-center gap-1 text-xs"

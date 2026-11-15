@@ -13,5 +13,6 @@ export {
   stripHtml,
   VIENNA,
 } from "./parse.ts";
+export { compareParts, groupMovements, isCommercialNumber } from "./coupled.ts";
 export { decodePolyline } from "./polyline.ts";
 export { runningDays } from "./running-days.ts";
