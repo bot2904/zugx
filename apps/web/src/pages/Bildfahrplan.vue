@@ -914,7 +914,7 @@ watch([plan, nodeHafas, date, t0, t1, nodeAll], () => void loadNodeBoards(), {
           ↓
         </button>
         <button
-          v-for="h in [2, 4, 8, 24]"
+          v-for="h in [1, 2, 4, 8, 24]"
           :key="h"
           class="btn"
           :class="span === h && 'btn-on'"

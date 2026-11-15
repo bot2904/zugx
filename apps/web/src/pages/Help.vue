@@ -87,7 +87,7 @@ const { locale } = useI18n();
       </p>
       <ul>
         <li>
-          Beliebiger Tag des Fahrplanjahres, Abschnitt und Richtung wählbar, Zeitfenster 2–24
+          Beliebiger Tag des Fahrplanjahres, Abschnitt und Richtung wählbar, Zeitfenster 1–24
           Stunden; Mausrad verschiebt die Zeit, Strg/⌘ + Mausrad zoomt. Datum und Uhrzeit bleiben
           beim Wechsel zu einem anderen Bildfahrplan erhalten.
         </li>
@@ -364,7 +364,7 @@ const { locale } = useI18n();
       </p>
       <ul>
         <li>
-          Any day of the timetable year, section and direction, a 2–24 hour window; mouse wheel
+          Any day of the timetable year, section and direction, a 1–24 hour window; mouse wheel
           moves in time, Ctrl/⌘ + wheel zooms. Date and time are kept when switching sheets.
         </li>
         <li>
