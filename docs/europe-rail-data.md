@@ -53,6 +53,20 @@ Legend: ✅ official, open licence, anonymous download · 🔑 official, open bu
 | Moldova                    | CFM (community rehost)                                                                   | GTFS                                 | none stated                                                   | anonymous                                    | 👥                                                                                                   |
 | Belarus                    | –                                                                                        | –                                    | –                                                             | –                                            | ❌                                                                                                   |
 
+## NeTEx per country (checked 2026-11-15)
+
+| NeTEx for rail                                              | Countries                                                                                                                                                                                                                                                                                  |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **yes, official, file verified**                            | France (SNCF, French profile, ODbL + conditions, anonymous), Italy (Trenitalia L1 on the CCISS NAP, Italian profile, licence not stated, anonymous), Czechia (CIS JŘ `NeTEx_GVD2026.zip`, EPIP, monthly update files, anonymous, licence not stated), Norway (Entur, Nordic profile, NLOD) |
+| **yes, official, behind registration/key**                  | Germany (DELFI, CC-BY), Austria (MVO, Austrian profile), Sweden (Samtrafiken, CC0, key), Denmark (NAP, EPIP, login), Slovenia (nap.si, EPIP 1.1.2, rail + bus, Basic auth)                                                                                                                 |
+| **yes, official, anonymous, restrictive or custom licence** | Switzerland (Swiss profile, terms), Belgium (SNCB, Belgian EPIP, non-commercial), Luxembourg (CC0, anonymous ✅)                                                                                                                                                                           |
+| **partial**                                                 | Netherlands (NDOV per operator, NS only IFF), Italy (Italo L1/L2 and regional sets, not opened)                                                                                                                                                                                            |
+| **no / not found** (GTFS only)                              | Spain (Renfe GTFS, NAP needs a key), Portugal (only Metro Mondego), Ireland (profile spec only), United Kingdom (CIF), Slovakia, Croatia, Estonia, Latvia, Lithuania, Greece, Finland (rail as Digitraffic GTFS/JSON; Finap NeTEx holds stops only)                                        |
+| **unclear**                                                 | Poland (NAP/profile on paper), Hungary, Romania (Infofer XML), Bulgaria (NAP set up for NeTEx, no rail dataset)                                                                                                                                                                            |
+| **none**                                                    | Balkans, Turkey, Ukraine, Moldova, Belarus (community GTFS at most)                                                                                                                                                                                                                        |
+
+Details per country (agents' findings): see "NeTEx check — details" below.
+
 ## Details: DACH and Benelux
 
 | Country     | Dataset                                                                              | Format                                       | Coverage                                                                     | URL                                                                                                                                           | Licence / access                                                                                                       | Notes                                                                                                |
@@ -418,6 +432,383 @@ Sources:
 - https://razpisanie.bdz.bg
 - https://bnr.bg/en/post/101146268/bdz-train-timetable-now-available-on-google-maps
 - https://mobilitydatabase.org/feeds/gtfs/mdb-2848
+
+## NeTEx check — details
+
+#### Spain
+
+NeTEx: unclear, probably no. I found no NeTEx source for Spanish rail. Renfe's official rail timetables are GTFS (CC BY 4.0, anonymous download).
+
+- **Renfe open data:** data.renfe.com has GTFS for long-distance/AVE/medium-distance and for Cercanías.
+- **National access point (nap.transportes.gob.es):** it lists Renfe/Feve data as GTFS only. I could not find a NeTEx dataset for Renfe, Ouigo, Iryo, FGC or Euskotren.
+- **Standards:** Spain adopted NeTEx part 2 as a standard (UNE-CEN/TS 16614-2) in April 2026, but I found no publication of data in that format.
+
+Caveats:
+
+- The access point's home page loads (HTTP 200). Its search API answers "Api Key was not provided", and guessed file-listing URLs return 404. So a NeTEx file behind the login or API key can't be ruled out.
+- I only had web search results and the home page to go on, so there is no direct check of the access point's catalogue.
+
+Sources:
+
+- https://data.renfe.com/dataset/horarios-de-alta-velocidad-larga-distancia-y-media-distancia
+- https://data.renfe.com/dataset/horarios-cercanias
+- https://nap.transportes.gob.es/
+- https://mobilitydatabase.org/feeds/gtfs/mdb-2717
+- https://datos.gob.es/es/noticias/los-datos-de-renfe-que-puedes-encontrar-en-datosgobes
+- https://www.en-standard.eu/une-cen-ts-16614-2-2026-public-transport-network-and-timetable-exchange-netex-part-2-public-transport-scheduled-timetables-exchange-format-endorsed-by-asociacion-espa-ola-de-normalizacion-in-april-of-2026
+
+#### Portugal
+
+NeTEx: no for national rail (CP, Fertagus). The one NeTEx source I found is regional: Metro Mondego in Coimbra.
+
+| Dataset             | Publisher                                         | Profile    | Coverage                                                                | URL                                                                                                                                                               | Licence / access | Notes                                                                                   |
+| ------------------- | ------------------------------------------------- | ---------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | --------------------------------------------------------------------------------------- |
+| Metro Mondego NETEX | AGIT (Coimbra intermodal agency), on dados.gov.pt | not stated | Metro Mondego (SMM) only. This is a regional system, not national rail. | [dataset page](https://dados.gov.pt/datasets/metro-mondego-netex), [download](https://api.planner.agit.pt/v1/datasets/metro-mondego/distributions/netex/download) | CC-BY, anonymous | The zip mirror on dados.gov.pt returned HTTP 200, 790 KB. Update frequency not checked. |
+
+Related AGIT NeTEx datasets for Coimbra buses (SMTUC, SIT) have the same licence. They are not rail.
+
+- **CP and Fertagus:** I found no NeTEx for either. dados.gov.pt has no CP or Fertagus dataset. CP's official GTFS is at publico.cp.pt (Mobility Database id mdb-2057), valid 2025-12-14 to 2026-12-12. I did not fetch the GTFS file or check its licence. CP also publishes PDF timetables.
+- **National access point:** The IMT page says national NeTEx and SIRI profiles are still being built. I could not read it: the NAP (nap-portugal.imt-ip.pt) returned only an empty static page, and the IMT page returned 503. A CP or Fertagus NeTEx file on the NAP cannot be fully ruled out.
+
+Sources:
+
+- https://dados.gov.pt/api/1/datasets/?q=netex
+- https://dados.gov.pt/datasets/metro-mondego-netex
+- https://www.imt-ip.pt/?p=1928
+- https://nap-portugal.imt-ip.pt
+- https://mobilitydatabase.org/feeds/gtfs/mdb-2057
+
+#### Ireland
+
+NeTEx: no. The NTA publishes an Irish NeTEx profile as a specification, but I found no live NeTEx timetable data, for rail or any other mode. Its listing says the NTA currently does not publish data in NeTEx. The official timetable data is GTFS, with VDV 452 for bus operators. Irish Rail is in the NTA's GTFS.
+
+Caveats:
+
+- I did not check the NTA's current Public Transport open data page directly, so I can't exclude a very recent NeTEx release.
+- The Irish NeTEx profile has only an XSD schema, sample output, and a mapping to GTFS/VDV452/NaPTAN (CC BY 4.0). It describes how data would be rendered, but it isn't a feed.
+
+Sources:
+
+- https://data.gov.ie/en_GB/dataset/netex-irish-profile
+- https://data.gov.ie/organization/national-transport-authority
+- https://www.nationaltransport.ie/attention-developers-upgrade-to-gtfs-realtime-api/
+- https://www.transportforireland.ie/news/new-transport-data-feed-for-app-developers-now-online/
+
+#### United Kingdom
+
+NeTEx: no. I found no NeTEx source for UK static rail timetables, though I couldn't open the Rail Data Marketplace catalogue or the Northern Ireland dataset page.
+
+- **Great Britain:** Static rail timetables are published as CIF/DTD files, the industry timetable file format, from the National Rail Data Portal and now the Rail Data Marketplace (Rail Delivery Group and Department for Transport). Access needs a registered account. BODS (the Bus Open Data Service) is bus-only and offers TransXChange and GTFS. My searches turned up no NeTEx for rail.
+- **Northern Ireland:** Translink publishes a "Translink Northern Ireland Rail Timetable Data" dataset on Open Data NI under the Open Government Licence. I couldn't confirm its format because the CKAN API (the portal's data interface) returned 403. It is probably GTFS, but that is unverified.
+
+Caveats:
+
+- I did not browse the Rail Data Marketplace catalogue itself, so a NeTEx product listed there can't be fully ruled out.
+- Treat the Northern Ireland format as unknown until the dataset page is checked.
+
+Sources:
+
+- [Rail Data Marketplace](https://raildeliverygroup.com/our-services/rail-data/rail-data-marketplace.html)
+- [Rail Data Marketplace feeds (Open Rail Data wiki)](https://wiki.openraildata.com/index.php/Rail_Data_Marketplace/Feeds)
+- [Transitous: sources in Great Britain](https://transitous.org/sources-great-britain)
+- [Open Data NI: Translink dataset](https://admin.opendatani.gov.uk/dataset/groups/nir20160126v2)
+
+#### Poland
+
+NeTEx: unclear (probably no) — I found no downloadable NeTEx file for Polish rail. The Polish national access point (KPD MMTIS) and a national NeTEx profile exist on paper. I found no evidence of a live NeTEx dataset from PKP PLK, PKP Intercity or Polregio.
+
+Official rail data I could find is in other formats:
+
+- **GTFS (unofficial):** the PKP Intercity GTFS comes from a third-party producer, mkuran.pl/gtfs/pkpic.zip, under CC0-1.0. The Mobility Database page says the feed has been replaced by a different producer URL (mdb-3191).
+- **Not verified:** I could not check whether the Mobility Database copy responds. Its latest copy's service range ends 11 Aug 2026.
+
+Caveats:
+
+- The gov.pl KPD page was unreachable (connection refused), so I could not check current portal status or datasets. A 2024 Spidersweb article claimed Poland had not yet set up a working access point. The gov.pl profile documents are from 2022 consultations and describe the minimal national NeTEx profile as still to be developed.
+- No HTTP status or file size was checked for any NeTEx file, because none was found. A hidden NeTEx upload on the KPD portal or dane.gov.pl cannot be ruled out. The PLK Horizontal Timetable (HRJ) is a separate timetable-planning project, not a NeTEx feed.
+
+Sources:
+
+- https://www.gov.pl/web/infrastruktura/krajowy-punkt-dostepu-do-uslug-informacji-o-podrozach-multimodalnych-kpd-mmtis
+- https://www.gov.pl/attachment/df3a7f4d-ed4b-42a8-9fc6-860095443465
+- https://www.gov.pl/attachment/a76aa2b7-baf9-41f6-9892-850f385cfdbf
+- https://spidersweb.pl/2024/01/rozklady-jazdy-dostep-w-polsce.html
+- https://mobilitydatabase.org/feeds/gtfs/mdb-2088
+
+#### Czechia
+
+NeTEx: yes — CIS JŘ (Ministry of Transport / CHAPS) publishes rail NeTEx in the EU EPIP profile as anonymous directory-listing downloads. The licence is not stated.
+
+| Dataset                                                  | Publisher                                          | Profile                                                                                    | Coverage                                                                                                                                 | URL                                                                                                                                     | Licence / access                                    | Notes                                                                                                   |
+| -------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| NeTEx_GVD2026.zip (national rail, annual timetable 2026) | CIS JŘ, run by CHAPS for the Ministry of Transport | EPIP (`NX-PI-01`, `epip:EU_PI_LINE_OFFER`, NeTEx 1.10), based on the CZPTT train path data | National rail (SŽ train path data). Operators are not listed, but the file carries operator refs such as `CZ:CISJR_CZPTT:Operator:3189`. | https://portal.cisjr.cz/pub/netex/NeTEx_GVD2026.zip (HTTP 200, 63.8 MB, 13,252 XML files, about 1.3 GB unzipped, base dated 2 Jan 2026) | Anonymous. No licence or terms found on the portal. | One XML file per train, e.g. `NX-PI-01_CZ_CISJR-CZPTT_Train-PA-0054-KT------848A-00-2026_20251105.xml`. |
+| NeTEx_GVD2026_updates_YYYY-MM.zip                        | CIS JŘ                                             | EPIP                                                                                       | Monthly deltas (2025-11 to 2026-11)                                                                                                      | https://portal.cisjr.cz/pub/netex/NeTEx_GVD2026_updates_2026-11.zip (HTTP 200, 10.3 MB, modified 13 Nov 2026)                           | Anonymous                                           | Apply on top of the base file.                                                                          |
+| NeTEx_DrahyMestske.zip                                   | CIS JŘ                                             | Not checked                                                                                | Urban rail (trams, metro)                                                                                                                | https://portal.cisjr.cz/pub/netex/NeTEx_DrahyMestske.zip (HTTP 200, 73 MB, modified 13 Nov 2026)                                        | Anonymous                                           | Not needed for mainline rail.                                                                           |
+| NeTEx_VerejnaLinkovaDoprava.zip                          | CIS JŘ                                             | Not checked                                                                                | Public scheduled (bus) transport                                                                                                         | https://portal.cisjr.cz/pub/netex/NeTEx_VerejnaLinkovaDoprava.zip (HTTP 200, 201 MB, modified 13 Nov 2026)                              | Anonymous                                           | Bus, not rail.                                                                                          |
+
+Description PDF: https://portal.cisjr.cz/pub/netex/CISJR_NeTEx.pdf (HTTP 200, 386 KB, dated 30 Oct 2023). I did not read it.
+
+Caveats:
+
+- **Not checked:** the exact licence and the national access point and data.gov.cz catalogue entries. The `mobilita.gov.cz` and `nap.mdcr.cz` hosts did not respond. A 2024 OSM talk-cz post and FOSDEM 2026 slides suggest the NeTEx is "nominal" or lossy. I did not parse the XML, so train numbers, coupled train parts and the 2027 timetable year are unverified. A `KJR2027_SZ.zip` exists in the rail PDF folder, but there is no `GVD2027` NeTEx file yet.
+- **Update cadence:** the base file is yearly (GVD2026) and the deltas are monthly. The GVD2026 base file is dated 2 Jan 2026 and the newest delta 13 Nov 2026, so the data may not carry the last-minute changes to the running timetable.
+
+Sources:
+
+- https://portal.cisjr.cz/pub/netex/
+- https://portal.cisjr.cz/pub/netex/CISJR_NeTEx.pdf
+- https://portal.cisjr.cz/pub/draha/celostatni/
+- https://lists.openstreetmap.org/pipermail/talk-cz/2024-July/026765.html
+- https://archive.fosdem.org/2026/events/attachments/R3EF8T-czech-transport-data/slides/266999/slides_hmq8mfu.pdf
+
+#### Slovakia
+
+NeTEx: no. I found no official or national-access-point NeTEx source for Slovak static rail timetables, and the official rail data I found is GTFS.
+
+- **What exists:** ZSSK (the Slovak passenger railway) publishes a GTFS Schedule feed, "a.s., Železničná spoločnosť Slovensko". It has 360 rail routes and a CC0-1.0 licence. The producer URL is on zsr.sk, which I did not open. The Mobility Database listing shows service dates ending 13 Mar 2026, so the feed may be stale.
+- **National access point:** The National Transport Authority (Národný dopravný úrad, set up under Act 332/2023) is planned as the national access point under EU Delegated Regulation 2017/1926. I could not find a live NAP site or a NeTEx dataset. nap.sk is the Hungarian NAP, not the Slovak one. data.slovensko.sk and nda.sk could not be checked: the curl call for data.slovensko.sk failed on a shell glob error, and nda.sk did not respond (HTTP 000).
+
+Caveats:
+
+- A NeTEx file hidden on the Slovak NAP or on data.slovensko.sk cannot be ruled out, because neither could be searched. The planning document describing the NAP role is a draft annex, so treat it as unconfirmed.
+- I did not check that the ZSSK GTFS download works or what its current date range is.
+
+Sources:
+
+- [Mobility Database: ZSSK GTFS feed (mdb-1832)](https://mobilitydatabase.org/feeds/gtfs/mdb-1832)
+- [Draft annex on Slovak NAP role under Regulation 2017/1926](https://dvdkon.ggu.cz/_/zoi_eu_komise_2017_1926_cr_sr/Annex%201.pdf)
+- [EU report on public transport data](https://data.europa.eu/sites/default/files/report/report-on-public-transport-data.pdf)
+- [Slovak standards registry, NeTEx Part 2](https://normy.normoff.gov.sk/norma/131309/?lang=en)
+
+#### Hungary
+
+NeTEx: unclear, leaning no. I found no NeTEx source for Hungarian rail. The official rail data I found is GTFS from MÁV-START, available on request.
+
+- **National access point:** the Hungarian NAP ([napportal.kozut.hu](https://napportal.kozut.hu)) describes itself as the access point for road transport. I couldn't read its catalogue, so a rail or NeTEx dataset hidden there can't be ruled out.
+- **MÁV-START:** it offers its timetable database to developers as a GTFS file, free of charge, after a [GTFS download request form](https://www.mavcsoport.hu/node/16387). A [privacy notice](https://www.mavcsoport.hu/sites/default/files/upload/page/adatkezelesi_tajekoztato_gtfs_felulet_hozzaferes.pdf) also covers GTFS-RT. The licence is not stated in what I read.
+- **Other formats:** the public timetables are PDFs only. Budapest transit (BKK) publishes open GTFS at [opendata.bkk.hu](https://opendata.bkk.hu), but that is not rail NeTEx.
+
+Caveats:
+
+- GYSEV: I found no separate feed or NeTEx for it, and I did not check it beyond the search.
+- The third-party tool [build-mav-gtfs](https://npmjs.com/package/build-mav-gtfs) says MÁV's API data allows GTFS generation only about 25 days ahead. It also asks you to get MÁV's permission before production use.
+
+Sources:
+
+- https://napportal.kozut.hu
+- https://www.mavcsoport.hu/node/16387
+- https://www.mavcsoport.hu/sites/default/files/upload/page/adatkezelesi_tajekoztato_gtfs_felulet_hozzaferes.pdf
+- https://npmjs.com/package/build-mav-gtfs
+- https://opendata.bkk.hu
+
+#### Slovenia
+
+NeTEx: yes — nap.si offers a national NeTEx timetable dataset (EPIP 1.1.2) covering scheduled rail and bus. The download endpoint requires Basic auth (registration), so I did not verify a real file.
+
+| Dataset            | Publisher                           | Profile               | Coverage                                                              | URL                                                                                                                                 | Licence / access                                                                                                                | Notes                                                                                                                                                                                                                                                                                          |
+| ------------------ | ----------------------------------- | --------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Timetables (NeTEx) | MZIE / NCUP (national access point) | NeTEx XML, EPIP 1.1.2 | Slovenia (SI0), scheduled rail and scheduled bus; operators not named | Page: https://nap.si/en/datasets_details?id=31f7dd50-321b-3d90-3f4f-5c4167c785ad. Download: https://b2b.nap.si/data/b2b.netex.lines | CC BY-SA 4.0, free of charge. Basic auth (HTTP 401 without credentials), registration at nap.si, instructions in nap_B2B_en.pdf | Update within 24 h, 24/7 availability. File size not stated. Companion datasets: Stop places (NeTEx), Operators (NeTEx), Fares (NeTEx). GTFS "Timetables" (DUJPP) also exists. Separate NeTEx/GTFS datasets for the municipalities of Bohinj, Brežice, Jesenice, Kranjska Gora and Nova Gorica |
+
+Caveats:
+
+- The dataset is one combined national file for rail and bus. I could not check whether SŽ rail trips are in it, or whether it carries train numbers or coupled parts.
+- The 401 response means the download needs an account. I have not tried registering.
+
+Sources:
+
+- https://www.nap.si/en/datasets
+- https://nap.si/en/datasets_details?id=31f7dd50-321b-3d90-3f4f-5c4167c785ad
+- https://b2b.nap.si/data/b2b.netex.lines
+
+#### Croatia
+
+NeTEx: no — No NeTEx found for Croatian rail. The official HŽPP rail data is GTFS: https://www.hzpp.hr/GTFS_files.zip returned HTTP 200, 2.79 MB (2,786,016 bytes), last modified 2026-11-15, so it is updated daily or near-daily.
+
+Caveats:
+
+- The Croatian NAP (Hrvatske ceste d.o.o.) appears to be road/ITS-focused. I could not read its catalogue, so a NeTEx rail entry can't be fully excluded.
+- I did not check the GTFS licence or whether the feed covers only HŽPP (it also lists bus routes). The older data.gov.hr listing "Vozni red H-putnog prijevoza u GTFS obliku" dates from 2019 and I did not verify it is still live.
+
+Sources:
+
+- https://www.hzpp.hr/GTFS_files.zip
+- https://mobilitydatabase.org/feeds/gtfs/mdb-3043
+- https://hrvatske-ceste.hr/en/pages/traffic-and-safety/documents/76-national-access-point
+- https://hrvatske-ceste.hr/en/eu_projects/instruments/7-napcore-x-25-eu-tg-napcore-x
+- https://lists.openstreetmap.org/pipermail/talk-hr/2019-November/002706.html
+
+#### Romania
+
+NeTEx: unclear. I found no NeTEx source for Romanian rail. Romania's MMTIS National Access Point exists, but I couldn't inspect it.
+
+- **National access point:** The EU Alternative Fuels Observatory lists Romania's MMTIS National Access Point at https://pna.cestrin.ro/. It is run by CESTRIN, the national road-transport research body. Its TLS certificate failed verification, so I did not retrieve the page or its catalogue. I skipped the insecure retry, so I can't say whether it holds CFR Călători rail data in NeTEx.
+- **Other official sources:** I found no NeTEx or GTFS from CFR Călători, Infofer or CFR SA (the infrastructure manager). The CFR network statements are PDFs only. The CFR Călători timetable is published on its website and booking portal. Romania's rail timetable dataset on data.gov.ro appears to date from about 2014 (Informatica Feroviară) and is not confirmed current.
+- **Unofficial GTFS:** The Mobility Database lists a community GTFS feed (mdb-1104) built by a "data.gov.ro-gtfs-exporter" project, not an official release.
+
+Caveats:
+
+- The next step is to open pna.cestrin.ro in a browser and check its dataset list for rail and NeTEx. The data.gov.ro rail dataset also needs a currency check.
+- I made no HTTP checks on any file, since none was found.
+
+Sources:
+
+- https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/romania/useful-information
+- https://pna.cestrin.ro/
+- https://mobilitydatabase.org/feeds/gtfs/mdb-1104
+- https://2014.index.okfn.org/place/romania/timetables/
+- https://www.cfrcalatori.ro/en/comunicate/shift-to-the-new-2025-2026-timetable/
+
+#### Bulgaria
+
+NeTEx: unclear — Bulgaria's national access point (BGNAP) is set up for NeTEx and GTFS, but I found no BDZ or other rail timetable dataset in NeTEx or any other format.
+
+**Caveats**
+
+- The BGNAP catalogue is a JavaScript page that I couldn't read. A rail NeTEx dataset behind it can't be ruled out. Developer access needs registration and an API key, and the licence is not stated.
+- BDZ's timetable is only available as a web page and in Google Maps. I found no official GTFS or NeTEx file and no data.egov.bg dataset for it.
+
+**Sources**
+
+- [BGNAP instructions](https://sipbg.gov.bg/bgnap/portal/en/instructions)
+- [BGNAP catalogue](https://sipbg.gov.bg/bgnap/portal/en/catalog)
+- [Ministry of Transport data-provider guide (NeTEx and GTFS)](https://www.mtc.government.bg/sites/default/files/uploads/ntp/ntd-2026/Rukovodstvo-podateli-danni-NTD-v2.pdf)
+- [BDZ timetable on Google Maps (BNR)](https://bnr.bg/en/post/101146268/bdz-train-timetable-now-available-on-google-maps)
+- [BDZ Service Quality Report 2023](https://www.era.europa.eu/sites/default/files/reports/BDZ%20Service%20Quality%20Report%202023%20EN.pdf)
+
+#### Estonia
+
+NeTEx: no. I found no NeTEx source for Estonian rail timetables. The official data is GTFS.
+
+- **Format and publisher:** The public transport register's open data comes from the Ministry of Regional Affairs and Agriculture. It is published as GTFS.
+- **Feeds:** peatus.ee links to 25 separate GTFS feeds hosted on eu-gtfs.remix.com. One of them is Elron's rail feed, at https://eu-gtfs.remix.com/elron.zip. A unified file also exists, at https://eu-gtfs.remix.com/estonia_unified_gtfs.zip.
+- **Licence and access:** I found no formal licence. The ministry page says only "Avaandmed on kasutamiseks vabalt kättesaadavad kõigile huvilistele", meaning the data is freely available to anyone. I did not check whether the downloads work, and one forum user got "access denied" from the remix.com host.
+
+Caveats:
+
+- I could not read the Estonian national access point or the ministry page directly. A NeTEx dataset there can't be fully ruled out, but no search result or forum post mentions one.
+- Search results are the evidence here, not direct page checks. The Elron feed is listed as an official feed in the Mobility Database, with a validity range of 2026-06-15 to 2026-12-13.
+
+Sources:
+
+- https://mobilitydatabase.org/feeds/gtfs/mdb-3153
+- https://community.openstreetmap.org/t/estonian-gtfs-data-at-new-location/140823
+- https://imo.ut.ee/en/public-transport-register-open-data/
+- https://data.europa.eu/sites/default/files/report/report-on-public-transport-data.pdf
+
+#### Latvia
+
+NeTEx: no. I found no NeTEx source for Latvian rail. The official rail timetable is GTFS, published as open data by the Road Transport Administration (ATD), with Vivi as the maintainer.
+
+- **Rail GTFS dataset:** "Vilcienu kustības saraksts iekšzemes dzelzceļa maršrutos (GTFS formātā)".
+  - **Publisher:** VSIA Autotransporta direkcija (ATD). The listed maintainer contact is a Vivi address.
+  - **Licence:** CC0 1.0, and the dataset is flagged as open.
+  - **Access:** anonymous.
+  - **Update frequency:** monthly, per the metadata.
+  - **Download check:** the ZIP responds HTTP 200, 1,617,638 bytes, Last-Modified 2026-11-14.
+  - **Coverage:** domestic rail only, which is the Pasažieru vilciens / Vivi network.
+- **Latvia's national access point (NAP):** transportdata.gov.lv is a JavaScript app. I couldn't read its dataset listing, and the app code (JS bundle) has no NeTEx reference. A NeTEx dataset on the NAP can't be fully excluded, but nothing points to one.
+
+Caveats:
+
+- The data.gov.lv metadata lists a last modification of 2024-11-21, but the ZIP file itself changed on 2026-11-14. The metadata is stale; the file is current.
+- Vivi's own site only offers PDF timetables, so no machine-readable source beyond the GTFS turned up there.
+
+Sources:
+
+- https://data.gov.lv/dati/lv/dataset/iekszemes-dzelzcela-vilcienu-kustibas-saraksts-gtfs-formata
+- https://data.gov.lv/dati/api/3/action/package_show?id=iekszemes-dzelzcela-vilcienu-kustibas-saraksts-gtfs-formata
+- https://transportdata.gov.lv/
+- https://vivi.lv/en/information-for-passengers
+- https://mobilitydatabase.org/feeds/mdb-3385
+
+#### Lithuania
+
+NeTEx: no. Lithuania has no NeTEx source for static rail timetables that I could find. The official format is GTFS only, from the national portal visimarsrutai.lt (run by the state, not by the railway). That feed includes LTG Link trains.
+
+- **Dataset:** the portal's combined GTFS feed, `gtfs_all.zip`. The URL responds with HTTP 200, 74.7 MB, last modified 2026-11-15, so it is refreshed daily or close to it.
+- **Rail content:** I downloaded the zip and found agency 90 "UAB LTG Link", with 73 routes of type 2 (rail) in the feed. I didn't open the rail trips or check how complete they are.
+- **Per-operator files:** the index page `/gtfs/` also lists 60 per-operator or per-municipality GTFS zips. I saw no NeTEx entry there.
+- **Access:** anonymous download. I did not find a licence statement.
+- **NeTEx probes:** `/gtfs/netex.zip` returns 404. Trafiklab's directory of European transit data, built from the EU national access points list, shows GTFS only for Lithuania.
+
+Caveats:
+
+- A NeTEx file could still sit on the national access point behind a login or on a page I couldn't read. I found no sign of one.
+- In this feed the rail agency's URL is just visimarsrutai.lt. The feed doesn't show whether LTG Link supplies it directly or the portal collects it.
+
+Sources:
+
+- https://www.visimarsrutai.lt/gtfs/
+- https://www.visimarsrutai.lt/gtfs/gtfs_all.zip
+- https://www.trafiklab.se/api/other-apis/public-transport-europe/
+- https://lists.openstreetmap.org/pipermail/talk-lt/2025-March/002926.html
+
+#### Greece
+
+NeTEx: no — No NeTEx found. The Greek NAP's CKAN API returns 0 hits for "netex" and 1 for "rail". That one hit is an XLSX spreadsheet, not a machine-readable timetable feed.
+
+Official rail data instead:
+
+- "Information about rail transport in Greece" is published on data.nap.gov.gr (Hellenic Institute of Transport/CERTH). It covers the Trainose/Hellenic Train network.
+- It has two XLSX resources, 2020 and 2021. The listing says they contain routes, lines, timetables and ticketing information. The licence is ODbL.
+- I did not open the files, so the exact contents and timetable detail are unchecked.
+
+Caveats:
+
+- The dataset appears outdated, since it names Trainose and its newest file is from 2021. I found no GTFS or NeTEx for Hellenic Train on the NAP. I did not check hellenictrain.gr or other Hellenic Train pages for a feed.
+- The Greek GTFS feeds listed on MobilityData come from data.gov.gr. They cover bus/trolleybus and tram/metro, not rail.
+
+Sources:
+
+- https://data.nap.gov.gr/api/3/action/package_search?q=netex
+- https://data.nap.gov.gr/api/3/action/package_search?q=rail
+- https://data.nap.gov.gr/dataset?tags=Rail
+- https://data.nap.gov.gr/dataset/af277bed-8883-4807-b3f3-8707e018776e/resource/ac5d057c-7987-48f0-85ce-e5af0d707146/download/information-about-rail-transport-in-greece.xlsx
+- https://data.nap.gov.gr/dataset/af277bed-8883-4807-b3f3-8707e018776e/resource/688f5bc8-ee57-4de0-b160-c2899ed26379/download/information-about-rail-transport-in-greece-2021.xlsx
+- https://mobilitydatabase.org/feeds/gtfs/mdb-3220
+- https://mobilitydatabase.org/feeds/gtfs/mdb-3221
+
+#### Finland
+
+NeTEx: unclear — I found no official NeTEx timetable file for VR rail. Finap and Fintraffic's PETI export do publish NeTEx, but the files I checked hold stop data only. Finland's official rail timetable data is the Digitraffic rail API (JSON), not NeTEx.
+
+| Dataset                          | Publisher               | Profile                 | Coverage                    | URL                                                                      | Licence / access                  | Notes                                                                                                 |
+| -------------------------------- | ----------------------- | ----------------------- | --------------------------- | ------------------------------------------------------------------------ | --------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| PETI-rail-NeTEx.zip (stops only) | Fintraffic (PETI / RAE) | Not stated; "CEN NeTEx" | Finnish rail stops/stations | https://rae.fintraffic.fi/exports/PETI-rail-NeTEx.zip (HTTP 200, 110 KB) | Licence not stated; anonymous GET | Updated daily. Contains only `stops.xml` and `authorities.xml`, with no journeys or timetables.       |
+| PETI-all-NeTEx.zip (stops only)  | Fintraffic (PETI / RAE) | Not stated              | All modes                   | https://rae.fintraffic.fi/exports/PETI-all-NeTEx.zip (HTTP 200, 21.4 MB) | Same as above                     | Not unpacked. It is presumably also stops only, since it is the "all modes" variant of the rail file. |
+
+Caveats:
+
+- Finap lets operators publish GTFS or NeTEx. Fintraffic's VACO service converts data to NeTEx when an operator doesn't publish it. I found no VR-specific NeTEx feed or conversion result. The Finap catalogue (finap.fi/mmtis) is a JS app and its API returned 401, so I couldn't list its datasets.
+- The Finap Mobility Services Catalogue is due to merge into catalog.digitraffic.fi by January 2027. VR's own talk about NeTEx with OpenTripPlanner (see sources) suggests VR has NeTEx internally. I found no public file.
+
+Sources:
+
+- https://www.finap.fi/
+- https://www.fintraffic.fi/sites/default/files/2026-02/PETI%2Bpublic%2BAPIs.pdf
+- https://www.fintraffic.fi/en/digitalservices/Traffic-and-Public-Transport-Data-Services/validation-and-conversion-service
+- https://digitraffic.fi/en/railway-traffic
+- https://app.media.ccc.de/v/otp2025-56431-what-does-vr-do-with-otp/audio
+
+#### Germany
+
+NeTEx: yes — DELFI publishes the nationwide timetable dataset (all modes, including rail) as NeTEx on opendata-oepnv.de. I could not verify the profile, the licence version, a download URL or a file.
+
+| Dataset                                                      | Publisher                                                                 | Profile                                                                                          | Coverage                                                                                  | URL                                                                                                                                                                                                                | Licence / access                                                                                                                                       | Notes                                                                                                                          |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| Deutschlandweite Sollfahrplandaten (NeTEx; GTFS in parallel) | DELFI e.V. via the Open Data ÖPNV platform (the NAP-listed DELFI dataset) | Not stated on the page. A 2020 NAP flyer says "NeTEx-EU-Profil"; the DELFI+ extension is likely. | Nationwide, all modes (ÖPNV, SPNV, Fernverkehr), integrated from the Länder and operators | https://www.opendata-oepnv.de/ht/de/organisation/delfi/startseite?tx_vrrkit_view%5Bdataset_name%5D=deutschlandweite-sollfahrplandaten-netex&tx_vrrkit_view%5Baction%5D=details&tx_vrrkit_view%5Bcontroller%5D=View | "Creative Commons" (version not stated; the page links an overview). The licence terms must be accepted, and BayernInfo says registration is required. | Updated weekly, usually Mondays (next working day if Monday is a Hessian holiday). The download table was empty without login. |
+
+Caveats:
+
+- I did not download a file, so I have no HTTP status, size or confirmation that rail is complete. The resource list is only visible after login and registration (not anonymous). I also found no Mobilithek listing of this dataset.
+- The "GTFS vs NeTEx" resource split and the exact CC variant are unconfirmed. For rail, the DB Fernverkehr and Regio feeds on Mobilithek are a separate question that I did not check.
+
+Sources:
+
+- https://www.opendata-oepnv.de/ht/de/organisation/delfi/startseite?tx_vrrkit_view%5Bdataset_name%5D=deutschlandweite-sollfahrplandaten-netex&tx_vrrkit_view%5Baction%5D=details&tx_vrrkit_view%5Bcontroller%5D=View
+- https://www.bayerninfo.de/en/about-bayerninfo-1/data-offer/public-transport-data
+- https://www.delfi.de/media/1904_nahverkehr_delfi_national_access_point_1.pdf
+- https://media.frag-den-staat.de/files/foi/556225/nap-flyer_05.2020.pdf
 
 ## Caveats
 

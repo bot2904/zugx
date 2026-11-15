@@ -1011,6 +1011,7 @@ Goal: the same app for Italy, France … — ideally in one instance — by swap
 - **Data and URLs**: exports under `data/<country>/…`; URLs with a country prefix (`/it/bf/…`) or the country taken from the station's UIC code.
 - **Live data is the hard part**: ÖBB HAFAS covers Austria (neighbours partly). Each country needs an adapter behind one interface (boards, train runs, radar positions, disruptions): IT Viaggiatreno, FR SNCF API / SIRI. Independent of the SQLite pipeline, but the largest effort.
 - Prerequisite: the SQLite pipeline above (one import per feed instead of country-specific scripts).
+- **NeTEx**: official and anonymous for FR, IT (Trenitalia), CZ, NO, LU; behind registration in DE, AT, SE, DK, SI; none for ES, PT, IE, UK, the Baltics, GR, FI (rail). No usable npm NeTEx parser exists (only Entur's experimental TypeScript types); plan: own streaming importer (saxes) into the SQLite, starting with FR and IT.
 - **Data sources per country** (static rail GTFS/NeTEx, licence, access; checked 2026-11-15): `docs/europe-rail-data.md`. Clean and anonymous: AT (ÖBB), LU, FI, NO, LV, IE, NL (OVapi), FR (official NeTEx + GTFS, ODbL), ES (Renfe GTFS, CC BY 4.0, no NeTEx), SI (CC BY-SA); key/registration: DE, SE, DK, HU, AT (MVO); restrictive or custom: CH, BE, UK (CIF only); IT: official Trenitalia/Italo NeTEx on the NAP (CCISS), licence not stated; own XML formats: CZ, RO; community-only: PL, BG and the Balkans, TR, UA, MD.
 
 ## Sources
