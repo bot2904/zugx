@@ -15,6 +15,8 @@ import { useRoute, useRouter } from "vue-router";
 import CorridorIndexView from "../components/CorridorIndex.vue";
 import BfTable from "../components/BfTable.vue";
 import BfBook from "../components/BfBook.vue";
+import BfNode from "../components/BfNode.vue";
+import { stopsAt } from "../lib/bf-plan.ts";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
 import { useKeys } from "../lib/keys.ts";
@@ -59,6 +61,36 @@ const hover = shallowRef<CorridorTrain>();
 
 // ---- two windows (e.g. two monitors): ?part=chart | table shows only that part; the windows
 // share the sheet, date, time window, section and the hovered train (BroadcastChannel) ----
+// ---- planning panels (?plan=knoten …, PLAN.md "Bildfahrplan as a planning tool") ----
+const PLANS = ["knoten"] as const;
+type Plan = (typeof PLANS)[number];
+const plan = computed<Plan | undefined>(() =>
+  (PLANS as readonly string[]).includes(String(route.query.plan))
+    ? (route.query.plan as Plan)
+    : undefined,
+);
+const setPlan = (p: Plan) => setQuery({ plan: plan.value === p ? undefined : p });
+/** trains of the day shown in the planning panels (category filter applies) */
+const planTrains = computed(() =>
+  [...trainsOnDate.value, ...hafasOnlyTrains.value].filter((t) => !hidden.value.has(t.cat)),
+);
+/** node station (?knoten=<id>), default: the major station of the section with most stops */
+const nodeIdx = computed(() => {
+  const q = stationIdx(route.query.knoten);
+  if (q >= 0 && inRange(q)) return q;
+  // intermediate major stations first: at the sheet's ends only one direction is on the sheet
+  const inner = shownStations.value.slice(1, -1);
+  const majors = inner.some((st) => st.major) ? inner.filter((st) => st.major) : inner;
+  let best = majors[0]?.i ?? range.value.lo;
+  let n = -1;
+  for (const st of majors) {
+    const c = stopsAt(planTrains.value, st.i).length;
+    if (c > n) [best, n] = [st.i, c];
+  }
+  return best;
+});
+const setNode = (i: number) => setQuery({ knoten: data.value?.stations[i]?.id });
+
 /** timetable tables: Kursbuch layout by default, ?transpose=1 a row per train */
 const transposed = computed(() => route.query.transpose === "1");
 const part = computed(() =>
@@ -777,15 +809,31 @@ function toggleCat(c: string) {
             :x2="x(s.km)"
             :y1="M.top - 4"
             :y2="H - M.bottom"
-            :stroke="s.major ? 'var(--muted)' : 'var(--line)'"
-            :stroke-width="s.major ? 1 : 0.6"
+            :stroke="
+              plan === 'knoten' && s.i === nodeIdx
+                ? 'var(--accent)'
+                : s.major
+                  ? 'var(--muted)'
+                  : 'var(--line)'
+            "
+            :stroke-width="plan === 'knoten' && s.i === nodeIdx ? 2 : s.major ? 1 : 0.6"
           />
           <!-- station name → live departure board -->
           <a
             :href="s.hafasId ? `/station/${s.hafasId}` : undefined"
             class="bf-station"
-            @click="openStation(s.hafasId, $event)"
-            v-tip="s.hafasId ? { title: s.name, lines: [`${$t('search.board')} →`] } : s.name"
+            @click="
+              plan === 'knoten'
+                ? ($event.preventDefault(), setNode(s.i))
+                : openStation(s.hafasId, $event)
+            "
+            v-tip="
+              plan === 'knoten'
+                ? { title: s.name, lines: [$t('bf.plan.pickNode')] }
+                : s.hafasId
+                  ? { title: s.name, lines: [`${$t('search.board')} →`] }
+                  : s.name
+            "
           >
             <text
               :transform="`translate(${x(s.km) + 3} ${M.top - 8}) rotate(-60)`"
@@ -991,6 +1039,35 @@ function toggleCat(c: string) {
         {{ $t("bf.legendHafasOnly") }}
       </span>
     </p>
+    <!-- planning: analyses of the shown timetable -->
+    <div
+      v-if="data && part !== 'table'"
+      class="no-print mt-2 flex flex-wrap items-center gap-1 text-xs"
+    >
+      <span class="muted">{{ $t("bf.plan.title") }}:</span>
+      <button
+        v-for="p in PLANS"
+        :key="p"
+        class="btn"
+        :class="plan === p && 'btn-on'"
+        :aria-pressed="plan === p"
+        @click="setPlan(p)"
+      >
+        {{ $t(`bf.plan.tab.${p}`) }}
+      </button>
+    </div>
+    <BfNode
+      v-if="data && plan === 'knoten' && part !== 'table'"
+      :stations="data.stations"
+      :node="nodeIdx"
+      :choices="shownStations.map((st) => st.i)"
+      :trains="planTrains"
+      :t0="t0"
+      :t1="t1"
+      :hover="hover"
+      @node="setNode"
+      @hover="hover = $event"
+    />
     <div v-if="data && part !== 'chart'" class="no-print mt-2 flex justify-end gap-1 text-xs">
       <button
         class="btn"

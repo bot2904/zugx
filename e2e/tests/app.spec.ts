@@ -182,6 +182,20 @@ test("bildfahrplan: timetable tables below the chart, both directions", async ({
   await expect(page).toHaveURL(/\/train\//);
 });
 
+test("bildfahrplan planning: node — Taktknoten and transfers", async ({ page }) => {
+  await page.goto("/bf/101?from=6&h=3&d=2026-03-10");
+  await page.getByRole("button", { name: /^(Knoten|Node|Nodo)$/ }).click();
+  await expect(page).toHaveURL(/plan=knoten/);
+  const panel = page.locator(".bf-plan");
+  // default node: an intermediate major station, not the sheet's end (Linz Hbf)
+  await expect(panel.locator("select")).not.toHaveValue(/^0$/);
+  await expect(panel).toContainText(/Taktknoten|Clock-face node|Nodo cadenzato/);
+  expect(await panel.locator("table").nth(1).locator("tbody tr").count()).toBeGreaterThan(5);
+  // another node via the select → in the URL
+  await panel.locator("select").selectOption({ label: "Attnang-Puchheim" });
+  await expect(page).toHaveURL(/knoten=/);
+});
+
 test("bildfahrplan: table in a second window, view and hover in sync", async ({ page }) => {
   await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
   const [popup] = await Promise.all([
