@@ -240,7 +240,7 @@ test("route chunk missing after a deploy: one full load instead of a blank page"
     return r.fulfill({ status: 404, body: "" });
   });
   // narrow screens: the nav entries are in the menu
-  const menu = page.getByRole("button", { name: /^(Menu|Menü)$/ });
+  const menu = page.getByRole("button", { name: /^(Menu|Menü|Meni)$/ });
   if (await menu.isVisible()) await menu.click();
   await page
     .getByRole("link", { name: /^(Help|Hilfe|Aiuto)$/ })
@@ -788,9 +788,12 @@ test("help page explains the views and data sources", async ({ page }) => {
     await page.goto("/hilfe"); // nav behind the menu button on phones; German alias redirects
   } else {
     await page.goto("/");
+    // the inline nav collapses behind "Menu" when the header row is too narrow (fonts differ)
+    const menu = page.getByRole("button", { name: /^(Menu|Menü|Meni)$/ });
+    if (await menu.isVisible()) await menu.click();
     await page
       .getByRole("navigation")
-      .getByRole("link", { name: /^(Help|Hilfe|Aiuto)$/ })
+      .getByRole("link", { name: /^(Help|Hilfe|Aiuto|Pomoč)$/ })
       .click();
   }
   await expect(page).toHaveURL(/\/help$/);
