@@ -181,6 +181,36 @@ const { locale } = useI18n();
           OpenStreetMap-Daten).
         </li>
         <li>
+          <strong>Übersicht</strong> (<code>/vzg</code>): alle Strecken mit Name, Von–Bis, ein-/
+          zweigleisig, Länge, Bahnhöfen und Signalen; Filter nach Nummer („10101“ findet „101 01“),
+          Name oder Bahnhof, sortierbar.
+        </li>
+        <li>Bahnhöfe mit ihrer <strong>Seehöhe</strong>, soweit in OpenStreetMap erfasst.</li>
+        <li>
+          <strong>Streckenband</strong>: die Strecke als schematisches Band wie in den
+          Wikipedia-Streckendiagrammen – Bahnhöfe nach Art, Brücken und Tunnel mit Namen und Länge,
+          Abzweige.
+        </li>
+        <li>
+          <strong>Streckenprofil</strong> unter der Grafik: Länge, Bahnhöfe und Haltestellen,
+          Höchst- und Durchschnittsgeschwindigkeit, Tunnel und Brücken, engster Kurvenradius,
+          Elektrifizierung, Zugsicherung (ETCS/PZB), zweigleisiger Anteil, Spurweite, Seehöhen, Züge
+          pro Tag und Anschlussstrecken.
+        </li>
+        <li>
+          <strong>Streckenkarte</strong>: eine druck- und Wikipedia-taugliche Karte der Strecke mit
+          Tunneln, Bahnhöfen (verlinkt zur Abfahrtstafel) und abzweigenden Strecken (verlinkt zu
+          deren Karte); wahlweise nach zulässiger Geschwindigkeit eingefärbt und mit
+          Streckenkilometern; als SVG herunterladbar.
+        </li>
+        <li>
+          <strong>Netzkarte</strong> (<code>/vzg/netz</code>): alle Strecken Österreichs, eingefärbt
+          nach Geschwindigkeit, Elektrifizierung, ETCS, PZB, Gleisanzahl, Spurweite, Betreiber oder
+          <strong>Züge pro Tag</strong> (Verkehrsstärke aus dem Fahrplan); mit Staats- und
+          Landesgrenzen, für ganz Österreich oder ein einzelnes Bundesland. Darüberfahren zeigt die
+          Werte, ein Klick öffnet die Streckenkarte; als SVG herunterladbar.
+        </li>
+        <li>
           Die Daten stammen aus OpenStreetMap, nicht aus dem amtlichen VzG: Bremswege, Neigungen und
           Besonderheiten fehlen, die Kurvenradien sind aus der Gleisgeometrie geschätzt.
         </li>
@@ -220,15 +250,20 @@ const { locale } = useI18n();
           nicht WESTbahn, GKB, Raaberbahn u. a.
         </li>
         <li>
-          <strong>Strecken, Geschwindigkeiten, Signale, Kilometer</strong> (VzG-Grafik,
-          Durchfahrtszeiten im Bildfahrplan):
+          <strong
+            >Strecken, Geschwindigkeiten, Signale, Kilometer, Ein-/Zweigleisigkeit, Grenzen</strong
+          >
+          (VzG-Grafik, Strecken- und Netzkarte, Durchfahrtszeiten und Gleisanzahl im Bildfahrplan):
           <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap-Mitwirkende</a>, ODbL.
         </li>
         <li>
           <strong>Karten</strong>: OpenFreeMap, OpenStreetMap, OpenRailwayMap (Quellen in der
           Kartenecke).
         </li>
-        <li><strong>Wikidata</strong>: Links zu Bahnhöfen und Strecken über DinoData.</li>
+        <li>
+          <strong>Wikidata</strong>: Links zu Bahnhöfen über DinoData, zu Strecken über die
+          OpenStreetMap-Daten.
+        </li>
       </ul>
       <p>
         Details zu Datenschutz und Verarbeitung: <RouterLink to="/privacy">Datenschutz</RouterLink>.
@@ -402,6 +437,34 @@ const { locale } = useI18n();
           sources – e.g. for Wikimedia Commons (licence ODbL, like the OpenStreetMap data).
         </li>
         <li>
+          <strong>Overview</strong> (<code>/vzg</code>): all lines with name, from–to, single/double
+          track, length, stations and signals; filter by number ("10101" finds "101 01"), name or
+          station, sortable.
+        </li>
+        <li>Stations with their <strong>elevation</strong>, where mapped in OpenStreetMap.</li>
+        <li>
+          <strong>Route strip</strong> (Streckenband): the line as a schematic strip like the
+          Wikipedia route diagrams – stations by type, bridges and tunnels with name and length,
+          junctions.
+        </li>
+        <li>
+          <strong>Line profile</strong> below the chart: length, stations and halts, top and average
+          speed, tunnels and bridges, tightest curve, electrification, train protection (ETCS/PZB),
+          double-track share, gauge, elevations, trains per day and connecting lines.
+        </li>
+        <li>
+          <strong>Line map</strong>: a print- and Wikipedia-ready map of the line with tunnels,
+          stations (linked to their departure board) and connecting lines (linked to their map);
+          optionally coloured by permitted speed and with line km; downloadable as SVG.
+        </li>
+        <li>
+          <strong>Network map</strong> (<code>/vzg/netz</code>): all lines in Austria, coloured by
+          speed, electrification, ETCS, PZB, track count, gauge, operator or
+          <strong>trains per day</strong> (traffic density from the timetable); with national and
+          federal-state borders, for all of Austria or one federal state. Hover for the values,
+          click for the line map; downloadable as SVG.
+        </li>
+        <li>
           Data from OpenStreetMap, not the official VzG: no braking distances, gradients or remarks;
           curve radii are estimated from the track geometry.
         </li>
@@ -442,14 +505,18 @@ const { locale } = useI18n();
           Raaberbahn etc.
         </li>
         <li>
-          <strong>Lines, speed limits, signals, km</strong> (VzG chart, passing times):
+          <strong>Lines, speed limits, signals, km, single/double track, borders</strong> (VzG
+          chart, line and network map, passing times and track count in the graphic timetable):
           <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>, ODbL.
         </li>
         <li>
           <strong>Maps</strong>: OpenFreeMap, OpenStreetMap, OpenRailwayMap (credits in the map
           corner).
         </li>
-        <li><strong>Wikidata</strong>: links to stations and lines via DinoData.</li>
+        <li>
+          <strong>Wikidata</strong>: links to stations via DinoData, to lines via the OpenStreetMap
+          data.
+        </li>
       </ul>
       <p>Privacy and data processing: <RouterLink to="/privacy">Privacy</RouterLink>.</p>
 
