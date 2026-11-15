@@ -590,6 +590,7 @@ Optional features, roughly by value/effort:
 3. **Netzgrafik** (§7) — the NGE export imports fine into the Netzgrafik-Editor (2026-11-14, 3rd-party import path). zugx links to the editor with the network in `#netzgrafik=<deflate-raw, base64url>`; the import of that fragment is proposed upstream (branch `feat/import-from-url` in the local netzgrafik-editor-frontend clone, PR not opened yet). Still open: option C (colour by today's punctuality).
 4. **Custom station plans** (§14) — blocked by the OpenRailwayMap vector tile 403: ask the maintainer or self-host for Austria.
 5. **Delay statistics** — out of scope for now; idea kept (ÖBB's weekly "Zugfahrten" CSV, §3.5, §11).
+6. **CI without feed downloads** (2026-11-15) — the image build downloads the raw GTFS of every country on each push (ÖBB ~170 MB, IJPP ~45 MB) only for `route:build`: the timetable search (minotor, per-day `.bin`) needs every trip's full stop times, which the committed TOML doesn't hold. Wanted: CI builds only from what's committed. Options: (a) build the routing input from the committed full train index, if `trains-*.full.toml` holds (or is extended to hold) every stop with times — no new file; (b) commit a compact text routing input per country (rail trips only: stops, stop times, calendars; one trip per line, so diffs stay small) and let `route:build` read it instead of the SQLite; (c) commit the rail-only routing GTFS (`.cache/route-gtfs.zip`, ~2.4 MB) — binary, rewritten wholesale, least liked. Check (a) first.
 
 To watch:
 
@@ -1049,7 +1050,7 @@ Licence: CC BY-SA 4.0 is share-alike — everything derived from the Slovenian d
 - Trains: 829 (70 long-distance/night), departure plans for 354 stations; trains with a bare number (some HŽ/SŽ) left out. No regional line names in the feed (route = train).
 - VzG: 37 lines by SŽ number (`lineRef = '^\d{2}$'`); `osmLineMembers` keeps relation-listed sidings and tracks under renewal (Slovenian through-station tracks are often `service=siding`; for Austria this would break lines, so it's per country).
 - Bildfahrplan: 15 sheets (`packages/netz/countries/si.toml`, ids `si-<line>`, to Villach and Spielfeld-Straß), reference day 2026-11-24 (the Primorska line was closed until 2026-04-05); no Netzgrafik (its nodes are Austrian).
-- Timetable search: AT + SI merged (Slovenian ids prefixed `si:`); a train split at the border into two feed trips is one leg. CI builds Austria only (no 45 MB Slovenian download per push), so the deployed search is Austrian; locally both.
+- Timetable search: AT + SI merged (Slovenian ids prefixed `si:`); a train split at the border into two feed trips is one leg. CI builds both databases (raw feed downloads, see §16 "CI without feed downloads").
 - App: country selector (`zugx:land`, `?land=si`), footer attribution per country.
 
 Next: GTFS-RT (derp.si) for the Live switch in Slovenia; dedupe the cross-border trains in the train index; sheet numbers in the index file instead of from the id.
