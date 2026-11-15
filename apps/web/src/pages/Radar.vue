@@ -190,7 +190,16 @@ const points = computed<MapPoint[]>(() =>
       id: m.journeyId,
       color: mode.value === "delay" ? delayColor(m.delay) : lineColor(m.line),
       // train as a line badge, as in the journey search; coupled parts "NJ 466 / EN 40462"
-      badge: { text: parts.map((p) => p.line.name).join(" / "), color: lineBadgeColor(m.line) },
+      badge: {
+        text: parts
+          .map((p) =>
+            p.line.trainNumber && p.line.product !== "bus"
+              ? `${p.line.name} · ${p.line.trainNumber}`
+              : p.line.name,
+          )
+          .join(" / "),
+        color: lineBadgeColor(m.line),
+      },
       label: `→ ${m.direction}${fmtDelay(m.delay)}`,
       bearing: m.bearing,
       big: parts.some((p) => p.journeyId === selectedId.value),
@@ -295,9 +304,6 @@ function toggle(cls: number) {
             </div>
             <div class="flex flex-wrap items-center gap-1.5">
               <LineBadge :line="selected.line" />
-              <span v-if="selected.line.trainNumber" class="mono muted text-xs">{{
-                selected.line.trainNumber
-              }}</span>
               <strong class="truncate text-sm">→ {{ selected.direction }}</strong>
             </div>
             <div class="mt-1 flex flex-wrap items-center gap-2 text-xs">

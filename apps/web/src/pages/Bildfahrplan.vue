@@ -55,6 +55,7 @@ import {
 import { assignDirections, nodeBoardStops } from "../lib/bf-node-board.ts";
 import { categoryBadgeColor, categoryColor } from "../lib/products.ts";
 import { slugToTrain, trainSlug } from "../lib/url.ts";
+import { lineFor } from "../lib/lines.ts";
 import { useKeys } from "../lib/keys.ts";
 import { usePageTitle } from "../lib/title.ts";
 import type { TipContent } from "../lib/tip.ts";
@@ -650,7 +651,10 @@ function trainTip(tr: CorridorTrain): TipContent {
   const live = liveOn.value ? liveRuns.value.get(trainKey(tr.cat, tr.nr)) : undefined;
   const rep = live ? lastReported(live, viennaMinutes(now.value)) : undefined;
   return {
-    badge: { text: `${tr.cat} ${tr.nr}`, color: categoryBadgeColor(tr.cat) },
+    badge: {
+      text: lineFor(tr.cat, tr.nr) ? `${lineFor(tr.cat, tr.nr)} · ${tr.nr}` : `${tr.cat} ${tr.nr}`,
+      color: categoryBadgeColor(tr.cat),
+    },
     lines: [
       [tr.origin, tr.headsign].filter(Boolean).join(" → "),
       live &&

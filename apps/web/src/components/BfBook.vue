@@ -10,6 +10,7 @@ import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
 import { tableRuns, type TableRun, type TableStation } from "../lib/bf-table.ts";
 import { trainKey, type LiveRun } from "../lib/bf-live.ts";
+import { lineFor } from "../lib/lines.ts";
 
 const props = defineProps<{
   stations: TableStation[];
@@ -162,7 +163,7 @@ watch(
                 :to="{ query: { ...$route.query, train: trainSlug(`${r.t.cat} ${r.t.nr}`) } }"
                 class="train-link"
               >
-                <span class="cat mono">{{ r.t.cat }}</span>
+                <span class="cat mono">{{ lineFor(r.t.cat, r.t.nr) ?? r.t.cat }}</span>
                 <span class="mono block">{{ r.t.nr }}</span>
               </RouterLink>
             </th>

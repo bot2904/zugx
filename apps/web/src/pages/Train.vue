@@ -161,9 +161,6 @@ function goDay(delta: number) {
     <template v-if="trip">
       <div class="flex flex-wrap items-center gap-2">
         <LineBadge :line="trip.line" />
-        <span v-if="trip.line.trainNumber" class="mono muted text-sm"
-          >{{ $t("trip.trainNumber") }} {{ trip.line.trainNumber }}</span
-        >
         <h1 class="m-0 text-xl">→ {{ trip.direction }}</h1>
         <span class="muted text-sm"
           >{{ trip.line.categoryLong
