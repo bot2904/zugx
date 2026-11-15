@@ -37,6 +37,11 @@ points = [
   { km = 184.68, kind = "signal", label = "f552/V532R", signal = "distant,shunting", measured = true },
   { km = 184.68, kind = "signal", label = "S552/l,k", signal = "distant,main,shunting", measured = true },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 181.447, kmTo = 181.639, length = 192 },
+  { kind = "bridge", kmFrom = 181.962, kmTo = 181.996, length = 33 },
+  { kind = "bridge", kmFrom = 183.202, kmTo = 183.223, length = 22 },
+]
 
 [tracks.geo]
 segments = [

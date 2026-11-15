@@ -96,6 +96,16 @@ points = [
   { km = 205.468, kind = "signal", label = "V113H", signal = "shunting", measured = true },
   { km = 205.669, kind = "signal", label = "V113R", signal = "shunting", measured = true },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 1.858, kmTo = 1.868, length = 10 },
+  { kind = "bridge", kmFrom = 2.884, kmTo = 2.914, length = 30 },
+  { kind = "bridge", kmFrom = 3.229, kmTo = 3.245, length = 16 },
+  { kind = "bridge", kmFrom = 5.483, kmTo = 5.543, length = 50 },
+  { kind = "bridge", kmFrom = 9.139, kmTo = 9.166, length = 27 },
+  { kind = "tunnel", kmFrom = 9.778, kmTo = 10.281, length = 501, name = "Bettinatunnel" },
+  { kind = "tunnel", kmFrom = 11.12, kmTo = 11.62, length = 498, name = "Silviatunnel" },
+  { kind = "bridge", kmFrom = 12.671, kmTo = 12.704, length = 32 },
+]
 
 [tracks.geo]
 segments = [

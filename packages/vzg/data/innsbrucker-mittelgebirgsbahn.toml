@@ -76,6 +76,10 @@ points = [
   { km = 8.29, kind = "signal", signal = "catenary_mast,switch" },
   { km = 8.362, kind = "halt", label = "Igls Bahnhof", pos = [47.23385, 11.41265], measured = true },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 0.269, kmTo = 0.35, length = 82 },
+  { kind = "bridge", kmFrom = 0.544, kmTo = 0.658, length = 114 },
+]
 
 [tracks.geo]
 segments = [

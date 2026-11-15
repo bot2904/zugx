@@ -33,6 +33,9 @@ points = [
   { km = 2.453, kind = "signal", signal = "snowplow" },
   { km = 2.687, kind = "signal", signal = "snowplow" },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 2.043, kmTo = 2.054, length = 12 },
+]
 
 [tracks.geo]
 segments = [

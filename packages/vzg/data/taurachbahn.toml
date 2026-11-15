@@ -20,6 +20,11 @@ points = [
   { km = 7.666, kind = "halt", label = "Lintsching", pos = [47.14206, 13.77298] },
   { km = 9.225, kind = "halt", label = "St. Andrä-Andlwirt", pos = [47.14661, 13.79204] },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 5.364, kmTo = 5.389, length = 25 },
+  { kind = "bridge", kmFrom = 9.496, kmTo = 9.507, length = 11 },
+  { kind = "bridge", kmFrom = 10.453, kmTo = 10.466, length = 13 },
+]
 
 [tracks.geo]
 segments = [

@@ -62,6 +62,11 @@ points = [
   { km = 101.9, kind = "signal", label = "VHT102", signal = "shunting", measured = true },
   { km = 102.03, kind = "signal", label = "V102R", signal = "shunting", measured = true },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 88.788, kmTo = 88.803, length = 15 },
+  { kind = "bridge", kmFrom = 89.949, kmTo = 89.962, length = 13 },
+  { kind = "bridge", kmFrom = 101.682, kmTo = 101.696, length = 14 },
+]
 
 [tracks.geo]
 segments = [

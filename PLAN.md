@@ -785,6 +785,8 @@ Reference: the Arlbergbahn's route diagram on Wikipedia (Innsbruck – Landeck):
 - **Links**: station and structure names link to their articles; OSM `wikipedia`/`wikidata` on stations, bridges and tunnels.
 - **Layout**: km with 3 decimals left, the strip, names in the middle (main stations large), remarks after the name, elevation right — a compact, scrollable list that works on phones better than our wide chart.
 
+**Status (2026-11-15)**: first version of the Streckenband mode done (stations by class, bridges ≥ 20 m and tunnels with length, connecting lines, elevation where OSM has `ele`; SVG download; snapshot test with 174 01). Open from the list above: river/road names at bridges (OSM rail bridges rarely carry a name — needs the crossed waterway/road from OSM), elevation from a DEM where `ele` is missing, double/single track in the strip, sidings/Üst/Abzw, history (former names, closing dates, realignments), chainage errors, motorway crossings, BS wikitext export.
+
 **Possible outputs**
 
 1. **"Streckenband" mode for the VzG view**: the schematic strip as an alternative to the speed chart (same data, plus tracks, structures, elevation, history), or as extra columns in the chart (structures, elevation/gradient).

@@ -51,6 +51,14 @@ points = [
   { km = 16.942, kind = "signal", signal = "speed_limit_distant" },
   { km = 17.13, kind = "signal", signal = "speed_limit" },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 3.336, kmTo = 3.345, length = 13 },
+  { kind = "bridge", kmFrom = 3.963, kmTo = 3.976, length = 11 },
+  { kind = "bridge", kmFrom = 12.205, kmTo = 12.229, length = 25 },
+  { kind = "bridge", kmFrom = 12.532, kmTo = 12.555, length = 24 },
+  { kind = "bridge", kmFrom = 14.249, kmTo = 14.278, length = 29 },
+  { kind = "bridge", kmFrom = 17.252, kmTo = 17.286, length = 33 },
+]
 
 [tracks.geo]
 segments = [

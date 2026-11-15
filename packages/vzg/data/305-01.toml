@@ -28,6 +28,10 @@ points = [
   { km = 15.313, kind = "signal", signal = "catenary_mast,electricity" },
   { km = 15.315, kind = "signal", signal = "catenary_mast,electricity" },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 1.706, kmTo = 2.213, length = 505, name = "Innbrücke" },
+  { kind = "tunnel", kmFrom = 2.255, kmTo = 15.011, length = 12725, name = "Inntaltunnel" },
+]
 
 [tracks.geo]
 segments = [

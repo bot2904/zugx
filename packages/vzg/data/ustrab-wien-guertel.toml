@@ -24,6 +24,9 @@ points = [
   { km = 2.054, kind = "signal", signal = "train_protection" },
   { km = 9.414, kind = "halt", label = "Wien Matzleinsdorfer Platz", uic = "8101227", pos = [48.18013, 16.35777], measured = true },
 ]
+structures = [
+  { kind = "tunnel", kmFrom = 0, kmTo = 2.075, length = 2075 },
+]
 
 [tracks.geo]
 segments = [

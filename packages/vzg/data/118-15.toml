@@ -55,6 +55,10 @@ points = [
   { km = 28.235, kind = "signal", signal = "whistle" },
   { km = 28.557, kind = "signal", signal = "whistle" },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 24.745, kmTo = 24.777, length = 32 },
+  { kind = "bridge", kmFrom = 24.819, kmTo = 24.888, length = 68 },
+]
 
 [tracks.geo]
 segments = [

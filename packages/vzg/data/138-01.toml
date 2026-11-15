@@ -39,6 +39,13 @@ points = [
   { km = 8.899, kind = "signal", label = "Q204", signal = "main,shunting", measured = true },
   { km = 9.816, kind = "signal", label = "R204", signal = "main,shunting", measured = true },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 0.063, kmTo = 0.087, length = 24 },
+  { kind = "bridge", kmFrom = 0.234, kmTo = 0.27, length = 33 },
+  { kind = "bridge", kmFrom = 0.522, kmTo = 0.536, length = 14 },
+  { kind = "bridge", kmFrom = 0.715, kmTo = 2.846, length = 2125 },
+  { kind = "bridge", kmFrom = 3.001, kmTo = 3.034, length = 33 },
+]
 
 [tracks.geo]
 segments = [

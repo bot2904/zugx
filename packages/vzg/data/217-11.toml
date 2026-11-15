@@ -20,9 +20,12 @@ points = [
   { km = 83.24, kind = "signal", label = "V774R", signal = "shunting", measured = true },
   { km = 83.371, kind = "signal", label = "V784H", signal = "shunting", measured = true },
   { km = 83.88, kind = "signal", label = "H904/f,g,h", signal = "distant,main", measured = true },
-  { km = 83.993, kind = "stop", label = "Salzburg Liefering", uic = "8102063", pos = [47.82409, 13.00062] },
+  { km = 83.993, kind = "stop", label = "Salzburg Liefering", uic = "8102063", pos = [47.82426, 13.00048] },
   { km = 84.24, kind = "signal", label = "1E904", signal = "main_repeated", measured = true },
   { km = 84.402, kind = "signal", label = "E904/n", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 82.757, kmTo = 82.851, length = 94, name = "Saalachbrücke" },
 ]
 
 [tracks.geo]

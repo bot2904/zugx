@@ -23,6 +23,10 @@ points = [
   { km = 1.435, kind = "signal", label = "R714", signal = "main,shunting", measured = true },
   { km = 9.7, kind = "halt", label = "Lanzendorf-Rannersdorf", uic = "8101173", pos = [48.11348, 16.44744], measured = true },
 ]
+structures = [
+  { kind = "bridge", kmFrom = -0.039, kmTo = -0.008, length = 30 },
+  { kind = "bridge", kmFrom = 0.48, kmTo = 0.74, length = 93 },
+]
 
 [tracks.geo]
 segments = [

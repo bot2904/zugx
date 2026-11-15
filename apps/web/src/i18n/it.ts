@@ -191,6 +191,14 @@ export default {
     liveAt: "tempo reale in {n} stazioni, ultima {station} {time}",
   },
   vzg: {
+    band: "Schema della linea",
+    bandSpeed: "Velocità",
+    bandTip:
+      "La linea come schema come su Wikipedia: stazioni, ponti, gallerie, linee in coincidenza",
+    bandBridge: "Ponte",
+    bandTunnel: "Galleria",
+    bandLegend:
+      "Punto grande: stazione, punto piccolo: fermata; parentesi: ponte (≥ 20 m), tratteggio: galleria (≥ 50 m); diramazione: linea in coincidenza; km nel senso di marcia.",
     mapColorPlain: "Monocolore",
     mapColorSpeed: "Per velocità",
     mapSpeedScale: "Velocità ammessa (km/h):",

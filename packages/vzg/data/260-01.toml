@@ -45,7 +45,7 @@ points = [
   { km = 5.155, kind = "signal", label = "H1/VH1", signal = "main,shunting" },
   { km = 5.399, kind = "signal", label = "1H1", signal = "main_repeated" },
   { km = 5.504, kind = "signal", signal = "snowplow" },
-  { km = 5.788, kind = "stop", label = "Lenzing", pos = [47.98311, 13.61365] },
+  { km = 5.788, kind = "station", label = "Lenzing", pos = [47.98304, 13.61379], uic = "8101141" },
   { km = 5.809, kind = "signal", signal = "stop" },
   { km = 5.961, kind = "signal", label = "R1/VR1", signal = "main,shunting" },
   { km = 6.073, kind = "signal", label = "V53", signal = "shunting" },
@@ -85,6 +85,11 @@ points = [
   { km = 10.07, kind = "signal", signal = "speed_limit" },
   { km = 10.343, kind = "signal", signal = "speed_limit" },
   { km = 10.429, kind = "halt", label = "Kammer-Schörfling", pos = [47.94852, 13.59588] },
+]
+structures = [
+  { kind = "bridge", kmFrom = 6.624, kmTo = 6.646, length = 10 },
+  { kind = "bridge", kmFrom = 9.169, kmTo = 9.238, length = 69 },
+  { kind = "bridge", kmFrom = 10.202, kmTo = 10.266, length = 64 },
 ]
 
 [tracks.geo]

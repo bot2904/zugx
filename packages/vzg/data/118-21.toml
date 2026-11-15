@@ -22,6 +22,10 @@ points = [
   { km = 1.42, kind = "signal", label = "Bw11", signal = "main", measured = true },
   { km = 1.598, kind = "signal", label = "zw11", signal = "distant", measured = true },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 0.774, kmTo = 1.341, length = 578 },
+  { kind = "bridge", kmFrom = 1.628, kmTo = 1.644, length = 16 },
+]
 
 [tracks.geo]
 segments = [
@@ -45,6 +49,10 @@ points = [
   { km = 0.34, kind = "signal", label = "Yw12/m2", signal = "distant,main", measured = true },
   { km = 1.42, kind = "signal", label = "Aw12", signal = "main", measured = true },
   { km = 1.598, kind = "signal", label = "yw12", signal = "distant", measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0.775, kmTo = 1.34, length = 579 },
+  { kind = "bridge", kmFrom = 1.628, kmTo = 1.644, length = 16 },
 ]
 
 [tracks.geo]

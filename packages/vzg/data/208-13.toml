@@ -35,6 +35,14 @@ points = [
   { km = 185.778, kind = "signal", label = "U955", signal = "main,shunting", measured = true },
   { km = 185.822, kind = "signal", signal = "speed_limit" },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 182.206, kmTo = 182.232, length = 26 },
+  { kind = "bridge", kmFrom = 185.283, kmTo = 185.365, length = 82 },
+  { kind = "bridge", kmFrom = 185.479, kmTo = 185.495, length = 15 },
+  { kind = "bridge", kmFrom = 185.674, kmTo = 185.723, length = 49 },
+  { kind = "bridge", kmFrom = 186.056, kmTo = 186.067, length = 11 },
+  { kind = "bridge", kmFrom = 186.101, kmTo = 186.132, length = 31 },
+]
 
 [tracks.geo]
 segments = [

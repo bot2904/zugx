@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
 import { mockApi } from "./mock.ts";
 
@@ -561,24 +561,36 @@ test("VzG line map: drawn from the line's geometry, exportable as SVG", async ({
   await expect(page).toHaveURL(/\/station\/\d+/);
 });
 
-test("line map SVG of the Stubaitalbahn matches the snapshot", async ({ page }) => {
-  test.skip(test.info().project.name !== "desktop", "same SVG in every project");
-  await page.goto("/vzg/stubaitalbahn/map");
-  await page.locator(".map-card svg").waitFor();
+/** download a view's SVG and compare it with e2e/tests/snapshots/<file> (UPDATE_SNAPSHOTS=1 writes) */
+async function svgSnapshot(page: import("@playwright/test").Page, url: string, file: string) {
+  await page.goto(url);
+  await page.locator(".map-card svg, svg.vzg, svg.vzg-band").first().waitFor();
+  await page.waitForTimeout(300); // station links (station index) are resolved asynchronously
   const [dl] = await Promise.all([
     page.waitForEvent("download"),
     page.getByRole("button", { name: /SVG/ }).click(),
   ]);
   const svg = await new Promise<string>((resolve) => {
-    void dl.createReadStream().then((s) => {
+    void dl.createReadStream().then((st) => {
       let t = "";
-      s.on("data", (c: Buffer) => (t += c.toString()));
-      s.on("end", () => resolve(t));
+      st.on("data", (c: Buffer) => (t += c.toString()));
+      st.on("end", () => resolve(t));
     });
   });
   // the link back depends on the test server's address
   const normalized = svg.replace(/https?:\/\/[^/\s<]+\/vzg\//g, "https://zugx.legner.me/vzg/");
-  const file = new URL("snapshots/stubaitalbahn-map.svg", import.meta.url);
-  if (process.env.UPDATE_SNAPSHOTS) writeFileSync(file, normalized);
-  expect(normalized).toBe(readFileSync(file, "utf8"));
+  const path = new URL(`snapshots/${file}`, import.meta.url);
+  if (process.env.UPDATE_SNAPSHOTS) {
+    mkdirSync(new URL("snapshots/", import.meta.url), { recursive: true });
+    writeFileSync(path, normalized);
+  }
+  expect(normalized).toBe(readFileSync(path, "utf8"));
+}
+
+test.describe("SVG snapshots of the Kamptalbahn (174 01)", () => {
+  test.skip(({ isMobile }) => isMobile, "same SVG in every project");
+  test("VzG chart", ({ page }) => svgSnapshot(page, "/vzg/174-01", "174-01-vzg.svg"));
+  test("Streckenband", ({ page }) =>
+    svgSnapshot(page, "/vzg/174-01?ansicht=band", "174-01-streckenband.svg"));
+  test("line map", ({ page }) => svgSnapshot(page, "/vzg/174-01/map", "174-01-map.svg"));
 });

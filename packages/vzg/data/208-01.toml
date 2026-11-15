@@ -69,6 +69,15 @@ points = [
   { km = 188.694, kind = "signal", label = "Sch317H", signal = "minor", measured = true },
   { km = 189.011, kind = "signal", label = "N17/o", signal = "distant,main,shunting", measured = true },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 180.567, kmTo = 180.607, length = 40 },
+  { kind = "bridge", kmFrom = 181.639, kmTo = 181.816, length = 179 },
+  { kind = "bridge", kmFrom = 181.962, kmTo = 181.996, length = 34 },
+  { kind = "bridge", kmFrom = 183.202, kmTo = 183.223, length = 22 },
+  { kind = "bridge", kmFrom = 186.988, kmTo = 187.024, length = 36 },
+  { kind = "bridge", kmFrom = 187.554, kmTo = 187.579, length = 25 },
+  { kind = "bridge", kmFrom = 187.746, kmTo = 187.775, length = 29 },
+]
 
 [tracks.geo]
 segments = [
@@ -141,6 +150,15 @@ points = [
   { km = 188.538, kind = "signal", label = "Sch217R", signal = "minor", measured = true },
   { km = 188.694, kind = "signal", label = "Sch317H", signal = "minor", measured = true },
   { km = 189.011, kind = "signal", label = "N17/o", signal = "distant,main,shunting", measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 180.567, kmTo = 180.607, length = 40 },
+  { kind = "bridge", kmFrom = 181.639, kmTo = 181.816, length = 179 },
+  { kind = "bridge", kmFrom = 181.962, kmTo = 181.996, length = 34 },
+  { kind = "bridge", kmFrom = 183.202, kmTo = 183.223, length = 22 },
+  { kind = "bridge", kmFrom = 186.988, kmTo = 187.024, length = 36 },
+  { kind = "bridge", kmFrom = 187.554, kmTo = 187.579, length = 25 },
+  { kind = "bridge", kmFrom = 187.746, kmTo = 187.775, length = 29 },
 ]
 
 [tracks.geo]

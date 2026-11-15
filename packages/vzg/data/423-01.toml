@@ -23,8 +23,11 @@ points = [
   { km = 85.991, kind = "signal", label = "V105R", signal = "shunting", measured = true },
   { km = 86.008, kind = "signal", label = "GA105R", signal = "speed_limit", measured = true },
   { km = 86.162, kind = "signal", label = "U305", signal = "main", measured = true },
-  { km = 86.343, kind = "stop", label = "Bleiburg/Pliberk", pos = [46.57413, 14.78648] },
+  { km = 86.343, kind = "station", label = "Bleiburg/Pliberk", pos = [46.57415, 14.78659], uic = "8100393", ele = 486 },
   { km = 86.684, kind = "signal", label = "R305", signal = "main", measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 84.328, kmTo = 84.339, length = 12 },
 ]
 
 [tracks.geo]

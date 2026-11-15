@@ -63,6 +63,26 @@ points = [
   { km = 14.874, kind = "signal", label = "VEK", signal = "shunting" },
   { km = 15.719, kind = "signal", signal = "shunting" },
 ]
+structures = [
+  { kind = "tunnel", kmFrom = 0.175, kmTo = 0.268, length = 93, name = "Waagtunnel" },
+  { kind = "bridge", kmFrom = 0.968, kmTo = 0.986, length = 18, name = "Waagbachbrücke" },
+  { kind = "bridge", kmFrom = 1.461, kmTo = 1.487, length = 26, name = "Erzbachbrücke I" },
+  { kind = "bridge", kmFrom = 1.578, kmTo = 1.601, length = 23, name = "Brücke B115" },
+  { kind = "bridge", kmFrom = 3.183, kmTo = 3.204, length = 21, name = "Erzbachbrücke II" },
+  { kind = "bridge", kmFrom = 3.215, kmTo = 3.226, length = 11, name = "Erzbachbrücke II" },
+  { kind = "bridge", kmFrom = 4.014, kmTo = 4.024, length = 10 },
+  { kind = "bridge", kmFrom = 4.218, kmTo = 4.25, length = 32, name = "Erzbachbrücke III" },
+  { kind = "bridge", kmFrom = 6.836, kmTo = 6.869, length = 33, name = "Erzbachbrücke IV" },
+  { kind = "bridge", kmFrom = 7.371, kmTo = 7.382, length = 11, name = "Zechnergrabenbachbrücke" },
+  { kind = "bridge", kmFrom = 8.776, kmTo = 8.795, length = 20, name = "Brücke B115" },
+  { kind = "bridge", kmFrom = 9.085, kmTo = 9.101, length = 16, name = "Kalte-Fölz-Brücke" },
+  { kind = "bridge", kmFrom = 10.468, kmTo = 10.484, length = 16 },
+  { kind = "bridge", kmFrom = 11.732, kmTo = 11.746, length = 14 },
+  { kind = "bridge", kmFrom = 12.063, kmTo = 12.073, length = 11 },
+  { kind = "bridge", kmFrom = 12.49, kmTo = 12.501, length = 11, name = "Kleine-Fölz-Brücke" },
+  { kind = "bridge", kmFrom = 12.78, kmTo = 12.797, length = 18, name = "Große-Fölz-Brücke" },
+  { kind = "tunnel", kmFrom = 15.188, kmTo = 15.321, length = 133, name = "Schichtturmtunnel" },
+]
 
 [tracks.geo]
 segments = [

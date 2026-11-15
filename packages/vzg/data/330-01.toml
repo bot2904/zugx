@@ -16,8 +16,8 @@ length = 37.119
 speeds = [[24.838, 25.879, 160, 160], [25.879, 57.653, 220, 220], [57.653, 58.955, 210, 210], [58.955, 62.159, 200, 200]]
 curves = [[27.452, 27.528, 2990], [27.578, 27.679, 2970], [27.831, 27.882, 2910], [28.009, 28.059, 2970], [28.194, 28.319, 2950], [33.956, 34.031, 2890], [35.66, 35.736, 2960], [35.987, 36.163, 2910], [36.338, 36.539, 2930], [37.565, 37.64, 2820], [37.866, 37.991, 2960], [38.116, 38.166, 2930], [38.267, 38.342, 2970], [38.417, 38.492, 2980], [39.971, 41.206, 2740], [41.957, 43.078, 2620], [45.078, 45.76, 2640], [48.347, 48.572, 2890], [48.823, 48.873, 2930], [49.551, 49.627, 3000], [49.801, 49.851, 2890], [50.125, 50.2, 2810], [50.35, 50.475, 2930], [50.8, 50.9, 2950], [51.025, 51.075, 2990], [52.252, 52.328, 2950], [52.479, 52.63, 2920], [52.757, 52.807, 2960], [53.034, 53.135, 2930], [53.328, 53.403, 2960], [53.528, 53.603, 2900], [53.754, 53.829, 2880], [55.004, 55.079, 2930], [57.887, 58.892, 2500], [59.318, 60.659, 2000]]
 points = [
-  { km = 0, kind = "station", label = "Jenbach Achenseebahn", pos = [47.38899, 11.77933], measured = true },
-  { km = 0, kind = "station", label = "Jenbach Zillertalbahn", uic = "8100545", pos = [47.38814, 11.77821], measured = true },
+  { km = 0, kind = "station", label = "Jenbach Achenseebahn", ele = 530, pos = [47.38899, 11.77933], measured = true },
+  { km = 0, kind = "station", label = "Jenbach Zillertalbahn", uic = "8100545", ele = 530, pos = [47.38814, 11.77821], measured = true },
   { km = 25.309, kind = "signal", label = "C304", signal = "train_protection", measured = true },
   { km = 25.359, kind = "signal", label = "W504", signal = "train_protection", measured = true },
   { km = 26.446, kind = "signal", signal = "electricity" },
@@ -81,6 +81,13 @@ points = [
   { km = 61.158, kind = "signal", label = "Wc84", signal = "train_protection", measured = true },
   { km = 61.16, kind = "halt", label = "Volders-Baumkirchen", uic = "8100337", pos = [47.296, 11.56389], measured = true },
   { km = 61.819, kind = "signal", label = "Cc84", signal = "train_protection", measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 26.148, kmTo = 26.194, length = 45 },
+  { kind = "tunnel", kmFrom = 27.296, kmTo = 43.273, length = 15951, name = "Münsterertunnel" },
+  { kind = "tunnel", kmFrom = 45.275, kmTo = 55.93, length = 10619, name = "Terfnertunnel" },
+  { kind = "tunnel", kmFrom = 55.93, kmTo = 57.653, length = 1728, name = "Galerie Terfens" },
+  { kind = "tunnel", kmFrom = 57.653, kmTo = 61.169, length = 3496, name = "Unterflurstrecke Fritzens – Baumkirchen" },
 ]
 
 [tracks.geo]
@@ -104,8 +111,8 @@ length = 37.119
 speeds = [[24.838, 25.879, 160, 160], [25.879, 57.653, 220, 220], [57.653, 58.955, 210, 210], [58.955, 62.159, 200, 200]]
 curves = [[27.452, 27.528, 2990], [27.578, 27.679, 2970], [27.831, 27.882, 2910], [28.009, 28.059, 2970], [28.194, 28.319, 2950], [33.956, 34.031, 2890], [35.66, 35.736, 2960], [35.987, 36.163, 2910], [36.338, 36.539, 2930], [37.565, 37.64, 2820], [37.866, 37.991, 2960], [38.116, 38.166, 2930], [38.267, 38.342, 2970], [38.417, 38.492, 2980], [39.971, 41.206, 2740], [41.957, 43.078, 2620], [45.078, 45.76, 2640], [48.347, 48.572, 2890], [48.823, 48.873, 2930], [49.551, 49.627, 3000], [49.801, 49.851, 2890], [50.125, 50.2, 2810], [50.35, 50.475, 2930], [50.8, 50.9, 2950], [51.025, 51.075, 2990], [52.252, 52.328, 2950], [52.479, 52.63, 2920], [52.757, 52.807, 2960], [53.034, 53.135, 2930], [53.328, 53.403, 2960], [53.528, 53.603, 2900], [53.754, 53.829, 2880], [55.004, 55.079, 2930], [57.887, 58.892, 2500], [59.318, 60.659, 2000]]
 points = [
-  { km = 0, kind = "station", label = "Jenbach Achenseebahn", pos = [47.38899, 11.77933], measured = true },
-  { km = 0, kind = "station", label = "Jenbach Zillertalbahn", uic = "8100545", pos = [47.38814, 11.77821], measured = true },
+  { km = 0, kind = "station", label = "Jenbach Achenseebahn", ele = 530, pos = [47.38899, 11.77933], measured = true },
+  { km = 0, kind = "station", label = "Jenbach Zillertalbahn", uic = "8100545", ele = 530, pos = [47.38814, 11.77821], measured = true },
   { km = 25.309, kind = "signal", label = "C304", signal = "train_protection", measured = true },
   { km = 25.359, kind = "signal", label = "W504", signal = "train_protection", measured = true },
   { km = 26.446, kind = "signal", signal = "electricity" },
@@ -169,6 +176,13 @@ points = [
   { km = 61.158, kind = "signal", label = "Wc84", signal = "train_protection", measured = true },
   { km = 61.16, kind = "halt", label = "Volders-Baumkirchen", uic = "8100337", pos = [47.296, 11.56389], measured = true },
   { km = 61.819, kind = "signal", label = "Cc84", signal = "train_protection", measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 26.148, kmTo = 26.194, length = 45 },
+  { kind = "tunnel", kmFrom = 27.296, kmTo = 43.273, length = 15951, name = "Münsterertunnel" },
+  { kind = "tunnel", kmFrom = 45.275, kmTo = 55.93, length = 10619, name = "Terfnertunnel" },
+  { kind = "tunnel", kmFrom = 55.93, kmTo = 57.653, length = 1728, name = "Galerie Terfens" },
+  { kind = "tunnel", kmFrom = 57.653, kmTo = 61.169, length = 3496, name = "Unterflurstrecke Fritzens – Baumkirchen" },
 ]
 
 [tracks.geo]

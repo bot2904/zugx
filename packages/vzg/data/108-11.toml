@@ -18,6 +18,9 @@ points = [
   { km = 0.439, kind = "signal", label = "K570", signal = "main", measured = true },
   { km = 0.727, kind = "signal", label = "FE 570R", signal = "minor" },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 0.339, kmTo = 0.371, length = 33 },
+]
 
 [tracks.geo]
 segments = [

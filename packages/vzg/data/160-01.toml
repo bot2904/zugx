@@ -20,7 +20,7 @@ points = [
   { km = 0.582, kind = "signal", label = "X/l", signal = "distant,main", measured = true },
   { km = 0.62, kind = "signal", signal = "speed_limit" },
   { km = 1.074, kind = "signal", label = "x", signal = "distant", measured = true },
-  { km = 1.635, kind = "halt", label = "Perchtoldsdorf", pos = [48.12577, 16.27135], measured = true },
+  { km = 1.635, kind = "halt", label = "Perchtoldsdorf", pos = [48.12303, 16.28551], measured = true, uic = "8101346" },
   { km = 1.836, kind = "signal", signal = "speed_limit" },
   { km = 1.84, kind = "signal", signal = "speed_limit" },
   { km = 2.104, kind = "signal", signal = "speed_limit" },
@@ -31,6 +31,9 @@ points = [
   { km = 5.413, kind = "signal", signal = "stop" },
   { km = 5.506, kind = "signal", signal = "minor" },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 3.181, kmTo = 3.2, length = 20 },
+]
 
 [tracks.geo]
 segments = [
@@ -40,3 +43,11 @@ segments = [
   { line = "ctvdHgygbB[jCqDxK{A|BeGhFiCjH[pEPbL}@rJZbLeEvUg@zKjCvk@rC`UhLh\\vLh`@lBlJVfN", v = 25 },
 ]
 posts = [[1, 48.12799, 16.27907], [2, 48.12648, 16.26677], [3, 48.12991, 16.25542], [4, 48.13068, 16.24233], [5, 48.12733, 16.23033]]
+
+[[connections]]
+km = 1.635
+station = "Perchtoldsdorf"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 10.961 },
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 10.961 },
+]

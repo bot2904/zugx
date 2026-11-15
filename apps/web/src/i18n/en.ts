@@ -188,6 +188,14 @@ export default {
     liveAt: "realtime at {n} stations, last {station} {time}",
   },
   vzg: {
+    band: "Route diagram",
+    bandSpeed: "Speed",
+    bandTip:
+      "The line as a schematic strip as on Wikipedia: stations, bridges, tunnels, connecting lines",
+    bandBridge: "Bridge",
+    bandTunnel: "Tunnel",
+    bandLegend:
+      "Large dot: station, small dot: halt; brackets: bridge (≥ 20 m), dashed: tunnel (≥ 50 m); branch: connecting line; km in the direction of travel.",
     mapColorPlain: "Plain",
     mapColorSpeed: "By speed",
     mapSpeedScale: "Permitted speed (km/h):",

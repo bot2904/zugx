@@ -56,13 +56,13 @@ points = [
   { km = 12.072, kind = "signal", signal = "distant" },
   { km = 12.44, kind = "signal", signal = "crossing" },
   { km = 12.529, kind = "signal", signal = "main" },
-  { km = 12.839, kind = "stop", label = "Weiz Preding", uic = "8101341", pos = [47.20134, 15.64783] },
+  { km = 12.839, kind = "stop", label = "Weiz Preding", uic = "8101341", pos = [47.20133, 15.6478] },
   { km = 12.862, kind = "signal", signal = "main" },
   { km = 12.906, kind = "signal", signal = "crossing" },
   { km = 13.043, kind = "signal", label = "Z167/z166", signal = "distant,main" },
   { km = 13.413, kind = "signal", signal = "crossing_distant" },
   { km = 13.499, kind = "signal", signal = "crossing" },
-  { km = 13.746, kind = "stop", label = "Weiz Interspar", pos = [47.20747, 15.63977] },
+  { km = 13.746, kind = "stop", label = "Weiz Interspar", pos = [47.20745, 15.63974] },
   { km = 13.748, kind = "signal", signal = "shunting" },
   { km = 13.751, kind = "signal", signal = "distant" },
   { km = 13.855, kind = "signal", signal = "crossing" },
@@ -82,6 +82,12 @@ points = [
   { km = 15.46, kind = "signal", label = "SA 176", signal = "main" },
   { km = 15.493, kind = "signal", label = "SV 177", signal = "shunting" },
   { km = 15.825, kind = "halt", label = "Weiz Nord", pos = [47.22249, 15.62409] },
+]
+structures = [
+  { kind = "bridge", kmFrom = 2.817, kmTo = 2.831, length = 13 },
+  { kind = "bridge", kmFrom = 4.482, kmTo = 4.498, length = 15 },
+  { kind = "bridge", kmFrom = 5.146, kmTo = 5.163, length = 17 },
+  { kind = "bridge", kmFrom = 13.655, kmTo = 13.69, length = 35 },
 ]
 
 [tracks.geo]

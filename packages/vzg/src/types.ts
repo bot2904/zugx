@@ -76,6 +76,8 @@ export interface VzgTrack {
   curves: [number, number, number][];
   /** operating points along the track: stations, halts, signals, switches, level crossings */
   points: VzgPoint[];
+  /** bridges (≥ 10 m) and tunnels (≥ 50 m) along the track, in km order */
+  structures?: VzgStructure[];
   /** map geometry (line maps): the path in pieces (tunnels marked), and a km post every km */
   geo?: {
     /** Google encoded polylines (1e5), simplified to ~10 m */
@@ -95,6 +97,8 @@ export interface VzgPoint {
   uic?: string;
   /** stations, halts, stops: position [lat, lon] (to link them with timetable stations) */
   pos?: [number, number];
+  /** elevation in m above the Adriatic (OSM `ele`), stations only */
+  ele?: number;
   /** station | halt | stop | signal | switch | level_crossing | milestone | buffer_stop */
   kind: string;
   /** name or signal ref, e.g. "Maria Anzbach", "Ae22/r" (absent if OSM has none) */
@@ -152,4 +156,14 @@ export function lineId(refOrName: string): string {
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+}
+
+export interface VzgStructure {
+  kind: "bridge" | "tunnel";
+  kmFrom: number;
+  kmTo: number;
+  /** length along the track, m */
+  length: number;
+  /** OSM bridge:name / tunnel:name (or a way name that names the structure) */
+  name?: string;
 }

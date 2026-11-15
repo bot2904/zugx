@@ -52,7 +52,7 @@ points = [
   { km = 3.362, kind = "signal", signal = "crossing_distant" },
   { km = 3.451, kind = "signal", signal = "crossing" },
   { km = 3.454, kind = "signal", signal = "minor" },
-  { km = 3.528, kind = "stop", label = "Stadl-Paura", pos = [48.08445, 13.88342] },
+  { km = 3.528, kind = "station", label = "Stadl-Paura", pos = [48.08441, 13.8834], uic = "8100308" },
   { km = 3.563, kind = "signal", signal = "whistle" },
   { km = 3.629, kind = "signal", signal = "minor" },
   { km = 3.72, kind = "signal", signal = "electricity" },
@@ -212,6 +212,14 @@ points = [
   { km = 20.075, kind = "signal", signal = "snowplow" },
   { km = 20.093, kind = "signal", signal = "snowplow" },
   { km = 20.167, kind = "signal", signal = "minor" },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0.679, kmTo = 0.691, length = 12 },
+  { kind = "bridge", kmFrom = 1.741, kmTo = 1.764, length = 23 },
+  { kind = "bridge", kmFrom = 2.345, kmTo = 2.446, length = 101 },
+  { kind = "bridge", kmFrom = 15.034, kmTo = 15.084, length = 53 },
+  { kind = "bridge", kmFrom = 16.091, kmTo = 16.11, length = 20 },
+  { kind = "bridge", kmFrom = 19.607, kmTo = 19.626, length = 19 },
 ]
 
 [tracks.geo]

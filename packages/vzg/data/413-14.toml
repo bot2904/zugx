@@ -35,7 +35,7 @@ points = [
   { km = 377.589, kind = "signal", signal = "snowplow" },
   { km = 377.594, kind = "signal", signal = "snowplow" },
   { km = 377.605, kind = "signal", label = "L20/h20", signal = "distant,main", measured = true },
-  { km = 377.645, kind = "stop", label = "Villach Hauptbahnhof", pos = [46.61978, 13.84792] },
+  { km = 377.645, kind = "station", label = "Villach Hauptbahnhof", pos = [46.61862, 13.84844], uic = "8103654" },
   { km = 377.769, kind = "signal", label = "N20/p20", signal = "distant,main", measured = true },
   { km = 377.798, kind = "signal", signal = "snowplow" },
   { km = 377.815, kind = "signal", signal = "snowplow" },
@@ -57,7 +57,7 @@ points = [
   { km = 380.469, kind = "signal", label = "Z/s", signal = "distant,main", measured = true },
   { km = 380.764, kind = "signal", label = "c", signal = "distant,speed_limit_distant", measured = true },
   { km = 381.42, kind = "signal", label = "z", signal = "distant", measured = true },
-  { km = 381.616, kind = "stop", label = "Villach Warmbad", pos = [46.58886, 13.82863] },
+  { km = 381.616, kind = "stop", label = "Villach Warmbad", pos = [46.58875, 13.82871], uic = "8100382" },
   { km = 381.628, kind = "signal", signal = "electricity" },
   { km = 381.635, kind = "signal", signal = "electricity" },
   { km = 381.728, kind = "signal", label = "C/e", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
@@ -85,8 +85,16 @@ points = [
   { km = 387.773, kind = "signal", label = "V440o", signal = "shunting" },
   { km = 387.932, kind = "signal", label = "V444w", signal = "shunting" },
   { km = 387.988, kind = "signal", signal = "speed_limit" },
-  { km = 389.338, kind = "halt", label = "Neuhaus an der Gail", uic = "8101267", pos = [46.55499, 13.77958] },
+  { km = 389.338, kind = "halt", label = "Neuhaus an der Gail", uic = "8101267", ele = 512, pos = [46.55499, 13.77958] },
   { km = 389.535, kind = "signal", label = "R434", signal = "main,speed_limit", measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 376.647, kmTo = 376.665, length = 17 },
+  { kind = "bridge", kmFrom = 378.121, kmTo = 378.157, length = 34 },
+  { kind = "bridge", kmFrom = 378.296, kmTo = 378.456, length = 160 },
+  { kind = "bridge", kmFrom = 383.875, kmTo = 383.984, length = 111 },
+  { kind = "bridge", kmFrom = 387.828, kmTo = 387.857, length = 29 },
+  { kind = "bridge", kmFrom = 388.139, kmTo = 388.149, length = 10 },
 ]
 
 [tracks.geo]

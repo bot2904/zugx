@@ -15,7 +15,7 @@ length = 12.564
 speeds = [[0.056, 0.269, "", ""], [0.269, 8.904, 50, 50], [8.904, 9.355, 30, 30], [9.355, 9.494, 40, 40], [9.494, 12.235, 50, 50], [12.235, 12.32, 30, 30], [12.32, 12.624, 40, 40]]
 curves = [[0.181, 0.231, 2550], [0.906, 1.006, 1800], [1.28, 1.429, 670], [1.801, 1.876, 2080], [2.025, 2.204, 610], [2.255, 2.457, 520], [2.733, 2.884, 1020], [3.585, 3.861, 580], [4.011, 4.16, 910], [4.26, 4.459, 700], [4.658, 4.907, 680], [4.957, 5.154, 760], [5.498, 5.645, 860], [6.115, 6.344, 620], [6.597, 6.724, 1670], [6.927, 7.154, 540], [7.729, 7.979, 590], [8.359, 8.485, 1680], [8.638, 8.84, 570], [9.245, 9.296, 2020], [9.347, 9.549, 480], [9.599, 9.701, 1170], [9.903, 10.079, 1150], [10.651, 10.925, 560], [11, 11.147, 490], [11.197, 11.369, 350], [11.418, 11.541, 710], [11.591, 11.788, 560], [12.06, 12.235, 1050], [12.285, 12.51, 480]]
 points = [
-  { km = 0.087, kind = "stop", label = "Neumarkt-Kallham", pos = [48.27179, 13.72565] },
+  { km = 0.087, kind = "station", label = "Neumarkt-Kallham", pos = [48.2715, 13.72485], uic = "8100023" },
   { km = 0.269, kind = "signal", signal = "speed_limit" },
   { km = 0.271, kind = "signal", signal = "main" },
   { km = 0.646, kind = "signal", signal = "whistle" },
@@ -61,7 +61,7 @@ points = [
   { km = 8.718, kind = "signal", signal = "whistle" },
   { km = 8.751, kind = "signal", signal = "whistle" },
   { km = 8.9, kind = "signal", signal = "main,speed_limit" },
-  { km = 9.266, kind = "stop", label = "Niederspaching", pos = [48.32303, 13.81013] },
+  { km = 9.266, kind = "station", label = "Niederspaching", pos = [48.32306, 13.81015] },
   { km = 9.27, kind = "signal", signal = "stop" },
   { km = 9.432, kind = "signal", signal = "shunting" },
   { km = 9.496, kind = "signal", signal = "main,resetting_switch,speed_limit" },
@@ -73,7 +73,14 @@ points = [
   { km = 12.235, kind = "signal", signal = "speed_limit" },
   { km = 12.32, kind = "signal", signal = "main,speed_limit" },
   { km = 12.427, kind = "signal", signal = "whistle" },
-  { km = 12.624, kind = "stop", label = "Waizenkirchen", pos = [48.33053, 13.85299] },
+  { km = 12.624, kind = "station", label = "Waizenkirchen", pos = [48.33052, 13.85325] },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0.836, kmTo = 0.851, length = 15 },
+  { kind = "bridge", kmFrom = 5.941, kmTo = 5.953, length = 12 },
+  { kind = "bridge", kmFrom = 8.904, kmTo = 8.93, length = 26 },
+  { kind = "bridge", kmFrom = 12.238, kmTo = 12.27, length = 32 },
+  { kind = "bridge", kmFrom = 12.356, kmTo = 12.369, length = 13 },
 ]
 
 [tracks.geo]

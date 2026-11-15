@@ -46,6 +46,11 @@ points = [
   { km = 7.233, kind = "signal", label = "Sch773H", signal = "minor", measured = true },
   { km = 7.575, kind = "signal", label = "V773R", signal = "shunting", measured = true },
 ]
+structures = [
+  { kind = "tunnel", kmFrom = 5.751, kmTo = 6.082, length = 334, name = "Tunnel Altmannsdorfer Straße II" },
+  { kind = "bridge", kmFrom = 6.526, kmTo = 6.621, length = 94, name = "Donauländebahnbrücke" },
+  { kind = "bridge", kmFrom = 7.293, kmTo = 7.311, length = 18 },
+]
 
 [tracks.geo]
 segments = [

@@ -39,7 +39,7 @@ points = [
   { km = 3.303, kind = "signal", signal = "snowplow" },
   { km = 3.395, kind = "signal", signal = "whistle" },
   { km = 3.81, kind = "signal", signal = "snowplow" },
-  { km = 3.841, kind = "halt", label = "Dietmanns", pos = [48.75016, 14.94665] },
+  { km = 3.841, kind = "halt", label = "Dietmanns", pos = [48.75041, 14.94708] },
   { km = 3.868, kind = "signal", signal = "snowplow" },
   { km = 4.054, kind = "signal", signal = "snowplow" },
   { km = 4.057, kind = "signal", signal = "whistle" },
@@ -303,7 +303,7 @@ points = [
   { km = 26.174, kind = "signal", signal = "snowplow" },
   { km = 26.251, kind = "signal", signal = "snowplow" },
   { km = 26.264, kind = "signal", signal = "speed_limit" },
-  { km = 26.366, kind = "halt", label = "Abschlag", uic = "8100627", pos = [48.62447, 14.84637] },
+  { km = 26.366, kind = "halt", label = "Abschlag", uic = "8100627", pos = [48.62521, 14.84614] },
   { km = 26.441, kind = "signal", signal = "speed_limit" },
   { km = 26.445, kind = "signal", signal = "speed_limit" },
   { km = 26.458, kind = "signal", signal = "snowplow" },
@@ -488,6 +488,13 @@ points = [
   { km = 42.887, kind = "signal", signal = "main" },
   { km = 42.898, kind = "signal", signal = "whistle" },
   { km = 43, kind = "station", label = "Groß Gerungs", uic = "8100839", pos = [48.57182, 14.96007] },
+]
+structures = [
+  { kind = "bridge", kmFrom = 4.058, kmTo = 4.071, length = 12 },
+  { kind = "bridge", kmFrom = 9.783, kmTo = 9.796, length = 14 },
+  { kind = "bridge", kmFrom = 15.228, kmTo = 15.297, length = 71, name = "Veitsgrabenviadukt" },
+  { kind = "bridge", kmFrom = 17.293, kmTo = 17.37, length = 76, name = "Wolfganggraben-Viadukt" },
+  { kind = "tunnel", kmFrom = 29.732, kmTo = 29.997, length = 264, name = "Großer Bruderndorfer Tunnel" },
 ]
 
 [tracks.geo]

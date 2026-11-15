@@ -28,6 +28,11 @@ points = [
   { km = 116.427, kind = "signal", label = "V927R", signal = "shunting", measured = true },
   { km = 118.308, kind = "signal", label = "VHT927", signal = "shunting", measured = true },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 115.331, kmTo = 115.354, length = 23, name = "Leithabrücke" },
+  { kind = "bridge", kmFrom = 115.756, kmTo = 115.776, length = 20 },
+  { kind = "bridge", kmFrom = 116.122, kmTo = 116.136, length = 14 },
+]
 
 [tracks.geo]
 segments = [

@@ -8,6 +8,7 @@ import { computed, nextTick, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import VzgIndexView from "../components/VzgIndex.vue";
 import VzgAbbr from "../components/VzgAbbr.vue";
+import VzgBand from "../components/VzgBand.vue";
 import { useI18n } from "../i18n/index.ts";
 import { itemWikidata } from "../lib/wikidata.ts";
 import { download, standaloneSvg } from "../lib/svg-export.ts";
@@ -289,16 +290,20 @@ const curveOpacity = (r: number) => Math.max(0.15, Math.min(0.9, 300 / r));
 
 // ---- SVG export (e.g. for Wikimedia Commons): caption, data sources, link back to this view
 const chart = ref<SVGSVGElement>();
+/** view: speed chart (default) or Streckenband (?ansicht=band) */
+const band = computed(() => route.query.ansicht === "band");
+const bandView = ref<{ svg?: SVGSVGElement }>();
 function exportSvg() {
   const l = data.value;
   const tr = track.value;
-  if (!chart.value || !l || !tr) return;
+  const el = band.value ? bandView.value?.svg : chart.value;
+  if (!el || !l || !tr) return;
   // stations in the direction of travel: first and last
   const st = tr.points.filter((p) => p.kind === "station" && p.label).sort((a, b) => a.km - b.km);
   const ends = increasing.value ? [st[0], st.at(-1)] : [st.at(-1), st[0]];
   const dir = ends.every(Boolean) ? `${ends[0]!.label} → ${ends[1]!.label}` : "";
   const line = [l.ref, l.name].filter(Boolean).join(" ");
-  const caption = `${t("vzg.title")} ${line} – ${t("vzg.track")} ${tr.track}${dir ? `: ${dir}` : ""}`;
+  const caption = `${band.value ? t("vzg.band") : t("vzg.title")} ${line} – ${t("vzg.track")} ${tr.track}${dir ? `: ${dir}` : ""}`;
   const subtitle = [
     l.operator,
     l.gauge && l.gauge !== "1435" ? `${l.gauge} mm` : "",
@@ -308,18 +313,18 @@ function exportSvg() {
     .filter(Boolean)
     .join(" · ");
   const url = `${location.origin}${route.fullPath}`;
-  const svg = standaloneSvg(chart.value, {
+  const svg = standaloneSvg(el, {
     title: caption,
     description: t("vzg.exportDesc"),
     caption,
     subtitle,
     footer: [
-      t("vzg.exportLegend"),
+      band.value ? t("vzg.bandLegend") : t("vzg.exportLegend"),
       t("vzg.exportData", { date: index.value?.osmDate ?? index.value?.created ?? "" }),
       t("vzg.exportMadeWith", { url }),
     ],
   });
-  const file = `zugx_VzG_${(line || l.id).replace(/[^\p{L}\p{N}]+/gu, "_")}_${t("vzg.track")}_${tr.track}.svg`;
+  const file = `zugx_${band.value ? "Streckenband" : "VzG"}_${(line || l.id).replace(/[^\p{L}\p{N}]+/gu, "_")}_${t("vzg.track")}_${tr.track}.svg`;
   download(svg, file);
 }
 
@@ -412,27 +417,48 @@ const fmt = (km: number) => km.toFixed(3);
         >
           ⇅ {{ $t("bf.swap") }}
         </button>
-        <span class="muted ml-2">{{ $t("vzg.zoom") }}</span>
-        <button
-          v-for="v in ZOOMS"
-          :key="v"
-          class="btn"
-          :class="z === v && 'btn-on'"
-          :aria-pressed="z === v"
-          @click="setQuery({ z: v === 40 ? undefined : v })"
-        >
-          {{ v }} px/km
-        </button>
-        <label class="ml-2 flex items-center gap-1" v-tip="$t('vzg.allSignalsTip')">
-          <input
-            type="checkbox"
-            :checked="allSignals"
-            @change="
-              setQuery({ all: ($event.target as HTMLInputElement).checked ? '1' : undefined })
-            "
-          />
-          {{ $t("vzg.allSignals") }}
-        </label>
+        <span class="ml-2 flex gap-1">
+          <button
+            class="btn"
+            :class="!band && 'btn-on'"
+            :aria-pressed="!band"
+            @click="setQuery({ ansicht: undefined })"
+          >
+            {{ $t("vzg.bandSpeed") }}
+          </button>
+          <button
+            class="btn"
+            :class="band && 'btn-on'"
+            :aria-pressed="band"
+            v-tip="$t('vzg.bandTip')"
+            @click="setQuery({ ansicht: 'band' })"
+          >
+            {{ $t("vzg.band") }}
+          </button>
+        </span>
+        <template v-if="!band">
+          <span class="muted ml-2">{{ $t("vzg.zoom") }}</span>
+          <button
+            v-for="v in ZOOMS"
+            :key="v"
+            class="btn"
+            :class="z === v && 'btn-on'"
+            :aria-pressed="z === v"
+            @click="setQuery({ z: v === 40 ? undefined : v })"
+          >
+            {{ v }} px/km
+          </button>
+          <label class="ml-2 flex items-center gap-1" v-tip="$t('vzg.allSignalsTip')">
+            <input
+              type="checkbox"
+              :checked="allSignals"
+              @change="
+                setQuery({ all: ($event.target as HTMLInputElement).checked ? '1' : undefined })
+              "
+            />
+            {{ $t("vzg.allSignals") }}
+          </label>
+        </template>
         <button class="btn ml-2" v-tip="$t('vzg.exportTip')" @click="exportSvg">⤓ SVG</button>
       </span>
     </div>
@@ -470,7 +496,10 @@ const fmt = (km: number) => km.toFixed(3);
         <span class="inline-block h-2 w-1.5 bg-[var(--link)] align-middle" aria-hidden="true" />
         {{ $t("vzg.curvesTip") }}
       </p>
-      <div class="overflow-x-auto">
+      <div v-if="band" class="overflow-x-auto">
+        <VzgBand ref="bandView" :line="data" :track="track" :increasing="increasing" />
+      </div>
+      <div v-else class="overflow-x-auto">
         <svg
           :viewBox="`0 0 ${W} ${H}`"
           :width="W"

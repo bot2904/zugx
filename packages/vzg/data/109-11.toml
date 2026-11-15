@@ -18,8 +18,13 @@ points = [
   { km = 0.353, kind = "signal", label = "U334", signal = "main,shunting", measured = true },
   { km = 0.647, kind = "signal", label = "V334N", signal = "shunting", measured = true },
   { km = 0.755, kind = "signal", label = "Sch434H/1S3,1U334", signal = "main_repeated,minor", measured = true },
-  { km = 0.85, kind = "stop", label = "Tulln Stadt", pos = [48.32847, 16.05403] },
+  { km = 0.85, kind = "station", label = "Tulln Stadt", pos = [48.32846, 16.05406], uic = "8101692" },
   { km = 1.011, kind = "signal", label = "O433/r", signal = "distant,main,shunting", measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0.246, kmTo = 0.32, length = 74 },
+  { kind = "bridge", kmFrom = 0.457, kmTo = 0.509, length = 51 },
+  { kind = "bridge", kmFrom = 0.729, kmTo = 0.76, length = 31 },
 ]
 
 [tracks.geo]

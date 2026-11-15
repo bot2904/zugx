@@ -141,7 +141,7 @@ points = [
   { km = 12.029, kind = "signal", label = "Zb13", signal = "main" },
   { km = 12.197, kind = "signal", signal = "electricity" },
   { km = 12.355, kind = "signal", signal = "minor" },
-  { km = 12.478, kind = "stop", label = "Eferding", pos = [48.303, 14.01575] },
+  { km = 12.478, kind = "station", label = "Eferding", pos = [48.303, 14.0158], uic = "8100227" },
   { km = 12.654, kind = "signal", signal = "minor" },
   { km = 12.672, kind = "signal", signal = "electricity" },
   { km = 12.762, kind = "signal", signal = "shunting" },
@@ -214,6 +214,19 @@ points = [
   { km = 19.929, kind = "signal", signal = "speed_limit" },
   { km = 19.933, kind = "signal", signal = "whistle" },
   { km = 20.503, kind = "signal", signal = "minor" },
+]
+structures = [
+  { kind = "bridge", kmFrom = 1.091, kmTo = 1.106, length = 15 },
+  { kind = "bridge", kmFrom = 1.67, kmTo = 1.682, length = 11 },
+  { kind = "bridge", kmFrom = 5.54, kmTo = 5.553, length = 13 },
+  { kind = "bridge", kmFrom = 6.074, kmTo = 6.102, length = 28 },
+  { kind = "bridge", kmFrom = 6.188, kmTo = 6.203, length = 15 },
+  { kind = "bridge", kmFrom = 6.629, kmTo = 6.641, length = 14 },
+  { kind = "bridge", kmFrom = 8.759, kmTo = 8.774, length = 16 },
+  { kind = "bridge", kmFrom = 15.796, kmTo = 15.807, length = 11 },
+  { kind = "bridge", kmFrom = 18.531, kmTo = 18.576, length = 44 },
+  { kind = "bridge", kmFrom = 19.124, kmTo = 19.141, length = 17 },
+  { kind = "bridge", kmFrom = 19.192, kmTo = 19.22, length = 28 },
 ]
 
 [tracks.geo]

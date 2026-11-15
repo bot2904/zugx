@@ -191,6 +191,14 @@ export default {
     liveAt: "Echtzeit an {n} Bahnhöfen, zuletzt {station} {time}",
   },
   vzg: {
+    band: "Streckenband",
+    bandSpeed: "Geschwindigkeit",
+    bandTip:
+      "Die Strecke als schematisches Band wie in Wikipedia: Bahnhöfe, Brücken, Tunnel, Anschlussstrecken",
+    bandBridge: "Brücke",
+    bandTunnel: "Tunnel",
+    bandLegend:
+      "Großer Punkt: Bahnhof, kleiner Punkt: Haltestelle; Klammern: Brücke (≥ 20 m), gestrichelt: Tunnel (≥ 50 m); Abzweig: Anschlussstrecke; km in Fahrtrichtung.",
     mapColorPlain: "Einfarbig",
     mapColorSpeed: "Nach Geschwindigkeit",
     mapSpeedScale: "Zulässige Geschwindigkeit (km/h):",

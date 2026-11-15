@@ -16,7 +16,7 @@ length = 13.993
 speeds = [[-1.031, -0.271, 100, 100], [-0.271, 0.868, 120, 100], [0.868, 11.606, 120, 120], [11.606, 12.948, 80, 80]]
 curves = [[1.839, 2.211, 1260], [11.612, 12.011, 470], [12.386, 12.837, 760]]
 points = [
-  { km = -0.387, kind = "stop", label = "Wampersdorf", pos = [47.93151, 16.41742] },
+  { km = -0.387, kind = "station", label = "Wampersdorf", pos = [47.93153, 16.41731], uic = "8100342" },
   { km = 0.668, kind = "signal", label = "VHT103", signal = "shunting", measured = true },
   { km = 0.868, kind = "signal", label = "Ak21/r", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
   { km = 1.213, kind = "signal", signal = "snowplow" },
@@ -83,6 +83,10 @@ points = [
   { km = 30.499, kind = "signal", label = "H203", signal = "main,speed_limit", measured = true },
   { km = 30.574, kind = "signal", label = "1H203", signal = "main_repeated", measured = true },
   { km = 31.259, kind = "signal", label = "R203", signal = "main,speed_limit", measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 11.984, kmTo = 12.009, length = 25 },
+  { kind = "bridge", kmFrom = 12.875, kmTo = 12.889, length = 14 },
 ]
 
 [tracks.geo]

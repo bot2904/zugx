@@ -58,7 +58,7 @@ points = [
   { km = 6.607, kind = "signal", signal = "whistle" },
   { km = 6.855, kind = "signal", signal = "crossing_distant" },
   { km = 7.008, kind = "signal", signal = "whistle" },
-  { km = 7.202, kind = "halt", label = "Prädiberg", uic = "8101380", pos = [46.9217, 15.85094] },
+  { km = 7.202, kind = "halt", label = "Prädiberg", uic = "8101380", pos = [46.92038, 15.84787] },
   { km = 7.345, kind = "signal", signal = "crossing" },
   { km = 7.379, kind = "signal", signal = "electricity" },
   { km = 7.639, kind = "signal", signal = "whistle" },
@@ -108,7 +108,15 @@ points = [
   { km = 20.771, kind = "signal", signal = "crossing" },
   { km = 20.802, kind = "signal", signal = "main" },
   { km = 21.071, kind = "signal", signal = "crossing" },
-  { km = 21.111, kind = "station", label = "Bad Gleichenberg", uic = "8100174", pos = [46.87163, 15.90354] },
+  { km = 21.111, kind = "station", label = "Bad Gleichenberg", uic = "8100174", pos = [46.87163, 15.90354], ele = 269 },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0.846, kmTo = 0.88, length = 34 },
+  { kind = "bridge", kmFrom = 1.091, kmTo = 1.103, length = 12 },
+  { kind = "bridge", kmFrom = 4.626, kmTo = 4.637, length = 11 },
+  { kind = "bridge", kmFrom = 14.274, kmTo = 14.297, length = 23 },
+  { kind = "bridge", kmFrom = 14.42, kmTo = 14.435, length = 15 },
+  { kind = "bridge", kmFrom = 17.601, kmTo = 17.612, length = 10 },
 ]
 
 [tracks.geo]

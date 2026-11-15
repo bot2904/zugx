@@ -21,6 +21,9 @@ points = [
   { km = 0.595, kind = "signal", label = "S635/p", signal = "distant,main,shunting,speed_limit", measured = true },
   { km = 5.191, kind = "station", label = "Bahnhof Meidling", uic = "8170040", pos = [48.17353, 16.33142], measured = true },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 0.285, kmTo = 0.382, length = 98 },
+]
 
 [tracks.geo]
 segments = [

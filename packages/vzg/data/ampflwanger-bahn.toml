@@ -18,6 +18,12 @@ points = [
   { km = 0.143, kind = "halt", label = "Timelkam Energie-AG", pos = [48.00947, 13.5911] },
   { km = 9.897, kind = "station", label = "Ampflwang", pos = [48.087, 13.56281] },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 0.463, kmTo = 0.548, length = 85 },
+  { kind = "bridge", kmFrom = 0.653, kmTo = 0.715, length = 62 },
+  { kind = "bridge", kmFrom = 3.663, kmTo = 3.675, length = 13 },
+  { kind = "bridge", kmFrom = 7.839, kmTo = 7.849, length = 10 },
+]
 
 [tracks.geo]
 segments = [

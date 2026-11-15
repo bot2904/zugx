@@ -100,6 +100,15 @@ points = [
   { km = 29.263, kind = "signal", label = "R3", signal = "main" },
   { km = 29.474, kind = "signal", label = "V55", signal = "shunting" },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 13.075, kmTo = 13.101, length = 25 },
+  { kind = "bridge", kmFrom = 16.658, kmTo = 16.67, length = 13 },
+  { kind = "bridge", kmFrom = 17.081, kmTo = 17.101, length = 20 },
+  { kind = "bridge", kmFrom = 22.933, kmTo = 22.944, length = 11 },
+  { kind = "bridge", kmFrom = 23.154, kmTo = 23.169, length = 14 },
+  { kind = "bridge", kmFrom = 26.516, kmTo = 26.531, length = 14 },
+  { kind = "bridge", kmFrom = 27.177, kmTo = 27.188, length = 10 },
+]
 
 [tracks.geo]
 segments = [

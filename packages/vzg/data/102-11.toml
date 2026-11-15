@@ -17,6 +17,9 @@ points = [
   { km = 0.072, kind = "signal", label = "V211H", signal = "shunting" },
   { km = 0.276, kind = "signal", label = "V211R", signal = "shunting" },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 0.087, kmTo = 0.23, length = 143 },
+]
 
 [tracks.geo]
 segments = [

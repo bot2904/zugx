@@ -5,7 +5,7 @@
  */
 import { encodePolyline, simplify } from "./geo.ts";
 import { lineId } from "./types.ts";
-import type { RailExtract, VzgLine, VzgPoint, VzgTrack } from "./types.ts";
+import type { RailExtract, VzgLine, VzgPoint, VzgStructure, VzgTrack } from "./types.ts";
 
 type Way = RailExtract["ways"][number];
 type Coord = [number, number];
@@ -226,6 +226,12 @@ export function shortestPath(
 }
 
 /** Build one track from a continuous path of edges. */
+/** OSM `ele` ("582", "582 m", "582.5") → metres */
+const parseEle = (v?: string) => {
+  const n = v ? Number.parseFloat(v.replace(",", ".")) : NaN;
+  return Number.isFinite(n) ? Math.round(n) : undefined;
+};
+
 const isTunnel = (w: Way) => !!w.tags.tunnel && w.tags.tunnel !== "no";
 
 export function buildTrack(
@@ -300,11 +306,13 @@ export function buildTrack(
       const k = kind === "tram_stop" ? "halt" : kind;
       if (k === "halt" && points.some((p) => p.kind === "halt" && p.label === t.name)) return;
       const c = ex.coords[n];
+      const ele = parseEle(t.ele);
       points.push({
         km,
         kind: k,
         label: t.name,
         ...(t.uic_ref ? { uic: t.uic_ref } : {}),
+        ...(ele !== undefined ? { ele } : {}),
         ...(c ? { pos: [round(c[0], 5), round(c[1], 5)] as [number, number] } : {}),
         ...(pos !== null ? { measured: true } : {}),
       });
@@ -346,7 +354,17 @@ export function buildTrack(
     )
       continue;
     const name = st.tags.name!;
-    if (named.has(name)) continue;
+    if (named.has(name)) {
+      // the same place already on the path as a stop position / halt: it is a station when the
+      // station node says so; take its number, elevation and position
+      const p = points.find((q) => q.label === name && q.kind !== "signal");
+      if (p && st.tags.railway === "station" && p.kind !== "station") p.kind = "station";
+      if (p && !p.uic && st.tags.uic_ref) p.uic = st.tags.uic_ref;
+      const ele = parseEle(st.tags.ele);
+      if (p && p.ele === undefined && ele !== undefined) p.ele = ele;
+      if (p) p.pos = [round(st.lat, 5), round(st.lon, 5)];
+      continue;
+    }
     let best = Infinity;
     let at = 0;
     for (let i = 0; i < pts.length; i++) {
@@ -363,6 +381,7 @@ export function buildTrack(
       kind: st.tags.railway!,
       label: name,
       ...(st.tags.uic_ref ? { uic: st.tags.uic_ref } : {}),
+      ...(parseEle(st.tags.ele) !== undefined ? { ele: parseEle(st.tags.ele)! } : {}),
       pos: [round(st.lat, 5), round(st.lon, 5)],
       ...(pos !== null ? { measured: true } : {}),
     });
@@ -372,6 +391,43 @@ export function buildTrack(
 
   const kmFrom = round(Math.min(kmAt[0]!, kmAt.at(-1)!));
   const kmTo = round(Math.max(kmAt[0]!, kmAt.at(-1)!));
+  // bridges and tunnels: runs of consecutive bridge/tunnel edges (same structure name)
+  const structures: VzgStructure[] = [];
+  {
+    let cur: { kind: "bridge" | "tunnel"; name?: string; i0: number; len: number } | undefined;
+    const close = (i1: number) => {
+      if (!cur) return;
+      const [a, b] = [kmAt[cur.i0]!, kmAt[i1]!];
+      const m = Math.round(cur.len * 1000);
+      if (m >= (cur.kind === "bridge" ? 10 : 50))
+        structures.push({
+          kind: cur.kind,
+          kmFrom: round(Math.min(a, b)),
+          kmTo: round(Math.max(a, b)),
+          length: m,
+          ...(cur.name ? { name: cur.name } : {}),
+        });
+      cur = undefined;
+    };
+    path.forEach((e, i) => {
+      const t = e.way.tags;
+      const kind = isTunnel(e.way)
+        ? "tunnel"
+        : t.bridge && t.bridge !== "no"
+          ? "bridge"
+          : undefined;
+      const name =
+        (kind === "tunnel" ? t["tunnel:name"] : kind === "bridge" ? t["bridge:name"] : undefined) ??
+        (t.name && /brücke|viadukt|tunnel|galerie|bridge/i.test(t.name) ? t.name : undefined);
+      if (cur && (cur.kind !== kind || cur.name !== name)) close(i);
+      if (!kind) return;
+      cur ??= { kind, ...(name ? { name } : {}), i0: i, len: 0 };
+      cur.len += e.len;
+    });
+    close(path.length);
+    structures.sort((x, y) => x.kmFrom - y.kmFrom);
+  }
+
   // map geometry: path pieces by tunnel and permitted speed (the higher of both directions),
   // simplified; km posts at whole km
   const edgeV = (e: Edge) => {
@@ -424,6 +480,7 @@ export function buildTrack(
     speeds,
     curves,
     points,
+    ...(structures.length ? { structures } : {}),
     geo: { segments, posts },
   };
 }

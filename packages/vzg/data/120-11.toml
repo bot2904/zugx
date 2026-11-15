@@ -21,7 +21,7 @@ points = [
   { km = 5.426, kind = "signal", label = "V258H", signal = "shunting", measured = true },
   { km = 5.482, kind = "signal", label = "V258R", signal = "shunting", measured = true },
   { km = 5.707, kind = "signal", label = "Sch308H/2H6", signal = "main_repeated,minor,shunting", measured = true },
-  { km = 5.755, kind = "stop", label = "Wien Hütteldorf", pos = [48.19737, 16.2624] },
+  { km = 5.755, kind = "station", label = "Wien Hütteldorf", pos = [48.19733, 16.26127], uic = "8101008" },
   { km = 5.794, kind = "signal", signal = "minor" },
 ]
 

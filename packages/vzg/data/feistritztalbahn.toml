@@ -15,12 +15,35 @@ length = 23.444
 speeds = [[0.586, 24.055, "", ""]]
 curves = [[0.686, 2.11, 320], [2.334, 2.609, 400], [2.659, 3.334, 290], [3.384, 4.408, 180], [4.458, 4.658, 340], [4.758, 5.032, 270], [5.082, 5.682, 200], [5.782, 6.032, 240], [6.082, 7.156, 170], [7.206, 7.431, 110], [7.481, 7.88, 320], [7.955, 8.13, 490], [8.205, 8.43, 260], [8.48, 8.805, 430], [8.931, 9.607, 650], [9.707, 9.832, 1070], [10.008, 10.158, 480], [10.208, 10.384, 320], [10.434, 11.26, 240], [11.311, 11.511, 480], [11.761, 12.012, 290], [12.062, 12.438, 390], [12.488, 12.763, 660], [12.814, 13.014, 380], [13.465, 14.116, 520], [14.166, 14.342, 1050], [14.442, 15.118, 340], [15.218, 15.895, 460], [15.945, 16.271, 220], [16.321, 16.571, 310], [16.621, 16.972, 420], [17.022, 17.498, 190], [17.548, 17.849, 910], [17.924, 18.175, 210], [18.275, 18.475, 240], [18.525, 19.427, 270], [19.477, 19.577, 360], [19.627, 19.828, 1220], [19.878, 20.003, 590], [20.053, 20.554, 580], [20.604, 21.456, 190], [21.506, 21.982, 480], [22.258, 23.811, 350]]
 points = [
-  { km = 4.946, kind = "station", label = "Peesen", pos = [47.22778, 15.67243] },
-  { km = 11.605, kind = "station", label = "Oberfeistritz", pos = [47.26104, 15.7144] },
+  { km = 4.946, kind = "station", label = "Peesen", pos = [47.22778, 15.67243], ele = 480 },
+  { km = 11.605, kind = "station", label = "Oberfeistritz", pos = [47.26104, 15.7144], ele = 461 },
   { km = 13.25, kind = "station", label = "Anger", pos = [47.27075, 15.69899] },
   { km = 17.448, kind = "station", label = "Rosegg", pos = [47.30161, 15.69351] },
   { km = 19.328, kind = "halt", label = "Koglhof", pos = [47.31689, 15.69255] },
-  { km = 23.94, kind = "station", label = "Birkfeld", pos = [47.35296, 15.69817] },
+  { km = 23.94, kind = "station", label = "Birkfeld", pos = [47.35296, 15.69817], ele = 574 },
+]
+structures = [
+  { kind = "bridge", kmFrom = 1.862, kmTo = 1.891, length = 30 },
+  { kind = "bridge", kmFrom = 4.112, kmTo = 4.156, length = 44 },
+  { kind = "bridge", kmFrom = 5.127, kmTo = 5.193, length = 65 },
+  { kind = "bridge", kmFrom = 5.907, kmTo = 5.958, length = 51 },
+  { kind = "bridge", kmFrom = 6.614, kmTo = 6.704, length = 90 },
+  { kind = "bridge", kmFrom = 6.797, kmTo = 6.81, length = 13 },
+  { kind = "bridge", kmFrom = 7.829, kmTo = 8.083, length = 254, name = "Grubviadukt" },
+  { kind = "tunnel", kmFrom = 8.747, kmTo = 8.992, length = 245, name = "Hart-Puch-Tunnel" },
+  { kind = "bridge", kmFrom = 10.881, kmTo = 10.997, length = 117 },
+  { kind = "bridge", kmFrom = 13.588, kmTo = 13.618, length = 30 },
+  { kind = "bridge", kmFrom = 14.098, kmTo = 14.109, length = 11 },
+  { kind = "bridge", kmFrom = 16.541, kmTo = 16.56, length = 20 },
+  { kind = "bridge", kmFrom = 18.267, kmTo = 18.278, length = 11 },
+  { kind = "tunnel", kmFrom = 18.898, kmTo = 18.994, length = 96, name = "Frondsbergtunnel" },
+  { kind = "bridge", kmFrom = 19.628, kmTo = 19.638, length = 10 },
+  { kind = "bridge", kmFrom = 20.092, kmTo = 20.14, length = 48 },
+  { kind = "bridge", kmFrom = 20.382, kmTo = 20.415, length = 33 },
+  { kind = "bridge", kmFrom = 20.787, kmTo = 20.801, length = 14 },
+  { kind = "tunnel", kmFrom = 20.966, kmTo = 21.077, length = 110, name = "Kirchleitentunnel" },
+  { kind = "bridge", kmFrom = 22.504, kmTo = 22.567, length = 63, name = "Hollersbach-Viadukt" },
+  { kind = "bridge", kmFrom = 22.835, kmTo = 22.908, length = 73, name = "Birkfeld-Viadukt" },
 ]
 
 [tracks.geo]

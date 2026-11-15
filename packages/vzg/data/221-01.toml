@@ -18,7 +18,7 @@ curves = [[3.627, 4.128, 960], [5.026, 5.47, 650], [5.515, 5.755, 610], [6.608, 
 points = [
   { km = 3.066, kind = "signal", label = "U901", signal = "main,shunting", measured = true },
   { km = 3.256, kind = "signal", label = "Sch911/1U901", signal = "main_repeated,minor", measured = true },
-  { km = 3.313, kind = "stop", label = "Linz Franckstraße", pos = [48.28594, 14.3237] },
+  { km = 3.313, kind = "station", label = "Linz Franckstraße", pos = [48.2859, 14.32369], uic = "8100807" },
   { km = 3.74, kind = "signal", label = "R911", signal = "main,shunting", measured = true },
   { km = 3.84, kind = "signal", label = "V921", signal = "shunting", measured = true },
   { km = 3.9, kind = "signal", label = "VHT921", signal = "shunting", measured = true },
@@ -31,7 +31,7 @@ points = [
   { km = 5.678, kind = "signal", signal = "snowplow" },
   { km = 5.807, kind = "signal", label = "V101R", signal = "shunting", measured = true },
   { km = 5.941, kind = "signal", label = "H201", signal = "main,shunting", measured = true },
-  { km = 6.201, kind = "stop", label = "Steyregg", pos = [48.28454, 14.36116] },
+  { km = 6.201, kind = "station", label = "Steyregg", pos = [48.28454, 14.36169], uic = "8101614" },
   { km = 6.428, kind = "signal", label = "R201", signal = "main,shunting", measured = true },
   { km = 6.594, kind = "signal", label = "V301H", signal = "shunting", measured = true },
   { km = 6.758, kind = "signal", label = "VHT301", signal = "shunting", measured = true },
@@ -123,6 +123,25 @@ points = [
   { km = 19.224, kind = "signal", label = "V141H", signal = "shunting", measured = true },
   { km = 19.358, kind = "signal", label = "VHT141", signal = "shunting", measured = true },
   { km = 19.79, kind = "signal", label = "Zd11/h", signal = "distant,main", measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 4.602, kmTo = 5.052, length = 452, name = "Eisenbahnbrücke Steyregg" },
+  { kind = "bridge", kmFrom = 5.21, kmTo = 5.269, length = 57 },
+  { kind = "bridge", kmFrom = 5.449, kmTo = 5.465, length = 19 },
+  { kind = "bridge", kmFrom = 6.576, kmTo = 6.59, length = 15 },
+  { kind = "bridge", kmFrom = 9.976, kmTo = 9.988, length = 12 },
+  { kind = "bridge", kmFrom = 10.237, kmTo = 10.247, length = 10 },
+  { kind = "bridge", kmFrom = 11.191, kmTo = 11.205, length = 13 },
+  { kind = "bridge", kmFrom = 12, kmTo = 12.009, length = 10 },
+  { kind = "bridge", kmFrom = 12.822, kmTo = 12.838, length = 16 },
+  { kind = "bridge", kmFrom = 13.104, kmTo = 13.117, length = 13 },
+  { kind = "bridge", kmFrom = 13.548, kmTo = 13.577, length = 28 },
+  { kind = "bridge", kmFrom = 14.687, kmTo = 14.709, length = 22 },
+  { kind = "bridge", kmFrom = 14.823, kmTo = 14.858, length = 35 },
+  { kind = "bridge", kmFrom = 15.177, kmTo = 15.194, length = 17 },
+  { kind = "bridge", kmFrom = 15.295, kmTo = 15.312, length = 17 },
+  { kind = "bridge", kmFrom = 15.704, kmTo = 15.718, length = 14 },
+  { kind = "bridge", kmFrom = 19.207, kmTo = 19.218, length = 11 },
 ]
 
 [tracks.geo]

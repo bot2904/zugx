@@ -16,7 +16,7 @@ speeds = [[0.12, 0.537, 80, 90], [0.537, 1.188, 90, 90]]
 curves = [[0.461, 0.963, 630]]
 points = [
   { km = 0.12, kind = "signal", label = "U4", signal = "main,speed_limit" },
-  { km = 0.12, kind = "station", label = "St. Michael", uic = "8100071", pos = [47.34662, 15.00919] },
+  { km = 0.12, kind = "station", label = "St. Michael", uic = "8100071", ele = 596, pos = [47.34662, 15.00919] },
   { km = 0.273, kind = "signal", label = "V9", signal = "shunting" },
   { km = 0.326, kind = "signal", label = "h404", signal = "distant", measured = true },
   { km = 0.336, kind = "signal", label = "V404S", signal = "shunting" },
@@ -25,6 +25,9 @@ points = [
   { km = 0.661, kind = "signal", label = "1E4", signal = "main_repeated" },
   { km = 0.858, kind = "signal", label = "1H4", signal = "main_repeated", measured = true },
   { km = 1, kind = "signal", label = "H4/zw31,yw32", signal = "distant,main", measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0.746, kmTo = 0.818, length = 72 },
 ]
 
 [tracks.geo]

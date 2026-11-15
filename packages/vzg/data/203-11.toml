@@ -22,6 +22,9 @@ points = [
   { km = 0.7, kind = "signal", label = "yu11", signal = "distant", measured = true },
   { km = 0.766, kind = "signal", signal = "speed_limit" },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 0.293, kmTo = 0.331, length = 38 },
+]
 
 [tracks.geo]
 segments = [

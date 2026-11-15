@@ -15,7 +15,7 @@ length = 1.227
 speeds = [[-0.454, 0.514, 60, 60], [0.514, 0.768, 80, 60]]
 curves = [[-0.354, -0.279, 1700], [-0.029, 0.541, 340]]
 points = [
-  { km = -0.054, kind = "stop", label = "Lauterach", pos = [47.47767, 9.72414] },
+  { km = -0.054, kind = "stop", label = "Lauterach", pos = [47.47767, 9.72433], uic = "8100302" },
   { km = 0.143, kind = "signal", label = "P705/l3", signal = "distant,main", measured = true },
   { km = 0.225, kind = "signal", label = "1P705", signal = "main_repeated", measured = true },
   { km = 0.426, kind = "signal", label = "1U705", signal = "main_repeated", measured = true },

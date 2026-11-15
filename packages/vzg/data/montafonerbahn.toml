@@ -88,11 +88,20 @@ points = [
   { km = 12.434, kind = "signal", label = "VHT411", signal = "shunting", measured = true },
   { km = 12.642, kind = "signal", signal = "speed_limit" },
   { km = 12.68, kind = "signal", label = "H421", signal = "main", measured = true },
-  { km = 12.756, kind = "stop", label = "Schruns", pos = [47.07962, 9.91748] },
+  { km = 12.756, kind = "station", label = "Schruns", pos = [47.07966, 9.91726], uic = "8100117", ele = 681 },
   { km = 12.822, kind = "signal", label = "Sch421R", signal = "minor", measured = true },
   { km = 135.433, kind = "signal", label = "C/r", signal = "distant,main", measured = true },
   { km = 135.539, kind = "signal", label = "VHT103", signal = "shunting", measured = true },
   { km = 135.644, kind = "signal", label = "V103", signal = "shunting", measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 2.169, kmTo = 2.182, length = 12 },
+  { kind = "bridge", kmFrom = 2.853, kmTo = 2.875, length = 23 },
+  { kind = "bridge", kmFrom = 3.332, kmTo = 3.387, length = 55 },
+  { kind = "bridge", kmFrom = 4.455, kmTo = 4.515, length = 63 },
+  { kind = "bridge", kmFrom = 5.483, kmTo = 5.494, length = 10 },
+  { kind = "bridge", kmFrom = 8.487, kmTo = 8.497, length = 10 },
+  { kind = "bridge", kmFrom = 11.701, kmTo = 11.739, length = 40 },
 ]
 
 [tracks.geo]

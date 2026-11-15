@@ -21,7 +21,7 @@ points = [
   { km = 1.02, kind = "signal", label = "V637H", signal = "shunting", measured = true },
   { km = 1.051, kind = "signal", label = "V637R", signal = "shunting", measured = true },
   { km = 1.245, kind = "signal", label = "S7/t", signal = "distant,main,shunting", measured = true },
-  { km = 1.356, kind = "station", label = "Innsbruck Westbf", uic = "8100109", pos = [47.25552, 11.39148] },
+  { km = 1.356, kind = "station", label = "Innsbruck Westbf", uic = "8100109", ele = 583, pos = [47.25552, 11.39148] },
   { km = 1.829, kind = "signal", label = "1Q7", signal = "main_repeated", measured = true },
   { km = 1.889, kind = "signal", label = "Q7", signal = "main,shunting", measured = true },
   { km = 2.067, kind = "signal", label = "V767H", signal = "shunting", measured = true },

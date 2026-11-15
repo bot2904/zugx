@@ -36,7 +36,9 @@ const WAY_TAGS = [
   "service",
   "tracks",
   "tunnel",
+  "tunnel:name",
   "bridge",
+  "bridge:name",
   "electrified",
   "railway:pzb",
   "railway:etcs",
@@ -122,7 +124,13 @@ readPbf(input, {
         lon: Math.round(n.lon * 1e7) / 1e7,
         tags: Object.fromEntries(
           Object.entries(n.tags).filter(
-            ([k]) => k === "railway" || k === "name" || k === "uic_ref" || k.startsWith("railway:"),
+            ([k]) =>
+              k === "railway" ||
+              k === "name" ||
+              k === "uic_ref" ||
+              k === "ele" ||
+              k === "ele" ||
+              k.startsWith("railway:"),
           ),
         ),
       });

@@ -16,19 +16,29 @@ length = 5.789
 speeds = [[0.008, 0.267, 12, 12], [0.267, 0.4, 15, 12], [0.4, 1.4, 20, 12], [1.4, 5.792, 15, 12], [5.792, 5.939, 12, 12]]
 curves = [[0.158, 1.396, 390], [1.451, 1.524, 900], [1.602, 1.964, 370], [2.015, 2.455, 190], [2.507, 2.613, 240], [2.684, 3.42, 330], [3.468, 3.52, 1570], [3.582, 3.828, 620], [3.877, 3.954, 200], [4.006, 4.568, 180], [4.614, 5.051, 610], [5.195, 5.8, 590]]
 points = [
-  { km = 0.021, kind = "stop", label = "St. Wolfgang Schafbergbf", pos = [47.73952, 13.43986] },
+  { km = 0.021, kind = "station", label = "St. Wolfgang Schafbergbf", pos = [47.73942, 13.43981], ele = 542 },
   { km = 0.181, kind = "signal", signal = "whistle" },
   { km = 0.247, kind = "signal", label = "EKÜS 11", signal = "crossing" },
   { km = 0.284, kind = "signal", label = "EKÜS 12", signal = "crossing" },
   { km = 0.919, kind = "signal", signal = "whistle" },
   { km = 1.261, kind = "signal", signal = "whistle" },
   { km = 1.321, kind = "signal", signal = "whistle" },
-  { km = 4.2, kind = "station", label = "Schafbergalm", pos = [47.76986, 13.42215], measured = true },
+  { km = 4.2, kind = "station", label = "Schafbergalm", ele = 1363, pos = [47.76986, 13.42215], measured = true },
   { km = 4.236, kind = "stop", label = "Schafbergalm (Bergfahrt)", pos = [47.76985, 13.42212] },
   { km = 4.711, kind = "signal", signal = "whistle" },
   { km = 4.763, kind = "signal", signal = "whistle" },
   { km = 5.845, kind = "stop", label = "Schafbergspitze (Bergfahrt)", pos = [47.77518, 13.43393] },
-  { km = 5.9, kind = "station", label = "Schafbergspitze", pos = [47.77513, 13.43399], measured = true },
+  { km = 5.9, kind = "station", label = "Schafbergspitze", ele = 1732, pos = [47.77513, 13.43399], measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 0.452, kmTo = 0.495, length = 43 },
+  { kind = "bridge", kmFrom = 1.967, kmTo = 1.978, length = 11 },
+  { kind = "bridge", kmFrom = 2.1, kmTo = 2.115, length = 15 },
+  { kind = "bridge", kmFrom = 2.261, kmTo = 2.275, length = 11 },
+  { kind = "bridge", kmFrom = 2.542, kmTo = 2.556, length = 14 },
+  { kind = "bridge", kmFrom = 2.911, kmTo = 2.927, length = 15 },
+  { kind = "bridge", kmFrom = 4.07, kmTo = 4.083, length = 13 },
+  { kind = "tunnel", kmFrom = 5.581, kmTo = 5.665, length = 84, name = "Tunnel Schafbergspitze I" },
 ]
 
 [tracks.geo]

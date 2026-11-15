@@ -55,7 +55,7 @@ points = [
   { km = 39.854, kind = "signal", label = "VHT701", signal = "shunting", measured = true },
   { km = 40.094, kind = "signal", label = "V701R", signal = "shunting", measured = true },
   { km = 40.203, kind = "signal", label = "H711", signal = "main,shunting", measured = true },
-  { km = 40.338, kind = "stop", label = "Oberweiden", pos = [48.30646, 16.83349] },
+  { km = 40.338, kind = "station", label = "Oberweiden", pos = [48.30629, 16.8337], uic = "8101329" },
   { km = 40.37, kind = "signal", label = "Sch711R/1R731", signal = "main_repeated,minor", measured = true },
   { km = 40.404, kind = "signal", label = "V731H", signal = "shunting", measured = true },
   { km = 40.744, kind = "signal", label = "R731", signal = "main,shunting", measured = true },
@@ -83,7 +83,15 @@ points = [
   { km = 48.084, kind = "signal", label = "An21/r", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
   { km = 48.284, kind = "signal", label = "VHT103", signal = "shunting", measured = true },
   { km = 48.492, kind = "signal", label = "V103R", signal = "shunting", measured = true },
-  { km = 49.344, kind = "stop", label = "Marchegg", pos = [48.25006, 16.9172] },
+  { km = 49.344, kind = "station", label = "Marchegg", pos = [48.2498, 16.91752], uic = "8100466" },
+]
+structures = [
+  { kind = "bridge", kmFrom = 32.736, kmTo = 32.75, length = 14 },
+  { kind = "bridge", kmFrom = 32.997, kmTo = 33.023, length = 26 },
+  { kind = "bridge", kmFrom = 33.702, kmTo = 33.73, length = 28 },
+  { kind = "bridge", kmFrom = 34.885, kmTo = 34.904, length = 19 },
+  { kind = "bridge", kmFrom = 39.516, kmTo = 39.532, length = 16 },
+  { kind = "bridge", kmFrom = 40.054, kmTo = 40.067, length = 12 },
 ]
 
 [tracks.geo]

@@ -20,7 +20,7 @@ points = [
   { km = 37.659, kind = "signal", label = "V223R", signal = "shunting", measured = true },
   { km = 37.659, kind = "signal", label = "h203", signal = "distant", measured = true },
   { km = 37.916, kind = "signal", label = "S933", signal = "main,shunting", measured = true },
-  { km = 38.04, kind = "stop", label = "Ebenfurth", pos = [47.87775, 16.36231] },
+  { km = 38.04, kind = "station", label = "Ebenfurth", pos = [47.87766, 16.36213], uic = "8100225" },
   { km = 38.119, kind = "signal", label = "R933", signal = "main,shunting", measured = true },
   { km = 38.896, kind = "signal", label = "V953H", signal = "shunting", measured = true },
   { km = 39.206, kind = "signal", label = "V953R", signal = "shunting", measured = true },

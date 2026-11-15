@@ -23,7 +23,7 @@ points = [
   { km = 91.344, kind = "signal", label = "U42/h", signal = "distant,main" },
   { km = 91.36, kind = "signal", signal = "speed_limit_distant" },
   { km = 91.573, kind = "signal", label = "R401", signal = "main" },
-  { km = 92.074, kind = "stop", label = "Baumgarten-Schattendorf", pos = [47.72788, 16.51774] },
+  { km = 92.074, kind = "station", label = "Baumgarten-Schattendorf", pos = [47.72781, 16.51767], uic = "8133216" },
   { km = 92.224, kind = "signal", label = "H401", signal = "main" },
   { km = 92.271, kind = "signal", signal = "speed_limit" },
   { km = 92.277, kind = "signal", signal = "speed_limit" },
@@ -82,7 +82,7 @@ points = [
   { km = 100.997, kind = "signal", signal = "speed_limit" },
   { km = 101.156, kind = "signal", label = "Sch311H", signal = "minor" },
   { km = 101.163, kind = "signal", label = "Sch301R", signal = "minor" },
-  { km = 101.215, kind = "stop", label = "Wulkaprodersdorf", pos = [47.79004, 16.49057] },
+  { km = 101.215, kind = "station", label = "Wulkaprodersdorf", pos = [47.78905, 16.49055], uic = "8100361" },
   { km = 101.326, kind = "signal", label = "H301", signal = "main" },
   { km = 101.551, kind = "signal", label = "V1", signal = "shunting" },
   { km = 101.809, kind = "signal", signal = "electricity" },
@@ -113,7 +113,7 @@ points = [
   { km = 106.394, kind = "signal", signal = "shunting" },
   { km = 106.577, kind = "signal", label = "V252", signal = "shunting" },
   { km = 106.739, kind = "signal", label = "R201", signal = "main" },
-  { km = 106.914, kind = "stop", label = "Müllendorf", pos = [47.83472, 16.45914] },
+  { km = 106.914, kind = "station", label = "Müllendorf", pos = [47.83471, 16.4591] },
   { km = 107.034, kind = "signal", label = "H201", signal = "main" },
   { km = 107.3, kind = "signal", label = "V201", signal = "shunting" },
   { km = 107.479, kind = "signal", signal = "shunting" },
@@ -160,11 +160,19 @@ points = [
   { km = 114.476, kind = "signal", label = "R101", signal = "main" },
   { km = 114.541, kind = "signal", label = "1R101", signal = "main_repeated" },
   { km = 114.565, kind = "signal", signal = "speed_limit" },
-  { km = 114.752, kind = "stop", label = "Neufeld an der Leitha", pos = [47.8685, 16.38127] },
+  { km = 114.752, kind = "station", label = "Neufeld an der Leitha", pos = [47.86851, 16.3813] },
   { km = 114.895, kind = "signal", label = "H101", signal = "main" },
   { km = 115.074, kind = "signal", label = "V101", signal = "shunting" },
   { km = 115.165, kind = "signal", signal = "electricity" },
   { km = 115.303, kind = "signal", signal = "shunting" },
+]
+structures = [
+  { kind = "bridge", kmFrom = 99.665, kmTo = 99.69, length = 25 },
+  { kind = "bridge", kmFrom = 101.441, kmTo = 101.454, length = 13 },
+  { kind = "bridge", kmFrom = 106.295, kmTo = 106.38, length = 84 },
+  { kind = "bridge", kmFrom = 106.633, kmTo = 106.678, length = 45 },
+  { kind = "bridge", kmFrom = 109.609, kmTo = 109.626, length = 17 },
+  { kind = "bridge", kmFrom = 115.311, kmTo = 115.331, length = 20, name = "Leithabrücke" },
 ]
 
 [tracks.geo]

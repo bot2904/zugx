@@ -160,6 +160,17 @@ points = [
   { km = 67.45, kind = "signal", signal = "whistle" },
   { km = 67.497, kind = "signal", signal = "speed_limit" },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 41.065, kmTo = 41.081, length = 16 },
+  { kind = "bridge", kmFrom = 52.817, kmTo = 52.861, length = 44 },
+  { kind = "bridge", kmFrom = 55.696, kmTo = 55.707, length = 11 },
+  { kind = "bridge", kmFrom = 61.195, kmTo = 61.233, length = 38 },
+  { kind = "bridge", kmFrom = 61.916, kmTo = 61.928, length = 13 },
+  { kind = "bridge", kmFrom = 62.029, kmTo = 62.072, length = 43 },
+  { kind = "bridge", kmFrom = 62.139, kmTo = 62.158, length = 19 },
+  { kind = "bridge", kmFrom = 63.589, kmTo = 63.619, length = 30 },
+  { kind = "tunnel", kmFrom = 65.058, kmTo = 65.6, length = 541, name = "Hochstraßtunnel" },
+]
 
 [tracks.geo]
 segments = [

@@ -18,7 +18,7 @@ points = [
   { km = 60.478, kind = "stop", label = "St. Pölten Hauptbahnhof", pos = [48.20809, 15.62577] },
   { km = 60.488, kind = "signal", label = "Sch203R/2E3", signal = "departure,main_repeated,minor", measured = true },
   { km = 60.491, kind = "signal", label = "Sch303H/1H3", signal = "departure,main_repeated,minor", measured = true },
-  { km = 60.491, kind = "station", label = "St. Pölten Hauptbahnhof", uic = "8101032", pos = [48.20828, 15.62468] },
+  { km = 60.491, kind = "station", label = "St. Pölten Hauptbahnhof", uic = "8101032", ele = 273, pos = [48.20828, 15.62468] },
   { km = 60.659, kind = "signal", label = "Sch303R/1E3", signal = "departure,main_repeated,minor", measured = true },
   { km = 60.761, kind = "signal", label = "E3/r", signal = "departure,distant,main", measured = true },
   { km = 60.766, kind = "signal", label = "V403H", signal = "shunting", measured = true },
@@ -55,8 +55,13 @@ points = [
   { km = 67.969, kind = "signal", label = "H5", signal = "main,shunting,speed_limit", measured = true },
   { km = 68.209, kind = "signal", label = "V205R", signal = "shunting", measured = true },
   { km = 68.286, kind = "signal", label = "Sch305H", signal = "minor", measured = true },
-  { km = 68.596, kind = "stop", label = "Prinzersdorf", pos = [48.20307, 15.52645] },
+  { km = 68.596, kind = "station", label = "Prinzersdorf", pos = [48.20308, 15.52617], ele = 256 },
   { km = 68.757, kind = "signal", label = "R5", signal = "main,shunting,speed_limit", measured = true },
+]
+structures = [
+  { kind = "tunnel", kmFrom = 62.066, kmTo = 62.529, length = 455, name = "Eisbergbogentunnel" },
+  { kind = "bridge", kmFrom = 63.243, kmTo = 63.272, length = 28 },
+  { kind = "bridge", kmFrom = 67.856, kmTo = 67.88, length = 25 },
 ]
 
 [tracks.geo]

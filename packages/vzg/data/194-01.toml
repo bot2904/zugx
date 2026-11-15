@@ -94,7 +94,7 @@ points = [
   { km = 18.9, kind = "signal", label = "H1", signal = "main", measured = true },
   { km = 19.792, kind = "signal", label = "Sch201R", signal = "minor", measured = true },
   { km = 19.842, kind = "signal", label = "Sch301H", signal = "minor,speed_limit", measured = true },
-  { km = 19.874, kind = "stop", label = "Kittsee", pos = [48.08154, 17.07154] },
+  { km = 19.874, kind = "station", label = "Kittsee", pos = [48.08151, 17.07156], uic = "8100373" },
   { km = 20.192, kind = "signal", label = "R1", signal = "main", measured = true },
   { km = 20.383, kind = "signal", label = "V53", signal = "shunting", measured = true },
   { km = 20.391, kind = "signal", signal = "snowplow" },
@@ -108,6 +108,12 @@ points = [
   { km = 21.801, kind = "signal", signal = "snowplow" },
   { km = 22.346, kind = "signal", label = "PrKS", signal = "distant", measured = true },
   { km = 22.348, kind = "signal", signal = "snowplow" },
+]
+structures = [
+  { kind = "bridge", kmFrom = 9.581, kmTo = 9.616, length = 35 },
+  { kind = "bridge", kmFrom = 10.067, kmTo = 10.128, length = 62 },
+  { kind = "bridge", kmFrom = 12.92, kmTo = 12.942, length = 23 },
+  { kind = "bridge", kmFrom = 13.952, kmTo = 13.97, length = 17 },
 ]
 
 [tracks.geo]

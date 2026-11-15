@@ -102,6 +102,13 @@ points = [
   { km = 29.533, kind = "signal", signal = "main" },
   { km = 29.929, kind = "station", label = "Ernstbrunn", pos = [48.52609, 16.37687] },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 4.237, kmTo = 4.247, length = 10 },
+  { kind = "bridge", kmFrom = 6.022, kmTo = 6.047, length = 25 },
+  { kind = "bridge", kmFrom = 8.856, kmTo = 8.869, length = 13 },
+  { kind = "bridge", kmFrom = 22.897, kmTo = 22.908, length = 12 },
+  { kind = "bridge", kmFrom = 24.24, kmTo = 24.251, length = 11 },
+]
 
 [tracks.geo]
 segments = [

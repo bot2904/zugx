@@ -31,6 +31,11 @@ points = [
   { km = 182.416, kind = "signal", label = "Sch124H", signal = "minor,shunting", measured = true },
   { km = 182.835, kind = "signal", label = "Sch124R/1G22/1G24", signal = "main_repeated,minor,shunting", measured = true },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 180.577, kmTo = 180.61, length = 33 },
+  { kind = "bridge", kmFrom = 181.656, kmTo = 181.813, length = 172 },
+  { kind = "bridge", kmFrom = 181.962, kmTo = 181.996, length = 33 },
+]
 
 [tracks.geo]
 segments = [

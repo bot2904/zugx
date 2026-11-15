@@ -16,7 +16,7 @@ length = 12.414
 speeds = [[17.743, 18.309, 60, 60], [18.309, 18.47, 100, 100], [18.47, 30.171, 70, 70]]
 curves = [[18.082, 18.182, 1050], [18.257, 18.432, 1760], [18.557, 19.103, 330], [19.173, 19.511, 510], [20.512, 20.736, 650], [20.786, 21.035, 440], [21.085, 21.21, 1050], [21.26, 21.435, 510], [21.485, 21.886, 380], [22.011, 22.261, 630], [22.386, 23.436, 410], [23.611, 23.938, 540], [24.711, 24.836, 1180], [25.311, 25.661, 360], [25.736, 26.287, 300], [26.437, 26.813, 470], [26.863, 26.963, 1210], [27.013, 27.389, 1100], [27.639, 27.715, 1350], [27.765, 27.89, 1180], [28.015, 28.892, 1000], [29.117, 29.568, 310]]
 points = [
-  { km = 17.951, kind = "stop", label = "Klagenfurt Hauptbahnhof", pos = [46.61546, 14.31372] },
+  { km = 17.951, kind = "station", label = "Klagenfurt Hauptbahnhof", pos = [46.61569, 14.3137], uic = "8103642", ele = 440 },
   { km = 18.519, kind = "signal", signal = "crossing_distant" },
   { km = 18.592, kind = "signal", label = "V629H", signal = "shunting", measured = true },
   { km = 18.633, kind = "signal", label = "V629R", signal = "shunting", measured = true },
@@ -72,7 +72,7 @@ points = [
   { km = 24.734, kind = "signal", label = "VHT601", signal = "shunting", measured = true },
   { km = 24.9, kind = "signal", label = "V601R", signal = "shunting", measured = true },
   { km = 25.005, kind = "signal", label = "H611", signal = "main", measured = true },
-  { km = 25.046, kind = "station", label = "Maria Rain", uic = "8100470", pos = [46.56362, 14.28436], measured = true },
+  { km = 25.046, kind = "station", label = "Maria Rain", uic = "8100470", ele = 521, pos = [46.56362, 14.28436], measured = true },
   { km = 25.217, kind = "signal", label = "R611", signal = "main", measured = true },
   { km = 25.406, kind = "signal", signal = "snowplow" },
   { km = 25.41, kind = "signal", label = "V621H", signal = "shunting", measured = true },
@@ -96,7 +96,7 @@ points = [
   { km = 29.602, kind = "signal", signal = "snowplow" },
   { km = 29.676, kind = "signal", label = "H731", signal = "main", measured = true },
   { km = 30.084, kind = "stop", label = "Weizelsdorf", pos = [46.53948, 14.2434] },
-  { km = 30.124, kind = "station", label = "Weizelsdorf", uic = "8100347", pos = [46.53952, 14.24287] },
+  { km = 30.124, kind = "station", label = "Weizelsdorf", uic = "8100347", pos = [46.53952, 14.24287], ele = 432 },
   { km = 30.171, kind = "signal", label = "FE731R", signal = "minor", measured = true },
   { km = 125.664, kind = "signal", label = "U507/h", signal = "departure,distant,main", measured = true },
   { km = 125.921, kind = "signal", label = "Sch507R", signal = "departure,minor", measured = true },
@@ -105,6 +105,20 @@ points = [
   { km = 126.151, kind = "signal", label = "G527", signal = "departure,main", measured = true },
   { km = 126.36, kind = "signal", label = "V609H", signal = "shunting", measured = true },
   { km = 126.39, kind = "signal", label = "V609R", signal = "shunting", measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 20.303, kmTo = 20.322, length = 19 },
+  { kind = "bridge", kmFrom = 20.649, kmTo = 20.664, length = 15 },
+  { kind = "bridge", kmFrom = 21.86, kmTo = 21.875, length = 15 },
+  { kind = "bridge", kmFrom = 22.761, kmTo = 22.77, length = 10 },
+  { kind = "bridge", kmFrom = 22.901, kmTo = 22.911, length = 10 },
+  { kind = "bridge", kmFrom = 25.517, kmTo = 25.53, length = 14 },
+  { kind = "bridge", kmFrom = 26.848, kmTo = 26.862, length = 14 },
+  { kind = "bridge", kmFrom = 27.216, kmTo = 27.291, length = 74 },
+  { kind = "bridge", kmFrom = 27.384, kmTo = 27.421, length = 37 },
+  { kind = "bridge", kmFrom = 28.86, kmTo = 29.028, length = 168 },
+  { kind = "bridge", kmFrom = 29.142, kmTo = 29.192, length = 50 },
+  { kind = "bridge", kmFrom = 29.314, kmTo = 29.342, length = 28 },
 ]
 
 [tracks.geo]

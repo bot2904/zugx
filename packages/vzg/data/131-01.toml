@@ -34,11 +34,17 @@ points = [
   { km = 4.548, kind = "signal", label = "E221", signal = "main,shunting", measured = true },
   { km = 4.66, kind = "signal", label = "V15", signal = "shunting", measured = true },
   { km = 4.865, kind = "signal", label = "U4/h", signal = "distant,main", measured = true },
-  { km = 4.964, kind = "stop", label = "Wien Haidestraße", pos = [48.17877, 16.42629] },
+  { km = 4.964, kind = "stop", label = "Wien Haidestraße", pos = [48.17881, 16.42623], uic = "8100920" },
   { km = 5.152, kind = "signal", label = "Sch604H", signal = "minor", measured = true },
   { km = 5.325, kind = "signal", label = "1R4", signal = "main_repeated", measured = true },
   { km = 5.521, kind = "signal", label = "R4/a1,b1", signal = "distant,main,shunting,speed_limit", measured = true },
   { km = 13.402, kind = "station", label = "Simmering", uic = "8170076", pos = [48.16978, 16.42053], measured = true },
+]
+structures = [
+  { kind = "bridge", kmFrom = 3.78, kmTo = 3.79, length = 44 },
+  { kind = "bridge", kmFrom = 3.859, kmTo = 3.864, length = 22 },
+  { kind = "bridge", kmFrom = 3.93, kmTo = 3.938, length = 35 },
+  { kind = "bridge", kmFrom = 5.044, kmTo = 5.06, length = 16 },
 ]
 
 [tracks.geo]

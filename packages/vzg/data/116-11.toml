@@ -24,6 +24,9 @@ points = [
   { km = 7.16, kind = "signal", label = "V430R", signal = "shunting", measured = true },
   { km = 7.254, kind = "station", label = "Wien Süßenbrunn", uic = "8101619", pos = [48.28557, 16.48552] },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 5.971, kmTo = 5.988, length = 17 },
+]
 
 [tracks.geo]
 segments = [

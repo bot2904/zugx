@@ -44,7 +44,7 @@ points = [
   { km = 3.35, kind = "signal", label = "E1", signal = "main,shunting", measured = true },
   { km = 3.601, kind = "halt", label = "Schöpfwerk", pos = [48.16398, 16.33081], measured = true },
   { km = 3.764, kind = "signal", label = "V741", signal = "shunting", measured = true },
-  { km = 3.952, kind = "station", label = "Wien Nußdorf", uic = "8102407", pos = [48.26023, 16.36778], measured = true },
+  { km = 3.952, kind = "station", label = "Wien Nußdorf", uic = "8102407", ele = 164, pos = [48.26023, 16.36778], measured = true },
   { km = 4.132, kind = "signal", label = "H1", signal = "main,shunting", measured = true },
   { km = 4.141, kind = "station", label = "Tscherttegasse", uic = "8170062", pos = [48.16498, 16.32779], measured = true },
   { km = 4.26, kind = "halt", label = "Gutheil-Schoder-Gasse", pos = [48.15928, 16.33577], measured = true },
@@ -182,7 +182,24 @@ points = [
   { km = 29.932, kind = "signal", signal = "crossing_distant" },
   { km = 31.729, kind = "signal", signal = "speed_limit" },
   { km = 31.923, kind = "signal", signal = "speed_limit" },
-  { km = 32.716, kind = "stop", label = "Wien Handelskai", pos = [48.2421, 16.38589] },
+  { km = 32.716, kind = "station", label = "Wien Handelskai", pos = [48.24214, 16.38598], uic = "8101934" },
+]
+structures = [
+  { kind = "tunnel", kmFrom = 6.006, kmTo = 7.661, length = 1637, name = "Lainzer Tunnel" },
+  { kind = "bridge", kmFrom = 8.162, kmTo = 8.196, length = 35 },
+  { kind = "bridge", kmFrom = 8.815, kmTo = 8.847, length = 32 },
+  { kind = "tunnel", kmFrom = 9.482, kmTo = 9.611, length = 129 },
+  { kind = "bridge", kmFrom = 13.551, kmTo = 13.579, length = 26 },
+  { kind = "bridge", kmFrom = 16.363, kmTo = 16.458, length = 90 },
+  { kind = "bridge", kmFrom = 16.775, kmTo = 16.786, length = 12 },
+  { kind = "bridge", kmFrom = 18.919, kmTo = 18.93, length = 22 },
+  { kind = "bridge", kmFrom = 19.452, kmTo = 19.475, length = 22 },
+  { kind = "bridge", kmFrom = 19.636, kmTo = 19.656, length = 20 },
+  { kind = "bridge", kmFrom = 21.871, kmTo = 21.884, length = 13 },
+  { kind = "bridge", kmFrom = 22.007, kmTo = 22.175, length = 168, name = "Winterhafenbrücke" },
+  { kind = "bridge", kmFrom = 22.414, kmTo = 22.43, length = 16 },
+  { kind = "bridge", kmFrom = 34.647, kmTo = 34.682, length = 35 },
+  { kind = "bridge", kmFrom = 34.767, kmTo = 34.926, length = 158 },
 ]
 
 [tracks.geo]
@@ -242,7 +259,7 @@ points = [
   { km = 3.437, kind = "signal", label = "E2", signal = "main,shunting", measured = true },
   { km = 3.601, kind = "halt", label = "Schöpfwerk", pos = [48.16398, 16.33081], measured = true },
   { km = 3.764, kind = "signal", label = "V741", signal = "shunting", measured = true },
-  { km = 3.952, kind = "station", label = "Wien Nußdorf", uic = "8102407", pos = [48.26023, 16.36778], measured = true },
+  { km = 3.952, kind = "station", label = "Wien Nußdorf", uic = "8102407", ele = 164, pos = [48.26023, 16.36778], measured = true },
   { km = 4.132, kind = "signal", label = "H2", signal = "main,shunting", measured = true },
   { km = 4.141, kind = "station", label = "Tscherttegasse", uic = "8170062", pos = [48.16498, 16.32779], measured = true },
   { km = 4.26, kind = "halt", label = "Gutheil-Schoder-Gasse", pos = [48.15928, 16.33577], measured = true },
@@ -382,7 +399,24 @@ points = [
   { km = 31.724, kind = "signal", signal = "speed_limit" },
   { km = 31.922, kind = "signal", signal = "speed_limit" },
   { km = 32.547, kind = "signal", signal = "speed_limit_distant" },
-  { km = 32.715, kind = "stop", label = "Wien Handelskai", pos = [48.24219, 16.38607] },
+  { km = 32.715, kind = "station", label = "Wien Handelskai", pos = [48.24214, 16.38598], uic = "8101934" },
+]
+structures = [
+  { kind = "tunnel", kmFrom = 6.006, kmTo = 7.661, length = 1637, name = "Lainzer Tunnel" },
+  { kind = "bridge", kmFrom = 8.162, kmTo = 8.196, length = 35 },
+  { kind = "bridge", kmFrom = 8.815, kmTo = 8.847, length = 32 },
+  { kind = "tunnel", kmFrom = 9.482, kmTo = 9.611, length = 129 },
+  { kind = "bridge", kmFrom = 13.551, kmTo = 13.579, length = 26 },
+  { kind = "bridge", kmFrom = 16.363, kmTo = 16.458, length = 90 },
+  { kind = "bridge", kmFrom = 16.775, kmTo = 16.786, length = 12 },
+  { kind = "bridge", kmFrom = 18.919, kmTo = 18.93, length = 22 },
+  { kind = "bridge", kmFrom = 19.452, kmTo = 19.475, length = 22 },
+  { kind = "bridge", kmFrom = 19.636, kmTo = 19.656, length = 20 },
+  { kind = "bridge", kmFrom = 21.871, kmTo = 21.884, length = 13 },
+  { kind = "bridge", kmFrom = 22.007, kmTo = 22.175, length = 168, name = "Winterhafenbrücke" },
+  { kind = "bridge", kmFrom = 22.414, kmTo = 22.43, length = 16 },
+  { kind = "bridge", kmFrom = 34.648, kmTo = 34.683, length = 35 },
+  { kind = "bridge", kmFrom = 34.768, kmTo = 34.926, length = 158 },
 ]
 
 [tracks.geo]

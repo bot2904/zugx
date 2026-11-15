@@ -18,7 +18,7 @@ curves = [[131.5, 131.875, 250], [132.125, 132.6, 1050], [134.116, 134.635, 1020
 points = [
   { km = 1.14, kind = "signal", label = "b", signal = "distant", measured = true },
   { km = 1.545, kind = "signal", label = "B", signal = "main", measured = true },
-  { km = 73.675, kind = "station", label = "Zellerndorf", uic = "8100363", pos = [48.69529, 15.96825], measured = true },
+  { km = 73.675, kind = "station", label = "Zellerndorf", uic = "8100363", ele = 224, pos = [48.69529, 15.96825], measured = true },
   { km = 82.605, kind = "station", label = "Laa an der Thaya", uic = "8101180", pos = [48.72328, 16.40303], measured = true },
   { km = 131.393, kind = "signal", signal = "speed_limit" },
   { km = 131.41, kind = "signal", label = "VB", signal = "shunting" },
@@ -170,6 +170,14 @@ points = [
   { km = 166.243, kind = "signal", signal = "shunting" },
   { km = 166.615, kind = "signal", label = "V58L", signal = "shunting" },
   { km = 166.621, kind = "signal", signal = "speed_limit" },
+]
+structures = [
+  { kind = "bridge", kmFrom = 132.849, kmTo = 132.864, length = 15 },
+  { kind = "bridge", kmFrom = 140.281, kmTo = 140.296, length = 15 },
+  { kind = "bridge", kmFrom = 141.328, kmTo = 141.343, length = 14 },
+  { kind = "bridge", kmFrom = 150.715, kmTo = 150.725, length = 10 },
+  { kind = "bridge", kmFrom = 156.995, kmTo = 157.006, length = 10 },
+  { kind = "bridge", kmFrom = 166.406, kmTo = 166.416, length = 10 },
 ]
 
 [tracks.geo]

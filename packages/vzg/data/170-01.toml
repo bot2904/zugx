@@ -34,6 +34,9 @@ points = [
   { km = 9.252, kind = "signal", signal = "snowplow" },
   { km = 9.269, kind = "station", label = "Deutschkreutz", uic = "8100719", pos = [47.60388, 16.62021] },
 ]
+structures = [
+  { kind = "bridge", kmFrom = 7.745, kmTo = 7.756, length = 10 },
+]
 
 [tracks.geo]
 segments = [

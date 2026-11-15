@@ -87,7 +87,8 @@ function loadVzg(): VzgLine[] {
   if (!existsSync(dir)) return [];
   return readdirSync(dir)
     .filter((f) => f.endsWith(".toml") && f !== "index.toml")
-    .map((f) => readToml<VzgLine>(join(dir, f), {} as VzgLine));
+    .map((f) => readToml<VzgLine>(join(dir, f), {} as VzgLine))
+    .filter((l) => Array.isArray(l.tracks)); // not geometry.toml
 }
 
 function loadSpeeds(
