@@ -934,6 +934,44 @@ Limits: in a joined section the operational number is only a guess (lower number
 
 **Status (2026-11-15):** A–D done (`groupMovements`, `partSections`, `operationalChanges` in `packages/hafas/src/coupled.ts`; box `TrainParts.vue`; fixtures EN 40462 / EN 40237). Open: HAFAS hints EN 415 only from Jesenice (Salzburg–Schwarzach has neither partner nor matchId); the radar header badges come from the merged markers only (not from `parts` when the train is selected by link).
 
+### Category colours: distinguishability (2026-11-15)
+
+Request (planner feedback): colours by offer level as common in Austrian timetable planning (FBS) — RJX ≠ RJ, REX green ≠ R, IR + CJX violet, private long-distance (WESTbahn, RegioJet) orange. Single source: `apps/web/src/lib/products.ts` (badges, radar, Bildfahrplan, Kursbuch, maps, Netzgrafik).
+
+**Method** (`node scripts/color-distance.ts '<json>'`): every pair of colours, ΔE×100 in OKLab for normal vision and the minimum under protan/deutan simulation (Machado et al. 2009, severity 1). Targets: ΔE ≥ 15 normal (below: hard to tell apart even with full colour vision), ≥ 8 under CVD (6–8 only with a second cue such as a text label). Constraint: badges carry white text, so every badge colour needs ≥ 4.5:1 contrast with white (WCAG AA) — that keeps all colours dark and limits how far 12 categories can spread in lightness.
+
+**First FBS palette** (the four requested changes on the old colours) — too close:
+
+| Pair                    | ΔE normal | ΔE CVD |
+| ----------------------- | --------- | ------ |
+| ICE grey – R slate blue | 4.9       | 4.1    |
+| EC/IC – D               | 6.0       | 2.3    |
+| REX green – bus olive   | 6.6       | 1.4    |
+| R – S                   | 6.8       | 6.1    |
+| RJX – EC/IC             | 7.0       | 4.2    |
+| RJ – EC/IC              | 7.0       | 7.0    |
+| RJX – RJ                | 11.4      | 9.7    |
+| NJ – IR/CJX             | 11.6      | 4.5    |
+| IR/CJX – S              | 13.3      | 2.2    |
+
+Root causes: four medium-dark reds (RJX, RJ, EC/IC, D); the white-text limit; red/green is the classic CVD pair.
+
+**Adopted badge palette** (light; all ≥ 4.5:1 with white): RJX `#d0102a`, RJ `#b8157a` (magenta), EC/IC/D `#7d1a14` (brown-red, one colour), ICE `#4b4f55`, NJ/EN `#26296b`, IR/CJX `#8448b8`, REX `#2a7a2e`, R `#5a7590`, S `#1659c9`, private long-distance `#b35800`, rail replacement `#795548`, bus/other `#6b6b6b`. Remaining pairs below the targets:
+
+| Pair                          | ΔE normal | ΔE CVD  | Note                                                |
+| ----------------------------- | --------- | ------- | --------------------------------------------------- |
+| R – bus, SEV – bus, ICE – SEV | 5.8–8.5   | 5.2–5.5 | buses are off by default in the radar; SEV is a bus |
+| RJX – private                 | 11.5      | 1.9     | red vs orange: CVD-identical                        |
+| RJX – RJ                      | 12.5      | 12.6    | both in the red family (was 11.4)                   |
+| ICE – R                       | 13.2      | 12.8    | (was 4.9)                                           |
+| IR/CJX – S                    | 14.3      | 2.8     | violet vs blue: CVD-close                           |
+| R – S                         | 14.7      | 13.8    | (was 6.8)                                           |
+| RJX – REX                     | 30.8      | 5.7     | red/green: inherent to the FBS convention           |
+
+**Dark mode**: the badge colours are too dark as lines/text on the dark surface, so `lineColor`/`categoryColor` return lighter steps there (badges keep `lineBadgeColor`/`categoryBadgeColor`): RJX `#ff4b5c`, RJ `#e862b6`, EC/IC/D `#c4553c`, ICE `#d0d4d8`, NJ/EN `#aab0ff`, IR/CJX `#b07fea`, REX `#4fb052`, R `#7f9cc0`, S `#2f7ff0`, private `#f0902a`, SEV `#a58670`, bus `#7a7a7a` — all ≥ 3:1 against `#0b0d10`; closest pairs SEV – bus 8.1, then ≥ 11.7 (NJ – R, RJX – EC/IC, NJ – IR/CJX), RJX – RJ 12.6.
+
+Open: CVD-safe separation of RJX/RJ/private and IR/S needs a second cue (e.g. dashed RJ paths in the Bildfahrplan, or a border on RJX badges); identity is never colour-alone today since badges and paths carry the category text.
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
