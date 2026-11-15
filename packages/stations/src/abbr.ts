@@ -1,5 +1,6 @@
 // Build data/abbr.toml: the ÖBB operating-point abbreviation (Betriebsstellen-Kürzel, e.g. "Kt",
-// "Vb", "Vps", "Fel") per HAFAS station, from OpenStreetMap `railway:ref` on stations and halts.
+// "Vb", "Vps", "Fel") per HAFAS station, from OpenStreetMap `railway:ref` on stations and halts
+// (plain abbreviations only, not suffixed ones such as "Abf H1").
 // OSM's uic_ref holds infrastructure codes, not the HAFAS ids, so stations are matched by position
 // (≤ 600 m) and name (similarity ≥ 0.5); the best-scoring OSM node per HAFAS station wins.
 // One station per line (small diffs). Local step like the VzG build (needs the OSM extract):
@@ -23,6 +24,7 @@ const input =
   );
 const OUT = join(import.meta.dirname, "..", "data", "abbr.toml");
 const KINDS = new Set(["station", "halt", "stop"]);
+const PLAIN = /^[A-ZÄÖÜ][a-zäöüß]{0,3}$/;
 
 interface Station {
   id: string;
@@ -58,6 +60,9 @@ readPbf(input, {
     const t = n.tags;
     const ref = t["railway:ref"]?.trim();
     if (!ref || !KINDS.has(t.railway ?? "") || !t.name) return;
+    // only the plain abbreviation of an operating point ("Kt", "Vps"); refs with a suffix such
+    // as "Abf H1" / "Z K1" denote a halt or point belonging to another operating point
+    if (!PLAIN.test(ref)) return;
     refs++;
     for (const s of near(n.lat, n.lon)) {
       const d = distanceMetres(n.lat, n.lon, s.lat, s.lon);
