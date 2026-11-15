@@ -190,5 +190,13 @@ export interface NetPiece {
 
 /** `data/network.toml` */
 export interface VzgNetwork {
-  lines: { id: string; ref?: string; name?: string; operator?: string; pieces: NetPiece[] }[];
+  lines: {
+    id: string;
+    ref?: string;
+    name?: string;
+    operator?: string;
+    pieces: NetPiece[];
+    /** whole-km posts in path order: their km and positions (encoded polyline) */
+    posts?: { km: number[]; line: string };
+  }[];
 }

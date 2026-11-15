@@ -35,6 +35,15 @@ const network = lines.flatMap((l) => {
           ...(l.name ? { name: l.name } : {}),
           ...(l.operator ? { operator: l.operator } : {}),
           pieces,
+          // whole-km posts in path order (traffic density per km section)
+          ...((l.tracks[0]?.geo?.posts.length ?? 0) > 1
+            ? {
+                posts: {
+                  km: l.tracks[0]!.geo!.posts.map((p) => p[0]),
+                  line: encodePolyline(l.tracks[0]!.geo!.posts.map((p) => [p[1], p[2]])),
+                },
+              }
+            : {}),
         },
       ]
     : [];

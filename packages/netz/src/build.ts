@@ -21,6 +21,7 @@ import {
 } from "./corridors.ts";
 import { feedPeriod, loadFeed, loadShapes, openFeed, parentDhid, serviceDays } from "./gtfs.ts";
 import { buildNetz } from "./netz.ts";
+import { trafficDensity } from "./density.ts";
 import { toNge } from "./nge.ts";
 import { nodeCandidates, NODES } from "./nodes.ts";
 import type { CorridorIndex } from "./types.ts";
@@ -220,6 +221,15 @@ async function main() {
     console.log(`VzG lines for ${index.corridors.filter((e) => e.lines).length} sheets`);
   }
   writeFileSync(join(out, "corridors", "index.toml"), toToml(index));
+  // traffic density: trains per day on each km of the VzG lines (reference day)
+  if (vzgLines.length) {
+    const onDay = year.feed.trips.filter((t) => year.days.get(t.service)?.has(dayIdx));
+    const density = trafficDensity(vzgLines, onDay, shapes, day);
+    writeFileSync(join(out, "density.toml"), toToml({ ...density, source: SOURCE }));
+    console.log(
+      `density: ${onDay.length} trips on ${day}, ${density.lines.length} lines (${Date.now() - t0} ms)`,
+    );
+  }
 }
 
 if (import.meta.main) await main();

@@ -48,6 +48,7 @@ pieces = [
   { line = "coieHk}x~AbBpH", v = 120, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "_lieHysx~Aj\\b_B", v = 120, e = true, etcs = 2, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56], line = "wyceHglsbBzG~nAcEfsAM|rA_HjpA_RboAkX~hAwTjhAy]naAi@brAvXhhA}JlpAdPblA|ZxcAjMpnAbWfkAfXxjApk@`m@uLnoA_@tqAjS|jAnO~kAhHlmAuEdrAI~rArX`gAfd@d|@mV|eAvYzaAu[pUwe@nb@wFrrAyJzpAiT~iAq@plAig@hu@uT~kA}QhnAMnnApZphAzNroA~N|oAtCrpAwFtrA}QzmA`FvpA|BtqA}FlrAod@|t@_p@he@_q@fc@_g@pr@gAbrAeItpA`JnoA|UdlA" }
 
 [[lines]]
 id = "101-02"
@@ -98,6 +99,7 @@ pieces = [
   { line = "ix_cHwfunArXug@rHcGz\\uGrItEfFnK", v = 95, e = true, pzb = true, g = "1435", tr = 2 },
   { line = "ie}bHamvnAjXtl@rl@rb@", v = 95, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312], line = "yrpdHqlpsAkAvrAxL|oAp^zcA~f@rv@ni@|u@bm@zo@nf@ny@p`@lr@na@nr@xf@bz@dh@rw@ln@`l@pn@xk@pn@xk@`l@~o@dD`sAsHpqAfKroAmVbkA_InnAhRvmAfRfmAjEzoA}NtnAgO`oAsWziA_YlhAaMfpAcMhpA}LbpAuLnpAxUxdAbv@|Gxv@zDtk@lo@dMznAtDlrA~g@~u@zP|mAnSdmAnRxlAgRdlA_b@n}@nRljAne@nw@wZteAqc@f~@kKnbAj]~dAvYnhAxs@lWxk@lp@xm@`g@gMdnAe_@vcAo_@fcA{RziAf_@naA~d@p|@fm@ln@t\\t_AjFtqAjIpqAjZbbAps@xYlk@br@do@nf@zc@bq@`c@tz@xl@bk@j^jeAxq@bY|v@tDfo@t[bb@jz@tYpv@n^p|@zQdfAtF~lAnk@l]fi@}r@fn@pVdi@ps@" }
 
 [[lines]]
 id = "101-03"
@@ -178,6 +180,7 @@ pieces = [
   { line = "y~z`He~whAnAvl@_Er^", v = 110, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "ib{`HypuhAaGvc@NvM~`@tcA", v = 60, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192], line = "iuybH{dsnAor@m_@fLqbAjt@uU|s@m[fu@qT~n@_f@zv@iAtt@|O|v@sLrs@iVdr@eCby@wSxs@fAfw@_Etr@wU|u@{Crv@yDnl@ql@ld@e|@de@q}@ds@qO|r@uNht@}Wpu@kf@to@}Rjs@u`@`m@wn@bk@cq@`t@aYnm@ed@|m@_o@du@uGrr@oA~PdmAjt@vHpr@}T~t@|@zt@dUns@}Grv@eHzn@_c@~r@wUvn@e_@rc@}v@ts@yPbp@{[`s@yGza@k_Adu@aJ`w@lGtf@ws@tg@fDlw@\\js@_Fzp@iYfb@tx@~p@f[dq@bPpv@jLjt@hXzk@rj@xu@~K`t@xUbc@vx@`Yx{@rX~x@pD~mA~VncAdYn~@xKhiApm@jcCxHbo@pDxp@dFl_A_@`pAgQ~hAyZ`cAaNniAjBdlAbWhiAff@jv@`RrhA`TxgA{MbjAlBxpAvNddArEvpAb@xpAv@noA|PzkAbEtnAa@hpAtCrpA{DdpAwObhAu]|cAko@v`@}v@rNyu@[yk@qc@is@nRwt@aOur@g_@yr@o_@wt@iQkt@qP_s@{Vmg@mo@mr@yO{t@~H}s@Awr@eM{o@r^e]xdA}d@nw@iQvz@kCfpAV`pAxZpaAeAhoAmHhoAvGxmA{GxoAkD`oAy[`aAmY`bAkCvnAkNnkAaZldAad@b}@uh@pv@rI~{@tYtdAaKxnArB`qAw^faAsQ`kAib@v|@um@jf@iR`lAaNhkA_P|jAc\\rbA}VpiAkZpfAob@r~@}QplA@vqArLjmAra@z~@nm@`n@vp@`e@fo@ng@du@c@hv@gKlo@sRlt@uJ`o@eb@jf@lCa^~bAka@ty@o[rfAuJvnArRhkAtPxlAnQflAaAfqAKbrAxGtpAwGvoA~DnqAzQflAfVfiAt[xeAzT`jAi_@t`AhJvfAtp@_c@h^xPun@pd@ck@rj@_i@lt@mi@~s@qm@vl@al@pn@_n@~R}g@rt@w[~eAm[veA}R`jAQzpAkB`mA" }
 
 [[lines]]
 id = "101-04"
@@ -200,6 +203,7 @@ pieces = [
   { line = "qiq_HwnudA?zKbB~Hps@bkAzGnGjM~C", v = 80, e = true, pzb = true, g = "1435", tr = 2 },
   { line = "szn_Hg~qdAtLzB", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75], line = "asy`HerphArRjkA~G~pAtG`qAxGxpAjHppAf\\teAr]~cAv^hcAx]jdAz]pdAr\\heAz]pdAvVxiApTtkAdOdmAp\\`cAjd@vy@le@j{@le@j{@xd@~{@pIfoAz]b~@z`@`_A~XjhA`JznAh]|bA~e@rz@le@l{@rZnfAf\\zcAvl@dm@hn@rk@hn@rk@hn@pk@lk@fp@lA|oAdL`oA`RhlAj`@laA`YxgAnWhiAzHdoAxBppAt[`eAhd@v|@jc@f{@jZvcAjG`oAlGbqAbJlnAoAtqAcC`qAaCjqAaCrqAcChqAcA`qAff@|y@rn@de@" }
 
 [[lines]]
 id = "101-05"
@@ -275,6 +279,7 @@ pieces = [
   { line = "sql_HqxodA?eMzBgN", v = 70, e = true, pzb = true, g = "1435", tr = 2 },
   { line = "wml_H_vpdAjAmMeBeKsFgFqIX", v = 60, e = true, pzb = true, g = "1435", tr = 2 },
 ]
+posts = { km = [197, 196, 195, 194, 193, 192, 191, 190, 189, 188, 187, 186, 185, 184, 183, 182, 181, 180, 179, 178, 177, 176, 175, 174, 173, 172, 171, 170, 169, 168, 167, 166, 165, 164, 163, 162, 161, 160, 159, 158, 157, 156, 155, 154, 153, 152, 151, 150, 149, 148, 147, 146, 145, 144, 143, 142, 141, 140, 139, 138, 137, 136, 135, 134, 133, 132, 131, 130, 129, 128, 127, 126, 125, 124, 123, 122, 121, 120, 119, 118, 117, 116, 115, 114, 113, 112, 111, 110, 109, 108, 106, 107, 105, 104, 103, 102, 101, 100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], line = "{kbaHimmz@lj@{s@~q@w^|s@tW`\\~dArMboAxn@|\\tv@cJvv@yIhv@uLpg@kv@|_@ibArk@_m@zu@?`q@tc@|u@hKh_@naAh]zcAru@rAhv@xAhi@pt@|e@zz@~e@xz@|e@xz@fh@hw@rd@p|@hd@`}@tc@z|@fd@z{@xo@`h@lp@hf@zu@~O`s@u[dq@id@pu@yInv@wBbv@cOdr@hYba@f`A|m@nl@vg@xw@lp@j`@~h@qo@fIuoA`ZwfAb\\meAja@e`Axd@e|@ng@ix@bXahAvNgnA|PslArk@wn@na@g}@yEkoAqKqoA}@upAxW}hAd]wdAfa@s_Ajn@si@~e@kz@xg@ex@fF_kAjAqpACkqA`DslAmSkjAeEkpAc@cdA`PalAnU{iAp[acA`_@{`ApJklA|RwgA~IicAuDclA}M}lA{SshAjEklAoO}hA{DwnAhHukAeOqqANepAtTchAvHq~@hBiqAhBgqAtEocDiBfqAtEocDhBgqAhBiqAjBgqAhBgqAjBiqA}TchAuZydAag@_x@}KapA_F{oA}JanAyCuoAsJsoAyIuoAkBoqA`AqnAjMwmAvg@wr@`h@gp@xZcbAfLomAzMklAld@i|@dOcmAcAqmA}t@sd@iYoz@mVgiAyS{mA_NmfA`DaoAi^g_AiVep@u\\sdAyb@g}@yt@oUof@gw@eh@wu@eWi`AkOmkA_j@wr@i[ceA_WsgAiFwlA_c@{|@uSwjA_KsoA}J{mA_BmlAcQepAlKujAbWkhAjMclAqEcnAo[mcAcs@s]_M}lAql@mk@cTs}@wIqlA}OcmA_j@yr@_j@cs@sj@{q@qUiiAqM{nAsLaoA_IepAi\\}dAyVuiAiTokAqS{kAkMaoAcNanAkB{qAqHyoAaZyfA_LsnAeGgpAb@_oArEolArQ{jAvd@s}@b[ofAvZ{fAzHcpAtE{pA`KynA|Z{fApZwfAtZ}fA|TucAoE}tAgAenAnQyhAxMomAp@soAbFsoAxLcnAtJkiAeGqs@dHsmBeS_jAh@qpA" }
 
 [[lines]]
 id = "101-11"
@@ -284,6 +289,7 @@ operator = "ÖBB-Infrastruktur AG"
 pieces = [
   { line = "y_ceHuk|tA|aBx~D", v = 160, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [209, 210, 211], line = "ugbeHy|ztA`a@taAz`@|_A" }
 
 [[lines]]
 id = "101-12"
@@ -294,6 +300,7 @@ pieces = [
   { line = "mibeHk}ztAbHzc@dWzm@lMhO`t@n}A", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "sd_eHyzttA@@", v = 40, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [209, 210, 211], line = "yhbeHq{ztAh[lhAje@b}@" }
 
 [[lines]]
 id = "101-13"
@@ -304,6 +311,7 @@ pieces = [
   { line = "{lqdHgeysAvm@peApBbNcAfO", v = 80, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "u|odHi_vsAkMdk@sBps@", v = 90, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [225, 226, 227, 228], line = "yuqdHosysAlf@`{@xK`fA_LvnA" }
 
 [[lines]]
 id = "101-14"
@@ -331,6 +339,7 @@ pieces = [
   { line = "czl_HkbrdAfI|F", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "{ol_HmzqdAvCtUeEx_@hBj`A", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2], line = "aml_HqwpdAk@poA" }
 
 [[lines]]
 id = "102-01"
@@ -426,6 +435,7 @@ pieces = [
   { line = "u{kdHmxkyAqbAyqA", v = 110, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "g_ndHgknyAgOkJ_d@{AyeC}zAoNeR", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217], line = "_zm`H}suoAkl@oLzB}oA|D_lA|FenAb@cqAra@y_A`SigAxd@kw@LmkA{b@o~@uA{iAm@}pAZopA~L{mA|S{hAvt@_Xht@yXnk@gk@xe@ex@hRilAh@alA}EgoAmE{oAsMmlA{B{nAsUogAqYcdAgKcoAwNuiAwL}mA_QwkAzJsoAvWafAfm@kh@zRsgA_BspAkBkpAjB_nAaHglAuIynAyTakAcWofAyNalA}XihAgP{mAmRqlAwGqnA}YugAkN}mAiAykAbSmcAoQ_kAxM}iAkFckAcAmjAgDepAk[cgAu@wpAuO}jA}KgkA{MskAuSalAmd@yw@wc@yv@qVohAo`@waAob@g_AkYu{@ol@wz@ws@u`@{p@o`@od@w|@qc@u}@gb@q~@sViiA}SmkAi\\ucAun@__@sLsmAaLgnAis@qWw_@s|@kGuoAoNumAej@co@{VkiAgQelAmFsnAcOchAqVmdApSglAl`@qaAja@w`Av_@}w@|HclAaFksAvMonAyScaAcb@wn@gg@sf@}i@ca@u]{t@aN}bAiH}}@fCmfAbRm`ArOkaAz]at@_MkbAn@mcAuS}|@_@qdA]yfAqCyfAyM_cA{Qw_A{LwcA}H_eAqUk~@@ckA~_@g~@\\anAuOikA`@aiAtCqoAgCujAuW_bAyWycAvC_pA{@omA~P}lAiH_pAuSmhAhFqpAiQskAm^__Acl@_a@yKamAor@sSso@ig@wl@s`@cv@jAgm@jUef@zv@ma@r_Aie@|l@}Jh_AoStk@si@zj@mi@dn@mn@ji@u[jcAkp@eJeh@dh@_m@b]xQhbAb\\x|@_GfoAmu@lF_[g|@ys@{Seg@nN{c@jp@{p@}War@mPkp@i`@}n@iKck@lj@yn@tf@qt@uToq@dHqt@tJms@wM}u@wIwm@lg@ov@mD_OodAgOagAch@qw@ko@gc@ir@q]_n@ag@ed@k|@v@gqAsC{oA{UiiAm`@mbAqW}iAiTilAkr@_Dku@|Jqs@xRcv@lEiv@nBon@_j@kk@vW{d@~x@{r@tTse@~k@wb@nv@ct@Xem@{K}b@c_Ayf@ay@qNioAu`@q~@cr@aa@ou@eGoq@cc@yo@_h@mi@gr@_l@}p@gk@mr@su@yKcr@}a@er@}a@" }
 
 [[lines]]
 id = "102-11"
@@ -502,6 +512,7 @@ pieces = [
   { line = "{qfeHidl~Ag@`V", v = 100, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "csfeHgmk~Ac@`P", v = 80, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [-35, -34, -33, -32, -31, -30, -29, -28, -27, -26, -25, -24, -23, -22, -21, -20, -19, -18, -17, -16, -15, -14, -13, -12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60], line = "eoieHou{~AbAuqAxJkpA~p@{b@pm@_l@ns@o\\fV}fA|FmrAeJcqApCapAfM{oA|FmrAqKupA}N{oAePeoAqZsgAtL{oA|QknAh^{`ApRaaAfLkkAnR_lApGcrAjM_oAvl@xE{Bwu@{@{kAbCmdAkg@oy@aJ{oAHisAjHsqAqJqnAq\\weAeIaqAhJyoAaIwdA}g@su@gScmA}WcjA}JeqAmb@{_Ab@mpAA}oAaTyiAfAz_@vXfhA}JrpAzOhkAj[peApMpnA|V~jAnXrjA~k@do@}MfnAEdpA|RzjApO~kAhHrmAuEbrAI~rAnXxfAhd@h|@kV~eAvYzaAa\\zUae@lb@wFprAcKxpAkT`jAo@plAkg@nu@sTxkA{QbnAQjnArZrhAzNroA~N`pArC~pAsFfrAaR~mAbFrpA|BxqA}FlrAud@fu@{o@fe@aq@hc@{f@fr@gAbrAaIlpAdJhoArVhkArVhkAtVfkAhQ~mAiAdsA" }
 
 [[lines]]
 id = "103-02"
@@ -515,6 +526,7 @@ pieces = [
   { line = "kjgeHsjh~ApNy\\", v = 100, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "yzfeHmhi~AdDgO`Akb@", v = 80, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [68, 67, 66, 65, 64, 63, 62, 61], line = "_~eeHg_y}AoLu_AkNsoAqFirAwQenA{SalAjPskAb`@wbA" }
 
 [[lines]]
 id = "105-01"
@@ -632,6 +644,7 @@ pieces = [
   { line = "_`|dHcpfcBosAt`B{Rf[", v = 120, e = true, pzb = true, g = "1435", tr = 2 },
   { line = "kh_eHerbcBkX`d@", v = 100, e = true, pzb = true, g = "1435", tr = 2 },
 ]
+posts = { km = [260, 259, 258, 257, 256, 255, 254, 253, 252, 251, 250, 249, 248, 247, 246, 245, 244, 243, 242, 241, 240, 239, 238, 237, 236, 235, 234, 233, 232, 231, 230, 229, 228, 226, 227, 225, 224, 222, 223, 221, 220, 219, 218, 217, 216, 215, 214, 213, 212, 211, 210, 209, 208, 207, 206, 205, 204, 203, 202, 201, 200, 199, 198, 197, 196, 195, 194, 193, 192, 191, 190, 189, 188, 187, 186, 185, 184, 183, 182, 181, 180, 179, 178, 177, 176, 175, 174, 173, 172, 171, 170, 169, 168, 167, 166, 165, 164, 163, 162, 161, 160, 159, 158, 157, 156, 155, 154, 153, 152, 151, 150, 149, 148, 147, 146, 145, 144, 143, 142, 141, 140, 139, 138, 137, 136, 135, 134, 133, 132, 131, 130, 129, 128, 127, 126, 125, 124, 123, 122, 121, 120, 119, 118, 117, 116, 115, 114, 113, 112, 111, 110, 109, 108, 107, 106, 105, 104, 103, 102, 101, 100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5, -6, -7, -8, -9], line = "qv~{Gism~Auq@d\\}p@t_@k`@~|@me@p|@qUbiA{SljAmMlkAyt@|Oup@b[ed@~{@wt@|Ucv@`P_v@~O}t@fN_y@fJcs@`Isz@nJwu@rIqu@pIex@`Jav@tIuv@xIgx@lDiu@~Gil@do@w[ncAaYvgAoZlfAog@du@ix@zG_w@pDcw@lDeoBlJbw@uDcoBlJot@dWufBl~@zr@w^ufBn~@}r@x^yr@x^yr@t^{r@b^yr@p^qr@x_@st@vUgw@p@cw@fB_u@hUis@r[cr@fc@uq@vb@oe@bt@}DllAoo@|g@kS`hA`EvoAm\\zbAq^nbAwf@n[mu@uS_t@dL}n@ff@ur@oRqo@sAoi@{q@eo@ui@eo@wi@ys@oOcv@zO{r@bYmt@kEsa@`}@ud@lx@as@nS}t@mU}i@cs@qn@cf@eg@tk@yPrmAud@_a@mKkoAaWyhAoUyiA}N}mAsf@uw@ic@nEo}@bx@{n@zi@mq@|`@ys@jZ_r@ta@er@ba@yf@tv@wOzkA{VbcAis@oW{r@fKtBlnAcXxw@}v@iEyh@nr@ot@|Bcp@z`@ug@un@go@kf@o[efAmQokAiKmmAa]gfAi^giA{ZaaAq\\meAo[weAeIwoA{^mbAcc@u~@y]ucAiPcnAy^__Ask@kr@oYmfA{j@Ise@aTuEeqA_VkiA_]ucA{Q{mA_g@uz@mIqhA|M{kAm`@oaA_b@o_Ac]gdAiE_sAw]_z@q^ycAcYwgA_b@s_Akf@}y@if@yx@ss@mZqd@cr@nBmqAdIyoArBqpAjSijAqa@w~@_h@au@cPahAvBopAsW}hA}H_qAcSykAkQumAef@iv@qr@eYcn@j_@zWz~@o`@lK}Ydp@oO}y@kL_dAdLmfAcS{l@iGadAjEwcAoKi_AnCmoAr@sqAsWo_Agc@vb@v@lbA_KblAca@bs@uq@da@mPhlAu`@sTxJapAba@{bAdUwgAjL_oAbAynAz_@ex@i@}tAY{oA{SsjAu^edAk^scAy^adAia@qaAwe@kz@af@{z@ye@mz@mc@s~@_SolAqEmqAcSylAa`@qbAm`@_bAu`@mbAe`@qaAk`@abAk`@}aAm`@_bAk`@abAm`@ebAm`@ebAga@y`Aya@caAqe@s{@wr@qXaw@aKkv@kJ_w@kJwv@kJqv@kJyv@mJ{v@kJ}v@}Fmw@`Fyu@nQsv@|R{t@hRuu@rRkv@zR_u@lRiv@zL}v@pG{v@pGow@lB{s@_Ysl@ap@aj@ap@cm@ss@sk@}q@wk@ar@uk@ar@mk@wq@yk@er@wk@er@mp@we@qv@nBer@la@gq@vb@ys@t]_x@|H{u@~F_w@dGuv@tFgw@wEqs@}[ul@oo@yd@s}@cd@k_Aw^}bAaNkoAoOqmAaWujAcNskAjb@u{@fd@q}@bh@kx@hk@wr@bl@cq@nVmFqp@bb@ok@lr@yi@nu@" }
 
 [[lines]]
 id = "105-11"
@@ -642,6 +655,7 @@ pieces = [
   { line = "uxvbHis_bBzHdQ", e = true, g = "1435", tr = 1 },
   { line = "ynvbHca_bB~`@n_ApIlY", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [49, 50, 51], line = "kwwbHs~`bBtf@zz@`b@laA" }
 
 [[lines]]
 id = "106-01"
@@ -668,6 +682,7 @@ pieces = [
   { line = "mw~dHi}qbBp`AjoBtRdYhWpWr]`UdY`KvXjErk@H", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "ujwdHkqkbBfpEm^h_@_NvyBwtAt\\sGr]nC|TjKtNlMpoK|gMz^zWrc@bL|ULfoDi[ppIwwBhv@}Hlk@rAz{IffA", v = 160, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46], line = "wa`eHykubBpl@vf@_@`NiXsZkrAwiGnkAvfHr~@roBxd@r}@tl@no@ls@z[jw@xEtv@uF~v@eGzu@_G~w@}Hxs@u]fq@wb@dr@ma@pv@oBlp@ve@vk@dr@pk@zq@tk@`r@tk@`r@vk@`r@rk@|q@bm@rs@`j@`p@rl@`p@zs@~Xnw@mBzv@qG|v@qGhv@{L~t@mRjv@{Rtu@sRzt@iRrv@}Rxu@oQlw@aF|v@|Fzv@jJxv@lJpv@jJvv@jJ~v@jJ" }
 
 [[lines]]
 id = "106-11"
@@ -676,6 +691,7 @@ operator = "ÖBB-Infrastruktur AG"
 pieces = [
   { line = "emgcHg{|bBn\\fZtD`HxZj`C", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [37, 38, 39], line = "oggcH{t|bB|b@fy@xOnnA" }
 
 [[lines]]
 id = "106-14"
@@ -694,6 +710,7 @@ pieces = [
   { line = "s{}dHyztbBaPpX", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "ul~dHgatbBmU`a@yHnXOjTdIvo@X|NwR`eB", v = 90, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [7, 6, 5, 4], line = "}v~dH}qsbBkTjgA|DjpAkMdgA" }
 
 [[lines]]
 id = "106-16"
@@ -736,6 +753,7 @@ pieces = [
   { line = "_raeHidi~AuHg@gHjC", v = 80, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "}dbeHeai~AeVjF", v = 90, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72], line = "{yedHcmf_BsVviAqUxfAoT`lAgHjpAjMllAfVljA`I|pAgG`pAoVvjAoKpnAkQxlAhCtlAk`@hbAmr@b\\yj@pi@cu@cJum@yb@{q@_Too@eIqv@yGgv@kWyt@i@gv@kE}v@Ucw@iBaw@eBgy@sBkt@~B" }
 
 [[lines]]
 id = "108-01"
@@ -756,6 +774,7 @@ pieces = [
   { line = "efwbHuoabByIlJeJm@", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "e|wbHueabBa_@mL", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], line = "qxcbH_wscB_j@fu@yMlgAxNxnAiEhmAiZlgAmk@rr@kl@fp@ol@np@eh@|u@oYd`A{Wp_AaW`eA_L`oA{TfiAcg@ny@mi@lu@eo@bj@co@xk@}^vbAeDxpAhFbrAxExqA_FbpAoa@t`Aok@na@" }
 
 [[lines]]
 id = "108-11"
@@ -830,6 +849,7 @@ pieces = [
   { line = "stleH}jzbBzTlLvc@iK", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "_zjeHyizbB`QqE", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [163, 162, 161, 160, 159, 158, 157, 156, 155, 154, 153, 152, 151, 150, 149, 148, 147, 146, 145, 144, 143, 142, 141, 140, 139, 138, 137, 136, 135, 134, 133, 132, 131, 130, 129, 128, 127, 126, 125, 124, 123, 122, 121, 120, 119, 118, 117, 116, 115, 114, 113, 112, 111, 110, 109, 108, 107, 106, 105, 104, 103, 102, 101, 100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], line = "cfshHgvjzAo@srAlBcuAeIaoAlMwnAj@upAsAgtA}Q{lAFslAlQqnArX_lAjYcjAnZsmApS{hA}DosAsMgqAuPcoA|HehApc@e|@tc@w{@~`@{|@hXqhAO{jAih@gx@yRkrAip@sb@wt@|E_BaoAaMgkAxW}jAxY{gAxh@}k@tv@|@vu@kNnt@{Ivb@q~@lOklAlAaqA{f@is@cu@fIul@a]~KgoA{@_sAs[_hAgt@qIiZseAgZaiAa@msAcEerAfEqrAhc@{_A~SciA{DssAkZ}gASusA|@gtAoHcrAgN{pAaTalA?wsAaf@ix@nLcqAjLklAxe@iv@|\\wfA~ZkhAfr@}o@te@ys@|p@kSx[qw@xFmrAvc@gy@~r@ya@bv@_LzU_hA`U_lAtm@qa@br@`Pzd@hx@zq@uUrd@i~@H_oA~FepAdW_kApZkgA{GunAxDilAtl@ke@zb@is@da@{z@du@pSz_@su@~h@|@~a@|f@lK_pApWmjAzr@uR|v@`Djw@dD|s@eWdj@iu@~i@wu@dk@_w@fe@{x@|f@k|@bs@qU|m@mf@xm@sk@fm@co@~m@qm@ho@kj@ds@q[xq@af@rt@sWlu@vQ~t@zWxn@rg@fm@jd@hq@mc@pc@k_A`b@aaAhb@qaAza@s`A~a@caAnb@aaAdb@caAjl@eo@pv@iLnw@iCbw@Htk@qd@tZ{eAaGssAsGcrAwGasAqGarAkA_sArDcsApDurA`CyrAcNuoAm\\yfAu\\{fAqRylAq_@e_AuXgiAtBwrA`H_qAzZkeApn@_j@jp@eg@zn@ck@zi@ss@fk@wq@zr@q_@tr@{_@dj@{t@pm@im@jm@mn@vr@a^hu@zAxs@|Xvr@~]" }
 
 [[lines]]
 id = "109-11"
@@ -877,6 +897,7 @@ pieces = [
   { line = "cageHazl~A|JnIf@~V", v = 60, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "}sfeHqwk~AsAhe@", v = 40, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46], line = "c~}eHkp`aBiAljAhe@|y@ro@pk@|m@|i@bo@|j@`XxdAgBlrAkA~rAsAfsAuAdsAqA`sA~EfrAqHvkAuRxd@ca@|aAga@fbAgY|hAqTxlAsTzlAsT|lAmTnlAsTllAsTvmAkTblAsTjmAoM~oAeKpqAsCtrAn^t|@lm@jn@ts@p\\vv@x[pq@bYtu@zQlv@|Mdv@xMls@`Xrv@|Hfs@v]xl@jp@~k@dq@rg@hx@z`@|`Adj@|t@dp@pf@hq@hZ" }
 
 [[lines]]
 id = "110-11"
@@ -885,6 +906,7 @@ operator = "ÖBB-Infrastruktur AG"
 pieces = [
   { line = "}pxeHolx`BvOjI~KkGfCeMlAir@", v = 80, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [5, 6], line = "_jxeHwfx`Bf[mp@" }
 
 [[lines]]
 id = "111-01"
@@ -905,6 +927,7 @@ pieces = [
   { line = "mxnfHosh~AjKlZ", v = 90, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "alnfHaxg~AvWhh@", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], line = "qnlfH}eq`Bub@naAyTzkAaPvoAcPvoA{QhnAySfmAySrmAeStmAyKjqAwKlqAzD|qAfKrqAdKjqAfKnqAqEznA{Y|iAg[bhAe`@jcAc`@jcAm_@|cAmDrrAxb@|z@~i@~n@ha@raAra@hbA~RhmAtNzoAxNfpAxNdpA|P|nApY|hA" }
 
 [[lines]]
 id = "112-01"
@@ -944,6 +967,7 @@ pieces = [
   { line = "afseHwuacBb`@eg@nVcKtMpDnXz\\rNfI", v = 90, e = true, etcs = 2, pzb = false, g = "1435", tr = 1 },
   { line = "suoeHk|acBtIfC", v = 100, e = true, etcs = 2, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5], line = "ccthHmav`Bfr@lb@pf@jr@qM`oAqV~jAzIlbAhq@bf@hn@rWnp@t@zn@ok@zm@qm@vo@_f@z`@vs@ns@yTxs@o\\nk@ji@`g@|WhQ}qAzUujAmSscAhM{oAbKyoA|m@al@~o@ah@`n@om@pWgiA~O{hApc@m~@nu@yZrg@_x@`w@uAtp@~]pv@sIlv@dN|n@~f@`n@bj@dw@~Bhu@|Tdv@vMhv@xMpt@yDzj@yq@vd@wz@`ZqiAbZoiA`ZiiAzf@ex@rn@ol@r^kcAff@cz@bn@am@zm@yl@rt@iUzu@kB~v@gKvo@|d@lo@qC~i@_s@bs@}^tt@sVhe@m|@~RgmApJoqAfKqqApKkqAjKeqAfKmqAbLiqAf^adAxg@wx@|g@cy@vj@es@dr@ob@dr@ib@br@eb@`r@ab@lm@ym@nj@kt@lj@it@nj@kt@hj@qt@hj@ot@jo@og@" }
 
 [[lines]]
 id = "113-01"
@@ -956,6 +980,7 @@ pieces = [
   { line = "uoifHefvaBkjAtob@", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "a{kfHour`BmBjMm[lt@", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], line = "kuhfH_l}aB}MhpA_J|pAs@rsAuDzrAuDzrAuD|rAoD|rAwDbsAqDxrAqD~rAsDhuAkDvpAoD~rAmDnrAoDnsAoD~rAgRdbA" }
 
 [[lines]]
 id = "114-01"
@@ -979,6 +1004,7 @@ pieces = [
   { line = "{skeHgb_cBj^k^xZgHz^kC", v = 100, e = true, etcs = 2, pzb = false, g = "1435", tr = 1 },
   { line = "yxheHgo`cBf@G", v = 80, e = true, etcs = 2, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 15, 16, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], line = "{nghH}i~eB~t@mVbu@mVdu@mVbu@oV|t@iVxt@iVxt@iVzt@eVjv@mFbw@zC`x@|C|x@pChu@`Ddw@zCdw@xC`w@zCbw@xCbw@xCbw@zCbw@xCpaAxGjo@tVpk@|c@vp@nf@vq@lc@vq@lc@vq@lc@vq@jc@ts@d\\|v@jEdw@`Bbw@~Adw@`Bdw@`Bnv@hHdk@hr@~g@|x@|b@v_Ala@vaAna@vaAla@naAna@taAna@raAna@raAzYdiApPpnArP|nApP~nAxProAtP~nArP~nAvPboAtPznAtP~nAtP~nAvPboAtPznAvP`oAvP~nApPjnArb@l_DuPunApb@f_DtPjnAxP`oAtHxn@tX`oBhPdoAnQfoAhQlnAhb@j_Alj@pt@fr@z^xh@ps@nj@~h@~m@al@hv@kL" }
 
 [[lines]]
 id = "114-11"
@@ -1009,6 +1035,7 @@ pieces = [
   { line = "sr`fHkbgeBffAmbIdR}o@vSa[xuHelHrMoWxhBinF", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "etoeHygefBfj@i_B", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49], line = "ey`fHgxdeBfGupAxPapAlPknAvPooAnQaqAp_@y~@zn@cn@zm@gl@jn@ul@`n@kl@zm@el@nn@sl@zk@os@r]qcAb_@igAd]_cA`^{eA" }
 
 [[lines]]
 id = "116-01"
@@ -1066,6 +1093,7 @@ pieces = [
   { line = "oz`eHsi`cBeZ|`@", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "uuaeHug_cBmJjUeDhe@~@|LfOxp@", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2, -3], line = "sojhHe`ccBlg@w|@vDkrAf_@ybAhJqqAzIyqA~IisAbJisAlKoqAng@ow@vu@dMbv@rIds@m]|m@ga@fXtdAdk@xEph@_v@jk@|Ats@fNni@ol@bf@{w@vl@qb@hq@eV|d@}x@jh@au@ro@qa@jm@i]t]jdAvh@vt@dd@n|@zi@ro@`ZhgAt[zdAjb@`|@lg@jn@fr@eTvd@gz@jn@cGje@jy@~_@|r@zp@v]|r@vUj_@g_Ahn@c\\fv@~E~o@fb@nn@ke@tg@ri@~t@sVbv@}B~w@dOvp@qWhf@qx@xh@eu@fs@}\\jv@iIzu@~Mlt@~Xdt@xX|t@rYlt@nXrt@`Yrt@~Xft@zXrt@~Xlt@zXht@dYpt@zXft@hYrt@nXvt@|Xpt@zWft@pY|u@_Idp@bXhk@rq@jr@ja@hq@b`@tr@bc@e\\`lNmO}mAkWmjAgMimAz_@k`Am^bh@^znA" }
 
 [[lines]]
 id = "116-11"
@@ -1075,6 +1103,7 @@ operator = "ÖBB-Infrastruktur AG"
 pieces = [
   { line = "{sueHmhrcBzGpQx{@|a@", v = 60, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [7, 6], line = "ilueHawqcBjs@r]" }
 
 [[lines]]
 id = "116-12"
@@ -1085,6 +1114,7 @@ pieces = [
   { line = "}oueHcsqcB}DuDcByI", v = 50, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "_yueHscrcBQeUcP{rA", v = 60, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2], line = "mqueH_tqcBmOslA" }
 
 [[lines]]
 id = "117-01"
@@ -1101,6 +1131,7 @@ pieces = [
   { line = "yujeHkllcBzy@j\\", v = 120, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "}zheH_okcBdMdBva@kIgc@vGqf@_N", v = 80, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [37, 36, 35, 34, 33, 31, 32, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2], line = "qkmeHqojfBk\\nfAg^~dAkWxiAlEhuAxG|gDmCasAxGbgDlC`sAjC`sA~B|rAzCzrAjC|rAlCxrAlCxrAnC|rAlCzrAjC|rApCxrAnC|rAnCtrApC|rAnCtrApC~rApC~rApC|rApC|rAnCvrAtCzrAtCzrApCtrAtCrrArCdsAtCvrAtCvrAtC`sAjFzqAln@rf@fu@pLkHp@" }
 
 [[lines]]
 id = "118-01"
@@ -1118,6 +1149,7 @@ pieces = [
   { line = "_`|dHcpfcBosAt`B{Rf[", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "kh_eHerbcBkX`d@", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2], line = "_lrcH_aigBq_@pcAm_@dcAq_@ncAm_@hcAuZpgAsNloAeNpoAcNtoAeNtoAiS|lAy[~fAy[|fAuHppArBvrAtBprAvBdtArBxpAr@lrAyShlAy[`gA_\\rfAwg@jx@aj@~t@oUpjAwHhqA}E`rA{DnrAkCxrAuBrrAiAprAkA~rAkAhrAkA|rAkA~rAiA|rAqAjrAgAlsAcAlrAiAvrAgAnrAiAvrAiAfsAgAvrAgAtrAqE|qAwPpnAwPdnAaYhiA{k@xp@gp@`m@mk@nh@_p@vl@co@nj@ks@h]av@bMev@yNav@}O_w@u@{u@~[{r@va@wi@|s@ms@hYkl@~o@sk@nr@ah@fx@" }
 
 [[lines]]
 id = "118-11"
@@ -1147,6 +1179,7 @@ pieces = [
   { line = "op`dHcyedB}UOkQmK", v = 20, e = false, pzb = false, g = "1435", tr = 1 },
   { line = "yyadHaffdB{WoRaImTu@yI", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [29, 28, 27, 26, 25, 24, 23], line = "}mycHo}idBiw@nUsv@tHaq@|_@{j@dr@us@zHgk@un@" }
 
 [[lines]]
 id = "118-18"
@@ -1164,6 +1197,7 @@ operator = "ÖBB-Infrastruktur AG"
 pieces = [
   { line = "uktdHglkcBoa@|EqNaA}LuKsJkRaIiC", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1], line = "ovudHifkcBs]q]" }
 
 [[lines]]
 id = "118-21"
@@ -1175,6 +1209,7 @@ pieces = [
   { line = "}gzdHwmgcBnLgApH{M", v = 60, e = true, pzb = true, g = "1435", tr = 2 },
   { line = "{pydH{~gcBtE{OpFcg@Tcu@", v = 100, e = true, pzb = true, g = "1435", tr = 2 },
 ]
+posts = { km = [0, 1, 2], line = "avzdHqegcBdk@oj@`GirA" }
 
 [[lines]]
 id = "119-01"
@@ -1186,6 +1221,7 @@ pieces = [
   { line = "cypcH}recByqBiv@cMiIomLypM", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "qhbdHkfvcBgN_GqZdJiLpHgJtO", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], line = "erocH{_ecBkt@cYut@iXot@eZam@yn@ml@_p@ml@gp@sl@ep@ql@ip@gl@kp@wl@mp@kl@gp@wl@mp@io@_c@" }
 
 [[lines]]
 id = "120-01"
@@ -1208,6 +1244,7 @@ pieces = [
   { line = "atoeHk`|bBsFmIp@mN", v = 50, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "czoeHgz|bBt@}A", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], line = "ykdeH}vgbB~PwnATasAhD}qAwb@{J{u@sRmu@kEso@ec@kVggAsp@}\\u]o}@e\\wn@wv@arB" }
 
 [[lines]]
 id = "120-11"
@@ -1268,6 +1305,7 @@ pieces = [
   { line = "}skeHub_cB~\\s]jz@eQ", v = 100, e = true, etcs = 2, pzb = false, g = "1435", tr = 1 },
   { line = "qzheHos`cBtAM", v = 60, e = true, etcs = 2, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], line = "medeHcghbBfLgpA|i@iE`w@~Cr_@ov@tN}oAoHipAyJymA{PynAsSklAcS}lA}NkmAf_@i`Arg@ay@xd@e}@kO{hAaq@gd@or@}`@ir@ia@ql@}n@sn@w`@gv@hMmt@_Yut@}WwkDsrAuxBuSxPznAxPznA|PhoAtQdnA|a@t_Avj@ft@|q@f_@xh@rs@fj@zh@|m@cl@|u@sP" }
 
 [[lines]]
 id = "122-12"
@@ -1279,6 +1317,7 @@ pieces = [
   { line = "ov_eHwusbB{Hyb@", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "k``eHqytbBgLq|@", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [7, 8], line = "}w_eH}ysbBaQamA" }
 
 [[lines]]
 id = "123-01"
@@ -1293,6 +1332,7 @@ pieces = [
   { line = "irfeHig|aBpF~Q`BrZuKzpA", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "ktfeHyfxaB]~G", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [6, 7, 8, 9, 10, 11, 12], line = "esdeHorfbBkX~hAqTphAu]n`AWprAvXhiAqJ`pA" }
 
 [[lines]]
 id = "124-01"
@@ -1317,6 +1357,7 @@ pieces = [
   { line = "mn|dHe_vbBs`@tS", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "ap}dHojubBal@taA_BfQbBlm@", v = 100, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7], line = "wppeH_}{bBjk@eq@dn@{l@vl@}o@bk@is@ji@ev@xh@ow@dh@kx@rg@gy@~f@ez@`g@ez@ff@i{@ff@k{@nl@}]xt@nUrs@o@zb@vs@lk@h`A`MjnAnBtsAX|pAeRfpAyQ~kA{QbmA_VzkAmGlqAwGlqAco@lf@gh@`x@" }
 
 [[lines]]
 id = "130-01"
@@ -1368,6 +1409,7 @@ pieces = [
   { line = "qjueHanjvAoIYuNeJmZ|P", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "e`weHchjvAwUv_@qDrPWzNzCpS`FdMp[tV", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188], line = "ai_eHk{rbBnIzmAmLjpAaQjnAwc@f~@gg@ty@gg@ty@eg@vy@me@b|@c^raAgIpqAgTxlAmHzW}a@v`A_e@~|@_e@~|@_e@~|@_e@~|@}d@~|@_e@`}@_e@~|@_e@`}@_e@`}@sc@x~@y]deAcTzlAiK`qAaC~rAuAbsAuAbsAuAbsAuAbsAuAdsAsAbsAeAbsApIhqA|ZpgAdh@|w@~f@zy@pXriA|F`rA\\~rA`H`rA`VfkAfc@d_Al^pdAb]zeAtb@|_AhXxiAvG|qAtCxrAtCzrAvCxrApLdpAl]deApd@fu@jf@t{@~ZbgAlVjkAjQbnAgAhsA}DhrAc`@vbAkPrkAzS`lAvQdnApFhrAjNroAnLt_AfOloAnPnqAlR`kAdTjqAdRviAtIpqABrrAG`sA[bsAqMpoAi_@rcAcl@tp@{j@bs@c`@|pAeIpeAmDlzAsCbnAgEnnA}E~bAf@lrA~O|nAvYzhAvRpmAtGnlAlAz~@pAxrAt@jsAhAvrAnDxrAxR~lA~\\b_Afc@pdAlWfd@zY~^j[~[h[f\\hZd^~[p`@ph@|v@xb@p_ArZ|gArSdmAnSbmArSbmArSdmArWhjAtWbjA|N`hAxCprAzAxrAxAxrAxAxrAzAzrA~AxrAxAzrAtBvrAfBvrApJnqAdSnlAza@x`Aza@v`Aj\\ffAtZbhA~ZrgA~b@~~@xe@t{@ne@z{@nd@l}@l`@dbAlRhmAlIjqAjIlqAjIhqApH~pA_AlrAiJfqAyT`lAk`@hbAcd@xn@ok@vg@mq@jc@wu@`R{u@|Pwr@z^ck@ht@w^zbAm[bgAm[~fAmc@t~@qe@dc@e_@dOk`@vHk`@nHk`@rHqa@`Our@n]gs@x]ks@f]su@nRsu@jQmn@`k@ma@z`AePnnAv@trAjGdrAF`uAeYpyB}WnjAmWxjAiWvjAcW~jAmWvjAqJnqAkVtiAya@b~@gmBf~FwGofFgm@nRah@~^rEvsA" }
 
 [[lines]]
 id = "130-02"
@@ -1387,6 +1429,7 @@ pieces = [
   { line = "gwbeHcwj}AN~O", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "wvbeHcfj}AErlB", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [74, 75], line = "uvbeHu`j}AG|rA" }
 
 [[lines]]
 id = "131-01"
@@ -1396,6 +1439,7 @@ pieces = [
   { line = "cyaeHizgcBhjAnp@n`@|r@bM~D", v = 60, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "e~}dH{ndcBxFeDji@qv@", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [5, 4, 3], line = "e~`eHqhgcB`r@fa@lrAbG" }
 
 [[lines]]
 id = "132-01"
@@ -1406,6 +1450,7 @@ pieces = [
   { line = "_aceHgshcBwv@se@", v = 50, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "wxdeH{yicByF_CkFrC", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1], line = "gpbeHwhhcBsr@c`@" }
 
 [[lines]]
 id = "133-01"
@@ -1417,6 +1462,7 @@ pieces = [
   { line = "shydHq|gcBdH|QlB~Lf@dZkA~O", v = 70, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "c}xdHmoecBoZjsB", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [16, 15, 14], line = "kjydHg`hcB~LplAuQdnA" }
 
 [[lines]]
 id = "136-01"
@@ -1435,6 +1481,7 @@ operator = "ÖBB-Infrastruktur AG"
 pieces = [
   { line = "iuseHscacBd[mh@lLyn@l@qQaEwTgTgn@Fob@iLyl@i\\cbC", v = 70, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4], line = "emseHumacBp]ecAsL_jAqMemAqRcnA" }
 
 [[lines]]
 id = "139-01"
@@ -1444,6 +1491,7 @@ pieces = [
   { line = "apteHicqcBcN\\qCvEcA~J|TveB", v = 60, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "}oteH{hmcBjOhhA", v = 70, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 0], line = "w`ueHitocBxP|nA" }
 
 [[lines]]
 id = "151-01"
@@ -1462,6 +1510,7 @@ pieces = [
   { line = "}~_dH}lb~Ab@pOrM`Nl\\bGvPzN", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "_`~cHiu`~AhNfMnR{@nPtMr]s@jUtDxHcEpK^vHiGrSWz^q]tAcN", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], line = "waidHwhh~A~k@a\\`s@tWbo@xc@hb@pLpf@x]dl@xA|Q|iA`Vl`Afs@`\\rr@pTfu@Els@qN" }
 
 [[lines]]
 id = "155-01"
@@ -1495,6 +1544,7 @@ pieces = [
   { line = "qh_dHosp{ApQoG", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
   { line = "_v~cH_|p{AzB@", e = false, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], line = "srfeHy}z{Ar@hsAzZvbAxn@t^|r@b]pk@`^|l@``@ts@rSdt@c@bm@x`@|j@ho@ze@tx@bl@~f@zu@~Ort@bK`t@rTxt@w@bo@wf@`u@nJxu@pHxt@rW~u@eH|t@cRxk@eo@tk@_h@ln@yUnq@sc@fr@s_@" }
 
 [[lines]]
 id = "160-01"
@@ -1508,6 +1558,7 @@ pieces = [
   { line = "esvdHcohbBqA~Gr@zK", v = 20, e = false, g = "1435", tr = 1 },
   { line = "ctvdHgygbBmEdPaJfJiCjHk@lk@mFrb@~GxaA`Zr}@dCtY", v = 25, e = false, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5], line = "}~vdHeojbBlHzkAmT|eAyCxpA|S~iA" }
 
 [[lines]]
 id = "161-01"
@@ -1534,6 +1585,7 @@ pieces = [
   { line = "eprdH}igcBmVqc@u}@gr@", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
   { line = "ifudHwajcBu[sTaQjA", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9], line = "abicHmhdbBav@nMsf@qv@gq@{i@_m@{j@_m@_n@yi@_t@kf@ap@on@cz@ek@cv@_i@ks@yj@qq@yq@wd@_w@w@qp@xYo_@dcA_`@jdAgl@p_@yo@eg@sr@ki@_n@we@wp@}g@uo@gg@mp@_j@oo@ud@}g@}t@k_@ubAoe@{aA_[ggAsWkjAuVmkAoVgjAag@}y@op@}f@" }
 
 [[lines]]
 id = "162-01"
@@ -1569,6 +1621,7 @@ pieces = [
   { line = "c`gcHuod`B`Ohb@|Q|Z", v = 55, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "c}ecHmpb`B`HvK", e = false, g = "1435", tr = 1 },
 ]
+posts = { km = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32], line = "izbcHm~vaBqU~iA_d@f{@yTfkA}KllA`NflAhDzkAuGrlAxIloAaBhmA`XlhAmFhbAk[raAaX`_AjJ|jA_FnqAkb@hs@{c@dr@e^b~@yLbnAnSdkAl_@raA~SflAf\\`eA" }
 
 [[lines]]
 id = "163-01"
@@ -1610,6 +1663,7 @@ pieces = [
   { line = "cevbHyke`B`Lvh@|NzZ", v = 45, e = false, pzb = false, g = "1435", tr = 1 },
   { line = "chubHefc`B|EjV", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], line = "ojxbHmjabBtj@|q@wZbm@}j@ld@yUdkA_\\rfAu^hcA{E`cAzLbnA|[vfAh\\nhAhJ~iAda@hp@bg@rw@dWbhAnCrpAbd@h`A|JthAuDxrAuFzoArCjpAiSdkAa]lt@qYh~@vVjbAlQpjA{NhlAr@nqA~OxmAb[beA" }
 
 [[lines]]
 id = "166-01"
@@ -1628,6 +1682,7 @@ pieces = [
   { line = "yh|bHgquaBLU", v = 80, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "kh|bH}quaBnHaO", v = 70, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [5, 4, 3, 2, 1, 0], line = "iqbcH{_xaB~Vkp@`u@~Q~r@l[ta@v_Ajg@jG" }
 
 [[lines]]
 id = "167-01"
@@ -1691,6 +1746,7 @@ pieces = [
   { line = "_fwbHmoabBsJ~JuKwA", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "i~wbHefabBqb@kM", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [183, 182, 181, 180, 179, 178, 177, 176, 175, 174, 173, 172, 171, 170, 169, 168, 167, 166, 165, 164, 163, 162, 161, 160, 159, 158, 157, 156, 155, 154, 153, 152, 151, 150, 149, 148, 147, 146, 145, 144, 143, 142, 141, 140, 139, 138, 137, 136, 135, 134, 133, 132, 131, 130, 129, 128, 127, 126, 125, 124, 123, 122, 121, 120, 119, 118, 117, 116, 115, 114, 113, 112, 111, 110, 109, 108, 107, 106, 105, 104, 103, 102, 101, 100, 99, 98, 97, 95, 96, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52], line = "aeq}Gibx`Bwp@pd@cv@`Oeo@|f@sr@h^_v@cCer@nW`KuZgf@ei@ao@wC}b@de@in@j_@qXuz@tNckAjEunAiFspAbNymA}BynAqWugAcr@mJkl@_Lqc@}f@{t@hV_u@zUkv@cHyr@n\\yq@lb@yq@bb@wq@nb@yq@lb@wq@pb@wq@nb@ip@df@ui@vt@si@zt@mo@zZsk@fo@sp@~e@qp@~e@qr@z^yr@eMaq@~W}r@g]av@xJ{v@uFkv@fDcs@`[gr@l`@{s@pZot@aFwP_bAnTygA`OelApBinA{d@eRys@h[ws@hYst@fU}u@rH_t@lYgr@n^wq@va@}t@bVkh@tr@aj@{]wr@aOul@f\\wk@lLkZtt@ip@oT{BudAot@iX_m@}\\uP}dA_XcaAc_@kc@}^my@yYqfAmq@cN{s@pVyo@pQBmqAwi@qDui@dl@ko@t`@ye@om@oq@qVwnB}O~v@tFuiBka@g_@su@wo@cAom@mCoG_lA`Uqt@q]ts@a[l}@qj@eV_Ze~@at@eXcv@bEgv@Y_h@}x@mn@ek@aq@ic@yt@qYgu@_S}v@[ot@|S_v@oAqv@qK_v@nE}e@vCa|@Jsx@cb@wn@ov@aTakAcPknAm`@{{@}i@_p@yH_qAo_@}~@sp@uf@a[keA_XqiAss@_Wsv@{Isv@qI{v@qIwv@qGuj@lo@od@b}@" }
 
 [[lines]]
 id = "167-11"
@@ -1711,6 +1767,7 @@ pieces = [
   { line = "ajs_H_s}aBsbA~jAcRnNmUxX{yBh`Do]|~@{d@bt@sS|RaXx`@}v@`{@g_@xVsDdNVhWeEtJe|@hUqK~Jq[pHaOrNea@pHsU|N}U`BkUhLaRjRee@lRc_@r@oRgPyH?{E`G}FjVqZvU_JtX}NtVeFbCcOy@iF`DoJ~f@eGhJePdIiCbP`B~IbFzEtEHlMiHnGa@`TjI~GrLdCfRm@xQiCxKmJ|JcBpI`@vItIhWu@vJmEzG", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
   { line = "knn`Hoo|`BmGp@kFsDwGa_@", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67], line = "}dp_HikbbBke@vz@yb@~~@wk@ho@ik@`q@im@rm@ci@dv@ai@dv@kh@ju@e`@vbAuh@|u@gj@~r@om@zp@oh@lm@_c@rj@qs@fYyr@~[kt@fSiq@l`@{t@bTkr@gK{f@nt@cg@po@}`@xu@iDfm@~q@tHoKrdA}Bh`A" }
 
 [[lines]]
 id = "170-01"
@@ -1721,6 +1778,7 @@ pieces = [
   { line = "{auaHc`ndBlc@~U|SnBrbAiY", v = 90, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "{dqaH}_ndBvG~@pEdI", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [7, 8, 9], line = "oktaH{qmdBpt@hEnt@mS" }
 
 [[lines]]
 id = "171-01"
@@ -1774,6 +1832,7 @@ pieces = [
   { line = "u`keHgpezAdFaFpGwS", v = 20, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "}pjeHalfzAJI", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40], line = "clmeHsluwAap@c`@m]geA{a@{`A_b@}`AkIelAni@ah@lr@aNrTshA~C}uAxMooAtYgeAbTqjAr[meA`IkqA~RgiA|QgfAlb@u}@fYciAjY{hAjV{jA~CisAfDwrAfGkqA~SglAl_@kdAvb@c`AgIijAgZqeAqr@e_@}p@ic@on@d]{k@bF{@clAaMmjAqQmkAjVm}@eRkhA^arAjCorAnU{eA" }
 
 [[lines]]
 id = "173-01"
@@ -1800,6 +1859,7 @@ pieces = [
   { line = "ekmfHybf~AcG}J", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "ismfHwnf~AsJsR", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], line = "_pueHiww~Aqn@`^}W~o@~ZbaA_Y`cAwR~lAel@zp@}i@fu@kw@fDov@zIor@x\\cu@vIgo@|f@_n@|_@ig@wKgj@yg@ml@~j@wc@|q@_v@}Fqv@J" }
 
 [[lines]]
 id = "174-01"
@@ -1843,6 +1903,7 @@ pieces = [
   { line = "yuufHsk|~AzC^", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "}pufHsj|~AvTtE", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], line = "e_dhHa}a_Bvb@oa@nZ|iA~DzlAgZlgA_ZzeAaVlkAx_@nQ~q@wNxk@fq@lGnpAzk@oZjp@}Wfo@{m@lm@|`@EhmAfQtbAbWhfA|r@t@zp@ePbUkhAlo@fWrt@oRlg@rp@pl@}p@hm@gWhVicApx@mEfVo}@p[|y@fh@od@wBinA`t@jEfc@vn@~b@sCle@_eA~t@zIxu@rHfv@}Cvl@dVvu@dU`k@qn@th@yw@~j@ks@pq@sU" }
 
 [[lines]]
 id = "176-01"
@@ -1853,6 +1914,7 @@ pieces = [
   { line = "owugHk`q{AwWhZgp@wXaG`D}F~PuGtAiF}FwPss@iFuB{MpBoJoQqFgBkE~BkOpYiXpB{Zbh@yFbB{FuAmO}Uc[wjAkC_r@eo@yi@iFiQ}Hk|@gD_Fwa@{VwTui@[qPxJgUjAqNyEqeAoEcOwn@wp@a|Bu|@}T}WoIQwK|IoNt@iJtIqE\\eFmFoLqb@}JqLwn@}J}IpB", v = 60, e = false, pzb = false, g = "1435", tr = 1 },
   { line = "}~mhHgee|AiIlPcGxDe]kI", v = 60, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], line = "gnegHyea|A{q@dE}s@wCim@xIcl@xm@gPhdAqn@xl@mm@`l@ql@je@_d@~y@qUbmAsV`hA{t@t@uf@xt@go@vCum@fMk^c|@wk@k@en@xb@ak@hDq[eiAmT_gA{h@uq@kVafAyi@sq@vF{iA}L_nA}m@mo@{s@gYeu@mYcp@ma@ar@vTee@wx@st@~@" }
 
 [[lines]]
 id = "177-01"
@@ -1882,6 +1944,7 @@ pieces = [
   { line = "iguiHclxzAeBcI", v = 20, e = false, g = "760", tr = 1 },
   { line = "ojuiHgvxzAyLTcCiC", v = 25, e = false, g = "760", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], line = "{dthH}jlzAun@yZgPa_@ap@nd@_n@rYke@vz@cl@qHy~@z@ul@im@_m@yMcRe`Ayq@uYcn@{e@}^{v@ga@gaAmq@~O_g@qm@en@s`@yq@y\\}u@_Lkp@wSes@iGiu@rDen@rWmm@k_@" }
 
 [[lines]]
 id = "178-01"
@@ -1891,6 +1954,7 @@ operator = "NÖVOG"
 pieces = [
   { line = "emciHyrozAoNaHsIkNcBoLp@}SzIgUuDkPAqGpMaQn@_TjG}DtAuEp@_KiE}SBgN", v = 25, e = false, g = "760", tr = 1 },
 ]
+posts = { km = [2, 3, 4], line = "sidiHegqzAvOscAzJedA" }
 
 [[lines]]
 id = "179-01"
@@ -1932,6 +1996,7 @@ pieces = [
   { line = "inmgH}edzAbBsJqGq]t@eUcEaM]kLbA{GnJgMcBcN", v = 40, e = false, g = "760", tr = 1 },
   { line = "snmgH_hhzA}CgM", e = false, g = "760", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43], line = "ofshHkyjzAxXtTx`@haAr_@ddAl_@hdAxH`rAzS`nAjKl`Abs@{Xho@{Qfp@y]nj@c\\|HjGfWfcAh^bt@hV~hArc@tq@~Xbo@nXlrAt\\xq@tj@p\\zs@gNhs@iZbp@f]|r@oQnl@dIl\\rIxc@dAni@cPvTiB~Pxg@b_@s|@fl@oP|QclAn]ku@l\\s_AxGgcA~IuiAbNooAoQio@jTcbA}CyjAhAgfA" }
 
 [[lines]]
 id = "180-01"
@@ -1964,6 +2029,7 @@ pieces = [
   { line = "ekshHiim`BjEP", v = 50, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "ydshHwhm`BjWfV", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], line = "cueiHqzk~Avs@kLlj@rc@nr@lF~p@sf@zd@i_A~p@qe@dVciA|EskAgOc_ATukAoi@mz@qj@oq@lBkkA`GeqAtl@mWxj@_m@lJekArJkmApZoaAjh@ew@nd@ex@oOiqAm\\_dAog@{w@s^w}@hT{mAxPimAb`@ux@pDwpAxu@u`@vi@_i@gP}n@{Yev@z_@ox@l\\scAzGejA`[c}@to@jE" }
 
 [[lines]]
 id = "181-01"
@@ -1977,6 +2043,7 @@ pieces = [
   { line = "ehjfHkh~bBee@kr@", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
   { line = "knkfHw{_cBei@ew@aP}HmZaXcPeE{H|BsVjRyHtT}Nd@{KfNaFAkK_HoKbHsVjEyMwCqHqI{Di@cEfDiJ`ZsFvA}DwG~AyXcIuRDmUwBoEiDo@{IfKyOfHmB|SmHbMuVh_AyGlKmAxU{MxMmHN}H_MgAgHd@c[wBqI{DaC_[{BsL|KiHvT}TzQ{N~\\c@zQgCjFqD\\mM}F}PlLmc@_H}PtDwKdHiOHkk@~v@mWpTyEeBsByGlEgs@iA}VsFoNka@uYkJ|BuN|NeFHcEuEwImY", e = false, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], line = "ezcfH_qsbBkO}mAiLsqAa@ysAcq@iWms@mXgs@wRgi@{w@kh@uv@qn@sk@{q@qDqk@~d@_q@`Lcr@mDiT}Iy\\}`@}a@dy@}ZneAed@nIo[aq@al@nk@s]z`Ags@lAst@nHum@~f@em@r[lAoqAum@}d@yj@kH" }
 
 [[lines]]
 id = "182-01"
@@ -1986,6 +2053,7 @@ operator = "ÖBB-Infrastruktur AG"
 pieces = [
   { line = "swdfHs_ycBqFwvA|x@{eF`Cis@_YovBOcwBuPcbA{K}`@gPmN{CuKqLwz@e@uUnB}a@y@yGs[_]gPiKuXeKmOLmEhDqXpi@gd@|d@{EX}PcJqz@lHeEdEgRnc@qV`Gs_@`W", v = 20, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], line = "oxdfHmhycBwDkrApRylAvRgmAvQuoAiDspAuPkoADksAgKinA_]acAiWihAqFenAkp@qe@{o@lQoi@ps@ms@`@_s@jUyl@zg@" }
 
 [[lines]]
 id = "183-01"
@@ -1998,6 +2066,7 @@ pieces = [
   { line = "gw`fHckdeBsCcJcGuA", v = 20, e = false, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "_dafH}xdeBkOrPoeEpHwFdC}oAprDeV|YwI`Y[lHtAtGnUpVbBnP[|W{Cd]yJ|Z[zYq_@jp@{Prt@{g@nfAuWdHmf@|]oSvh@sFd\\oPlg@eYt]sJjSuKpK}UwAyJnIsf@tP", v = 20, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], line = "sv`fH_gdeBck@Lyw@vAmw@tAwv@rAch@pk@__@lfAi^tdA_a@r}@b[d_AgPjmAu_@f~@k\\hgAwd@py@}q@r]g_@deAma@~_Awj@dm@ms@pQ" }
 
 [[lines]]
 id = "186-01"
@@ -2018,6 +2087,7 @@ pieces = [
   { line = "q|hgHedoeBfKpL", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
   { line = "iphgHsvneB~AdZgB|T", v = 20, e = false, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], line = "sdigHy_bfB_YvhAcY~iAiVblAhN`eAvi@lu@vm@vi@vH|lAqUhmA|AbaA" }
 
 [[lines]]
 id = "187-01"
@@ -2034,6 +2104,7 @@ pieces = [
   { line = "{xihHevacBoH}\\", v = 20, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "kbjhHctbcBwGwJ{NzC", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [166, 165, 164, 163, 162, 161, 160, 159, 158, 157, 156, 155, 154, 153, 152, 151, 150, 149, 148, 147, 146, 145, 144, 143, 142, 141, 140, 139, 138, 137, 136, 135, 134, 133, 132], line = "_xfhHgln`BWqrA}AsrAgD_sAIcsAgQeqAwA{oAgZoaAqDeuAnYkaAde@aw@uN_qAeGkrAjF}rA|JsrAdIuqAuLgqAqSynAoh@au@ge@k|@ui@ms@tImqA`Q}nAdD{rAnBetAH{sA{EoqAiForAhAutAhAgsA@euAzHyoAvP_oA@urAcHsqA" }
 
 [[lines]]
 id = "190-01"
@@ -2046,6 +2117,7 @@ pieces = [
   { line = "epgeHsrkcBp^dCfJsD~lAwwB", v = 50, e = false, pzb = false, g = "1435", tr = 1 },
   { line = "kwceHylocBbh@}y@", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4], line = "gageHopkcBrn@{`@~e@ey@bf@yy@" }
 
 [[lines]]
 id = "191-01"
@@ -2094,6 +2166,7 @@ pieces = [
   { line = "yw_eHirccBwKxBaTkGmIzC", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "adaeH_rccBsi@xg@cLnU", v = 90, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3], line = "erxdHg`xfBwYxgA}Q`nAiL|oAiGjqA}NxiAla@laA~TzkAjd@vn@xj@hb@nk@pl@z_@dcAz_@~bAb_@pcAwPlmAe[~dAdCjrA|KrpAhG|mA_CzrAhEjmAb@voACtrAmDprAkCtrAeC|qAqCjsAvHppAtU`kA`@|qAmOlnAqOlmAqKfnAu_@l{@uSrvAcLloArTzjAgS`jAg]heA}[`gAwJzoAkHvlAoO~kAeWfhAcWfgAfA`bA~d@~|@zEfpAi`@zy@{r@j_@gr@|`@oi@vu@op@pe@wq@bN" }
 
 [[lines]]
 id = "191-11"
@@ -2104,6 +2177,7 @@ pieces = [
   { line = "itydHmuhcBmbAph@", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "ww{dH{kgcBy`@nT", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [8, 7], line = "kazdHwlhcB_s@j^" }
 
 [[lines]]
 id = "192-01"
@@ -2115,6 +2189,7 @@ pieces = [
   { line = "{_mdHcjgdBtO`@fLmH`RdRnf@wC`lAw_@je@w]fGsSxFaDbZnKtn@hr@fR`CvDfG", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "a`cdHcqgdBZlG", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], line = "mhudHu|hdBtj@ab@jv@mHlv@zFdr@fNjj@br@do@fLlr@tM|u@}T`s@c_@xk@a\\ln@xj@" }
 
 [[lines]]
 id = "193-01"
@@ -2123,6 +2198,7 @@ operator = "ÖBB-Infrastruktur AG"
 pieces = [
   { line = "qaedHg{neBbGh[ndAj`CjPnXpBbP", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [3, 2, 1], line = "iaedH}yneB~]~dAta@x_A" }
 
 [[lines]]
 id = "194-01"
@@ -2135,6 +2211,7 @@ pieces = [
   { line = "{aldHuqcgBoaAo{@gxBgeA", v = 140, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "s}qdHmtggBaC_B", v = 140, e = true, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], line = "kp{cH_s`fByB{mAs]mhA{d@o}@of@{`AkWsdAkDurAj@gsA}B}pAyIypAm`@w_Ayf@i~@i_@udAyf@}t@{i@ms@yr@od@_s@yc@}p@gb@gs@qf@ym@}j@uq@q\\}q@a\\" }
 
 [[lines]]
 id = "195-01"
@@ -2163,6 +2240,7 @@ pieces = [
   { line = "udvbH_etcBvH|HzJ`A", v = 90, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "aoubH_yscBtAA", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], line = "oi|cHaizeBfi@~n@jn@xe@zd@pz@tb@xXfq@oMnLjkA_M~nAbGhqA`XdiAxWfiAlT|jAff@hz@hi@fv@~^dcAbg@pw@~k@vp@dl@|p@j_@~_AzSjlAvYlgAhs@bXlv@pKvo@tg@~k@ho@fh@py@z\\faAtObnAnJlpA~KdpAh@hrAwHbqAiDzqAjRliAzk@rj@zu@vHjq@|a@|c@p{@hp@`g@dg@~s@" }
 
 [[lines]]
 id = "198-01"
@@ -2173,6 +2251,7 @@ pieces = [
   { line = "ofobHass_BtGw@dF|H~Cb@zBgE_Bg_@zFG|ElJpC_DsF{_@zCs]vIs\\yFuOU}JbD{WfIyNg@}XmEwSkKsPaQ_q@kGcMeQqN_LCeT}WgSMyM}CyWqOgSkUkSs@{H}CcVgX[}NeIy\\", v = 20, e = false, g = "1000", tr = 1 },
   { line = "}aubHmob`B}@yF", e = false, g = "1000", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], line = "ofobHass_BdWi^nJ_e@zCoiAdKqiAc^mcAmi@gi@yp@_\\ep@wd@{p@w\\" }
 
 [[lines]]
 id = "203-01"
@@ -2198,6 +2277,7 @@ pieces = [
   { line = "mqicHehgwAfJxC|HeGxBuMg@iY", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "uyhcHqthwA~@cdA", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48], line = "studHqykwAff@a{@dp@?d^~aAt]`u@zt@`Fjl@hh@`n@`Kjp@zf@zt@xVtt@tXx]n~@`Q|mArj@dr@rp@`Sh]paAtu@gLju@`IbTrdA|ZpcApGzqAxa@|}@rd@bp@nz@yQjv@nJfv@aH`w@dAzr@hZbr@a]~NsnADkpAaAuqAcEudAhNolAtH{jA~d@qz@lg@sv@vo@~U~[az@zd@yb@jM_fA" }
 
 [[lines]]
 id = "203-11"
@@ -2252,6 +2332,7 @@ pieces = [
   { line = "yfteHemcvAu]mq@kf@ka@", v = 90, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "{lveH_bfvAoR_P", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [104, 103, 102, 101, 100, 99, 98, 97, 96, 92, 93, 94, 95, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], line = "yofaH}bkvAal@om@om@yl@_u@gKqp@cUuW{dA_T}fAwg@_a@ws@n\\g~DjkDvn@_j@tn@_j@vn@_j@m}DdbByu@kTwt@sMuj@ga@uv@`Fsv@jJmv@hMkv@`F}p@mBuR|kApC`mAgo@f^yf@fy@}o@hh@m\\pdAcXbhA}KnlA_OfeA}YjcAaYbiAoMznAuVnjAg\\feAy[x`Asi@~o@ce@nz@yt@lBau@cAmr@|Qyp@`Uit@~Nsr@oU}r@zD_h@hu@ks@uHmp@|a@iXvbAob@`m@wt@`J}u@dMwq@lScr@d^gWpSsi@r^wu@kNms@}Z{v@yPim@mk@ks@{Vqu@jP{u@nOex@kC{u@`Nov@sFqv@lAgv@cBsu@wLms@qZcm@}j@o^ycAwRokAaTolA}NomAma@my@qe@mt@ot@eQku@nKst@lPmu@yNcd@w{@k]udAke@gy@sm@qm@wu@dGsv@{Heq@_d@}m@gk@gp@_g@eu@wPwu@nMwv@qGsv@qFkm@`^kp@vFcp@sg@{g@mw@uq@q_@_w@}D_w@n@ew@bFof@wy@eo@gj@" }
 
 [[lines]]
 id = "205-01"
@@ -2289,6 +2370,7 @@ pieces = [
   { line = "ibfgHicbqAsHmEoHI_RnEiKxL", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "wtggHwuaqAcg@`k@qRpKaL~@uRyCeKmHka@m}@", v = 110, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79], line = "el~dHiqrtAuB~iA_p@bf@kt@|]}n@|e@_M|mAwb@`{@cy@uFml@bg@QxkAcFvlAmn@rk@oXxdA{GtqAdX`iAp[xgAyDjqAkRzmAkRxmAiR|mA_KhpA_B`sAuLxoA_StmA_SxmA}e@rp@_w@rEak@jq@}^ddAmUljAnLxpAtOdoA|UxkAbEboAiR~lAfLvpAxMjpAdHnpAib@t{@yu@|Lmv@sLyv@uLov@gLwv@sGsq@x_@uf@bz@yf@hz@}f@rz@yf@lz@yf@lz@wi@vt@wv@nBkw@qB{u@dI}k@rp@cd@p~@}`@vaAyVnkAiW`kA_SdmA~OhnAea@z}@ss@vJkl@jp@ym@rl@_w@|Coh@`u@qm@hh@cu@|Squ@kMkq@e`@_v@uPcp@sd@{p@{\\{n@|j@cp@he@m_A}Usf@zj@wk@h]un@cb@" }
 
 [[lines]]
 id = "206-01"
@@ -2333,6 +2415,7 @@ pieces = [
   { line = "et~cHomwrA{DhJuA|Z", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "w|~cHgfvrAoFrGsID{]g\\", v = 60, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107], line = "edbaHsu`uAbFpnAPnlAbAtnAkg@hj@og@|e@{f@nu@dL|iAwWl}@_RveAfBvqA|B~qAtBvqAxBvqAkDnqAp@rqAs_@poAqN|gAfQ|aA}QzkAmItpAySdkA{_@~z@}d@tx@mD~lAsBfoAkp@vc@ik@|m@ya@d~@qMlmAqHflAxAbnAfStiAdb@d|@p[~~@bs@zOrq@iWjo@gAxWrdA|SbjAaOhiAwNlgAuc@vu@ye@yh@ut@mQyr@lU}o@d_@sj@hq@{j@vj@iN`nAil@rj@}v@Ruf@pr@ma@t|@sr@|Y_u@_N{u@lDgh@}r@as@oTun@wRof@dx@ut@}EuUa`Aaq@_]mVmgAge@m{@e[k{@eo@qKq[gbA_P{mAkb@c{@qb@s}@}d@yx@{c@{{@kg@qt@kt@wPg`@eaAab@s`Akc@}~@sk@iq@at@~@ip@_d@iu@{Ues@yJmc@tp@so@~Igp@xBeq@jUyl@fj@{l@|e@ms@vS}q@eIwp@i]_l@{g@sa@_`Aam@yc@{BzlAc]zbAmp@~]_r@r^}s@hPat@x[qt@dSct@nLus@nSmh@nz@wm@l}@" }
 
 [[lines]]
 id = "206-02"
@@ -2383,6 +2466,7 @@ pieces = [
   { line = "}vkfH}j~pAkKl@w^uV", v = 65, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "acmfHea_qAkJkI_d@gGwpAgrAep@oFkUwTwPkJeLoA", v = 80, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171], line = "edadHklwrAcXz{@}j@fu@_s@|Z{k@`q@}m@vn@ig@nl@ks@`l@_p@zc@}t@eMmu@yAcYr`AqD|nA{Xb}@_g@~u@yq@nLpLvhAg_@x`A_s@bUud@xr@cKpbAhZhcAyd@xq@{c@rz@in@|`@uTbcAmc@hk@_u@|J{[rfAe\\baAys@kOwk@le@cp@|RgJbpA}`@tf@uv@_J{u@pJcj@`t@uo@`d@ot@xUuo@d`@wu@`Tut@rUyo@ld@ko@~d@mq@l`@qn@zj@_u@dZet@fY_u@hY}t@hY}s@jNax@sEkq@sWuSojAao@qi@qo@ig@}t@eQ_t@|Wup@_c@sr@gYum@qo@ys@eTyp@k`@" }
 
 [[lines]]
 id = "207-01"
@@ -2413,6 +2497,7 @@ pieces = [
   { line = "cqqeH_vqrA{@aE", v = 140, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "_sqeHa|qrAg`@}rB", v = 140, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], line = "s|peH_~qnA~KmpA|BqrAmFonAaGkvAkLsoAuW{kAuMuoAkK{pAsCorAtAatAnA_rAtAgsArAiqAq@_uAwLunA`LynAlFcpAbQ_pA?ksAaDopAxS}jAxm@sm@hn@uj@~n@_l@j^kbAfPmnAp`@saAb\\eeAzIarApd@uy@ts@uHbNemApO}nApGglAtAsmApGapAcLuoAjBkqAue@ow@in@uf@it@mZyI_oA_XsfAua@c}@fBssA_KcoAiNegAbXghA~KwpAmAatAu\\gaA}g@qo@sj@_j@md@g{@aP{oAwOslAmVknA{UclA" }
 
 [[lines]]
 id = "208-01"
@@ -2426,6 +2511,7 @@ pieces = [
   { line = "yooeHyfovAtGk[|Biv@fI{g@", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "}xneHkcsvA`VofA", v = 160, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [189, 188, 187, 186, 185, 184, 183, 182, 181, 180, 179], line = "qvueH_sevA}q@kh@}KkhAzl@ej@jm@oRpt@_Thu@yMbk@yr@jZehAlIaqA`W{jA" }
 
 [[lines]]
 id = "208-11"
@@ -2436,6 +2522,7 @@ pieces = [
   { line = "irpeHcdnvA`GxCnGaArL{V", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "ctoeHgynvA`CuL", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 0], line = "qiqeHkbovAlm@hW" }
 
 [[lines]]
 id = "208-12"
@@ -2447,6 +2534,7 @@ pieces = [
   { line = "irpeHcdnvArJxC`JqHsArDcr@h}@eFjBcLg@ib@vImL~I", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "mvseHamkvA{PpD", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [182, 183, 184], line = "obpeHk|mvAyj@bs@iu@xM" }
 
 [[lines]]
 id = "208-13"
@@ -2458,6 +2546,7 @@ pieces = [
   { line = "gjreH{clvAenAtVoFyB_HeNeGeAqJvH}CjQ", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "sbveHgekvA}EdP", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [183, 184, 185, 186], line = "coqeHcrlvAyt@jU{u@fNgf@vH" }
 
 [[lines]]
 id = "208-14"
@@ -2471,6 +2560,7 @@ pieces = [
   { line = "sfoeH{nqvAhIcm@", v = 160, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "i|neH_}rvAjXqmA", v = 200, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [182, 181, 180, 179], line = "obpeHk|mvAhWciAjKwpAlWwjA" }
 
 [[lines]]
 id = "210-01"
@@ -2486,6 +2576,7 @@ pieces = [
   { line = "qpfeHmicuAzK~W", v = 110, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "ucfeHmpbuAlN`]", v = 100, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], line = "_pheHcl}uArT`lA|UnkAv[ffA`OvmAzPbnAhFdqAqMf`AmZbwAcKtoAcRdmAz[teA" }
 
 [[lines]]
 id = "210-11"
@@ -2507,6 +2598,7 @@ pieces = [
   { line = "sjqeHmvkvAqcCph@", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "eoueH{ljvAoXm@", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [183, 184, 185], line = "acqeHyzkvAqu@lRcv@tQ" }
 
 [[lines]]
 id = "216-01"
@@ -2516,6 +2608,7 @@ pieces = [
   { line = "ie}bHamvnA`LpN`^zB", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "ey{bHsyunAtIEpHgD", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1], line = "id}bHgkvnAps@tP" }
 
 [[lines]]
 id = "217-01"
@@ -2526,6 +2619,7 @@ pieces = [
   { line = "_~xbHirmnArI_RvCcTqCwlA", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "esxbHehqnAy@{S_CsKwEaI_MsI", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [83, 84, 85, 86, 87, 88], line = "y{|bHalhnAdg@{x@jj@ot@di@yu@fMokAgKioA" }
 
 [[lines]]
 id = "217-11"
@@ -2534,6 +2628,7 @@ operator = "ÖBB-Infrastruktur AG"
 pieces = [
   { line = "wc}bHk{gnAfU}e@tj@aw@", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [83, 84], line = "o{|bHkkhnAfg@{x@" }
 
 [[lines]]
 id = "220-01"
@@ -2545,6 +2640,7 @@ pieces = [
   { line = "k_eaHqhyyAkaAl}@__@ze@iKz\\yQb^qg@vf@eHn^kAjk@mH|XcGpJi_@l\\sJrReKpx@gKl\\_AvSeGbP_@vq@rEfVzLvRzAtIgC~SpAhZ_IvRaC|NxAtXiEnV~@xVgAhQ{JzSePpHgOtPoW|D", v = 50, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "axoaHkq_yAaLnCoRb_@eOjHqBrGFxM", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], line = "_ndaH__zyAuk@np@ym@fl@id@h{@{i@xr@uWvbAqY`dAcf@zu@yUfjAoKxlAhWveA}M|iAeAfoA{e@zr@_r@bZea@~w@" }
 
 [[lines]]
 id = "221-01"
@@ -2558,6 +2654,7 @@ pieces = [
   { line = "y`seHknewAeHv@iItKyEjBaSjB}GuDsHu_@nBeWmAuMoRoPsNuYn@ma@iAqL", v = 70, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "sdveHsbjwAqMmr@qFwHaIgC", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], line = "ssueHujnvA{KiqArLqmApJ}pApOqlAlPenAvf@{y@ds@kBbLo_AViiAo[idAw\\u_Awr@vNySu|@ce@k}@mGojA" }
 
 [[lines]]
 id = "221-11"
@@ -2568,6 +2665,7 @@ pieces = [
   { line = "{sueH{tmvAsKhcA", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "o`veHqpkvAj@bThJrKvToAvXqG", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [3, 2], line = "m~ueHq{kvAb]vi@" }
 
 [[lines]]
 id = "221-12"
@@ -2580,6 +2678,7 @@ pieces = [
   { line = "w~seH}ikvAhGcB", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "mvseHamkvAhO}J", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [3, 2, 1], line = "m~ueHq{kvAda@bTxt@mQ" }
 
 [[lines]]
 id = "221-14"
@@ -2643,6 +2742,7 @@ pieces = [
   { line = "cdp{GujosA_Ccd@", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "chp{GyopsA[eG", v = 110, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117], line = "eby_HgrioAvFlk@dR`fAhRvhA`a@n{@r]vcApNjiAlM|oAdJlpA~e@mB|r@oQrs@iGzp@u^dj@{s@dm@qn@`t@qSnv@}U~t@uHjw@Nxv@hC`v@pVld@hv@dn@p[bv@w`@ps@yBzs@iPhv@eZ~e@mz@|d@u|@nj@ya@nt@uTtv@iFxq@cExj@di@rl@bXdr@ah@xj@yn@nx@e]lt@a[zs@yZxs@wZxp@cYbr@yYxs@wZdt@}Zlt@aLlt@vDll@uO|VcLfZmx@`T{t@fMwfArl@al@j~@Qdz@rW`l@mg@~ZoeAb]ocArb@k_A|i@{m@|Zmb@nj@mq@`i@et@jZgfAn]yaAjViiAt\\wcAxc@q|@hc@i|@fe@gy@bc@m}@ba@y_AxZ}eAv[ydAd\\}dA~d@gx@pMulAxTsaAb\\wcA~XsgAt]waAn`@y~@vr@a_@rNwdAnXkgAl[yeAl[yeAl[yeAn[weAl[weAl[weAn[weAn[ueApb@a~@vm@gl@nc@c}@|a@e_A|_@gaApa@q_Ahc@s|@di@cu@nb@w|@nS_iAhl@_o@li@st@bWyhAvU}iAh\\_cAbb@ox@tf@ue@l]}y@z@wlAbU{aAhh@as@lYgfA`S}iAjs@}Ytm@e\\qE}oA" }
 
 [[lines]]
 id = "222-02"
@@ -2659,6 +2759,7 @@ pieces = [
   { line = "_g~zG}tstAtRbFvLz[zKlF", v = 70, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "ux|zGoirtAfkFj`@", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], line = "eof{G}qnsAg@gmAhAknAjTigAnEwrA`JqjAcL}mAeDcnApJckAkAomAxGyrAv^u_Arm@ee@|^{`A~DiiAqMelAjVieAbi@kv@ho@`d@~i@lk@|u@rK|v@|F|v@zF|v@|F" }
 
 [[lines]]
 id = "222-11"
@@ -2716,6 +2817,7 @@ pieces = [
   { line = "{ldfHm}ntAmJsO{DmV", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
   { line = "e~dfHoeptAw@}E", e = false, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], line = "mmheHupgtA_Sjp@cg@gp@wu@sRuv@kI}u@qMsv@wGyp@ua@mj@it@wj@uq@_g@ot@wt@}R}n@{Sgr@b]cw@xDan@fk@ip@j^au@tMmf@{Uqh@iy@" }
 
 [[lines]]
 id = "258-01"
@@ -2776,6 +2878,7 @@ pieces = [
   { line = "cyyeHcibvAIuG_GeO", v = 35, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "mazeH_bcvAyO_A_JoZ", v = 30, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], line = "}szgHauhtA~e@`Ftk@tZnj@xTdv@pCnl@l`@|f@am@zh@so@hYm_Av^_w@~Q_iAb\\scA~p@mOle@ow@ps@_J|i@a@fn@wk@xq@wClk@va@b]vk@fRpr@d`@v_Anp@wKzl@~[xm@nChj@mVjb@sz@ni@kd@bZwn@zm@ge@dl@kn@db@w|@dn@}g@zi@yl@r\\gdA|n@nRpq@yWdn@xYj\\uaA|p@s`@vj@_m@`VkjAlf@km@|Z{_A~Zc{@bh@kw@he@mz@`^seAbZwgAd]_dAbj@{r@zf@ex@~a@c}@fIupAyDgqAbMeoAdTemA_c@mr@" }
 
 [[lines]]
 id = "259-01"
@@ -2797,6 +2900,7 @@ pieces = [
   { line = "unycHayjsAni@|B", v = 40, e = false, g = "1435", tr = 1 },
   { line = "edxcHcujsAl^rA", e = false, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], line = "yeqdH}uysA`j@sDdVlhAhk@tr@rl@|b@xi@bv@di@~t@ls@p]np@va@ji@fn@dr@f[tb@v|@le@ps@|i@|s@hr@hLjn@fHrNqiAhl@wl@du@hBbw@xB" }
 
 [[lines]]
 id = "260-01"
@@ -2815,6 +2919,7 @@ pieces = [
   { line = "eyucHai`rAdf@CpHfHtF`T", v = 60, e = true, pzb = false, g = "1435", tr = 1 },
   { line = "w`tcH{j_rAzBr_@", v = 40, e = true, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [3, 4, 5, 6, 7, 8, 9, 10], line = "y|~cHgldrA|k@~m@|n@fg@du@gJho@l\\to@`Rju@lE`o@bX" }
 
 [[lines]]
 id = "261-01"
@@ -2832,6 +2937,7 @@ pieces = [
   { line = "m`zcH_bzoAnIIhp@fR", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "sdxcHaoyoAvIxG", v = 80, e = true, etcs = 1, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], line = "yioeHolxnA`w@sKfv@cFxp@y]xd@e}@zd@i}@vi@{t@tb@g`Ali@gs@~v@Wtv@{Ntu@_Nfw@vBrv@mDvv@kBht@oY`t@m[zs@k[zs@s[np@me@|m@cm@lr@y`@tq@kb@rn@qk@ln@yk@~r@qZ|u@qPtr@k]hs@u]|s@_^js@w]~k@ip@ti@cu@hj@it@~t@iLxv@fN" }
 
 [[lines]]
 id = "267-01"
@@ -2871,6 +2977,7 @@ pieces = [
   { line = "{lr_HmehkAvExY", v = 50, e = false, g = "760", tr = 1 },
   { line = "cfr_HsjgkAnCpqA", v = 60, e = false, g = "760", tr = 1 },
 ]
+posts = { km = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], line = "u_v_Hi~amAzf@ft@rRdkAnQncAbAlgAlL`~@mM`lAbUneAsUz}@ja@p{@dNhlAmDvnAbAxfA{AziApMhaArFplAT~kA|@vpAuBrpAbApmAyOnlAwEreAiLxgAhGbmA_H`kAtDdqA|IznA" }
 
 [[lines]]
 id = "271-01"
@@ -2900,6 +3007,7 @@ pieces = [
   { line = "ojmbH_j_qAwKrS}RvAkAjRcFlGgDjNqF~DkFxLgGtAk_@iGsNlIsDQcAsEtCuVuFgQuDqXaGqMeBj@iB~H", v = 15, e = false, g = "1000", tr = 1 },
   { line = "c`rbHu|~pAkCjI", v = 12, e = false, g = "1000", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5], line = "yvlbH}m_qAyl@jYg^fw@qp@bDeU{g@" }
 
 [[lines]]
 id = "302-01"
@@ -2920,6 +3028,7 @@ pieces = [
   { line = "qf{`H_tshAdB`E", v = 100, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "kc{`H}mshArTlh@", v = 140, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], line = "yapaHajiiA~g@zs@~q@nTvn@nX|NxmAne@ty@bj@dt@fj@ht@fj@jt@xk@tp@`v@~Gtr@|Zpd@jg@lg@`t@dj@~r@~q@db@rc@`}@" }
 
 [[lines]]
 id = "302-02"
@@ -2942,6 +3051,7 @@ pieces = [
   { line = "_t}}Ge}feArOjMvU{B", v = 70, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "sl|}GurfeAtQB~OxH", v = 30, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112], line = "uzl_HqzqdAfv@Nhc@nz@du@fHju@lF~s@{Etd@ew@pp@c_@jo@k[zW_eA`u@Rz`@mw@jg@}m@fl@{k@to@cd@ts@uJhs@sR`v@~B~t@bSvv@yGtl@mn@rp@ee@bt@oX`m@_e@hi@kq@hs@_VtMgoAdXwg@yHpiAvZnk@bu@~Int@|Mnl@ob@nZ{dAbn@{Unj@iPrq@?" }
 
 [[lines]]
 id = "303-01"
@@ -2957,6 +3067,7 @@ pieces = [
   { line = "a|g_H_hmy@~IvFpR{FhLtC", v = 70, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "epf_Hmcmy@zWxR~]dh@zUlTdG`R", v = 90, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], line = "{vi_Hoxry@_h@kw@kp@yRmOpfAra@r{@rr@v\\hk@tq@pl@vn@hs@rJ|i@ps@" }
 
 [[lines]]
 id = "304-01"
@@ -2970,6 +3081,7 @@ pieces = [
   { line = "upw`Hqnaz@ndDlnA", v = 130, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "ekr`Hc__z@nKvIrCbSuBxMkOtX", v = 90, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [9, 8, 7, 6, 5, 4, 3, 2], line = "mvx`Houiz@tDvpA|A|qA~GjoAbr@x^xt@vYzs@jXzk@fg@" }
 
 [[lines]]
 id = "304-11"
@@ -2991,6 +3103,7 @@ pieces = [
   { line = "{yg_H}xodAuTiOgP_T}LyX{Hs\\ez@o~Ims@mvG_P_|@mQkh@_Vcc@{Y{\\}v@_l@ue@ez@", v = 160, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "e|r_He}neAkLcU", v = 200, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], line = "s{g_H_zodAsk@so@gU{iAwKkoAuKkoAiLeoAwMsnA}MqnA}MsnA}MqnAcPomAi\\aeAsh@av@sp@we@_h@qv@" }
 
 [[lines]]
 id = "330-01"
@@ -3006,6 +3119,7 @@ pieces = [
   { line = "euu_HomveAb@hx@~Hrl@rMx_@`p@tpA", v = 200, e = true, etcs = 2, pzb = false, g = "1435", tr = 1 },
   { line = "kjs_HatoeAR`@", v = 200, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62], line = "{`u`Hom}gAb^`dAr]`dAbb@d~@bn@hn@bi@fu@j\\beApMtnAlHxpAdNnnAl^bcAfc@|}@jUnjAxSzkAlb@z~@df@`z@j[jeAfM`oAhYdhAhe@b|@je@j{@z[rdApPdmAtHlpAvPbmA`a@h`Axm@hl@zs@`[po@nf@td@n|@x[ffAfb@`~@xYpgA`WljA~GzoAdEppAz\\xbAn`@nv@" }
 
 [[lines]]
 id = "330-02"
@@ -3032,6 +3146,7 @@ pieces = [
   { line = "k_h`HuvwcAyD\\", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "eeh`HwuwcAyE^", v = 70, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33], line = "wrl_Hm~odAYfoAqn@`e@}N~eAsRdgAcFjnAFrkA?jpAtPnkAyD`nAuYpaA{i@rs@iGj_Ao@tjAwj@ng@ym@jDli@th@oNlmAeYbgAwk@vl@cs@iLmn@tZki@xj@yt@tD}i@ep@u]g~@e]ubAob@ky@wq@_\\st@sVst@e^sKskAg[e_Ass@cU" }
 
 [[lines]]
 id = "352-01"
@@ -3044,6 +3159,7 @@ pieces = [
   { line = "wom`HmxsaAwTpCu]_As]{Puf@fFif@kRod@dD", v = 70, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "iws`HuntaAaFr@mNxMcMaB{RuLwQc`@", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], line = "kol`Hy{aaADelAnSwiAr_@s`An\\adAdDgqAsAomAcOwkAms@qRsr@i[wv@Mqt@_H_u@wQ}s@vR{m@aa@" }
 
 [[lines]]
 id = "401-01"
@@ -3068,6 +3184,7 @@ pieces = [
   { line = "{be~Gmqb}Aa@@", v = 140, e = true, pzb = true, g = "1435", tr = 2 },
   { line = "}ce~Gkqb}Aku@b@", v = 120, e = true, pzb = true, g = "1435", tr = 2 },
 ]
+posts = { km = [126, 125, 124, 123, 122, 119, 120, 121, 118, 117, 116, 115, 114, 113, 112, 111, 110, 109, 108, 107, 106, 105, 104, 103, 102, 101, 100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 63, 64, 65, 62, 61, 60, 58, 59, 57, 56, 55, 54, 51, 52, 53, 48, 49, 50, 47, 45, 46, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2], line = "ero{GgijvAqDgpAoAopAsBmpAaCkpAsIgsFpBlpAnBjpAsIgsFqBmpAwAmpAtHgoAxL_nAbM}pA`HufBxDggBfCs_BiIsnAiYsfAa^ccAyQukACepA|KknAa@gpA}HgoA{CioAzIwdAla@wkA|j@sq@de@mz@tUeiAfM{mAfM{mAxFgoAgIonAmRokAqRokAkXkgAag@ww@kp@we@ao@}f@}g@ss@oq@}d@it@{Xiy@aSww@nAsw@u@_t@}Zmk@wq@_h@uq@_o@ya@wt@iWmr@a`@}o@uf@wi@}y@i_@}bAeVkiAyPmlAkKkoAwEwoAy@ipA}ActF^`pA\\bpA}ActFoB{oAsFioAmNeaDtFjoAkNe`DcGmpAsNcmA}TwiAyaA{_FfU|iAfU|iAinB_vJfU|iAfU|iAo_AqaFcWi~CtJvnAqVi_DoMumAkTgjAsTyiA_MolAgBypAuAwpA}AwpAyL_nA{\\wcAoa@c~@wY{fAqUajA}UwiAyY_gAeVkiAeHwoAcM}mAq]kcAuc@_}@wi@qt@wq@ca@gv@cMqv@gKew@o@ew@\\kv@dKgu@tWyp@xd@qn@~h@qo@dh@}v@`Ims@k`@qu@eR}t@hSyt@tRyt@bOkr@x]_s@d^_s@j^qr@v_@is@b]{v@bE" }
 
 [[lines]]
 id = "404-01"
@@ -3094,6 +3211,7 @@ pieces = [
   { line = "c}``HobqzAfRcMf`Aw]", v = 120, e = true, pzb = true, g = "1435", tr = 2 },
   { line = "sh~_HkorzAlNaG", v = 60, e = true, pzb = true, g = "1435", tr = 2 },
 ]
+posts = { km = [140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202], line = "g~daH_iivAzt@gTjU_jAvVsjAdByqAa@}qAzXoaA|XshA`[ieAQ}nAjBgnAnFanAlHmmAbRyiAv^q~@hl@mj@da@{{@dTchAlAwoAzFmoAkCmnAwMemAwCsnA|W_gAhW{gAh[wcApNamAxQ}lAlQgmAt_@kbA|`@w_Aj\\wbAd`@e~@v`@q`Anp@ob@`SykAnb@{|@fScjAnD{gAkI{lAvTsiAti@kt@n_@o`Ana@{_AlU_kA`JipAfCgqA?{qA`H{pAzLkoAfMaoAbQelA}MsnAsOenAxGqpAbSalAvWqiAtWqiAzWmiApVgjAjk@mo@nq@qc@nt@iX" }
 
 [[lines]]
 id = "407-01"
@@ -3127,6 +3245,7 @@ pieces = [
   { line = "aki|G{j`kApJ~gB{Hr_ApKrp@", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "y|h|GsoyjAxA|S}@vm@hGp{@~Gvc@cEpc@pCxSfJlRp@|WtEnW}Cdd@", v = 70, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302], line = "}`y|Gog{pAqFvtAcFdpAzAloAuLhlAsFloA`j@dSdr@ad@ls@gObw@zF~v@zFjt@lUpp@zb@pq@hb@b`@h_AfWxhAjDjpAtBtpAtBvpA~ClpA|YncAw@xpA~@bpAvGfnAfRbiAb]~cAvWrgAaCjpA{DfpAfIhoA{KtdAqXh~@`WvhAxYtfArN`jAqSvjA{KnnAHjpA^roAuCtnAyOvnAnCxtAe[naA{ElkA}WpgAu[peA}`@`_Amb@n|@kQtkAy`@h_A_\\zdAc\\zcAug@dv@}`@l_Ai`@|`Ayd@t{@ii@|s@aVjiAwU|iAwUbjAwUdjAcGflAhVriAlq@x`@nq@rb@nm@nl@tXreAvXn~@zL|jAzTjiAfQ`kAfDfpAvKnnAzGfiAjNdmA`Q~kA|JhlAzXxgAzGhoAWxmA|XpeA|P~jA~HloA|IrlAbGhmAdm@vj@xQhiAzDbpAqPbkAzD~lA~GrnA{F~nAnNllA`CtoA`HnmA`LhgA" }
 
 [[lines]]
 id = "408-01"
@@ -3154,6 +3273,7 @@ pieces = [
   { line = "awq{Gw}tsAbVlVhH~PlF`b@lCri@", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "wjp{GsfqsA|Df{@", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377], line = "asl|Ge|tvAxPfkAvY`eA``@d`Ah\\ldAlVliAzWfhAx]``A{A`pAxPrlAxHhnAvK~kA`UtiAvWneAbo@dg@}I~eAwl@ll@wO|iAo_@p~@oPniAjb@z{@jd@~q@uJ`iA`U|gAyKhfAfF~oAbTlfAhs@bYj`@zx@rR~fArIdnAgUphAbS~iAfPnhAxLfnAxb@v}@pi@xs@f^p`Ah_@r`AdRjkAdMfmA`RtdA|SbjAhIlkAn[xcAfk@jn@ds@gXxu@~G`m@~g@|LloA" }
 
 [[lines]]
 id = "408-11"
@@ -3175,6 +3295,7 @@ pieces = [
   { line = "iqo{GkiivAGeL", v = 100, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "qqo{GqvivAc@em@", v = 60, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18], line = "gv`{G_c}uAcNkaA_Xo`AgT_iAgg@et@ks@hHuv@sIcs@bRaj@go@er@}Tcq@ka@au@sK_NkeA" }
 
 [[lines]]
 id = "410-01"
@@ -3190,6 +3311,7 @@ pieces = [
   { line = "i`i{Gkb`yAanAxdB_EvOeLtfA", v = 120, e = true, etcs = 2, pzb = false, g = "1435", tr = 1 },
   { line = "qbl{GcdzxAqS~pB", v = 100, e = true, etcs = 2, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95], line = "gpp{GuqhyAlt@{Cdv@fM|v@{C|v@}Azn@sd@vWb{@sMnmAsMzmAiO~lAa^hh@c[lb@iZrc@mKrq@oHhs@cLzgA" }
 
 [[lines]]
 id = "412-01"
@@ -3243,6 +3365,7 @@ pieces = [
   { line = "kcy`Hc}nzAd@z@", v = 50, e = true, g = "1435", tr = 1 },
   { line = "eby`Hg{nzA`WtSnO~@|[yB", v = 40, e = true, g = "1435", tr = 1 },
 ]
+posts = { km = [211, 210, 209, 208, 207, 206, 205, 204, 203, 202, 201, 200, 199, 198, 197, 196, 195, 194, 193, 192, 191, 190, 189, 188, 187, 186, 185, 184, 183, 182, 181, 180, 179, 178, 177, 176, 175, 174, 173, 172, 171, 170, 169, 168, 167, 166, 165, 164, 163, 162, 161, 160, 159, 158, 157, 156, 155, 154, 153, 152, 151, 150, 149, 148, 147, 146, 145, 144, 143, 142, 141, 140, 139, 138, 137, 136, 135, 134, 133, 132, 131, 130, 129, 128, 127, 126, 125, 124, 123, 122, 121, 120, 119, 118, 117, 116, 115, 114, 113, 112, 111, 110, 109, 108, 107, 106, 105, 104, 103, 102, 101, 100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 79, 80, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69], line = "wqe`Hwwa{A|p@`[fa@v`Ad`@~aA|d@b|@|i@nt@bj@bt@fg@rw@_MfmA}q@h_@mt@tXmq@pc@ik@po@yVdjAsWpiAuWpiAwWpiAkSzkAqGrpArOdnA~MrnAeQdlAeM`oA_MjoAiHzpA?xqA}BfqA_JjpAmU~jAoa@z_Aq_@j`Asi@jt@aUxiAjIlkAiDdiAcSdjAqb@v|@}RtkAop@pb@aa@z`A_`@b~@i\\nbAca@t_Aq_@rbAmQfmAyQ|lA{N|lAa[|cAiWzgA{W~fAlCvnA|MbmAnCjnAyFloAqAvoAcTbhAga@x{@kl@lj@u^r~@cRxiAkHlmAmF`nAmBdnAN|nA}ZfeA_YphA_YvaAd@|qAeBxqAwVnjAgUxiAwt@pT_h@yj@{h@ms@wl@ok@kn@cj@cSkkAiVsgA|HmoAxRojA`TwiA|Qo_As@}mAyKmmA}MqgA\\wmAsDiuA{P_mAeTcjAmNwnA_SgjAwAmnAxYu~@jHonA{PmjAzCckAy@qlAeA_kAuS{cAu\\k`AjBspAiE{qAvQkeA}AenAcMknAmC_mAuMykAmSqjAqq@cXwGmiA|k@qj@br@w[nSabArLckAkAkjA{LejAvRciA`U_iAnk@gp@bMkmAze@yu@jc@_}@zi@}s@nn@kk@di@ws@xu@vBhj@|i@pF_u@n[q~@pn@ui@_F_~@unAsZna@t`Aq_Aa_CrLalAnc@}x@jg@os@aLoiAxc@a{@jk@_o@jq@s_@`t@{Hrj@zo@" }
 
 [[lines]]
 id = "413-01"
@@ -3338,6 +3461,7 @@ pieces = [
   { line = "s{d{G_hesAd`@tiAbDhhA`T~sAL~WmGrrAnApu@kCpx@", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "cjc{GgbwrANp[xFzh@gAlaBvKnz@uBxf@iGvd@^zSxCtKjMjTxMrk@hMtPll@blAvIrH", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 400, 401], line = "ymk`Hghg|Adn@`EFlqA`OtmAjVpjAoHzmAcYnhA{RhkA~]d`AdUjhAtObnArRxlAhSjlApWriAhGroAkAbqAeR`kAjj@pn@tn@l_@x`@faAl`@vaA~e@pz@bj@ft@bj@bt@lb@x{@mLboAlAxnAl\\hbAxPxlAtq@zSd_@j`Ajc@`|@xo@bh@tr@bZzv@eGxn@nh@nYdgA`t@jUvu@pQxm@|h@DfpAiApqAv\\pbArf@ny@tf@ny@vm@rg@np@~T`b@n_Axi@fs@hb@r~@~EzpAhCdqAbVdjAlUrjAvGnpAtPxlAtJxlAeDzoA~^vs@pNdmAkJznAnFvgAv^l{@_CfpA{MhmAqRbfA_WbaA}_@h}@e\\zcAgp@lf@}X`eAwPfmAyEvpAd@nqAzDzpAmHtmAgHdpA}@voAcCjlAlIfpA~h@~u@v`@j`A|n@jFfs@|Wlo@|Tpv@iGtl@nc@jg@rw@fo@cX|ArcAuAzkAlWzcAtj@ho@fYvdA`v@sBzu@{Cvq@ab@pp@we@`l@gn@be@iy@hb@_z@|_@oaAdj@kq@dm@ki@xt@nAvi@jg@pn@vWlv@Czj@|l@fm@zj@zd@hu@vg@hv@pq@fSxs@rHbp@xRnh@iv@hh@uv@`g@wx@dg@ox@xn@}e@~u@cPdv@wNhv@yMhv@yMbl@_k@xs@cI|d@sy@zi@yq@~o@ka@fw@gAdw@oBvr@w]bp@sf@fp@uf@fp@lWjc@fz@bo@eBlq@|Wxq@pE~n@iW`f@yLh\\tdAfZhfA~YrpAxCx`BnY~rAwh@rdAkUdwAsq@nv@ru@jh@bm@}{@t|@m[naAn@vaAUr|@bg@lw@bu@dw@lu@j}@~b@bm@xfAhk@hiAxs@l|@`_Aj[jaA{Ox`AcUfbAuHny@|OpCdaB_YvuAqQl{AoE|`BuOl{A_Ix~AdTd|AzUp{AgDz_B{f@`lAmf@xlAyMv~AWt_BpTn{AdW~xA`WrzA`Rb}A~A|_BxSn|Ar[jvAlXbzArb@prAfUjzAdAx~AiVnyAqf@xnAoZruAxD~`BxBbaBeZltAsP|uAbIh`BiBg[iDwDrFpoAts@|Mvu@~Tvn@ph@pu@fS`o@_f@vn@gg@tg@rm@^rpAlAdpAxMbkA~]tbA`FboAxRhkAmBvoA]bpAsCzoA~FtnA_A|dAjKzmAgJbnA~[hcA~a@l|@ne@dx@" }
 
 [[lines]]
 id = "413-11"
@@ -3386,6 +3510,7 @@ pieces = [
   { line = "anf{GmlmsApAftBlJfqCxG|Q`KfC", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "eke{GwmdsAnUrDzPrUhHhYjAng@", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389], line = "mop{GaiqsArFpoAts@|Mtu@pUtn@jh@nu@hSlo@cf@ln@gb@vG`mAhCrqAnDjqAhXx}@pl@hh@" }
 
 [[lines]]
 id = "413-15"
@@ -3395,6 +3520,7 @@ operator = "ÖBB-Infrastruktur AG"
 pieces = [
   { line = "yme{GubksAdC~eC", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [386, 387], line = "{le{GydjsAfAppA" }
 
 [[lines]]
 id = "413-16"
@@ -3405,6 +3531,7 @@ pieces = [
   { line = "sle{GmnjsAGkS", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "{le{GybksAe@y{@wE_QkR_Z{D__A", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [385, 384], line = "_me{GsvlsAy[eaA" }
 
 [[lines]]
 id = "414-01"
@@ -3434,6 +3561,7 @@ pieces = [
   { line = "crf~Gkqb}A}\\\\", v = 120, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "apg~Gmpb}A{w@`T", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250], line = "ipp}GyzbbB|OdlAbIdoA`IdoAbIdoAfIhpAfIhpAfIhpA~AfqAg@rqAuHdpAyJjoA{JhoAyJjoAwJnoA{JhoAqHzoAkErpAsEppAiEtpAiErpAiEtpAiErpAiEvpAiEvpAgEvpAiEvpAuB~pAj@fqAkItoAcOhmAoXbhAeO~lAs_@~aAq_@~aAs_@`bAs_@~aAch@pr@eu@tTeu@nTeu@pTeu@pTiu@xS{v@lGcv@xLct@rY}p@zc@en@vk@cn@xk@y`@v_Au[|eA}QjjArYlgA|ZnfA|YhgA`VdiApf@fs@qEbcAi_@|~@bL|lA~NtjAlLriAuGboA|f@ho@rr@vYjVvhAjUniAda@fs@ve@bk@pNpeAnq@bc@hb@nt@wT|iAcV|iAcV`jA}m@nj@so@tf@TznA_ElkAmv@fG" }
 
 [[lines]]
 id = "415-01"
@@ -3466,6 +3594,7 @@ pieces = [
   { line = "}jg{G{xgyAxGcp@", v = 80, e = false, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "cbg{G_jiyAzSqoBpKcqC", v = 80, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [86, 85, 84, 83], line = "yjg{GqygyA`MilAvM_nAjFqpA" }
 
 [[lines]]
 id = "433-01"
@@ -3476,6 +3605,7 @@ pieces = [
   { line = "}li}G}|m}AfQv@lWdVrR|B", v = 100, e = true, etcs = 2, pzb = false, g = "1435", tr = 1 },
   { line = "sng}Ga`m}AxFC", v = 250, e = true, etcs = 2, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1], line = "wli}G}|m}Apq@b[" }
 
 [[lines]]
 id = "434-01"
@@ -3501,6 +3631,7 @@ pieces = [
   { line = "_bf~Gol_}AqWwL", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "qzf~Ggz_}A{YoPuGoe@oEiMaGuAkKhG", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], line = "}xf~Gwdc{AWohAfVodAxMggAb\\afAvh@aq@tb@u{@rR{jAbd@iw@`Yu`Av\\i{@jg@aw@li@ys@nUo_AHupAbXahApKclAeDipAf^acA|_@_bAt_@qaAx^w_An`@ecAnPemAbe@yx@tFqfA_WuhAs[qeA}s@yWgv@gEgr@cYar@i^iv@}Mmv@}Mqv@Bqv@xKkv@xKav@_E}r@k]g]gu@" }
 
 [[lines]]
 id = "435-01"
@@ -3543,6 +3674,7 @@ pieces = [
   { line = "oqc|Gopd|A}AbY", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "mtc|Gkvc|AOpN", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50], line = "{pt}Gubt|A}GfeAlv@nLxv@dIpu@yInm@em@fk@cp@nu@gVrp@ge@rq@}`@rv@gC|o@_h@|r@_Uzt@_Nrt@cY`t@cYzq@g\\xi@xZxUziAlTvjAtJhnAhGnoAd]~cAv]rcAbZfdAgAvoA_m@xi@wJh|Bk@vpA|KxnAvLbnA`TvhAzk@`E[mmAnm@qg@dr@g`@pv@wDfw@dArs@iQje@ww@dOcmAxY_eAl^saAxNilAhGooA|RciAfc@zq@nd@fw@~ZzdAp`@|`AvSfiA" }
 
 [[lines]]
 id = "435-11"
@@ -3561,6 +3693,7 @@ operator = "ÖBB-Infrastruktur AG"
 pieces = [
   { line = "igw|Gahl|AiKvf@gHd}A", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [24, 25], line = "aqw|Gyjk|AmGtoA" }
 
 [[lines]]
 id = "451-01"
@@ -3588,6 +3721,7 @@ pieces = [
   { line = "{pr{GgnwpAy@~v@pCrd@hEjO", v = 80, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "ygr{Gg`tpAvV~W", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], line = "ssc{G}drrAgt@`Peq@lMsGbkAeR|oAm[viAcK~oAaOz{@_Zvu@iYnbA}IxlAeOzkAxHdlAaDrmA|DdpAsOzeAuSjhAoUriAcR|jA_Y~fAyP~jA{f@di@ai@ri@iDvfAcPzfA`S|cAfA|oAsShjAlDfhAtAbpA" }
 
 [[lines]]
 id = "454-01"
@@ -3607,6 +3741,7 @@ pieces = [
   { line = "opw|GgiywAkIpBwLlK", v = 20, e = false, pzb = false, g = "1435", tr = 1 },
   { line = "shx|GgyxwAcL`Js@~SgBpG{U|U", v = 40, e = false, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], line = "ovl|GuhjwAl\\av@bB_bAfa@uo@pf@ew@e@enAgr@c_@{{@ca@ep@_Uas@{Tim@eb@us@wc@ot@_Rwp@|Pgt@vQga@tw@" }
 
 [[lines]]
 id = "456-01"
@@ -3651,6 +3786,7 @@ pieces = [
   { line = "ysi|GudsyAbaAmm@dN_F", v = 80, e = true, etcs = 2, pzb = true, g = "1435", tr = 1 },
   { line = "obg|GcztyAj[gVzF{AtGjApYjS", v = 80, e = true, etcs = 2, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64], line = "u}~~G{d}xAfr@vWdw@cBdw@aBtv@{Gxu@iQ|u@mNnp@rOnXnv@dYvfAnb@`z@vo@~c@td@x{@tk@xl@fp@kf@np@cd@vv@wFdn@yh@nk@kn@~d@}k@bl@}h@`v@qC~_@e_@d_@gv@dj@or@zf@qt@xq@aY~j@{l@|i@_q@nu@sNzl@aj@nr@_Md_@kbAd^qbAno@ab@~l@sm@di@oq@|f@gr@`n@wTnt@|Gz_@yf@aAomAhb@sx@|p@rWxp@u[ro@c[ba@`x@h^zbA~a@||@bp@vc@dv@`Nbf@k_@vq@u`@fs@`Jlx@{@hw@B|v@dApw@tAbs@|Ybw@qC~r@q[zq@ub@hr@w_@rq@}S" }
 
 [[lines]]
 id = "462-01"
@@ -3679,6 +3815,7 @@ pieces = [
   { line = "k}a|Gork~A^}@", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "k|a|Gmtk~AtAsD", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], line = "eca|Gaxq`Bsd@`{@{a@`_A{YlfA_VriAoQ|kA}UliAuF`kAzCrlAaCrpAnBrpAz@tpAMxpAvMxmA~JxnA|F~oAjV|dAtf@xx@t]~aAm@vpAeD~oAeLzmAe@xpA`AppAr@hpAcJ`oAeLjnAcBzpAaBjpAxJ`jAjm@tY" }
 
 [[lines]]
 id = "612-01"
@@ -3691,6 +3828,7 @@ pieces = [
   { line = "cew|Gsnl|AoMhm@mJvlB", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "a_x|Gqrg|AsBpR", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [24, 25], line = "aqw|Gyjk|AmGtoA" }
 
 [[lines]]
 id = "achenseebahn"
@@ -3699,6 +3837,7 @@ operator = "Achenseebahn AG"
 pieces = [
   { line = "srf`Hgo{fAwGoUyJaAcNhTcUbUkGtQqK`H_GlJ_EViHwH_\\rJeHxQgNrIeLdW}QfUoOfKoEl`@oMdk@Qb^yE~p@", e = false, g = "1000", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6], line = "etf`Hys{fAyd@rCuj@ps@yr@tLef@zt@y`@nq@yPzkA" }
 
 [[lines]]
 id = "ampflwanger-bahn"
@@ -3707,6 +3846,7 @@ operator = "ÖGEG"
 pieces = [
   { line = "{u_dHiy}qA{CnIeHj@oDwFsCkVwFeIsUuLoWqEam@~b@{b@zPa]xDmj@iDu_@hIm]rVqV`XuUr]s\\~^wPd[gh@bRukAtPuJdE", e = false, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], line = "{u_dHiy}qA_b@w^mt@aK{p@je@av@jNwv@[gr@h_@oj@~s@mi@fu@ws@tYqv@rK" }
 
 [[lines]]
 id = "anschlussbahn-traisental"
@@ -3715,6 +3855,7 @@ operator = "AB Traisental"
 pieces = [
   { line = "k_xcHara~AzDyLr`@{Jlm@{g@hS}Gfa@{^|z@oIdMsEfMmNjRqc@vSaKhWy`@bk@iUfg@{c@|IOlT~MvOEh]d_@fFnSpA|\\dHlTbNnM`g@vVlRwCzLnCpQeCzHeKvEo@j_Ady@vUli@pEfb@xNfKhR|g@Cdo@|BlGrElC", v = 40, e = false, g = "1435", tr = 1 },
 ]
+posts = { km = [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], line = "wvwcHeab~Aps@k]nq@ab@vq@s^|u@oMfg@ov@nl@}l@hr@{_@bq@cIfp@j_@rTliA`q@hc@du@i@|n@hJvl@vn@zYrdAr\\v_A" }
 
 [[lines]]
 id = "bregenzerwaldbahn"
@@ -3724,6 +3865,7 @@ operator = "VBM"
 pieces = [
   { line = "{ge`Hi_l{@sKpf@XzSwCdP`KzzAyG|LaCjUoHf[qErG_G`WmGxCmFjNcJoGaDgKgFUwRxGsCmBoE_M", e = false, g = "760", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5], line = "{ge`Hi_l{@oOtkAnIpoAkRbhAib@fw@}l@qQ" }
 
 [[lines]]
 id = "erzbergbahn"
@@ -3733,6 +3875,7 @@ pieces = [
   { line = "{jcaH}wzyAvb@fIrIzJbSnEbDjEbEnRdIf@rCoEd@yFuFsTBqMoCeQxA}IrDaKxSqZxRsL|WgW`Kw[\\_\\}AuF_GcDsFtBwPfZ_O|IwESuj@iqAwBo]}OoMqB_Hj@}QnFgNlFsg@tFaTfO}Zf[aLpVoj@NoI_DsTaJiRtCa]tQ_ShW{n@n]}WhT{Xnf@oPdMiKvO{@hNtC", e = false, g = "1435", tr = 1 },
   { line = "m{y`HozozA`@L", e = true, g = "1435", tr = 1 },
 ]
+posts = { km = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], line = "ubbaHiizyAvi@ni@_@gcAtc@uw@zj@wn@oLcr@wj@n[ea@_`A_\\y|@tNyjAxc@kv@xf@gu@uKajAbd@i{@bl@an@vq@e^" }
 
 [[lines]]
 id = "feistritztalbahn"
@@ -3741,6 +3884,7 @@ operator = "STLB"
 pieces = [
   { line = "a~c_He_m~AGsEgE{JoMzB}CwC~A{O[aP_KmVcFa_@lCuWm@aF_McNuRtLgBcCw@eOkNXuDgK`CgTmC{WsQmM@gT_Rr@qKwZeEc@{FrD{DwB_AyCh@iKqFmGU_MwAiC_K~EqLCuFgNoBqVqKaIqC_GmBqWtFwe@cMof@wGgLiT}FaAmKcDeDgSnOcNvZaKjNcGnCgKtVcErTuYp]oKgAgHzAy]xR}DhFsGW{HxFiJhOuIjC_L[}C_ZwT_IkNdCcMtNqBs@_FyMyQm@wKaK}NfLgRmEaHbI}HeBiLxCmOqHog@eFgReMaKzEsJoMiCVgCpHkCd@kIyMmT{O{EfAsJhNsI_EyGdBqQfQyJIiOuL", e = false, g = "760", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], line = "qld_H{pm~A{Swx@iKsgAgg@cLmP_`Akc@sa@s_@ii@if@uYkX{aAyCojAug@ok@sh@|r@w`@v|@yo@t\\_q@n]cf@h@so@mB}l@gVqp@rNot@mIir@kJ}i@cUoo@Iqp@~G" }
 
 [[lines]]
 id = "ferlacher-bahn"
@@ -3751,6 +3895,7 @@ pieces = [
   { line = "sc}zG{_hvAqHuJmBoQ", v = 30, e = true, g = "1435", tr = 1 },
   { line = "sp}zGa~hvAc@gQ", v = 30, e = false, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5], line = "_t`{Gux}uA~j@oh@nTagAzSuhApGkjAfOy`A" }
 
 [[lines]]
 id = "gleichenberger-bahn"
@@ -3762,6 +3907,7 @@ pieces = [
   { line = "ebb}Guo``Bv@gD", v = 35, e = true, g = "1435", tr = 1 },
   { line = "m`b}G}t``BpQqR", v = 40, e = true, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], line = "y|q}Gqc``Bfp@d]fWjfAdf@ns@~[l}@pHfv@tm@nTlVhv@jt@pVdm@d`@bs@iB|q@tQ~c@oYxGseAwa@ks@{Xqf@oZ}s@hc@gf@fh@qk@x]{|@xYw{@" }
 
 [[lines]]
 id = "innsbrucker-mittelgebirgsbahn"
@@ -3779,6 +3925,7 @@ pieces = [
   { line = "aij_Hk~vdAhNbQjQzc@zGvGxDjNdKzK", v = 30, e = true, pzb = false, g = "1000", tr = 1 },
   { line = "olh_HkbtdA|@hA", e = true, pzb = false, g = "1000", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8], line = "ebl_Hq}sdAwI}mAfDoEjLbGfPgDjQm~@`Zb`Ana@f}@" }
 
 [[lines]]
 id = "krumpe"
@@ -3790,6 +3937,7 @@ pieces = [
   { line = "ob{dHwus}AK|C", v = 20, e = false, g = "760", tr = 1 },
   { line = "{b{dHyps}A}CzUv@pHzPf^hSbOlSl\\", v = 40, e = false, g = "760", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4], line = "ut{dHuaz}Afa@pj@b@|rAkP|iAbNzeA" }
 
 [[lines]]
 id = "lokalbahn-linz-waizenkirchen"
@@ -3842,6 +3990,7 @@ pieces = [
   { line = "wz{eH{zysAuf@b[_Xt`@{V|E}UtNwMl_@}VrHmLva@c@jJdH`[dAr[nEfD|OuBpGhB`^jo@", v = 50, e = true, g = "1435", tr = 1 },
   { line = "au~eHi`qsAfCbK", v = 40, e = true, g = "1435", tr = 1 },
 ]
+posts = { km = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42], line = "anteHoucvAh[ndAi@zqAxAvqAuChpAhJllAhG~jAdI`oAaAloA}[reAc]r}@{`@fy@wVjz@dBvsAfH~pAbJvpAqNpmAu@ntAeFzqAD~pAhApfAqk@vq@kp@~`@fe@jr@z[xv@hMhq@sYh}@pAhjA}d@`{@ka@bo@uHrfAyh@ln@aA~lAvVjfAqV|aA_r@fc@wl@dg@wi@hq@ud@nr@bWh_A`l@pd@" }
 
 [[lines]]
 id = "lokalbahn-mixnitz-st-erhard"
@@ -3850,6 +3999,7 @@ operator = "MStE (Lokalbahn Mixnitz – St. Erhard AG)"
 pieces = [
   { line = "ir{_H_`w|AuW`VeW~FiIc@w^a_@uLoV_L{IoR_EyTeNgSiZaDeLgI{G{DcJaKqGkFiLuJgEeEqN[iMiFmHqAmU_M{DsCqNyIGgV}WeEqQgFgIiHo^iKuKwB_LgJ_OmBw[hAkH{EkVxAu]Uad@", v = 25, e = true, g = "760", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], line = "a}|_Hsbv|Aeo@m^{l@gg@ak@{m@gh@wr@oXa`Ami@wf@e_@s~@o]a_A}BamA" }
 
 [[lines]]
 id = "lokalbahn-neumarkt-waizenkirchen"
@@ -3864,6 +4014,7 @@ pieces = [
   { line = "ok~eHguosAHeF", v = 30, e = true, g = "1435", tr = 1 },
   { line = "ek~eHm|osAsDwV", v = 40, e = true, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], line = "kmseHmczrA}QenAsZyeAu^uaAwa@a}@gw@cL}j@}n@cr@q_@_d@c|@}PwlA_FwqAyUckA" }
 
 [[lines]]
 id = "lokalbahn-voecklamarkt-attersee"
@@ -3899,6 +4050,7 @@ pieces = [
   { line = "_jmcHgcrqAv@oG", v = 20, e = true, g = "1000", tr = 1 },
   { line = "ghmcHwkrqAPwA", v = 5, e = true, g = "1000", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], line = "yq}cH{tiqAnf@of@~b@mz@pe@|w@`h@vu@nk@fp@zm@lf@`v@xItk@{b@x_@ibAlc@o~@`b@g~@l_@w_A|[qfA" }
 
 [[lines]]
 id = "lokalbahn-wien-baden"
@@ -3944,6 +4096,7 @@ pieces = [
   { line = "uc~cH}dfbBhGtFjAlK", v = 35, e = true, pzb = false, g = "1435", tr = 1 },
   { line = "_y}cHypebBgCtPgWfy@_Dd`@cEtLkCxA", v = 50, e = true, pzb = false, g = "1435", tr = 1 },
 ]
+posts = { km = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], line = "ax~dHqctbBvl@ih@ds@wO`g@ji@zr@|[~r@|^`u@rTlv@`Lbw@xA`w@bClw@jA~u@lKvu@yBdu@`Jrq@_Izn@h^ho@b^ru@rQ|p@lg@vp@pe@lQhfAkFjqAbp@ja@}GvdAaVjiA" }
 
 [[lines]]
 id = "montafonerbahn"
@@ -3963,6 +4116,7 @@ pieces = [
   { line = "ihj~Gudo{@y@uKnB{L", v = 40, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "sfj~Gg_p{@p@wC", v = 30, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], line = "utw~Gqt}z@bl@}r@jf@su@|UkgAvi@y`@fq@eLhl@{i@zv@gIrj@}j@xd@u{@p^mbAvPmjA" }
 
 [[lines]]
 id = "neusiedler-seebahn"
@@ -3979,6 +4133,7 @@ pieces = [
   { line = "m}rcH}kxeB_EfYuV~`AoGrhA", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "sctcHafseBsEzQ_LxCiJ}IyAoR", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102], line = "ojbbHc|afB}g@eu@yh@{u@sk@sq@up@_f@an@ql@ev@eDaw@qBaw@gC}v@|F}v@~F}v@`G}v@~F_w@~F}v@~F}v@~Fat@rYws@lYms@e]_k@}p@ic@}~@od@c}@wq@qYo[|dAgPnmAqe@z{@u_@|bAm]|aAqi@tu@si@tu@qi@tu@so@lc@st@`Ugf@bz@{\\haAuWdjAwJlpA_a@nA" }
 
 [[lines]]
 id = "pottendorfer-linie-anbindung-wien-hbf"
@@ -3997,6 +4152,7 @@ pieces = [
   { line = "aebeHsj}bBfFkk@hLiU", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "opaeHim_cBhUo\\", v = 100, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [3, 2, 1, 0, -1], line = "mi`eHuwvbBkOumAoZ{iAoLwlAz_@c`A" }
 
 [[lines]]
 id = "raaberbahn"
@@ -4023,6 +4179,7 @@ pieces = [
   { line = "uqccHmt_cBkB`PwIhM", v = 60, e = true, pzb = true, g = "1435", tr = 1 },
   { line = "y_dcHau~bBae@f\\", v = 70, e = true, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115], line = "glfbHsc}cBed@r}@_e@p|@km@bi@cl@ff@gObiAs_@kt@gv@rDew@Kkp@dCyTn{@ew@~@sv@vE{n@~i@gt@hWkn@hk@kg@dw@wq@hYsKtdAuQjlAej@xq@wq@|]}Xp`AXppAw`@x{@mb@hv@" }
 
 [[lines]]
 id = "stainzerbahn"
@@ -4031,6 +4188,7 @@ operator = "PWS"
 pieces = [
   { line = "i`_}Gua{|Apg@uVbGjHtBvLkGleAzEnXqCxV}@lf@_FdRu@rPaJdU?vU_YrcAcl@leAgu@deAaAxNoQdx@wBhc@gOjV{QndA_R`\\{XrX", v = 20, e = false, pzb = false, g = "760", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], line = "i|~|Gad{|Ajn@cCgFznA`@lmAwSlhAcTdiA{c@~z@{f@pv@ua@z|@aOrmAa[jcAg`@~~@" }
 
 [[lines]]
 id = "steyr-lokalbhf-gruenburg"
@@ -4039,6 +4197,7 @@ operator = "ÖGEG"
 pieces = [
   { line = "cqedHgl}vAsGt|@dBnQiArJGbt@wL~e@wBvg@aG|R}MzOaPdb@s@~g@yDpOiAtSJnw@bCxCxa@nMpD|E~@|JxJzFrMPbMiXbEqCrSZ|^bOxe@th@vLnb@nAxPd[rn@p_@p\\rGrKdKt^tO~\\^lHlQnu@dWhe@pCpAvUsH|R`CpGvHzEVbE`KvLvBtWpb@hZbM", e = false, g = "760", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], line = "cqedHgl}vAqDxoAoG`pAiPzlAwa@b~@yHjpAnVd{@fm@la@~m@}[lp@vc@ta@z}@ha@x~@|i@rr@d[peAh^xbA`r@vEbl@|f@" }
 
 [[lines]]
 id = "strecke-buermoos-ostermiething"
@@ -4066,6 +4225,7 @@ pieces = [
   { line = "soddH{komAaJnKc\\j|@aSdZ", v = 80, e = true, g = "1435", tr = 1 },
   { line = "{kfdHyflmAcGtG", v = 40, e = true, g = "1435", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], line = "ekycHcnymAuPjlAgi@tr@an@l^yp@t^kb@b`Aag@py@{p@p]_k@}Mul@lJy`@taA" }
 
 [[lines]]
 id = "strecke-salzburg-lamprechtshausen"
@@ -4105,6 +4265,7 @@ pieces = [
   { line = "{lzcHil{mAom@aeAiD_gA", v = 80, e = true, g = "1435", tr = 1 },
   { line = "u`|cHkz_nAe@}X", v = 40, e = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], line = "_qybHmzrnAkn@d`@yq@``@oe@|y@uj@~q@wk@zq@ir@zX}v@uGgs@lPor@z\\{p@tc@en@`k@cWpfAen@t`@_w@eB_n@xg@ee@t{@wVj}@{m@uZqi@dOyr@|Y}r@bW{l@rn@mk@`Vgg@sy@mImoA" }
 
 [[lines]]
 id = "stubaitalbahn"
@@ -4183,6 +4344,7 @@ pieces = [
   { line = "}ty~GsvhdAzIfD", v = 35, e = true, g = "1000", tr = 1 },
   { line = "ajy~GkqhdAtHnI", e = true, g = "1000", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], line = "ubl_HujodA`_@aJbg@vGv[ft@fZoCpVxTx@|}@tf@{\\te@mLlp@kY|q@u@f[kVxq@kKdi@no@li@lv@ji@`j@tf@nu@vVmF" }
 
 [[lines]]
 id = "taurachbahn"
@@ -4191,6 +4353,7 @@ operator = "TB / Club 760"
 pieces = [
   { line = "cht~GusorA~PkIxAmMkKgv@_]odAaEuf@|Bqe@eJw_@Lw]mIoTgBgUoGcNkDy^{KcTsCeM{A}o@`GkNbNcw@cNa\\cWs`BpDoYs@oSfO_f@fOmVlQeD", e = false, g = "760", tr = 1 },
 ]
+posts = { km = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], line = "cht~GusorA`Lm|@uZkfAuHamAsH_mAwWmfAeU_hA|L}jAoIcfA_S_lA`KukA" }
 
 [[lines]]
 id = "ustrab-wien-guertel"
@@ -4199,6 +4362,7 @@ operator = "Wiener Linien"
 pieces = [
   { line = "uibeH_b}bBzd@`mBa@lc@mChK", v = 50, e = true, g = "1435", tr = 1 },
 ]
+posts = { km = [0, 1, 2], line = "uibeH_b}bBfXfjAnHjmA" }
 
 [[lines]]
 id = "weizer-bahn"
@@ -4218,6 +4382,7 @@ pieces = [
   { line = "}nr~Gmvx~AvSgRbi@sWzN}ArXbC", v = 90, e = false, pzb = true, g = "1435", tr = 1 },
   { line = "qfo~Gcaz~ApObAzGgI", v = 40, e = false, pzb = true, g = "1435", tr = 1 },
 ]
+posts = { km = [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], line = "}zd_Heok~Afi@qu@ti@qv@dh@ot@zn@wk@br@e^pv@cIhw@bAhw@dAxs@{Opk@uq@pk@qq@rk@oq@to@sg@fu@_L" }
 
 [[lines]]
 id = "ybbstalbahn-bergstrecke"
@@ -4226,6 +4391,7 @@ operator = "NÖLB Niederösterreichische Lokalbahnen Betriebsges.m.b.H"
 pieces = [
   { line = "ug{bH_enzAoS{r@oSiYgEwQsq@apA{KJiHfJap@_PyGiH{Y_JwQ{XyMD_EhIuTvQeEdM}I~DkNtTiStJ}Pbq@gFWiGeGiMaBoJsNgHfDiFmGiFlBuFcKsBz@sAzGcHzCyMgAsR{[iE{UxDu[zIePnBeLr@cn@qBaN|AaIg@uViAcKeGgEhF}GnA_LkD}^qGgKsJ}BuFjBaDcD@aT{IuA_V{s@wNiFcQ|BmDeHsEe@uEiMcWqTeLpF{SyIeEkJYeL{Woe@uRsP}^uq@eHmBsEiM}QyNo@eHbDwVoHe\\SkP", e = false, g = "760", tr = 1 },
 ]
+posts = { km = [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70], line = "qw{bHeoozAac@k}@ee@k|@oo@sEeu@{Xso@}Xoe@vh@ai@jk@kc@b`@cm@kT{j@aFoHeiAdLqpAyBkdAy[sw@k[gr@sh@ic@si@{d@cm@kUib@yx@cf@ku@{e@{n@" }
 
 [[lines]]
 id = "zillertalbahn"
@@ -4276,3 +4442,4 @@ pieces = [
   { line = "yp|~G{ilgAtP`G", v = 65, e = false, g = "760", tr = 1 },
   { line = "c_|~GyalgA|JlL", v = 25, e = false, g = "760", tr = 1 },
 ]
+posts = { km = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], line = "agg`Hep}fAvEmlAuSqiAbKc{@fl@_k@zZc_Axm@md@ts@i]fv@sEpv@iBhr@a]bp@ic@du@kN`v@iEpr@i]lr@uWpr@aSls@cYzh@ks@vl@}f@rv@rJnv@q@`p@l\\re@zr@zo@xe@|m@ri@jv@R`v@}Bbt@xF`t@pRdv@vC" }
