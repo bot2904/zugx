@@ -972,6 +972,24 @@ Root causes: four medium-dark reds (RJX, RJ, EC/IC, D); the white-text limit; re
 
 Open: CVD-safe separation of RJ/RJX/private and IR/S needs a second cue (e.g. dashed RJ paths in the Bildfahrplan, or a border on RJX badges); identity is never colour-alone today since badges and paths carry the category text.
 
+### Data pipeline: one SQLite as source of truth, TOML as exports (planned 2026-11-16)
+
+Problem: every view has its own ad-hoc data structure and its own script that extracts something from the GTFS (stations, trains, departures, lines, corridors, Netzgrafik, density …), each re-reading the feed.
+
+Plan: import all inputs into one local SQLite (`.cache/zugx.sqlite`, not committed); derive the views in SQL; small exporters write today's TOML files (committed, reviewable diffs). The app stays static and unchanged.
+
+```
+GTFS feeds ───────────┐
+OSM extract ──────────┼─► .cache/zugx.sqlite ──► SQL views ──► exporters ──► packages/*/data/*.toml
+UIC/HAFAS station map ┘
+```
+
+- **Import**: [node-gtfs](https://github.com/BlinkTagInc/node-gtfs) (MIT, npm dependency, version pinned) loads the GTFS into its standard tables (`agency`, `stops`, `routes`, `trips`, `stop_times`, `calendar`, `calendar_dates`); `shapes` only where needed (line assignment per train). OSM-derived data (VzG lines, signals, abbreviations) into own tables of the same database later.
+- **Views in SQL**: departure plan = `stop_times ⋈ trips ⋈ routes` per station; train index, line per train (`route_short_name`), station index likewise. Only real computations stay TypeScript (passing times, block sections, OSM line matching).
+- **Migration, one export at a time**: a new SQL export must produce byte-identical output to the old script before the old script is removed. Order: departures → lines → stations → trains → netz/corridors.
+- **CI**: the data workflow builds the database first (`vp run db:build`), then the exports; better-sqlite3 needs a native build (fine on the runners).
+- Not in the browser: SQLite via HTTP range requests (sql.js-httpvfs) was considered and rejected — 40–80 MB even without shapes, ranges only uncompressed, many requests per query, no offline/PWA, binary not diffable.
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
