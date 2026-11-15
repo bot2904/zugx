@@ -63,6 +63,9 @@ export default {
     autoRefresh: "Auto-Aktualisierung",
   },
   journeys: {
+    timetableNote:
+      "Fahrplanauskunft ohne Echtzeit: im Browser aus dem ÖBB-Fahrplan berechnet (Bahn, ohne Verspätungen und Ausfälle).",
+    timetableNoData: "Für diesen Tag liegen noch keine Fahrplandaten vor (nur die nächsten Tage).",
     title: "Verbindungen",
     earlier: "Früher",
     later: "Später",

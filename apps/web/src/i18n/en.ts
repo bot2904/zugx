@@ -61,6 +61,9 @@ export default {
     autoRefresh: "Auto-refresh",
   },
   journeys: {
+    timetableNote:
+      "Timetable search without realtime: computed in the browser from the ÖBB timetable (rail, without delays or cancellations).",
+    timetableNoData: "No timetable data for this day yet (only the next few days).",
     title: "Connections",
     earlier: "Earlier",
     later: "Later",

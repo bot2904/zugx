@@ -15,6 +15,8 @@ import { useKeys } from "../lib/keys.ts";
 import { ALL_CLS, PRODUCT_GROUPS } from "../lib/products.ts";
 import { loadStations, stationById } from "../lib/stations.ts";
 import { addRecentJourney, state } from "../lib/store.ts";
+import { liveMode } from "../lib/live.ts";
+import { timetableJourneys } from "../lib/timetable-routing.ts";
 import { b64url } from "../lib/url.ts";
 import TimelineStrips from "../viz/TimelineStrips.vue";
 
@@ -58,11 +60,36 @@ const opts = () => ({
   results: 6,
 });
 
+/**
+ * Live off: journeys from the timetable, routed in the browser (lib/timetable-routing.ts); paging
+ * moves a two-hour window (refs "tt:<ISO>")
+ */
+const ttNoData = ref(false);
+async function timetableSearch(when: Temporal.ZonedDateTime): Promise<JourneysResult> {
+  const r = await timetableJourneys(from.value, to.value, when, {
+    arrival: arrival.value,
+    transferTime: transferTime.value,
+  });
+  ttNoData.value = !!r.noData;
+  const iso = (z: Temporal.ZonedDateTime) => `tt:${z.toString()}`;
+  return {
+    journeys: r.journeys,
+    earlierRef: iso(when.subtract({ hours: 2 })),
+    laterRef: iso(when.add({ hours: 2 })),
+  };
+}
+const whenZ = () => {
+  const w = opts().when;
+  return w instanceof Temporal.Instant ? w.toZonedDateTimeISO("Europe/Vienna") : w;
+};
+
 async function search() {
   loading.value = true;
   error.value = undefined;
   try {
-    const r: JourneysResult = await api().journeys(from.value, to.value, opts());
+    const r: JourneysResult = liveMode.value
+      ? await api().journeys(from.value, to.value, opts())
+      : await timetableSearch(whenZ());
     journeys.value = r.journeys;
     earlierRef.value = r.earlierRef;
     laterRef.value = r.laterRef;
@@ -80,7 +107,9 @@ async function page(dir: "earlier" | "later") {
   loading.value = true;
   paging.value = dir;
   try {
-    const r = await api().journeys(from.value, to.value, { ...opts(), ref: ref_ });
+    const r = ref_.startsWith("tt:")
+      ? await timetableSearch(Temporal.ZonedDateTime.from(ref_.slice(3)))
+      : await api().journeys(from.value, to.value, { ...opts(), ref: ref_ });
     const have = new Set(journeys.value.map(journeyKey));
     const fresh = r.journeys.filter((j) => !have.has(journeyKey(j)));
     if (dir === "earlier") {
@@ -118,7 +147,10 @@ async function resolveNames() {
   }
 }
 
-watch([from, to, via, t, arrival, products, transferTime], () => void search().then(resolveNames));
+watch(
+  [from, to, via, t, arrival, products, transferTime, liveMode],
+  () => void search().then(resolveNames),
+);
 // a permalink with #n opens connection n: once loaded, bring its details into view (content is async,
 // so neither the URL fragment nor scroll-initial-target can do it)
 const details = ref<HTMLElement>();
@@ -271,6 +303,10 @@ useKeys({
     </div>
 
     <Status :loading="loading && !journeys.length" :error="error" @retry="search" />
+    <p v-if="!liveMode" class="muted my-1 text-xs" role="note">
+      <span class="live-dot" aria-hidden="true">●</span> {{ $t("journeys.timetableNote") }}
+      <template v-if="ttNoData"> {{ $t("journeys.timetableNoData") }}</template>
+    </p>
 
     <div v-if="journeys.length" class="card p-2" :aria-busy="!!paging">
       <button

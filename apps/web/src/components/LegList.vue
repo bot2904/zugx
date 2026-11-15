@@ -5,6 +5,7 @@ import { ref } from "vue";
 import { fmtDuration, ms } from "../lib/format.ts";
 import EventTime from "./EventTime.vue";
 import LineBadge from "./LineBadge.vue";
+import { trainSlug } from "../lib/url.ts";
 import Platform from "./Platform.vue";
 import Remarks from "./Remarks.vue";
 
@@ -82,7 +83,18 @@ function transferBefore(i: number): number | undefined {
           >
             <LineBadge :line="l.line" />
           </RouterLink>
-          <span class="ml-2 text-sm">→ {{ l.direction }}</span>
+          <!-- timetable search (Live off): no HAFAS journey id, the train page by name and day -->
+          <RouterLink
+            v-else-if="l.line"
+            :to="{
+              path: `/train/${trainSlug(l.line.name)}`,
+              query: { d: l.dep.planned.slice(0, 10) },
+            }"
+            class="no-underline"
+          >
+            <LineBadge :line="l.line" />
+          </RouterLink>
+          <span v-if="l.direction" class="ml-2 text-sm">→ {{ l.direction }}</span>
           <span class="muted ml-2 text-xs">{{
             fmtDuration(Math.round((ms(l.arr.planned) - ms(l.dep.planned)) / 60000))
           }}</span>

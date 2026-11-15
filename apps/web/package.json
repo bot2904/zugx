@@ -18,6 +18,7 @@
     "@zugx/trains": "workspace:*",
     "@zugx/vzg": "workspace:*",
     "maplibre-gl": "catalog:",
+    "minotor": "catalog:",
     "temporal-polyfill": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:",

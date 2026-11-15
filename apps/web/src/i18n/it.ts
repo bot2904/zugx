@@ -63,6 +63,9 @@ export default {
     autoRefresh: "Aggiornamento automatico",
   },
   journeys: {
+    timetableNote:
+      "Ricerca sull’orario senza tempo reale: calcolata nel browser dall’orario ÖBB (treni, senza ritardi né soppressioni).",
+    timetableNoData: "Nessun dato d’orario per questo giorno (solo i prossimi giorni).",
     title: "Collegamenti",
     earlier: "Prima",
     later: "Dopo",
