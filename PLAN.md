@@ -1031,7 +1031,7 @@ Licence: CC BY-SA 4.0 is share-alike — everything derived from the Slovenian d
 
 **Committed size (estimate)**: station index < 0.1 MB (~200 rail stations), train index ~0.3 MB (~400 trains/day), departure plans ~1–2 MB, Bildfahrplan sheets ~2–3 MB if built; routing data not committed. Layout `packages/*/data/si/…`, one item per line.
 
-**Switching countries**: mostly no switch — by object: station search, departure plan, train index and search span all countries; a station's country follows from its UIC code (79… SI, 81… AT). Only overviews (Bildfahrplan sheets, network map, line index) get a country filter ("AT | SI | alle", like the network map's region switch), URL parameter only where needed (`/bf?land=si`). Radar and disruptions stay ÖBB HAFAS.
+**Switching countries** (decided 2026-11-16): an explicit **country selector in the menu** (AT / SI …, remembered, also in links as `?land=si`). It sets the country for the overviews (Bildfahrplan sheets, network map, line index, station and train index) and the default for searches. Objects keep their own country: a station's country follows from its UIC code (79… SI, 81… AT), so a link to a Slovenian station or train works whatever the selector says; cross-border search spans both countries. Radar and disruptions stay ÖBB HAFAS.
 
 **Decided (2026-11-16)**: GTFS (not NeTEx). OSM extract: `.cache/slovenia-261114.osm.pbf` (300 MB).
 
@@ -1042,7 +1042,7 @@ Licence: CC BY-SA 4.0 is share-alike — everything derived from the Slovenian d
 - Slovenian stations have UIC codes 79xxxxx, which ÖBB HAFAS also uses: the live board works for Slovenian stations with the trains HAFAS knows (mainly cross-border).
 - Cross-border trains (Villach – Jesenice – Ljubljana, Graz – Maribor) appear in both feeds → dedupe by train number and day.
 
-**Open decisions**: (1) scope of the first step — (a) station index, departure plan, train index, timetable search (recommended) or (b) also Bildfahrplan sheets (SŽ has no ÖBB-style sheets; corridors along OSM lines?); (2) GTFS (anonymous) or NeTEx (registration) — start with GTFS; (3) ~~update rhythm~~ — decided: no automatic updates; (4) country switch by object as proposed, or an explicit country selector in the menu.
+**Open decisions**: (1) scope of the first step — (a) station index, departure plan, train index, timetable search (recommended) or (b) also Bildfahrplan sheets (SŽ has no ÖBB-style sheets; corridors along OSM lines?); (2) GTFS (anonymous) or NeTEx (registration) — start with GTFS; (3) ~~update rhythm~~ — decided: no automatic updates; (4) ~~country switch~~ — decided: country selector in the menu.
 
 ## Sources
 
