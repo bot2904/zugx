@@ -425,6 +425,9 @@ test("command palette is a native modal dialog (Esc and backdrop close it)", asy
 test("accessibility basics: lang, skip link, named controls", async ({ page }) => {
   await page.goto("/station/8103000");
   await expect(page.locator("html")).toHaveAttribute("lang", /^(en|de|it)$/);
+  // the app must have rendered (under load, Tab could otherwise land before it exists)
+  await expect(page.locator("h1").first()).toBeVisible();
+  await page.locator("body").focus();
   await page.keyboard.press("Tab");
   await expect(page.locator(".skip-link")).toBeFocused();
   // every button and text input has an accessible name
