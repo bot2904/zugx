@@ -10,6 +10,7 @@
     "./match": "./src/match.ts",
     "./stations.toml": "./data/stations.toml",
     "./gtfs-hafas-map.toml": "./data/gtfs-hafas-map.toml",
+    "./abbr.toml": "./data/abbr.toml",
     "./stations.schema.json": "./stations.schema.json"
   },
   "scripts": {

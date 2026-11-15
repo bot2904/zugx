@@ -63,6 +63,7 @@ export default defineConfig({
     cache: true,
     tasks: {
       "stations:build": { command: "vpx packages/stations/src/build.ts", cache: false },
+      "stations:abbr": { command: "vpx packages/stations/src/abbr.ts", cache: false },
       "trains:build": { command: "vpx packages/trains/src/build.ts", cache: false },
       "departures:build": { command: "vpx packages/trains/src/departures.ts", cache: false },
       "netz:build": { command: "vpx packages/netz/src/build.ts", cache: false },
