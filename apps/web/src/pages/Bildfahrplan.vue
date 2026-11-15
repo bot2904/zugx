@@ -10,7 +10,16 @@ import {
   useSessionStorage,
 } from "@vueuse/core";
 import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
-import { computed, onMounted, onUnmounted, ref, shallowRef, useTemplateRef, watch } from "vue";
+import {
+  computed,
+  defineAsyncComponent,
+  onMounted,
+  onUnmounted,
+  ref,
+  shallowRef,
+  useTemplateRef,
+  watch,
+} from "vue";
 import { useI18n } from "../i18n/index.ts";
 import { useRoute, useRouter } from "vue-router";
 import CorridorIndexView from "../components/CorridorIndex.vue";
@@ -45,7 +54,7 @@ import {
 } from "../lib/bf-plan.ts";
 import { assignDirections, nodeBoardStops } from "../lib/bf-node-board.ts";
 import { categoryBadgeColor, categoryColor } from "../lib/products.ts";
-import { trainSlug } from "../lib/url.ts";
+import { slugToTrain, trainSlug } from "../lib/url.ts";
 import { useKeys } from "../lib/keys.ts";
 import { usePageTitle } from "../lib/title.ts";
 import type { TipContent } from "../lib/tip.ts";
@@ -61,6 +70,8 @@ import {
   type LiveRun,
 } from "../lib/bf-live.ts";
 import { loadStations, stationById } from "../lib/stations.ts";
+/** a train's run over the chart (loaded on first use) */
+const TripPanel = defineAsyncComponent(() => import("../components/TripPanel.vue"));
 
 type CorridorRef = Pick<CorridorIndexEntry, "id" | "name" | "oebb" | "lines"> &
   Partial<Pick<CorridorIndexEntry, "names">>;
@@ -737,9 +748,26 @@ function onWheel(e: WheelEvent) {
   void syncFrom();
 }
 
-function openTrain(t: CorridorTrain) {
-  void router.push({ path: `/train/${trainSlug(`${t.cat} ${t.nr}`)}`, query: { d: date.value } });
+/** a train's run in a side panel over the chart (?train=RJX-162; "back" closes it) */
+const panelTrain = computed(() =>
+  typeof route.query.train === "string" ? slugToTrain(route.query.train) : undefined,
+);
+function openTrain(t: CorridorTrain, e?: MouseEvent) {
+  const slug = trainSlug(`${t.cat} ${t.nr}`);
+  // Ctrl/⌘/Shift click: the full train page in a new tab
+  if (e && (e.ctrlKey || e.metaKey || e.shiftKey)) {
+    window.open(
+      router.resolve({ path: `/train/${slug}`, query: { d: date.value } }).href,
+      "_blank",
+    );
+    return;
+  }
+  void router.push({ query: { ...route.query, train: slug } });
 }
+const closeTrain = () => {
+  const { train: _, ...q } = route.query;
+  void router.replace({ query: q });
+};
 
 const trainByKey = computed(
   () =>
@@ -1125,7 +1153,7 @@ watch([plan, nodeHafas, date, t0, t1, nodeAll], () => void loadNodeBoards(), {
             data-tip-at="pointer"
             @mouseenter="hover = r.t"
             @mouseleave="hover = undefined"
-            @click="openTrain(r.t)"
+            @click="openTrain(r.t, $event)"
           >
             <path :d="r.d" fill="none" stroke="transparent" stroke-width="8" />
             <path
@@ -1402,6 +1430,7 @@ watch([plan, nodeHafas, date, t0, t1, nodeAll], () => void loadNodeBoards(), {
         @hover="hover = $event"
       />
     </template>
+    <TripPanel v-if="panelTrain" :name="panelTrain" :date="date" @close="closeTrain" />
   </section>
 </template>
 

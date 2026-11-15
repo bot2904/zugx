@@ -76,7 +76,7 @@ watch(
         >
           <th class="sticky-col text-left font-normal">
             <RouterLink
-              :to="{ path: `/train/${trainSlug(`${r.t.cat} ${r.t.nr}`)}`, query: { d: date } }"
+              :to="{ query: { ...$route.query, train: trainSlug(`${r.t.cat} ${r.t.nr}`) } }"
               ><LineBadge :cat="r.t.cat" :nr="r.t.nr" small
             /></RouterLink>
           </th>

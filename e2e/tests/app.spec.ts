@@ -182,9 +182,13 @@ test("bildfahrplan: timetable tables below the chart, both directions", async ({
     .getByRole("button", { name: /Swap direction|Richtung tauschen|Inverti direzione/ })
     .click();
   await expect(table.locator("thead th").nth(1)).not.toHaveText("Wien Hbf");
-  // row → train page
+  // row → the train's run in a panel over the page (?train=), Esc closes it
   await table.locator("tbody a").first().click();
-  await expect(page).toHaveURL(/\/train\//);
+  await expect(page).toHaveURL(/[?&]train=\w+-\d+/);
+  await expect(page.locator(".trip-panel")).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(page.locator(".trip-panel")).toHaveCount(0);
+  await expect(page).not.toHaveURL(/[?&]train=/);
 });
 
 test("bildfahrplan planning: node — Taktknoten and transfers", async ({ page }) => {

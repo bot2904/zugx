@@ -101,9 +101,11 @@ const { locale } = useI18n();
         Weg-Zeit-Diagramme für Strecken (die Fahrplanbilder der ÖBB und einige längere Korridore):
         waagrecht die Bahnhöfe nach Streckenkilometer, senkrecht die Zeit nach unten. Jeder Zug ist
         eine Linie in der Farbe seiner Gattung; steile Linien sind langsam, senkrechte Stücke sind
-        Aufenthalte. Die Farben folgen der Angebotsebene wie in der Fahrplanplanung üblich: RJX
-        magenta, RJ rot, EC/IC braunrot, ICE dunkelgrau, IR und CJX violett, REX grün, R graublau, S
-        blau, Nightjet nachtblau, private Fernverkehrsanbieter (WESTbahn, RegioJet) orange.
+        Aufenthalte. Ein Klick auf einen Zug (im Diagramm oder in den Tabellen) öffnet seinen
+        Zuglauf seitlich, Strg/⌘-Klick die ganze Zugseite. Die Farben folgen der Angebotsebene wie
+        in der Fahrplanplanung üblich: RJX magenta, RJ rot, EC/IC braunrot, ICE dunkelgrau, IR und
+        CJX violett, REX grün, R graublau, S blau, Nightjet nachtblau, private Fernverkehrsanbieter
+        (WESTbahn, RegioJet) orange.
       </p>
       <ul>
         <li>
@@ -397,10 +399,11 @@ const { locale } = useI18n();
       <p>
         Time–distance diagrams for lines (ÖBB's timetable diagrams and some longer corridors):
         stations across by line km, time downwards. Each train is a line in its category's colour;
-        steep lines are slow, vertical parts are stops. Colours follow the offer level as usual in
-        timetable planning: RJX magenta, RJ red, EC/IC brown-red, ICE dark grey, IR and CJX violet,
-        REX green, R slate blue, S blue, Nightjet night blue, private long-distance operators
-        (WESTbahn, RegioJet) orange.
+        steep lines are slow, vertical parts are stops. Click a train (in the chart or the tables)
+        to open its run in a side panel, Ctrl/⌘-click for the full train page. Colours follow the
+        offer level as usual in timetable planning: RJX magenta, RJ red, EC/IC brown-red, ICE dark
+        grey, IR and CJX violet, REX green, R slate blue, S blue, Nightjet night blue, private
+        long-distance operators (WESTbahn, RegioJet) orange.
       </p>
       <ul>
         <li>

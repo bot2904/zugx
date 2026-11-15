@@ -138,7 +138,7 @@ watch(
               :style="{ color: categoryColor(r.t.cat) }"
             >
               <RouterLink
-                :to="{ path: `/train/${trainSlug(`${r.t.cat} ${r.t.nr}`)}`, query: { d: date } }"
+                :to="{ query: { ...$route.query, train: trainSlug(`${r.t.cat} ${r.t.nr}`) } }"
                 class="train-link"
               >
                 <span class="cat mono">{{ r.t.cat }}</span>
