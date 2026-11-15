@@ -4,6 +4,7 @@
 //
 //   <button v-tip="$t('bf.swap')">⇄</button>      <g v-tip="`${name}: ${n}`">…</g>
 //   <g v-tip="{ title: 'Hauptsignal A12', lines: ['km 3.229', '100 km/h'] }">…</g>
+//   <g v-tip="…" data-tip-at="pointer">  (next to the mouse instead of below the element)
 //
 // Accessibility: the text becomes the accessible name of controls without one (icon buttons),
 // otherwise an accessible description — what the `title` attribute provided before.
@@ -54,9 +55,16 @@ function tipEl(): HTMLDivElement {
   return tip;
 }
 
+/** last mouse position (for `data-tip-at="pointer"`: long shapes such as train paths) */
+let mouse: { x: number; y: number } | undefined;
+const atPointer = (el: El) => el.getAttribute("data-tip-at") === "pointer";
+
 function place(el: El) {
   const t = tipEl();
-  const r = el.getBoundingClientRect();
+  const r =
+    atPointer(el) && mouse
+      ? { left: mouse.x, right: mouse.x, width: 0, top: mouse.y - 12, bottom: mouse.y + 12 }
+      : el.getBoundingClientRect();
   const w = t.offsetWidth;
   const h = t.offsetHeight;
   const left = Math.max(8, Math.min(r.left + r.width / 2 - w / 2, innerWidth - w - 8));
@@ -86,9 +94,16 @@ const INTERACTIVE = "a, button, input, select, textarea, label, summary, [tabind
 function onEnter(e: PointerEvent) {
   if (e.pointerType !== "mouse") return;
   const el = e.currentTarget as El;
+  mouse = { x: e.clientX, y: e.clientY };
   clearTimeout(timer);
   // moving from one tooltip to the next: no delay
   timer = setTimeout(() => show(el), owner ? 0 : SHOW_DELAY);
+}
+function onMove(e: PointerEvent) {
+  if (e.pointerType !== "mouse") return;
+  mouse = { x: e.clientX, y: e.clientY };
+  const el = e.currentTarget as El;
+  if (owner === el && atPointer(el)) place(el);
 }
 function onLeave(e: PointerEvent) {
   if (e.pointerType !== "mouse") return;
@@ -157,6 +172,7 @@ export const vTip: Directive<El, TipContent | undefined> = {
     update(el, value);
     el.addEventListener("pointerenter", onEnter as EventListener);
     el.addEventListener("pointerleave", onLeave as EventListener);
+    el.addEventListener("pointermove", onMove as EventListener);
     el.addEventListener("pointerup", onTap as EventListener);
     el.addEventListener("focusin", onFocus as EventListener);
     el.addEventListener("focusout", hideTip);
@@ -171,6 +187,7 @@ export const vTip: Directive<El, TipContent | undefined> = {
     TEXT.delete(el);
     el.removeEventListener("pointerenter", onEnter as EventListener);
     el.removeEventListener("pointerleave", onLeave as EventListener);
+    el.removeEventListener("pointermove", onMove as EventListener);
     el.removeEventListener("pointerup", onTap as EventListener);
     el.removeEventListener("focusin", onFocus as EventListener);
     el.removeEventListener("focusout", hideTip);

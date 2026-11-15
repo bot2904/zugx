@@ -14,6 +14,7 @@ import { useRoute, useRouter } from "vue-router";
 import CorridorIndexView from "../components/CorridorIndex.vue";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
+import type { TipContent } from "../lib/tip.ts";
 import { api } from "../lib/api.ts";
 import {
   buildRuns,
@@ -37,7 +38,7 @@ const indexFile = Object.entries(files).find(([p]) => p.endsWith("/index.toml"))
   | (() => Promise<{ default: CorridorIndex }>)
   | undefined;
 
-const { locale } = useI18n();
+const { t, locale } = useI18n();
 const route = useRoute();
 const router = useRouter();
 const list = shallowRef<CorridorRef[]>([]);
@@ -321,14 +322,32 @@ const hafasOnlyTrains = computed(() =>
 const drawnByKey = computed(
   () => new Map(drawn.value.map((r) => [trainKey(r.t.cat, r.t.nr), r.t] as const)),
 );
-const hoverLive = computed(() =>
-  hover.value && liveOn.value
-    ? liveRuns.value.get(trainKey(hover.value.cat, hover.value.nr))
-    : undefined,
-);
-const hoverReported = computed(() =>
-  hoverLive.value ? lastReported(hoverLive.value, viennaMinutes(now.value)) : undefined,
-);
+/** tooltip of a train: number, route, and with Live its delay and last report */
+function trainTip(tr: CorridorTrain): TipContent {
+  const live = liveOn.value ? liveRuns.value.get(trainKey(tr.cat, tr.nr)) : undefined;
+  const rep = live ? lastReported(live, viennaMinutes(now.value)) : undefined;
+  return {
+    title: `${tr.cat} ${tr.nr}`,
+    lines: [
+      [tr.origin, tr.headsign].filter(Boolean).join(" → "),
+      live &&
+        `${t("bf.live")}: ${
+          live.delay === undefined
+            ? t("bf.liveNoRt")
+            : live.delay
+              ? `+${live.delay}′`
+              : t("bf.liveOnTime")
+        }`,
+      rep?.last &&
+        t("bf.liveAt", {
+          n: rep.stations,
+          station: data.value?.stations[rep.last.i]?.name ?? "",
+          time: hhmmOf(rep.last.rt),
+        }),
+      live?.hafasOnly && t("bf.hafasOnly"),
+    ],
+  };
+}
 const liveDrawn = computed(() => {
   const c = data.value;
   if (!c || !liveOn.value) return [];
@@ -660,6 +679,8 @@ function toggleCat(c: string) {
             v-for="(r, i) in drawn.filter((r) => !hidden.has(r.t.cat))"
             :key="i"
             class="cursor-pointer"
+            v-tip="trainTip(r.t)"
+            data-tip-at="pointer"
             @mouseenter="hover = r.t"
             @mouseleave="hover = undefined"
             @click="openTrain(r.t)"
@@ -803,47 +824,6 @@ function toggleCat(c: string) {
         >
       </template>
     </div>
-    <!-- always rendered (nbsp when empty) so hovering doesn't shift the layout -->
-    <p class="mono my-1 min-h-[1.4em] text-sm">
-      <template v-if="hover">
-        {{ hover.cat }} {{ hover.nr }}
-        <span class="muted"
-          >{{ hover.origin
-          }}<template v-if="hover.headsign"> → {{ hover.headsign }}</template></span
-        >
-        <template v-if="hoverLive">
-          ·
-          <span
-            :class="
-              (hoverLive.delay ?? 0) >= 5
-                ? 'text-[var(--bad)]'
-                : hoverLive.delay
-                  ? 'text-[var(--warn)]'
-                  : 'text-[var(--good)]'
-            "
-            >{{
-              hoverLive.delay === undefined
-                ? $t("bf.liveNoRt")
-                : hoverLive.delay
-                  ? `+${hoverLive.delay}'`
-                  : $t("bf.liveOnTime")
-            }}</span
-          >
-          <span v-if="hoverReported?.last" class="muted">
-            ·
-            {{
-              $t("bf.liveAt", {
-                n: hoverReported.stations,
-                station: data?.stations[hoverReported.last.i]?.name ?? "",
-                time: hhmmOf(hoverReported.last.rt),
-              })
-            }}
-          </span>
-          <span v-if="hoverLive.hafasOnly" class="muted"> · {{ $t("bf.hafasOnly") }}</span>
-        </template>
-      </template>
-      <template v-else>&nbsp;</template>
-    </p>
   </section>
 </template>
 

@@ -279,12 +279,17 @@ test("footer links imprint and privacy policy (German version authoritative)", a
   await expect(page).toHaveURL(/\/imprint$/);
 });
 
-test("bildfahrplan hover shows train, departure station and destination", async ({ page }) => {
+test("bildfahrplan hover tooltip shows train, departure station and destination", async ({
+  page,
+}) => {
   await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
   const train = page.locator("svg[role=img] g.cursor-pointer").first();
   await train.waitFor({ state: "attached" });
-  await train.dispatchEvent("mouseenter"); // the first run may lie partly outside the clipped plot
-  await expect(page.locator("p.mono").filter({ hasText: "→" })).toHaveText(/\S+ \d+\s+.+ → .+/);
+  // the first run may lie partly outside the clipped plot: synthetic mouse hover
+  await train.dispatchEvent("pointerenter", { pointerType: "mouse", clientX: 300, clientY: 300 });
+  const tip = page.getByRole("tooltip");
+  await expect(tip.locator("strong")).toHaveText(/^\S+ \d+$/);
+  await expect(tip).toContainText(" → ");
 });
 
 test("netzgrafik opens the Netzgrafik-Editor with the network in the URL fragment", async ({
