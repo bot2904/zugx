@@ -107,7 +107,55 @@ const { locale } = useI18n();
           Jetzt-Linie. Der ersetzte Plan wird dünn und blass. Auch Züge, die in den Fahrplandaten
           fehlen (z. B. WESTbahn), erscheinen dann.
         </li>
+        <li>
+          <strong>Maßstab</strong> 1×/2×/4× streckt die Zeitachse (Tasten
+          <kbd>+</kbd>/<kbd>−</kbd>). Am oberen Rand zeigen eine bzw. zwei dünne Linien, wo die
+          Strecke ein- oder zweigleisig ist.
+        </li>
+        <li>
+          <strong>Fahrplantabellen</strong> unter dem Diagramm, für beide Richtungen: wie im
+          ÖBB-Kursbuch (Bahnhöfe als Zeilen, ein Zug je Spalte, „|“ = Durchfahrt);
+          <strong>Transponieren</strong> zeigt eine Zeile je Zug.
+        </li>
+        <li>
+          <strong>Zweiter Bildschirm</strong>: Diagramm und Tabellen lassen sich in eigenen Fenstern
+          öffnen; Tag, Uhrzeit, Abschnitt und der Zug unter dem Mauszeiger bleiben synchron.
+        </li>
       </ul>
+      <h3 id="planung">Planung</h3>
+      <p>
+        Unter dem Diagramm werten vier Ansichten den gezeigten Fahrplan aus – für kürzere Umstiege,
+        verlässlichere Züge auf eingleisigen Strecken und schnellere Fahrten:
+      </p>
+      <ul>
+        <li>
+          <strong>Knoten</strong>: für einen Bahnhof (Auswahl oder Klick auf den Namen im Diagramm)
+          die Linien mit ihren üblichen Ankunfts- und Abfahrtsminuten und ihrem Takt, ob sie sich um
+          eine Knotenminute treffen (Vollknoten :00, Halbknoten :30), die Symmetrieminute; dazu für
+          jede Ankunft der erste Anschluss je Richtung (grün ≤ 10′, gelb ≤ 20′, rot länger) und
+          knapp verpasste Anschlüsse. Der Mindestumstieg ist einstellbar.
+        </li>
+        <li>
+          <strong>Kreuzungen</strong>: wo sich Züge beider Richtungen neben eingleisigen Abschnitten
+          begegnen – mit dem Puffer je Richtung (wie viel Verspätung des Gegenzugs abgefangen wird)
+          und, bei Echtzeit, der zu erwartenden Folgeverspätung. Im Diagramm: eingleisige Abschnitte
+          grau, Kreuzungen als Punkte, Begegnungen zwischen zwei Bahnhöfen als ✕ (oft eine Ausweiche
+          ohne Personenhalt).
+        </li>
+        <li>
+          <strong>Fahrzeitreserve</strong>: geplante Fahrzeit zwischen zwei Halten im Vergleich zur
+          kürzest möglichen mit der zulässigen Geschwindigkeit (inkl. Anfahren und Bremsen) – je
+          Abschnitt, Gattung und Richtung. Viel Reserve heißt Spielraum für schnellere Züge.
+        </li>
+        <li>
+          <strong>Pünktlichkeit</strong>: wo Züge Zeit verlieren, je Abschnitt und Halt, aus den
+          gemeldeten Echtzeiten. Gesammelt im eigenen Browser, solange Echtzeit läuft (7 Tage).
+        </li>
+      </ul>
+      <p class="muted">
+        Grenzen: nur Züge dieses Bildfahrplans (Anschlüsse an andere Strecken fehlen); Ein-/
+        Zweigleisigkeit aus OpenStreetMap, Durchfahrtszeiten und Mindestfahrzeiten geschätzt.
+      </p>
 
       <h2 id="vzg">VzG-Grafik</h2>
       <p>
@@ -154,7 +202,8 @@ const { locale } = useI18n();
         <kbd>Strg/⌘ K</kbd> Befehlspalette, <kbd>j</kbd>/<kbd>k</kbd> nächste/vorige Zeile,
         <kbd>h</kbd>/<kbd>l</kbd> früher/später, <kbd>g</kbd> Start, <kbd>t</kbd> Züge,
         <kbd>r</kbd> Radar. Im Bildfahrplan <kbd>←</kbd>/<kbd>→</kbd> Tag, <kbd>↑</kbd>/<kbd>↓</kbd>
-        zwei Stunden (mit Umschalt ein ganzes Fenster), <kbd>n</kbd> jetzt.
+        zwei Stunden (mit Umschalt ein ganzes Fenster), <kbd>+</kbd>/<kbd>−</kbd> Maßstab,
+        <kbd>n</kbd> jetzt.
       </p>
 
       <h2 id="daten">Daten &amp; Quellen</h2>
@@ -284,7 +333,53 @@ const { locale } = useI18n();
           delay at the now line; the replaced plan becomes thin and faint. Trains missing from the
           timetable data (e.g. WESTbahn) appear too.
         </li>
+        <li>
+          <strong>Scale</strong> 1×/2×/4× stretches the time axis (keys <kbd>+</kbd>/<kbd>−</kbd>).
+          One or two thin lines along the top edge show single or double track.
+        </li>
+        <li>
+          <strong>Timetable tables</strong> below the chart, both directions: like the ÖBB Kursbuch
+          (stations as rows, a train per column, "|" = passes); <strong>Transpose</strong> shows a
+          row per train.
+        </li>
+        <li>
+          <strong>Second monitor</strong>: chart and tables can open in their own windows; day,
+          time, section and the hovered train stay in sync.
+        </li>
       </ul>
+      <h3 id="planning">Planning</h3>
+      <p>
+        Below the chart, four views evaluate the shown timetable – for shorter transfers, more
+        reliable trains on single track and faster journeys:
+      </p>
+      <ul>
+        <li>
+          <strong>Node</strong>: for a station (select it or click its name in the chart) the lines
+          with their usual arrival and departure minutes and interval, whether they meet around a
+          node minute (full node :00, half node :30), the symmetry minute; and for every arrival the
+          first connection per direction (green ≤ 10′, amber ≤ 20′, red longer) and near misses. The
+          minimum transfer time is adjustable.
+        </li>
+        <li>
+          <strong>Crossings</strong>: where trains of both directions meet next to single track –
+          with the buffer each way (how much delay of the opposite train is absorbed) and, with live
+          data, the expected knock-on delay. In the chart: single track shaded, crossings as dots,
+          meetings between two stations as ✕ (often a passing loop without passenger stop).
+        </li>
+        <li>
+          <strong>Running-time reserve</strong>: scheduled running time between two stops vs. the
+          shortest possible at the permitted speed (incl. starting and stopping) – per stretch,
+          category and direction. Much reserve means room for faster trains.
+        </li>
+        <li>
+          <strong>Punctuality</strong>: where trains lose time, per stretch and stop, from the
+          reported realtime times. Collected in your browser while live runs (7 days).
+        </li>
+      </ul>
+      <p class="muted">
+        Limits: only trains of this sheet (transfers to other lines missing); single/double track
+        from OpenStreetMap, passing times and minimum running times estimated.
+      </p>
 
       <h2 id="vzg">VzG chart</h2>
       <p>
@@ -330,7 +425,7 @@ const { locale } = useI18n();
         <kbd>r</kbd> radar. Graphic timetable: <kbd>←</kbd>/<kbd>→</kbd> day, <kbd>↑</kbd>/<kbd
           >↓</kbd
         >
-        two hours (Shift: a whole window), <kbd>n</kbd> now.
+        two hours (Shift: a whole window), <kbd>+</kbd>/<kbd>−</kbd> scale, <kbd>n</kbd> now.
       </p>
 
       <h2 id="daten">Data &amp; sources</h2>
