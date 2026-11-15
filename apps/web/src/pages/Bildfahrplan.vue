@@ -1,7 +1,12 @@
 <script setup lang="ts">
 // Bildfahrplan (time–distance diagram) for a corridor: x = km, y = time (downwards).
 import { addDays, daysBetween, viennaDate, viennaMinutes, viennaNow } from "../lib/format.ts";
-import { useDebounceFn, useDocumentVisibility, useIntervalFn } from "@vueuse/core";
+import {
+  useDebounceFn,
+  useDocumentVisibility,
+  useIntervalFn,
+  useSessionStorage,
+} from "@vueuse/core";
 import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
 import { computed, nextTick, onMounted, ref, shallowRef, watch } from "vue";
 import { useI18n } from "../i18n/index.ts";
@@ -80,6 +85,27 @@ onMounted(async () => {
       .map((x) => ({ id: x, name: x }));
   }
 });
+
+// date and time window (?d, ?from, ?h) survive switching sheets, e.g. back to the index and into
+// another sheet: remembered for the browser tab (sessionStorage)
+const VIEW_KEYS = ["d", "from", "h"] as const;
+const savedView = useSessionStorage<Record<string, string>>("zugx:bf-view", {});
+watch(
+  [id, () => route.query],
+  ([c, q], old) => {
+    if (!c) return;
+    const has = VIEW_KEYS.some((k) => typeof q[k] === "string");
+    // only when another sheet opens (not when e.g. "Today" removes ?d on this one)
+    if (!has && c !== old?.[0] && Object.keys(savedView.value).length) {
+      void router.replace({ query: { ...savedView.value, ...q } });
+      return;
+    }
+    const v: Record<string, string> = {};
+    for (const k of VIEW_KEYS) if (typeof q[k] === "string") v[k] = q[k];
+    savedView.value = v;
+  },
+  { immediate: true },
+);
 
 watch(
   id,

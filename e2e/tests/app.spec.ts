@@ -401,3 +401,16 @@ test("VzG also lists railways without an ÖBB line number", async ({ page }) => 
   await expect(page).toHaveURL(/\/vzg\/stubaitalbahn/);
   await expect(page.locator("svg.vzg text", { hasText: "Fulpmes" }).first()).toBeVisible();
 });
+
+test("bildfahrplan keeps date and time window when switching sheets via the index", async ({
+  page,
+}) => {
+  await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
+  await expect(page).toHaveURL(/\/bf\/[^?]+\?.*d=2026-03-10/);
+  await page.goto("/bf");
+  await page.locator("tbody tr td:nth-child(2) a").nth(3).click();
+  await expect(page).toHaveURL(/\/bf\/[^?]+\?/);
+  await expect(page).toHaveURL(/d=2026-03-10/);
+  await expect(page).toHaveURL(/from=7/);
+  await expect(page).toHaveURL(/h=2/);
+});
