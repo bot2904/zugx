@@ -1014,6 +1014,27 @@ Goal: the same app for Italy, France … — ideally in one instance — by swap
 - **NeTEx**: official and anonymous for FR, IT (Trenitalia), CZ, NO, LU; behind registration in DE, AT, SE, DK, SI; none for ES, PT, IE, UK, the Baltics, GR, FI (rail). No usable npm NeTEx parser exists (only Entur's experimental TypeScript types); plan: own streaming importer (saxes) into the SQLite, starting with FR and IT.
 - **Data sources per country** (static rail GTFS/NeTEx, licence, access; checked 2026-11-15): `docs/europe-rail-data.md`. Clean and anonymous: AT (ÖBB), LU, FI, NO, LV, IE, NL (OVapi), FR (official NeTEx + GTFS, ODbL), ES (Renfe GTFS, CC BY 4.0, no NeTEx), SI (CC BY-SA); key/registration: DE, SE, DK, HU, AT (MVO); restrictive or custom: CH, BE, UK (CIF only); IT: official Trenitalia/Italo NeTEx on the NAP (CCISS), licence not stated; own XML formats: CZ, RO; community-only: PL, BG and the Balkans, TR, UA, MD.
 
+### First additional country: Slovenia (planned 2026-11-16)
+
+**Data needed**
+
+| Data                   | Source                                       | Note                                                                                                  |
+| ---------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Timetable              | NAP nap.si, national GTFS (`b2b.gtfs`, IJPP) | CC BY-SA 4.0, anonymous, ~43 MB, updated daily; all modes → filter rail (`route_type` 2, SŽ agency)   |
+| Station identity       | OSM (`uic_ref` 79xxxxx) + GTFS stops         | one station across countries (Jesenice, Maribor, Spielfeld-Straß …)                                   |
+| Infrastructure (later) | OSM Slovenia extract                         | line chart, network map, signals; Slovenian line numbers in OSM to be checked                         |
+| Live data              | none at first                                | ÖBB HAFAS covers only cross-border trains → Slovenia is "Live off" first (the Live switch handles it) |
+
+Licence: CC BY-SA 4.0 is share-alike — everything derived from the Slovenian data (TOML exports) is published under CC BY-SA; attribution in footer and README.
+
+**Updates**: `db:build` imports several feeds into the same SQLite with a country/feed column (node-gtfs prefix per feed); the existing exports run per country. The data workflow downloads ÖBB and nap.si and opens a PR with the diff; nap.si changes daily → weekly runs (smaller diffs) plus a forced run at the timetable change. Timetable-search data (minotor) is built from both countries together in CI, so cross-border journeys (Wien → Ljubljana) route automatically.
+
+**Committed size (estimate)**: station index < 0.1 MB (~200 rail stations), train index ~0.3 MB (~400 trains/day), departure plans ~1–2 MB, Bildfahrplan sheets ~2–3 MB if built; routing data not committed. Layout `packages/*/data/si/…`, one item per line.
+
+**Switching countries**: mostly no switch — by object: station search, departure plan, train index and search span all countries; a station's country follows from its UIC code (79… SI, 81… AT). Only overviews (Bildfahrplan sheets, network map, line index) get a country filter ("AT | SI | alle", like the network map's region switch), URL parameter only where needed (`/bf?land=si`). Radar and disruptions stay ÖBB HAFAS.
+
+**Open decisions**: (1) scope of the first step — (a) station index, departure plan, train index, timetable search (recommended) or (b) also Bildfahrplan sheets (SŽ has no ÖBB-style sheets; corridors along OSM lines?); (2) GTFS (anonymous) or NeTEx (registration) — start with GTFS; (3) weekly or daily updates; (4) country switch by object as proposed, or an explicit country selector in the menu.
+
 ## Sources
 
 - public-transport-enabler `OebbProvider`: https://github.com/schildbach/public-transport-enabler/blob/master/src/de/schildbach/pte/OebbProvider.java
