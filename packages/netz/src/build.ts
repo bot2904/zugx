@@ -199,6 +199,29 @@ async function main() {
       const h = hafas?.get(st.id);
       if (h) st.hafasId = h;
     }
+    // minimum running times per category between neighbouring stations (running-time reserve)
+    if (speeds) {
+      const min: Record<string, [number | null, number | null][]> = {};
+      for (const cat of new Set(c.trains.map((t) => t.cat))) {
+        const row: [number | null, number | null][] = [];
+        let known = 0;
+        for (let k = 0; k + 1 < c.stations.length; k++) {
+          const a = c.stations[k]!;
+          const b = c.stations[k + 1]!;
+          const len = Math.abs(b.km - a.km);
+          const t = (v: number | undefined) =>
+            v && len > 0 ? Math.round((len / v) * 600) / 10 : null;
+          const pair: [number | null, number | null] = [
+            t(speeds(a.id, b.id, cat, len)),
+            t(speeds(b.id, a.id, cat, len)),
+          ];
+          if (pair[0] !== null) known++;
+          row.push(pair);
+        }
+        if (known) min[cat] = row;
+      }
+      if (Object.keys(min).length) c.minRun = min;
+    }
     if (pairs) {
       // only the VzG lines through the sheet's stations (not a neighbouring single-track line)
       const pos = c.stations.flatMap((st) => {

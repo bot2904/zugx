@@ -194,6 +194,12 @@ export interface Corridor {
   trains: CorridorTrain[];
   /** single / double track along the corridor: [km from, km to, tracks] (from the VzG data) */
   tracks?: [number, number, number][];
+  /**
+   * minimum running time (minutes) between neighbouring stations at the permitted speed (VzG),
+   * capped at the category's top speed, without acceleration/braking: per category, per station
+   * pair k → k+1 `[in corridor order, against it]`, "" (null) where unknown
+   */
+  minRun?: Record<string, [number | null, number | null][]>;
 }
 
 export interface CorridorIndexEntry {
