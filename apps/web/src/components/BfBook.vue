@@ -5,6 +5,7 @@
 // One table for the whole window, scrolling horizontally (station and an/ab columns stay put).
 import type { CorridorTrain } from "@zugx/netz";
 import { computed, ref, useTemplateRef, watch } from "vue";
+import { useRoute } from "vue-router";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
 import { tableRuns, type TableRun, type TableStation } from "../lib/bf-table.ts";
@@ -19,7 +20,16 @@ const props = defineProps<{
   hover?: CorridorTrain;
   /** scroll the hovered train's column into view (table in its own window, hover from the chart) */
   follow?: boolean;
+  /** other sheets branching off at a station (by name): linked after the name */
+  sheets?: Record<string, { id: string; name: string }[]>;
 }>();
+/** date and time window carry over to another sheet (not its station range or options) */
+const route = useRoute();
+const viewQuery = computed(() =>
+  Object.fromEntries(
+    ["d", "from", "h"].flatMap((k) => (route.query[k] ? [[k, route.query[k]]] : [])),
+  ),
+);
 const emit = defineEmits<{ hover: [t: CorridorTrain | undefined] }>();
 
 const runs = computed(() => tableRuns(props.stations, props.trains, props.dir, props.t0, props.t1));
@@ -137,7 +147,24 @@ watch(
             :key="j"
             :class="[row.band && 'band', row.major && 'major', row.kind === 'an' && 'an']"
           >
-            <th class="stn">{{ row.name }}</th>
+            <th
+              class="stn"
+              :class="
+                rows[j - 1]?.name !== row.name && row.name && sheets?.[row.name] && 'has-sheets'
+              "
+            >
+              {{ row.name }}
+              <template v-if="rows[j - 1]?.name !== row.name"
+                ><RouterLink
+                  v-for="sh in (row.name && sheets?.[row.name]) || []"
+                  :key="sh.id"
+                  :to="{ path: `/bf/${sh.id}`, query: viewQuery }"
+                  class="sheet mono"
+                  v-tip="sh.name"
+                  >{{ sh.id }}</RouterLink
+                ></template
+              >
+            </th>
             <th class="kind muted">{{ row.kind }}</th>
             <td
               v-for="(r, c) in block"
@@ -187,21 +214,35 @@ th.stn {
   position: sticky;
   left: 0;
   z-index: 1;
-  width: 10rem;
-  min-width: 10rem;
-  max-width: 10rem;
+  width: 12rem;
+  min-width: 12rem;
+  max-width: 12rem;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: left;
   font-weight: 400;
   background: var(--bg2);
 }
+/* links to sheets branching off here: small, after the name (wrapping rather than cut off) */
+th.stn.has-sheets {
+  white-space: normal;
+  text-overflow: clip;
+}
+.sheet {
+  margin-left: 0.25rem;
+  font-size: 0.625rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+.sheet:hover {
+  color: var(--link);
+}
 tr.major th.stn {
   font-weight: 600;
 }
 th.kind {
   position: sticky;
-  left: 10rem;
+  left: 12rem;
   z-index: 1;
   background: var(--bg2);
   width: 1.5rem;

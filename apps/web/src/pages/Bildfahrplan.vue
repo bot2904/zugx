@@ -62,7 +62,8 @@ import {
 } from "../lib/bf-live.ts";
 import { loadStations, stationById } from "../lib/stations.ts";
 
-type CorridorRef = Pick<CorridorIndexEntry, "id" | "name" | "oebb" | "lines">;
+type CorridorRef = Pick<CorridorIndexEntry, "id" | "name" | "oebb" | "lines"> &
+  Partial<Pick<CorridorIndexEntry, "names">>;
 
 const files = import.meta.glob<{ default: Corridor }>(
   "../../../../packages/netz/data/corridors/*.toml",
@@ -361,6 +362,24 @@ const shownStations = computed(() => {
     .slice(range.value.lo, range.value.hi + 1)
     .map((st, k) => ({ ...st, i: range.value.lo + k }));
   return reversed.value ? part.reverse() : part;
+});
+/**
+ * other sheets per station name (Kursbuch station column): those that branch off there — they
+ * contain the station but not both of its neighbours on this sheet (parallel sheets such as the
+ * whole-line "westbahn" corridor are left out where they run along)
+ */
+const branchSheets = computed(() => {
+  const st = data.value?.stations ?? [];
+  const out: Record<string, { id: string; name: string }[]> = {};
+  st.forEach((s, k) => {
+    const nb = [st[k - 1]?.name, st[k + 1]?.name].filter((n): n is string => !!n);
+    const other = list.value.filter(
+      (c) =>
+        c.id !== id.value && c.names?.includes(s.name) && !nb.every((n) => c.names?.includes(n)),
+    );
+    if (other.length) out[s.name] = other.map((c) => ({ id: c.id, name: c.name }));
+  });
+  return out;
 });
 /** single/double track runs within the shown section, in chart x */
 const trackRuns = computed(() => {
@@ -1379,6 +1398,7 @@ watch([plan, nodeHafas, date, t0, t1, nodeAll], () => void loadNodeBoards(), {
         :date="date"
         :hover="hover"
         :follow="part === 'table'"
+        :sheets="transposed ? undefined : branchSheets"
         @hover="hover = $event"
       />
     </template>
