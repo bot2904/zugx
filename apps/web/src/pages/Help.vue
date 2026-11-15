@@ -102,8 +102,8 @@ const { locale } = useI18n();
         waagrecht die Bahnhöfe nach Streckenkilometer, senkrecht die Zeit nach unten. Jeder Zug ist
         eine Linie in der Farbe seiner Gattung; steile Linien sind langsam, senkrechte Stücke sind
         Aufenthalte. Die Farben folgen der Angebotsebene wie in der Fahrplanplanung üblich: RJX rot,
-        RJ weinrot, EC/IC dunkelrot, IR und CJX violett, REX grün, R graublau, S blau, Nightjet
-        dunkelblau, private Fernverkehrsanbieter (WESTbahn, RegioJet) orange.
+        RJ magenta, EC/IC braunrot, ICE dunkelgrau, IR und CJX violett, REX grün, R graublau, S
+        blau, Nightjet nachtblau, private Fernverkehrsanbieter (WESTbahn, RegioJet) orange.
       </p>
       <ul>
         <li>
@@ -397,9 +397,9 @@ const { locale } = useI18n();
         Time–distance diagrams for lines (ÖBB's timetable diagrams and some longer corridors):
         stations across by line km, time downwards. Each train is a line in its category's colour;
         steep lines are slow, vertical parts are stops. Colours follow the offer level as usual in
-        timetable planning: RJX red, RJ wine, EC/IC dark red, IR and CJX violet, REX green, R slate
-        blue, S blue, Nightjet dark blue, private long-distance operators (WESTbahn, RegioJet)
-        orange.
+        timetable planning: RJX red, RJ magenta, EC/IC brown-red, ICE dark grey, IR and CJX violet,
+        REX green, R slate blue, S blue, Nightjet night blue, private long-distance operators
+        (WESTbahn, RegioJet) orange.
       </p>
       <ul>
         <li>

@@ -14,7 +14,7 @@ import TripStops from "../components/TripStops.vue";
 import { useKeys } from "../lib/keys.ts";
 import Status from "../components/Status.vue";
 import { api } from "../lib/api.ts";
-import { lineColor, PRODUCT_GROUPS, RAIL_CLS } from "../lib/products.ts";
+import { lineBadgeColor, lineColor, PRODUCT_GROUPS, RAIL_CLS } from "../lib/products.ts";
 import {
   classColor,
   DELAY_CLASSES,
@@ -190,7 +190,7 @@ const points = computed<MapPoint[]>(() =>
       id: m.journeyId,
       color: mode.value === "delay" ? delayColor(m.delay) : lineColor(m.line),
       // train as a line badge, as in the journey search; coupled parts "NJ 466 / EN 40462"
-      badge: { text: parts.map((p) => p.line.name).join(" / "), color: lineColor(m.line) },
+      badge: { text: parts.map((p) => p.line.name).join(" / "), color: lineBadgeColor(m.line) },
       label: `→ ${m.direction}${fmtDelay(m.delay)}`,
       bearing: m.bearing,
       big: parts.some((p) => p.journeyId === selectedId.value),

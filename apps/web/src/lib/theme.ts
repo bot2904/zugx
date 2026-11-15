@@ -17,6 +17,7 @@ export const scheme = computed<"light" | "dark">(
 );
 
 watchEffect(() => {
+  if (typeof document === "undefined") return; // tests (Node)
   const meta = document.querySelector<HTMLMetaElement>('meta[name="color-scheme"]');
   if (meta) meta.content = override.value ?? "light dark";
 });

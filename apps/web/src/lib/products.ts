@@ -1,6 +1,7 @@
 // Product colours & categories (dense, ÖBB-ish palette). All colours keep ≥ 4.5:1 contrast with
 // white badge text (WCAG AA).
 import type { Line, ProductId } from "@zugx/hafas";
+import { scheme } from "./theme.ts";
 import type en from "../i18n/en.ts";
 
 export const LONG_DISTANCE = new Set([
@@ -26,40 +27,42 @@ export const SUBURBAN = new Set(["S"]);
 export const NIGHT = new Set(["NJ", "EN"]);
 
 /** private long-distance operators (WESTbahn, RegioJet, Leo Express): orange */
-const PRIVATE_LD = "#b85000";
+const PRIVATE_LD = "#b35800";
 const PRIVATE_LD_CATS = new Set(["WB", "RGJ", "LEO"]);
 const PRIVATE_LD_OPERATORS = /westbahn|regiojet|leo express|flixtrain/i;
 
 // Colours by offer level, as common among Austrian timetable planners (FBS): RJX ≠ RJ (two levels
 // of the long-distance offer), IR + CJX violet, REX green (≠ R), private long-distance orange.
+// Tuned for mutual distinguishability (OKLab ΔE, also under protan/deutan simulation) within the
+// ≥ 4.5:1 white-text limit — see PLAN.md "Category colours".
 const CAT_COLORS: Record<string, string> = {
-  RJX: "#c8102e",
-  RJ: "#9b1b5a",
-  ICE: "#6e767e",
-  EC: "#a6192e",
-  IC: "#a6192e",
-  NJ: "#3b3f8f",
-  EN: "#3b3f8f",
-  D: "#9e3d22",
-  IR: "#7b3fa0",
-  CJX: "#7b3fa0",
-  REX: "#2e7d32",
-  R: "#56708f",
-  S: "#3367aa",
+  RJX: "#d0102a",
+  RJ: "#b8157a",
+  ICE: "#4b4f55",
+  EC: "#7d1a14",
+  IC: "#7d1a14",
+  NJ: "#26296b",
+  EN: "#26296b",
+  D: "#7d1a14",
+  IR: "#8448b8",
+  CJX: "#8448b8",
+  REX: "#2a7a2e",
+  R: "#5a7590",
+  S: "#1659c9",
   WB: PRIVATE_LD,
   RGJ: PRIVATE_LD,
   LEO: PRIVATE_LD,
 };
 
 const PRODUCT_COLORS: Record<ProductId, string> = {
-  highspeed: "#c8102e",
-  night: "#3b3f8f",
+  highspeed: "#d0102a",
+  night: "#26296b",
   replacement: "#795548",
-  intercity: "#a6192e",
-  interregional: "#7b3fa0",
+  intercity: "#7d1a14",
+  interregional: "#8448b8",
   regional: "#2773d1",
-  suburban: "#3367aa",
-  bus: "#6c7b29",
+  suburban: "#1659c9",
+  bus: "#6b6b6b",
   ferry: "#1b808e",
   subway: "#a3529a",
   tram: "#d4433a",
@@ -68,8 +71,42 @@ const PRODUCT_COLORS: Record<ProductId, string> = {
   other: "#6b6b6b",
 };
 
+/**
+ * the same categories as lines/text on the dark surface: the badge colours are too dark there
+ * (they are tuned for white text); lighter steps, again checked for mutual distance and ≥ 3:1
+ * against the dark background
+ */
+const DARK: Record<string, string> = {
+  "#d0102a": "#ff4b5c", // RJX
+  "#b8157a": "#e862b6", // RJ
+  "#7d1a14": "#c4553c", // EC/IC/D
+  "#4b4f55": "#d0d4d8", // ICE
+  "#26296b": "#aab0ff", // NJ/EN
+  "#8448b8": "#b07fea", // IR/CJX
+  "#2a7a2e": "#4fb052", // REX
+  "#5a7590": "#7f9cc0", // R
+  "#1659c9": "#2f7ff0", // S
+  "#b35800": "#f0902a", // private long-distance
+  "#795548": "#a58670", // rail replacement
+  "#6b6b6b": "#7a7a7a", // bus, other
+  "#2773d1": "#5a9ae8", // other regional (RE, RB …)
+};
+/** a badge colour as line/text colour for the current scheme */
+const onSurface = (hex: string) => (scheme.value === "dark" ? (DARK[hex] ?? hex) : hex);
+
+/** colour of a train as a line, dot or text (depends on light/dark) */
 export function lineColor(line?: Pick<Line, "category" | "product" | "operator">): string {
   if (!line) return "var(--muted)";
+  return onSurface(lineBadgeColor(line));
+}
+
+/** colour of a category as a line or text (depends on light/dark) */
+export function categoryColor(cat: string): string {
+  return onSurface(categoryBadgeColor(cat));
+}
+
+/** background of a badge with white text (the same in light and dark) */
+export function lineBadgeColor(line: Pick<Line, "category" | "product" | "operator">): string {
   const longDistance = ["highspeed", "intercity", "interregional", "night"].includes(line.product);
   if (
     PRIVATE_LD_CATS.has(line.category) ||
@@ -79,9 +116,10 @@ export function lineColor(line?: Pick<Line, "category" | "product" | "operator">
   return CAT_COLORS[line.category] ?? PRODUCT_COLORS[line.product] ?? "#6b6b6b";
 }
 
-export function categoryColor(cat: string): string {
+/** background of a category badge with white text (the same in light and dark) */
+export function categoryBadgeColor(cat: string): string {
   return (
-    CAT_COLORS[cat] ?? (SUBURBAN.has(cat) ? "#3367aa" : REGIONAL.has(cat) ? "#2773d1" : "#6b6b6b")
+    CAT_COLORS[cat] ?? (SUBURBAN.has(cat) ? "#1659c9" : REGIONAL.has(cat) ? "#2773d1" : "#6b6b6b")
   );
 }
 

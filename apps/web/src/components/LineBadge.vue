@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useI18n } from "../i18n/index.ts";
-import { categoryColor, lineColor } from "../lib/products.ts";
+import { categoryBadgeColor, lineBadgeColor } from "../lib/products.ts";
 import type { Line } from "@zugx/hafas";
 
 const props = defineProps<{ line?: Line; cat?: string; nr?: string; small?: boolean }>();
@@ -17,7 +17,9 @@ const title = computed(() => {
   ];
   return parts.filter(Boolean).join(" · ") || undefined;
 });
-const color = computed(() => (props.line ? lineColor(props.line) : categoryColor(props.cat ?? "")));
+const color = computed(() =>
+  props.line ? lineBadgeColor(props.line) : categoryBadgeColor(props.cat ?? ""),
+);
 </script>
 
 <template>
