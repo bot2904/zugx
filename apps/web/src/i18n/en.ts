@@ -149,6 +149,7 @@ export default {
     hint: "Positions are calculated by ÖBB HAFAS.",
   },
   bf: {
+    tableTo: "to",
     swap: "Swap direction",
     fullRoute: "Whole route",
     oebbTip: "ÖBB timetable diagram (Fahrplanbild) number",

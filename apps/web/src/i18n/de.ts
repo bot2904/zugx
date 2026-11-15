@@ -151,6 +151,7 @@ export default {
     hint: "Positionen werden von ÖBB HAFAS berechnet.",
   },
   bf: {
+    tableTo: "nach",
     swap: "Richtung tauschen",
     fullRoute: "Ganze Strecke",
     oebbTip: "Nummer des ÖBB-Fahrplanbilds",

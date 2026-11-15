@@ -147,6 +147,22 @@ test("bildfahrplan section and direction are adjustable", async ({ page }) => {
   );
 });
 
+test("bildfahrplan: timetable table below the chart, one direction", async ({ page }) => {
+  await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
+  const table = page.locator(".bf-table table");
+  await expect(table.locator("thead th").nth(1)).toHaveText("Wien Hbf");
+  expect(await table.locator("tbody tr").count()).toBeGreaterThan(20);
+  await expect(table.locator("tbody td", { hasText: /^7:\d\d$/ }).first()).toBeVisible();
+  // other direction: the first column becomes the other end
+  await page
+    .getByRole("button", { name: /Swap direction|Richtung tauschen|Inverti direzione/ })
+    .click();
+  await expect(table.locator("thead th").nth(1)).not.toHaveText("Wien Hbf");
+  // row → train page
+  await table.locator("tbody a").first().click();
+  await expect(page).toHaveURL(/\/train\//);
+});
+
 test("bildfahrplan index keeps its sort order after visiting a corridor", async ({ page }) => {
   await page.goto("/bf");
   await page.getByRole("columnheader", { name: /^km/ }).click();

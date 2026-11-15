@@ -151,6 +151,7 @@ export default {
     hint: "Posizioni calcolate da ÖBB HAFAS.",
   },
   bf: {
+    tableTo: "per",
     swap: "Inverti direzione",
     fullRoute: "Linea intera",
     oebbTip: "Numero del quadro orario ÖBB (Fahrplanbild)",

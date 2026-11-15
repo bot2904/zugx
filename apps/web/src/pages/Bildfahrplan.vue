@@ -12,6 +12,7 @@ import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useI18n } from "../i18n/index.ts";
 import { useRoute, useRouter } from "vue-router";
 import CorridorIndexView from "../components/CorridorIndex.vue";
+import BfTable from "../components/BfTable.vue";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
 import { useKeys } from "../lib/keys.ts";
@@ -820,6 +821,17 @@ function toggleCat(c: string) {
         {{ $t("bf.legendHafasOnly") }}
       </span>
     </p>
+    <BfTable
+      v-if="data"
+      :stations="shownStations"
+      :trains="[...trainsOnDate, ...hafasOnlyTrains].filter((t) => !hidden.has(t.cat))"
+      :dir="reversed ? -1 : 1"
+      :t0="t0"
+      :t1="t1"
+      :date="date"
+      :hover="hover"
+      @hover="hover = $event"
+    />
   </section>
 </template>
 
