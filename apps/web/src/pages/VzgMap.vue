@@ -357,6 +357,10 @@ function exportSvg() {
     el.removeAttribute("href");
     el.removeAttribute("class");
   }
+  // document title as metadata in the file (not on screen: it would be a tooltip over everything)
+  const meta = document.createElementNS("http://www.w3.org/2000/svg", "title");
+  meta.textContent = `${title.value} – ${subtitle.value}`;
+  svg.prepend(meta);
   const xml = new XMLSerializer().serializeToString(svg);
   const name = [line.value.ref, line.value.name].filter(Boolean).join(" ") || id.value;
   download(
@@ -411,7 +415,6 @@ const print = () => window.print();
         :aria-label="`${title} – ${subtitle}`"
         class="block h-auto max-w-full"
       >
-        <title>{{ title }} – {{ subtitle }}</title>
         <rect :width="W" :height="H" fill="#ffffff" />
         <!-- title block -->
         <text :x="PAD" y="34" font-size="22" font-weight="700" :fill="C.text">{{ title }}</text>
