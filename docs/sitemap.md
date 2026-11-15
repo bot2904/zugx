@@ -45,31 +45,33 @@ Every function of zugx, where to find it, and along three dimensions: **data** (
 ## Plan: new navigation (draft, for discussion)
 
 ```
-zugx   Suche   Fahrplan ▾   Infrastruktur ▾   Hilfe          [● Live]   ⌘K  DE  ☀
+zugx   Suche 🔴   Fahrplan ▾   Infrastruktur ▾   Hilfe          [🔴 Live]   ⌘K  DE  ☀
 ```
+
+🔴 = red recording dot (a CSS dot, not an emoji): on the **Live** switch it lights up when live is on (grey when off); as a **suffix** it marks entries that are always live — Suche, Radar, Störungen — so the switch doesn't apply to them and they are never greyed out.
 
 **Three entries + one switch.** Suche stays the start page. Fahrplan and Infrastruktur are dropdowns. The **Live** switch (top right, remembered, also `?live=1` in links) decides whether a page shows the timetable (GTFS) or the realtime (HAFAS) where both exist.
 
 | Menu            | Entry                              | Live off (timetable)                                    | Live on (realtime)                  | Today                               |
 | --------------- | ---------------------------------- | ------------------------------------------------------- | ----------------------------------- | ----------------------------------- |
-| Suche           | journey search                     | – (always live)                                         | journeys, journey detail            | `/`, `/j`, `/trip`                  |
+| Suche 🔴        | journey search                     | – (always live)                                         | journeys, journey detail            | `/`, `/j`, `/trip`                  |
 | Fahrplan ▾      | Bahnhöfe                           | index → **Abfahrtsplan**                                | index → **Abfahrtstafel**           | `/stations`, `/station/<id>[/plan]` |
 |                 | Züge                               | train index → planned run                               | train index → train run with delays | `/trains`, `/train/<id>`            |
 |                 | Bildfahrplan (+ Kursbuch, Planung) | chart, Kursbuch, Knoten, Kreuzungen, Reserve, Kapazität | + realtime overlay, Pünktlichkeit   | `/bf/<sheet>`                       |
 |                 | Netzgrafik                         | nodes and lines                                         | – (same)                            | `/netz`                             |
-|                 | Radar                              | – (greyed out)                                          | live positions                      | `/radar`                            |
-|                 | Störungen                          | – (greyed out)                                          | disruption reports                  | `/him`                              |
+|                 | Radar 🔴                           | – (always live)                                         | live positions                      | `/radar`                            |
+|                 | Störungen 🔴                       | – (always live)                                         | disruption reports                  | `/him`                              |
 | Infrastruktur ▾ | Strecken (VzG)                     | line index → VzG chart, line profile                    | – (same)                            | `/vzg`, `/vzg/<line>`               |
 |                 | Streckenkarte                      | per line (from the line page)                           | – (same)                            | `/vzg/<line>/map`                   |
 |                 | Infrastrukturnetzkarte             | speed, ETCS, tracks, trains/day                         | – (same)                            | `/vzg/netz`                         |
 | Hilfe           | help, shortcuts                    |                                                         |                                     | `/help`                             |
 
-URLs stay as they are (no redirects needed); only the menu and the switch are new. Entries with nothing to show for the current mode stay in the menu but are greyed out with a hint ("nur mit Live").
+URLs stay as they are (no redirects needed); only the menu and the switch are new. Live-only entries carry the 🔴 suffix and work regardless of the switch.
 
 ### Not covered by this plan (gaps)
 
-1. **Journey search** is live only — there is no timetable-only router (GTFS). The switch has no effect there.
-2. **Radar** and **Störungen** are live only — with Live off they have nothing to show (greyed out).
+1. **Journey search** is live only (🔴) — there is no timetable-only router (GTFS). The switch has no effect there.
+2. **Radar** and **Störungen** are live only (🔴) — the switch has no effect there either.
 3. **Planned train run** without live doesn't exist yet: the train page always asks HAFAS. Needs a GTFS-based run (stops and times from the timetable data) for Live off.
 4. **Netzgrafik** and all **Infrastruktur** pages have no live variant — the switch does nothing there (could later: delays on the network map, punctuality per node).
 5. **Mixed views**: Knoten (timetable + live boards of other lines) and Kreuzungen (knock-on delays) use both; Live only adds to them.
