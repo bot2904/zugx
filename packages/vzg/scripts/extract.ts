@@ -84,16 +84,24 @@ readPbf(input, {
     // standard and narrow gauge (Mariazellerbahn, Pinzgaubahn …), light rail and trams
     // (Stubaitalbahn, Innsbrucker Mittelgebirgsbahn); a line needs a route=tracks relation
     if (t.usage === "industrial" || t.usage === "military" || t.usage === "test") return;
-    // tracks under renewal on a line in service (railway=construction + construction:railway)
+    // tracks under construction or renewal (railway=construction + construction[:railway]=rail):
+    // kept where a line relation lists them — the line's own track (e.g. the Pottendorfer Linie
+    // at Wien Meidling, 2026), not a new line elsewhere
     const kind =
-      lineMembers && t.railway === "construction" ? t["construction:railway"] : t.railway;
+      t.railway === "construction" ? (t["construction:railway"] ?? t.construction) : t.railway;
     if (!RAIL_KINDS.has(kind ?? "")) return;
     const tags = pick(t, WAY_TAGS);
-    if (kind !== t.railway) tags.railway = kind!;
+    if (kind !== t.railway) {
+      tags.railway = kind!;
+      // marked (lines.ts): such a track closes a gap in its own line only and doesn't decide
+      // where a line begins or ends — except with osmLineMembers (Slovenia: renewed tracks of
+      // lines in service, used like any track)
+      if (!lineMembers) tags.construction = "yes";
+    }
     const side = t.service === "yard" || t.service === "siding" || t.service === "spur";
+    // sidings and yard tracks only with osmLineMembers, and only where a line relation lists
+    // them (countries.toml: Slovenian through-station tracks)
     if (side && !lineMembers) return;
-    // with osmLineMembers: sidings, yard tracks and tracks under construction only where a line
-    // relation lists them (countries.toml)
     (side || kind !== t.railway ? memberOnly : candidates).set(w.id, { refs: w.refs, tags });
   },
   relation: (r) => {

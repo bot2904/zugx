@@ -1167,8 +1167,7 @@ km = -2.385
 station = "Wien Hauptbahnhof"
 lines = [
   { id = "105-01", ref = "105 01", name = "Südbahn", km = 0.066 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 4.05 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 25.025 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 10.907 },
   { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", km = 0.068 },
 ]
 
@@ -1177,6 +1176,13 @@ km = 2.858
 station = "Wien Grillgasse"
 lines = [
   { id = "118-01", ref = "118 01", name = "Ostbahn", km = 2.832 },
+]
+
+[[connections]]
+km = 3.227
+station = "Wien Meidling"
+lines = [
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 0.061 },
 ]
 
 [[connections]]
@@ -1191,6 +1197,7 @@ lines = [
 km = 5.191
 station = "Bahnhof Meidling"
 lines = [
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 5.191 },
   { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 5.191 },
   { id = "lokalbahn-wien-baden", name = "Lokalbahn Wien – Baden", km = 5.191 },
 ]
@@ -1207,6 +1214,13 @@ km = 7.548
 station = "Wien Praterkai"
 lines = [
   { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 7.534 },
+]
+
+[[connections]]
+km = 9.414
+station = "Wien Matzleinsdorfer Platz"
+lines = [
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 9.466 },
 ]
 
 [[connections]]
@@ -1235,7 +1249,5 @@ km = 101.05
 station = "Wien Hauptbahnhof Autoreisezug"
 lines = [
   { id = "105-01", ref = "105 01", name = "Südbahn", km = 101.05 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 101.05 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 101.05 },
   { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", km = 101.05 },
 ]

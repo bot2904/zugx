@@ -74,7 +74,6 @@ km = 6.95
 station = "Wien Siemensstraße"
 lines = [
   { id = "114-01", ref = "114 01", name = "Nordbahn", km = 6.912 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 6.911 },
 ]
 
 [[connections]]
@@ -82,5 +81,4 @@ km = 14.541
 station = "Leopoldau"
 lines = [
   { id = "114-01", ref = "114 01", name = "Nordbahn", km = 14.541 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 14.541 },
 ]

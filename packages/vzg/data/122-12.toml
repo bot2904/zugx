@@ -79,6 +79,6 @@ lines = [
   { id = "105-01", ref = "105 01", name = "Südbahn", km = 3.601 },
   { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 0.061 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 3.227 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 28.548 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 7.575 },
   { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", km = 3.492 },
 ]

@@ -810,7 +810,7 @@ posts = [[77, 48.70398, 16.87215], [76, 48.69534, 16.8759], [75, 48.68668, 16.87
 km = -0.152
 station = "Wien Praterstern"
 lines = [
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = -0.155 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 16.004 },
 ]
 
 [[connections]]
@@ -825,6 +825,13 @@ km = 4.64
 station = "Wien Floridsdorf"
 lines = [
   { id = "112-01", ref = "112 01", name = "Nordwestbahn", km = 4.642 },
+]
+
+[[connections]]
+km = 5.965
+station = "Praterstern"
+lines = [
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 5.965 },
 ]
 
 [[connections]]
@@ -853,7 +860,6 @@ km = 17.347
 station = "Floridsdorf"
 lines = [
   { id = "112-01", ref = "112 01", name = "Nordwestbahn", km = 17.347 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 17.347 },
 ]
 
 [[connections]]

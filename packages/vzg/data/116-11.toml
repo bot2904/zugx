@@ -39,5 +39,4 @@ km = 7.254
 station = "Wien Süßenbrunn"
 lines = [
   { id = "114-01", ref = "114 01", name = "Nordbahn", km = 12.033 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 11.552 },
 ]

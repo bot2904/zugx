@@ -1225,7 +1225,6 @@ km = 4.642
 station = "Wien Floridsdorf"
 lines = [
   { id = "114-01", ref = "114 01", name = "Nordbahn", km = 4.64 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 4.642 },
 ]
 
 [[connections]]
@@ -1247,7 +1246,6 @@ km = 17.347
 station = "Floridsdorf"
 lines = [
   { id = "114-01", ref = "114 01", name = "Nordbahn", km = 17.347 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 17.347 },
 ]
 
 [[connections]]

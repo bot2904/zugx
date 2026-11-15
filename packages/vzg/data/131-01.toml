@@ -58,7 +58,6 @@ km = 3.773
 station = "Wien Simmering"
 lines = [
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 3.859 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 21.025 },
 ]
 
 [[connections]]
@@ -66,5 +65,4 @@ km = 13.402
 station = "Simmering"
 lines = [
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 13.402 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 13.402 },
 ]

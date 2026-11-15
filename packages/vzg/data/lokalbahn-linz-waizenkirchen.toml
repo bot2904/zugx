@@ -272,6 +272,7 @@ posts = [[2, 48.27889, 14.27816], [3, 48.27436, 14.26704], [4, 48.27457, 14.2537
 km = 1.817
 station = "Linz Untergaumberg"
 lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 189.847 },
   { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 184.002 },
   { id = "204-01", ref = "204 01", name = "Pyhrnbahn", km = 1.413 },
 ]
@@ -288,4 +289,11 @@ km = 42.327
 station = "Waizenkirchen"
 lines = [
   { id = "lokalbahn-neumarkt-waizenkirchen", name = "Lokalbahn Neumarkt – Waizenkirchen", km = 12.624 },
+]
+
+[[connections]]
+km = 192.02
+station = "Leonding"
+lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 192.045 },
 ]

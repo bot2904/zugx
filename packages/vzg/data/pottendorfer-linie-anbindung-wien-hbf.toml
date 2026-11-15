@@ -101,9 +101,15 @@ km = 0.068
 station = "Wien Hauptbahnhof"
 lines = [
   { id = "105-01", ref = "105 01", name = "Südbahn", km = 0.066 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 4.05 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = -2.385 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 25.025 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 10.907 },
+]
+
+[[connections]]
+km = 3.492
+station = "Wien Meidling"
+lines = [
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 0.061 },
 ]
 
 [[connections]]
@@ -125,8 +131,16 @@ lines = [
 km = 5.191
 station = "Bahnhof Meidling"
 lines = [
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 5.191 },
   { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 5.191 },
   { id = "lokalbahn-wien-baden", name = "Lokalbahn Wien – Baden", km = 5.191 },
+]
+
+[[connections]]
+km = 9.414
+station = "Wien Matzleinsdorfer Platz"
+lines = [
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 9.466 },
 ]
 
 [[connections]]
@@ -134,7 +148,5 @@ km = 101.05
 station = "Wien Hauptbahnhof Autoreisezug"
 lines = [
   { id = "105-01", ref = "105 01", name = "Südbahn", km = 101.05 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 101.05 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 101.05 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 101.05 },
 ]

@@ -39,9 +39,8 @@ km = 0.4
 station = "Wien Hauptbahnhof"
 lines = [
   { id = "105-01", ref = "105 01", name = "Südbahn", km = 0.066 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 4.05 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = -2.385 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 25.025 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 10.907 },
   { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", km = 0.068 },
 ]
 
@@ -50,8 +49,7 @@ km = 9.414
 station = "Wien Matzleinsdorfer Platz"
 lines = [
   { id = "105-01", ref = "105 01", name = "Südbahn", km = 9.414 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 4.638 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 9.414 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 26.663 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 9.466 },
   { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", km = 9.414 },
 ]

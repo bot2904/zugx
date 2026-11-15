@@ -27,8 +27,9 @@ feeds = ["https://dujpp.si/gtfs/dujpp-ijpp.zip"]
 osm = "slovenia"
 # SŽ-Infrastruktura line numbers ("10" Dobova – Ljubljana)
 lineRef = '^\d{2}$'
-# through-station tracks are often tagged service=siding and renewed tracks railway=construction:
-# keep those ways where a line relation lists them (else the lines fall apart at the stations)
+# through-station tracks are often tagged service=siding: keep those ways where a line relation
+# lists them (else the lines fall apart at the stations); tracks under construction that a
+# relation lists are kept in every country
 osmLineMembers = true
 # reference day of the Bildfahrplan sheets: a regular Tuesday in the feed's current period (the
 # Primorska line was closed until 2026-04-05)

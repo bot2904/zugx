@@ -19,8 +19,8 @@ names = ["Flughafen Wien", "Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidl
 cats = { S = 472, REX = 172, CJX = 110, RJX = 77, IC = 63, RJ = 39, EC = 31, NJ = 15, R = 10, D = 8, ICE = 8, EN = 8 }
 lines = [
   { id = "130-01", ref = "130 01", name = "Neue Westbahn", stations = 6 },
+  { id = "101-02", ref = "101 02", name = "Westbahn", stations = 3 },
   { id = "105-01", ref = "105 01", name = "Südbahn", stations = 3 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 3 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
   { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
   { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
@@ -40,7 +40,7 @@ major = ["Linz Hbf", "Wels Hbf", "Attnang-Puchheim", "Salzburg Hbf"]
 names = ["Linz Hbf", "Leonding Westbahn", "Pasching b.Linz", "Hörsching", "Oftering", "Marchtrenk", "Wels Hbf", "Gunskirchen", "Lambach OÖ", "Lambach OÖ Markt", "Neukirchen b.Lambach", "Breitenschützing", "Schwanenstadt", "Attnang-Puchheim", "Vöcklabruck", "Timelkam", "Neukirchen-Gampern", "Redl-Zipf", "Vöcklamarkt", "Frankenmarkt", "Pöndorf", "Oberhofen-Zell am Moos", "Straßwalchen", "Neumarkt", "Köstendorf Weng S-Bahn", "Wallersee S-Bahn", "Seekirchen", "Seekirchen Stadt S-Bahn", "Eugendorf S-Bahn", "Hallwang-Elixhausen S-Bahn", "Salzburg Kasern S-Bahn", "Salzburg Hbf"]
 cats = { REX = 100, S = 82, R = 64, RJX = 57, IC = 40, NJ = 11, ICE = 8, EN = 8, RJ = 4, EC = 2 }
 lines = [
-  { id = "101-02", ref = "101 02", name = "Westbahn", stations = 25 },
+  { id = "101-02", ref = "101 02", name = "Westbahn", stations = 32 },
 ]
 
 [[corridors]]
@@ -234,6 +234,7 @@ names = ["Linz Hbf", "Leonding Westbahn", "Pasching b.Linz", "Hörsching", "Ofte
 cats = { REX = 71, RJX = 57, R = 44, IC = 40, S = 38, NJ = 11, ICE = 8, EN = 8, RJ = 4, EC = 2 }
 lines = [
   { id = "205-01", ref = "205 01", name = "Passauer Bahn", stations = 15 },
+  { id = "101-02", ref = "101 02", name = "Westbahn", stations = 7 },
 ]
 
 [[corridors]]
@@ -251,6 +252,7 @@ names = ["Linz Hbf", "Leonding Westbahn", "Pasching b.Linz", "Hörsching", "Ofte
 cats = { R = 77, REX = 72, RJX = 57, IC = 40, S = 38, NJ = 11, ICE = 8, EN = 8, RJ = 4, EC = 2 }
 lines = [
   { id = "207-01", ref = "207 01", name = "Innkreisbahn", stations = 12 },
+  { id = "101-02", ref = "101 02", name = "Westbahn", stations = 7 },
   { id = "205-01", ref = "205 01", name = "Passauer Bahn", stations = 7 },
 ]
 
@@ -334,7 +336,7 @@ major = ["Freilassing", "Salzburg Hbf", "Straßwalchen", "Mattighofen", "Braunau
 names = ["Freilassing", "Salzburg Liefering S-Bahn", "Salzburg Taxham Europark S-Bahn", "Salzburg Aiglhof S-Bahn", "Salzburg Mülln-Altstadt S-Bahn", "Salzburg Hbf", "Salzburg Kasern S-Bahn", "Hallwang-Elixhausen S-Bahn", "Eugendorf S-Bahn", "Seekirchen Stadt S-Bahn", "Seekirchen", "Wallersee S-Bahn", "Köstendorf Weng S-Bahn", "Neumarkt", "Straßwalchen", "Mattighofen", "Uttendorf-Helpfau", "Mauerkirchen", "St.Georgen/Mattig", "Braunau/Inn"]
 cats = { S = 127, REX = 68, RJX = 58, IC = 38, R = 18, NJ = 11, RJ = 10, EN = 10, ICE = 6, EC = 5 }
 lines = [
-  { id = "101-02", ref = "101 02", name = "Westbahn", stations = 9 },
+  { id = "101-02", ref = "101 02", name = "Westbahn", stations = 11 },
   { id = "217-01", ref = "217 01", stations = 5 },
   { id = "261-01", ref = "261 01", name = "Mattigtalbahn", stations = 4 },
 ]
@@ -540,7 +542,6 @@ lines = [
   { id = "105-01", ref = "105 01", name = "Südbahn", stations = 26 },
   { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", stations = 13 },
   { id = "401-01", ref = "401 01", name = "Koralmbahn", stations = 5 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 3 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
   { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
   { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
@@ -580,7 +581,6 @@ names = ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wien Hetzen
 cats = { S = 475, REX = 173, RJX = 76, CJX = 74, IC = 57, R = 55, RJ = 36, EC = 32, NJ = 16, ICE = 8, D = 8, EN = 8 }
 lines = [
   { id = "105-01", ref = "105 01", name = "Südbahn", stations = 28 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 20 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
   { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
   { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
@@ -600,8 +600,8 @@ major = ["Wien Hbf", "Pottendorf-Landegg", "Ebenfurth", "Wiener Neustadt Hbf"]
 names = ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wien Blumental", "Hennersdorf", "Achau", "Münchendorf", "Ebreichsdorf", "Wampersdorf", "Pottendorf-Landegg", "Ebenfurth", "Untereggendorf", "Obereggendorf", "Wiener Neustadt Civitas Nova", "Wiener Neustadt Hbf"]
 cats = { S = 472, REX = 169, RJX = 76, IC = 57, CJX = 52, RJ = 36, EC = 31, NJ = 15, R = 10, ICE = 8, D = 8, EN = 8 }
 lines = [
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 12 },
   { id = "105-01", ref = "105 01", name = "Südbahn", stations = 4 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 3 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
   { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
   { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
@@ -621,8 +621,8 @@ major = ["Wien Hbf", "Ebenfurth", "Sopron pályaudvar", "Deutschkreutz"]
 names = ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wien Blumental", "Hennersdorf", "Achau", "Münchendorf", "Ebreichsdorf", "Wampersdorf", "Pottendorf-Landegg", "Ebenfurth", "Sopron pályaudvar", "Deutschkreutz"]
 cats = { S = 472, REX = 172, RJX = 76, IC = 57, CJX = 52, RJ = 36, EC = 31, NJ = 15, R = 10, ICE = 8, D = 8, EN = 8 }
 lines = [
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 9 },
   { id = "105-01", ref = "105 01", name = "Südbahn", stations = 3 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 3 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
   { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
   { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
@@ -872,7 +872,6 @@ cats = { REX = 330, S = 211, R = 120, RJ = 61, RJX = 61, CJX = 57, IC = 54, EC =
 lines = [
   { id = "161-01", ref = "161 01", name = "Aspangbahn", stations = 11 },
   { id = "105-01", ref = "105 01", name = "Südbahn", stations = 7 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 5 },
 ]
 
 [[corridors]]
@@ -981,7 +980,6 @@ names = ["Mödling", "Brunn-Maria Enzersdorf", "Perchtoldsdorf", "Wien Liesing",
 cats = { S = 552, REX = 243, RJX = 76, CAT = 72, CJX = 57, IC = 57, RJ = 36, EC = 31, R = 21, NJ = 15, ICE = 8, D = 8, EN = 8 }
 lines = [
   { id = "105-01", ref = "105 01", name = "Südbahn", stations = 9 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 9 },
   { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 7 },
   { id = "112-01", ref = "112 01", name = "Nordwestbahn", stations = 4 },
   { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 4 },
@@ -1004,7 +1002,7 @@ names = ["Wien Hbf", "Wien Quartier Belvedere", "Wien Rennweg", "Wien Mitte-Land
 cats = { S = 408, REX = 220, CAT = 72, CJX = 46, R = 14, RJ = 12, EC = 11, RJX = 6, IC = 5, EN = 4, NJ = 2 }
 lines = [
   { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 23 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 8 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 5 },
 ]
 
 [[corridors]]
@@ -1022,8 +1020,8 @@ names = ["Wien Hbf", "Wien Quartier Belvedere", "Wien Rennweg", "Wien Mitte-Land
 cats = { S = 448, REX = 231, CAT = 72, CJX = 46, R = 12 }
 lines = [
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 22 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 7 },
   { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 6 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 5 },
 ]
 
 [[corridors]]
@@ -1061,7 +1059,7 @@ cats = { S = 432, REX = 225, CAT = 72, CJX = 46, IC = 34, RJ = 18, RJX = 18, R =
 lines = [
   { id = "191-01", ref = "191 01", name = "Pressburger Bahn", stations = 18 },
   { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 4 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 4 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
 ]
 
 [[corridors]]
@@ -1079,10 +1077,9 @@ names = ["Wien Hütteldorf", "Wien Speising", "Wien Meidling", "Wien Matzleinsdo
 cats = { S = 476, REX = 213, RJX = 79, IC = 60, CJX = 52, R = 48, RJ = 46, EC = 35, NJ = 15, ICE = 8, D = 8, EN = 8 }
 lines = [
   { id = "117-01", ref = "117 01", name = "Marchegger Ostbahn", stations = 11 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 10 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 8 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 5 },
   { id = "105-01", ref = "105 01", name = "Südbahn", stations = 3 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 3 },
   { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
 ]
 
@@ -1134,10 +1131,9 @@ major = ["Wien Hbf", "Wien Meidling", "Tullnerfeld", "St. Pölten Hbf", "Amstett
 names = ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Tullnerfeld", "St. Pölten Hbf", "Prinzersdorf", "Markersdorf an der Pielach Bf.", "Groß Sierning", "Loosdorf/Melk", "Melk", "Pöchlarn", "Krummnußbaum", "Säusenstein", "Ybbs/Donau", "Neumarkt/Ybbs-Karlsbach Bf.", "Blindenmarkt", "Amstetten", "Mauer-Öhling", "Aschbach", "Krenstetten-Biberbach", "St. Peter-Seitenstetten Bhf.", "St. Johann-Weistrach", "Stadt Haag", "St. Valentin", "Ennsdorf", "Enns", "Asten-Fisching", "Linz/Donau Pichling", "Linz/Donau Ebelsberg", "Linz Hbf", "Leonding Westbahn", "Pasching b.Linz", "Hörsching", "Oftering", "Marchtrenk", "Wels Hbf", "Gunskirchen", "Lambach OÖ", "Lambach OÖ Markt", "Neukirchen b.Lambach", "Breitenschützing", "Schwanenstadt", "Attnang-Puchheim", "Vöcklabruck", "Timelkam", "Neukirchen-Gampern", "Redl-Zipf", "Vöcklamarkt", "Frankenmarkt", "Pöndorf", "Oberhofen-Zell am Moos", "Straßwalchen", "Neumarkt", "Köstendorf Weng S-Bahn", "Wallersee S-Bahn", "Seekirchen", "Seekirchen Stadt S-Bahn", "Eugendorf S-Bahn", "Hallwang-Elixhausen S-Bahn", "Salzburg Kasern S-Bahn", "Salzburg Hbf"]
 cats = { S = 612, REX = 294, R = 155, CJX = 111, RJX = 76, IC = 61, RJ = 38, EC = 31, NJ = 16, EN = 9, D = 8, ICE = 8 }
 lines = [
-  { id = "101-02", ref = "101 02", name = "Westbahn", stations = 25 },
+  { id = "101-02", ref = "101 02", name = "Westbahn", stations = 54 },
   { id = "130-01", ref = "130 01", name = "Neue Westbahn", stations = 21 },
   { id = "105-01", ref = "105 01", name = "Südbahn", stations = 3 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 3 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
   { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
   { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
@@ -1158,7 +1154,6 @@ names = ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wien Hetzen
 cats = { S = 591, REX = 183, RJX = 76, CJX = 74, R = 73, IC = 57, IR = 54, RJ = 36, EC = 34, NJ = 16, ICE = 8, D = 8, EN = 8 }
 lines = [
   { id = "105-01", ref = "105 01", name = "Südbahn", stations = 55 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 20 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
   { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
   { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
@@ -1232,7 +1227,6 @@ lines = [
   { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 7 },
   { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 4 },
   { id = "105-01", ref = "105 01", name = "Südbahn", stations = 3 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 3 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
   { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
 ]

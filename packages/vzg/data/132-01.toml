@@ -45,6 +45,5 @@ km = 7.534
 station = "Wien Praterkai"
 lines = [
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 7.548 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 17.339 },
   { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 7.534 },
 ]

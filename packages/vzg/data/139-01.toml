@@ -42,7 +42,6 @@ km = 9.201
 station = "Wien Leopoldau"
 lines = [
   { id = "114-01", ref = "114 01", name = "Nordbahn", km = 9.077 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 9.072 },
   { id = "138-01", ref = "138 01", name = "Floridsdorfer Hochbahn", km = 9.201 },
 ]
 
@@ -51,6 +50,5 @@ km = 14.541
 station = "Leopoldau"
 lines = [
   { id = "114-01", ref = "114 01", name = "Nordbahn", km = 14.541 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 14.541 },
   { id = "138-01", ref = "138 01", name = "Floridsdorfer Hochbahn", km = 14.541 },
 ]

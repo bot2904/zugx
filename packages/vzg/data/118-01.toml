@@ -570,7 +570,6 @@ station = "Wien Grillgasse"
 lines = [
   { id = "105-01", ref = "105 01", name = "Südbahn", km = -8.55 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 2.858 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 2.858 },
 ]
 
 [[connections]]

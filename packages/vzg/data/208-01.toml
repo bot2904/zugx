@@ -175,6 +175,7 @@ posts = [[189, 48.28537, 14.288], [188, 48.29352, 14.29462], [187, 48.29559, 14.
 km = 180.655
 station = "Linz Ebelsberg"
 lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 180.655 },
   { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 180.655 },
 ]
 
@@ -182,6 +183,7 @@ lines = [
 km = 188.39
 station = "Linz Hauptbahnhof"
 lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 188.389 },
   { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 183.944 },
   { id = "204-01", ref = "204 01", name = "Pyhrnbahn", km = -0.041 },
 ]

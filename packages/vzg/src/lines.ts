@@ -664,6 +664,9 @@ export function lineTracks(
   const onLine = (w: Way) => w.tags.ref === ref || members.has(w.id);
   const cost = (e: Edge, d?: "1" | "2") => {
     const w = e.way;
+    // tracks under construction only for their own line, and only to close a gap (Infinity:
+    // shortestPath never relaxes such an edge)
+    if (w.tags.construction) return onLine(w) ? e.len * 4 : Infinity;
     if (!onLine(w)) return e.len * (w.tags.ref ? 6 : 2);
     const t = trackOf(w.tags["railway:track_ref"]);
     return e.len * (d && t === d ? 0.5 : d && t ? 4 : 1);
@@ -683,13 +686,16 @@ export function lineTracks(
   // the line's ends: the two farthest ends of its relation's ways (independent of how well its
   // km positions are tagged; double track often covers only part of a line, e.g. Salzburg –
   // Taxenbach on the Salzburg-Tiroler-Bahn); without relation: from the km positions
-  const rel = lineWays.filter((w) => members.has(w.id));
+  // tracks under construction (extract.ts) only bridge gaps in the graph: the ends come from the
+  // tracks in service (a relation may list new tracks far beyond today's line)
+  const inService = lineWays.filter((w) => !w.tags.construction);
+  const rel = inService.filter((w) => members.has(w.id));
   const candidates = [
     rel.length ? farthestEnds(rel, ex.coords) : null,
     // per direction from its own section tracks (only the double-track part)
     ...directions.map((d) => kmExtremes(seeds[d], nodeTags, adj, ex.coords)),
-    kmExtremes(lineWays, nodeTags, adj, ex.coords),
-    farthestEnds(lineWays, ex.coords),
+    kmExtremes(inService, nodeTags, adj, ex.coords),
+    farthestEnds(inService, ex.coords),
   ].filter((e): e is NonNullable<typeof e> => !!e);
   // the first candidate whose paths are plausible: no detour (path much longer than its km
   // range, i.e. a gap in the line bridged over other lines); relation ends may also lie in

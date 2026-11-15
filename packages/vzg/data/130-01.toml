@@ -1687,7 +1687,7 @@ posts = [[0, 48.17057, 16.32198], [1, 48.16889, 16.30936], [2, 48.17104, 16.2963
 km = 3.645
 station = "Wien Speising"
 lines = [
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 32.456 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 3.663 },
 ]
 
 [[connections]]
@@ -1707,7 +1707,6 @@ km = 5.22
 station = "Wien Hetzendorf"
 lines = [
   { id = "105-01", ref = "105 01", name = "Südbahn", km = 5.243 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 5.243 },
   { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 5.22 },
 ]
 
@@ -1758,6 +1757,13 @@ lines = [
 ]
 
 [[connections]]
+km = 74.035
+station = "Groß Sierning"
+lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 75.111 },
+]
+
+[[connections]]
 km = 93.916
 station = "Pöchlarn"
 lines = [
@@ -1783,6 +1789,7 @@ lines = [
 km = 184.002
 station = "Linz Untergaumberg"
 lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 189.847 },
   { id = "204-01", ref = "204 01", name = "Pyhrnbahn", km = 1.413 },
   { id = "lokalbahn-linz-waizenkirchen", name = "Lokalbahn Linz – Waizenkirchen", km = 1.817 },
 ]

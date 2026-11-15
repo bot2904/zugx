@@ -63,9 +63,17 @@ segments = [
 posts = [[83, 47.83053, 12.99153], [84, 47.8241, 13.00079], [85, 47.81716, 13.00935], [86, 47.81041, 13.01812], [87, 47.80813, 13.03036], [88, 47.81009, 13.04321]]
 
 [[connections]]
+km = 87.287
+station = "Salzburg Mülln-Altstadt"
+lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 314.274 },
+]
+
+[[connections]]
 km = 88.324
 station = "Salzburg Hauptbahnhof"
 lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 313.402 },
   { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", km = -0.154 },
   { id = "strecke-salzburg-lamprechtshausen", ref = "N", name = "Strecke Salzburg – Lamprechtshausen", km = -0.083 },
 ]

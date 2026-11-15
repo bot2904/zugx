@@ -20,9 +20,9 @@ export interface Country {
   /** pattern of the national railway line numbers in OSM (`route=tracks` ref), e.g. "101 01" */
   lineRef: string;
   /**
-   * keep sidings, yard tracks and tracks under construction that a line relation (`route=tracks`)
-   * lists (where through-station tracks are mapped as sidings); off for Austria, whose relations
-   * also list real sidings
+   * keep sidings and yard tracks that a line relation (`route=tracks`) lists (where
+   * through-station tracks are mapped as sidings); off for Austria, whose relations also list real
+   * sidings. Tracks under construction listed by a relation are kept in every country.
    */
   osmLineMembers?: boolean;
   /** reference day of the timetable sheets (a regular Tuesday; default: netz DEFAULT_DAY) */

@@ -120,6 +120,7 @@ posts = [[0, 47.81344, 13.04503], [1, 47.82102, 13.03972], [2, 47.82915, 13.0344
 km = -0.083
 station = "Salzburg Hauptbahnhof"
 lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 313.402 },
   { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", km = -0.154 },
   { id = "217-01", ref = "217 01", km = 88.324 },
 ]

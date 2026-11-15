@@ -57,5 +57,6 @@ posts = [[74, 48.18811, 15.45755], [75, 48.18815, 15.44412]]
 km = 73.955
 station = "Groß Sierning"
 lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 75.111 },
   { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 74.035 },
 ]

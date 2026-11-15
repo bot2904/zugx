@@ -1516,6 +1516,7 @@ posts = [[104, 47.55213, 14.31615], [103, 47.55934, 14.32359], [102, 47.56678, 1
 km = -0.041
 station = "Linz Hauptbahnhof"
 lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 188.389 },
   { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 183.944 },
   { id = "208-01", ref = "208 01", name = "Westbahn", km = 188.39 },
 ]
@@ -1524,6 +1525,7 @@ lines = [
 km = 1.413
 station = "Linz Untergaumberg"
 lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 189.847 },
   { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 184.002 },
   { id = "lokalbahn-linz-waizenkirchen", name = "Lokalbahn Linz – Waizenkirchen", km = 1.817 },
 ]

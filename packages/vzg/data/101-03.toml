@@ -2398,8 +2398,16 @@ posts = [[0, 47.81413, 13.0467], [1, 47.82237, 13.05189], [2, 47.82025, 13.0627]
 km = -0.154
 station = "Salzburg Hauptbahnhof"
 lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 313.402 },
   { id = "217-01", ref = "217 01", km = 88.324 },
   { id = "strecke-salzburg-lamprechtshausen", ref = "N", name = "Strecke Salzburg – Lamprechtshausen", km = -0.083 },
+]
+
+[[connections]]
+km = 0.471
+station = "Ischlerbahnstraße"
+lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 312.78 },
 ]
 
 [[connections]]

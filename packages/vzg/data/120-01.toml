@@ -363,7 +363,7 @@ km = -3.284
 station = "Wien Hütteldorf"
 lines = [
   { id = "101-01", ref = "101 01", name = "Westbahn", km = 5.835 },
-  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 36.502 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = -1.149 },
   { id = "123-01", ref = "123 01", name = "Verbindungsbahn", km = 5.952 },
 ]
 

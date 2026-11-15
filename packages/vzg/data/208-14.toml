@@ -51,6 +51,7 @@ posts = [[182, 48.25656, 14.33046], [181, 48.25267, 14.34232], [180, 48.25069, 1
 km = 180.655
 station = "Linz Ebelsberg"
 lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 180.655 },
   { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 180.655 },
   { id = "208-01", ref = "208 01", name = "Westbahn", km = 180.655 },
 ]
