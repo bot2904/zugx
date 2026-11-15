@@ -50,7 +50,7 @@ vp run hafas:canary         # check the live API still works
 
 ## Deployment
 
-One container (Caddy serving `dist/` + a strict `/api/mgate` reverse proxy to ÖBB). CI builds and pushes the public image `ghcr.io/simon04/zugx:latest` on every push to `master`. The container listens on host port **9849** ("zugx" on a T9 keypad).
+One container (Caddy serving `dist/` + a strict `/api/mgate` reverse proxy to ÖBB). CI builds and pushes the public image `ghcr.io/simon04/zugx:latest` on every push to `master`. The container listens on host port **9849** ("zugx" on a T9 keypad). Static files are compressed at build time (`apps/web/precompress.ts`: `.zst` level 19 and `.gz` level 9 next to every text asset ≥ 1 KB, 27 MB → 3 MB) and served as such by `file_server { precompressed zstd gzip }`; on-the-fly `encode` only for the API proxy.
 
 Linux, rootless Podman + Quadlet:
 

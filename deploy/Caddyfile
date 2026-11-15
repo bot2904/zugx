@@ -8,6 +8,7 @@
 }
 
 :8080 {
+	# dynamic responses (/api/mgate); static files come precompressed (.zst/.gz from the build)
 	encode zstd gzip
 
 	# container healthcheck (not in the access log)
@@ -77,6 +78,8 @@
 		@nocache path / /sw.js /registerSW.js /index.html /manifest.webmanifest
 		header @nocache Cache-Control "no-cache"
 		try_files {path} /index.html
-		file_server
+		file_server {
+			precompressed zstd gzip
+		}
 	}
 }

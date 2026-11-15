@@ -4,6 +4,7 @@ import { VitePWA } from "vite-plugin-pwa";
 import { execFileSync } from "node:child_process";
 import { defineConfig } from "vite-plus";
 import { toml } from "@zugx/toml/vite";
+import { precompress } from "./precompress.ts";
 
 /** last commit as `<hash> <YYYY-MM-DD>`, empty without a git checkout (e.g. container build) */
 function gitVersion(): string {
@@ -24,6 +25,8 @@ export default defineConfig({
     toml(),
     vue(),
     UnoCSS(),
+    // .gz/.zst siblings of the text assets for Caddy's precompressed file_server
+    precompress(),
     VitePWA({
       registerType: "autoUpdate",
       manifest: {
