@@ -228,8 +228,12 @@ function signalColor(p: VzgPoint) {
 }
 // ---- tooltips
 const { t, tm, locale } = useI18n();
+/** km localized with `d` decimals; values that round to zero without a sign ("0", not "-0") */
 const kmText = (km: number, d = 3) =>
-  km.toLocaleString(locale.value, { minimumFractionDigits: d, maximumFractionDigits: d });
+  (Math.round(km * 10 ** d) === 0 ? 0 : km).toLocaleString(locale.value, {
+    minimumFractionDigits: d,
+    maximumFractionDigits: d,
+  });
 const sigName = (s: string) => (tm("vzg.sig") as Record<string, string>)[s] ?? s;
 const kindName = (k: string) => (tm("vzg.kind") as Record<string, string>)[k] ?? k;
 /** permitted speed at a km, in the direction of travel and the opposite one */
@@ -386,7 +390,8 @@ watch(
 );
 
 const entry = computed(() => index.value?.lines.find((l) => l.id === data.value?.id));
-const fmt = (km: number) => km.toFixed(3);
+/** km of the speed changes: localized, always three decimals (metres) */
+const fmt = (km: number) => kmText(km, 3);
 </script>
 
 <template>
@@ -498,8 +503,8 @@ const fmt = (km: number) => km.toFixed(3);
         <template v-if="data.from || data.to">
           · {{ [data.from, data.to].filter(Boolean).join(" – ") }}</template
         >
-        · km {{ track.kmFrom.toFixed(1) }}–{{ track.kmTo.toFixed(1) }} ·
-        {{ track.length.toFixed(1) }} km · <span class="text-[var(--fg)]">━</span>
+        · km {{ kmText(track.kmFrom, 1) }}–{{ kmText(track.kmTo, 1) }} ·
+        {{ kmText(track.length, 1) }} km · <span class="text-[var(--fg)]">━</span>
         {{ $t("vzg.travel") }}
         <span v-if="oppositePath">· ─·─ {{ $t("vzg.opposite") }}</span>
         · {{ $t("vzg.asOf", { date: index?.osmDate ?? index?.created ?? "" }) }}
@@ -567,10 +572,10 @@ const fmt = (km: number) => km.toFixed(3);
               />
               <template v-if="t.label">
                 <text :x="COL.km" :y="y(t.km) + 3.5" text-anchor="end">
-                  {{ t.km.toFixed(z >= 250 ? 1 : 0) }}
+                  {{ kmText(t.km, z >= 250 ? 1 : 0) }}
                 </text>
                 <text :x="COL.km2" :y="y(t.km) + 3.5" text-anchor="end">
-                  {{ t.km.toFixed(z >= 250 ? 1 : 0) }}
+                  {{ kmText(t.km, z >= 250 ? 1 : 0) }}
                 </text>
               </template>
             </template>

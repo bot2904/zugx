@@ -8,6 +8,7 @@ import { isImeEnter, useKeys } from "../lib/keys.ts";
 import { normalize } from "../lib/normalize.ts";
 import SortHeader from "./SortHeader.vue";
 import VzgAbbr from "./VzgAbbr.vue";
+import { useI18n } from "../i18n/index.ts";
 
 const props = defineProps<{ index: VzgIndex }>();
 const route = useRoute();
@@ -71,6 +72,10 @@ useKeys({
   k: () => (sel.value = Math.max(0, sel.value - 1)),
   Enter: () => open(rows.value[sel.value] ?? (rows.value.length === 1 ? rows.value[0] : undefined)),
 });
+const { locale } = useI18n();
+/** km localized, one decimal */
+const kmText = (km: number) =>
+  km.toLocaleString(locale.value, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 </script>
 
 <template>
@@ -165,7 +170,7 @@ useKeys({
           </td>
           <td class="mono whitespace-nowrap text-right">
             {{ Math.round(l.length) }}
-            <span class="muted text-xs">({{ l.kmFrom.toFixed(1) }}–{{ l.kmTo.toFixed(1) }})</span>
+            <span class="muted text-xs">({{ kmText(l.kmFrom) }}–{{ kmText(l.kmTo) }})</span>
           </td>
           <td class="hide-sm mono text-right">{{ l.stations }}</td>
           <td class="hide-sm mono text-right">{{ l.signals }}</td>
