@@ -7,6 +7,7 @@ import { decodePolyline } from "@zugx/vzg/geo";
 import { computed, onMounted, shallowRef } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useI18n } from "../i18n/index.ts";
+import { usePageTitle } from "../lib/title.ts";
 import { download } from "../lib/svg-export.ts";
 import type { TipContent } from "../lib/tip.ts";
 
@@ -366,6 +367,12 @@ const ATTR_LABEL: Record<Attr, string> = {
 };
 const attrLabel = (a: Attr) =>
   ATTR_LABEL[a].startsWith("vzg.") ? t(ATTR_LABEL[a] as never) : ATTR_LABEL[a];
+// "Netzkarte · Tirol · Geschwindigkeit · zugx"
+usePageTitle(() => [
+  t("vzg.netTitle"),
+  region.value === "AT" ? t("vzg.netAustria") : regionName.value,
+  attrLabel(attr.value),
+]);
 const title = computed(
   () =>
     `${t("vzg.netTitle")}${region.value === "AT" ? "" : ` ${regionName.value}`} – ${attrLabel(attr.value)}`,

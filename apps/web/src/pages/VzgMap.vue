@@ -9,6 +9,7 @@ import { decodePolyline } from "@zugx/vzg/geo";
 import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useI18n } from "../i18n/index.ts";
+import { usePageTitle } from "../lib/title.ts";
 import { download } from "../lib/svg-export.ts";
 import { loadStations, nearestStations } from "../lib/stations.ts";
 
@@ -334,6 +335,11 @@ const scale = computed(() => {
 const kmText = (km: number, d = 1) =>
   km.toLocaleString(locale.value, { minimumFractionDigits: d, maximumFractionDigits: d });
 const title = computed(() => line.value?.name ?? line.value?.ref ?? id.value);
+// "Streckenkarte · 101 01 Westbahn · zugx"
+usePageTitle(() => [
+  t("vzg.mapTitle"),
+  line.value ? [line.value.ref, line.value.name].filter(Boolean).join(" ") : id.value,
+]);
 const subtitle = computed(() => {
   const l = line.value;
   const tr = track.value;

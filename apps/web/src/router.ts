@@ -47,7 +47,9 @@ export const router = createRouter({
 });
 
 // document title per page (detail pages set a more specific title themselves)
-router.afterEach((to) => {
+router.afterEach((to, from) => {
+  // query changes on the same page (filters, date, section …): the page's own title stays
+  if (to.path === from.path && from.matched.length) return;
   const key = Object.entries(TITLES).find(
     ([p]) => to.path === p || to.path.startsWith(`${p}/`),
   )?.[1];

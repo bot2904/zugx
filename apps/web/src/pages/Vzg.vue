@@ -11,6 +11,7 @@ import VzgAbbr from "../components/VzgAbbr.vue";
 import VzgBand from "../components/VzgBand.vue";
 import VzgProfile from "../components/VzgProfile.vue";
 import { useI18n } from "../i18n/index.ts";
+import { usePageTitle } from "../lib/title.ts";
 import { itemWikidata } from "../lib/wikidata.ts";
 import { download, standaloneSvg } from "../lib/svg-export.ts";
 import type { TipContent } from "../lib/tip.ts";
@@ -294,6 +295,15 @@ const curveOpacity = (r: number) => Math.max(0.15, Math.min(0.9, 300 / r));
 const chart = ref<SVGSVGElement>();
 /** view: speed chart (default) or Streckenband (?ansicht=band) */
 const band = computed(() => route.query.ansicht === "band");
+// "VzG-Grafik · 101 01 Westbahn · Gleis 2 · zugx" (Streckenband: "Streckenband · …")
+usePageTitle(() => {
+  const l = data.value;
+  return [
+    band.value ? t("vzg.band") : t("nav.vzg"),
+    l && [l.ref, l.name].filter(Boolean).join(" "),
+    l && l.tracks.length > 1 && track.value && `${t("vzg.track")} ${track.value.track}`,
+  ];
+});
 const bandView = ref<{ svg?: SVGSVGElement }>();
 function exportSvg() {
   const l = data.value;

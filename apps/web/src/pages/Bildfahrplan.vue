@@ -31,6 +31,7 @@ import {
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
 import { useKeys } from "../lib/keys.ts";
+import { usePageTitle } from "../lib/title.ts";
 import type { TipContent } from "../lib/tip.ts";
 import { api } from "../lib/api.ts";
 import {
@@ -669,6 +670,20 @@ function toggleCat(c: string) {
   else s.add(c);
   hidden.value = s;
 }
+
+// "Bildfahrplan · 400 Innsbruck – Ötztal – Landeck-Zams – Bludenz (Innsbruck Hbf – Landeck-Zams) · zugx"
+usePageTitle(() => {
+  const sheet = list.value.find((c) => c.id === id.value);
+  const st = shownStations.value;
+  const all = data.value?.stations ?? [];
+  // a section (or the other direction) only when it differs from the whole sheet
+  const partial = st.length > 1 && (st[0]!.id !== all[0]?.id || st.at(-1)!.id !== all.at(-1)?.id);
+  return [
+    t("nav.bildfahrplan"),
+    sheet && [sheet.oebb, sheet.name].filter(Boolean).join(" "),
+    partial && st.length > 1 && `${st[0]!.name} – ${st.at(-1)!.name}`,
+  ];
+});
 </script>
 
 <template>

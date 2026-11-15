@@ -206,6 +206,19 @@ test("bildfahrplan planning: crossings on single track", async ({ page }) => {
   await expect(page.locator("rect.bf-single").first()).toBeAttached();
 });
 
+test("document titles: view · selection · zugx", async ({ page }) => {
+  await page.goto("/bf/400?from=7&d=2026-03-10");
+  await expect(page).toHaveTitle(/^[^·]+ · 400 .+ · zugx$/);
+  await page.keyboard.press("ArrowRight"); // query change keeps the title
+  await expect(page).toHaveTitle(/^[^·]+ · 400 .+ · zugx$/);
+  await page.goto("/vzg/101-01");
+  await expect(page).toHaveTitle(/^[^·]+ · 101 01 .+ · zugx$/);
+  await page.goto("/vzg/101-01/map");
+  await expect(page).toHaveTitle(/ · 101 01 .+ · zugx$/);
+  await page.goto("/vzg/netz?region=AT-7");
+  await expect(page).toHaveTitle(/ · Tirol · .+ · zugx$/);
+});
+
 test("bildfahrplan planning: running-time reserve", async ({ page }) => {
   await page.goto("/bf/westbahn?from=6&h=4&d=2026-03-10&plan=reserve");
   const panel = page.locator(".bf-plan");
