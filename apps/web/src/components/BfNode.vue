@@ -3,7 +3,8 @@
 // (PLAN.md "Bildfahrplan as a planning tool", items 1 and 2). The sheet's trains, plus — with
 // "alle Linien" — every other line at the station from its HAFAS boards (`extra`).
 import type { CorridorStation, CorridorTrain } from "@zugx/netz";
-import { computed, ref } from "vue";
+import { useLocalStorage } from "@vueuse/core";
+import { computed } from "vue";
 import LineBadge from "./LineBadge.vue";
 import { connections, linesAtNode, nodeVerdict, waitClass, type Stop } from "../lib/bf-plan.ts";
 import { hhmm } from "../lib/bf-table.ts";
@@ -34,12 +35,18 @@ const emit = defineEmits<{
 }>();
 const ext = computed(() => (props.all ? props.extra : []));
 
-const minTransfer = ref(3);
-const allLines = ref(false);
+// planning parameters are kept in this browser
+const minTransfer = useLocalStorage("zugx:bf-min-transfer", 3);
+const allLines = useLocalStorage("zugx:bf-node-all-lines", false);
+/** the minimum transfer time in use (an emptied input counts as the default 3′) */
+const transfer = computed(() => {
+  const v = Number(minTransfer.value);
+  return Number.isFinite(v) && v >= 0 ? v : 3;
+});
 const lines = computed(() => linesAtNode(props.trains, props.node, ext.value));
 const verdict = computed(() => nodeVerdict(lines.value));
 const rows = computed(() =>
-  connections(props.trains, props.node, props.t0, props.t1, minTransfer.value, 60, 5, ext.value),
+  connections(props.trains, props.node, props.t0, props.t1, transfer.value, 60, 5, ext.value),
 );
 const dirName = (dir: 1 | -1 | 0) =>
   dir === 1 ? props.stations.at(-1)?.name : dir === -1 ? props.stations[0]?.name : undefined;
@@ -228,7 +235,7 @@ const sym = (s: number) => {
                     $t('bf.plan.missedTip', {
                       train: `${d.missed.t.cat} ${d.missed.t.nr}`,
                       short: d.missed.short,
-                      min: minTransfer,
+                      min: transfer,
                     })
                   "
                 >

@@ -4,6 +4,7 @@
 // the category's top speed). Large reserves = room for faster trains (or time kept for
 // connections); small ones = tight, every disturbance shows. Over the whole day.
 import type { CorridorStation } from "@zugx/netz";
+import { useLocalStorage } from "@vueuse/core";
 import { computed, ref } from "vue";
 import LineBadge from "./LineBadge.vue";
 import {
@@ -34,7 +35,7 @@ const FIELDS: { k: keyof ReserveParams; step: number; unit: string }[] = [
 ];
 const changed = computed(() => FIELDS.some(({ k }) => params.value[k] !== RESERVE_DEFAULTS[k]));
 const dirShown = ref<1 | -1>(props.dir);
-const all = ref(false);
+const all = useLocalStorage("zugx:bf-reserve-all", false);
 const shown = computed(() =>
   props.rows
     .filter((r) => r.dir === dirShown.value && (all.value || r.n >= 3))

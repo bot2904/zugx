@@ -194,6 +194,10 @@ test("bildfahrplan planning: node — Taktknoten and transfers", async ({ page }
   // another node via the select → in the URL
   await panel.locator("select").selectOption({ label: "Attnang-Puchheim" });
   await expect(page).toHaveURL(/knoten=/);
+  // minimum transfer time kept in the browser
+  await panel.getByRole("spinbutton").first().fill("5");
+  await page.reload();
+  await expect(page.locator(".bf-plan").getByRole("spinbutton").first()).toHaveValue("5");
   // source: this sheet only / all lines (HAFAS boards of the node)
   await panel
     .getByRole("button", { name: /^(nur Bildfahrplan|this sheet only|solo questo quadro)$/ })
