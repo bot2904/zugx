@@ -909,6 +909,29 @@ Order: 1 + 2, 4 + 5, 8, 6; then 3, 7, 9, 10; 11–13 later.
 
 **Status (2026-11-15):** done — 1 + 2 (`?plan=knoten`), 4 + 5 (`?plan=kreuzung`), 8 (`?plan=reserve`, `minRun` in the corridor files), 6 (`?plan=puenktlichkeit`, collected in the browser). Limits: the node panel covers other lines via the station's HAFAS boards ("alle Linien"), the other panels only the sheet's trains; passing loops without passenger stops unknown (meetings there show as conflicts), minimum running time without dwell/gradients/rolling stock, punctuality only what one browser saw. Open: 3, 9, 10; a shared punctuality history (backend). 7 (occupancy) done as **Kapazität** (`?plan=kapazitaet`): blocking times per block section from the OSM main signals (Sperrzeitentreppe), occupancy per block (UIC 406 colours), conflicts; parallel lines (another line number, from the GTFS shapes) done; open: several tracks per direction within one line, station track occupation, speed profile within the block instead of even speed.
 
+### Coupled train parts (Zugteile): radar and train panel (planned 2026-11-15)
+
+Feedback: night trains and Railjets often consist of several commercial train parts, and the radar picks one of them at random (e.g. EN 40462 instead of NJ 466). Three cases:
+
+- **Purely commercial numbers** (40xxx/50xxx/60xxx in night traffic): never run on their own; in each section they hang on another operational train (EN 40462 = EC 462 Budapest–Salzburg, then NJ 466 Salzburg–Zürich).
+- **Trains that are operational on part of the run and joined elsewhere** (RJX 860 joined to RJX 60 Wien–Salzburg): which number is the operational one in the joined section is not visible in the published data.
+- **Operational numbers that do not exist commercially** (EN 415 Salzburg–Zagreb = EN 40237 + EN 40465).
+
+Findings from HAFAS (2026-11-15):
+
+- JourneyGeoPos returns one movement per commercial part at the same position (RJX 61 + RJX 19981, RJX 60 + RJX 13470, ICE 1094 + ICE 2820), drawn on top of each other.
+- JourneyDetails has `parJnySegL`: `[{ jid, fLocX, tLocX, type: "UNION" }]`, the joined trains with the section (indices into `common.locL`).
+- The per-stop product (`dProdX` → `prodL[].prodCtx.matchId`) sometimes carries the operational number (EN 40237 from Schwarzach: matchId 415); not reliable alone (EN 40462 after Salzburg: still 462 instead of NJ 466).
+
+Plan:
+
+- **A. Radar**: movements at the same position with the same next stop merge into one marker; label "NJ 466 / EN 40462", most likely operational part first (numbers ≥ 40000 last, else lower number first).
+- **B. Panel header**: one badge per part, the clicked one highlighted; each opens its own run; "Zuglauf öffnen" opens the highlighted one.
+- **C. Box "Zugteile"** (radar panel and train page): per section the joined trains, linked; sections without an operational partner show the matchId ("betrieblich EN 415 lt. HAFAS").
+- **D. Stop list**: a small note where the operational train changes ("ab hier NJ 466").
+
+Limits: in a joined section the operational number is only a guess (lower number / non-commercial range).
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
