@@ -1,6 +1,6 @@
 import type { CorridorTrain } from "@zugx/netz";
 import { describe, expect, it } from "vite-plus/test";
-import { connections, crossings, linesAtNode, nodeVerdict } from "./bf-plan.ts";
+import { connections, crossings, linesAtNode, nodeVerdict, runningReserve } from "./bf-plan.ts";
 
 const train = (
   cat: string,
@@ -115,5 +115,30 @@ describe("crossings", () => {
       [0, 504, null],
     ]);
     expect(crossings([up, down], km, [[0, 20, 2]], 470, 520)).toEqual([]);
+  });
+});
+
+describe("running-time reserve", () => {
+  it("scheduled time between stops vs. the minimum, passes skipped", () => {
+    // stations 0–2; the train stops at 0 and 2, passes 1 (interpolated time with a decimal)
+    const t = train("R", "1", 1, "C", [
+      [0, null, 480],
+      [1, 485.5, 485.5],
+      [2, 492, null],
+    ]);
+    const rows = runningReserve(
+      [t, { ...t, nr: "3" }],
+      {
+        R: [
+          [4, 4],
+          [5, 5],
+        ],
+      },
+      [0, 4, 9],
+      0,
+      2,
+    );
+    // 9 km in 9′ at speed (16.7 m/s) + starting/stopping 16.7 / 0.7 s = 9.4′
+    expect(rows).toEqual([{ from: 0, to: 2, cat: "R", dir: 1, n: 2, planned: 12, min: 9.4 }]);
   });
 });

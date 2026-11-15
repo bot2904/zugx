@@ -206,6 +206,16 @@ test("bildfahrplan planning: crossings on single track", async ({ page }) => {
   await expect(page.locator("rect.bf-single").first()).toBeAttached();
 });
 
+test("bildfahrplan planning: running-time reserve", async ({ page }) => {
+  await page.goto("/bf/westbahn?from=6&h=4&d=2026-03-10&plan=reserve");
+  const panel = page.locator(".bf-plan");
+  await expect(panel.locator("tbody")).toContainText("Wien Meidling – St. Pölten Hbf");
+  await expect(panel).toContainText(/RJX \d+ %/);
+  // other direction
+  await panel.getByRole("button", { name: /Wien Hbf/ }).click();
+  await expect(panel.locator("tbody")).toContainText("St. Pölten Hbf – Wien Meidling");
+});
+
 test("bildfahrplan: table in a second window, view and hover in sync", async ({ page }) => {
   await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
   const [popup] = await Promise.all([

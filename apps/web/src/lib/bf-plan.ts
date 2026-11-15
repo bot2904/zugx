@@ -339,3 +339,103 @@ export function crossings(
 
 /** colour class of a crossing buffer: fragile (≤ 2′), tight (≤ 5′), comfortable */
 export const bufferClass = (b: number) => (b <= 2 ? "bad" : b <= 5 ? "mid" : "good");
+
+// ---- 8. running-time reserve ----
+
+export interface ReserveRow {
+  /** stop → next stop (station indices, travel order) */
+  from: number;
+  to: number;
+  cat: string;
+  dir: 1 | -1;
+  /** trains */
+  n: number;
+  /** median scheduled running time and the minimum at the permitted speed, minutes */
+  planned: number;
+  min: number;
+}
+
+const median = (xs: number[]) => {
+  const s = [...xs].sort((a, b) => a - b);
+  const m = s.length >> 1;
+  return s.length % 2 ? s[m]! : (s[m - 1]! + s[m]!) / 2;
+};
+
+/** acceleration = braking rate in m/s²: multiple units (S-Bahn, regional) vs. locomotive-hauled */
+const accel = (cat: string) => (["S", "R", "REX", "CJX"].includes(cat) ? 0.7 : 0.5);
+
+/**
+ * Minimum running time (minutes) from stop to stop: the time at the permitted speed `atSpeed`
+ * over `km` plus starting and stopping — accelerating to and braking from the average permitted
+ * speed costs v/a; on short stretches where that speed is not reached, 2·√(L/a).
+ */
+export function minStopToStop(atSpeed: number, km: number, cat: string): number {
+  const L = km * 1000;
+  if (L <= 0 || atSpeed <= 0) return atSpeed;
+  const v = L / (atSpeed * 60);
+  const a = accel(cat);
+  const s = L >= (v * v) / a ? L / v + v / a : 2 * Math.sqrt(L / a);
+  return s / 60;
+}
+
+/**
+ * Scheduled running time between consecutive stops vs. the minimum at the permitted speed
+ * (`minRun`, per category and neighbouring station pair, plus starting and stopping, see
+ * {@link minStopToStop}), aggregated per stretch, category and direction (median over the
+ * trains). Only stops within [lo, hi]; passes are skipped (their times are estimated from the
+ * speed limits themselves).
+ */
+export function runningReserve(
+  trains: CorridorTrain[],
+  minRun: Record<string, [number | null, number | null][]>,
+  stationKm: number[],
+  lo: number,
+  hi: number,
+): ReserveRow[] {
+  const groups = new Map<
+    string,
+    { from: number; to: number; cat: string; dir: 1 | -1; p: number[]; m: number }
+  >();
+  for (const t of trains) {
+    const mr = minRun[t.cat];
+    if (!mr) continue;
+    const stops = t.pts.filter(([i, a, d]) => i >= lo && i <= hi && !isPass(a, d));
+    for (let k = 0; k + 1 < stops.length; k++) {
+      const [i, , d] = stops[k]!;
+      const [j, a] = stops[k + 1]!;
+      if (d === null || a === null || a <= d) continue;
+      let min = 0;
+      let ok = true;
+      for (let q = Math.min(i, j); q < Math.max(i, j); q++) {
+        const v = mr[q]?.[t.dir === 1 ? 0 : 1];
+        if (v === null || v === undefined) {
+          ok = false;
+          break;
+        }
+        min += v;
+      }
+      if (!ok || min <= 0) continue;
+      min = minStopToStop(min, Math.abs((stationKm[j] ?? 0) - (stationKm[i] ?? 0)), t.cat);
+      const key = `${i}|${j}|${t.cat}`;
+      const g = groups.get(key) ?? { from: i, to: j, cat: t.cat, dir: t.dir, p: [], m: min };
+      g.p.push(a - d);
+      groups.set(key, g);
+    }
+  }
+  return [...groups.values()].map((g) => ({
+    from: g.from,
+    to: g.to,
+    cat: g.cat,
+    dir: g.dir,
+    n: g.p.length,
+    planned: median(g.p),
+    min: Math.round(g.m * 10) / 10,
+  }));
+}
+
+/** reserve share of the minimum: tight (< 7 %), normal, slack (≥ 25 %: room for faster trains) */
+export const reserveClass = (planned: number, min: number) => {
+  const r = (planned - min) / min;
+  // below the minimum: timetable minutes rounded, or speed data/model off — not a statement
+  return r < 0 ? "neg" : r < 0.07 ? "mid" : r >= 0.25 ? "slack" : "good";
+};

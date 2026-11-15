@@ -17,7 +17,8 @@ import BfTable from "../components/BfTable.vue";
 import BfBook from "../components/BfBook.vue";
 import BfNode from "../components/BfNode.vue";
 import BfCrossings from "../components/BfCrossings.vue";
-import { bufferClass, crossings, stopsAt } from "../lib/bf-plan.ts";
+import BfReserve from "../components/BfReserve.vue";
+import { bufferClass, crossings, runningReserve, stopsAt } from "../lib/bf-plan.ts";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
 import { useKeys } from "../lib/keys.ts";
@@ -63,7 +64,7 @@ const hover = shallowRef<CorridorTrain>();
 // ---- two windows (e.g. two monitors): ?part=chart | table shows only that part; the windows
 // share the sheet, date, time window, section and the hovered train (BroadcastChannel) ----
 // ---- planning panels (?plan=knoten …, PLAN.md "Bildfahrplan as a planning tool") ----
-const PLANS = ["knoten", "kreuzung"] as const;
+const PLANS = ["knoten", "kreuzung", "reserve"] as const;
 type Plan = (typeof PLANS)[number];
 const plan = computed<Plan | undefined>(() =>
   (PLANS as readonly string[]).includes(String(route.query.plan))
@@ -102,6 +103,18 @@ const crossingList = computed(() => {
     t0.value,
     t1.value,
   ).filter((x) => inRange(x.i) && (x.i2 === undefined || inRange(x.i2)));
+});
+/** running-time reserve per stretch between stops (whole day, shown section) */
+const reserveRows = computed(() => {
+  const c = data.value;
+  if (plan.value !== "reserve" || !c?.minRun) return [];
+  return runningReserve(
+    planTrains.value,
+    c.minRun,
+    c.stations.map((st) => st.km),
+    range.value.lo,
+    range.value.hi,
+  );
 });
 const delayOf = (tr: CorridorTrain) =>
   liveOn.value ? liveRuns.value.get(trainKey(tr.cat, tr.nr))?.delay : undefined;
@@ -1105,6 +1118,12 @@ function toggleCat(c: string) {
         {{ $t(`bf.plan.tab.${p}`) }}
       </button>
     </div>
+    <BfReserve
+      v-if="data && plan === 'reserve' && part !== 'table'"
+      :stations="data.stations"
+      :rows="reserveRows"
+      :dir="reversed ? -1 : 1"
+    />
     <BfCrossings
       v-if="data && plan === 'kreuzung' && part !== 'table'"
       :stations="data.stations"

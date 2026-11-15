@@ -152,6 +152,17 @@ export default {
   },
   bf: {
     plan: {
+      negTip:
+        "Sotto il minimo calcolato: i minuti d'orario sono arrotondati (fino a ±1′ su tratte di 2′), oppure dati di velocità/modello non adatti qui – nessuna indicazione.",
+      reserve: "Riserva di marcia",
+      reservePerCat: "Riserva totale",
+      noReserve: "Nessun dato (nessuna velocità VzG per questo quadro).",
+      stretch: "Tratta (fermata – fermata)",
+      planned: "Programmato",
+      minimum: "Minimo",
+      reserveNote:
+        "Programmato = mediana del tempo di percorrenza tra due fermate nella giornata; minimo = alla velocità consentita (VzG/OSM, limitata alla velocità massima della categoria) più avviamento e frenatura (0,7 m/s² per elettrotreni S/R/REX/CJX, altrimenti 0,5 m/s²). Giallo: stretto (< 7 %), verde: normale, blu: molta riserva (≥ 25 %) – margine per treni più veloci o attesa per coincidenze. Senza soste, pendenze e dati del materiale: un valore indicativo.",
+      allStretches: "tutte le tratte (anche < 3 treni)",
       crossings: "Incroci",
       crossingsSummary:
         "{n} nella finestra, {fragile} con margine ≤ 2′, {conflicts} incontri su binario unico",
@@ -166,7 +177,7 @@ export default {
       bufferTip: "{late} può avere {buf}′ di ritardo prima che {waiting} debba attendere",
       crossingsNote:
         "Incrocio = treni di entrambe le direzioni contemporaneamente in stazione, vicino a binario unico. Margine = quanto ritardo del treno opposto viene assorbito; oltre si trasmette (rosso +n′: atteso dai dati in tempo reale). Ombreggiato: binario unico. Binario unico da OSM, orari di transito stimati.",
-      tab: { knoten: "Nodo", kreuzung: "Incroci" },
+      tab: { knoten: "Nodo", kreuzung: "Incroci", reserve: "Riserva di marcia" },
       pickNode: "Analizza come nodo",
       title: "Pianificazione",
       tabNode: "Nodo",

@@ -152,6 +152,17 @@ export default {
   },
   bf: {
     plan: {
+      negTip:
+        "Unter dem errechneten Minimum: die Fahrplanminuten sind gerundet (bei 2′-Abschnitten bis ±1′), oder Geschwindigkeitsdaten/Modell passen hier nicht – keine Aussage.",
+      reserve: "Fahrzeitreserve",
+      reservePerCat: "Reserve gesamt",
+      noReserve: "Keine Daten (keine VzG-Geschwindigkeiten für diesen Bildfahrplan).",
+      stretch: "Abschnitt (Halt – Halt)",
+      planned: "Fahrzeit",
+      minimum: "Minimum",
+      reserveNote:
+        "Fahrzeit = Median der geplanten Fahrzeit zwischen zwei Halten über den Tag; Minimum = mit der zulässigen Geschwindigkeit (VzG/OSM, begrenzt auf die Höchstgeschwindigkeit der Gattung) plus Anfahren und Bremsen (0,7 m/s² bei Triebzügen S/R/REX/CJX, sonst 0,5 m/s²). Gelb: knapp (< 7 %), grün: üblich, blau: viel Reserve (≥ 25 %) – Spielraum für schnellere Züge oder Wartezeit für Anschlüsse. Ohne Haltezeit, Steigungen und Fahrzeugdaten: ein Richtwert.",
+      allStretches: "alle Abschnitte (auch < 3 Züge)",
       crossings: "Kreuzungen",
       crossingsSummary:
         "{n} im Zeitfenster, {fragile} mit Puffer ≤ 2′, {conflicts} Begegnungen auf eingleisiger Strecke",
@@ -166,7 +177,7 @@ export default {
       bufferTip: "{late} darf {buf}′ verspätet sein, bevor {waiting} warten muss",
       crossingsNote:
         "Kreuzung = Züge beider Richtungen gleichzeitig im Bahnhof, neben einem eingleisigen Abschnitt. Puffer = wie viel Verspätung des Gegenzugs der Zug abfängt; darüber überträgt sich die Verspätung (rot +n′: erwartet aus den Echtzeitdaten). Grau hinterlegt: eingleisig. Eingleisigkeit aus OSM, Durchfahrtszeiten geschätzt.",
-      tab: { knoten: "Knoten", kreuzung: "Kreuzungen" },
+      tab: { knoten: "Knoten", kreuzung: "Kreuzungen", reserve: "Fahrzeitreserve" },
       pickNode: "Als Knoten analysieren",
       title: "Planung",
       tabNode: "Knoten",

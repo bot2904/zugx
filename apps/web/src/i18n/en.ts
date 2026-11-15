@@ -150,6 +150,17 @@ export default {
   },
   bf: {
     plan: {
+      negTip:
+        "Below the computed minimum: timetable minutes are rounded (up to ±1′ on 2′ stretches), or the speed data/model doesn't fit here – no statement.",
+      reserve: "Running-time reserve",
+      reservePerCat: "Total reserve",
+      noReserve: "No data (no VzG speeds for this sheet).",
+      stretch: "Stretch (stop – stop)",
+      planned: "Scheduled",
+      minimum: "Minimum",
+      reserveNote:
+        "Scheduled = median planned running time between two stops over the day; minimum = at the permitted speed (VzG/OSM, capped at the category's top speed) plus starting and stopping (0.7 m/s² for multiple units S/R/REX/CJX, else 0.5 m/s²). Amber: tight (< 7 %), green: usual, blue: much reserve (≥ 25 %) – room for faster trains or time kept for connections. No dwell, gradients or rolling-stock data: a guide value.",
+      allStretches: "all stretches (also < 3 trains)",
       crossings: "Crossings",
       crossingsSummary:
         "{n} in the time window, {fragile} with a buffer ≤ 2′, {conflicts} meetings on single track",
@@ -163,7 +174,7 @@ export default {
       bufferTip: "{late} may be {buf}′ late before {waiting} has to wait",
       crossingsNote:
         "Crossing = trains of both directions in the station at the same time, next to single track. Buffer = how much delay of the opposite train is absorbed; beyond that the delay carries over (red +n′: expected from the live data). Shaded: single track. Single track from OSM, passing times estimated.",
-      tab: { knoten: "Node", kreuzung: "Crossings" },
+      tab: { knoten: "Node", kreuzung: "Crossings", reserve: "Running-time reserve" },
       pickNode: "Analyse as node",
       title: "Planning",
       tabNode: "Node",
