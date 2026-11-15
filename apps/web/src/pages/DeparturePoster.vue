@@ -189,7 +189,7 @@ usePageTitle(() => [t("poster.title"), data.value ? name(data.value.id) : undefi
 <style scoped>
 /* hours flow through columns like the posters in the stations */
 .cols {
-  column-width: 24rem;
+  column-width: 32rem;
   column-gap: 0.75rem;
 }
 .hour {
