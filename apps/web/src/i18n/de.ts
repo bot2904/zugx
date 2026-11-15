@@ -44,6 +44,7 @@ export default {
     country: "Land",
     countryTip:
       "Land der Übersichten: Züge, Bildfahrpläne, Strecken, Netzkarte, Bahnhöfe (Suche und Verbindungen umfassen alle Länder)",
+    liveNone: "Echtzeit gibt es nur für Österreich",
     liveOnly: "immer Echtzeit",
   },
   search: {

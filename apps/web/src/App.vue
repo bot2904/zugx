@@ -9,7 +9,7 @@ import { locale, LOCALES, setLocale, type Locale, type MessageKey } from "./i18n
 import { useKeys } from "./lib/keys.ts";
 import { state } from "./lib/store.ts";
 import { scheme, toggleScheme } from "./lib/theme.ts";
-import { liveMode } from "./lib/live.ts";
+import { liveAvailable, liveMode } from "./lib/live.ts";
 import { COUNTRIES, country } from "./lib/country.ts";
 
 const router = useRouter();
@@ -133,6 +133,7 @@ watch(
  * Bildfahrplan the realtime overlay follows (?live)
  */
 function toggleLive() {
+  if (!liveAvailable.value) return;
   liveMode.value = !liveMode.value;
   const id = route.params.id;
   if (route.path.startsWith("/station/") && typeof id === "string") {
@@ -226,7 +227,8 @@ const shortcuts: [string, string][] = [
           class="btn whitespace-nowrap"
           :class="liveMode && 'btn-on'"
           :aria-pressed="liveMode"
-          v-tip="`${$t('nav.liveTip')} (e)`"
+          :disabled="!liveAvailable"
+          v-tip="liveAvailable ? `${$t('nav.liveTip')} (e)` : $t('nav.liveNone')"
           @click="toggleLive"
         >
           <span class="live-dot" :class="liveMode && 'on'" aria-hidden="true">●</span>

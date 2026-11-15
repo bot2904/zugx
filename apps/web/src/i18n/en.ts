@@ -42,6 +42,7 @@ export default {
     country: "Country",
     countryTip:
       "Country of the overviews: trains, Bildfahrpläne, lines, network map, stations (search and journeys cover all countries)",
+    liveNone: "Realtime is only available for Austria",
     liveOnly: "always realtime",
   },
   search: {
