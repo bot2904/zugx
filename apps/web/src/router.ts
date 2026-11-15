@@ -9,6 +9,7 @@ const TITLES: Record<string, MessageKey> = {
   "/vzg": "nav.vzg",
   "/netz": "nav.netz",
   "/him": "nav.him",
+  "/help": "nav.help",
   "/imprint": "common.imprint",
   "/privacy": "common.privacy",
 };
@@ -29,6 +30,8 @@ export const router = createRouter({
     { path: "/bf/:corridor?", component: () => import("./pages/Bildfahrplan.vue") },
     { path: "/vzg/:line?", component: () => import("./pages/Vzg.vue") },
     { path: "/netz/:region?", component: () => import("./pages/Netz.vue") },
+    { path: "/help", component: () => import("./pages/Help.vue") },
+    { path: "/hilfe", redirect: "/help" },
     { path: "/imprint", component: () => import("./pages/Imprint.vue") },
     { path: "/impressum", redirect: "/imprint" },
     { path: "/privacy", component: () => import("./pages/Privacy.vue") },

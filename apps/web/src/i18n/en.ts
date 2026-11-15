@@ -10,6 +10,7 @@ export default {
     vzg: "VzG chart",
     netz: "Netzgrafik",
     him: "Disruptions",
+    help: "Help",
   },
   search: {
     from: "From",

@@ -12,6 +12,7 @@ export default {
     vzg: "VzG-Grafik",
     netz: "Netzgrafik",
     him: "Störungen",
+    help: "Hilfe",
   },
   search: {
     from: "Von",

@@ -75,6 +75,7 @@ const nav: { to: string; key: MessageKey }[] = [
   { to: "/vzg", key: "nav.vzg" },
   { to: "/netz", key: "nav.netz" },
   { to: "/him", key: "nav.him" },
+  { to: "/help", key: "nav.help" },
 ];
 
 const shortcuts: [string, string][] = [

@@ -12,6 +12,7 @@ export default {
     vzg: "Grafico VzG",
     netz: "Grafico di rete",
     him: "Perturbazioni",
+    help: "Aiuto",
   },
   search: {
     from: "Da",

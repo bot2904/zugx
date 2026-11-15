@@ -509,3 +509,19 @@ test("VzG chart links connecting lines at junction stations", async ({ page }) =
   await expect(page).toHaveURL(/\/vzg\/222-01\?km=/);
   await expect(page.locator("svg.vzg")).toBeVisible();
 });
+
+test("help page explains the views and data sources", async ({ page }) => {
+  if (test.info().project.name.includes("mobile")) {
+    await page.goto("/hilfe"); // nav behind the menu button on phones; German alias redirects
+  } else {
+    await page.goto("/");
+    await page
+      .getByRole("navigation")
+      .getByRole("link", { name: /^(Help|Hilfe|Aiuto)$/ })
+      .click();
+  }
+  await expect(page).toHaveURL(/\/help$/);
+  await expect(page.locator("h1")).toHaveText(/Help|Hilfe/);
+  await expect(page.locator("#bildfahrplan")).toBeVisible();
+  await expect(page.getByText(/OpenStreetMap/).first()).toBeVisible();
+});
