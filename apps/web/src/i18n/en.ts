@@ -151,6 +151,8 @@ export default {
   bf: {
     indexDay: "trains/day and train mix on {day}",
     plan: {
+      altLineTip:
+        "Block section of line {line} – separate tracks some trains take (by their route in the timetable, e.g. the new line in the tunnel); conflicts only with trains on the same line.",
       loop: "passing loop km {km}",
       loopTip:
         "Crossing at a passing loop / operational station without passenger stop – recognised by entry and exit signals of both directions (OSM).",

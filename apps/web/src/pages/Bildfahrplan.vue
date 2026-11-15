@@ -24,10 +24,11 @@ import BfCapacity from "../components/BfCapacity.vue";
 import {
   BLOCK_DEFAULTS,
   blockBounds,
-  blockingTimes,
   blockTable,
+  trainBlocks,
   markConflicts,
   mergeCoupled,
+  withoutUnknown,
   type BlockParams,
 } from "../lib/bf-capacity.ts";
 import {
@@ -144,9 +145,15 @@ const blockBoxes = computed(() => {
   } as Record<1 | -1, number[]>;
   // trains in the window (with some lead time: blocking starts before the train is there)
   const boxes = mergeCoupled(
-    planTrains.value
-      .flatMap((tr) => blockingTimes(tr, km, bounds[tr.dir], blockParams.value))
-      .filter((b) => b.end > t0.value - 5 && b.start < t1.value + 5),
+    withoutUnknown(
+      planTrains.value
+        .flatMap((tr) =>
+          trainBlocks(tr, km, bounds[tr.dir], c.blocks?.alt ?? [], lo, hi, blockParams.value),
+        )
+        .filter((b) => b.end > t0.value - 5 && b.start < t1.value + 5),
+      c.blocks,
+      km,
+    ),
   );
   markConflicts(
     boxes,
@@ -1133,8 +1140,9 @@ watch([plan, nodeHafas, date, t0, t1, nodeAll], () => void loadNodeBoards(), {
               :fill="b.conflict ? 'var(--bad)' : categoryColor(b.t.cat)"
               :fill-opacity="b.conflict ? 0.45 : hover && hover === b.t ? 0.45 : 0.16"
               :stroke="b.conflict ? 'var(--bad)' : categoryColor(b.t.cat)"
-              :stroke-opacity="b.conflict ? 0.9 : 0.35"
-              stroke-width="0.5"
+              :stroke-opacity="b.conflict ? 0.9 : b.res ? 0.8 : 0.35"
+              :stroke-width="b.res ? 0.8 : 0.5"
+              :stroke-dasharray="b.res ? '3 2' : undefined"
             />
           </g>
           <!-- crossings panel: single track shaded, crossings as dots (buffer colour), conflicts ✕ -->

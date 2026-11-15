@@ -142,9 +142,21 @@ const pct = (v: number) => `${Math.round(v * 100)} %`;
           </tr>
         </thead>
         <tbody>
-          <tr v-for="r in shown" :key="`${r.dir}|${r.block}`" :class="r.conflicts > 0 && 'conf'">
-            <td class="num mono muted">{{ r.block + 1 }}</td>
-            <td>{{ between(r) }}</td>
+          <tr
+            v-for="(r, k) in shown"
+            :key="`${r.res ?? ''}|${r.dir}|${r.block}`"
+            :class="[r.conflicts > 0 && 'conf', r.res && 'alt']"
+          >
+            <td class="num mono muted">{{ k + 1 }}</td>
+            <td>
+              {{ between(r) }}
+              <span
+                v-if="r.res"
+                class="line-tag mono"
+                v-tip="$t('bf.plan.altLineTip', { line: r.res.replace('-', ' ') })"
+                >↳ {{ r.res.replace("-", " ") }}</span
+              >
+            </td>
             <td class="num mono">{{ km(r.from) }}–{{ km(r.to) }}</td>
             <td class="num mono">{{ km(r.to - r.from) }}</td>
             <td class="num mono">{{ r.n }}</td>
@@ -192,6 +204,14 @@ const pct = (v: number) => `${Math.round(v * 100)} %`;
 }
 .plan-table tbody tr:nth-child(even) {
   background: var(--bg);
+}
+.line-tag {
+  margin-left: 0.375rem;
+  padding: 0 0.25rem;
+  border: 1px solid var(--line);
+  border-radius: 0.25rem;
+  color: var(--muted);
+  font-size: 0.625rem;
 }
 .plan-table tbody tr.conf {
   background: color-mix(in srgb, var(--bad) 8%, transparent);

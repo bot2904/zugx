@@ -153,6 +153,8 @@ export default {
   bf: {
     indexDay: "treni/giorno e composizione il {day}",
     plan: {
+      altLineTip:
+        "Sezione di blocco della linea {line} – binari propri percorsi da una parte dei treni (secondo il percorso nell'orario, p. es. la linea nuova in galleria); conflitti solo con treni sulla stessa linea.",
       loop: "posto di incrocio km {km}",
       loopTip:
         "Incrocio in un posto di incrocio senza fermata passeggeri – riconosciuto dai segnali di entrata e uscita di entrambe le direzioni (OSM).",

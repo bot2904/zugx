@@ -153,6 +153,8 @@ export default {
   bf: {
     indexDay: "Züge/Tag und Zugmix am {day}",
     plan: {
+      altLineTip:
+        "Blockabschnitt der Strecke {line} – eigene Gleise, auf denen ein Teil der Züge fährt (laut Fahrweg im Fahrplan, z. B. die Neubaustrecke im Tunnel); Konflikte nur mit Zügen auf derselben Strecke.",
       loop: "Ausweiche km {km}",
       loopTip:
         "Kreuzung in einer Ausweiche/einem Betriebsbahnhof ohne Personenhalt – erkannt an Ein- und Ausfahrsignalen beider Richtungen (OSM).",

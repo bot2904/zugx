@@ -90,6 +90,8 @@ function headAt(r: Run, km: number, dir: 1 | -1): number | undefined {
 export interface BlockBox {
   t: CorridorTrain;
   dir: 1 | -1;
+  /** another line than the sheet's (CorridorTrain.via): its own tracks and blocks, e.g. "330-01" */
+  res?: string;
   /** block index in travel order of `dir`, and its km range */
   block: number;
   from: number;
@@ -149,13 +151,74 @@ export function blockingTimes(
 }
 
 /**
+ * Station pairs without any signal data (e.g. Salzburg – Kufstein through Germany, outside the
+ * Austrian OSM extract): no block model there — a box entirely inside such a stretch is dropped
+ * instead of one huge station-to-station block.
+ */
+export function withoutUnknown(
+  boxes: BlockBox[],
+  blocks: NonNullable<Corridor["blocks"]> | undefined,
+  stationKm: number[],
+): BlockBox[] {
+  const known = blocks?.known ?? [];
+  const unknown: [number, number][] = [];
+  for (let k = 1; k < stationKm.length; k++) {
+    const [a, b] = [stationKm[k - 1]!, stationKm[k]!];
+    if (b > a && !known.some(([x, y]) => x <= a + 0.01 && y >= b - 0.01)) unknown.push([a, b]);
+  }
+  return boxes.filter(
+    (x) => x.res || !unknown.some(([a, b]) => x.from >= a - 0.01 && x.to <= b + 0.01),
+  );
+}
+
+type AltBlocks = NonNullable<NonNullable<Corridor["blocks"]>["alt"]>;
+
+/**
+ * Blocking times of a train in the shown section [lo, hi]: on the sheet's own line `bounds`; on
+ * stretches where it takes another line (`t.via`, e.g. the new Unterinntal line in the tunnel)
+ * that line's blocks (`alt`) as a separate resource — trains there don't conflict with those on
+ * the old line.
+ */
+export function trainBlocks(
+  t: CorridorTrain,
+  stationKm: number[],
+  bounds: number[],
+  alt: AltBlocks,
+  lo: number,
+  hi: number,
+  p: BlockParams = BLOCK_DEFAULTS,
+): BlockBox[] {
+  const all = blockingTimes(t, stationKm, bounds, p);
+  if (!t.via?.length) return all;
+  const via = t.via.flatMap(([vi, vj, line]) => {
+    const [i, j] = vi < vj ? [vi, vj] : [vj, vi];
+    const from = Math.max(lo, stationKm[i] ?? 0);
+    const to = Math.min(hi, stationKm[j] ?? 0);
+    return to > from ? [{ i, j, line, from, to }] : [];
+  });
+  const inVia = (b: BlockBox) => via.some((v) => b.from >= v.from - 0.01 && b.to <= v.to + 0.01);
+  const out = all.filter((b) => !inVia(b));
+  for (const v of via) {
+    const a =
+      alt.find((x) => x.line === v.line && x.i === v.i && x.j === v.j) ??
+      alt.find((x) => x.line === v.line && x.i <= v.i && x.j >= v.j);
+    const sig = (a ? (t.dir === 1 ? a.up : a.down) : []).filter((k) => k > v.from && k < v.to);
+    const b = [v.from, ...sig, v.to];
+    if (t.dir === -1) b.reverse();
+    for (const x of blockingTimes(t, stationKm, b, p))
+      if (x.from >= v.from - 0.01 && x.to <= v.to + 0.01) out.push({ ...x, res: v.line });
+  }
+  return out;
+}
+
+/**
  * Coupled trains (portions running together, e.g. RJX 260 + RJX 660) have identical blocking
  * times: one box per block and time, the first train stands for both.
  */
 export function mergeCoupled(boxes: BlockBox[]): BlockBox[] {
   const seen = new Set<string>();
   return boxes.filter((x) => {
-    const k = `${x.dir}|${x.block}|${Math.round(x.start * 5)}|${Math.round(x.end * 5)}`;
+    const k = `${x.res ?? ""}|${x.dir}|${x.block}|${Math.round(x.start * 5)}|${Math.round(x.end * 5)}`;
     if (seen.has(k)) return false;
     seen.add(k);
     return true;
@@ -175,7 +238,7 @@ export function markConflicts(
 ) {
   const byBlock = new Map<string, BlockBox[]>();
   for (const x of boxes) {
-    const k = `${x.dir}|${x.block}`;
+    const k = `${x.res ?? ""}|${x.dir}|${x.block}`;
     byBlock.set(k, [...(byBlock.get(k) ?? []), x]);
   }
   for (const list of byBlock.values()) {
@@ -192,6 +255,7 @@ export function markConflicts(
     for (const d of downs) {
       const a = Math.max(u.from, d.from);
       const b = Math.min(u.to, d.to);
+      if (u.res !== d.res) continue; // different tracks
       if (b - a < 0.05 || u.end - d.start <= tolerance || d.end - u.start <= tolerance) continue;
       // overlapping within a station's limits (its entry signals, up to ~1 km from the
       // platforms): they cross there on separate tracks (passing loop)
@@ -202,6 +266,8 @@ export function markConflicts(
 
 export interface BlockRow {
   dir: 1 | -1;
+  /** another line (separate tracks), see BlockBox.res */
+  res?: string;
   block: number;
   from: number;
   to: number;
@@ -218,7 +284,7 @@ export interface BlockRow {
 export function blockTable(boxes: BlockBox[], t0: number, t1: number): BlockRow[] {
   const m = new Map<string, BlockBox[]>();
   for (const x of boxes) {
-    const k = `${x.dir}|${x.block}`;
+    const k = `${x.res ?? ""}|${x.dir}|${x.block}`;
     m.set(k, [...(m.get(k) ?? []), x]);
   }
   const rows: BlockRow[] = [];
@@ -240,6 +306,7 @@ export function blockTable(boxes: BlockBox[], t0: number, t1: number): BlockRow[
     const f = list[0]!;
     rows.push({
       dir: f.dir,
+      ...(f.res ? { res: f.res } : {}),
       block: f.block,
       from: f.from,
       to: f.to,
@@ -249,7 +316,10 @@ export function blockTable(boxes: BlockBox[], t0: number, t1: number): BlockRow[
       conflicts: list.filter((x) => x.conflict).length,
     });
   }
-  return rows.sort((a, b) => a.dir - b.dir || a.block - b.block);
+  // in travel order along the km axis; another line's blocks among them by position
+  return rows.sort(
+    (a, b) => a.dir - b.dir || (a.from - b.from) * a.dir || (a.res ? 1 : 0) - (b.res ? 1 : 0),
+  );
 }
 
 /** occupancy colour after UIC 406 (mixed traffic): ≤ 60 % fine, ≤ 75 % tight, above congested */

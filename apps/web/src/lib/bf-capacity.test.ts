@@ -116,3 +116,42 @@ describe("coupled trains", () => {
     expect(boxes.some((x) => x.conflict)).toBe(false);
   });
 });
+
+describe("parallel lines", () => {
+  it("trains on another line (via) use its blocks and don't conflict with the old line", async () => {
+    const { trainBlocks } = await import("./bf-capacity.ts");
+    const bounds = blockBounds(blocks, km, 0, 10, 1);
+    const alt = [{ i: 0, j: 1, line: "330-01", up: [3, 7], down: [7, 3] }];
+    const slow = train(
+      "1",
+      1,
+      [
+        [0, null, 480],
+        [1, 490, null],
+      ],
+      "R",
+    );
+    const fast = {
+      ...train(
+        "2",
+        1,
+        [
+          [0, null, 482],
+          [1, 488, null],
+        ],
+        "RJX",
+      ),
+      via: [[0, 1, "330-01"]] as [number, number, string][],
+    };
+    const boxes = [slow, fast].flatMap((t) => trainBlocks(t, km, bounds, alt, 0, 10));
+    const fb = boxes.filter((x) => x.t === fast);
+    expect(fb.every((x) => x.res === "330-01")).toBe(true);
+    expect(fb.map((x) => [x.from, x.to])).toEqual([
+      [0, 3],
+      [3, 7],
+      [7, 10],
+    ]);
+    markConflicts(boxes, [], km);
+    expect(boxes.some((x) => x.conflict)).toBe(false);
+  });
+});
