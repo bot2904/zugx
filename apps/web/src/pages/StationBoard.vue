@@ -221,7 +221,7 @@ watch(sel, (i) =>
       <button
         class="btn border-0 text-lg"
         :class="isFavourite(id) ? 'text-[var(--warn)]' : 'muted'"
-        :title="$t('search.favourites') + ' (f)'"
+        v-tip="$t('search.favourites') + ' (f)'"
         :aria-label="$t('search.favourites') + ' (f)'"
         @click="toggleFavourite({ id, name })"
       >
@@ -234,7 +234,7 @@ watch(sel, (i) =>
         target="_blank"
         rel="noopener"
         class="text-xs"
-        :title="$t('board.wikidataTip')"
+        v-tip="$t('board.wikidataTip')"
         >Wikidata ↗</a
       >
       <div class="ml-auto flex gap-1">
@@ -276,7 +276,7 @@ watch(sel, (i) =>
         <button class="btn" :disabled="paging || !entries.length" @click="more(1)">
           {{ $t("board.later") }} <span class="kbd">l</span> ›
         </button>
-        <label class="ml-2 flex items-center gap-1 muted" :title="$t('board.autoRefresh')">
+        <label class="ml-2 flex items-center gap-1 muted" v-tip="$t('board.autoRefresh')">
           <input v-model="auto" type="checkbox" /> ⟳ 30s
         </label>
       </span>
@@ -340,7 +340,7 @@ watch(sel, (i) =>
                   <span
                     v-if="e.remarks.some((r) => r.kind === 'warning')"
                     class="ml-1 text-[var(--warn)]"
-                    title="!"
+                    v-tip="'!'"
                     >⚠</span
                   >
                   <span

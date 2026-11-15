@@ -9,6 +9,6 @@ const FULL = "Verzeichnis der örtlich zulässigen Geschwindigkeiten und Besonde
 
 <template>
   <template v-for="(p, i) in parts" :key="i"
-    ><abbr v-if="p === 'VzG'" :title="FULL">VzG</abbr><template v-else>{{ p }}</template></template
+    ><abbr v-if="p === 'VzG'" v-tip="FULL">VzG</abbr><template v-else>{{ p }}</template></template
   >
 </template>

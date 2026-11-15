@@ -28,7 +28,7 @@ async function add() {
 </script>
 
 <template>
-  <button class="btn text-xs" :title="$t('calendar.add')" @click="add">
+  <button class="btn text-xs" v-tip="$t('calendar.add')" @click="add">
     📅 {{ $t("calendar.add") }}
   </button>
 </template>

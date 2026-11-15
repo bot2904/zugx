@@ -12,7 +12,7 @@ defineProps<{ ev?: StopEvent }>();
         ? 'text-[var(--warn)] font-semibold'
         : ''
     "
-    :title="
+    v-tip="
       ev.plannedPlatform && ev.platform !== ev.plannedPlatform
         ? `→ ${ev.platform} (${ev.plannedPlatform})`
         : ''

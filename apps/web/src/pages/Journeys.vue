@@ -202,7 +202,7 @@ useKeys({
       <RouterLink
         :to="`/j/${to}/${from}`"
         class="btn text-xs"
-        :title="$t('search.swap') + ' (s)'"
+        v-tip="$t('search.swap') + ' (s)'"
         :aria-label="$t('search.swap') + ' (s)'"
         >⇄</RouterLink
       >
@@ -255,7 +255,7 @@ useKeys({
         <select
           class="input text-xs"
           :value="transferTime ?? ''"
-          :title="$t('journeys.transfers')"
+          v-tip="$t('journeys.transfers')"
           @change="setQuery({ chg: ($event.target as HTMLSelectElement).value || undefined })"
         >
           <option value="">⇄ auto</option>
@@ -287,7 +287,7 @@ useKeys({
             <input
               type="checkbox"
               :checked="compare.has(i)"
-              :title="$t('journeys.compare') + ' (x)'"
+              v-tip="$t('journeys.compare') + ' (x)'"
               :aria-label="$t('journeys.compare')"
               @click.stop="toggleCompare(i)"
             />

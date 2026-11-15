@@ -147,7 +147,7 @@ defineExpose({ focus: () => input.value?.focus() });
       <button
         class="btn ml-1"
         type="button"
-        :title="$t('search.nearby')"
+        v-tip="$t('search.nearby')"
         :aria-label="$t('search.nearby')"
         @click="nearMe"
       >
@@ -171,7 +171,7 @@ defineExpose({ focus: () => input.value?.focus() });
       >
         <span v-if="o.group === 'favourites'" class="text-[var(--warn)]">★</span>
         <span v-else-if="o.group === 'recents'" class="muted">↺</span>
-        <span v-else-if="o.group === 'online'" class="muted" :title="$t('search.online')">⌁</span>
+        <span v-else-if="o.group === 'online'" class="muted" v-tip="$t('search.online')">⌁</span>
         <span>{{ o.name }}</span>
         <span class="muted ml-auto text-xs mono">{{ o.hint }}</span>
       </li>

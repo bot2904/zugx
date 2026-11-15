@@ -447,7 +447,7 @@ function toggleCat(c: string) {
       <span v-if="data" class="flex items-center gap-1 text-xs">
         <button
           class="btn"
-          :title="$t('bf.prevDay')"
+          v-tip="$t('bf.prevDay')"
           :aria-label="$t('bf.prevDay')"
           @click="shiftDay(-1)"
         >
@@ -465,7 +465,7 @@ function toggleCat(c: string) {
         <span class="mono muted">{{ weekday }}</span>
         <button
           class="btn"
-          :title="$t('bf.nextDay')"
+          v-tip="$t('bf.nextDay')"
           :aria-label="$t('bf.nextDay')"
           @click="shiftDay(1)"
         >
@@ -486,7 +486,7 @@ function toggleCat(c: string) {
         <button class="btn" @click="setQuery({ from: Math.max(0, Math.floor(from) - 1) })">
           ▲
         </button>
-        <span class="mono" :title="$t('bf.wheelHint')">{{ hhmmOf(startMin) }}</span>
+        <span class="mono" v-tip="$t('bf.wheelHint')">{{ hhmmOf(startMin) }}</span>
         <button class="btn" @click="setQuery({ from: Math.min(23, Math.floor(from) + 1) })">
           ▼
         </button>
@@ -512,9 +512,7 @@ function toggleCat(c: string) {
           <option v-for="st in orderedStations" :key="st.id" :value="st.id">{{ st.name }}</option>
         </select>
       </label>
-      <button class="btn" :title="$t('bf.swap')" :aria-label="$t('bf.swap')" @click="swap">
-        ⇄
-      </button>
+      <button class="btn" v-tip="$t('bf.swap')" :aria-label="$t('bf.swap')" @click="swap">⇄</button>
       <label class="flex items-center gap-1">
         {{ $t("search.to") }}
         <select
@@ -545,7 +543,7 @@ function toggleCat(c: string) {
             :href="itemWikidata(l.qid)"
             target="_blank"
             rel="noopener"
-            :title="$t('bf.wikidataTip')"
+            v-tip="$t('bf.wikidataTip')"
             >{{ l.name }}<template v-if="l.number"> ({{ l.number }})</template></a
           ></template
         >
@@ -557,7 +555,7 @@ function toggleCat(c: string) {
         :class="liveOn && 'btn-on'"
         :aria-pressed="liveOn"
         :disabled="!isToday"
-        :title="isToday ? $t('bf.liveTip') : $t('bf.liveOnlyToday')"
+        v-tip="isToday ? $t('bf.liveTip') : $t('bf.liveOnlyToday')"
         @click="toggleLive"
       >
         <span aria-hidden="true">●</span> {{ $t("bf.live") }}
@@ -606,8 +604,8 @@ function toggleCat(c: string) {
             class="bf-station"
             aria-haspopup="menu"
             @click.prevent="s.hafasId && openStationMenu(s, $event)"
+            v-tip="s.name"
           >
-            <title>{{ s.name }}</title>
             <text
               :transform="`translate(${x(s.km) + 3} ${M.top - 8}) rotate(-60)`"
               font-size="10"

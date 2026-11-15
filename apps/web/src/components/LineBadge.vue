@@ -25,7 +25,7 @@ const color = computed(() => (props.line ? lineColor(props.line) : categoryColor
     class="mono inline-block whitespace-nowrap rounded px-1.5 font-semibold text-white"
     :class="small ? 'text-[0.6875rem] leading-4' : 'text-xs leading-5'"
     :style="{ background: color }"
-    :title="title"
+    v-tip="title"
     >{{ label }}</span
   >
 </template>

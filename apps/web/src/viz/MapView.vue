@@ -345,7 +345,7 @@ onBeforeUnmount(() => map?.remove());
       class="btn chip absolute top-2 left-2 z-10 bg-[var(--bg2)] py-0.5 text-xs shadow"
       :class="orm && 'btn-on'"
       :aria-pressed="orm"
-      :title="$t('map.ormTip')"
+      v-tip="$t('map.ormTip')"
       @click="orm = !orm"
     >
       {{ $t("map.orm") }}

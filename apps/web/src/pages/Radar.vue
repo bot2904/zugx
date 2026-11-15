@@ -262,7 +262,7 @@ function toggle(cls: number) {
           <button
             class="btn px-2 py-0.5"
             :aria-label="$t('common.close')"
-            :title="`${$t('common.close')} (Esc)`"
+            v-tip="`${$t('common.close')} (Esc)`"
             @click="closePanel"
           >
             ✕
@@ -310,7 +310,7 @@ function toggle(cls: number) {
             role="radio"
             :aria-checked="delayPalette === 'blue'"
             :class="delayPalette === 'blue' && 'btn-on'"
-            :title="$t('radar.paletteBlueTip')"
+            v-tip="$t('radar.paletteBlueTip')"
             @click="delayPalette = 'blue'"
           >
             {{ $t("radar.paletteBlue") }}

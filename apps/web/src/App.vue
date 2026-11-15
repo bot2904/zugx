@@ -138,7 +138,7 @@ const shortcuts: [string, string][] = [
       <div class="ml-auto flex items-center gap-2 text-xs">
         <button
           class="btn hide-sm keys-only"
-          :title="$t('common.commandPalette')"
+          v-tip="$t('common.commandPalette')"
           @click="palette = true"
         >
           <span class="kbd">⌘K</span>
@@ -146,7 +146,7 @@ const shortcuts: [string, string][] = [
         <button
           class="btn"
           :class="state.debug && 'btn-on'"
-          :title="$t('debug.show')"
+          v-tip="$t('debug.show')"
           :aria-label="$t('debug.show')"
           @click="state.debug = !state.debug"
         >
@@ -162,7 +162,7 @@ const shortcuts: [string, string][] = [
         </select>
         <button
           class="btn"
-          :title="$t('common.theme')"
+          v-tip="$t('common.theme')"
           :aria-label="$t('common.theme')"
           @click="toggleScheme"
         >

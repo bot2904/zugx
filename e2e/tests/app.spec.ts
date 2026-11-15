@@ -345,7 +345,7 @@ test("bildfahrplan: station menu (departure board, Wikidata via IBNR) and Wikida
   );
   await page
     .locator("a.bf-station")
-    .filter({ has: page.locator("title", { hasText: /^Semmering$/ }) })
+    .filter({ hasText: /^\s*Semmering\s*$/ })
     .click();
   const menu = page.getByRole("menu");
   await expect(menu).toBeVisible();
@@ -363,10 +363,13 @@ test("bildfahrplan: station menu (departure board, Wikidata via IBNR) and Wikida
 
 test("VzG index filters by line number and station, opens a line", async ({ page }) => {
   await page.goto("/vzg");
-  await expect(page.locator("h1 abbr")).toHaveAttribute(
-    "title",
-    "Verzeichnis der örtlich zulässigen Geschwindigkeiten und Besonderheiten",
-  );
+  // tooltip (popover, not a title attribute) on hover, also exposed as accessible description
+  const full = "Verzeichnis der örtlich zulässigen Geschwindigkeiten und Besonderheiten";
+  await expect(page.locator("h1 abbr")).toHaveAttribute("aria-description", full);
+  if (!test.info().project.name.includes("mobile")) {
+    await page.locator("h1 abbr").hover();
+    await expect(page.getByRole("tooltip")).toHaveText(full);
+  }
   await page.getByRole("searchbox").fill("10101");
   await expect(page.locator("tbody tr")).toHaveCount(1);
   await page.getByRole("searchbox").fill("Maria Anzbach");

@@ -262,7 +262,7 @@ const fmt = (km: number) => km.toFixed(3);
           class="btn"
           :class="track?.track === t.track && 'btn-on'"
           :aria-pressed="track?.track === t.track"
-          :title="$t('vzg.trackTip', { n: t.track })"
+          v-tip="$t('vzg.trackTip', { n: t.track })"
           @click="setQuery({ t: t.track === data.tracks[0]?.track ? undefined : t.track })"
         >
           {{ t.track }}
@@ -285,7 +285,7 @@ const fmt = (km: number) => km.toFixed(3);
         >
           {{ v }} px/km
         </button>
-        <label class="ml-2 flex items-center gap-1" :title="$t('vzg.allSignalsTip')">
+        <label class="ml-2 flex items-center gap-1" v-tip="$t('vzg.allSignalsTip')">
           <input
             type="checkbox"
             :checked="allSignals"
@@ -334,8 +334,8 @@ const fmt = (km: number) => km.toFixed(3);
             <text :x="(COL.d0 + COL.d1) / 2" y="14" text-anchor="middle">
               {{ $t("vzg.speed") }}
             </text>
-            <text :x="COL.curve + 2" y="14">
-              <title>{{ $t("vzg.curvesTip") }}</title>{{ $t("vzg.curves") }}
+            <text :x="COL.curve + 2" y="14" v-tip="$t('vzg.curvesTip')">
+              {{ $t("vzg.curves") }}
             </text>
             <text v-for="v in vGrid" :key="v" :x="vx(v)" y="34" text-anchor="middle" class="mono">
               {{ v }}
@@ -420,8 +420,7 @@ const fmt = (km: number) => km.toFixed(3);
           </g>
           <!-- operating points and signals -->
           <g font-size="10">
-            <g v-for="(p, i) in visiblePoints" :key="i">
-              <title>{{ pointTitle(p) }}</title>
+            <g v-for="(p, i) in visiblePoints" :key="i" v-tip="pointTitle(p)">
               <rect
                 v-if="p.kind === 'station'"
                 :x="COL.sym - 4"
@@ -456,8 +455,11 @@ const fmt = (km: number) => km.toFixed(3);
           </g>
           <!-- curves -->
           <g font-size="9" class="mono">
-            <g v-for="(c, i) in curves" :key="`r${i}`">
-              <title>R {{ c[2] }} m · km {{ fmt(c[0]) }}–{{ fmt(c[1]) }}</title>
+            <g
+              v-for="(c, i) in curves"
+              :key="`r${i}`"
+              v-tip="`R ${c[2]} m · km ${fmt(c[0])}–${fmt(c[1])}`"
+            >
               <rect
                 :x="COL.curve"
                 :y="Math.min(y(c[0]), y(c[1]))"

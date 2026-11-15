@@ -214,7 +214,7 @@ const lineWidth = (l: Trainrun) =>
         target="_blank"
         rel="noopener"
         @click="openNge"
-        :title="$t('netz.openNgeHint')"
+        v-tip="$t('netz.openNgeHint')"
         >{{ $t("netz.openNge") }} ↗</a
       >
     </div>
@@ -266,10 +266,8 @@ const lineWidth = (l: Trainrun) =>
                     : 1
               "
               @click="selLine = selLine === s.line.id ? undefined : s.line.id"
+              v-tip="`${s.line.category} ${s.line.name} (${s.line.frequency ?? '–'}′)`"
             >
-              <title>
-                {{ s.line.category }} {{ s.line.name }} ({{ s.line.frequency ?? "–" }}′)
-              </title>
               <line
                 :x1="geom(s).ax"
                 :y1="geom(s).ay"
@@ -327,10 +325,8 @@ const lineWidth = (l: Trainrun) =>
                 selNode = selNode === n.id ? undefined : n.id;
                 selLine = undefined;
               "
+              v-tip="`${n.name}${n.nodeTimes.minutes.length ? ' · ' + knotLabel(n) : ''}`"
             >
-              <title>
-                {{ n.name }}{{ n.nodeTimes.minutes.length ? " · " + knotLabel(n) : "" }}
-              </title>
               <rect
                 :x="pos.get(n.id)!.x - 9"
                 :y="pos.get(n.id)!.y - 9"
@@ -411,7 +407,7 @@ const lineWidth = (l: Trainrun) =>
           </template>
           <template v-else-if="node">
             <b>{{ node.name }}</b>
-            <span class="muted ml-1 text-xs" :title="$t('netz.operationalPoint')"
+            <span class="muted ml-1 text-xs" v-tip="$t('netz.operationalPoint')"
               >{{ $t("netz.operationalPoint") }} {{ node.code }}</span
             >
             <RouterLink v-if="node.hafasId" :to="`/station/${node.hafasId}`" class="ml-2 text-xs"

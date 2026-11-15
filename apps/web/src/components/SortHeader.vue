@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Sortable column header: real <button> inside <th scope=col>, state via aria-sort on the <th> only
 // (modern-web-guidance: sortable-table).
-defineProps<{ active: boolean; desc: boolean; title?: string }>();
+defineProps<{ active: boolean; desc: boolean }>();
 defineEmits<{ sort: [] }>();
 </script>
 
@@ -11,7 +11,7 @@ defineEmits<{ sort: [] }>();
     class="sort-th"
     :aria-sort="active ? (desc ? 'descending' : 'ascending') : undefined"
   >
-    <button type="button" :title="title" @click="$emit('sort')">
+    <button type="button" @click="$emit('sort')">
       <slot />
       <svg class="sort-icon" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true">
         <path d="M5 2 8 6H2z" fill="currentColor" />

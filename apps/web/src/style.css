@@ -351,3 +351,25 @@ input {
   min-width: 0;
   text-overflow: ellipsis;
 }
+/* tooltips (lib/tip.ts, v-tip): one shared popover, placed by script */
+.tip:popover-open {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  max-inline-size: min(22rem, calc(100vw - 1rem));
+  padding: 0.3rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  white-space: pre-line;
+  color: var(--fg);
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.25);
+  pointer-events: none;
+}
+/* abbreviations with a tooltip (v-tip, no title attribute): dotted like the browser default */
+abbr[aria-description] {
+  text-decoration: underline dotted;
+  cursor: help;
+}

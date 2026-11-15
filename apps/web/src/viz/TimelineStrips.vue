@@ -145,8 +145,7 @@ const height = computed(() => PAD_TOP + rows.value.length * ROW + 4);
           :height="ROW"
           :fill="i === selected ? 'var(--bg3)' : 'transparent'"
         />
-        <g v-for="(b, k) in r.bars" :key="k">
-          <title>{{ b.title }}</title>
+        <g v-for="(b, k) in r.bars" :key="k" v-tip="b.title">
           <!-- planned ghost -->
           <rect
             v-if="b.delayed && !b.walk"

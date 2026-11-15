@@ -109,7 +109,7 @@ useKeys({
       <thead>
         <tr>
           <SortHeader
-            :title="$t('bf.oebbTip')"
+            v-tip="$t('bf.oebbTip')"
             :active="sort === 'oebb'"
             :desc="desc"
             @sort="sortBy('oebb')"
@@ -136,7 +136,7 @@ useKeys({
             @sort="sortBy('trains')"
             >{{ $t("bf.trains") }}</SortHeader
           >
-          <th scope="col" class="hide-sm" :title="$t('bf.mixTip')">{{ $t("bf.mix") }}</th>
+          <th scope="col" class="hide-sm" v-tip="$t('bf.mixTip')">{{ $t("bf.mix") }}</th>
         </tr>
       </thead>
       <tbody>
@@ -154,7 +154,7 @@ useKeys({
               href="https://www.oebb.at/de/fahrplan/fahrplanbilder"
               target="_blank"
               rel="external noopener"
-              :title="$t('bf.oebbLink', { n: c.oebb })"
+              v-tip="$t('bf.oebbLink', { n: c.oebb })"
               @click.stop
               >{{ c.oebb }}</a
             >
@@ -188,9 +188,8 @@ useKeys({
                 :width="s.w"
                 height="8"
                 :fill="categoryColor(s.cat)"
-              >
-                <title>{{ s.cat }}: {{ s.n }}</title>
-              </rect>
+                v-tip="`${s.cat}: ${s.n}`"
+              ></rect>
             </svg>
             <div
               class="muted mono overflow-hidden text-ellipsis whitespace-nowrap text-[0.625rem]"

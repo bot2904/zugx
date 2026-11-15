@@ -67,7 +67,7 @@ const nowInput = () => (when.value = toLocalInput());
           <button
             type="button"
             class="btn mb-0.5 justify-center"
-            :title="$t('search.swap')"
+            v-tip="$t('search.swap')"
             :aria-label="$t('search.swap')"
             @click="swap"
           >

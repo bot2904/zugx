@@ -170,7 +170,7 @@ function goDay(delta: number) {
           <button
             class="btn"
             :aria-label="$t('bf.prevDay')"
-            :title="$t('bf.prevDay')"
+            v-tip="$t('bf.prevDay')"
             @click="goDay(-1)"
           >
             ‹
@@ -179,7 +179,7 @@ function goDay(delta: number) {
           <button
             class="btn"
             :aria-label="$t('bf.nextDay')"
-            :title="$t('bf.nextDay')"
+            v-tip="$t('bf.nextDay')"
             @click="goDay(1)"
           >
             ›

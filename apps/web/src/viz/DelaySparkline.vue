@@ -50,8 +50,7 @@ const hasData = computed(() => pts.value.some((p) => p.d !== undefined));
       :cy="y(p.d!)"
       r="3"
       :fill="color(p.d)"
-    >
-      <title>{{ p.name }}: {{ p.d! > 0 ? "+" : "" }}{{ p.d }}′</title>
-    </circle>
+      v-tip="`${p.name}: ${p.d! > 0 ? '+' : ''}${p.d}′`"
+    ></circle>
   </svg>
 </template>

@@ -392,8 +392,8 @@ watch(sel, (i) =>
           <tr>
             <th>{{ $t("board.line") }}</th>
             <th>{{ $t("trains.route") }}</th>
-            <th class="cursor-help" :title="$t('trains.tip.column')">{{ $t("trains.days") }} ⓘ</th>
-            <th class="hide-sm cursor-help" :title="$t('trains.tip.strip')">
+            <th class="cursor-help" v-tip="$t('trains.tip.column')">{{ $t("trains.days") }} ⓘ</th>
+            <th class="hide-sm cursor-help" v-tip="$t('trains.tip.strip')">
               {{ index.begin.slice(0, 7) }} → {{ index.end.slice(0, 7) }}
             </th>
           </tr>
