@@ -73,13 +73,31 @@
 
 	handle {
 		root * /srv
-		@hashed path /assets/*
+		# fingerprinted files (Vite: name-<8-char content hash>.ext; under /assets/ and the
+		# service worker's workbox-<hash>.js): the content never changes under that name — cache
+		# for a year without revalidating (immutable)
+		@hashed {
+			path_regexp ^/(assets/.+|workbox)-[A-Za-z0-9_-]{8}\.[a-z0-9]+$
+			file
+		}
 		header @hashed Cache-Control "public, max-age=31536000, immutable"
-		# everything but the hashed assets revalidates: index.html for every SPA route (not only
-		# "/"), the service worker, the manifest — so a deploy is picked up on the next load
-		@nocache not path /assets/*
-		header @nocache Cache-Control "no-cache"
-		try_files {path} /index.html
+		# everything else revalidates (ETag / Last-Modified, 304): index.html for every SPA route,
+		# the service worker, the manifest, icons, routing data — a deploy shows on the next load
+		@revalidate not {
+			path_regexp ^/(assets/.+|workbox)-[A-Za-z0-9_-]{8}\.[a-z0-9]+$
+			file
+		}
+		header @revalidate Cache-Control "no-cache"
+		# Caddy doesn't know .webmanifest
+		header /manifest.webmanifest Content-Type application/manifest+json
+		# SPA routes fall back to index.html — but not /assets/: a chunk that isn't there (an old one
+		# after a deploy) is a plain 404 (index.html under a .js name would break the app; the client
+		# reloads once on a failed chunk, main.ts)
+		@spa {
+			not path /assets/*
+			not file
+		}
+		rewrite @spa /index.html
 		file_server {
 			precompressed zstd gzip
 		}

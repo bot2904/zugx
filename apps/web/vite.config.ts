@@ -131,9 +131,12 @@ export default defineConfig({
         chunkFileNames: (chunk) => {
           const id = chunk.facadeModuleId ?? "";
           if (id.endsWith("/index.toml")) return "assets/[name]-[hash].js";
-          if (id.includes("/netz/data/corridors/")) return "assets/corridor-[name]-[hash].js";
+          // Austria's data in data/, the other countries' in data/<country>/
+          if (/\/netz\/data\/(?:[a-z]{2}\/)?corridors\//.test(id))
+            return "assets/corridor-[name]-[hash].js";
           if (id.includes("/vzg/data/")) return "assets/vzg-[name]-[hash].js";
-          if (id.includes("/trains/data/departures/")) return "assets/dep-[name]-[hash].js";
+          if (/\/trains\/data\/(?:[a-z]{2}\/)?departures\//.test(id))
+            return "assets/dep-[name]-[hash].js";
           return "assets/[name]-[hash].js";
         },
       },
