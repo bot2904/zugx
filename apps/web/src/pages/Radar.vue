@@ -126,14 +126,9 @@ const mode = useLocalStorage<"delay" | "category">("zugx:radar-mode", "delay");
 const groups = computed(() => groupMovements(movements.value));
 
 const counts = computed(() => {
-  const c: Record<string, number> = {
-    nodata: 0,
-    ontime: 0,
-    minor: 0,
-    slight: 0,
-    late: 0,
-    verylate: 0,
-  };
+  const c: Record<string, number> = Object.fromEntries(
+    [...DELAY_CLASSES.map((d) => d.id), "nodata"].map((id) => [id, 0]),
+  );
   for (const [m] of groups.value) {
     const cls = delayClass(m!.delay);
     c[cls]!++;
