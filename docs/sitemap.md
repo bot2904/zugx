@@ -44,6 +44,8 @@ Every function of zugx, where to find it, and along three dimensions: **data** (
 
 ## Plan B: flat, grouped navigation (preferred after user feedback)
 
+**Done (2026-11-16)**, refined: `zugx  Suche● Radar● Störungen● │ Bahnhöfe Züge │ Bildfahrplan Netzgrafik │ Strecken Netzkarte │ Hilfe   [● Live] DE ☀` — first two groups bold, no group labels, never collapsed on desktop (☰ only on narrow screens); ⌘K and raw JSON moved to the footer; the global Live switch (`e`, remembered, on by default) drives station board ⇄ departure plan, the Bildfahrplan overlay and the station index links.
+
 Feedback (power user): "as few clicks as possible, a pity if everything goes into menus — it isn't too confusing. For beginners, make the normal features bold: Suche, Züge, Radar, Störungen, Hilfe. The red dot is good."
 
 So: **no dropdowns** — every page stays one click away — but the bar gets **visual grouping**:

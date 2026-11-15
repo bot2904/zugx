@@ -23,6 +23,16 @@ const { locale } = useI18n();
         <a href="#grenzen">Grenzen</a>
       </nav>
 
+      <h2 id="navigation">Menü &amp; Live-Schalter</h2>
+      <p>
+        Das Menü zeigt alles mit einem Klick: zuerst Suche, Radar und Störungen (immer Echtzeit,
+        roter Punkt ●), dann Bahnhöfe und Züge, dann Bildfahrplan und Netzgrafik (Fahrplan), dann
+        Strecken und Infrastrukturnetzkarte. Der Schalter <strong>● Live</strong> rechts oben (Taste
+        <kbd>e</kbd>) wählt, wo eine Seite beides hat, zwischen Echtzeit und Fahrplan: beim Bahnhof
+        Abfahrtstafel oder Abfahrtsplan, im Bildfahrplan die Echtzeit-Überlagerung. Die Wahl wird
+        gemerkt. Schnellzugriff (<kbd>⌘K</kbd>) und Roh-JSON (<kbd>d</kbd>) stehen in der Fußzeile.
+      </p>
+
       <h2 id="suche">Suche &amp; Verbindungen</h2>
       <p>
         Auf der Startseite Abfahrts- und Zielbahnhof eingeben (Vorschläge erscheinen beim Tippen,
@@ -337,6 +347,17 @@ const { locale } = useI18n();
         <a href="#stoerungen">Disruptions</a> · <a href="#tasten">Keyboard</a> ·
         <a href="#daten">Data &amp; sources</a> · <a href="#grenzen">Limits</a>
       </nav>
+
+      <h2 id="navigation">Menu &amp; Live switch</h2>
+      <p>
+        The menu shows everything one click away: first Search, Radar and Disruptions (always
+        realtime, red dot ●), then Stations and Trains, then the graphic timetable and Netzgrafik
+        (timetable), then Lines and the infrastructure network map. The
+        <strong>● Live</strong> switch top right (key <kbd>e</kbd>) chooses realtime or timetable
+        where a page has both: live board or departure plan for a station, the realtime overlay in
+        the graphic timetable. It is remembered. Quick jump (<kbd>⌘K</kbd>) and raw JSON
+        (<kbd>d</kbd>) are in the footer.
+      </p>
 
       <h2 id="suche">Search &amp; journeys</h2>
       <p>
