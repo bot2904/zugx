@@ -38,6 +38,9 @@ jobs:
       - name: Build departure posters
         run: vp run departures:build
 
+      - name: Build train → line map
+        run: vp run lines:build
+
       - name: Build Netzgrafik + corridors
         run: vp run netz:build
 
