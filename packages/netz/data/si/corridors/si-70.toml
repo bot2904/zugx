@@ -101,3 +101,4 @@ trains = [
   { cat = "SŽ", nr = "4286", dir = -1, origin = "Divača", headsign = "Nova Gorica", pts = [[31, "", 1279], [30, 1286, 1287], [29, 1290, 1291], [28, 1294, 1294], [27, 1299, 1300], [26, 1307, 1308], [25, 1311, 1312], [24, 1314, 1315], [23, 1317, 1317], [21, 1323, 1323], [20, 1327, 1328], [19, 1331, ""]], days = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
   { cat = "SŽ", nr = "861", dir = 1, origin = "Bohinjska Bistrica", headsign = "Nova Gorica", pts = [[7, "", 1288], [8, 1298, 1299], [12, 1327, 1337], [19, 1374, ""]], days = "AAAAAAAAAAAAAAAA//////////////////////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
 ]
+bypass = [[16, 18]]
