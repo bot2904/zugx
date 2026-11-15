@@ -1,0 +1,17 @@
+id = "7800105"
+name = "Djurmanec"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "IJPP / NAP Slovenija (CC BY-SA 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnz58+fPnz58+bPnz4A==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnz58+fPnz58+fPnz4A==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv379+/fv379+/fv34A=="]
+deps = [
+  [348,"R","7280","7900214",["7800109"],0,""],
+  [438,"R","7281","7800052",["7800582","7800591","7800338","7874611","7800531","7800280","7800584","7800521"],0,""],
+  [640,"R","7808","7900214",["7800109"],1,""],
+  [836,"R","7282","7900214",["7800109"],0,""],
+  [905,"R","7283","7800052",["7800582","7800591","7800338","7874611","7800531","7800280","7800584","7800521"],0,""],
+  [1043,"R","7812","7900214",["7800109"],2,""],
+]
+
+names = { 7800052 = "Zabok", 7800109 = "Hromec", 7800280 = "Dukovec", 7800338 = "Krapina", 7800521 = "Strucljevo", 7800531 = "Velika Ves", 7800582 = "Zutnica", 7800584 = "Sveti Kriz Zacretje", 7800591 = "Dolice(HR)", 7874611 = "Pristava Krapinska", 7900214 = "Sveti Rok ob Sotli" }

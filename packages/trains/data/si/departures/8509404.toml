@@ -1,0 +1,14 @@
+id = "8509404"
+name = "Buchs SG"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "IJPP / NAP Slovenija (CC BY-SA 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP4PP/8A==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFz//wAAAAAA=="]
+deps = [
+  [1320,"EN","40465","7900001",["8100197","8100067","8100065","8100064","8100063","8100108","8100099","8100044"],0,""],
+  [1320,"EN","40465","7900006",["8100197","8100067","8100065","8100064","8100063","8100108","8100099","8100044"],2,""],
+  [1932,"EN","40414","8503000",["8509411"],1,""],
+]
+
+names = { 7900001 = "Jesenice(SLO)", 7900006 = "Maribor", 8100044 = "Schwarzach im Pongau-St.Veit Bahnhof", 8100063 = "Landeck-Zams Bahnhof", 8100064 = "St.Anton am Arlberg Bahnhof", 8100065 = "Langen am Arlberg Bahnhof", 8100067 = "Bludenz Bahnhof", 8100099 = "Wörgl Hbf", 8100108 = "Innsbruck Hbf", 8100197 = "Feldkirch Bahnhof", 8503000 = "Zürich HB", 8509411 = "Sargans" }

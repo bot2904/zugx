@@ -1,0 +1,47 @@
+id = "5501478"
+name = "Zalalövö"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "IJPP / NAP Slovenija (CC BY-SA 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAAAA==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////8A==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH///+YPAf///////8A==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////+YPAf///////8A=="]
+deps = [
+  [324,"R","9550","7900279",["5501689","5501684","5501685","5501686","5501687"],1,""],
+  [404,"R","9557","5500087",["5501479","5500340","5501474","5501481","5500221","5500192","5501475"],1,""],
+  [762,"IC","246","7900279",["5501686"],2,""],
+  [762,"MV","246","7900003",["5501686","7900279","7943774","7900033","7900075","7900144","7900026","7900027"],0,""],
+  [796,"IC","247","5500007",["5500087","5500081","5500079","5500077","5501511","5500060","5500059","5501056"],3,""],
+  [1237,"R","9568","7900279",["5501689","5501684","5501685","5501686","5501687"],1,""],
+  [1281,"R","9561","5500087",["5501479","5500340","5501474","5501481","5500221","5500192","5501475"],1,""],
+]
+
+[names]
+5500007 = "Budapest-Déli"
+5500059 = "Veszprem"
+5500060 = "Ajka"
+5500077 = "Ukk"
+5500079 = "Zalaber-Batyk"
+5500081 = "Zalaszentivan"
+5500087 = "Zalaegerszeg"
+5500192 = "Andrashida"
+5500221 = "Bagod"
+5500340 = "Budafa"
+5501056 = "Petfürdö"
+5501474 = "Zalacseb-Salomvar"
+5501475 = "Zalaegerszeg-Ola"
+5501479 = "Zalapatakalja"
+5501481 = "Zalaszentgyörgy"
+5501511 = "Janoshaza"
+5501684 = "Pankasz"
+5501685 = "Nagyrakos"
+5501686 = "Öriszentpeter"
+5501687 = "Bajansenye"
+5501689 = "Felsöjánosfa"
+7900003 = "Ljubljana"
+7900026 = "Ormoz"
+7900027 = "Ptuj"
+7900033 = "Murska Sobota"
+7900075 = "Lipovci"
+7900144 = "Ljutomer mesto"
+7900279 = "Hodos"
+7943774 = "Maekovci"

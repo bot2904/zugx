@@ -6,7 +6,15 @@
 // Run: vp run departures:build   (after stations:build, uses its GTFS → HAFAS station map)
 import { mkdirSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { dayFromIso, parseTrainName, timer, timetableYear } from "@zugx/gtfs";
+import {
+  COUNTRIES,
+  currentCountry,
+  dataDir,
+  dayFromIso,
+  parseTrainName,
+  timer,
+  timetableYear,
+} from "@zugx/gtfs";
 import { openZugxDb, RAIL_ROUTE_TYPES, rows, serviceDays } from "@zugx/db/query";
 import type { GtfsHafasMap } from "@zugx/stations";
 import { cleanGtfsName, cleanHafasName } from "@zugx/stations/match";
@@ -14,8 +22,14 @@ import { readToml, toToml } from "@zugx/toml";
 import { feedYear } from "./build.ts";
 import { encodeDays } from "./index.ts";
 
-const DATA = join(import.meta.dirname, "..", "data", "departures");
-const MAP_PATH = join(import.meta.dirname, "..", "..", "stations", "data", "gtfs-hafas-map.toml");
+const COUNTRY = currentCountry();
+/** UIC codes of the other configured countries (their stations get their plan from their feed) */
+const OTHER_UIC = Object.values(COUNTRIES)
+  .filter((c) => c.id !== COUNTRY.id)
+  .map((c) => c.uic);
+const otherCountry = (hafasId: string) => OTHER_UIC.some((u) => hafasId.startsWith(u));
+const DATA = join(dataDir("trains", COUNTRY), "departures");
+const MAP_PATH = join(dataDir("stations", COUNTRY), "gtfs-hafas-map.toml");
 /** following stops listed per departure (the poster's "via" lines), at most */
 const VIA_MAX = 8;
 
@@ -94,6 +108,7 @@ async function main() {
       if (s.pickup === 1) continue; // no boarding here
       const id = ids[k]!;
       if (!/^\d+$/.test(id)) continue; // stations without HAFAS id: no page to show it on
+      if (otherCountry(id)) continue; // another configured country has the station's own plan
       const via = ids.slice(k + 1, -1).slice(0, VIA_MAX);
       const platform = stops.get(s.stopId)?.platform || null;
       const row = [Math.round(s.dep / 60), tn.cat, tn.nr, dest, via, platform] as const;
@@ -140,7 +155,7 @@ async function main() {
       year,
       begin: tty.begin,
       end: tty.end,
-      source: "ÖBB GTFS (CC BY 4.0)",
+      source: `${COUNTRY.licence.source} (${COUNTRY.licence.name})`,
       days: dayTable,
     });
     const rows = deps.map((r) => `  ${JSON.stringify(r.map((x) => x ?? ""))},`).join("\n");

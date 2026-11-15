@@ -6,11 +6,12 @@
 // Run: vp run lines:build
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { parseTrainName, timer } from "@zugx/gtfs";
+import { currentCountry, dataDir, parseTrainName, timer } from "@zugx/gtfs";
 import { openZugxDb, RAIL_ROUTE_TYPES, rows, serviceDays } from "@zugx/db/query";
 import { feedYear } from "./build.ts";
 
-const DATA = join(import.meta.dirname, "..", "data");
+const COUNTRY = currentCountry();
+const DATA = dataDir("trains", COUNTRY);
 
 /** route_short_name → line for a category: "S1" → "S 1", "RX50" for REX → "REX 50" */
 export function lineOf(cat: string, routeShort: string): string | undefined {
@@ -49,9 +50,13 @@ function main() {
     .map(([k, m]) => [k, [...m].sort((a, b) => b[1] - a[1])[0]![0]] as const)
     .sort((a, b) => a[0].localeCompare(b[0], "en", { numeric: true }));
   const file = join(DATA, `lines-${year}.toml`);
+  if (!out.length) {
+    console.log(`lines: ${COUNTRY.id}: no regional lines in the route names — nothing written`);
+    return;
+  }
   writeFileSync(
     file,
-    `# regional line per train, from the ÖBB GTFS route_short_name (CC BY 4.0); built by packages/trains/src/lines.ts\n${out
+    `# regional line per train, from the ${COUNTRY.licence.source} route_short_name (${COUNTRY.licence.name}); built by packages/trains/src/lines.ts\n${out
       .map(([k, l]) => `${JSON.stringify(k)} = ${JSON.stringify(l)}`)
       .join("\n")}\n`,
   );

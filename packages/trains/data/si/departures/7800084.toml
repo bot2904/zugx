@@ -1,0 +1,13 @@
+id = "7800084"
+name = "Savski Marof"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "IJPP / NAP Slovenija (CC BY-SA 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf////////////8A=="]
+deps = [
+  [651,"R","432","7900017",[],0,""],
+  [1255,"R","434","7900017",[],0,""],
+]
+
+names = { 7900017 = "Dobova" }

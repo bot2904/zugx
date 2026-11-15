@@ -1,0 +1,13 @@
+id = "7900205"
+name = "Rosalnice"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "IJPP / NAP Slovenija (CC BY-SA 4.0)"
+days = ["AAAD58+fPnz58+fPnz48+fHHz58+fPnzp8+fPnz58+fPnz58+fPnz58+fPnz4A==", "AAAECBAgQIECBAgQIEBBAgAIECBAgQIEAAAAAAAAAAAAIECBAgQIECBAgQIEAA=="]
+deps = [
+  [360,"LP","3232","7900003",["7900032","7900093","7900107","7900028","7900166","7900035","7900206","7900240"],0,""],
+  [1114,"LP","3286","7900003",["7900032","7900093","7900107","7900028","7900166","7900035","7900206","7900240"],1,""],
+]
+
+names = { 7900003 = "Ljubljana", 7900028 = "Crnomelj", 7900032 = "Metlika", 7900035 = "Semic", 7900093 = "Dobravice", 7900107 = "Gradac(SLO)", 7900166 = "Otovec", 7900206 = "Rozni Dol", 7900240 = "Ursna sela" }

@@ -1,0 +1,15 @@
+id = "7800338"
+name = "Krapina"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "IJPP / NAP Slovenija (CC BY-SA 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnz58+fPnz58+bPnz4A=="]
+deps = [
+  [339,"R","7280","7900214",["7800591","7800582","7800105","7800109"],0,""],
+  [451,"R","7281","7800052",["7874611","7800531","7800280","7800584","7800521"],0,""],
+  [821,"R","7282","7900214",["7800591","7800582","7800105","7800109"],0,""],
+  [914,"R","7283","7800052",["7874611","7800531","7800280","7800584","7800521"],0,""],
+]
+
+names = { 7800052 = "Zabok", 7800105 = "Djurmanec", 7800109 = "Hromec", 7800280 = "Dukovec", 7800521 = "Strucljevo", 7800531 = "Velika Ves", 7800582 = "Zutnica", 7800584 = "Sveti Kriz Zacretje", 7800591 = "Dolice(HR)", 7874611 = "Pristava Krapinska", 7900214 = "Sveti Rok ob Sotli" }

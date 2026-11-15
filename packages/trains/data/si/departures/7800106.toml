@@ -1,0 +1,13 @@
+id = "7800106"
+name = "Mursko Sredisce"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "IJPP / NAP Slovenija (CC BY-SA 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA379+/fv379+/bv378A=="]
+deps = [
+  [984,"R","7352","7900070",[],0,""],
+  [1011,"R","7353","7800054",["7800111","7800115","7800108"],0,""],
+]
+
+names = { 7800054 = "Cakovec", 7800108 = "Cakovec-Buzovec", 7800111 = "Vratisinec", 7800115 = "Novo Selo Rok", 7900070 = "Lendava" }

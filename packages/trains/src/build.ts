@@ -6,6 +6,8 @@ import { join } from "node:path";
 import {
   dayFromIso,
   configuredFeeds,
+  currentCountry,
+  dataDir,
   isoDay,
   isRailRouteType,
   isFinalHafasError,
@@ -30,8 +32,9 @@ import {
   type TrainIndex,
 } from "./index.ts";
 
-const DATA = join(import.meta.dirname, "..", "data");
-const MAP_PATH = join(import.meta.dirname, "..", "..", "stations", "data", "gtfs-hafas-map.toml");
+const COUNTRY = currentCountry();
+const DATA = dataDir("trains", COUNTRY);
+const MAP_PATH = join(dataDir("stations", COUNTRY), "gtfs-hafas-map.toml");
 const MAX_VIA = 6;
 /** hubs: the HUBS_ALL busiest stations in Austria, the HUBS_LD busiest by long-distance stops, HUBS_ABROAD abroad */
 const HUBS_ALL = 60;
@@ -105,7 +108,18 @@ export function compareTrains(a: TrainEntry, b: TrainEntry): number {
 }
 
 /** Guess the timetable year of a feed: the year most service days fall into. */
+/**
+ * the timetable year of a feed: the one containing today if the feed runs trains then (feeds
+ * often reach into the next year already), else the year with the most service days
+ */
 export function feedYear(g: Pick<Gtfs, "services">): number {
+  const today = Temporal.Now.plainDateISO("Europe/Vienna");
+  const current = timetableYear(
+    today.year + (today.toString() >= timetableYear(today.year + 1).begin ? 1 : 0),
+  );
+  const [b, e] = [dayFromIso(current.begin), dayFromIso(current.end)];
+  for (const days of g.services.values())
+    if (days.some((d) => d >= b && d <= e)) return Number(current.end.slice(0, 4));
   const votes = new Map<number, number>();
   for (const days of g.services.values())
     for (const d of days) {
@@ -245,7 +259,12 @@ async function main() {
       if (ld) ldDeps.set(gid, (ldDeps.get(gid) ?? 0) + n);
     });
   }
-  const abroad = (gid: string) => !/^P?at:/.test(gid);
+  /** a station group of this country: by DHID ("at:…") or the UIC code of its HAFAS id */
+  const home = (gid: string) => {
+    const d = /^P?([a-z]{2}):/.exec(gid)?.[1];
+    return d ? d === COUNTRY.id : !!map[gid]?.id?.startsWith(COUNTRY.uic);
+  };
+  const abroad = (gid: string) => !home(gid);
   const nth = (m: Map<string, number>, n: number, filter: (gid: string) => boolean) =>
     [...m].filter(([gid]) => filter(gid)).sort((a, b) => b[1] - a[1])[n - 1]?.[1] ?? Infinity;
   const hubAll = nth(deps, HUBS_ALL, (gid) => !abroad(gid));
@@ -275,13 +294,13 @@ async function main() {
 
   // ---- per train: days, patterns ----
   const entries: TrainEntry[] = [];
-  let noAustria = 0;
+  let noHome = 0;
   for (const t of trains.values()) {
-    const austrian = t.trips.some((tr) =>
-      (g.stopTimes.get(tr.id) ?? []).some((st) => st.stopId.startsWith("at:")),
+    const inCountry = t.trips.some((tr) =>
+      (g.stopTimes.get(tr.id) ?? []).some((st) => home(stationGroup(g, st.stopId))),
     );
-    if (!austrian) {
-      noAustria++;
+    if (!inCountry) {
+      noHome++;
       continue;
     }
     // day index → trips running that day
@@ -383,7 +402,9 @@ async function main() {
     entries.push(e);
   }
   entries.sort(compareTrains);
-  log(`trains: ${entries.length} trains with Austrian stops (${noAustria} without, skipped)`);
+  log(
+    `trains: ${COUNTRY.id}: ${entries.length} trains with stops in ${COUNTRY.name.en} (${noHome} without, skipped)`,
+  );
 
   // ---- names (long-distance only) ----
   const today = Temporal.Now.plainDateISO("Europe/Vienna").toString();
@@ -409,10 +430,10 @@ async function main() {
   const ld = all.filter(isLongDistance);
 
   // ---- write ----
-  const source =
-    feeds.length === 1 && feeds[0]!.source.includes("oebb.at")
-      ? `ÖBB GTFS ${year} (CC BY 4.0)`
-      : feeds.map((f) => f.source.split("/").pop()).join(" + ");
+  // the country's feeds: its licence line; feeds given with GTFS_ZIP: their file names
+  const source = process.env.GTFS_ZIP
+    ? feeds.map((f) => f.source.split("/").pop()).join(" + ")
+    : `${COUNTRY.licence.source} ${year} (${COUNTRY.licence.name})`;
   const write = async (file: string, list: TrainEntry[]) => {
     const ids = new Set<string>();
     for (const e of list) {

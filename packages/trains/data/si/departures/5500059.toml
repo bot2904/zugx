@@ -1,0 +1,14 @@
+id = "5500059"
+name = "Veszprem"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "IJPP / NAP Slovenija (CC BY-SA 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAAAA==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH///+YPAf///////8A==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////+YPAf///////8A=="]
+deps = [
+  [629,"IC","246","7900279",["5500060","5501511","5500077","5500079","5500081","5500087","5501478","5501686"],1,""],
+  [629,"MV","246","7900003",["5500060","5501511","5500077","5500079","5500081","5500087","5501478","5501686"],0,""],
+  [932,"IC","247","5500007",["5501056","5500056","5500035","5500008"],2,""],
+]
+
+names = { 5500007 = "Budapest-Déli", 5500008 = "Budapest-Kelenföld", 5500035 = "Szekesfehervar", 5500056 = "Varpalota", 5500060 = "Ajka", 5500077 = "Ukk", 5500079 = "Zalaber-Batyk", 5500081 = "Zalaszentivan", 5500087 = "Zalaegerszeg", 5501056 = "Petfürdö", 5501478 = "Zalalövö", 5501511 = "Janoshaza", 5501686 = "Öriszentpeter", 7900003 = "Ljubljana", 7900279 = "Hodos" }

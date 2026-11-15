@@ -1,0 +1,13 @@
+id = "5500009"
+name = "Tatabanya"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "IJPP / NAP Slovenija (CC BY-SA 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA/+eP/+P//////8A==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf+ffn+P//////8A=="]
+deps = [
+  [777,"IC","351","5500008",[],1,""],
+  [1020,"IC","350","7900006",["5500010","5500012","5500080","5500030","5501132","5500028","5501280","5501609"],0,""],
+]
+
+names = { 5500008 = "Budapest-Kelenföld", 5500010 = "Tata", 5500012 = "Komarom", 5500028 = "Szombathely", 5500030 = "Csorna", 5500080 = "Györ", 5501132 = "Repcelak", 5501280 = "Szombathely-Szölös", 5501609 = "Jak-Balogunyom", 7900006 = "Maribor" }

@@ -1,0 +1,13 @@
+id = "7800347"
+name = "Kustosija"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "IJPP / NAP Slovenija (CC BY-SA 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf////////////8A=="]
+deps = [
+  [634,"R","432","7900017",["7800549","7800283","7800442","7800061","7800564","7800221","7800084"],0,""],
+  [1238,"R","434","7900017",["7800549","7800283","7800442","7800061","7800564","7800221","7800084"],0,""],
+]
+
+names = { 7800061 = "Zapresic", 7800084 = "Savski Marof", 7800221 = "Brdovec", 7800283 = "Gajnice", 7800442 = "Podsused Stajaliste", 7800549 = "Vrapce", 7800564 = "Zapresic-Savska", 7900017 = "Dobova" }
