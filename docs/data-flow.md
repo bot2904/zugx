@@ -37,6 +37,7 @@ flowchart LR
   %% ---------------- scripts ----------------
   sb(["stations:build<br/>packages/stations/src/build.ts"])
   tb(["trains:build<br/>packages/trains/src/build.ts"])
+  db(["departures:build<br/>packages/trains/src/departures.ts"])
   vx(["vzg:extract<br/>packages/vzg/scripts/extract.ts"])
   vb(["vzg:build<br/>packages/vzg/scripts/build.ts"])
   vbd(["vzg:boundaries<br/>packages/vzg/scripts/extract-boundaries.ts"])
@@ -52,6 +53,7 @@ flowchart LR
     names["names-2026.toml<br/>train names (cached lookups)"]
     trainsToml["trains-2026.toml<br/>long-distance + night trains"]
     trainsFull["trains-2026.full.toml<br/>all trains"]
+    depToml["departures/&lt;id&gt;.toml<br/>departure poster per station:<br/>time, train, destination, stops,<br/>running days, platform"]
   end
   subgraph OUT_VZG["packages/vzg/data"]
     lineToml["&lt;line&gt;.toml e.g. 101-01.toml<br/>tracks, speeds, km points, signals,<br/>curves, structures, geometry, connections"]
@@ -75,6 +77,9 @@ flowchart LR
   map --> tb
   jmatch --> tb
   tb --> names & trainsToml & trainsFull
+  routes & trips & stops & calendar & caldates & stoptimes --> db
+  map --> db
+  db --> depToml
   routes & trips & stops & calendar & caldates & stoptimes & shapes --> nb
   map --> nb
 
@@ -101,6 +106,7 @@ flowchart LR
 | `stations/data/gtfs-hafas-map.toml`  | `stops.txt` (name, coordinates)                                                                                                                                | –                                                                                                                                                                                                                                                                                                                                                   | HAFAS `LocMatch`, scored by name and distance                       |
 | `trains/data/trains-2026*.toml`      | `trips.txt` (`trip_short_name` → category + number, `trip_headsign`), `stop_times.txt`, `calendar.txt` + `calendar_dates.txt` (running days)                   | –                                                                                                                                                                                                                                                                                                                                                   | station ids via `gtfs-hafas-map.toml`, names from `names-2026.toml` |
 | `trains/data/names-2026.toml`        | (trains from the build)                                                                                                                                        | –                                                                                                                                                                                                                                                                                                                                                   | HAFAS `JourneyMatch`, remark code `ZN`                              |
+| `trains/data/departures/<id>.toml`   | `stop_times.txt` (departures, `pickup_type`), `trips.txt` (train), `stops.txt` (`platform_code`, parent station), `calendar*.txt` (running days)               | –                                                                                                                                                                                                                                                                                                                                                   | station ids via `gtfs-hafas-map.toml`                               |
 | `vzg/data/<line>.toml`, `index.toml` | –                                                                                                                                                              | `route=tracks` relations (`ref`, `name`, `operator`, `from`, `to`, `wikidata`); ways (`ref`, `railway`, `usage`, `service`, `railway:track_ref`, `railway:preferred_direction`, `maxspeed*`, `tunnel*`, `bridge*`, `gauge`); nodes (`railway`, `railway:position*`, `name`, `uic_ref`, `ele`, `railway:signal:*`); PBF header timestamp → `osmDate` | –                                                                   |
 | `vzg/data/network.toml`              | –                                                                                                                                                              | as above, plus `electrified`, `railway:etcs`, `railway:pzb`, `operator`; track count = `railway:preferred_direction` forward/backward                                                                                                                                                                                                               | –                                                                   |
 | `vzg/data/geometry.toml`             | –                                                                                                                                                              | way geometry of the line paths                                                                                                                                                                                                                                                                                                                      | –                                                                   |

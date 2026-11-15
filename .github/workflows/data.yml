@@ -35,6 +35,9 @@ jobs:
       - name: Build train index
         run: vp run trains:build
 
+      - name: Build departure posters
+        run: vp run departures:build
+
       - name: Build Netzgrafik + corridors
         run: vp run netz:build
 

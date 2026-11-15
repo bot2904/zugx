@@ -36,6 +36,8 @@ export interface Stop {
   parent: string;
   /** GTFS location_type (0 = stop/platform, 1 = station, …) */
   type: number;
+  /** GTFS platform_code (platform / track number), if given */
+  platform?: string;
 }
 
 export interface StopTime {
@@ -193,6 +195,7 @@ export async function loadGtfs(feeds: FeedSource[], opts: LoadOptions = {}): Pro
           lon: +get("stop_lon"),
           parent: get("parent_station"),
           type: +(get("location_type") || 0),
+          ...(get("platform_code") ? { platform: get("platform_code") } : {}),
         });
       },
       "calendar.txt": (get) => {

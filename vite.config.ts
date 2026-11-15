@@ -64,6 +64,7 @@ export default defineConfig({
     tasks: {
       "stations:build": { command: "vpx packages/stations/src/build.ts", cache: false },
       "trains:build": { command: "vpx packages/trains/src/build.ts", cache: false },
+      "departures:build": { command: "vpx packages/trains/src/departures.ts", cache: false },
       "netz:build": { command: "vpx packages/netz/src/build.ts", cache: false },
       // OSM PBF (Geofabrik, download to .cache/ first) → .cache/osm-rail.json → packages/vzg/data
       "vzg:extract": { command: "vpx packages/vzg/scripts/extract.ts", cache: false },
