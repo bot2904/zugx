@@ -220,11 +220,15 @@ function toggle(cls: number) {
 
 <template>
   <section>
-    <div class="mb-2 flex flex-wrap items-center gap-2">
+    <div class="mb-2 flex flex-wrap items-center gap-2" :class="!wide && 'sr-only'">
       <h1 class="m-0 text-xl">{{ $t("radar.title") }}</h1>
       <span class="muted text-sm">{{ $t("radar.trains", { n: groups.length }) }}</span>
       <span v-if="loading" class="muted animate-pulse text-xs">●</span>
-      <!-- colour mode and train filter: compact dropdowns (open on desktop, closed on phones) -->
+      <span id="radar-bar" class="contents" />
+    </div>
+    <!-- colour mode and train filter: compact dropdowns — in the bar on desktop (open), on the map
+         on phones (closed, more map) -->
+    <Teleport defer :to="wide ? '#radar-bar' : '#radar-map-ctl'">
       <details class="ctl" :open="wide">
         <summary class="btn chip py-0.5 text-xs">
           {{ $t("radar.colour") }}:
@@ -268,9 +272,13 @@ function toggle(cls: number) {
           </button>
         </span>
       </details>
-    </div>
+    </Teleport>
     <Status :error="error" @retry="refresh" />
     <div class="relative">
+      <div
+        id="radar-map-ctl"
+        class="map-ctl absolute top-2 right-12 left-2 z-10 flex flex-wrap items-start gap-1"
+      />
       <div
         v-if="loading && !movements.length"
         class="card absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 px-4 py-2 text-sm shadow"
@@ -446,6 +454,21 @@ function toggle(cls: number) {
 
 <style scoped>
 /* compact dropdown controls: summary as a chip, body inline next to it */
+/* on the map (phones): chips with a background, open bodies as a card */
+.map-ctl .ctl > summary {
+  background: var(--bg2);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+}
+.map-ctl .ctl[open] {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.map-ctl .ctl-body {
+  padding: 0.25rem;
+  border-radius: 0.375rem;
+  background: var(--bg2);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+}
 .ctl {
   display: inline-flex;
   align-items: center;
