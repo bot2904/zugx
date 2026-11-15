@@ -28,6 +28,18 @@ const atStation = (i: number) => {
   const s = props.trip.stopovers[i];
   return !!s && tArr(s) <= props.now && t(s) > props.now;
 };
+/**
+ * boarding restrictions as in the ÖBB Kursbuch (Zeichenerklärung): ◗ only boarding, ◖ only
+ * alighting, | no stop for passengers (passing) — instead of a remark line per stop
+ */
+const SIGNS: Record<string, string> = {
+  "text.realtime.stop.exit.disabled": "◗",
+  "text.realtime.stop.entry.disabled": "◖",
+  "text.realtime.stop.entry.exit.disabled": "|",
+};
+const sign = (s: Stopover) => s.remarks?.find((r) => r.code && SIGNS[r.code]);
+const otherRemarks = (s: Stopover) => s.remarks?.filter((r) => !(r.code && SIGNS[r.code])) ?? [];
+
 /** coupled commercial-only parts: stops where the operational train changes ("ab hier NJ 466") */
 const opChanges = computed(() => operationalChanges(partSections(props.trip)));
 defineExpose({ position });
@@ -65,20 +77,42 @@ defineExpose({ position });
       <!-- wrappers keep the grid columns when arr (origin) or dep (destination) is missing -->
       <span><EventTime :ev="s.arr" show-actual below /></span>
       <span><EventTime :ev="s.dep" show-actual below /></span>
-      <RouterLink :to="`/station/${s.stop.id}`" class="text-[var(--fg)]">
-        {{ s.stop.name }}
-        <span v-if="s.additional" class="text-xs text-[var(--warn)]">+</span>
-      </RouterLink>
+      <span>
+        <RouterLink :to="`/station/${s.stop.id}`" class="text-[var(--fg)]">
+          {{ s.stop.name }}
+          <span v-if="s.additional" class="text-xs text-[var(--warn)]">+</span>
+        </RouterLink>
+        <abbr
+          v-if="sign(s)"
+          class="stop-sign"
+          tabindex="0"
+          :aria-label="sign(s)!.text"
+          v-tip="sign(s)!.text"
+          >{{ SIGNS[sign(s)!.code!] }}</abbr
+        >
+      </span>
+      <span class="text-right text-xs"><Platform :ev="s.dep ?? s.arr" /></span>
       <span v-if="opChanges.get(i)" class="muted col-start-4 col-end-6 text-xs">
         {{ $t("trip.fromHere") }} <LineBadge :line="opChanges.get(i)!.line" small />
       </span>
-      <span class="text-right text-xs"><Platform :ev="s.dep ?? s.arr" /></span>
       <Remarks
-        v-if="s.remarks?.length"
-        :remarks="s.remarks"
+        v-if="otherRemarks(s).length"
+        :remarks="otherRemarks(s)"
         compact
         class="col-start-4 col-end-6"
       />
     </li>
   </ol>
 </template>
+
+<style scoped>
+/* boarding restriction (Kursbuch sign) after the station name */
+.stop-sign {
+  margin-left: 0.375rem;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--muted);
+  text-decoration: none;
+  cursor: help;
+}
+</style>

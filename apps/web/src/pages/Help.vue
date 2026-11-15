@@ -65,7 +65,9 @@ const { locale } = useI18n();
         Ein Zug mit allen Halten, geplanten und tatsächlichen Zeiten, Bahnsteigen,
         Verspätungsverlauf und Karte. Erreichbar über einen Klick auf einen Zug oder direkt per
         Adresse, z. B.
-        <code>/train/RJX-162</code>, mit <code>?d=2026-11-13</code> für ein anderes Datum.
+        <code>/train/RJX-162</code>, mit <code>?d=2026-11-13</code> für ein anderes Datum. Bei
+        Verspätung steht die erwartete Ist-Zeit unter der Soll-Zeit. Zeichen wie im ÖBB-Kursbuch: ◗
+        hält nur zum Einsteigen, ◖ hält nur zum Aussteigen, | kein Halt zum Ein- oder Aussteigen.
       </p>
 
       <h2 id="zuege">Züge (Zugindex)</h2>
@@ -360,7 +362,8 @@ const { locale } = useI18n();
       <p>
         A train with all stops, planned and actual times, platforms, delay profile and map. Click a
         train anywhere, or open e.g. <code>/train/RJX-162</code> (add <code>?d=2026-11-13</code>
-        for another date).
+        for another date). When late, the expected actual time is shown under the planned one. Signs
+        as in the ÖBB Kursbuch: ◗ boarding only, ◖ alighting only, | no stop for passengers.
       </p>
 
       <h2 id="zuege">Trains (train index)</h2>
