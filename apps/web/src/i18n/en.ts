@@ -107,6 +107,15 @@ export default {
     delayProfile: "Delay along the route",
   },
   him: {
+    kinds: "Kind of message",
+    kind: {
+      all: "All",
+      stoerung: "Disruption",
+      ausfall: "Cancellation",
+      baustelle: "Construction",
+      sev: "Replacement service",
+      info: "Information",
+    },
     title: "Disruptions & construction work",
     empty: "No messages.",
     filter: "Filter…",

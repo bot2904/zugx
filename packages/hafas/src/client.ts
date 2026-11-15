@@ -266,8 +266,14 @@ export function createClient(opts: ClientOptions = {}) {
       return parseJourneyGeoPos(res);
     },
 
-    async warnings(results = 100): Promise<Warning[]> {
-      const res = await request("HimSearch", { himFltrL: [], getPolyline: false, maxNum: results });
+    /** HIM messages; `kinds`: only these HIM categories (see Warning.kind) */
+    async warnings(results = 100, kinds?: number[]): Promise<Warning[]> {
+      const himFltrL = (kinds ?? []).map((k) => ({
+        type: "HIMCAT",
+        mode: "INC",
+        value: String(k),
+      }));
+      const res = await request("HimSearch", { himFltrL, getPolyline: false, maxNum: results });
       return parseHimSearch(res);
     },
 

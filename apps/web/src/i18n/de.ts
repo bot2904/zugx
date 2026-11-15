@@ -109,6 +109,15 @@ export default {
     delayProfile: "Verspätung entlang der Strecke",
   },
   him: {
+    kinds: "Art der Meldung",
+    kind: {
+      all: "Alle",
+      stoerung: "Störung",
+      ausfall: "Ausfall",
+      baustelle: "Baustelle",
+      sev: "Ersatzverkehr",
+      info: "Information",
+    },
     title: "Störungen & Bauarbeiten",
     empty: "Keine Meldungen.",
     filter: "Filtern…",

@@ -29,6 +29,7 @@ export interface Common {
   remL: Raw[];
   himL: Raw[];
   polyL: Raw[];
+  icoL: Raw[];
 }
 
 export function common(res: Raw): Common {
@@ -40,6 +41,7 @@ export function common(res: Raw): Common {
     remL: c.remL ?? [],
     himL: c.himL ?? [],
     polyL: c.polyL ?? [],
+    icoL: c.icoL ?? [],
   };
 }
 
@@ -555,6 +557,9 @@ export function parseHimSearch(res: Raw): Warning[] {
     if (m.fLocX !== undefined && c.locL[m.fLocX]) w.affectedFrom = parseLocation(c.locL[m.fLocX]);
     if (m.tLocX !== undefined && c.locL[m.tLocX]) w.affectedTo = parseLocation(c.locL[m.tLocX]);
     if (m.comp) w.category = m.comp;
+    // kind of message: the icon "HIM<n>" is the HIM category (HIMCAT filter value)
+    const kind = /^HIM(\d+)$/.exec(String(c.icoL[m.icoX]?.res ?? ""))?.[1];
+    if (kind !== undefined) w.kind = Number(kind);
     return w;
   });
 }

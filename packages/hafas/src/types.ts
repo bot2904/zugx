@@ -171,6 +171,12 @@ export interface Movement {
 
 export interface Warning {
   id: string;
+  /**
+   * HIM category (ÖBB: 0 rail replacement, 1 construction, 2 cancellation / stop not served,
+   * 4 information, 5 current disruption (e.g. strike), 7 notes such as loading times; inferred
+   * from the messages, 3 and 6 not seen)
+   */
+  kind?: number;
   title: string;
   text: string;
   priority: number;

@@ -108,6 +108,15 @@ export default {
     delayProfile: "Ritardo lungo il percorso",
   },
   him: {
+    kinds: "Tipo di avviso",
+    kind: {
+      all: "Tutti",
+      stoerung: "Guasto",
+      ausfall: "Soppressione",
+      baustelle: "Lavori",
+      sev: "Servizio sostitutivo",
+      info: "Informazione",
+    },
     title: "Perturbazioni e lavori",
     empty: "Nessun messaggio.",
     filter: "Filtra…",
