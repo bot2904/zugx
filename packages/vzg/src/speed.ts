@@ -74,3 +74,27 @@ export function averageSpeed(track: VzgTrack, a: number, b: number, vmax: number
   hours += Math.max(0, hi - lo - covered) / vmax;
   return hours > 0 ? (hi - lo) / hours : undefined;
 }
+
+/**
+ * VzG lines running through a set of stations (by position, within `maxKm` of a station, halt or
+ * stop point of the line), with the number of stations on each; most stations first. Lines with
+ * fewer than three of the stations are dropped (short connectors, light rail beside a station).
+ */
+export function linesThrough(lines: VzgLine[], stations: Coord[], maxKm = 0.25) {
+  const count = new Map<VzgLine, number>();
+  for (const l of lines) {
+    const pts = l.tracks.flatMap((t) => t.points.flatMap((p) => (p.pos ? [p.pos] : [])));
+    const n = stations.filter((s) =>
+      pts.some((p) => Math.abs(p[0] - s[0]) < 0.01 && distKm(p, s) <= maxKm),
+    ).length;
+    if (n >= 3) count.set(l, n);
+  }
+  return [...count]
+    .sort((a, b) => b[1] - a[1] || (a[0].ref ?? a[0].id).localeCompare(b[0].ref ?? b[0].id))
+    .map(([l, n]) => ({
+      id: l.id,
+      ...(l.ref ? { ref: l.ref } : {}),
+      ...(l.name ? { name: l.name } : {}),
+      stations: n,
+    }));
+}

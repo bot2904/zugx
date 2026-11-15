@@ -3,6 +3,7 @@ ref = "267 01"
 name = "267 01 Pinzgauer Lokalbahn"
 operator = "SLB"
 gauge = "760"
+wikidata = "Q441268"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
 
 [[tracks]]

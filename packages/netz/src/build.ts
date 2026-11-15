@@ -10,7 +10,7 @@ import { existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
 import { readToml, toToml } from "@zugx/toml";
-import { speedLookup } from "@zugx/vzg/speed";
+import { linesThrough, speedLookup } from "@zugx/vzg/speed";
 import type { VzgLine } from "@zugx/vzg";
 import {
   buildCorridor,
@@ -22,7 +22,6 @@ import {
 import { feedPeriod, loadFeed, loadShapes, openFeed, parentDhid, serviceDays } from "./gtfs.ts";
 import { buildNetz } from "./netz.ts";
 import { toNge } from "./nge.ts";
-import { linesByIbnr, sheetLines } from "./wikidata.ts";
 import { nodeCandidates, NODES } from "./nodes.ts";
 import type { CorridorIndex } from "./types.ts";
 
@@ -83,12 +82,19 @@ const VMAX: Record<string, number> = {
  * Permitted speeds between stations from the VzG data (packages/vzg/data, OSM, ODbL), stations
  * linked by position.
  */
-function loadSpeeds(stations: Map<string, { lat: number; lon: number }>): SpeedLookup | undefined {
+function loadVzg(): VzgLine[] {
   const dir = join(root, "packages", "vzg", "data");
-  if (!existsSync(dir)) return undefined;
-  const lines = readdirSync(dir)
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
     .filter((f) => f.endsWith(".toml") && f !== "index.toml")
     .map((f) => readToml<VzgLine>(join(dir, f), {} as VzgLine));
+}
+
+function loadSpeeds(
+  lines: VzgLine[],
+  stations: Map<string, { lat: number; lon: number }>,
+): SpeedLookup | undefined {
+  if (!lines.length) return undefined;
   const lookup = speedLookup(lines);
   return (a, b, cat, len) => {
     const sa = stations.get(a);
@@ -160,7 +166,8 @@ async function main() {
     aliases: CORRIDOR_ALIASES,
     corridors: [],
   };
-  const speeds = loadSpeeds(year.feed.stations);
+  const vzgLines = loadVzg();
+  const speeds = loadSpeeds(vzgLines, year.feed.stations);
   console.log(speeds ? "passing times weighted by VzG speed limits" : "passing times by distance");
   for (const def of CORRIDORS) {
     const c = buildCorridor(feed, def, day, SOURCE, names, year, shapes, speeds);
@@ -196,31 +203,20 @@ async function main() {
       `corridors/${file}: ${c.stations.length} stations, ${c.trains.length} distinct runs (${onDay.length} on ${day})`,
     );
   }
-  // railway lines per sheet from Wikidata (build-time; keep the previous result if unreachable)
-  const ibnrsOf = new Map<string, string[]>();
-  for (const e of index.corridors) {
-    const c = readToml<{ stations: { hafasId?: string }[] }>(join(out, "corridors", e.file), {
-      stations: [],
-    });
-    ibnrsOf.set(
-      e.id,
-      c.stations.flatMap((st) => (st.hafasId ? [st.hafasId] : [])),
-    );
-  }
-  try {
-    const lines = await linesByIbnr([...new Set([...ibnrsOf.values()].flat())]);
+  // VzG lines (ÖBB Streckennummern and other railways) running through each sheet's stations
+  if (vzgLines.length) {
     for (const e of index.corridors) {
-      const l = sheetLines(ibnrsOf.get(e.id) ?? [], lines);
+      const c = readToml<{ stations: { id: string }[] }>(join(out, "corridors", e.file), {
+        stations: [],
+      });
+      const pos = c.stations.flatMap((st) => {
+        const g = year.feed.stations.get(st.id);
+        return g ? [[g.lat, g.lon] as [number, number]] : [];
+      });
+      const l = linesThrough(vzgLines, pos);
       if (l.length) e.lines = l;
     }
-    console.log(`Wikidata: lines for ${index.corridors.filter((e) => e.lines).length} sheets`);
-  } catch (err) {
-    const old = readToml<Partial<CorridorIndex>>(join(out, "corridors", "index.toml"), {});
-    for (const e of index.corridors) {
-      const prev = old.corridors?.find((o) => o.id === e.id)?.lines;
-      if (prev) e.lines = prev;
-    }
-    console.warn(`Wikidata unreachable (${String(err)}), kept the previous lines`);
+    console.log(`VzG lines for ${index.corridors.filter((e) => e.lines).length} sheets`);
   }
   writeFileSync(join(out, "corridors", "index.toml"), toToml(index));
 }

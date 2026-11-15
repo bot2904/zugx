@@ -86,6 +86,7 @@ readPbf(input, {
       operator: t.operator ?? "",
       ...(t.from ? { from: t.from } : {}),
       ...(t.to ? { to: t.to } : {}),
+      ...(t.wikidata ? { wikidata: t.wikidata } : {}),
       ways: r.members.filter((m) => m.type === "way").map((m) => m.ref),
     });
   },

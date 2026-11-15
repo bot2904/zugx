@@ -3,6 +3,7 @@ ref = "N"
 name = "Strecke Salzburg – Lamprechtshausen"
 operator = "SLB"
 gauge = "1435"
+wikidata = "Q803154"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
 
 [[tracks]]

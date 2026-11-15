@@ -33,6 +33,7 @@ for (const l of lines) {
     oebb: /^\d{3} \d{2}$/.test(l.ref ?? ""),
     ...(l.operator ? { operator: l.operator } : {}),
     ...(l.gauge ? { gauge: l.gauge } : {}),
+    ...(l.wikidata ? { wikidata: l.wikidata } : {}),
     ...(l.name ? { name: l.name } : {}),
     ...(l.from ? { from: l.from } : {}),
     ...(l.to ? { to: l.to } : {}),

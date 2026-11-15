@@ -165,7 +165,7 @@ export default {
     filter: "Linea o stazione…",
     stations: "Stazioni",
     lines: "Linee",
-    wikidataTip: "Linea ferroviaria su Wikidata (DinoData)",
+    vzgTip: "Velocità di questa linea (grafico VzG)",
     trains: "Treni/giorno",
     mix: "Composizione",
     mixTip: "Quota delle categorie di treni nel giorno di riferimento",
@@ -190,6 +190,7 @@ export default {
     liveAt: "tempo reale in {n} stazioni, ultima {station} {time}",
   },
   vzg: {
+    wikidataTip: "Questa linea su Wikidata (DinoData)",
     tipKmMeasured: "km {km} (da OSM)",
     tipKmInterpolated: "km {km} (interpolato)",
     tipSpeedHere: "ammessa {v} km/h",

@@ -345,16 +345,13 @@ test("station board: Later appends the next departures and keeps the shown ones"
   await expect(page).not.toHaveURL(/[?&]t=/);
 });
 
-test("bildfahrplan: station menu (departure board, Wikidata via IBNR) and Wikidata railway lines", async ({
+test("bildfahrplan: station menu (departure board, Wikidata via IBNR) and VzG railway lines", async ({
   page,
 }) => {
   await page.goto("/bf/500?from=14&h=2&d=2026-03-10");
   await page.locator("svg[role=img] path").first().waitFor();
-  // sheet lines resolved from Wikidata at build time (P954 → P81), linked to DinoData
-  await expect(page.getByRole("link", { name: /^Semmeringbahn/ })).toHaveAttribute(
-    "href",
-    /^https:\/\/dinodata\.toolforge\.org\/#Q\d+$/,
-  );
+  // sheet lines: the VzG lines through its stations (build time), linked to the VzG chart
+  await expect(page.getByRole("link", { name: /^105 01/ })).toHaveAttribute("href", "/vzg/105-01");
   await page
     .locator("a.bf-station")
     .filter({ hasText: /^\s*Semmering\s*$/ })
@@ -390,6 +387,10 @@ test("VzG index filters by line number and station, opens a line", async ({ page
   await expect(page).toHaveURL(/\/vzg\/101-01/);
   const svg = page.locator("svg.vzg");
   await expect(svg.locator("text", { hasText: "Maria Anzbach" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Wikidata" })).toHaveAttribute(
+    "href",
+    /^https:\/\/dinodata\.toolforge\.org\/#Q\d+$/,
+  );
   // Regelgleis 2 (direction of decreasing km): speed changes of the ÖBB VzG page
   await page.getByRole("button", { name: "2", exact: true }).click();
   await expect(page).toHaveURL(/t=2/);

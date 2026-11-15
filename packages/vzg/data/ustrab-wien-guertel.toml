@@ -2,6 +2,7 @@ id = "ustrab-wien-guertel"
 name = "USTRAB Wien Gürtel"
 operator = "Wiener Linien"
 gauge = "1435"
+wikidata = "Q125603972"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
 
 [[tracks]]

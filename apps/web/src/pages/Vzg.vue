@@ -9,6 +9,7 @@ import { useRoute, useRouter } from "vue-router";
 import VzgIndexView from "../components/VzgIndex.vue";
 import VzgAbbr from "../components/VzgAbbr.vue";
 import { useI18n } from "../i18n/index.ts";
+import { itemWikidata } from "../lib/wikidata.ts";
 import type { TipContent } from "../lib/tip.ts";
 
 const files = import.meta.glob<{ default: VzgLine }>("../../../../packages/vzg/data/*.toml");
@@ -359,6 +360,16 @@ const fmt = (km: number) => km.toFixed(3);
         {{ data.name }}
         <template v-if="data.operator"> · {{ data.operator }}</template>
         <template v-if="data.gauge && data.gauge !== '1435'"> · {{ data.gauge }} mm</template>
+        <template v-if="data.wikidata">
+          ·
+          <a
+            :href="itemWikidata(data.wikidata)"
+            target="_blank"
+            rel="noopener"
+            v-tip="$t('vzg.wikidataTip')"
+            >Wikidata</a
+          ></template
+        >
         <template v-if="data.from || data.to">
           · {{ [data.from, data.to].filter(Boolean).join(" – ") }}</template
         >

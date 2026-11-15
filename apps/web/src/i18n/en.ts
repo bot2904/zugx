@@ -163,7 +163,7 @@ export default {
     filter: "Corridor or station…",
     stations: "Stations",
     lines: "Lines",
-    wikidataTip: "Railway line on Wikidata (DinoData)",
+    vzgTip: "Speed profile of this line (VzG chart)",
     trains: "Trains/day",
     mix: "Train mix",
     mixTip: "Share of train categories on the reference day",
@@ -187,6 +187,7 @@ export default {
     liveAt: "realtime at {n} stations, last {station} {time}",
   },
   vzg: {
+    wikidataTip: "This railway line on Wikidata (DinoData)",
     tipKmMeasured: "km {km} (from OSM)",
     tipKmInterpolated: "km {km} (interpolated)",
     tipSpeedHere: "permitted {v} km/h",

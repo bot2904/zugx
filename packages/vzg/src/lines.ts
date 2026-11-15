@@ -584,6 +584,9 @@ export function buildLines(ex: RailExtract): VzgLine[] {
       ...(name ? { name } : {}),
       ...(operator ? { operator } : {}),
       ...(gauge ? { gauge } : {}),
+      ...(g.rels.find((r) => r.wikidata)
+        ? { wikidata: g.rels.find((r) => r.wikidata)!.wikidata }
+        : {}),
       ...(rel?.from ? { from: rel.from } : {}),
       ...(rel?.to ? { to: rel.to } : {}),
       source: `OpenStreetMap (${ex.source}), © OpenStreetMap contributors, ODbL 1.0`,

@@ -15,6 +15,8 @@ export interface RailExtract {
     operator: string;
     from?: string;
     to?: string;
+    /** Wikidata item of the line (OSM `wikidata` tag), e.g. "Q694717" */
+    wikidata?: string;
     ways: number[];
   }[];
   ways: { id: number; nodes: number[]; tags: Record<string, string> }[];
@@ -34,6 +36,8 @@ export interface VzgLine {
   ref?: string;
   /** track gauge in mm (most common on the line), e.g. "1435", "1000", "760" */
   gauge?: string;
+  /** Wikidata item (from the OSM relation), e.g. "Q109907736" */
+  wikidata?: string;
   name?: string;
   operator?: string;
   from?: string;
@@ -90,6 +94,7 @@ export interface VzgIndexEntry {
   oebb: boolean;
   operator?: string;
   gauge?: string;
+  wikidata?: string;
   name?: string;
   from?: string;
   to?: string;

@@ -28,7 +28,7 @@ import {
   type LiveRun,
 } from "../lib/bf-live.ts";
 import { loadStations, stationById } from "../lib/stations.ts";
-import { itemWikidata, stationWikidata } from "../lib/wikidata.ts";
+import { stationWikidata } from "../lib/wikidata.ts";
 
 type CorridorRef = Pick<CorridorIndexEntry, "id" | "name" | "oebb" | "lines">;
 
@@ -55,7 +55,7 @@ const span = computed(() => Number(route.query.h ?? 4));
 // shallow: a deep ref would wrap the train in a proxy, and `hover === r.t` would never match
 const hover = shallowRef<CorridorTrain>();
 
-// railway lines of the current sheet (Wikidata, from the index)
+// railway lines (VzG) of the current sheet, from the index
 const sheetLines = computed(() => list.value.find((c) => c.id === id.value)?.lines ?? []);
 
 // station menu: opened at the click position
@@ -572,17 +572,14 @@ function toggleCat(c: string) {
         >{{ Math.round(Math.abs(kmHi - kmLo)) }} km · {{ shownStations.length }}
         {{ $t("bf.stations") }}</span
       >
-      <!-- railway lines of this sheet on Wikidata (resolved at build time from P954 → P81) -->
+      <!-- railway lines (VzG/Streckennummern) through this sheet's stations, from the build -->
       <span v-if="sheetLines.length" class="muted text-xs">
         · {{ $t("bf.lines") }}:
-        <template v-for="(l, i) in sheetLines" :key="l.qid"
+        <template v-for="(l, i) in sheetLines" :key="l.id"
           ><template v-if="i"> · </template
-          ><a
-            :href="itemWikidata(l.qid)"
-            target="_blank"
-            rel="noopener"
-            v-tip="$t('bf.wikidataTip')"
-            >{{ l.name }}<template v-if="l.number"> ({{ l.number }})</template></a
+          ><RouterLink :to="`/vzg/${l.id}`" v-tip="$t('bf.vzgTip')"
+            ><span v-if="l.ref" class="mono">{{ l.ref }}</span>{{ l.ref && l.name ? " " : ""
+            }}{{ l.name }}</RouterLink
           ></template
         >
       </span>
