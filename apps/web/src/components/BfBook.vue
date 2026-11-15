@@ -9,6 +9,7 @@ import { useRoute } from "vue-router";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
 import { tableRuns, type TableRun, type TableStation } from "../lib/bf-table.ts";
+import { trainKey, type LiveRun } from "../lib/bf-live.ts";
 
 const props = defineProps<{
   stations: TableStation[];
@@ -22,6 +23,8 @@ const props = defineProps<{
   follow?: boolean;
   /** other sheets branching off at a station (by name): linked after the name */
   sheets?: Record<string, { id: string; name: string }[]>;
+  /** realtime (Echtzeit on): delay and expected time per train and station */
+  live?: Map<string, LiveRun>;
 }>();
 /** stations with a departure plan (timetable, not live): the station name links to it */
 const POSTERS = new Set(
@@ -46,6 +49,23 @@ const viewQuery = computed(() =>
 const emit = defineEmits<{ hover: [t: CorridorTrain | undefined] }>();
 
 const runs = computed(() => tableRuns(props.stations, props.trains, props.dir, props.t0, props.t1));
+
+/** realtime of a cell (the row's arrival or departure), if known */
+function liveAt(r: TableRun, row: { k: number; kind?: "an" | "ab" }) {
+  const run = props.live?.get(trainKey(r.t.cat, r.t.nr));
+  const ci = props.stations[row.k]?.i;
+  const p = run?.pts.find((x) => x.i === ci);
+  if (!p) return undefined;
+  const e = row.kind === "an" ? (p.arr ?? p.dep) : (p.dep ?? p.arr);
+  if (e?.rt === undefined) return undefined;
+  const delay = Math.round(e.rt - e.plan);
+  return {
+    delay,
+    rt: e.rt,
+    text: delay > 0 ? `+${delay}` : delay < 0 ? `−${-delay}` : "±0",
+    cls: delay >= 5 ? "late" : delay >= 1 ? "slight" : "ontime",
+  };
+}
 
 /** Kursbuch time: hour and minutes separated by a thin space, e.g. "5 03" */
 const time = (min: number | null) =>
@@ -121,6 +141,7 @@ watch(
     <div v-for="(block, b) in blocks" :key="b" class="overflow-x-auto" :class="b > 0 && 'mt-3'">
       <table
         class="text-xs"
+        :class="live && 'live'"
         @mouseover="onOver($event, block)"
         @mouseenter="inside = true"
         @mouseleave="((inside = false), emit('hover', undefined))"
@@ -191,6 +212,13 @@ watch(
               :style="{ color: categoryColor(r.t.cat) }"
             >
               <span v-if="cell(r, row) === '|'" class="pass" />
+              <template v-else-if="live && cell(r, row) && liveAt(r, row)"
+                >{{ cell(r, row)
+                }}<sup class="dl" :class="liveAt(r, row)!.cls">{{ liveAt(r, row)!.text }}</sup
+                ><span v-if="liveAt(r, row)!.delay" class="rt" :class="liveAt(r, row)!.cls">{{
+                  time(liveAt(r, row)!.rt)
+                }}</span></template
+              >
               <template v-else>{{ cell(r, row) }}</template>
             </td>
           </tr>
@@ -210,6 +238,29 @@ watch(
 </template>
 
 <style scoped>
+/* realtime: delay superscript, expected time below (as in the stop lists) */
+table.live td {
+  width: 4.25rem;
+  min-width: 4.25rem;
+}
+.dl {
+  margin-left: 0.125rem;
+  font-size: 0.5625rem;
+}
+.rt {
+  display: block;
+  font-size: 0.625rem;
+  line-height: 0.75rem;
+}
+.ontime {
+  color: var(--good);
+}
+.slight {
+  color: var(--warn);
+}
+.late {
+  color: var(--bad);
+}
 table {
   border-collapse: collapse;
   table-layout: fixed;

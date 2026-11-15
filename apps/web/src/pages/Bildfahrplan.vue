@@ -1427,6 +1427,7 @@ watch([plan, nodeHafas, date, t0, t1, nodeAll], () => void loadNodeBoards(), {
         :hover="hover"
         :follow="part === 'table'"
         :sheets="transposed ? undefined : branchSheets"
+        :live="liveOn && !transposed ? liveRuns : undefined"
         @hover="hover = $event"
       />
     </template>
