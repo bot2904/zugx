@@ -857,6 +857,10 @@ First version done (`/vzg/:line/map`): line in red with tunnels dashed, other li
 - Relief needs a DEM (basemap.at CC BY 4.0 → attribution in the footer) and a raster step (hillshade per map extent at build time or a pre-rendered Austria hillshade PNG cropped per map).
 - Suggested order: 1) water + places + borders (incl. federal states), 2) locator inset + legend box inside the map + segmented scale bar, 3) station classes/symbols/hierarchy (incl. leader lines), line hierarchy, line name label, named tunnels and bridges with length thresholds, off-map arrows, wider/taller frames for elongated lines, 4) land cover + motorways, 5) relief, 6) former lines/closed stations with dates, lines under construction/planned with opening years (project maps), annotations (highest point, renamings, notes), 7) SBB-style network map.
 
+### Interfaces to expert tools (idea, 2026-11-15)
+
+Overview of the planning tools used in the DACH region (FBS, TPS, Viriato, RailSys, OpenTrack, LUKS, ProVI, PlanPro, railML …): [docs/expert-tools.md](docs/expert-tools.md). Idea: a **railML export** of the VzG data (lines, km, speeds, signals, structures) and of Bildfahrplan sheets, so planners can load zugx data into FBS/TPS/Viriato/RailSys; validation of the OSM-derived data against the official VzG/Streckenlisten.
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
