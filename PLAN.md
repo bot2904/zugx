@@ -752,6 +752,70 @@ Goal: a new view "VzG-Grafik" modelled on ÖBB's VzG pages (Strecke 10101 / REGE
 9. Scope of lines: only ÖBB (ref pattern ddd dd), or also private lines (GKB, Montafonerbahn, Zillertalbahn, narrow gauge)?
 10. Feed the speed profiles into the Bildfahrplan now (step 2 of the realistic paths), or first ship the VzG-Grafik view?
 
+### Line map (Streckenkarte): ideas from reference maps (collected 2026-11-15)
+
+First version done (`/vzg/:line/map`): line in red with tunnels dashed, other lines grey, stations with non-overlapping labels linked to departure boards, connecting lines linked to their maps, optional km posts, colour by permitted speed (ColorBrewer RdYlBu), scale bar, north arrow, title/legend/sources inside, SVG download, print, snapshot test (Stubaitalbahn). Compared with five reference maps — a German-Wikipedia locator map ("Mittelbadische Eisenbahnen"), a modern editorial map ("Zackenbahn", Jelenia Góra – Harrachov), the SBB GA network map, a Wikipedia project map ("Brenner-Nordzulauf") and a Wikipedia line map ("Arlbergbahn") — ours lacks:
+
+**Base map and orientation**
+
+- **Water**: rivers and lakes in blue (the strongest orientation in most maps: Rhine, Lake Geneva). OSM `natural=water`, `waterway=river` (+ `canal`), riverbanks; simplify generously.
+- **Land cover**: forest green, built-up areas grey, open land light (Wikipedia, Zackenbahn). OSM `landuse=forest`/`natural=wood`, `landuse=residential|industrial|…` — big polygons, need strong simplification / aggregation per zoom.
+- **Terrain / relief shading**: soft hillshade (Zackenbahn subtle, SBB strong, Wikipedia very light). Needs a DEM: basemap.at DGM (CC BY 4.0) for Austria, Copernicus GLO-30 beyond; render a hillshade raster at build time per map extent (or as an embedded PNG layer in the SVG; Commons accepts mixed SVGs). Biggest effort.
+- **Roads**: motorways and main roads as thin grey/white lines (Wikipedia). OSM `highway=motorway|trunk|primary`.
+- **Borders and country names**: national borders (dashed white in Zackenbahn, grey in SBB), country names in large letter-spaced capitals ("POLEN", "TSCHECHIEN", "ÖSTERREICH"); neighbouring countries muted/masked (SBB). OSM `boundary=administrative`, admin_level 2 (+ 4 for federal states).
+- **Place names separate from station names**: towns in large bold type, size by importance (city > town > village; SBB hierarchy), stations then only the suffix ("-Bahnhof", "-Marktplatz") where they share the town's name (Wikipedia). OSM `place=city|town|village` with `population`.
+- **Landscape names**: mountain ranges and regions in italic, letter-spaced, following the terrain ("Riesengebirge", "Isergebirge"). OSM `natural=mountain_range` / `place=region` are sparse; maybe a small hand-made list per area.
+- **Off-map destinations**: arrows with the next big station beyond the frame where a line leaves the map ("← Liberec", "Wrocław →", "↖ Görlitz"; SBB: "Milano | Malpensa | Venezia" at the edge). From the connecting lines and their far ends.
+
+**Locator and layout**
+
+- **Locator inset**: country silhouette (Austria with federal states) and a red rectangle for the map extent; in the Zackenbahn style a soft white panel in a corner. OSM admin boundaries, strongly simplified, built once.
+- **Map fills the image**; title, legend and scale bar in a framed box (Wikipedia) or a soft panel inside the map, not above/below. Title as a pill label next to the line ("Zackenbahn", Zackenbahn style).
+- **Segmented scale bar** (alternating black/white) and a stated scale ("1:1 Mio.", SBB).
+- **Line name on the map** in the line colour, in a rounded halo/pill, placed along a straight stretch.
+
+**Line styling and content**
+
+- **Line status categories** in the legend: in use, former line (dotted), regauged / other gauge (other colour), each with its station symbol (Wikipedia). OSM `railway=disused|abandoned|razed` (not extracted yet), `gauge`.
+- **Station symbols in the line colour** (white fill, coloured ring) instead of black; bigger rings for main stations.
+- **Hierarchy for the other lines**: connecting main lines dark and thick (Zackenbahn: black, almost as strong as the line itself), minor lines lighter/thinner; only lines relevant to the map, not every track.
+- **Fewer, better labels**: only the important stations on overview maps (Zackenbahn labels 7 stations), all stations on detailed maps; label size by importance.
+- **Typography**: one clean sans (Inter-like) in two weights; place names letter-spaced capitals; italic for landscape; generous halos.
+- **Rounded, smooth line rendering** (round joins, slight smoothing of the simplified geometry).
+
+**From "Brenner-Nordzulauf" (project map, Wikipedia)**
+
+- **Project status by colour**: in planning / approval in progress / under construction / in operation, each with its own colour; the existing line dark grey; upgraded line ("Ausbaustrecke") as a two-colour dashed line. OSM `railway=construction|proposed` (+ `construction=*`, `opening_date`, `start_date`) — not extracted yet; would also cover the Koralmbahn-style new lines before they open.
+- **Opening years** next to sections and tunnels in italic ("Inntaltunnel 1994", "Brenner-Basistunnel 2032"). OSM `start_date` / `opening_date` on ways or relations.
+- **Tunnel names along the tunnels**, italic, in the line/status colour ("Terfnertunnel", "Münstarertunnel"); tunnels dotted. OSM `tunnel:name` / `name` on tunnel ways (extract keeps `name`; add `tunnel:name`).
+- **Motorways** as light yellow/beige lines underneath (the classic road colour, subtle).
+- **State borders** in violet/pink with **state names** in letter-spaced violet capitals ("BAYERN", "TIROL") — for lines near borders the federal states / neighbouring states matter more than the country outline.
+- **Legend box over the map** with the title in large bold, all line categories, "Stationen (Auswahl)", "Stand: 2023" and the year notation ("_2012_ Inbetriebnahmedatum").
+- **Station hierarchy**: large ring + bold label for main stations (Rosenheim, Innsbruck), small ring for others, very small labels for minor places; selected stations only.
+- **Segmented scale bar** bottom right.
+
+**From "Arlbergbahn" (Wikipedia line map, Bludenz – Innsbruck)**
+
+- **Station classes** with their own symbol and label style in the legend: Bahnhof (large ring, bold), Haltepunkt (small ring), Betriebsbahnhof (grey label, operating point without passengers), aufgelassener Haltepunkt (grey italic with the closing date, "Unterperfuss 29.09.1968 aufgelassen"). OSM `railway=station|halt|service_station|…`, disused stations via `disused:railway=*` / `railway=…` + `disused=yes` and `end_date`.
+- **Bridges** (> 100 m) with a tick symbol and their names ("Trisannabrücke", "Inn-Brücke", "Schmiedtobelbrücke"); **tunnels** (> 1000 m) dotted and named ("Arlbergtunnel", "Wolfsgrubentunnel") — length thresholds keep it readable. OSM `bridge=yes` + `bridge:name`/`name`, `tunnel:name`; lengths from the geometry.
+- **Annotations**: highest point with elevation ("1310 m ü. M. – höchster Punkt der Arlbergbahn"), renamed stations ("bis 2005: Landeck"), notes ("werden nur bei Großereignissen genutzt"). Elevation from OSM `ele` on stations or a DEM; former names from `old_name` / Wikidata; notes hand-curated (small TOML per line).
+- **Leader lines** from labels to their station where the line is dense (Innsbruck Westbahnhof, Flaurling, Hatting) instead of dropping the label.
+- **Label size by class**: main stations large and bold (Bludenz, Landeck-Zams, Innsbruck Hbf), others medium, minor small.
+- **Panorama format**: a wide frame for an east–west line (aspect up to ~3:1) — ours caps at 16:9; allow wider for elongated lines (and taller for north–south ones).
+- **Legend panel + locator side by side** in the bottom-right corner: title, symbols; Austria with federal states, the capital marked, red rectangle for the extent.
+- **Base map details**: mountain peaks as small triangles, road numbers (B171), forest, the OSM-Carto look (lighter).
+- **Connecting lines in the line colour but thin** (red, at Bludenz and Innsbruck) — "same railway family", distinguished by width.
+
+**Network maps (SBB style) — later, a different view**
+
+- Whole network or region map: all lines by mode (rail red, bus yellow, cable car black, ship) and by status/tariff (solid / dashed / dotted), dense labels with hierarchy, lakes, relief, neighbouring countries muted, multilingual title and legend, "Stand" date, info panels. Would build on the same layers (water, relief, borders, places) plus all VzG lines; GTFS for bus/other modes.
+
+**Data and effort**
+
+- All vector layers (water, land cover, roads, borders, places) come from the Geofabrik extract already used — a second extract step (`scripts/extract-base.ts`) writing simplified, clipped layers per zoom class (e.g. `data/base-*.toml` or one compact binary/JSON per region); licence ODbL like the rest.
+- Relief needs a DEM (basemap.at CC BY 4.0 → attribution in the footer) and a raster step (hillshade per map extent at build time or a pre-rendered Austria hillshade PNG cropped per map).
+- Suggested order: 1) water + places + borders (incl. federal states), 2) locator inset + legend box inside the map + segmented scale bar, 3) station classes/symbols/hierarchy (incl. leader lines), line hierarchy, line name label, named tunnels and bridges with length thresholds, off-map arrows, wider/taller frames for elongated lines, 4) land cover + motorways, 5) relief, 6) former lines/closed stations with dates, lines under construction/planned with opening years (project maps), annotations (highest point, renamings, notes), 7) SBB-style network map.
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
