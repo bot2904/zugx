@@ -34,7 +34,11 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "egqeHoqlvAzOkSjOcPtFgKlHwSdHga@pBeh@lDsb@t^ocB" },
+  { line = "egqeHoqlvAzOkSjOcPtFgKvG}Q~@iE", v = 40 },
+  { line = "osoeHo|nvAxAsI", v = 80 },
+  { line = "upoeHcgovAjDeTtCqq@", v = 100 },
+  { line = "sfoeH{nqvA~BeWhE}T", v = 160 },
+  { line = "i|neH_}rvAjXqmA", v = 200 },
 ]
 posts = [[182, 48.25656, 14.33046], [181, 48.25267, 14.34232], [180, 48.25069, 14.3554], [179, 48.24678, 14.36752]]
 

@@ -211,7 +211,21 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "y{gcHundbB}X`B{[nFs]lIgHSoG}CsEaGoTmf@_FwHeCqBiOeHacBo~AoIoJw|FezHkQkOcj@y^aGkCaKaBcIPwv@fHaIlDwFrIkoA~fD}FtG}G|BkGIuHsD_oFqdEqt@om@{|@oo@iJwIoEkJwt@}oBiD{EqLeHcCoE}Fmh@m[o|@i`AqqE}DoM{Qe_@iKcMcqAaaA}DwA_EWsIpB" },
+  { line = "y{gcHundbBcWtAsa@bH", v = 60 },
+  { line = "qvicH{bdbBq[lHkF[eFyB}FeHoTmf@_FwHaEwCgLaFg[sY", v = 80 },
+  { line = "uumcH}~fbB_\\wZ", v = 60 },
+  { line = "urncHuzgbBk]_\\", v = 65 },
+  { line = "aqocHuwhbByPqPuNgQsiCukD", v = 80 },
+  { line = "e}tcHehobBy^qf@", v = 60 },
+  { line = "_}ucHwopbB}bAusAkMgN", v = 65 },
+  { line = "ioxcHussbBgw@{h@_KwCgHYk{@rHcE~@eDtByCrDsLpZ", v = 60 },
+  { line = "}v}cHsrsbBqz@d|B", v = 80 },
+  { line = "or_dHmuobBaE|KmFxJ_FxDoGpA", v = 60 },
+  { line = "oo`dHitnbBkEQcFoBgsAidA", v = 55 },
+  { line = "gqcdHu}pbBi}CkaCqt@om@ik@ga@wXmTuFaJ_v@mrB", v = 80 },
+  { line = "{indHwd|bB{CcFwLkHqCgEaAsE}Dua@gL_\\", v = 60 },
+  { line = "ivodHya_cBsNy`@aaA}sEeGkP", v = 80 },
+  { line = "eprdH}igcB{N}YmHoJ_qAoaAkEaCcFs@oDPqE~A", v = 60 },
 ]
 posts = [[42, 47.89297, 16.24727], [41, 47.90178, 16.24495], [40, 47.90812, 16.25384], [39, 47.91616, 16.2607], [38, 47.92352, 16.26772], [37, 47.93088, 16.27524], [36, 47.93773, 16.28372], [35, 47.94403, 16.29157], [34, 47.95163, 16.30103], [33, 47.9587, 16.30985], [32, 47.96542, 16.31823], [31, 47.97243, 16.32632], [30, 47.98056, 16.33236], [29, 47.98952, 16.33264], [28, 47.99745, 16.32835], [27, 48.00265, 16.31744], [26, 48.00793, 16.30634], [25, 48.01517, 16.30113], [24, 48.02298, 16.30756], [23, 48.03124, 16.31434], [22, 48.03876, 16.32054], [21, 48.04672, 16.32709], [20, 48.05451, 16.33353], [19, 48.06242, 16.34041], [18, 48.07018, 16.34644], [17, 48.07673, 16.35507], [16, 48.08191, 16.3659], [15, 48.08807, 16.3766], [14, 48.09255, 16.38816], [13, 48.09649, 16.40022], [12, 48.10028, 16.41245], [11, 48.10404, 16.42449], [10, 48.11045, 16.43392], [9, 48.11837, 16.44031]]
 

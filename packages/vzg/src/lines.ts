@@ -372,23 +372,37 @@ export function buildTrack(
 
   const kmFrom = round(Math.min(kmAt[0]!, kmAt.at(-1)!));
   const kmTo = round(Math.max(kmAt[0]!, kmAt.at(-1)!));
-  // map geometry: path pieces with/without tunnel, simplified; km posts at whole km
-  const segments: { line: string; tunnel?: boolean }[] = [];
+  // map geometry: path pieces by tunnel and permitted speed (the higher of both directions),
+  // simplified; km posts at whole km
+  const edgeV = (e: Edge) => {
+    const t = e.way.tags;
+    const vs = [t.maxspeed, t["maxspeed:forward"], t["maxspeed:backward"]]
+      .map(parseSpeed)
+      .filter((v): v is number => v !== null);
+    return vs.length ? Math.max(...vs) : undefined;
+  };
+  const segments: { line: string; tunnel?: boolean; v?: number }[] = [];
+  const flush = (pieces: [number, number][], tunnel: boolean, v: number | undefined) =>
+    segments.push({
+      line: encodePolyline(simplify(pieces, 10)),
+      ...(tunnel ? { tunnel: true } : {}),
+      ...(v !== undefined ? { v } : {}),
+    });
   let run: [number, number][] = [pts[0]!];
   let inTunnel = isTunnel(path[0]!.way);
+  let curV = edgeV(path[0]!);
   path.forEach((e, i) => {
     const t = isTunnel(e.way);
-    if (t !== inTunnel) {
-      segments.push({
-        line: encodePolyline(simplify(run, 10)),
-        ...(inTunnel ? { tunnel: true } : {}),
-      });
+    const v = edgeV(e);
+    if (t !== inTunnel || v !== curV) {
+      flush(run, inTunnel, curV);
       run = [pts[i]!];
       inTunnel = t;
+      curV = v;
     }
     run.push(pts[i + 1]!);
   });
-  segments.push({ line: encodePolyline(simplify(run, 10)), ...(inTunnel ? { tunnel: true } : {}) });
+  flush(run, inTunnel, curV);
   const posts: [number, number, number][] = [];
   for (let i = 1; i < kmAt.length; i++) {
     const [k0, k1] = [kmAt[i - 1]!, kmAt[i]!];

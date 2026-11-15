@@ -187,10 +187,23 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "yqpeHm|{bBdEeC|Ua`@lHcF~e@}c@|y@a}@tY}]p_@ig@bLeRvJqLpu@yhA~aA{}At{AwgC`mA_xBpPaXtC{AdDHnp@hX|IhBjJ[nYaJ|EOtDjAzD|DfsA~zBbFfN|A|P`Gj}DC~Gm@dHyaAdtG{AbH}EtMyAlHoGto@s@jeA" },
-  { line = "ku{dHcfxbBMxI", tunnel = true },
-  { line = "yu{dHi{wbBcF`e@uDnKgEfEgc@jT}G~GiEjG" },
-  { line = "k|}dHw{tbBkMnXoMdQ}CvJ}@`OrBd[O|O", tunnel = true },
+  { line = "yqpeHm|{bBdEeC", v = 40 },
+  { line = "skpeHs`|bB|Ua`@lHcF~e@}c@h_AecA", v = 60 },
+  { line = "}cleH}q`cBzt@c`AbLeRvJqLpb@wn@bq@qdA", v = 40 },
+  { line = "o_geHcigcBzn@{cAtoAgvBlbAcgB", v = 80 },
+  { line = "o{`eHkmpcB|FwK", v = 60 },
+  { line = "qs`eHczpcB|OaX", v = 80 },
+  { line = "sb`eHesqcB`EgE`EYpq@tX|IhBnKg@p[kJlG~@dF~E", v = 60 },
+  { line = "i`|dH{`qcBdk@|_A", v = 80 },
+  { line = "ctzdH}_ocBzf@vy@nChGfBlH", v = 60 },
+  { line = "odydHmslcBdAfNx@rh@", v = 70 },
+  { line = "o`ydHqzjcBfEhuCKnHaArI", v = 90 },
+  { line = "u|xdHcpecB}`AtpG{AbH_ErK", v = 100 },
+  { line = "og{dHuh|bBwBnJoGto@s@jeA", v = 90 },
+  { line = "ku{dHcfxbBMxI", tunnel = true, v = 90 },
+  { line = "yu{dHi{wbBgEla@uA`HqEfIcHjE", v = 90 },
+  { line = "mn|dHe_vbB}Z|NmHrGqGzI", v = 100 },
+  { line = "k|}dHw{tbBkMnXoMdQ}CvJ}@`OrBd[O|O", tunnel = true, v = 100 },
 ]
 posts = [[35, 48.25884, 16.36832], [34, 48.25174, 16.37635], [33, 48.24419, 16.38369], [32, 48.23687, 16.39152], [31, 48.22981, 16.39989], [30, 48.22303, 16.40872], [29, 48.21634, 16.41776], [28, 48.20975, 16.42694], [27, 48.20325, 16.43626], [26, 48.19685, 16.44573], [25, 48.19044, 16.4552], [24, 48.18416, 16.46485], [23, 48.17788, 16.47451], [22, 48.1706, 16.47946], [21, 48.16199, 16.47586], [20, 48.15357, 16.4761], [19, 48.14783, 16.46766], [18, 48.14072, 16.45721], [17, 48.13847, 16.44451], [16, 48.13791, 16.43096], [15, 48.13778, 16.41785], [14, 48.14085, 16.40485], [13, 48.14386, 16.39253], [12, 48.14688, 16.38003], [11, 48.15056, 16.36773], [10, 48.15191, 16.35454], [9, 48.15331, 16.34135], [8, 48.16101, 16.33504], [7, 48.16761, 16.32591]]
 
@@ -374,10 +387,23 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "yqpeHm|{bBnEqC`Uu_@vIgGda@g_@x}@_aAjf@em@lT_ZpJcPvJqLnu@yhAdr@_gAxkBc_D~lAgwBpPaXtC{AdDHnp@hX|IhBjJ[nYaJ|EOtDjAzD|DfsA~zBbFfN|A|P`Gj}DC~Gm@dHyaAdtG{AbH}EtMyAlHoGto@s@jeA" },
-  { line = "ku{dHcfxbBMxI", tunnel = true },
-  { line = "yu{dHi{wbBcF`e@uDnKgEfEgc@jT}G~GiEjG" },
-  { line = "k|}dHw{tbBkMnXoMdQ}CvJ}@`OrBd[O|O", tunnel = true },
+  { line = "yqpeHm|{bBdEeC", v = 40 },
+  { line = "skpeHs`|bBjUa`@vIgGhd@kb@``A}cA", v = 60 },
+  { line = "cdleHgr`cB`\\ca@jY_`@pJcPvJqLpb@yn@`q@qdA", v = 40 },
+  { line = "w_geHmigcB`Sm[", v = 80 },
+  { line = "ukfeH{ehcBby@etA", v = 60 },
+  { line = "qqdeHa{jcBtq@}iAf{AelC", v = 80 },
+  { line = "sb`eHesqcB`EgE`EYpq@tX|IhBnKg@p[kJlG~@dF~E", v = 60 },
+  { line = "i`|dH{`qcBdk@|_A", v = 80 },
+  { line = "ctzdH}_ocBzf@vy@nChGfBlH", v = 60 },
+  { line = "odydHmslcBdAfNx@rh@", v = 70 },
+  { line = "o`ydHqzjcBfEhuCKnHaArI", v = 90 },
+  { line = "u|xdHcpecB}`AtpG{AbH_ErK", v = 100 },
+  { line = "og{dHuh|bBwBnJoGto@s@jeA", v = 90 },
+  { line = "ku{dHcfxbBMxI", tunnel = true, v = 90 },
+  { line = "yu{dHi{wbBgEla@uA`HqEfIcHjE", v = 90 },
+  { line = "mn|dHe_vbB}Z|NmHrGqGzI", v = 100 },
+  { line = "k|}dHw{tbBkMnXoMdQ}CvJ}@`OrBd[O|O", tunnel = true, v = 100 },
 ]
 posts = [[35, 48.25884, 16.36832], [34, 48.25177, 16.37639], [33, 48.24423, 16.38375], [32, 48.2369, 16.39157], [31, 48.22984, 16.39994], [30, 48.22306, 16.40876], [29, 48.21637, 16.4178], [28, 48.20979, 16.42698], [27, 48.20331, 16.43635], [26, 48.19688, 16.44578], [25, 48.19047, 16.45524], [24, 48.18419, 16.46489], [23, 48.17791, 16.47455], [22, 48.1706, 16.47946], [21, 48.16199, 16.47586], [20, 48.15357, 16.4761], [19, 48.14783, 16.46766], [18, 48.14072, 16.45721], [17, 48.13847, 16.44451], [16, 48.13791, 16.43096], [15, 48.13778, 16.41785], [14, 48.14085, 16.40485], [13, 48.14386, 16.39253], [12, 48.14688, 16.38003], [11, 48.15056, 16.36773], [10, 48.15191, 16.35454], [9, 48.15331, 16.34135], [8, 48.16101, 16.33504], [7, 48.16761, 16.32591]]
 

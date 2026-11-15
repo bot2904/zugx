@@ -72,7 +72,11 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "avueHorevAmPqQwKgJ_NoFuE}CmD}DmC_FoEcQ_AcMf@cLrDyOlQ}YlCaDnC_Bhd@cLpXcKhTuBzK_C~NgKhb@wIpKh@zD_ArBeBhXe^nQwRlD}GlIoUnJgc@jAiM`Asf@|AwQpFkZrVohA" },
+  { line = "avueHorevAcReS{LuJsOoGoEkEkCgEsDcL{BgOF_MnBaMvEsLpMgS`F_Fdf@eMpXcKzUaCzL{C", v = 60 },
+  { line = "mvseHamkvAlL_Jhb@wIbLf@dFkB|Xu^rR_TlD}GlIoU", v = 40 },
+  { line = "}soeHaynvAbCwL", v = 80 },
+  { line = "yooeHyfovAtGk[|Biv@bB}NbF}W", v = 100 },
+  { line = "}xneHkcsvA`VofA", v = 160 },
 ]
 posts = [[189, 48.28537, 14.288], [188, 48.29352, 14.29462], [187, 48.29559, 14.30636], [186, 48.28825, 14.31327], [185, 48.28083, 14.31639], [184, 48.27226, 14.31975], [183, 48.26357, 14.32212], [182, 48.25651, 14.33041], [181, 48.25213, 14.34212], [180, 48.25046, 14.35525], [179, 48.24661, 14.36739]]
 
@@ -141,7 +145,11 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "avueHorevAmPqQwKgJ_NoFuE}CmD}DmC_FoEcQ_AcMf@cLrDyOlQ}YlCaDnC_Bhd@cLpXcKhTuBzK_C~NgKhb@wIpKh@zD_ArBeBhXe^nQwRlD}GlIoUnJgc@jAiM`Asf@|AwQpFkZrVohA" },
+  { line = "avueHorevAcReS{LuJsOoGoEkEkCgEsDcL{BgOF_MnBaMvEsLpMgS`F_Fdf@eMpXcKzUaCzL{C", v = 60 },
+  { line = "mvseHamkvAlL_Jhb@wIbLf@dFkB|Xu^rR_TlD}GlIoU", v = 40 },
+  { line = "}soeHaynvAbCwL", v = 80 },
+  { line = "yooeHyfovAtGk[|Biv@bB}NbF}W", v = 100 },
+  { line = "}xneHkcsvA`VofA", v = 160 },
 ]
 posts = [[189, 48.28537, 14.288], [188, 48.29352, 14.29462], [187, 48.29559, 14.30636], [186, 48.28825, 14.31327], [185, 48.28083, 14.31639], [184, 48.27226, 14.31975], [183, 48.26357, 14.32212], [182, 48.25651, 14.33041], [181, 48.25213, 14.34212], [180, 48.25046, 14.35525], [179, 48.24661, 14.36739]]
 

@@ -36,7 +36,25 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "{lzcHil{mAd\\hi@bBbFd@bFNnY]xF_Mjd@cEzUsB|Ecl@bi@}C|EmDbK{BbCwCl@_\\sAq^jS{CnEod@ddAoc@jv@gDdDwDjBcc@|KqCjEmE|PoBzBqDt@mDoAiVqXsFiLiDoCcGSaNpGwDvEyKfWyKf]}DdJmK~PaNtO" },
+  { line = "{lzcHil{mAn@vA", v = 40 },
+  { line = "kkzcHqi{mAxDxF", v = 50 },
+  { line = "qezcHwa{mApRl[", v = 80 },
+  { line = "_rycHiezmAfCdFjAjILx[mBzK", v = 75 },
+  { line = "knycHajxmAmJ~\\wDvT", v = 80 },
+  { line = "q_zcHivvmA_C`GsCtC", v = 75 },
+  { line = "ehzcHqivmAuf@pc@yExH", v = 80 },
+  { line = "uv{cHe{tmAyB~GsAvBaCpAeCF", v = 50 },
+  { line = "ke|cHsktmAmW{AuC`@u[tQmCbDoC|F", v = 80 },
+  { line = "ch~cHumsmAcEhJ", v = 60 },
+  { line = "gn~cHkbsmAuYnp@oQl[", v = 80 },
+  { line = "m{_dHmtpmAiKxQ", v = 50 },
+  { line = "wg`dHsapmA}FpJuE~Dgb@rK", v = 80 },
+  { line = "syadHmcomAsCfAmB`CyEvQgCjD", v = 50 },
+  { line = "wlbdH_enmAqDt@{C_AsTsV", v = 40 },
+  { line = "ylcdH}|nmA_C{CiEmJ", v = 50 },
+  { line = "cwcdHgmomA{C}BeDc@uCb@wHhD", v = 70 },
+  { line = "soddH{komAcE`D}ClFcLhXeIxWyDfJsJdPmG~H", v = 80 },
+  { line = "{kfdHyflmAcGtG", v = 40 },
 ]
 posts = [[1, 47.97635, 12.91506], [2, 47.97918, 12.90268], [3, 47.98594, 12.89441], [4, 47.99347, 12.88938], [5, 48.00144, 12.88431], [6, 48.0071, 12.87389], [7, 48.01351, 12.86452], [8, 48.02149, 12.85963], [9, 48.02853, 12.86202], [10, 48.03584, 12.86019], [11, 48.04125, 12.84952]]
 

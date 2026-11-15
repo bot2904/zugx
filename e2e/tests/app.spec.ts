@@ -547,6 +547,13 @@ test("VzG line map: drawn from the line's geometry, exportable as SVG", async ({
     });
   });
   expect(file).not.toContain("href=");
+  // colour by permitted speed (ColorBrewer RdYlBu scale + legend)
+  await page.getByRole("button", { name: /By speed|Nach Geschwindigkeit|Per velocità/ }).click();
+  await expect(page).toHaveURL(/farbe=v/);
+  await expect(svg.locator("text", { hasText: "> 200" })).toBeVisible();
+  await expect(
+    svg.locator("path[stroke='#d73027'], path[stroke='#4575b4']").first(),
+  ).toBeAttached();
   // links: connecting line → its map, station → departure board
   await svg.locator("a", { hasText: "222 01" }).first().click();
   await expect(page).toHaveURL(/\/vzg\/222-01\/map$/);

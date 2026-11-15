@@ -243,6 +243,32 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "kvbcHqgwaBaOvc@{CrOgBvFeAbJOtPeC|KmMnWgTbSgCjFiAvFaIjs@cBbGyD`HkApDu@nOkCvPpBpa@xD|MGhP\\`GdEdQdA`N|CdJr@jH|A|Fn@lHQ|F{ApGyAlO}DbM_ApFUlP{BvH[~CzCfZ~BzKFfg@vFj`@c@pFeEjH{@~DzBrj@XbCfHfWxA`JdFlH|AzE|Cjc@`DzI^vCRxD]fMu@dDiC|D}CpB}ExAgB`Ci@nC?fIi@xDqEfGqCpIwFdMgAvTs@vDkJhNkHlDmArDKxChAx\\_BrPG`Kz@zD~G|MhAfFXbEiAnPArLqAxXu@pOq@fEkJtPg@nEUfKyA`FiGjFaIMcDjCgAhDoAhNwI`VyCbByPXyClBuAvBmBxJoHjVqAxLoFdUyAzm@gDhMQvCbAbJvUjjA~I`VzI~L|Nzg@dMlcAjFpNvDlG`Ohb@~Ztg@" },
+  { line = "kvbcHqgwaBaOvc@oG|X", v = 60 },
+  { line = "}nccH{huaBy@pHOtPsCxL_MrVgTbSgCjF", v = 65 },
+  { line = "k}dcHulraBiAvFaIjs@cBbGuCfF", v = 80 },
+  { line = "qqecHeapaB_ClHe@lMkCvPpBpa@", v = 65 },
+  { line = "qwecH_umaBrDpLAtQf@nHhElQv@jLzBlG", v = 55 },
+  { line = "ydecH_ckaBtAbK|A|Fn@lHQ|F{ApGk@|G", v = 50 },
+  { line = "obecHaliaB}@hH_DdJeAhFYjDBvH", v = 60 },
+  { line = "ilecHcahaBMvCuBtG[zDnCpWfAlF", v = 50 },
+  { line = "qjecHymfaB`AvELdE", v = 40 },
+  { line = "ahecH{`faBCpa@~Ez[", v = 60 },
+  { line = "eaecHmadaBXlDUbD_FlJq@lD~Bvk@|HfZxA`JdFlHtAzDhC~^", v = 55 },
+  { line = "ujdcHsc_aBj@hFfD|J", v = 50 },
+  { line = "addcHkp~`BZ|Iy@hM{DnGaJpDgB`Ci@nC?fI]|C}EbHqCpIgFxKm@nDu@zR{@rCyDtE", v = 55 },
+  { line = "_yecHclz`B}CnFmGlCeBvDQtDhAx\\kAdM", v = 50 },
+  { line = "ejfcHwhx`B_@dKRzDxH`PjBdJHtCiAdO@bG", v = 55 },
+  { line = "i_fcHm}u`ByCdq@mAzEmF~H", v = 60 },
+  { line = "_nfcHkzs`BgBzEe@xNaAnEeHvGsHQuCdBcBrEoAhNcIfUmD|BwQh@yDhDwAnG", v = 55 },
+  { line = "o|hcHqrp`B}I`[_CdQ", v = 65 },
+  { line = "mkicHido`BqEzSiAxj@", v = 70 },
+  { line = "iticHscm`BgDhMQvCRtD", v = 55 },
+  { line = "oyicH{jl`BfJfe@", v = 60 },
+  { line = "gnicHsdk`B|L~k@xIxT|FpH", v = 75 },
+  { line = "qmhcHgxh`BzAvC", v = 60 },
+  { line = "ujhcHosh`BrNpg@jJrs@", v = 70 },
+  { line = "uogcHive`BlArMjFpNvDlG", v = 60 },
+  { line = "c`gcHuod`B`Ohb@|Q|Z", v = 55 },
+  { line = "c}ecHmpb`B`HvK" },
 ]
 posts = [[9, 47.86101, 16.17911], [10, 47.86462, 16.16711], [11, 47.87054, 16.15747], [12, 47.87403, 16.14527], [13, 47.8761, 16.13288], [14, 47.87369, 16.12052], [15, 47.87284, 16.10822], [16, 47.87423, 16.0958], [17, 47.8725, 16.08293], [18, 47.87299, 16.0704], [19, 47.86898, 16.05865], [20, 47.87017, 16.04788], [21, 47.87471, 16.03722], [22, 47.87872, 16.02697], [23, 47.8769, 16.01482], [24, 47.87802, 16.00162], [25, 47.88368, 15.99325], [26, 47.88958, 15.98506], [27, 47.89457, 15.97496], [28, 47.89678, 15.9623], [29, 47.8935, 15.95011], [30, 47.88831, 15.93945], [31, 47.88495, 15.92709], [32, 47.88027, 15.91588]]

@@ -218,7 +218,31 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "o`geHykhtAeXrTsBb@uISoBpAwDpFmAjD[hFVdDfCzK@tG}@rDiA`BkEjAeC}@cBeC{C}UyByEa\\wQm_@}Gq\\oLuo@kG}NRuRkHg^qG_w@cFeDw@{D}Bwj@wi@qCuDsLqV{ReQ}YeZwBoEyKo^uDuIcLwN{CsA{^oCsEgAsWyNsG}BuQmTiEeBmBLoBjAwNlTgLfEgPpCeT~Guk@d@_E|@{SvQ}j@fr@gDzBkD^qk@kAmKzEgZzT}Db@iCsAcD{E}EuUeB}Eun@saAmGa_@" },
+  { line = "o`geHykhtA{B|A", v = 40 },
+  { line = "kdgeH{hhtACB", v = 90 },
+  { line = "odgeHwhhtAML", v = 60 },
+  { line = "}dgeHihhtAwSbQsBb@eHc@gCfAmGbKg@zDJbF", v = 50 },
+  { line = "atheHyzftAnC~L@tG}@rDiA`BkEjAeC}@cBeC{C}Uk@kBqBkC", v = 55 },
+  { line = "gkieH{}ftAwYiPoZwF", v = 60 },
+  { line = "oakeH}vgtAyE}@uZ{Kq^sD", v = 55 },
+  { line = "qcmeHkkhtAkGo@", v = 50 },
+  { line = "}kmeH{lhtAuIu@eNTuRkHiOoC", v = 55 },
+  { line = "yioeHw{htAaQwCoUuA", v = 50 },
+  { line = "krpeHecitAi^{BeEuAun@sl@qCuDsLqV{ReQyZk[uNyc@uDuIuLgOiCcAga@_D{I}D", v = 60 },
+  { line = "}}weH_potAm@]", v = 30 },
+  { line = "k_xeH}potAqOuIaGqBkEyE", v = 40 },
+  { line = "k~xeH_fptAkDiE", v = 30 },
+  { line = "wcyeHilptAoHgIiCs@{BR", v = 40 },
+  { line = "muyeHqwptAgD|C", v = 50 },
+  { line = "uzyeHsrptAqJtOkF|C", v = 60 },
+  { line = "smzeH_}otAcXzFqN~E", v = 65 },
+  { line = "iv{eHcnotA{EdA{NL", v = 60 },
+  { line = "am|eHokotAqZPaDl@yRbP_M`O", v = 65 },
+  { line = "oo~eHihntA}^hd@wB`B{Ex@qk@kAmKzEgXfS", v = 60 },
+  { line = "ilbfHkeltAwBnAeCFqB}@wBmCgByDaGmX", v = 50 },
+  { line = "{fcfHghmtA_e@et@", v = 60 },
+  { line = "{ldfHm}ntAmJsO{DmV", v = 40 },
+  { line = "e~dfHoeptAw@}E" },
 ]
 posts = [[1, 48.21735, 13.97019], [2, 48.22055, 13.96229], [3, 48.22697, 13.97017], [4, 48.23573, 13.97331], [5, 48.24464, 13.97497], [6, 48.25343, 13.9773], [7, 48.26233, 13.9787], [8, 48.2703, 13.98425], [9, 48.27725, 13.99278], [10, 48.28425, 14.00089], [11, 48.29065, 14.00945], [12, 48.29925, 14.01264], [13, 48.30692, 14.01598], [14, 48.31512, 14.01116], [15, 48.3241, 14.01023], [16, 48.33163, 14.00315], [17, 48.33952, 13.99813], [18, 48.34817, 13.99578], [19, 48.35448, 13.99944], [20, 48.36113, 14.00877]]
 

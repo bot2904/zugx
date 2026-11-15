@@ -76,7 +76,11 @@ export interface VzgTrack {
   /** map geometry (line maps): the path in pieces (tunnels marked), and a km post every km */
   geo?: {
     /** Google encoded polylines (1e5), simplified to ~10 m */
-    segments: { line: string; tunnel?: boolean }[];
+    segments: {
+      line: string;
+      tunnel?: boolean;
+      /** permitted km/h, higher direction */ v?: number;
+    }[];
     /** [km, lat, lon] at every whole km */
     posts: [number, number, number][];
   };

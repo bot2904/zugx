@@ -247,9 +247,10 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "sldgH}d`|Amd@ic@wE_CwEs@uOYqC^aChBgGvJiFnBoDk@_YmL_FA}BnAeBbCuFfQ}B|BuBp@oE]aRkKmDJeCxAaRt[sQ~IqCvEk@dCWnGxBzPNrFi@fFoBxE{a@~d@i`@~[wV~^mCrC_FnAsOgA_HpCoB|BkZdi@wB~BuIpFeC|CcCpGcUffAkL`t@iH|O]nEHfLm@nDsAlCyC`CiEn@cRoD_P_AaCZgCbBkBhDaGjZiBfEqCjCuStJeOzTuC|@wAKiBaA{FkGeHw@" },
-  { line = "ciwgHeqp{Aa@K", tunnel = true },
-  { line = "ejwgHqqp{AsHyFuJcDgC?yBhAsAlBmCrK{AjCeD|AiDc@eB}AiAcCmMgm@iBkE}AqAkCc@uHfCeDU{CwC{D{KwBgBoB[{B\\qB`BcJvSgDxDuEjAkK}@gEbBkWfd@gClC}FpA{FmB{IeMuC_Gc[wjAs@iHGo_@oAeHoD{Emb@eZgFwG{BqFmBwI_For@}A{HgD_Fq\\_ReD{CwDgH_Om`@u@cHXmGnAkEhH{Np@}DXsHyEqeAwAgHcDqGu_@wc@uLiJuzB{{@kF{D}JsOeDyBqC_@wC^aJvHeCdA_LTqIdIsDx@cCq@{BmCsJw^}CeHcF}FsGaDwh@}GiDHwBt@cC~BoHtOsCjBaCb@qD_@sUwH" },
+  { line = "sldgH}d`|Amd@ic@wE_CwEs@uOYqC^aChBgGvJiFnBoDk@_YmL_FA}BnAeBbCuFfQ}B|BuBp@oE]aRkKmDJeCxAaRt[sQ~IqCvEk@dCWnGxBzPNrFi@fFoBxE{a@~d@i`@~[wV~^mCrC_FnAsOgA_HpCoB|BkZdi@wB~BuIpFeC|CcCpGcUffAkL`t@iH|O]nEHfLmBbHmDzC{Cn@mUyDcNu@cDj@}BnBsAlCaGjZ{AtD_D|CaNvF", v = 40 },
+  { line = "owugHk`q{AqFzDqKhQsCbBkBJoBq@sHsHkGi@", v = 60 },
+  { line = "ciwgHeqp{Aa@K", tunnel = true, v = 60 },
+  { line = "ejwgHqqp{AsHyFuJcDgC?yBhAsAlBmCrK{AjCeD|AiDc@eB}AiAcCmMgm@iBkE}AqAkCc@uHfCeDU{CwC{D{KwBgBoB[{B\\qB`BcJvSgDxDuEjAkK}@gEbBkWfd@gClC}FpA{FmB{IeMuC_Gc[wjAs@iHGo_@oAeHoD{Emb@eZgFwG{BqFmBwI_For@}A{HgD_Fq\\_ReD{CwDgH_Om`@u@cHXmGnAkEhH{Np@}DXsHyEqeAwAgHcDqGu_@wc@uLiJuzB{{@kF{D}JsOeDyBqC_@wC^aJvHeCdA_LTqIdIsDx@cCq@{BmCsJw^}CeHcF}FsGaDwh@}GiDHwBt@cC~BoHtOsCjBaCb@qD_@sUwH", v = 60 },
 ]
 posts = [[34, 48.5298, 15.24845], [33, 48.53794, 15.24746], [32, 48.54641, 15.24822], [31, 48.55382, 15.24649], [30, 48.56104, 15.239], [29, 48.5638, 15.22791], [28, 48.57141, 15.22058], [27, 48.57884, 15.21337], [26, 48.58613, 15.20723], [25, 48.59205, 15.19779], [24, 48.59566, 15.18529], [23, 48.59944, 15.1736], [22, 48.60806, 15.17333], [21, 48.61441, 15.16472], [20, 48.62213, 15.16396], [19, 48.6296, 15.16168], [18, 48.63462, 15.17146], [17, 48.64178, 15.17168], [16, 48.64933, 15.16595], [15, 48.65638, 15.1651], [14, 48.66095, 15.17697], [13, 48.66438, 15.18849], [12, 48.67108, 15.1966], [11, 48.67482, 15.20797], [10, 48.68167, 15.21607], [9, 48.68043, 15.22805], [8, 48.68266, 15.24069], [7, 48.69017, 15.24844], [6, 48.69863, 15.25264], [5, 48.7073, 15.25687], [4, 48.71516, 15.26238], [3, 48.72333, 15.2589], [2, 48.72944, 15.26814], [1, 48.73802, 15.26782]]
 

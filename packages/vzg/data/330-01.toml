@@ -85,11 +85,14 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "_fu`Hsx}gA~jAlhD" },
-  { line = "_zr`HeoxgAbLdWdPfWxMdOfa@x^~RvVhRp]tMf^tJ`a@tFh_@`C|X`O~eC~D~[vEbVjGbUvFrOpGpNd]vo@nN``@pJfc@hPtkAdE`RxGzTdOf]bs@lmAlHfPvExMfFhRzEfWdCxSpGfs@rFv]nKp_@`Pr]", tunnel = true },
-  { line = "qyd`Hm`vfA`_AlcB`KlT" },
-  { line = "mmb`HqfrfApFzO`FvRxGz]jFf^hHft@dG~hAhEf_@vI|a@jMd_@pIbQbJzN`KhM|KrKdUlO~r@hZ|MjH~SzP~OjRrJrO`KfT|GpR`ZfbAnGjOdTtb@bKhXnGzU~[bwAvHxb@lBjS|@rSZdfArAlTpBxOrC~NlFxQ`HjPzMxW", tunnel = true },
-  { line = "ujt_HqiqeA|_@pu@" },
+  { line = "_fu`Hsx}gAp_@xfA", v = 160 },
+  { line = "met`Hyp{gAlj@r`B", v = 220 },
+  { line = "_zr`HeoxgAbLdWdPfWxMdOfa@x^~RvVhRp]tMf^tJ`a@tFh_@`C|X`O~eC~D~[vEbVjGbUvFrOpGpNd]vo@nN``@pJfc@hPtkAdE`RxGzTdOf]bs@lmAlHfPvExMfFhRzEfWdCxSpGfs@rFv]nKp_@`Pr]", tunnel = true, v = 220 },
+  { line = "qyd`Hm`vfA`_AlcB`KlT", v = 220 },
+  { line = "mmb`HqfrfApFzO`FvRxGz]jFf^hHft@dG~hAhEf_@vI|a@lKh[jIrQ|IdOzJrMvK~KpLdJhJrF~r@hZhPbJ~UrSnSxXzItPpHzQfXf~@vFhP`[to@fIzSjIhZvZdsA", tunnel = true, v = 220 },
+  { line = "cfv_HwtyeA|FnY|CjVhBlZV|X", tunnel = true, v = 210 },
+  { line = "euu_HomveAMj^VhPrAlTpBxOrC~NlFxQ`HjPzMxW", tunnel = true, v = 200 },
+  { line = "ujt_HqiqeA|_@pu@", v = 200 },
 ]
 posts = [[25, 47.4627, 11.9524], [26, 47.45772, 11.94135], [27, 47.45282, 11.9303], [28, 47.4472, 11.92019], [29, 47.43966, 11.91262], [30, 47.43292, 11.90394], [31, 47.42822, 11.89272], [32, 47.42589, 11.87997], [33, 47.42438, 11.86688], [34, 47.42195, 11.85416], [35, 47.41692, 11.84326], [36, 47.41112, 11.83319], [37, 47.40754, 11.82111], [38, 47.40421, 11.80881], [39, 47.39854, 11.79859], [40, 47.39227, 11.78914], [41, 47.38773, 11.77788], [42, 47.38545, 11.76507], [43, 47.38124, 11.75336], [44, 47.37511, 11.74358], [45, 47.36897, 11.73392], [46, 47.36435, 11.72278], [47, 47.36154, 11.71027], [48, 47.35999, 11.69724], [49, 47.35715, 11.68474], [50, 47.3517, 11.67429], [51, 47.34421, 11.66704], [52, 47.33575, 11.66255], [53, 47.32798, 11.65623], [54, 47.32195, 11.64639], [55, 47.31734, 11.63499], [56, 47.3117, 11.6249], [57, 47.30741, 11.61329], [58, 47.30356, 11.60122], [59, 47.30212, 11.58828], [60, 47.30113, 11.57523], [61, 47.29635, 11.56438], [62, 47.29099, 11.5555]]
 
@@ -170,11 +173,14 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "_fu`Hsx}gA~jAlhD" },
-  { line = "_zr`HeoxgAbLdWdPfWxMdOfa@x^~RvVhRp]tMf^tJ`a@tFh_@`C|X`O~eC~D~[vEbVjGbUvFrOpGpNd]vo@nN``@pJfc@hPtkAdE`RxGzTdOf]bs@lmAlHfPvExMfFhRzEfWdCxSpGfs@rFv]nKp_@`Pr]", tunnel = true },
-  { line = "qyd`Hm`vfA`_AlcB`KlT" },
-  { line = "mmb`HqfrfApFzO`FvRxGz]jFf^hHft@dG~hAhEf_@vI|a@jMd_@pIbQbJzN`KhM|KrKdUlO~r@hZ|MjH~SzP~OjRrJrO`KfT|GpR`ZfbAnGjOdTtb@bKhXnGzU~[bwAvHxb@lBjS|@rSZdfArAlTpBxOrC~NlFxQ`HjPzMxW", tunnel = true },
-  { line = "ujt_HqiqeA|_@pu@" },
+  { line = "_fu`Hsx}gAp_@xfA", v = 160 },
+  { line = "met`Hyp{gAlj@r`B", v = 220 },
+  { line = "_zr`HeoxgAbLdWdPfWxMdOfa@x^~RvVhRp]tMf^tJ`a@tFh_@`C|X`O~eC~D~[vEbVjGbUvFrOpGpNd]vo@nN``@pJfc@hPtkAdE`RxGzTdOf]bs@lmAlHfPvExMfFhRzEfWdCxSpGfs@rFv]nKp_@`Pr]", tunnel = true, v = 220 },
+  { line = "qyd`Hm`vfA`_AlcB`KlT", v = 220 },
+  { line = "mmb`HqfrfApFzO`FvRxGz]jFf^hHft@dG~hAhEf_@vI|a@lKh[jIrQ|IdOzJrMvK~KpLdJhJrF~r@hZhPbJ~UrSnSxXzItPpHzQfXf~@vFhP`[to@fIzSjIhZvZdsA", tunnel = true, v = 220 },
+  { line = "cfv_HwtyeA|FnY|CjVhBlZV|X", tunnel = true, v = 210 },
+  { line = "euu_HomveAMj^VhPrAlTpBxOrC~NlFxQ`HjPzMxW", tunnel = true, v = 200 },
+  { line = "ujt_HqiqeA|_@pu@", v = 200 },
 ]
 posts = [[25, 47.4627, 11.9524], [26, 47.45772, 11.94135], [27, 47.45282, 11.9303], [28, 47.4472, 11.92019], [29, 47.43966, 11.91262], [30, 47.43292, 11.90394], [31, 47.42822, 11.89272], [32, 47.42589, 11.87997], [33, 47.42438, 11.86688], [34, 47.42195, 11.85416], [35, 47.41692, 11.84326], [36, 47.41112, 11.83319], [37, 47.40754, 11.82111], [38, 47.40421, 11.80881], [39, 47.39854, 11.79859], [40, 47.39227, 11.78914], [41, 47.38773, 11.77788], [42, 47.38545, 11.76507], [43, 47.38124, 11.75336], [44, 47.37511, 11.74358], [45, 47.36897, 11.73392], [46, 47.36435, 11.72278], [47, 47.36154, 11.71027], [48, 47.35999, 11.69724], [49, 47.35715, 11.68474], [50, 47.3517, 11.67429], [51, 47.34421, 11.66704], [52, 47.33575, 11.66255], [53, 47.32798, 11.65623], [54, 47.32195, 11.64639], [55, 47.31734, 11.63499], [56, 47.3117, 11.6249], [57, 47.30741, 11.61329], [58, 47.30356, 11.60122], [59, 47.30212, 11.58828], [60, 47.30113, 11.57523], [61, 47.29635, 11.56438], [62, 47.29099, 11.5555]]
 

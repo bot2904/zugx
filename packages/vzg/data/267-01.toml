@@ -291,7 +291,37 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "a_w_HezamAvKMhLoBnJAhCrArJxM`H|RhGzMhBtHzCb[hCdOrD`Jb@nChAp_@lQdo@FxG{B`N]vF|A~Z|@jFbCrGlCzDvGdGv@bCTvDw@|UkArDeHzLyC|T{At~@tHxa@fAfCbG~FxBtDjAzEl@fGYbD}@zBuMlLcBbCmEvO_@~EjArFpXb]dB~CjAvElEx^|FrRjB~PGtFmG~u@MlN`@`IlBrLxHnZ^~GGzFqAvHcJ|LgDhImBlLOlEdCjZ`BfH`EzHzMzNdAdD]jMmD`Xv@tVmB`QGnEfAtIdNbi@f@xGyAjVeD|Qm@jH]zi@jBvMVhFKjiAy@`KaDxMk@xMLfEdEh^\\fKo@pEsNfg@q@fLb@hSKjF}Hng@?jI~CfTbAbWiAvEqFfGiAdCiCzPK~ELfLfHta@v@pPeA`G{IpMw@bDLdXpHhiCjEfUjBzg@h@lj@" },
+  { line = "a_w_HezamAzG?", v = 40 },
+  { line = "evv_HezamAdP}BrLV", v = 30 },
+  { line = "kwu_Hk}amApChD" },
+  { line = "yru_HaxamAfHhJrM|\\", v = 60 },
+  { line = "}zt_Hyn`mArB~EpBnJ~A~S`DjRhElLvAta@lQdo@FxG{B`N]vFnBt]nDhLlCzDnFlEpAhC`@vCu@nXkArDeHzLyC|T_Br|@^dExGt]fAfCbG~FxBtD`BvHTxEi@fD_AbBaMrKcBbCaFzQAhF`AdDpXb]lC|FpFrb@~DtLvA`HpAzMGtF" },
+  { line = "m~q_He{llA_@bE", v = 65 },
+  { line = "m_r_HaullAqBxSkCla@RxNpBnN", v = 80 },
+  { line = "ecr_Ho~ilAzHpZh@jIGzF", v = 60 },
+  { line = "gxq_HuphlA[jDmAtDoHhJqB|DcBdFuA`J", v = 55 },
+  { line = "mnr_HcbglAKbI", v = 50 },
+  { line = "ynr_H_xflAzBpW`BfH`EzHlLfM", v = 60 },
+  { line = "ktq_Ha~dlAjBtDDfG", v = 40 },
+  { line = "ypq_HcpdlAiEh_@x@`UqAhN", v = 60 },
+  { line = "{wq_HmjblAa@nDAnE", v = 55 },
+  { line = "_yq_Hm~alAdApHdNbi@f@jJ", v = 60 },
+  { line = "kfq_Hk_`lAyAxSiEpXg@ji@", v = 65 },
+  { line = "wpq_Hsf}kAHnEp@`E", v = 60 },
+  { line = "{nq_Haz|kAfAvK", v = 65 },
+  { line = "slq_Him|kAShTPzR", v = 70 },
+  { line = "ulq_Hcd{kAM|a@u@hIeBpG", v = 60 },
+  { line = "_rq_HinykAuAxIQfLrFri@", v = 50 },
+  { line = "smq_HskwkA]tG", v = 45 },
+  { line = "qnq_H}bwkAgOhi@q@fLb@hSKjF}Hng@?jIzBxMdBnW", v = 60 },
+  { line = "obr_HouqkAIhGoBnE", v = 45 },
+  { line = "ifr_HufqkAuEhFyAlF", v = 50 },
+  { line = "yor_H}wpkAkBfNDlP~Gba@z@~K", v = 60 },
+  { line = "chr_HchnkABxFs@pDsIrM", v = 50 },
+  { line = "gtr_HclmkAaAvBK`D", v = 35 },
+  { line = "uvr_HicmkALjUjHnfC", v = 60 },
+  { line = "{lr_HmehkAXpE~CtM\\pD", v = 50 },
+  { line = "cfr_HsjgkAdBbf@h@lj@", v = 60 },
 ]
 posts = [[2, 47.30379, 12.79477], [3, 47.29741, 12.78625], [4, 47.29427, 12.77406], [5, 47.29131, 12.7631], [6, 47.29097, 12.75151], [7, 47.28882, 12.74142], [8, 47.29113, 12.72909], [9, 47.28759, 12.71781], [10, 47.29121, 12.70775], [11, 47.28571, 12.69806], [12, 47.28328, 12.68569], [13, 47.28415, 12.67293], [14, 47.28381, 12.66144], [15, 47.28427, 12.64946], [16, 47.28194, 12.63885], [17, 47.28072, 12.62644], [18, 47.28061, 12.61412], [19, 47.2803, 12.60104], [20, 47.28089, 12.58798], [21, 47.28055, 12.57541], [22, 47.28324, 12.56301], [23, 47.28432, 12.55171], [24, 47.28645, 12.54006], [25, 47.28512, 12.52756], [26, 47.28656, 12.51539], [27, 47.28565, 12.50224], [28, 47.2839, 12.48946]]
 

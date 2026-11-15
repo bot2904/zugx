@@ -191,6 +191,11 @@ export default {
     liveAt: "Echtzeit an {n} Bahnhöfen, zuletzt {station} {time}",
   },
   vzg: {
+    mapColorPlain: "Einfarbig",
+    mapColorSpeed: "Nach Geschwindigkeit",
+    mapSpeedScale: "Zulässige Geschwindigkeit (km/h):",
+    mapSpeedUnknown: "unbekannt",
+    mapSpeedSubtitle: "Farbe: zulässige Geschwindigkeit",
     map: "Karte",
     mapTip: "Druck- und Wikipedia-taugliche Karte dieser Strecke",
     mapTitle: "Streckenkarte",

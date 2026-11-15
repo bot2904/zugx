@@ -67,7 +67,37 @@ const SANS = "Liberation Sans, Arial, Nimbus Sans L, Helvetica, sans-serif";
 // ---- layout
 const W = 1000;
 const HEAD = 78; // title block
-const FOOT = 74; // legend + sources
+const FOOT_BASE = 74; // legend + sources
+const FOOT = computed(() => FOOT_BASE + (bySpeed.value ? 30 : 0));
+
+// ---- colour mode: one colour, or by permitted speed (?farbe=v). Scale: ColorBrewer RdYlBu,
+// 9 classes (colorbrewer2.org; ordered, colour-blind safe), red = slow → blue = fast; the pale
+// middle classes get a dark edge on the light background
+const bySpeed = computed(() => route.query.farbe === "v");
+const SPEED_BINS = [40, 60, 80, 100, 120, 140, 160, 200, Infinity];
+const SPEED_COLORS = [
+  "#d73027",
+  "#f46d43",
+  "#fdae61",
+  "#fee090",
+  "#ffffbf",
+  "#e0f3f8",
+  "#abd9e9",
+  "#74add1",
+  "#4575b4",
+];
+const NO_SPEED = "#9aa0a6";
+const speedColor = (v?: number) =>
+  v === undefined ? NO_SPEED : SPEED_COLORS[SPEED_BINS.findIndex((b) => v <= b)]!;
+const speedLabel = (i: number) =>
+  i === 0
+    ? `≤ ${SPEED_BINS[0]}`
+    : i === SPEED_BINS.length - 1
+      ? `> ${SPEED_BINS[i - 1]}`
+      : `≤ ${SPEED_BINS[i]}`;
+function setMode(speed: boolean) {
+  void router.replace({ query: { ...route.query, farbe: speed ? "v" : undefined } });
+}
 const PAD = 24;
 
 const track = computed(() => line.value?.tracks[0]);
@@ -75,6 +105,7 @@ const segments = computed(
   () =>
     track.value?.geo?.segments.map((s) => ({
       tunnel: !!s.tunnel,
+      v: s.v,
       pts: decodePolyline(s.line),
     })) ?? [],
 );
@@ -119,7 +150,7 @@ const view = computed(() => {
     bbox: { s: cy - hy / 2, n: cy + hy / 2, w: (cx - wx / 2) / kx, e: (cx + wx / 2) / kx },
   };
 });
-const H = computed(() => (view.value ? HEAD + view.value.mapH + FOOT : 400));
+const H = computed(() => (view.value ? HEAD + view.value.mapH + FOOT.value : 400));
 const path = (pts: Coord[]) => {
   const v = view.value!;
   return pts
@@ -308,6 +339,7 @@ const subtitle = computed(() => {
     `${kmText(tr.length)} km`,
     l.gauge && l.gauge !== "1435" ? `${l.gauge} mm` : "",
     l.operator,
+    bySpeed.value ? t("vzg.mapSpeedSubtitle") : "",
   ]
     .filter(Boolean)
     .join(" · ");
@@ -329,7 +361,7 @@ function exportSvg() {
   const name = [line.value.ref, line.value.name].filter(Boolean).join(" ") || id.value;
   download(
     `<?xml version="1.0" encoding="UTF-8"?>\n${xml}`,
-    `zugx_Karte_${name.replace(/[^\p{L}\p{N}]+/gu, "_")}.svg`,
+    `zugx_Karte_${name.replace(/[^\p{L}\p{N}]+/gu, "_")}${bySpeed.value ? "_Geschwindigkeit" : ""}.svg`,
   );
 }
 const print = () => window.print();
@@ -346,6 +378,22 @@ const print = () => window.print();
       <span class="muted text-sm">{{ title }}</span>
       <span class="ml-auto flex gap-1 text-xs">
         <RouterLink :to="`/vzg/${id}`" class="btn">← {{ $t("vzg.title") }}</RouterLink>
+        <button
+          class="btn"
+          :class="!bySpeed && 'btn-on'"
+          :aria-pressed="!bySpeed"
+          @click="setMode(false)"
+        >
+          {{ $t("vzg.mapColorPlain") }}
+        </button>
+        <button
+          class="btn"
+          :class="bySpeed && 'btn-on'"
+          :aria-pressed="bySpeed"
+          @click="setMode(true)"
+        >
+          {{ $t("vzg.mapColorSpeed") }}
+        </button>
         <button class="btn" v-tip="$t('vzg.exportTip')" @click="exportSvg">⤓ SVG</button>
         <button class="btn" @click="print">⎙ {{ $t("vzg.print") }}</button>
       </span>
@@ -396,15 +444,15 @@ const print = () => window.print();
             v-for="(s, i) in segments"
             :key="`c${i}`"
             :d="path(s.pts)"
-            :stroke="C.casing"
-            stroke-width="7"
+            :stroke="bySpeed ? '#3a3f45' : C.casing"
+            :stroke-width="bySpeed ? 8 : 7"
           />
           <path
             v-for="(s, i) in segments"
             :key="`l${i}`"
             :d="path(s.pts)"
-            :stroke="C.line"
-            :stroke-width="s.tunnel ? 3 : 4"
+            :stroke="bySpeed ? speedColor(s.v) : C.line"
+            :stroke-width="bySpeed ? (s.tunnel ? 4 : 5.4) : s.tunnel ? 3 : 4"
             :stroke-dasharray="s.tunnel ? '5 3' : undefined"
             :stroke-linecap="s.tunnel ? 'butt' : 'round'"
           />
@@ -512,14 +560,16 @@ const print = () => window.print();
         </g>
         <!-- legend -->
         <g :transform="`translate(${PAD} ${HEAD + view.mapH + 22})`" font-size="11" :fill="C.text">
-          <line x1="0" x2="26" y1="-4" y2="-4" :stroke="C.line" stroke-width="4" />
-          <text x="32">{{ $t("vzg.mapLegendLine") }}</text>
+          <template v-if="!bySpeed">
+            <line x1="0" x2="26" y1="-4" y2="-4" :stroke="C.line" stroke-width="4" />
+            <text x="32">{{ $t("vzg.mapLegendLine") }}</text>
+          </template>
           <line
             x1="170"
             x2="196"
             y1="-4"
             y2="-4"
-            :stroke="C.line"
+            :stroke="bySpeed ? '#3a3f45' : C.line"
             stroke-width="3"
             stroke-dasharray="5 3"
           />
@@ -533,11 +583,45 @@ const print = () => window.print();
           <circle cx="660" cy="-4" r="2" :fill="C.text" />
           <text x="668">{{ $t("vzg.mapLegendKm") }}</text>
         </g>
+        <!-- speed scale (colour mode "by speed") -->
+        <g
+          v-if="bySpeed"
+          :transform="`translate(${PAD} ${HEAD + view.mapH + 46})`"
+          font-size="10"
+          :fill="C.text"
+        >
+          <text y="0">{{ $t("vzg.mapSpeedScale") }}</text>
+          <g v-for="(c, i) in SPEED_COLORS" :key="c" :transform="`translate(${190 + i * 58} 0)`">
+            <rect y="-9" width="22" height="10" :fill="c" stroke="#3a3f45" stroke-width="0.8" />
+            <text x="26">{{ speedLabel(i) }}</text>
+          </g>
+          <g :transform="`translate(${190 + 9 * 58} 0)`">
+            <rect
+              y="-9"
+              width="22"
+              height="10"
+              :fill="NO_SPEED"
+              stroke="#3a3f45"
+              stroke-width="0.8"
+            />
+            <text x="26">{{ $t("vzg.mapSpeedUnknown") }}</text>
+          </g>
+        </g>
         <!-- sources -->
-        <text :x="PAD" :y="HEAD + view.mapH + 46" font-size="9.5" :fill="C.muted">
+        <text
+          :x="PAD"
+          :y="HEAD + view.mapH + 46 + (bySpeed ? 30 : 0)"
+          font-size="9.5"
+          :fill="C.muted"
+        >
           {{ $t("vzg.mapSources", { date: index?.created ?? "" }) }}
         </text>
-        <text :x="PAD" :y="HEAD + view.mapH + 60" font-size="9.5" :fill="C.muted">
+        <text
+          :x="PAD"
+          :y="HEAD + view.mapH + 60 + (bySpeed ? 30 : 0)"
+          font-size="9.5"
+          :fill="C.muted"
+        >
           {{ $t("vzg.exportMadeWith", { url }) }}
         </text>
       </svg>

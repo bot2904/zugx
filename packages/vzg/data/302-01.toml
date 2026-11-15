@@ -101,7 +101,17 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "sbpaHckiiAz`@`h@tPlZbFlEtChAhE\\|l@{CpFx@dFfDvEpIxIt_@fE~YnA~\\xAzHzB`Gp|DpiFnLvKlM|FfNfBv_@?hHf@rLnD|JjGz_A|dAfl@b`AfInK|JvHfl@~\\dJnIhExGfHhOxWnn@" },
+  { line = "sbpaHckiiAzZx`@", v = 130 },
+  { line = "wfoaHiihiA~DfF~JfR", v = 110 },
+  { line = "wtnaHyngiAhH`K`DnBrD|@fo@oCnFd@nExB`DlDhBvDfB~G", v = 80 },
+  { line = "{vkaHshfiA~E~SrEfYnAh\\~@rInDzK`H~J", v = 110 },
+  { line = "evjaHqxbiAvpDfzE", v = 160 },
+  { line = "mdeaHi}{hAjLxLnG|DxGfCfNfBv_@?hHf@hKxCrIxEdHtGhy@n~@fl@b`AfGlI|LxJ~f@lY", v = 150 },
+  { line = "qf|`He{thAdHtEfFjFvJjQ", v = 120 },
+  { line = "kj{`HwzshAbDzH", v = 100 },
+  { line = "ge{`H{pshAi@cB", v = 60 },
+  { line = "qf{`H_tshAdB`E", v = 100 },
+  { line = "kc{`H}mshArTlh@", v = 140 },
 ]
 posts = [[0, 47.60109, 12.17713], [1, 47.59453, 12.16867], [2, 47.58637, 12.16523], [3, 47.57873, 12.16115], [4, 47.57618, 12.14854], [5, 47.57002, 12.13915], [6, 47.56312, 12.13064], [7, 47.5562, 12.12211], [8, 47.54928, 12.11357], [9, 47.54211, 12.10562], [10, 47.5333, 12.10418], [11, 47.52503, 12.09971], [12, 47.51902, 12.09325], [13, 47.51255, 12.08476], [14, 47.50564, 12.07644], [15, 47.49748, 12.07081], [16, 47.49162, 12.06088]]
 
@@ -198,7 +208,17 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "sbpaHckiiAz`@`h@tPlZbFlEtChAhE\\|l@{CpFx@dFfDvEpIxIt_@fE~YnA~\\xAzHzB`Gp|DpiFnLvKlM|FfNfBv_@?hHf@rLnD|JjGz_A|dAfl@b`AfInK|JvHfl@~\\dJnIhExGfHhOxWnn@" },
+  { line = "sbpaHckiiAzZx`@", v = 130 },
+  { line = "wfoaHiihiA~DfF~JfR", v = 110 },
+  { line = "wtnaHyngiAhH`K`DnBrD|@fo@oCnFd@nExB`DlDhBvDfB~G", v = 80 },
+  { line = "{vkaHshfiA~E~SrEfYnAh\\~@rInDzK`H~J", v = 110 },
+  { line = "evjaHqxbiAvpDfzE", v = 160 },
+  { line = "mdeaHi}{hAjLxLnG|DxGfCfNfBv_@?hHf@hKxCrIxEdHtGhy@n~@fl@b`AfGlI|LxJ~f@lY", v = 150 },
+  { line = "qf|`He{thAdHtEfFjFvJjQ", v = 120 },
+  { line = "kj{`HwzshAbDzH", v = 100 },
+  { line = "ge{`H{pshAi@cB", v = 60 },
+  { line = "qf{`H_tshAdB`E", v = 100 },
+  { line = "kc{`H}mshArTlh@", v = 140 },
 ]
 posts = [[0, 47.60109, 12.17713], [1, 47.59453, 12.16867], [2, 47.58637, 12.16523], [3, 47.57873, 12.16115], [4, 47.57618, 12.14854], [5, 47.57002, 12.13915], [6, 47.56312, 12.13064], [7, 47.5562, 12.12211], [8, 47.54928, 12.11357], [9, 47.54211, 12.10562], [10, 47.5333, 12.10418], [11, 47.52503, 12.09971], [12, 47.51902, 12.09325], [13, 47.51255, 12.08476], [14, 47.50564, 12.07644], [15, 47.49748, 12.07081], [16, 47.49162, 12.06088]]
 

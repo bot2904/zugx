@@ -188,6 +188,11 @@ export default {
     liveAt: "realtime at {n} stations, last {station} {time}",
   },
   vzg: {
+    mapColorPlain: "Plain",
+    mapColorSpeed: "By speed",
+    mapSpeedScale: "Permitted speed (km/h):",
+    mapSpeedUnknown: "unknown",
+    mapSpeedSubtitle: "colour: permitted speed",
     map: "Map",
     mapTip: "Print- and Wikipedia-ready map of this line",
     mapTitle: "Line map",

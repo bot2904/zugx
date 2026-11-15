@@ -31,11 +31,12 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "{sueH{tmvAmL|iAb@fJtBdG" },
-  { line = "o|ueHovjvAnAhB", tunnel = true },
-  { line = "_zueHesjvAHJ" },
-  { line = "uyueHyrjvAr@p@", tunnel = true },
-  { line = "axueHgqjvA`FzArPsA`Z{G" },
+  { line = "{sueH{tmvAsKhcA", v = 80 },
+  { line = "o`veHqpkvA[nFJjEz@fFrA|C", v = 40 },
+  { line = "o|ueHovjvAnAhB", tunnel = true, v = 40 },
+  { line = "_zueHesjvAHJ", v = 40 },
+  { line = "uyueHyrjvAr@p@", tunnel = true, v = 40 },
+  { line = "axueHgqjvA`FzArPsA`Z{G", v = 40 },
 ]
 posts = [[3, 48.28663, 14.32009], [2, 48.28181, 14.31325]]
 

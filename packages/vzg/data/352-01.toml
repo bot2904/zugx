@@ -40,9 +40,12 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "{yl`H{`aaAxBwCfB_FxCgWg@yI{CsJk@oDUqHNcMz@oEnL_]n@iWpBcJx@eH|FkOxH_PxEaOrB_MdI_MvYcv@" },
-  { line = "i~i`HenjaAl@iG", tunnel = true },
-  { line = "{|i`HovjaAlAme@jBgb@IkQ|B{MJyDsB{Oh@mNQ}DqAcIuL}]]wHp@{JEaE{BkScC}EeCkA}P}CiHJ{L_DyDuByM_MwYoLaZxCsKBaQcAcNyF{HeGsD{@_VxDuOl@ie@gRuSJuLhCeH\\qBhAmJhKiBn@sCK_IsBsP}JwCaFoGmRkEuF" },
+  { line = "{yl`H{`aaAxBwCtAmDbCkP", v = 70 },
+  { line = "gol`Hm|aaAd@cFCsEq@eFqDoMYqGDoMbAaGnL_]n@iWpBcJx@eH|FkOxH_PxEaOrB_MdI_MvYcv@", v = 60 },
+  { line = "i~i`HenjaAl@iG", tunnel = true, v = 60 },
+  { line = "{|i`HovjaAlAme@jBgb@IkQ|B{MJyDsB{Oh@{Ow@}HiN{c@UoGr@qN}C{WsAcCaCyAwRmDiGR{L_DyDuBeOyMqWmKcE?", v = 60 },
+  { line = "wom`HmxsaAwTpCsKBaQcAcNyF{HeGsD{@_VxDuOl@ma@}P{Cm@uRNyPtC", v = 70 },
+  { line = "iws`HuntaAaFr@mJfK_CpA_CFcIiBcNiHwCkC{B_EoGmRkEuF", v = 60 },
 ]
 posts = [[16, 47.41894, 10.82829], [17, 47.41891, 10.84064], [18, 47.41563, 10.8526], [19, 47.41041, 10.8631], [20, 47.40569, 10.87415], [21, 47.40486, 10.88731], [22, 47.40528, 10.89987], [23, 47.40786, 10.91215], [24, 47.41625, 10.91528], [25, 47.42451, 10.91981], [26, 47.43343, 10.91988], [27, 47.442, 10.92132], [28, 47.45064, 10.92432], [29, 47.45911, 10.92116], [30, 47.46661, 10.92661]]
 
@@ -78,8 +81,11 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "{yl`H{`aaAxBwCfB_FxCgWg@yI{CsJk@oDUqHNcMz@oEnL_]n@iWpBcJx@eH|FkOxH_PxEaOrB_MdI_MvYcv@" },
-  { line = "i~i`HenjaAl@iG", tunnel = true },
-  { line = "{|i`HovjaAlAme@jBgb@IkQ|B{MJyDsB{Oh@mNQ}DqAcIuL}]]wHp@{JEaE{BkScC}EeCkA}P}CiHJ{L_DyDuByM_MwYoLaZxCsKBaQcAcNyF{HeGsD{@_VxDuOl@ie@gRuSJuLhCeH\\qBhAmJhKiBn@sCK_IsBsP}JwCaFoGmRkEuF" },
+  { line = "{yl`H{`aaAxBwCtAmDbCkP", v = 70 },
+  { line = "gol`Hm|aaAd@cFCsEq@eFqDoMYqGDoMbAaGnL_]n@iWpBcJx@eH|FkOxH_PxEaOrB_MdI_MvYcv@", v = 60 },
+  { line = "i~i`HenjaAl@iG", tunnel = true, v = 60 },
+  { line = "{|i`HovjaAlAme@jBgb@IkQ|B{MJyDsB{Oh@{Ow@}HiN{c@UoGr@qN}C{WsAcCaCyAwRmDiGR{L_DyDuBeOyMqWmKcE?", v = 60 },
+  { line = "wom`HmxsaAwTpCsKBaQcAcNyF{HeGsD{@_VxDuOl@ma@}P{Cm@uRNyPtC", v = 70 },
+  { line = "iws`HuntaAaFr@mJfK_CpA_CFcIiBcNiHwCkC{B_EoGmRkEuF", v = 60 },
 ]
 posts = [[16, 47.41894, 10.82829], [17, 47.41891, 10.84064], [18, 47.41563, 10.8526], [19, 47.41041, 10.8631], [20, 47.40569, 10.87415], [21, 47.40486, 10.88731], [22, 47.40528, 10.89987], [23, 47.40786, 10.91215], [24, 47.41625, 10.91528], [25, 47.42451, 10.91981], [26, 47.43343, 10.91988], [27, 47.442, 10.92132], [28, 47.45064, 10.92432], [29, 47.45911, 10.92116], [30, 47.46661, 10.92661]]

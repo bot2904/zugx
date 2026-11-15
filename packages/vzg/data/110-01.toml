@@ -246,7 +246,24 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "uo}eH_oaaBaXfs@cAtH^jHfKdl@`GvQpDhGbF|FndDrvCtHlLrBlG|AdIr@pIJjJuBr_BeI|xIlAtf@nFxm@@~RcBjPyDxNgcBxbEcDrKyGf^erDbgSoChVaRv~BcDh}Aj@vLvAfFpClEl_AhaAnIbHzcD~tAlJpCtpCjf@zFvCjMvLjD`Brj@rCd^zEfOxFtg@hXpoBb|BtCbFzKlWtUfr@n_AjoAjH|G`JzFr`Adb@bCnB~A~Dd@fGgBbs@" },
+  { line = "uo}eH_oaaB_Sth@", v = 60 },
+  { line = "uc~eHie`aBiDhJ{@|G", v = 40 },
+  { line = "{j~eHaq_aB^jHnJli@", v = 60 },
+  { line = "k~}eHg}}`B~AhHxDdKtF`JvFvF", v = 100 },
+  { line = "cf}eH}t|`BvaD`tCtHlLbEzO`AhKJjJuBr_BeI|xIlAtf@nFxm@@~RcBjPyDxNgcBxbEkEvOkxDr|S{D|[sP`sBeArSu@`d@", v = 120 },
+  { line = "i}afHwfb_BkAhh@AzMp@fFhAzDfFfH", v = 80 },
+  { line = "stafHex__Bv|@n~@nIbHh~CdrA~OjFhnCpe@", v = 120 },
+  { line = "wlueHmny~AlE~AbErC", v = 90 },
+  { line = "e`ueHyfy~ArMpLjJjA", v = 40 },
+  { line = "efteH{vx~At\\zA", v = 100 },
+  { line = "ohseH_tx~Ax]zDxJxB|n@t[", v = 120 },
+  { line = "}mpeHsmw~A|JhJ", v = 100 },
+  { line = "_bpeHibw~AzcBroBjFnIdJbT", v = 120 },
+  { line = "qjleHarr~AdSrm@", v = 110 },
+  { line = "kvkeHmcq~AdBjE~CxE", v = 90 },
+  { line = "enkeHgvp~Arw@teAlJxJzKlHb{@f_@", v = 120 },
+  { line = "cageHazl~AbGxCxBtDx@~FQ~N", v = 60 },
+  { line = "}sfeHqwk~AsAhe@", v = 40 },
 ]
 posts = [[0, 48.32754, 16.06422], [1, 48.32791, 16.05215], [2, 48.32178, 16.04272], [3, 48.314, 16.03559], [4, 48.30649, 16.02872], [5, 48.29879, 16.02169], [6, 48.29478, 16.01052], [7, 48.2953, 15.99717], [8, 48.29568, 15.98373], [9, 48.2961, 15.97025], [10, 48.29653, 15.95678], [11, 48.29694, 15.94333], [12, 48.29582, 15.93001], [13, 48.29735, 15.91773], [14, 48.3005, 15.91168], [15, 48.30596, 15.90097], [16, 48.31144, 15.89021], [17, 48.31564, 15.87838], [18, 48.31909, 15.86593], [19, 48.32255, 15.85347], [20, 48.32601, 15.841], [21, 48.32944, 15.8286], [22, 48.3329, 15.81621], [23, 48.33636, 15.80361], [24, 48.33978, 15.79127], [25, 48.34324, 15.77873], [26, 48.34556, 15.76577], [27, 48.34751, 15.75256], [28, 48.34825, 15.73917], [29, 48.34321, 15.7293], [30, 48.33578, 15.72172], [31, 48.32735, 15.71699], [32, 48.31843, 15.71238], [33, 48.31034, 15.7082], [34, 48.30159, 15.70518], [35, 48.29272, 15.70279], [36, 48.28389, 15.70042], [37, 48.2755, 15.69641], [38, 48.2666, 15.69482], [39, 48.25824, 15.6899], [40, 48.25091, 15.682], [41, 48.24371, 15.67397], [42, 48.23721, 15.6648], [43, 48.23179, 15.65425], [44, 48.22488, 15.64562], [45, 48.21701, 15.63929], [46, 48.20896, 15.63492]]
 

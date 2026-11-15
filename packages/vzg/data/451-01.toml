@@ -63,6 +63,24 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "scc{G_~rrAi@vIsBxEiKdGsHxA}GtH_D`@cQiByGrDgBT_Ck@yF_FcEOgWpMkL|QsBhFiAxHUlOjDba@?zIu@pIo@dFmId[mBjNmG`WcCdTkBdFaJhOcDrPsElJs@~CyDvf@HhEdBrNTdMUrEiIh[eCnFuE~E_NzGoCvFo@rEe@r^_@zDwA`DqFnDgBjCyDjToDxLKtEdArQMvGaHf^}CvXiIve@cB|Ne@vQpEtTgAzO@`EbBhUpBdLZbH]db@m@lDsC`IYbErA|g@]vMLtJrCtWFrb@U|DwBzIgPxQmDzJaI~q@cAtTeAbIyQ`o@{BhZiDlRcIv\\aHfTgJxb@qLr_@wAzIg@vPmHzl@gGjJ}BlB}BRmHsAmCbA{GpMqKbIiCd@{F[wB`AeBvCgBbK}AbFoIxK}AfEWlDNhDjC`Kl@nF\\fg@eDp]aAtC_FjGs@tCgCb_@jAzFrTrf@bE`]LfHuCvc@aQbk@c@|FQnQgB|MeDhLS~Db@fEtHhPjAdHu@~x@fDzh@|ApGfCfFfUvU" },
+  { line = "scc{G_~rrAa@zHeArD", v = 40 },
+  { line = "{fc{GonrrA{AbBoIxEgIbB{EdGoClAuSeByGrDgBT_Ck@yF_FkC[kBb@", v = 60 },
+  { line = "e~e{Gy{qrAsUxLcMdSuBpGu@xGMhOpDhc@GhFsAnNkIf[aCpP}FlUsCxUkBdFaJhOcDrPsElJk@`CaEtg@HhEhBlPNpLo@lGmHhXeCnFuE~EkK`F", v = 70 },
+  { line = "w`j{G_derA_DvC}AjFu@tY", v = 40 },
+  { line = "kjj{Ge}crAe@zMwA`DaC`B", v = 50 },
+  { line = "krj{GefcrAqCnBwArCgD`SoDxLKtEfAjT{@~J", v = 60 },
+  { line = "mdk{Gct`rAuFfX}CvXgJpi@oBxW", v = 100 },
+  { line = "y_l{Gw}|qANzFdEzRkAzS`BtUhBrKf@zGYtd@m@lDsC`IYbErA|g@]vMLtJrCtWDpd@mAvI}@bCoQxS}B`HgArH", v = 60 },
+  { line = "uql{GsmrqAaGdi@oBr[mBnJuNfe@aAlH", v = 80 },
+  { line = "mrm{GsknqAiAjRiDlRcIv\\aHfTgJxb@aKv[", v = 100 },
+  { line = "qdo{GgqiqA_CfLo@fRkG~h@", v = 70 },
+  { line = "mro{GwfgqAaBjFmHzIuC`@_GsAqBR_CjBeFtKqKbIiCd@{F[kCtAqAbCgBbK}AbFoIxKgA`Cm@bGv@tG", v = 60 },
+  { line = "ulr{Ge_dqAbBdGl@nFb@tb@iC`]", v = 70 },
+  { line = "ikr{GwmaqAeA`GeFxGkA|DiCp]T|CfAhD", v = 50 },
+  { line = "mxr{Gcn_qAbTxe@pDxY`@pIwCte@aQbk@c@|FQnQgB|MeBdG", v = 70 },
+  { line = "s{r{Gq}xpAgAbEK~Cb@fE|ApD", v = 60 },
+  { line = "ezr{GsfxpAjFjL|@~I", v = 70 },
+  { line = "{pr{GgnwpAy@~v@pCrd@lArGzBvF", v = 80 },
+  { line = "ygr{Gg`tpAxB`D|R|R", v = 60 },
 ]
 posts = [[1, 46.55434, 13.69695], [2, 46.56286, 13.69422], [3, 46.57089, 13.69191], [4, 46.57227, 13.67973], [5, 46.57534, 13.66678], [6, 46.57989, 13.65482], [7, 46.58183, 13.64186], [8, 46.5844, 13.63212], [9, 46.58872, 13.62336], [10, 46.59293, 13.61256], [11, 46.59468, 13.60011], [12, 46.59727, 13.58781], [13, 46.5957, 13.57546], [14, 46.59651, 13.56288], [15, 46.59556, 13.54989], [16, 46.59822, 13.53855], [17, 46.60153, 13.52681], [18, 46.60513, 13.51487], [19, 46.60819, 13.50272], [20, 46.61235, 13.4912], [21, 46.6152, 13.47904], [22, 46.62158, 13.47229], [23, 46.62831, 13.46547], [24, 46.62916, 13.45399], [25, 46.6319, 13.44249], [26, 46.62869, 13.43146], [27, 46.62833, 13.41851], [28, 46.63163, 13.40646], [29, 46.63076, 13.39474], [30, 46.63033, 13.38176]]

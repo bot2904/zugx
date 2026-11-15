@@ -169,6 +169,24 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "qafbHov}cB_Yjm@eeAhpBmE~GkHxGcIjDeHfAwNV_FtAaFxE{JhQgBpEq@|E\\fUiDd`@_CnHkDjDeD|@aEOeDmAaC{B_BeD{@{Da@eQy@gG}CmGoEiC_EGw^pGy_A@}KuA_T}ImFJyElDqCpHe@hHr@jZOpEqBjIsDjE_FjAydBlBaMjCgHnEmi@bf@}h@`O}FlDeTvQ{LlKib@bd@uDhGwGlRoCxDyEhBmQWaCz@sChCs[b]}CfHk@dF?nEpDzSAdLwI`{@uBhHcKpUuFnI_RtSqSjJuNjOwE|CcEhAgKp@{D|AoDhDiC|E}B~KwCzh@LnJ`Ddg@WfJeBzKeFpLcQjPiDpGgB|KSfXsAhG_CbFqDfEgf@d]" },
+  { line = "qafbHov}cBoWzj@k^nq@", v = 120 },
+  { line = "mygbHcxzcBaj@ndA", v = 100 },
+  { line = "odibHsrxcB_IfJ}IxEgHzAiRh@sDlAaFxEiIbO", v = 80 },
+  { line = "_mkbH_cwcBeCbF}@xEO|Ed@`PwBbW", v = 60 },
+  { line = "evkbH}ducB_BtL}CxFaC`BcCh@uGm@}DqCqCiGu@iGU{No@yDsAoDyBmC_DyAiCOqDj@", v = 70 },
+  { line = "urmbHgcvcB{ZlFy_A@}KuA_ReI", v = 100 },
+  { line = "ioqbHshvcBsDe@yCf@sCpBuBjDgAlE_@rEr@f\\c@tH}AfF{B|CuC~AiDZ", v = 70 },
+  { line = "surbHq{scBqcBjBsFp@qFnBcGxD{i@lf@{d@|LaLpGq`@z\\ib@bd@uDhGcGdQ", v = 100 },
+  { line = "_b|bH{qncBwBvDqEfCsNW", v = 70 },
+  { line = "}{|bHshncB{DZuC`Bu_@ta@mBhFm@zFH~FhApG", v = 60 },
+  { line = "mi~bHgblcBjBpLe@fM", v = 80 },
+  { line = "gg~bHmfkcBiH|s@aBbHaD`I", v = 100 },
+  { line = "ux~bHi~hcByI`RkQvTmGpFiHxC", v = 120 },
+  { line = "sg`cHcigcBeJtEsOfP", v = 110 },
+  { line = "mcacHeqfcBcG~BwMjAkFtCqCnDiBfEoAvFk@dH", v = 100 },
+  { line = "mmbcHmiecBcCvg@jDpi@]~PkBhKuCbH{DhF_IzG", v = 110 },
+  { line = "aeccHo~`cB{ErFgClHy@bJHzL", v = 90 },
+  { line = "uqccHmt_cBWvGsAhGyDrH}CtC", v = 60 },
+  { line = "y_dcHau~bBae@f\\", v = 70 },
 ]
 posts = [[90, 47.7154, 16.53834], [91, 47.72135, 16.52832], [92, 47.72743, 16.51847], [93, 47.73485, 16.51173], [94, 47.74207, 16.50545], [95, 47.74467, 16.49359], [96, 47.74989, 16.50213], [97, 47.75873, 16.50123], [98, 47.76772, 16.50129], [99, 47.77562, 16.50062], [100, 47.77911, 16.49094], [101, 47.7881, 16.49062], [102, 47.797, 16.48954], [103, 47.80466, 16.48266], [104, 47.81318, 16.47877], [105, 47.82076, 16.47168], [106, 47.82722, 16.46269], [107, 47.83534, 16.45848], [108, 47.83736, 16.44733], [109, 47.84035, 16.43495], [110, 47.84726, 16.42682], [111, 47.85538, 16.42187], [112, 47.85953, 16.41138], [113, 47.8594, 16.39833], [114, 47.8648, 16.3886], [115, 47.87047, 16.37975]]

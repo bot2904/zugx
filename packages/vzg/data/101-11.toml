@@ -29,7 +29,7 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "y_ceHuk|tA|aBx~D" },
+  { line = "y_ceHuk|tA|aBx~D", v = 160 },
 ]
 posts = [[209, 48.18571, 14.06941], [210, 48.18026, 14.05874], [211, 48.17484, 14.04835]]
 
@@ -57,6 +57,6 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "y_ceHuk|tA|aBx~D" },
+  { line = "y_ceHuk|tA|aBx~D", v = 160 },
 ]
 posts = [[209, 48.18571, 14.06941], [210, 48.18026, 14.05874], [211, 48.17484, 14.04835]]

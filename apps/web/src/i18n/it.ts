@@ -191,6 +191,11 @@ export default {
     liveAt: "tempo reale in {n} stazioni, ultima {station} {time}",
   },
   vzg: {
+    mapColorPlain: "Monocolore",
+    mapColorSpeed: "Per velocità",
+    mapSpeedScale: "Velocità ammessa (km/h):",
+    mapSpeedUnknown: "sconosciuta",
+    mapSpeedSubtitle: "colore: velocità ammessa",
     map: "Mappa",
     mapTip: "Mappa di questa linea, pronta per la stampa e per Wikipedia",
     mapTitle: "Mappa della linea",

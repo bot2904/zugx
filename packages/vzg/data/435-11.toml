@@ -24,6 +24,6 @@ points = [
 
 [tracks.geo]
 segments = [
-  { line = "y|{|Gy{}|AdB`LEfEk@pDwClFuIbF" },
+  { line = "y|{|Gy{}|AdB`LEfEk@pDwClFuIbF", v = 60 },
 ]
 posts = []
