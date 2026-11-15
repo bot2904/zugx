@@ -380,3 +380,44 @@ abbr[aria-description] {
   text-decoration: underline dotted;
   cursor: help;
 }
+/* new rows (paging, refresh): a brief fade/slide in (Vue <TransitionGroup name="row-in">);
+   SVG rows only fade (their position is a transform attribute) */
+.row-in-enter-active,
+.row-fade-enter-active {
+  transition:
+    opacity 180ms ease-out,
+    transform 180ms ease-out;
+}
+.row-in-enter-from {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+.row-fade-enter-from {
+  opacity: 0;
+}
+/* placeholder rows while more data loads */
+.skeleton {
+  height: 26px;
+  margin: 4px 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--bg3) 25%, var(--line) 50%, var(--bg3) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.1s linear infinite;
+}
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .row-in-enter-active,
+  .row-fade-enter-active {
+    transition: none;
+  }
+  .skeleton {
+    animation: none;
+  }
+}

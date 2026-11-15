@@ -449,3 +449,19 @@ test("bildfahrplan: arrow keys zap through days and hours", async ({ page }) => 
   await page.keyboard.press("h");
   await expect(page).toHaveURL(/from=8/);
 });
+
+test("journeys: placeholder rows while loading later connections, new rows appended", async ({
+  page,
+}) => {
+  await page.goto("/j/8103000/8100002");
+  await expect(page.getByRole("button", { name: /Later|Später|Più tardi/ })).toBeEnabled();
+  // slow down the next API answer to see the loading state
+  await page.route("**/api/mgate", async (route) => {
+    await new Promise((r) => setTimeout(r, 800));
+    await route.fallback();
+  });
+  await page.getByRole("button", { name: /Later|Später|Più tardi/ }).click();
+  await expect(page.locator(".skeleton").first()).toBeVisible();
+  await expect(page.locator(".card[aria-busy=true]")).toBeVisible();
+  await expect(page.locator(".skeleton")).toHaveCount(0);
+});

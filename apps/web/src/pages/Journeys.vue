@@ -37,6 +37,11 @@ const journeys = shallowRef<Journey[]>([]);
 const earlierRef = ref<string>();
 const laterRef = ref<string>();
 const loading = ref(false);
+/** paging in progress: placeholder rows where the new connections will appear */
+const paging = ref<"earlier" | "later">();
+/** stable row key (index keys would re-render instead of inserting rows) */
+const journeyKey = (j: Journey) =>
+  j.legs.map((l) => `${l.journeyId ?? ""}${l.dep.planned}`).join("|");
 const error = ref<string>();
 const sel = ref(Number(route.hash.slice(1)) || 0);
 const expanded = ref<number | undefined>(route.hash ? Number(route.hash.slice(1)) : undefined);
@@ -71,13 +76,13 @@ async function search() {
 
 async function page(dir: "earlier" | "later") {
   const ref_ = dir === "earlier" ? earlierRef.value : laterRef.value;
-  if (!ref_) return;
+  if (!ref_ || loading.value) return;
   loading.value = true;
+  paging.value = dir;
   try {
     const r = await api().journeys(from.value, to.value, { ...opts(), ref: ref_ });
-    const key = (j: Journey) => j.legs.map((l) => `${l.journeyId}${l.dep.planned}`).join("|");
-    const have = new Set(journeys.value.map(key));
-    const fresh = r.journeys.filter((j) => !have.has(key(j)));
+    const have = new Set(journeys.value.map(journeyKey));
+    const fresh = r.journeys.filter((j) => !have.has(journeyKey(j)));
     if (dir === "earlier") {
       journeys.value = [...fresh, ...journeys.value];
       earlierRef.value = r.earlierRef;
@@ -91,6 +96,7 @@ async function page(dir: "earlier" | "later") {
     error.value = e instanceof Error ? e.message : String(e);
   } finally {
     loading.value = false;
+    paging.value = undefined;
   }
 }
 
@@ -266,20 +272,26 @@ useKeys({
 
     <Status :loading="loading && !journeys.length" :error="error" @retry="search" />
 
-    <div v-if="journeys.length" class="card p-2">
+    <div v-if="journeys.length" class="card p-2" :aria-busy="!!paging">
       <button
         class="btn mb-2 w-full justify-center text-xs"
         :disabled="loading || !earlierRef"
         @click="page('earlier')"
       >
-        ▲ {{ $t("journeys.earlier") }} <span class="kbd">h</span>
+        <span v-if="paging === 'earlier'" class="inline-block animate-spin" aria-hidden="true"
+          >⟳</span
+        >
+        <template v-else>▲</template> {{ $t("journeys.earlier") }} <span class="kbd">h</span>
       </button>
+      <div v-if="paging === 'earlier'" class="skeleton-rows" aria-hidden="true">
+        <div v-for="n in 3" :key="n" class="skeleton" />
+      </div>
 
       <div v-if="state.view === 'timeline'" class="grid grid-cols-[auto_1fr] gap-x-2">
-        <div class="pt-[22px]">
+        <TransitionGroup tag="div" name="row-in" class="pt-[22px]">
           <div
             v-for="(j, i) in journeys"
-            :key="i"
+            :key="journeyKey(j)"
             class="flex h-[34px] cursor-pointer items-center gap-2 pr-1 text-sm"
             :class="i === sel && 'bg-[var(--bg3)]'"
             @click="select(i)"
@@ -296,7 +308,7 @@ useKeys({
             <EventTime :ev="j.arr" />
             <span class="muted mono text-xs">{{ j.transfers }}×</span>
           </div>
-        </div>
+        </TransitionGroup>
         <TimelineStrips :journeys="journeys" :selected="sel" @select="select" />
       </div>
 
@@ -315,10 +327,10 @@ useKeys({
             <th class="text-right">{{ $t("board.platform") }}</th>
           </tr>
         </thead>
-        <tbody>
+        <TransitionGroup tag="tbody" name="row-in">
           <tr
             v-for="(j, i) in journeys"
-            :key="i"
+            :key="journeyKey(j)"
             class="cursor-pointer"
             :class="i === sel && 'sel'"
             @click="select(i)"
@@ -344,15 +356,21 @@ useKeys({
               <Platform :ev="j.legs.find((l) => l.kind === 'journey')?.dep" />
             </td>
           </tr>
-        </tbody>
+        </TransitionGroup>
       </table>
 
+      <div v-if="paging === 'later'" class="skeleton-rows" aria-hidden="true">
+        <div v-for="n in 3" :key="n" class="skeleton" />
+      </div>
       <button
         class="btn mt-2 w-full justify-center text-xs"
         :disabled="loading || !laterRef"
         @click="page('later')"
       >
-        ▼ {{ $t("journeys.later") }} <span class="kbd">l</span>
+        <span v-if="paging === 'later'" class="inline-block animate-spin" aria-hidden="true"
+          >⟳</span
+        >
+        <template v-else>▼</template> {{ $t("journeys.later") }} <span class="kbd">l</span>
       </button>
     </div>
     <p v-else-if="!loading && !error" class="muted">{{ $t("journeys.empty") }}</p>

@@ -101,7 +101,9 @@ const rows = computed(() =>
       const min = Math.round((t(b.dep) - t(a.arr)) / 60_000);
       gaps.push({ x1: x(t(a.arr)), x2: x(t(b.dep)), min, tight: min < 5, broken: min < 0 });
     }
-    return { j, bars, gaps };
+    // stable key: new rows (paging) fade in instead of every row re-rendering
+    const key = j.legs.map((l) => `${l.journeyId ?? ""}${l.dep.planned}`).join("|");
+    return { j, bars, gaps, key };
   }),
 );
 
@@ -131,99 +133,101 @@ const height = computed(() => PAD_TOP + rows.value.length * ROW + 4);
           <text :x="tk.x + 2" y="12">{{ tk.label }}</text>
         </g>
       </g>
-      <g
-        v-for="(r, i) in rows"
-        :key="i"
-        :transform="`translate(0 ${PAD_TOP + i * ROW})`"
-        class="cursor-pointer"
-        @click="emit('select', i)"
-      >
-        <rect
-          x="0"
-          y="0"
-          :width="width"
-          :height="ROW"
-          :fill="i === selected ? 'var(--bg3)' : 'transparent'"
-        />
-        <g v-for="(b, k) in r.bars" :key="k" v-tip="b.title">
-          <!-- planned ghost -->
-          <rect
-            v-if="b.delayed && !b.walk"
-            :x="b.px1"
-            y="8"
-            :width="Math.max(1, b.px2 - b.px1)"
-            height="18"
-            rx="3"
-            :fill="b.color"
-            opacity="0.25"
-          />
-          <line
-            v-if="b.walk"
-            :x1="b.x1"
-            :x2="b.x2"
-            y1="17"
-            y2="17"
-            stroke="var(--muted)"
-            stroke-width="2"
-            stroke-dasharray="2 3"
-            vector-effect="non-scaling-stroke"
-          />
-          <rect
-            v-else
-            :x="b.x1"
-            y="8"
-            :width="Math.max(2, b.x2 - b.x1)"
-            height="18"
-            rx="3"
-            :fill="b.color"
-            :opacity="b.cancelled ? 0.35 : 1"
-          />
-          <text
-            v-if="!b.walk && b.x2 - b.x1 > b.label.length * 6.5 + 6"
-            :x="b.x1 + 4"
-            y="21"
-            font-size="11"
-            fill="#fff"
-            class="mono"
-            font-weight="600"
-          >
-            {{ b.label }}
-          </text>
-        </g>
-        <g v-for="(g, k) in r.gaps" :key="'g' + k">
-          <text
-            v-if="Math.abs(g.x2 - g.x1) > 14"
-            :x="(g.x1 + g.x2) / 2"
-            y="31"
-            font-size="9"
-            text-anchor="middle"
-            class="mono"
-            :fill="g.broken ? 'var(--bad)' : g.tight ? 'var(--warn)' : 'var(--muted)'"
-          >
-            {{ g.min }}′
-          </text>
-          <line
-            v-if="g.broken"
-            :x1="g.x2"
-            :x2="g.x1"
-            y1="5"
-            y2="29"
-            stroke="var(--bad)"
-            stroke-width="2"
-            vector-effect="non-scaling-stroke"
-          />
-        </g>
-        <text
-          :x="width - 4"
-          y="21"
-          font-size="10"
-          text-anchor="end"
-          fill="var(--muted)"
-          class="mono"
+      <TransitionGroup tag="g" name="row-fade">
+        <g
+          v-for="(r, i) in rows"
+          :key="r.key"
+          :transform="`translate(0 ${PAD_TOP + i * ROW})`"
+          class="cursor-pointer"
+          @click="emit('select', i)"
         >
-          {{ fmtDuration(r.j.duration) }}
-        </text>
-      </g>
+          <rect
+            x="0"
+            y="0"
+            :width="width"
+            :height="ROW"
+            :fill="i === selected ? 'var(--bg3)' : 'transparent'"
+          />
+          <g v-for="(b, k) in r.bars" :key="k" v-tip="b.title">
+            <!-- planned ghost -->
+            <rect
+              v-if="b.delayed && !b.walk"
+              :x="b.px1"
+              y="8"
+              :width="Math.max(1, b.px2 - b.px1)"
+              height="18"
+              rx="3"
+              :fill="b.color"
+              opacity="0.25"
+            />
+            <line
+              v-if="b.walk"
+              :x1="b.x1"
+              :x2="b.x2"
+              y1="17"
+              y2="17"
+              stroke="var(--muted)"
+              stroke-width="2"
+              stroke-dasharray="2 3"
+              vector-effect="non-scaling-stroke"
+            />
+            <rect
+              v-else
+              :x="b.x1"
+              y="8"
+              :width="Math.max(2, b.x2 - b.x1)"
+              height="18"
+              rx="3"
+              :fill="b.color"
+              :opacity="b.cancelled ? 0.35 : 1"
+            />
+            <text
+              v-if="!b.walk && b.x2 - b.x1 > b.label.length * 6.5 + 6"
+              :x="b.x1 + 4"
+              y="21"
+              font-size="11"
+              fill="#fff"
+              class="mono"
+              font-weight="600"
+            >
+              {{ b.label }}
+            </text>
+          </g>
+          <g v-for="(g, k) in r.gaps" :key="'g' + k">
+            <text
+              v-if="Math.abs(g.x2 - g.x1) > 14"
+              :x="(g.x1 + g.x2) / 2"
+              y="31"
+              font-size="9"
+              text-anchor="middle"
+              class="mono"
+              :fill="g.broken ? 'var(--bad)' : g.tight ? 'var(--warn)' : 'var(--muted)'"
+            >
+              {{ g.min }}′
+            </text>
+            <line
+              v-if="g.broken"
+              :x1="g.x2"
+              :x2="g.x1"
+              y1="5"
+              y2="29"
+              stroke="var(--bad)"
+              stroke-width="2"
+              vector-effect="non-scaling-stroke"
+            />
+          </g>
+          <text
+            :x="width - 4"
+            y="21"
+            font-size="10"
+            text-anchor="end"
+            fill="var(--muted)"
+            class="mono"
+          >
+            {{ fmtDuration(r.j.duration) }}
+          </text>
+        </g>
+      </TransitionGroup>
     </svg>
   </div>
 </template>
