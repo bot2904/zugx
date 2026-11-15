@@ -990,6 +990,16 @@ UIC/HAFAS station map ┘
 - **CI**: the data workflow builds the database first (`vp run db:build`), then the exports; better-sqlite3 needs a native build (fine on the runners).
 - Not in the browser: SQLite via HTTP range requests (sql.js-httpvfs) was considered and rejected — 40–80 MB even without shapes, ranges only uncompressed, many requests per query, no offline/PWA, binary not diffable.
 
+### Several countries in one instance (idea 2026-11-16)
+
+Goal: the same app for Italy, France … — ideally in one instance — by swapping the data.
+
+- **Station key**: the UIC code (81… AT, 83… IT, 87… FR) — already the key today (HAFAS ids are UIC codes).
+- **Per country**: GTFS feed(s) (into the same SQLite, with a feed/country column), OSM extract, the line numbering in OSM (AT: `route=tracks` relations with VzG numbers; FR: `ref:FR:SNCF_Reseau`; IT: RFI line codes), names of categories and colours.
+- **Data and URLs**: exports under `data/<country>/…`; URLs with a country prefix (`/it/bf/…`) or the country taken from the station's UIC code.
+- **Live data is the hard part**: ÖBB HAFAS covers Austria (neighbours partly). Each country needs an adapter behind one interface (boards, train runs, radar positions, disruptions): IT Viaggiatreno, FR SNCF API / SIRI. Independent of the SQLite pipeline, but the largest effort.
+- Prerequisite: the SQLite pipeline above (one import per feed instead of country-specific scripts).
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
