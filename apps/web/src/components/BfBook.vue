@@ -23,6 +23,19 @@ const props = defineProps<{
   /** other sheets branching off at a station (by name): linked after the name */
   sheets?: Record<string, { id: string; name: string }[]>;
 }>();
+/** stations with a departure plan (timetable, not live): the station name links to it */
+const POSTERS = new Set(
+  Object.keys(import.meta.glob("../../../../packages/trains/data/departures/*.toml")).map(
+    (p) => /([^/]+)\.toml$/.exec(p)?.[1],
+  ),
+);
+const stationLink = (k: number) => {
+  const h = props.stations[k]?.hafasId;
+  if (!h) return undefined;
+  return POSTERS.has(h)
+    ? { path: `/station/${h}/plan`, query: { d: props.date } }
+    : `/station/${h}`;
+};
 /** date and time window carry over to another sheet (not its station range or options) */
 const route = useRoute();
 const viewQuery = computed(() =>
@@ -153,7 +166,10 @@ watch(
                 rows[j - 1]?.name !== row.name && row.name && sheets?.[row.name] && 'has-sheets'
               "
             >
-              {{ row.name }}
+              <RouterLink v-if="stationLink(row.k)" :to="stationLink(row.k)!" class="stn-link">{{
+                row.name
+              }}</RouterLink>
+              <template v-else>{{ row.name }}</template>
               <template v-if="rows[j - 1]?.name !== row.name"
                 ><RouterLink
                   v-for="sh in (row.name && sheets?.[row.name]) || []"
@@ -222,6 +238,13 @@ th.stn {
   text-align: left;
   font-weight: 400;
   background: var(--bg2);
+}
+.stn-link {
+  color: inherit;
+}
+.stn-link:hover {
+  color: var(--link);
+  text-decoration: underline;
 }
 /* links to sheets branching off here: small, after the name (wrapping rather than cut off) */
 th.stn.has-sheets {

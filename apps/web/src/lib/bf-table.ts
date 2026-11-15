@@ -8,6 +8,8 @@ export interface TableStation {
   i: number;
   name: string;
   major: boolean;
+  /** HAFAS station id (links to the station's departure plan) */
+  hafasId?: string;
 }
 /** a train at one shown station: arrival, departure, or passing without a stop */
 export interface StationTime {
