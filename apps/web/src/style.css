@@ -17,6 +17,8 @@
   --good: light-dark(#1a7f37, #3fb950);
   --warn: light-dark(#9a6700, #e3b341);
   --bad: light-dark(#cf222e, #f85149);
+  /* realtime / "on air" (the live dot), its own name although red like --bad */
+  --live: light-dark(#d1242f, #ff5c5c);
   --link: light-dark(#0b5cad, #79b8ff);
   accent-color: var(--accent);
 }
@@ -432,4 +434,23 @@ abbr[aria-description] {
   font-weight: 600;
   color: #fff;
   white-space: nowrap;
+}
+
+/* live dot (● U+25CF): grey when off, red and slowly pulsing when live is on */
+.live-dot {
+  color: var(--muted);
+}
+.live-dot.on {
+  color: var(--live);
+  animation: live-pulse 2s ease-in-out infinite;
+}
+@keyframes live-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .live-dot.on {
+    animation: none;
+  }
 }

@@ -1007,7 +1007,8 @@ watch([plan, nodeHafas, date, t0, t1, nodeAll], () => void loadNodeBoards(), {
         v-tip="isToday ? $t('bf.liveTip') : $t('bf.liveOnlyToday')"
         @click="toggleLive"
       >
-        <span aria-hidden="true">●</span> {{ $t("bf.live") }}
+        <span class="live-dot" :class="liveOn && 'on'" aria-hidden="true">●</span>
+        {{ $t("bf.live") }}
       </button>
       <span v-if="liveOn" class="muted self-center" role="status">
         <template v-if="liveError">{{ $t("bf.liveError") }}</template>
