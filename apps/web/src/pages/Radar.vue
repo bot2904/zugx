@@ -151,6 +151,33 @@ const catCounts = computed(() => {
   return [...m.values()].sort((a, b) => b.n - a.n).slice(0, 10);
 });
 
+/**
+ * donut of the delay classes (trains with realtime data only): one arc per class, a 2px gap
+ * between arcs; centre: share ≤ 5′ (the Austrian punctuality definition)
+ */
+const DONUT = { r: 42, w: 14, gap: 2 };
+const donut = computed(() => {
+  const total = DELAY_CLASSES.reduce((n, c) => n + (counts.value[c.id] ?? 0), 0);
+  const C = 2 * Math.PI * DONUT.r;
+  let at = 0;
+  const arcs = DELAY_CLASSES.flatMap((c) => {
+    const n = counts.value[c.id] ?? 0;
+    if (!n) return [];
+    const len = (n / total) * C;
+    const arc = {
+      id: c.id,
+      n,
+      pct: Math.round((n / total) * 100),
+      dash: `${Math.max(0.5, len - DONUT.gap)} ${C}`,
+      offset: -at,
+    };
+    at += len;
+    return [arc];
+  });
+  const punctual = (counts.value.ontime ?? 0) + (counts.value.d1 ?? 0) + (counts.value.d3 ?? 0);
+  return { total, arcs, punctual: total ? Math.round((punctual / total) * 100) : undefined };
+});
+
 const fmtDelay = (d?: number) =>
   ` · ${d === undefined ? t("radar.delay.nodata") : d > 0 ? `+${d}′` : d < 0 ? `−${-d}′` : "±0′"}`;
 
@@ -309,6 +336,32 @@ function toggle(cls: number) {
         role="group"
         :aria-label="$t('radar.legend')"
       >
+        <svg
+          v-if="mode === 'delay' && donut.total"
+          class="donut mx-auto mb-1"
+          viewBox="0 0 100 100"
+          role="img"
+          :aria-label="$t('radar.donutLabel', { pct: donut.punctual, n: donut.total })"
+        >
+          <g transform="rotate(-90 50 50)">
+            <circle
+              v-for="a in donut.arcs"
+              :key="a.id"
+              cx="50"
+              cy="50"
+              :r="DONUT.r"
+              fill="none"
+              :stroke="classColor(a.id)"
+              :stroke-width="DONUT.w"
+              :stroke-dasharray="a.dash"
+              :stroke-dashoffset="a.offset"
+            >
+              <title>{{ $t(`radar.delay.${a.id}`) }}: {{ a.n }} ({{ a.pct }} %)</title>
+            </circle>
+          </g>
+          <text x="50" y="50" text-anchor="middle" class="donut-pct">{{ donut.punctual }} %</text>
+          <text x="50" y="63" text-anchor="middle" class="donut-sub">≤ 5′</text>
+        </svg>
         <ul v-if="mode === 'delay'" class="m-0 list-none p-0">
           <li v-for="c in DELAY_CLASSES" :key="c.id" class="flex items-center gap-1.5">
             <span
@@ -370,6 +423,32 @@ function toggle(cls: number) {
 </template>
 
 <style scoped>
+/* delay donut in the legend: desktop only (on phones the legend stays small) */
+.donut {
+  display: block;
+  width: 7.5rem;
+  height: 7.5rem;
+}
+.donut circle {
+  cursor: default;
+}
+.donut circle:hover {
+  stroke-width: 18;
+}
+.donut-pct {
+  fill: var(--fg);
+  font-size: 16px;
+  font-weight: 600;
+}
+.donut-sub {
+  fill: var(--muted);
+  font-size: 9px;
+}
+@media (max-width: 640px) {
+  .donut {
+    display: none;
+  }
+}
 /* coupled train parts: the shown one full, the others faded */
 .part {
   padding: 0;
