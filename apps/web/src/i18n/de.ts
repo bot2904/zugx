@@ -9,6 +9,9 @@ export default {
     note: "Kürzel: ÖBB-Betriebsstellen aus OpenStreetMap (railway:ref). Ein Bahnhof öffnet mit Live die Abfahrtstafel, sonst den Abfahrtsplan laut Fahrplan.",
   },
   kursbuch: {
+    pick: "Auswahl: {n} von {total} Fahrplanbildern",
+    pickAll: "alle",
+    pickNone: "keine",
     title: "Kursbuch",
     continued: "Fortsetzung",
     sheets: "Fahrplanbilder",

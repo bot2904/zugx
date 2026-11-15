@@ -7,6 +7,9 @@ export default {
     note: "Abbreviations: ÖBB operating points from OpenStreetMap (railway:ref). A station opens the live board with Live on, else its departure plan from the timetable.",
   },
   kursbuch: {
+    pick: "Selection: {n} of {total} sheets",
+    pickAll: "all",
+    pickNone: "none",
     title: "Timetable book",
     continued: "continued",
     sheets: "Sheets",

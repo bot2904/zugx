@@ -1,6 +1,6 @@
 // Print the timetable book (/kursbuch) to a PDF with headless Chromium.
 // Needs a running app (default http://localhost:5173, e.g. `vp run dev` or the preview server).
-//   vp run kursbuch:pdf            env: URL, D=YYYY-MM-DD, VON=100, BIS=999, COLS=12, OUT=file.pdf
+//   vp run kursbuch:pdf   env: URL, D=YYYY-MM-DD, VON=100, BIS=999 or BILDER=101,300, COLS=12, OUT=…
 import { chromium } from "@playwright/test";
 
 const base = process.env.URL ?? "http://localhost:5173";

@@ -9,6 +9,9 @@ export default {
     note: "Sigle: punti di esercizio ÖBB da OpenStreetMap (railway:ref). Con Live una stazione apre il tabellone, altrimenti il quadro partenze dall’orario.",
   },
   kursbuch: {
+    pick: "Selezione: {n} di {total} quadri",
+    pickAll: "tutti",
+    pickNone: "nessuno",
     title: "Orario generale",
     continued: "segue",
     sheets: "Quadri orari",

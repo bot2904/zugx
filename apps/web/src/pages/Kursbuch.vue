@@ -37,11 +37,48 @@ const pageNumbers = computed(() => route.query.seiten !== "0");
 
 const index = shallowRef<CorridorIndex>();
 /** the sheets in book order: a single ÖBB number in the range, ascending */
-const sheets = computed(() =>
+/** every sheet with a single ÖBB number, in book order (the choice for the selection) */
+const allSheets = computed(() =>
   (index.value?.corridors ?? [])
-    .filter((c) => c.oebb && /^\d+$/.test(c.oebb) && +c.oebb >= from.value && +c.oebb <= to.value)
+    .filter((c) => c.oebb && /^\d+$/.test(c.oebb))
     .sort((a, b) => +a.oebb! - +b.oebb! || a.id.localeCompare(b.id)),
 );
+/** chosen sheets (?bilder=100,101,300); none = the range von–bis */
+const picked = computed(
+  () =>
+    new Set(
+      (typeof route.query.bilder === "string" ? route.query.bilder.split(",") : []).filter(Boolean),
+    ),
+);
+const sheets = computed(() =>
+  allSheets.value.filter((c) =>
+    picked.value.size ? picked.value.has(c.oebb!) : +c.oebb! >= from.value && +c.oebb! <= to.value,
+  ),
+);
+/** the selection by hundreds (1xx, 2xx …), as the book's sections */
+const groups = computed(() => {
+  const m = new Map<string, typeof allSheets.value>();
+  for (const c of allSheets.value) {
+    const g = `${c.oebb![0]}00`;
+    m.set(g, [...(m.get(g) ?? []), c]);
+  }
+  return [...m];
+});
+function setPicked(next: Set<string>) {
+  const { bilder: _, ...q } = route.query;
+  void router.replace({ query: next.size ? { ...q, bilder: [...next].sort().join(",") } : q });
+}
+function togglePick(nrs: string[]) {
+  const cur = new Set(picked.value.size ? picked.value : sheets.value.map((c) => c.oebb!));
+  const all = nrs.every((n) => cur.has(n));
+  for (const n of nrs) {
+    if (all) cur.delete(n);
+    else cur.add(n);
+  }
+  setPicked(cur);
+}
+const isPicked = (nr: string) =>
+  picked.value.size ? picked.value.has(nr) : sheets.value.some((c) => c.oebb === nr);
 const date = computed(() => {
   const q = typeof route.query.d === "string" ? route.query.d : "";
   if (/^\d{4}-\d\d-\d\d$/.test(q)) return q;
@@ -173,6 +210,40 @@ usePageTitle(() => [t("kursbuch.title"), date.value]);
         />
       </label>
       <button class="btn" :disabled="!ready" @click="print">⎙ {{ $t("kursbuch.print") }}</button>
+      <details class="pick w-full">
+        <summary class="text-xs">
+          {{ $t("kursbuch.pick", { n: sheets.length, total: allSheets.length }) }}
+        </summary>
+        <div class="mt-1 flex flex-wrap gap-1 text-xs">
+          <button class="btn py-0" @click="setPicked(new Set(allSheets.map((c) => c.oebb!)))">
+            {{ $t("kursbuch.pickAll") }}
+          </button>
+          <button class="btn py-0" @click="setPicked(new Set(['-']))">
+            {{ $t("kursbuch.pickNone") }}
+          </button>
+        </div>
+        <div class="pick-groups mt-1 text-xs">
+          <fieldset v-for="[g, list] in groups" :key="g">
+            <legend>
+              <label>
+                <input
+                  type="checkbox"
+                  :checked="list.every((c) => isPicked(c.oebb!))"
+                  :indeterminate.prop="
+                    list.some((c) => isPicked(c.oebb!)) && !list.every((c) => isPicked(c.oebb!))
+                  "
+                  @change="togglePick(list.map((c) => c.oebb!))"
+                />
+                <span class="mono">{{ g }}</span>
+              </label>
+            </legend>
+            <label v-for="c in list" :key="c.id" class="pick-item">
+              <input type="checkbox" :checked="isPicked(c.oebb!)" @change="togglePick([c.oebb!])" />
+              <span class="mono">{{ c.oebb }}</span> {{ c.name }}
+            </label>
+          </fieldset>
+        </div>
+      </details>
 
       <p class="muted m-0 w-full text-xs">{{ $t("kursbuch.hint") }}</p>
       <!-- progress: loading the sheets, then typesetting them -->
@@ -281,6 +352,25 @@ usePageTitle(() => [t("kursbuch.title"), date.value]);
 }
 .sheet {
   margin-top: 1rem;
+}
+.pick-groups {
+  columns: 18rem;
+  column-gap: 1rem;
+}
+.pick-groups fieldset {
+  break-inside: avoid;
+  margin: 0 0 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 0.375rem;
+}
+.pick-item {
+  display: flex;
+  gap: 0.375rem;
+  align-items: baseline;
+}
+.pick-item input {
+  flex-shrink: 0;
 }
 .progress {
   display: flex;
