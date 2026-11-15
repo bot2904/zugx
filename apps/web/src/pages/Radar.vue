@@ -199,8 +199,8 @@ function toggle(cls: number) {
           {{ $t("radar.byCategory") }}
         </button>
       </span>
-      <span class="ml-auto flex flex-wrap gap-1">
-        <span class="chips flex flex-wrap gap-1">
+      <span class="ml-auto flex min-w-0 max-w-full flex-wrap gap-1">
+        <span class="chips flex min-w-0 max-w-full flex-wrap gap-1">
           <button
             v-for="g in PRODUCT_GROUPS.slice(0, 7)"
             :key="g.id"

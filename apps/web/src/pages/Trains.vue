@@ -405,8 +405,8 @@ watch(sel, (i) =>
             :data-row="i"
             :class="i === sel && 'sel'"
           >
-            <td class="whitespace-nowrap">
-              <RouterLink :to="trainLink(x)" class="no-underline"
+            <td>
+              <RouterLink :to="trainLink(x)" class="whitespace-nowrap no-underline"
                 ><LineBadge :cat="x.cat" :nr="x.nr"
               /></RouterLink>
               <div v-if="x.name" class="text-xs italic">»{{ x.name }}«</div>
@@ -433,7 +433,7 @@ watch(sel, (i) =>
                 </template>
               </div>
             </td>
-            <td class="whitespace-nowrap text-xs">
+            <td class="text-xs">
               <!-- summary as a toggletip: the exact dates are reachable on touch and by screen readers too -->
               <ToggleTip :label="`${$t('trains.days')}: ${rowInfo(x).summary}`">
                 <template #trigger

@@ -59,6 +59,20 @@ table.dense td {
   padding: 4px 6px;
   vertical-align: top;
 }
+/* very narrow phones (320–380 px): tighter tables, so they still fit without sideways scrolling */
+@media (max-width: 380px) {
+  table.dense {
+    font-size: 0.8125rem;
+  }
+  table.dense th,
+  table.dense td {
+    padding: 3px 3px;
+    overflow-wrap: anywhere;
+  }
+  table.dense th {
+    white-space: normal;
+  }
+}
 table.dense tr.sel td,
 table.dense tbody tr:hover td {
   background: var(--bg3);
@@ -328,4 +342,12 @@ dialog[open]::backdrop {
 }
 .legal li {
   margin-block: 0.3em;
+}
+/* form controls never wider than their container (long options, e.g. corridor names, would
+   otherwise push the page sideways on phones) */
+select,
+input {
+  max-width: 100%;
+  min-width: 0;
+  text-overflow: ellipsis;
 }

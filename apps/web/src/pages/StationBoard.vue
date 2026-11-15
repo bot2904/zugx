@@ -259,7 +259,7 @@ watch(sel, (i) =>
           {{ $t(`products.${g.id}`) }}
         </button>
       </span>
-      <span class="ml-auto flex items-center gap-1">
+      <span class="ml-auto flex flex-wrap items-center gap-1">
         <button class="btn" :disabled="paging || !entries.length" @click="more(-1)">
           ‹ {{ $t("board.earlier") }} <span class="kbd">h</span>
         </button>
