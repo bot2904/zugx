@@ -972,6 +972,16 @@ Root causes: four medium-dark reds (RJX, RJ, EC/IC, D); the white-text limit; re
 
 Open: CVD-safe separation of RJ/RJX/private and IR/S needs a second cue (e.g. dashed RJ paths in the Bildfahrplan, or a border on RJX badges); identity is never colour-alone today since badges and paths carry the category text.
 
+### Navigation: flat, grouped menu with a global Live switch (done 2026-11-16)
+
+`zugx  Suche● Radar● Störungen● │ Bahnhöfe Züge │ Bildfahrplan Netzgrafik │ Strecken Netzkarte │ Hilfe   [● Live] DE ☀`
+
+- Why: many functions were hidden behind names that don't suggest them (sitemap and analysis: `docs/sitemap.md`). User feedback: power users want everything one click away, beginners need the everyday entries highlighted.
+- Groups separated by thin lines, no group labels; live entries (● = always realtime) and Bahnhöfe/Züge bold; never collapsed on desktop, ☰ menu only on narrow screens.
+- **Live switch** (`lib/live.ts`, key `e`, remembered, on by default; dot `●` with `--live`, pulsing when on): station page live board ⇄ departure plan, Bildfahrplan realtime overlay (`?live=1/0` in links overrides), station index links.
+- Quick jump (⌘K) and raw JSON (`d`) moved to the footer; new shortcut `b` = Bahnhöfe.
+- Open: a timetable-only train run (Live off on the train page), live variants for Netzgrafik/infrastructure (delays on the network map), mid-width collapse of the expert groups if the bar ever gets too long.
+
 ### Data pipeline: one SQLite as source of truth, TOML as exports (planned 2026-11-16)
 
 Problem: every view has its own ad-hoc data structure and its own script that extracts something from the GTFS (stations, trains, departures, lines, corridors, Netzgrafik, density …), each re-reading the feed.
