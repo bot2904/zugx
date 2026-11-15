@@ -74,6 +74,13 @@ export default {
   },
   calendar: { add: "Aggiungi al calendario", realtime: "tempo reale", open: "Apri in zugx" },
   trip: {
+    parts: "Parti del treno",
+    operational: "in esercizio come",
+    operationalTip: "Il treno a cui questa parte (solo commerciale) è unita su questa tratta",
+    operationalHintTip: "Numero di esercizio secondo i dati HAFAS; non in orario come treno a sé",
+    byHafas: "secondo HAFAS",
+    joinedWith: "unito a",
+    fromHere: "da qui",
     trainNumber: "Treno n.",
     title: "Percorso del treno",
     stops: "Fermate",

@@ -1,0 +1,1368 @@
+{
+ "response": {
+  "ver": "1.67",
+  "lang": "deu",
+  "id": "1",
+  "err": "OK",
+  "graph": {
+   "id": "standard",
+   "index": 0
+  },
+  "subGraph": {
+   "id": "global",
+   "index": 0
+  },
+  "view": {
+   "id": "standard",
+   "index": 0,
+   "type": "WGS84"
+  },
+  "svcResL": [
+   {
+    "meth": "JourneyDetails",
+    "err": "OK",
+    "res": {
+     "common": {
+      "locL": [
+       {
+        "lid": "A=1@O=Budapest-Keleti@X=19085070@Y=47500386@U=81@L=5500003@",
+        "type": "S",
+        "name": "Budapest-Keleti",
+        "icoX": 2,
+        "extId": "5500003",
+        "state": "F",
+        "crd": {
+         "x": 19085070,
+         "y": 47500386,
+         "floor": 0
+        },
+        "pCls": 29,
+        "globalIdL": [
+         {
+          "id": "5510017",
+          "type": "U"
+         },
+         {
+          "id": "55BU KT",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000700",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Hegyeshalom@X=17147023@Y=47913503@U=81@L=5500017@",
+        "type": "S",
+        "name": "Hegyeshalom",
+        "icoX": 2,
+        "extId": "5500017",
+        "state": "F",
+        "crd": {
+         "x": 17145710,
+         "y": 47913943,
+         "floor": 0
+        },
+        "pCls": 4127,
+        "globalIdL": [
+         {
+          "id": "8102981",
+          "type": "U"
+         },
+         {
+          "id": "He",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000100",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Buchs SG@X=9478640@Y=47168414@U=81@L=8509404@",
+        "type": "S",
+        "name": "Buchs SG",
+        "icoX": 2,
+        "extId": "8509404",
+        "state": "F",
+        "crd": {
+         "x": 9478640,
+         "y": 47168414,
+         "floor": 0
+        },
+        "pCls": 61,
+        "globalIdL": [
+         {
+          "id": "Bc",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000400",
+        "countryCodeL": [
+         "ch"
+        ]
+       },
+       {
+        "lid": "A=1@O=Zürich HB@X=8540211@Y=47378177@U=81@L=8503000@",
+        "type": "S",
+        "name": "Zürich HB",
+        "icoX": 2,
+        "extId": "8503000",
+        "state": "F",
+        "crd": {
+         "x": 8540211,
+         "y": 47378177,
+         "floor": 0
+        },
+        "pCls": 61,
+        "globalIdL": [
+         {
+          "id": "8503000",
+          "type": "U"
+         },
+         {
+          "id": "85Zue",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000700",
+        "countryCodeL": [
+         "ch"
+        ]
+       },
+       {
+        "lid": "A=1@O=Budapest-Kelenföld@X=19020455@Y=47464357@U=81@L=5500008@",
+        "type": "S",
+        "name": "Budapest-Kelenföld",
+        "icoX": 2,
+        "extId": "5500008",
+        "state": "F",
+        "crd": {
+         "x": 19020455,
+         "y": 47464357,
+         "floor": 0
+        },
+        "pCls": 31,
+        "globalIdL": [
+         {
+          "id": "5501024",
+          "type": "U"
+         },
+         {
+          "id": "55KL",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000300",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Tatabanya@X=18393611@Y=47584929@U=81@L=5500009@",
+        "type": "S",
+        "name": "Tatabanya",
+        "icoX": 2,
+        "extId": "5500009",
+        "state": "F",
+        "crd": {
+         "x": 18393611,
+         "y": 47584929,
+         "floor": 0
+        },
+        "pCls": 29,
+        "globalIdL": [
+         {
+          "id": "5501131",
+          "type": "U"
+         },
+         {
+          "id": "55Tata",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000100",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Györ@X=17634795@Y=47681986@U=81@L=5500080@",
+        "type": "S",
+        "name": "Györ",
+        "icoX": 2,
+        "extId": "5500080",
+        "state": "F",
+        "crd": {
+         "x": 17634624,
+         "y": 47682031,
+         "floor": 0
+        },
+        "pCls": 31,
+        "globalIdL": [
+         {
+          "id": "5501289",
+          "type": "U"
+         },
+         {
+          "id": "55Gyoe",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000300",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Mosonmagyarovar@X=17266426@Y=47850354@U=81@L=5500016@",
+        "type": "S",
+        "name": "Mosonmagyarovar",
+        "icoX": 2,
+        "extId": "5500016",
+        "state": "F",
+        "crd": {
+         "x": 17266426,
+         "y": 47850354,
+         "floor": 0
+        },
+        "pCls": 29,
+        "globalIdL": [
+         {
+          "id": "5501347",
+          "type": "U"
+         },
+         {
+          "id": "55Mosmo",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000100",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Hegyeshalom Országhatár/Staatsgrenze@X=17095847@Y=47938259@U=81@L=5501629@",
+        "type": "S",
+        "name": "Hegyeshalom Országhatár/Staatsgrenze",
+        "icoX": 5,
+        "extId": "5501629",
+        "state": "F",
+        "crd": {
+         "x": 17095847,
+         "y": 47938259,
+         "floor": 0
+        },
+        "pCls": 0,
+        "globalIdL": [
+         {
+          "id": "NIF G",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000300",
+        "countryCodeL": [
+         "hu"
+        ]
+       },
+       {
+        "lid": "A=1@O=Wien Hbf (Bahnsteige 3-12)@X=16377950@Y=48184986@U=81@L=8103000@",
+        "type": "S",
+        "name": "Wien Hbf (Bahnsteige 3-12)",
+        "icoX": 2,
+        "extId": "8103000",
+        "state": "F",
+        "crd": {
+         "x": 16377950,
+         "y": 48184986,
+         "floor": 0
+        },
+        "pCls": 4157,
+        "entry": true,
+        "globalIdL": [
+         {
+          "id": "8101003",
+          "type": "U"
+         },
+         {
+          "id": "Wbf",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000600",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Wien Meidling Bahnhof@X=16333966@Y=48174532@U=81@L=8100514@",
+        "type": "S",
+        "name": "Wien Meidling Bahnhof",
+        "icoX": 2,
+        "extId": "8100514",
+        "state": "F",
+        "crd": {
+         "x": 16333966,
+         "y": 48174532,
+         "floor": 0
+        },
+        "pCls": 4157,
+        "entry": true,
+        "globalIdL": [
+         {
+          "id": "8103107",
+          "type": "U"
+         },
+         {
+          "id": "Mi",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000600",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=St.Pölten Hbf@X=15624681@Y=48208277@U=81@L=8100008@",
+        "type": "S",
+        "name": "St.Pölten Hbf",
+        "icoX": 2,
+        "extId": "8100008",
+        "state": "F",
+        "crd": {
+         "x": 15624681,
+         "y": 48208277,
+         "floor": 0
+        },
+        "pCls": 4157,
+        "globalIdL": [
+         {
+          "id": "8101032",
+          "type": "U"
+         },
+         {
+          "id": "Pb",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Linz/Donau Hbf@X=14291860@Y=48290241@U=81@L=8100013@",
+        "type": "S",
+        "name": "Linz/Donau Hbf",
+        "icoX": 2,
+        "extId": "8100013",
+        "state": "F",
+        "crd": {
+         "x": 14291860,
+         "y": 48290241,
+         "floor": 0
+        },
+        "pCls": 4157,
+        "globalIdL": [
+         {
+          "id": "8101073",
+          "type": "U"
+         },
+         {
+          "id": "Lz",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Hbf@X=13045856@Y=47813057@U=81@L=8100002@",
+        "type": "S",
+        "name": "Salzburg Hbf",
+        "icoX": 2,
+        "extId": "8100002",
+        "state": "F",
+        "crd": {
+         "x": 13045856,
+         "y": 47813057,
+         "floor": 0
+        },
+        "pCls": 4159,
+        "globalIdL": [
+         {
+          "id": "8101114",
+          "type": "U"
+         },
+         {
+          "id": "Sb",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000700",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Innsbruck Hbf@X=11401019@Y=47263043@U=81@L=8100108@",
+        "type": "S",
+        "name": "Innsbruck Hbf",
+        "icoX": 2,
+        "extId": "8100108",
+        "state": "F",
+        "crd": {
+         "x": 11401019,
+         "y": 47263043,
+         "floor": 0
+        },
+        "pCls": 4157,
+        "globalIdL": [
+         {
+          "id": "8101187",
+          "type": "U"
+         },
+         {
+          "id": "I",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Feldkirch Bahnhof@X=9604309@Y=47240930@U=81@L=8100197@",
+        "type": "S",
+        "name": "Feldkirch Bahnhof",
+        "icoX": 2,
+        "extId": "8100197",
+        "state": "F",
+        "crd": {
+         "x": 9604309,
+         "y": 47240921,
+         "floor": 0
+        },
+        "pCls": 4157,
+        "entry": true,
+        "globalIdL": [
+         {
+          "id": "8101236",
+          "type": "U"
+         },
+         {
+          "id": "Fk",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Sargans@X=9446260@Y=47044821@U=81@L=8509411@",
+        "type": "S",
+        "name": "Sargans",
+        "icoX": 2,
+        "extId": "8509411",
+        "state": "F",
+        "crd": {
+         "x": 9446260,
+         "y": 47044821,
+         "floor": 0
+        },
+        "pCls": 61,
+        "globalIdL": [
+         {
+          "id": "8509411",
+          "type": "U"
+         },
+         {
+          "id": "85SARG",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000300",
+        "countryCodeL": [
+         "ch"
+        ]
+       }
+      ],
+      "prodL": [
+       {
+        "pid": "L::3::EN::B1146449194::EN_1146449194::*",
+        "name": "EN 40462",
+        "nameS": "EN 40462",
+        "number": "40462",
+        "icoX": 0,
+        "cls": 8,
+        "oprX": 0,
+        "prodCtx": {
+         "name": "EN 40462",
+         "num": "40462",
+         "matchId": "462",
+         "catOut": "EN      ",
+         "catOutS": "EN",
+         "catOutL": "EuroNight",
+         "catIn": "EN",
+         "catCode": "3",
+         "admin": "81____"
+        },
+        "himIdL": [
+         "HIM_FREETEXT_836775",
+         "HIM_FREETEXT_879743",
+         "HIM_FREETEXT_879745",
+         "HIM_FREETEXT_894923",
+         "HIM_FREETEXT_908750",
+         "HIM_FREETEXT_911743",
+         "HIM_FREETEXT_912828",
+         "HIM_FREETEXT_913794",
+         "HIM_FREETEXT_917536",
+         "HIM_FREETEXT_917780",
+         "HIM_FREETEXT_917781",
+         "HIM_FREETEXT_919094",
+         "HIM_FREETEXT_921030",
+         "HIM_FREETEXT_921031",
+         "HIM_FREETEXT_921063",
+         "HIM_FREETEXT_921065",
+         "HIM_FREETEXT_922506",
+         "HIM_FREETEXT_925446",
+         "HIM_FREETEXT_925447",
+         "HIM_FREETEXT_925462",
+         "HIM_FREETEXT_925493",
+         "HIM_FREETEXT_925496",
+         "HIM_FREETEXT_925510",
+         "HIM_FREETEXT_925808",
+         "HIM_FREETEXT_925809",
+         "HIM_FREETEXT_925815",
+         "HIM_FREETEXT_925816",
+         "HIM_FREETEXT_925834",
+         "HIM_FREETEXT_926668",
+         "HIM_FREETEXT_927156",
+         "HIM_FREETEXT_927157",
+         "HIM_FREETEXT_927163",
+         "HIM_FREETEXT_927164",
+         "HIM_FREETEXT_927172",
+         "HIM_FREETEXT_927174",
+         "HIM_FREETEXT_927201",
+         "HIM_FREETEXT_927203",
+         "HIM_FREETEXT_927205"
+        ]
+       },
+       {
+        "pid": "L::3::EN::B2925753281::EN_2925753281::*",
+        "name": "EN 40462",
+        "nameS": "EN 40462",
+        "number": "40462",
+        "icoX": 0,
+        "cls": 8,
+        "oprX": 1,
+        "prodCtx": {
+         "name": "EN 40462",
+         "num": "40462",
+         "matchId": "40462",
+         "catOut": "EN      ",
+         "catOutS": "EN",
+         "catOutL": "EuroNight",
+         "catIn": "EN",
+         "catCode": "3",
+         "admin": "85____"
+        },
+        "himIdL": [
+         "HIM_FREETEXT_908750",
+         "HIM_FREETEXT_925447",
+         "HIM_FREETEXT_925462",
+         "HIM_FREETEXT_925493",
+         "HIM_FREETEXT_927205"
+        ]
+       }
+      ],
+      "opL": [
+       {
+        "name": "Nahreisezug",
+        "icoX": 1,
+        "matchId": "Nahreisezug"
+       },
+       {
+        "name": "Schweizerische Bundesbahnen SBB",
+        "icoX": 3,
+        "matchId": "Schweizerische Bundesbahnen SBB"
+       }
+      ],
+      "remL": [
+       {
+        "type": "R",
+        "code": "text.realtime.stop.exit.disabled",
+        "icoX": 4,
+        "txtN": "Hält nur zum Einsteigen"
+       },
+       {
+        "type": "R",
+        "code": "text.realtime.stop.entry.exit.disabled",
+        "icoX": 4,
+        "txtN": "Kein Halt zum Ein- oder Aussteigen"
+       },
+       {
+        "type": "R",
+        "code": "text.realtime.stop.entry.disabled",
+        "icoX": 4,
+        "txtN": "Hält nur zum Aussteigen"
+       },
+       {
+        "type": "A",
+        "code": "J2",
+        "prio": 300,
+        "icoX": 6,
+        "txtN": "in Sitzwagen nur 2. Klasse"
+       },
+       {
+        "type": "A",
+        "code": "CT",
+        "prio": 320,
+        "icoX": 6,
+        "txtN": "IRT Integrated Reservation Ticket"
+       },
+       {
+        "type": "A",
+        "code": "GP",
+        "prio": 320,
+        "icoX": 6,
+        "txtN": "Globalpreis"
+       },
+       {
+        "type": "A",
+        "code": "SW",
+        "prio": 400,
+        "icoX": 7,
+        "txtN": "Schlafwagen"
+       },
+       {
+        "type": "A",
+        "code": "LW",
+        "prio": 400,
+        "icoX": 8,
+        "txtN": "Liegewagen"
+       }
+      ],
+      "icoL": [
+       {
+        "res": "prod_nachtzug",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 34,
+         "g": 29,
+         "b": 71
+        }
+       },
+       {
+        "res": "DPN",
+        "txt": "Nahreisezug"
+       },
+       {
+        "res": "prod_ice",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 171,
+         "g": 0,
+         "b": 32
+        }
+       },
+       {
+        "res": "DPN",
+        "txt": "Schweizerische Bundesbahnen SBB"
+       },
+       {
+        "res": "rt_warn"
+       },
+       {
+        "res": "loc_stop"
+       },
+       {
+        "res": "attr_info"
+       },
+       {
+        "res": "attr_sleeper"
+       },
+       {
+        "res": "attr_couchette"
+       }
+      ],
+      "dirL": [
+       {
+        "txt": "Zürich HB",
+        "flg": "x"
+       }
+      ],
+      "lDrawStyleL": [
+       {
+        "sIcoX": 0,
+        "type": "SOLID",
+        "bg": {
+         "r": 34,
+         "g": 29,
+         "b": 71
+        }
+       },
+       {
+        "type": "SOLID",
+        "bg": {
+         "r": 34,
+         "g": 29,
+         "b": 71
+        }
+       }
+      ],
+      "timeStyleL": [
+       {
+        "mode": "ABS"
+       }
+      ]
+     },
+     "journey": {
+      "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#13588#TA#0#DA#151126#1S#5500003#1T#2030#LS#8503000#LT#10930#PU#81#RT#1#CA#EN#ZE#40462#ZB#EN 40462#PC#3#FR#5500003#FT#2030#TO#8503000#TT#10930#",
+      "date": "20261115",
+      "prodX": 0,
+      "dirTxt": "Zürich HB",
+      "dirFlg": "x",
+      "status": "P",
+      "isRchbl": true,
+      "stopL": [
+       {
+        "locX": 0,
+        "idx": 0,
+        "dProdX": 0,
+        "dTimeS": "203000",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dProgType": "PROGNOSED",
+        "dDirTxt": "Zürich HB",
+        "dDirFlg": "x",
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 4,
+        "idx": 1,
+        "aProdX": 0,
+        "aOutS": false,
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 0
+        },
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "205500",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N"
+       },
+       {
+        "locX": 5,
+        "idx": 2,
+        "aProdX": 0,
+        "aOutS": false,
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 0
+        },
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "212600",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N"
+       },
+       {
+        "locX": 6,
+        "idx": 3,
+        "aProdX": 0,
+        "aOutS": false,
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 0
+        },
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "220200",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N"
+       },
+       {
+        "locX": 7,
+        "idx": 4,
+        "aProdX": 0,
+        "aOutS": false,
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 0
+        },
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "222000",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N"
+       },
+       {
+        "locX": 1,
+        "idx": 5,
+        "aProdX": 0,
+        "aOutS": false,
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 0
+        },
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "223200",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N"
+       },
+       {
+        "locX": 8,
+        "idx": 6,
+        "aProdX": 0,
+        "aOutS": false,
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 0
+        },
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dInS": false,
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTimeFR": {
+         "styleX": 0
+        },
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 1,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N",
+        "border": true
+       },
+       {
+        "locX": 9,
+        "idx": 7,
+        "aProdX": 0,
+        "aOutS": false,
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 0
+        },
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "232800",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N"
+       },
+       {
+        "locX": 10,
+        "idx": 8,
+        "aProdX": 0,
+        "aOutS": false,
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 0
+        },
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "233500",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N"
+       },
+       {
+        "locX": 11,
+        "idx": 9,
+        "aProdX": 0,
+        "aOutS": false,
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 0
+        },
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "01000100",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N"
+       },
+       {
+        "locX": 12,
+        "idx": 10,
+        "aProdX": 0,
+        "aOutS": false,
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 0
+        },
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "01005100",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N"
+       },
+       {
+        "locX": 13,
+        "idx": 11,
+        "aProdX": 0,
+        "aOutS": false,
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTimeFR": {
+         "styleX": 0
+        },
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "01023000",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N"
+       },
+       {
+        "locX": 14,
+        "idx": 13,
+        "aProdX": 0,
+        "aTimeS": "01042700",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "01043500",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 15,
+        "idx": 14,
+        "aProdX": 0,
+        "aTimeS": "01063700",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dTimeS": "01064100",
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 2,
+        "idx": 15,
+        "aProdX": 0,
+        "aTimeS": "01065700",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTZOffset": 60,
+        "dProdX": 1,
+        "dInS": false,
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTimeFR": {
+         "styleX": 0
+        },
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 2,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N",
+        "border": true
+       },
+       {
+        "locX": 16,
+        "idx": 16,
+        "aProdX": 1,
+        "aPltfS": {
+         "type": "PL",
+         "txt": "4"
+        },
+        "aTimeS": "01080600",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aTZOffset": 60,
+        "dProdX": 1,
+        "dInS": false,
+        "dTimeFS": {
+         "styleX": 0
+        },
+        "dTimeFR": {
+         "styleX": 0
+        },
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 2,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N"
+       },
+       {
+        "locX": 3,
+        "idx": 17,
+        "aProdX": 1,
+        "aPltfS": {
+         "type": "PL",
+         "txt": "11"
+        },
+        "aTimeS": "01093000",
+        "aTimeFS": {
+         "styleX": 0
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       }
+      ],
+      "sDaysL": [
+       {
+        "sDaysR": "nicht täglich",
+        "sDaysI": "15. Nov bis 11. Dez 2026; nicht 18. bis 21. Nov 2026",
+        "sDaysB": "0000000007FFFFFFF0FFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "fLocX": 0,
+        "tLocX": 3,
+        "fLocIdx": 0,
+        "tLocIdx": 17
+       }
+      ],
+      "msgL": [
+       {
+        "type": "REM",
+        "remX": 3,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 3,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 576192512
+       },
+       {
+        "type": "REM",
+        "remX": 4,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 3,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 578813952
+       },
+       {
+        "type": "REM",
+        "remX": 5,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 3,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 578813952
+       },
+       {
+        "type": "REM",
+        "remX": 6,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 3,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 589299712
+       },
+       {
+        "type": "REM",
+        "remX": 7,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 3,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 589299712
+       }
+      ],
+      "subscr": "F",
+      "prodL": [
+       {
+        "prodX": 0,
+        "fLocX": 0,
+        "tLocX": 1,
+        "fIdx": 0,
+        "tIdx": 5
+       },
+       {
+        "prodX": 0,
+        "fLocX": 1,
+        "tLocX": 2,
+        "fIdx": 5,
+        "tIdx": 15
+       },
+       {
+        "prodX": 1,
+        "fLocX": 2,
+        "tLocX": 3,
+        "fIdx": 15,
+        "tIdx": 17
+       }
+      ],
+      "dirL": [
+       {
+        "dirX": 0,
+        "fLocX": 0,
+        "tLocX": 3,
+        "fIdx": 0,
+        "tIdx": 17
+       }
+      ],
+      "sumLDrawStyleX": 0,
+      "resLDrawStyleX": 1,
+      "trainStartDate": "20261115",
+      "parJnySegL": [
+       {
+        "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#15214#TA#0#DA#151126#1S#5500003#1T#2030#LS#8100002#LT#10207#PU#81#RT#1#CA#EC#ZE#462#ZB#EC 462  #PC#2#FR#5500003#FT#2030#TO#8100002#TT#10207#",
+        "fLocX": 0,
+        "tLocX": 13,
+        "type": "UNION"
+       },
+       {
+        "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#15333#TA#0#DA#151126#1S#8103000#1T#2139#LS#8503000#LT#10930#PU#81#RT#1#CA#NJ#ZE#466#ZB#NJ 466  #PC#3#FR#8103000#FT#2139#TO#8503000#TT#10930#",
+        "fLocX": 13,
+        "tLocX": 3,
+        "type": "UNION"
+       },
+       {
+        "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#16541#TA#0#DA#151126#1S#5500003#1T#2030#LS#8000096#LT#10838#PU#81#RT#1#CA#EN#ZE#50462#ZB#EN 50462#PC#3#FR#5500003#FT#2030#TO#8000096#TT#10838#",
+        "fLocX": 0,
+        "tLocX": 13,
+        "type": "UNION"
+       }
+      ]
+     },
+     "fpB": "20260911",
+     "fpE": "20271211",
+     "planrtTS": "1794736696"
+    }
+   }
+  ]
+ }
+}

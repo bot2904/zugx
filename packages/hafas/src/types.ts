@@ -134,6 +134,22 @@ export interface Trip {
   remarks: Remark[];
   /** running-days text from HAFAS, e.g. "täglich" */
   runningDays?: string;
+  /** trains this one is joined with (coupled parts, HAFAS `parJnySegL`), see coupled.ts */
+  parts?: TripPart[];
+  /**
+   * per stop the number HAFAS uses internally for the departing section (`prodCtx.matchId`), if
+   * any differs from the train's own; often the operational train (EN 40237 → 415)
+   */
+  stopNumbers?: (string | undefined)[];
+}
+
+/** a train joined with this one on part of the run */
+export interface TripPart {
+  journeyId: string;
+  line: Line;
+  /** first and last stop of the joined section (indices into the trip's stopovers) */
+  from: number;
+  to: number;
 }
 
 export interface Movement {

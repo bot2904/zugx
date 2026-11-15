@@ -72,6 +72,14 @@ export default {
   },
   calendar: { add: "Add to calendar", realtime: "realtime", open: "Open in zugx" },
   trip: {
+    parts: "Train parts",
+    operational: "operated as",
+    operationalTip: "The train this (commercial-only) part runs with on this stretch",
+    operationalHintTip:
+      "Operational train number from the HAFAS data; not in the timetable as a train of its own",
+    byHafas: "per HAFAS",
+    joinedWith: "joined with",
+    fromHere: "from here",
     trainNumber: "Train no.",
     title: "Train run",
     stops: "Stops",

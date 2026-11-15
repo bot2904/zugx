@@ -9,6 +9,7 @@ import { useI18n } from "../i18n/index.ts";
 import { useRoute, useRouter } from "vue-router";
 import LineBadge from "../components/LineBadge.vue";
 import Remarks from "../components/Remarks.vue";
+import TrainParts from "../components/TrainParts.vue";
 import TripStops from "../components/TripStops.vue";
 import { useKeys } from "../lib/keys.ts";
 import Status from "../components/Status.vue";
@@ -302,6 +303,7 @@ function toggle(cls: number) {
         <div class="overflow-y-auto p-2">
           <Status :error="selError" @retry="loadSelected" />
           <template v-if="selected">
+            <TrainParts :trip="selected" class="mb-2" />
             <TripStops :trip="selected" :now="now" />
             <Remarks :remarks="selected.remarks" class="mt-3" />
           </template>

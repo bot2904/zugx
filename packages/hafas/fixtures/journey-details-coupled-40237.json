@@ -1,0 +1,1873 @@
+{
+ "response": {
+  "ver": "1.67",
+  "lang": "deu",
+  "id": "1",
+  "err": "OK",
+  "graph": {
+   "id": "standard",
+   "index": 0
+  },
+  "subGraph": {
+   "id": "global",
+   "index": 0
+  },
+  "view": {
+   "id": "standard",
+   "index": 0,
+   "type": "WGS84"
+  },
+  "svcResL": [
+   {
+    "meth": "JourneyDetails",
+    "err": "OK",
+    "res": {
+     "common": {
+      "locL": [
+       {
+        "lid": "A=1@O=Stuttgart Hbf@X=9182760@Y=48784782@U=81@L=8000096@",
+        "type": "S",
+        "name": "Stuttgart Hbf",
+        "icoX": 2,
+        "extId": "8000096",
+        "state": "F",
+        "crd": {
+         "x": 9182760,
+         "y": 48784782,
+         "floor": 0
+        },
+        "pCls": 4157,
+        "globalIdL": [
+         {
+          "id": "8029034",
+          "type": "U"
+         },
+         {
+          "id": "80TS",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000700",
+        "countryCodeL": [
+         "de"
+        ]
+       },
+       {
+        "lid": "A=1@O=Salzburg Hbf@X=13045856@Y=47813057@U=81@L=8100002@",
+        "type": "S",
+        "name": "Salzburg Hbf",
+        "icoX": 2,
+        "extId": "8100002",
+        "state": "F",
+        "crd": {
+         "x": 13045856,
+         "y": 47813057,
+         "floor": 0
+        },
+        "pCls": 4159,
+        "globalIdL": [
+         {
+          "id": "8101114",
+          "type": "U"
+         },
+         {
+          "id": "Sb",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000700",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Jesenice(SLO)@X=14054913@Y=46436323@U=81@L=7900001@",
+        "type": "S",
+        "name": "Jesenice(SLO)",
+        "icoX": 4,
+        "extId": "7900001",
+        "state": "F",
+        "crd": {
+         "x": 14054913,
+         "y": 46436323,
+         "floor": 0
+        },
+        "pCls": 28,
+        "globalIdL": [
+         {
+          "id": "8102145",
+          "type": "U"
+         },
+         {
+          "id": "Js",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000200",
+        "countryCodeL": [
+         "si"
+        ]
+       },
+       {
+        "lid": "A=1@O=Zagreb Glavni kolodvor@X=15978704@Y=45804436@U=81@L=7800020@",
+        "type": "S",
+        "name": "Zagreb Glavni kolodvor",
+        "icoX": 4,
+        "extId": "7800020",
+        "state": "F",
+        "crd": {
+         "x": 15978704,
+         "y": 45804436,
+         "floor": 0
+        },
+        "pCls": 28,
+        "globalIdL": [
+         {
+          "id": "7872480",
+          "type": "U"
+         },
+         {
+          "id": "78ZAGK",
+          "type": "B"
+         }
+        ],
+        "chgTime": "001000",
+        "countryCodeL": [
+         "hr"
+        ]
+       },
+       {
+        "lid": "A=1@O=Göppingen@X=9651970@Y=48700023@U=81@L=8000127@",
+        "type": "S",
+        "name": "Göppingen",
+        "icoX": 0,
+        "extId": "8000127",
+        "state": "F",
+        "crd": {
+         "x": 9651970,
+         "y": 48700023,
+         "floor": 0
+        },
+        "pCls": 24,
+        "globalIdL": [
+         {
+          "id": "8029066",
+          "type": "U"
+         },
+         {
+          "id": "80TGO",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "de"
+        ]
+       },
+       {
+        "lid": "A=1@O=Ulm Hbf@X=9982611@Y=48399397@U=81@L=8000170@",
+        "type": "S",
+        "name": "Ulm Hbf",
+        "icoX": 2,
+        "extId": "8000170",
+        "state": "F",
+        "crd": {
+         "x": 9982611,
+         "y": 48399397,
+         "floor": 0
+        },
+        "pCls": 4127,
+        "globalIdL": [
+         {
+          "id": "8029103",
+          "type": "U"
+         },
+         {
+          "id": "80TU",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "de"
+        ]
+       },
+       {
+        "lid": "A=1@O=Augsburg Hbf@X=10885568@Y=48365444@U=81@L=8000013@",
+        "type": "S",
+        "name": "Augsburg Hbf",
+        "icoX": 2,
+        "extId": "8000013",
+        "state": "F",
+        "crd": {
+         "x": 10885568,
+         "y": 48365444,
+         "floor": 0
+        },
+        "pCls": 4127,
+        "globalIdL": [
+         {
+          "id": "8002292",
+          "type": "U"
+         },
+         {
+          "id": "80MA",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "de"
+        ]
+       },
+       {
+        "lid": "A=1@O=München Ost@X=11604975@Y=48127437@U=81@L=8000262@",
+        "type": "S",
+        "name": "München Ost",
+        "icoX": 2,
+        "extId": "8000262",
+        "state": "F",
+        "crd": {
+         "x": 11604975,
+         "y": 48127437,
+         "floor": 0
+        },
+        "pCls": 4159,
+        "globalIdL": [
+         {
+          "id": "8020234",
+          "type": "U"
+         },
+         {
+          "id": "80MOP",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000700",
+        "countryCodeL": [
+         "de"
+        ]
+       },
+       {
+        "lid": "A=1@O=Rosenheim in Oberbayern@X=12119203@Y=47850021@U=81@L=8000320@",
+        "type": "S",
+        "name": "Rosenheim in Oberbayern",
+        "icoX": 2,
+        "extId": "8000320",
+        "state": "F",
+        "crd": {
+         "x": 12119203,
+         "y": 47850021,
+         "floor": 0
+        },
+        "pCls": 4127,
+        "globalIdL": [
+         {
+          "id": "8020174",
+          "type": "U"
+         },
+         {
+          "id": "80MRO",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000400",
+        "countryCodeL": [
+         "de"
+        ]
+       },
+       {
+        "lid": "A=1@O=Schwarzach im Pongau-St.Veit Bahnhof@X=13154518@Y=47318624@U=81@L=8100044@",
+        "type": "S",
+        "name": "Schwarzach im Pongau-St.Veit Bahnhof",
+        "icoX": 2,
+        "extId": "8100044",
+        "state": "F",
+        "crd": {
+         "x": 13154518,
+         "y": 47318624,
+         "floor": 0
+        },
+        "pCls": 4157,
+        "entry": true,
+        "globalIdL": [
+         {
+          "id": "8101137",
+          "type": "U"
+         },
+         {
+          "id": "Swa",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Bad Gastein Bahnhof@X=13131928@Y=47111782@U=81@L=8100095@",
+        "type": "S",
+        "name": "Bad Gastein Bahnhof",
+        "icoX": 2,
+        "extId": "8100095",
+        "state": "F",
+        "crd": {
+         "x": 13131928,
+         "y": 47111773,
+         "floor": 0
+        },
+        "pCls": 29,
+        "entry": true,
+        "globalIdL": [
+         {
+          "id": "8102117",
+          "type": "U"
+         },
+         {
+          "id": "Bag",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Mallnitz-Obervellach im Mölltal Bahnhof@X=13176137@Y=46981645@U=81@L=8100093@",
+        "type": "S",
+        "name": "Mallnitz-Obervellach im Mölltal Bahnhof",
+        "icoX": 2,
+        "extId": "8100093",
+        "state": "F",
+        "crd": {
+         "x": 13176137,
+         "y": 46981645,
+         "floor": 0
+        },
+        "pCls": 29,
+        "entry": true,
+        "globalIdL": [
+         {
+          "id": "8102121",
+          "type": "U"
+         },
+         {
+          "id": "Ma",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Spittal/Drau-Millstätter See Bahnhof@X=13487541@Y=46795730@U=81@L=8100092@",
+        "type": "S",
+        "name": "Spittal/Drau-Millstätter See Bahnhof",
+        "icoX": 2,
+        "extId": "8100092",
+        "state": "F",
+        "crd": {
+         "x": 13487541,
+         "y": 46795730,
+         "floor": 0
+        },
+        "pCls": 4157,
+        "entry": true,
+        "globalIdL": [
+         {
+          "id": "8102128",
+          "type": "U"
+         },
+         {
+          "id": "Stt",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Villach Hbf@X=13848449@Y=46618616@U=81@L=8100147@",
+        "type": "S",
+        "name": "Villach Hbf",
+        "icoX": 2,
+        "extId": "8100147",
+        "state": "F",
+        "crd": {
+         "x": 13848449,
+         "y": 46618616,
+         "floor": 0
+        },
+        "pCls": 4157,
+        "globalIdL": [
+         {
+          "id": "8103654",
+          "type": "U"
+         },
+         {
+          "id": "Vb",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "at"
+        ]
+       },
+       {
+        "lid": "A=1@O=Jesenice Drzavna meja/Staatsgrenze@X=14020332@Y=46481413@U=81@L=7900043@",
+        "type": "S",
+        "name": "Jesenice Drzavna meja/Staatsgrenze",
+        "icoX": 7,
+        "extId": "7900043",
+        "state": "F",
+        "crd": {
+         "x": 14020332,
+         "y": 46481413,
+         "floor": 0
+        },
+        "pCls": 0,
+        "chgTime": "000500",
+        "countryCodeL": [
+         "si"
+        ]
+       },
+       {
+        "lid": "A=1@O=Lesce-Bled@X=14157974@Y=46360418@U=81@L=7900002@",
+        "type": "S",
+        "name": "Lesce-Bled",
+        "icoX": 4,
+        "extId": "7900002",
+        "state": "F",
+        "crd": {
+         "x": 14157974,
+         "y": 46360418,
+         "floor": 0
+        },
+        "pCls": 28,
+        "globalIdL": [
+         {
+          "id": "7942313",
+          "type": "U"
+         },
+         {
+          "id": "79LEBL",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "si"
+        ]
+       },
+       {
+        "lid": "A=1@O=Kranj@X=14348168@Y=46239010@U=81@L=7900014@",
+        "type": "S",
+        "name": "Kranj",
+        "icoX": 4,
+        "extId": "7900014",
+        "state": "F",
+        "crd": {
+         "x": 14348168,
+         "y": 46239010,
+         "floor": 0
+        },
+        "pCls": 28,
+        "globalIdL": [
+         {
+          "id": "7942307",
+          "type": "U"
+         },
+         {
+          "id": "79KRA",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "si"
+        ]
+       },
+       {
+        "lid": "A=1@O=Ljubljana@X=14512940@Y=46058687@U=81@L=7900003@",
+        "type": "S",
+        "name": "Ljubljana",
+        "icoX": 4,
+        "extId": "7900003",
+        "state": "F",
+        "crd": {
+         "x": 14512940,
+         "y": 46058687,
+         "floor": 0
+        },
+        "pCls": 30,
+        "globalIdL": [
+         {
+          "id": "7942300",
+          "type": "U"
+         },
+         {
+          "id": "79LB",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "si"
+        ]
+       },
+       {
+        "lid": "A=1@O=Zidani Most@X=15170322@Y=46085582@U=81@L=7900004@",
+        "type": "S",
+        "name": "Zidani Most",
+        "icoX": 4,
+        "extId": "7900004",
+        "state": "F",
+        "crd": {
+         "x": 15170322,
+         "y": 46085582,
+         "floor": 0
+        },
+        "pCls": 28,
+        "globalIdL": [
+         {
+          "id": "7942200",
+          "type": "U"
+         },
+         {
+          "id": "79ZIMO",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000200",
+        "countryCodeL": [
+         "si"
+        ]
+       },
+       {
+        "lid": "A=1@O=Sevnica@X=15301232@Y=46009677@U=81@L=7900018@",
+        "type": "S",
+        "name": "Sevnica",
+        "icoX": 4,
+        "extId": "7900018",
+        "state": "F",
+        "crd": {
+         "x": 15300998,
+         "y": 46009579,
+         "floor": 0
+        },
+        "pCls": 28,
+        "globalIdL": [
+         {
+          "id": "79SEV",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000200",
+        "countryCodeL": [
+         "si"
+        ]
+       },
+       {
+        "lid": "A=1@O=Krsko@X=15493457@Y=45956237@U=81@L=7900030@",
+        "type": "S",
+        "name": "Krsko",
+        "icoX": 4,
+        "extId": "7900030",
+        "state": "F",
+        "crd": {
+         "x": 15493457,
+         "y": 45956237,
+         "floor": 0
+        },
+        "pCls": 28,
+        "globalIdL": [
+         {
+          "id": "79KR",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "si"
+        ]
+       },
+       {
+        "lid": "A=1@O=Dobova@X=15655182@Y=45898391@U=81@L=7900017@",
+        "type": "S",
+        "name": "Dobova",
+        "icoX": 4,
+        "extId": "7900017",
+        "state": "F",
+        "crd": {
+         "x": 15655182,
+         "y": 45898391,
+         "floor": 0
+        },
+        "pCls": 28,
+        "globalIdL": [
+         {
+          "id": "7942001",
+          "type": "U"
+         },
+         {
+          "id": "79DO",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "si"
+        ]
+       },
+       {
+        "lid": "A=1@O=Dobova Drzavna meja@X=15680235@Y=45890633@U=81@L=7900042@",
+        "type": "S",
+        "name": "Dobova Drzavna meja",
+        "icoX": 7,
+        "extId": "7900042",
+        "state": "F",
+        "crd": {
+         "x": 15680235,
+         "y": 45890633,
+         "floor": 0
+        },
+        "pCls": 0,
+        "globalIdL": [
+         {
+          "id": "7942000",
+          "type": "U"
+         },
+         {
+          "id": "79DOG",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "si"
+        ]
+       },
+       {
+        "lid": "A=1@O=Zapresic@X=15813185@Y=45844492@U=81@L=7800061@",
+        "type": "S",
+        "name": "Zapresic",
+        "icoX": 4,
+        "extId": "7800061",
+        "state": "F",
+        "crd": {
+         "x": 15813185,
+         "y": 45844492,
+         "floor": 0
+        },
+        "pCls": 28,
+        "globalIdL": [
+         {
+          "id": "78ZS",
+          "type": "B"
+         }
+        ],
+        "chgTime": "000500",
+        "countryCodeL": [
+         "hr"
+        ]
+       }
+      ],
+      "prodL": [
+       {
+        "pid": "L::3::EN::B3474917384::EN_3474917384::*",
+        "name": "EN 40237",
+        "nameS": "EN 40237",
+        "number": "40237",
+        "icoX": 0,
+        "cls": 8,
+        "oprX": 0,
+        "prodCtx": {
+         "name": "EN 40237",
+         "num": "40237",
+         "matchId": "40237",
+         "catOut": "EN      ",
+         "catOutS": "EN",
+         "catOutL": "EuroNight",
+         "catIn": "EN",
+         "catCode": "3",
+         "admin": "78____"
+        },
+        "himIdL": [
+         "HIM_FREETEXT_894923",
+         "HIM_FREETEXT_917536",
+         "HIM_FREETEXT_925446",
+         "HIM_FREETEXT_927201",
+         "HIM_FREETEXT_927203"
+        ]
+       },
+       {
+        "pid": "L::3::EN::B1146449194::EN_1146449194::*",
+        "name": "EN 40237",
+        "nameS": "EN 40237",
+        "number": "40237",
+        "icoX": 0,
+        "cls": 8,
+        "oprX": 1,
+        "prodCtx": {
+         "name": "EN 40237",
+         "num": "40237",
+         "matchId": "40237",
+         "catOut": "EN      ",
+         "catOutS": "EN",
+         "catOutL": "EuroNight",
+         "catIn": "EN",
+         "catCode": "3",
+         "admin": "81____"
+        },
+        "himIdL": [
+         "HIM_FREETEXT_836775",
+         "HIM_FREETEXT_879743",
+         "HIM_FREETEXT_879745",
+         "HIM_FREETEXT_894923",
+         "HIM_FREETEXT_908750",
+         "HIM_FREETEXT_911743",
+         "HIM_FREETEXT_912828",
+         "HIM_FREETEXT_913794",
+         "HIM_FREETEXT_917536",
+         "HIM_FREETEXT_917780",
+         "HIM_FREETEXT_917781",
+         "HIM_FREETEXT_919094",
+         "HIM_FREETEXT_921030",
+         "HIM_FREETEXT_921031",
+         "HIM_FREETEXT_921063",
+         "HIM_FREETEXT_921065",
+         "HIM_FREETEXT_922506",
+         "HIM_FREETEXT_925446",
+         "HIM_FREETEXT_925447",
+         "HIM_FREETEXT_925462",
+         "HIM_FREETEXT_925493",
+         "HIM_FREETEXT_925496",
+         "HIM_FREETEXT_925510",
+         "HIM_FREETEXT_925808",
+         "HIM_FREETEXT_925809",
+         "HIM_FREETEXT_925815",
+         "HIM_FREETEXT_925816",
+         "HIM_FREETEXT_925834",
+         "HIM_FREETEXT_926668",
+         "HIM_FREETEXT_927156",
+         "HIM_FREETEXT_927157",
+         "HIM_FREETEXT_927163",
+         "HIM_FREETEXT_927164",
+         "HIM_FREETEXT_927172",
+         "HIM_FREETEXT_927174",
+         "HIM_FREETEXT_927201",
+         "HIM_FREETEXT_927203",
+         "HIM_FREETEXT_927205"
+        ]
+       },
+       {
+        "pid": "L::3::EN::B3474917384::EN_3474917384::*",
+        "name": "EN 40237",
+        "nameS": "EN 40237",
+        "number": "40237",
+        "icoX": 0,
+        "cls": 8,
+        "oprX": 0,
+        "prodCtx": {
+         "name": "EN 40237",
+         "num": "40237",
+         "matchId": "415",
+         "catOut": "EN      ",
+         "catOutS": "EN",
+         "catOutL": "EuroNight",
+         "catIn": "EN",
+         "catCode": "3",
+         "admin": "78____"
+        },
+        "himIdL": [
+         "HIM_FREETEXT_894923",
+         "HIM_FREETEXT_917536",
+         "HIM_FREETEXT_925446",
+         "HIM_FREETEXT_927201",
+         "HIM_FREETEXT_927203"
+        ]
+       }
+      ],
+      "opL": [
+       {
+        "name": "HZPP",
+        "icoX": 1,
+        "id": "EFZ:78____:",
+        "matchId": "HZPP"
+       },
+       {
+        "name": "Nahreisezug",
+        "icoX": 3,
+        "matchId": "Nahreisezug"
+       }
+      ],
+      "remL": [
+       {
+        "type": "R",
+        "code": "text.realtime.stop.cancelled",
+        "icoX": 5,
+        "txtN": "Halt entfällt"
+       },
+       {
+        "type": "R",
+        "code": "text.realtime.stop.exit.disabled",
+        "icoX": 6,
+        "txtN": "Hält nur zum Einsteigen"
+       },
+       {
+        "type": "R",
+        "code": "text.realtime.stop.entry.exit.disabled",
+        "icoX": 6,
+        "txtN": "Kein Halt zum Ein- oder Aussteigen"
+       },
+       {
+        "type": "A",
+        "code": "RP",
+        "prio": 1,
+        "icoX": 8,
+        "txtN": "Reservierungspflicht (Stuttgart Hbf - Salzburg Hbf)"
+       },
+       {
+        "type": "A",
+        "code": "RP",
+        "prio": 1,
+        "icoX": 8,
+        "txtN": "Reservierungspflicht (Jesenice Drzavna meja/Staatsgrenze - Zagreb Glavni kolodvor)"
+       },
+       {
+        "type": "A",
+        "code": "J2",
+        "prio": 300,
+        "icoX": 9,
+        "txtN": "in Sitzwagen nur 2. Klasse"
+       },
+       {
+        "type": "A",
+        "code": "CT",
+        "prio": 320,
+        "icoX": 9,
+        "txtN": "IRT Integrated Reservation Ticket"
+       },
+       {
+        "type": "A",
+        "code": "GP",
+        "prio": 320,
+        "icoX": 9,
+        "txtN": "Globalpreis"
+       },
+       {
+        "type": "A",
+        "code": "SW",
+        "prio": 400,
+        "icoX": 10,
+        "txtN": "Schlafwagen"
+       },
+       {
+        "type": "A",
+        "code": "LW",
+        "prio": 400,
+        "icoX": 11,
+        "txtN": "Liegewagen"
+       },
+       {
+        "type": "I",
+        "code": "ZN",
+        "icoX": 9,
+        "txtN": "nightjet (Stuttgart Hbf - Salzburg Hbf)"
+       },
+       {
+        "type": "R",
+        "code": "text.realtime.journey.partially.cancelled.between",
+        "icoX": 13,
+        "txtN": "EN 40237: Fahrt fällt aus zwischen Stuttgart Hbf und Salzburg Hbf. Bitte benutzen Sie eine andere Verbindung."
+       }
+      ],
+      "himL": [
+       {
+        "hid": "927203",
+        "act": true,
+        "head": "Teilausfall EN 40237 - Anerkennung NJ-Tickets bei der Deutschen Bahn",
+        "text": "EN 40237: Wegen einer Verzögerung auf der Strecke kann dieser Zug zwischen Stuttgart Hbf und Salzburg Hbf nicht fahren. Als Ersatz haben Sie die Möglichkeit, mit den Tagesverbindungen der Deutschen Bahn zu fahren. Bereits vorhandene Tickets werden anerkannt. Betroffene Fahrgäste können sich an das ÖBB Kund:innenservice unter +43 (0)5-1717-9 wenden.<br>Können Sie daher den Zielort Ihrer Reise lt. Ticket nicht erreichen? Gerne unterstützen wir Sie - Informationen dazu finden Sie unter: <a href=\"https://www.oebb.at/lastconnection\">oebb.at/lastconnection</a>.<br>Wir bitten um Entschuldigung.",
+        "icoX": 12,
+        "prio": 100,
+        "fLocX": 0,
+        "tLocX": 1,
+        "prod": 8,
+        "src": 99,
+        "lModDate": "20261115",
+        "lModTime": "052808",
+        "sDate": "20261115",
+        "sTime": "160000",
+        "eDate": "20261116",
+        "eTime": "120000",
+        "sDaily": "000000",
+        "eDaily": "235900",
+        "comp": "VL KI HIM ADHOC",
+        "catRefL": [
+         0
+        ],
+        "pubChL": [
+         {
+          "name": "TIMETABLE",
+          "fDate": "20261115",
+          "fTime": "052700",
+          "tDate": "20261116",
+          "tTime": "120000"
+         }
+        ]
+       }
+      ],
+      "icoL": [
+       {
+        "res": "prod_nachtzug",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 34,
+         "g": 29,
+         "b": 71
+        }
+       },
+       {
+        "res": "ZUG",
+        "txt": "HZPP"
+       },
+       {
+        "res": "prod_ice",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 171,
+         "g": 0,
+         "b": 32
+        }
+       },
+       {
+        "res": "DPN",
+        "txt": "Nahreisezug"
+       },
+       {
+        "res": "prod_ic",
+        "fg": {
+         "r": 255,
+         "g": 255,
+         "b": 255
+        },
+        "bg": {
+         "r": 171,
+         "g": 0,
+         "b": 32
+        }
+       },
+       {
+        "res": "rt_scancel"
+       },
+       {
+        "res": "rt_warn"
+       },
+       {
+        "res": "loc_stop"
+       },
+       {
+        "res": "attr_booking"
+       },
+       {
+        "res": "attr_info"
+       },
+       {
+        "res": "attr_sleeper"
+       },
+       {
+        "res": "attr_couchette"
+       },
+       {
+        "res": "HIM2"
+       },
+       {
+        "res": "rt_critical"
+       }
+      ],
+      "himMsgCatL": [
+       {
+        "id": 2
+       }
+      ],
+      "dirL": [
+       {
+        "txt": "Zagreb Glavni kolodvor",
+        "flg": "x"
+       }
+      ],
+      "lDrawStyleL": [
+       {
+        "sIcoX": 0,
+        "type": "SOLID",
+        "bg": {
+         "r": 34,
+         "g": 29,
+         "b": 71
+        }
+       },
+       {
+        "type": "SOLID",
+        "bg": {
+         "r": 34,
+         "g": 29,
+         "b": 71
+        }
+       }
+      ],
+      "rtSrcL": [
+       {
+        "name": "HIM",
+        "type": "HIM",
+        "heartbeatTS": "1794736656",
+        "freeTextIdCount": 2478
+       }
+      ],
+      "timeStyleL": [
+       {
+        "mode": "ABS",
+        "fg": {
+         "r": 212,
+         "g": 12,
+         "b": 66
+        },
+        "strikeOut": true
+       },
+       {
+        "mode": "ABS"
+       }
+      ]
+     },
+     "journey": {
+      "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#13225#TA#0#DA#151126#1S#8000096#1T#2029#LS#7800020#LT#11030#PU#81#RT#1#CA#EN#ZE#40237#ZB#EN 40237#PC#3#FR#8000096#FT#2029#TO#7800020#TT#11030#",
+      "date": "20261115",
+      "prodX": 0,
+      "dirTxt": "Zagreb Glavni kolodvor",
+      "dirFlg": "x",
+      "status": "P",
+      "isPartCncl": true,
+      "isRchbl": true,
+      "stopL": [
+       {
+        "locX": 0,
+        "idx": 0,
+        "dProdX": 0,
+        "dPltfS": {
+         "type": "PL",
+         "txt": "16"
+        },
+        "dInR": false,
+        "dTimeS": "202900",
+        "dTimeFS": {
+         "styleX": 0,
+         "txtA": "20:29 Uhr fällt aus"
+        },
+        "dCncl": true,
+        "dDirTxt": "Zagreb Glavni kolodvor",
+        "dDirFlg": "x",
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N",
+        "dCnclRtSrcX": 0
+       },
+       {
+        "locX": 4,
+        "idx": 1,
+        "aProdX": 0,
+        "aPltfS": {
+         "type": "PL",
+         "txt": "5"
+        },
+        "aOutR": false,
+        "aTimeS": "205900",
+        "aTimeFS": {
+         "styleX": 0,
+         "txtA": "20:59 Uhr fällt aus"
+        },
+        "aCncl": true,
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dPltfS": {
+         "type": "PL",
+         "txt": "5"
+        },
+        "dInR": false,
+        "dTimeS": "211300",
+        "dTimeFS": {
+         "styleX": 0,
+         "txtA": "21:13 Uhr fällt aus"
+        },
+        "dCncl": true,
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N",
+        "aCnclRtSrcX": 0,
+        "dCnclRtSrcX": 0
+       },
+       {
+        "locX": 5,
+        "idx": 2,
+        "aProdX": 0,
+        "aPltfS": {
+         "type": "PL",
+         "txt": "2"
+        },
+        "aOutR": false,
+        "aTimeS": "215100",
+        "aTimeFS": {
+         "styleX": 0,
+         "txtA": "21:51 Uhr fällt aus"
+        },
+        "aCncl": true,
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dPltfS": {
+         "type": "PL",
+         "txt": "2"
+        },
+        "dInR": false,
+        "dTimeS": "215300",
+        "dTimeFS": {
+         "styleX": 0,
+         "txtA": "21:53 Uhr fällt aus"
+        },
+        "dCncl": true,
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N",
+        "aCnclRtSrcX": 0,
+        "dCnclRtSrcX": 0
+       },
+       {
+        "locX": 6,
+        "idx": 3,
+        "aProdX": 0,
+        "aPltfS": {
+         "type": "PL",
+         "txt": "5"
+        },
+        "aOutR": false,
+        "aTimeS": "225000",
+        "aTimeFS": {
+         "styleX": 0,
+         "txtA": "22:50 Uhr fällt aus"
+        },
+        "aCncl": true,
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dPltfS": {
+         "type": "PL",
+         "txt": "5"
+        },
+        "dInR": false,
+        "dTimeS": "230100",
+        "dTimeFS": {
+         "styleX": 0,
+         "txtA": "23:01 Uhr fällt aus"
+        },
+        "dCncl": true,
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N",
+        "aCnclRtSrcX": 0,
+        "dCnclRtSrcX": 0
+       },
+       {
+        "locX": 7,
+        "idx": 4,
+        "aProdX": 0,
+        "aPltfS": {
+         "type": "PL",
+         "txt": "8"
+        },
+        "aOutR": false,
+        "aTimeS": "234700",
+        "aTimeFS": {
+         "styleX": 0,
+         "txtA": "23:47 Uhr fällt aus"
+        },
+        "aCncl": true,
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dPltfS": {
+         "type": "PL",
+         "txt": "8"
+        },
+        "dInR": false,
+        "dTimeS": "234900",
+        "dTimeFS": {
+         "styleX": 0,
+         "txtA": "23:49 Uhr fällt aus"
+        },
+        "dCncl": true,
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N",
+        "aCnclRtSrcX": 0,
+        "dCnclRtSrcX": 0
+       },
+       {
+        "locX": 8,
+        "idx": 5,
+        "aProdX": 0,
+        "aPltfS": {
+         "type": "PL",
+         "txt": "4"
+        },
+        "aOutR": false,
+        "aTimeS": "01002500",
+        "aTimeFS": {
+         "styleX": 0,
+         "txtA": "00:25 Uhr fällt aus"
+        },
+        "aCncl": true,
+        "aTZOffset": 60,
+        "dProdX": 0,
+        "dPltfS": {
+         "type": "PL",
+         "txt": "4"
+        },
+        "dInR": false,
+        "dTimeS": "01002700",
+        "dTimeFS": {
+         "styleX": 0,
+         "txtA": "00:27 Uhr fällt aus"
+        },
+        "dCncl": true,
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 0,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N",
+        "aCnclRtSrcX": 0,
+        "dCnclRtSrcX": 0
+       },
+       {
+        "locX": 1,
+        "idx": 7,
+        "aProdX": 0,
+        "aOutR": false,
+        "aTimeS": "01012800",
+        "aTimeFS": {
+         "styleX": 0,
+         "txtA": "01:28 Uhr fällt aus"
+        },
+        "aCncl": true,
+        "aTZOffset": 60,
+        "dProdX": 1,
+        "dTimeS": "01021000",
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dProgType": "PROGNOSED",
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 1,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N",
+        "border": true,
+        "aCnclRtSrcX": 0
+       },
+       {
+        "locX": 9,
+        "idx": 8,
+        "aProdX": 1,
+        "aTimeS": "01030000",
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 1,
+        "dTimeS": "01042000",
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 10,
+        "idx": 9,
+        "aProdX": 1,
+        "aTimeS": "01044600",
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 1,
+        "dTimeS": "01044800",
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 11,
+        "idx": 10,
+        "aProdX": 1,
+        "aTimeS": "01050200",
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 1,
+        "dTimeS": "01050400",
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 12,
+        "idx": 11,
+        "aProdX": 1,
+        "aTimeS": "01052600",
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 1,
+        "dTimeS": "01052800",
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 13,
+        "idx": 12,
+        "aProdX": 1,
+        "aTimeS": "01055100",
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 1,
+        "dTimeS": "01060600",
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 14,
+        "idx": 13,
+        "aProdX": 1,
+        "aOutS": false,
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTimeFR": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 1,
+        "dInS": false,
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTimeFR": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 2,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N",
+        "border": true
+       },
+       {
+        "locX": 2,
+        "idx": 14,
+        "aProdX": 1,
+        "aTimeS": "01064200",
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 2,
+        "dTimeS": "01065400",
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 15,
+        "idx": 15,
+        "aProdX": 2,
+        "aTimeS": "01070400",
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 2,
+        "dTimeS": "01070600",
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 16,
+        "idx": 16,
+        "aProdX": 2,
+        "aTimeS": "01072500",
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 2,
+        "dTimeS": "01072700",
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 17,
+        "idx": 17,
+        "aProdX": 2,
+        "aTimeS": "01074900",
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 2,
+        "dTimeS": "01081000",
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 18,
+        "idx": 18,
+        "aProdX": 2,
+        "aTimeS": "01090500",
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 2,
+        "dTimeS": "01090700",
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 19,
+        "idx": 19,
+        "aProdX": 2,
+        "aTimeS": "01092200",
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 2,
+        "dTimeS": "01092300",
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 20,
+        "idx": 20,
+        "aProdX": 2,
+        "aTimeS": "01093800",
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 2,
+        "dTimeS": "01093900",
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 21,
+        "idx": 21,
+        "aProdX": 2,
+        "aTimeS": "01095300",
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 2,
+        "dTimeS": "01100500",
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 22,
+        "idx": 22,
+        "aProdX": 2,
+        "aOutS": false,
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTimeFR": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 2,
+        "dInS": false,
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTimeFR": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "msgL": [
+         {
+          "type": "REM",
+          "remX": 2,
+          "sty": "M",
+          "tagL": [
+           "RES_LOC_H3"
+          ],
+          "sort": 13107200,
+          "persist": false
+         }
+        ],
+        "type": "N",
+        "border": true
+       },
+       {
+        "locX": 23,
+        "idx": 23,
+        "aProdX": 2,
+        "aTimeS": "01101700",
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aTZOffset": 60,
+        "dProdX": 2,
+        "dTimeS": "01101800",
+        "dTimeFS": {
+         "styleX": 1
+        },
+        "dTZOffset": 60,
+        "type": "N"
+       },
+       {
+        "locX": 3,
+        "idx": 24,
+        "aProdX": 2,
+        "aTimeS": "01103000",
+        "aTimeFS": {
+         "styleX": 1
+        },
+        "aProgType": "PROGNOSED",
+        "aTZOffset": 60,
+        "type": "N"
+       }
+      ],
+      "sDaysL": [
+       {
+        "sDaysR": "nicht täglich",
+        "sDaysI": "15. Nov bis 10. Dez 2026 Mo - Fr, So; nicht 17., 18. Nov 2026, 27. bis 30. Nov 2026, 2., 6., 8. Dez 2026; auch 21. Nov 2026",
+        "sDaysB": "0000000000000003E7F8596000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "fLocX": 0,
+        "tLocX": 3,
+        "fLocIdx": 0,
+        "tLocIdx": 24
+       }
+      ],
+      "msgL": [
+       {
+        "type": "REM",
+        "remX": 3,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 1,
+        "tagL": [
+         "SUM_CON_FTR_H3",
+         "RES_JNY_DTL_H3"
+        ],
+        "sort": 268566528
+       },
+       {
+        "type": "REM",
+        "remX": 4,
+        "sty": "I",
+        "fLocX": 14,
+        "tLocX": 3,
+        "tagL": [
+         "SUM_CON_FTR_H3",
+         "RES_JNY_DTL_H3"
+        ],
+        "sort": 268566528
+       },
+       {
+        "type": "REM",
+        "remX": 5,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 3,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 576192512
+       },
+       {
+        "type": "REM",
+        "remX": 6,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 3,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 578813952
+       },
+       {
+        "type": "REM",
+        "remX": 7,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 3,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 578813952
+       },
+       {
+        "type": "REM",
+        "remX": 8,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 3,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 589299712
+       },
+       {
+        "type": "REM",
+        "remX": 9,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 3,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 589299712
+       },
+       {
+        "type": "REM",
+        "remX": 10,
+        "sty": "I",
+        "fLocX": 0,
+        "tLocX": 1,
+        "tagL": [
+         "RES_JNY_DTL"
+        ],
+        "sort": 549978112
+       },
+       {
+        "type": "HIM",
+        "himX": 0,
+        "sty": "M",
+        "fLocX": 0,
+        "tLocX": 1,
+        "tagL": [
+         "RES_SEC_HDR_H2",
+         "SUM_CON_HDR_H2",
+         "RES_JNY_H3"
+        ],
+        "sort": 791150591
+       },
+       {
+        "type": "REM",
+        "remX": 11,
+        "sty": "M",
+        "tagL": [
+         "RES_JNY_DTL_H3",
+         "SUM_HOME_JNY_L"
+        ],
+        "sort": 13107200,
+        "persist": false
+       }
+      ],
+      "subscr": "F",
+      "prodL": [
+       {
+        "prodX": 0,
+        "fLocX": 0,
+        "tLocX": 1,
+        "fIdx": 0,
+        "tIdx": 7
+       },
+       {
+        "prodX": 1,
+        "fLocX": 1,
+        "tLocX": 2,
+        "fIdx": 7,
+        "tIdx": 14
+       },
+       {
+        "prodX": 2,
+        "fLocX": 2,
+        "tLocX": 3,
+        "fIdx": 14,
+        "tIdx": 24
+       }
+      ],
+      "dirL": [
+       {
+        "dirX": 0,
+        "fLocX": 0,
+        "tLocX": 3,
+        "fIdx": 0,
+        "tIdx": 24
+       }
+      ],
+      "sumLDrawStyleX": 0,
+      "resLDrawStyleX": 1,
+      "trainStartDate": "20261115",
+      "parJnySegL": [
+       {
+        "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#7825#TA#0#DA#151126#1S#8000096#1T#2029#LS#8300094#LT#10834#PU#81#RT#1#CA#NJ#ZE#237#ZB#NJ 237  #PC#3#FR#8000096#FT#2029#TO#8300094#TT#10834#",
+        "fLocX": 0,
+        "tLocX": 1,
+        "type": "UNION"
+       },
+       {
+        "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#13601#TA#0#DA#151126#1S#8503000#1T#2040#LS#7800020#LT#11030#PU#81#RT#1#CA#EN#ZE#40465#ZB#EN 40465#PC#3#FR#8503000#FT#2040#TO#7800020#TT#11030#",
+        "fLocX": 9,
+        "tLocX": 3,
+        "type": "UNION"
+       },
+       {
+        "jid": "2|#VN#1#ST#1794471868#PI#0#ZI#16482#TA#0#DA#151126#1S#8000096#1T#2029#LS#5500003#LT#10929#PU#81#RT#1#CA#EN#ZE#50237#ZB#EN 50237#PC#3#FR#8000096#FT#2029#TO#5500003#TT#10929#",
+        "fLocX": 0,
+        "tLocX": 1,
+        "type": "UNION"
+       }
+      ]
+     },
+     "fpB": "20260911",
+     "fpE": "20271211",
+     "planrtTS": "1794736696"
+    }
+   }
+  ]
+ }
+}

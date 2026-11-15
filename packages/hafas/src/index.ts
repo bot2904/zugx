@@ -8,11 +8,19 @@ export {
   RAIL_PRODUCTS,
   parseDuration,
   parseTime,
+  lineFromJid,
   productOf,
   stationLid,
   stripHtml,
   VIENNA,
 } from "./parse.ts";
-export { compareParts, groupMovements, isCommercialNumber } from "./coupled.ts";
+export {
+  compareParts,
+  groupMovements,
+  isCommercialNumber,
+  operationalChanges,
+  partSections,
+  type PartSection,
+} from "./coupled.ts";
 export { decodePolyline } from "./polyline.ts";
 export { runningDays } from "./running-days.ts";

@@ -14,6 +14,7 @@ import type {
   Stopover,
   Trip,
   TripMatch,
+  TripPart,
   Warning,
 } from "./types.ts";
 import { decodePolyline } from "./polyline.ts";
@@ -412,7 +413,49 @@ export function parseJourneyDetails(res: Raw): Trip {
   if (poly) trip.polyline = poly;
   const days = j.sDaysL?.[0];
   if (days?.sDaysR) trip.runningDays = [days.sDaysR, days.sDaysI].filter(Boolean).join(": ");
+  const parts = parseParts(j);
+  if (parts.length) trip.parts = parts;
+  const nrs = (j.stopL ?? []).map((s: Raw) => {
+    const p = c.prodL[s.dProdX ?? s.aProdX];
+    const id = p?.prodCtx?.matchId;
+    return id === undefined ? undefined : String(id).trim();
+  });
+  if (nrs.some((n: string | undefined) => n && n !== trip.line.number)) trip.stopNumbers = nrs;
   return trip;
+}
+
+/** the train a journey id stands for: "…#CA#EC#ZE#462#ZB#EC 462  #PC#2#…" */
+export function lineFromJid(jid: string): Line | undefined {
+  const f = (k: string) => new RegExp(`#${k}#([^#]*)#`).exec(jid)?.[1]?.trim();
+  const zb = f("ZB")?.replace(/\s+/g, " ");
+  const number = f("ZE");
+  if (!number) return undefined;
+  // "EC 462", but also "RJX13470" (no space): the leading letters
+  const category = /^\p{L}+/u.exec(zb ?? "")?.[0] || f("CA") || "";
+  const pc = Number(f("PC"));
+  const cls = Number.isInteger(pc) ? 2 ** pc : 0;
+  return {
+    name: `${category} ${number}`.trim(),
+    category,
+    number,
+    cls,
+    product: productOf(cls, category),
+  };
+}
+
+/** joined trains with their sections, as stop indices of this journey */
+function parseParts(j: Raw): TripPart[] {
+  const locs: number[] = (j.stopL ?? []).map((s: Raw) => s.locX);
+  const out: TripPart[] = [];
+  for (const p of j.parJnySegL ?? []) {
+    if (p?.type !== "UNION" || !p.jid) continue;
+    const line = lineFromJid(p.jid);
+    const from = locs.indexOf(p.fLocX);
+    const to = from < 0 ? -1 : locs.indexOf(p.tLocX, from + 1);
+    if (!line || from < 0 || to < 0) continue;
+    out.push({ journeyId: p.jid, line, from, to });
+  }
+  return out;
 }
 
 export function parseJourneyMatch(res: Raw): TripMatch[] {

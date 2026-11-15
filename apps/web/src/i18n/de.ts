@@ -74,6 +74,14 @@ export default {
   },
   calendar: { add: "Zum Kalender", realtime: "Echtzeit", open: "In zugx öffnen" },
   trip: {
+    parts: "Zugteile",
+    operational: "betrieblich",
+    operationalTip: "Der Zug, an dem dieser (nur kommerzielle) Zugteil auf diesem Abschnitt hängt",
+    operationalHintTip:
+      "Betriebliche Zugnummer laut HAFAS-Daten; als eigener Zug nicht im Fahrplan",
+    byHafas: "lt. HAFAS",
+    joinedWith: "vereinigt mit",
+    fromHere: "ab hier",
     trainNumber: "Zug-Nr.",
     title: "Zuglauf",
     stops: "Halte",

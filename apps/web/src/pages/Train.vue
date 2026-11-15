@@ -6,6 +6,7 @@ import { computed, defineAsyncComponent, onMounted, ref, shallowRef, watch } fro
 import { useRoute, useRouter } from "vue-router";
 import LineBadge from "../components/LineBadge.vue";
 import Remarks from "../components/Remarks.vue";
+import TrainParts from "../components/TrainParts.vue";
 import TripStops from "../components/TripStops.vue";
 import Status from "../components/Status.vue";
 import { api } from "../lib/api.ts";
@@ -195,6 +196,7 @@ function goDay(delta: number) {
         {{ $t("trip.runningDays") }}: {{ trip.runningDays }}
       </p>
       <Remarks :remarks="trip.remarks" class="my-2" />
+      <TrainParts :trip="trip" class="card my-2 p-2" />
 
       <div class="grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         <div class="card p-3">
