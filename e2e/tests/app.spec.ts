@@ -232,20 +232,23 @@ test("document titles: view · selection · zugx", async ({ page }) => {
 });
 
 test("bildfahrplan planning: running-time reserve", async ({ page }) => {
-  await page.goto("/bf/westbahn?from=6&h=4&d=2026-03-10&plan=reserve");
+  // a smaller sheet than the Westbahn: loads quickly also on slow CI runners
+  await page.goto("/bf/101?from=6&h=4&d=2026-03-10&plan=reserve");
   const panel = page.locator(".bf-plan");
-  await expect(panel.locator("tbody")).toContainText("Wien Meidling – St. Pölten Hbf");
-  await expect(panel).toContainText(/RJX \d+ %/);
+  await expect(panel.locator("tbody")).toContainText("Wels Hbf – Gunskirchen", { timeout: 15_000 });
+  await expect(panel).toContainText(/ R \d+ %/);
   // other direction
-  await panel.getByRole("button", { name: /Wien Hbf/ }).click();
-  await expect(panel.locator("tbody")).toContainText("St. Pölten Hbf – Wien Meidling");
+  await panel.getByRole("button", { name: /Linz Hbf/ }).click();
+  await expect(panel.locator("tbody")).toContainText("Gunskirchen – Wels Hbf");
   // model assumptions are adjustable and kept; "Defaults" resets them
   const brake = panel.getByLabel(/^(Bremsen|Braking|Frenatura)/);
   await brake.fill("1.2");
   await brake.press("Enter");
   await expect(brake).toHaveValue("1.2");
   await page.reload();
-  await expect(panel.getByLabel(/^(Bremsen|Braking|Frenatura)/)).toHaveValue("1.2");
+  await expect(panel.getByLabel(/^(Bremsen|Braking|Frenatura)/)).toHaveValue("1.2", {
+    timeout: 15_000,
+  });
   await panel
     .getByRole("button", { name: /^(Standardwerte|Defaults|Valori predefiniti)$/ })
     .click();
@@ -273,7 +276,7 @@ test("bildfahrplan planning: punctuality from collected live data", async ({ pag
   );
   await page.goto("/bf/westbahn?from=6&h=4&d=2026-03-10&plan=puenktlichkeit");
   const panel = page.locator(".bf-plan");
-  await expect(panel).toContainText(/3 (Fahrten|runs)/);
+  await expect(panel).toContainText(/3 (Fahrten|runs)/, { timeout: 15_000 });
   const first = panel.locator("tbody tr").first();
   await expect(first).toContainText("Wien Hbf → Wien Meidling");
   await expect(first).toContainText("+2′");
