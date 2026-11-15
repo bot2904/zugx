@@ -35,20 +35,51 @@ const q = computed({
 
 /** "Kitzbühel" instead of "Kitzbühel Bahnhof" */
 const short = (n: string) => n.replace(/\s+(Bahnhof|Bahnhst|Bhf)$/, "");
+/** lower-case abbreviations that exist */
+const KNOWN = new Set(Object.values(ABBR).map((a) => a.toLowerCase()));
+/**
+ * search terms: comma-separated parts; a part of space-separated known abbreviations ("Kt Vb Vps")
+ * splits further, anything else stays a name ("St. Veit")
+ */
+const terms = computed(() =>
+  q.value
+    .split(",")
+    .map((p) => p.trim())
+    .filter(Boolean)
+    .flatMap((p) => {
+      const ws = p.split(/\s+/);
+      return ws.length > 1 && ws.every((w) => KNOWN.has(w.toLowerCase())) ? ws : [p];
+    }),
+);
+/**
+ * match quality of a station for one term: 0 exact abbreviation, 1 abbreviation prefix, 2 name
+ * starts with it, 3 name contains it
+ */
+function rankFor(s: Station, term: string, list: boolean): number | undefined {
+  const lower = term.toLowerCase();
+  const a = ABBR[s.id]?.toLowerCase();
+  if (a === lower) return 0;
+  // in a list of several terms, a known abbreviation means just that station
+  if (list && KNOWN.has(lower)) return undefined;
+  if (a?.startsWith(lower)) return 1;
+  const n = normalize(s.name);
+  const t = normalize(term);
+  return n.startsWith(t) ? 2 : n.includes(t) ? 3 : undefined;
+}
 const shown = computed(() => {
-  const raw = q.value.trim();
-  if (!raw) return list.value;
-  const n = normalize(raw);
-  const lower = raw.toLowerCase();
-  const hits = list.value.filter(
-    (s) => ABBR[s.id]?.toLowerCase().startsWith(lower) || normalize(s.name).includes(n),
-  );
-  // exact abbreviation first, then abbreviation prefix, then name
-  const rank = (s: Station) => {
-    const a = ABBR[s.id]?.toLowerCase();
-    return a === lower ? 0 : a?.startsWith(lower) ? 1 : 2;
-  };
-  return hits.sort((a, b) => rank(a) - rank(b));
+  const ts = terms.value;
+  if (!ts.length) return list.value;
+  // in the order of the terms; per term exact abbreviation first, then prefix, then name
+  const hits: { s: Station; key: number }[] = [];
+  for (const s of list.value) {
+    let key: number | undefined;
+    ts.forEach((t, k) => {
+      const r = rankFor(s, t, ts.length > 1);
+      if (r !== undefined) key = Math.min(key ?? Infinity, k * 4 + r);
+    });
+    if (key !== undefined) hits.push({ s, key });
+  }
+  return hits.sort((x, y) => x.key - y.key).map((h) => h.s);
 });
 const letters = computed(() => {
   const m = new Map<string, Station[]>();

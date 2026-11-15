@@ -73,8 +73,9 @@ const { locale } = useI18n();
       <h2 id="bahnhoefe">Bahnhöfe</h2>
       <p>
         Alle Bahnhöfe von A bis Z mit dem ÖBB-Betriebsstellen-Kürzel (aus OpenStreetMap) und den
-        dort haltenden Gattungen. Das Suchfeld filtert nach Name oder Kürzel („Kt“, „Vb“, „Vps“);
-        ein Bahnhof öffnet seinen Abfahrtsplan laut Fahrplan.
+        dort haltenden Gattungen. Das Suchfeld filtert nach Name oder Kürzel, auch mehrere durch
+        Komma oder Leerzeichen getrennt, ohne Groß-/Kleinschreibung („Kt, Vb, Vps“ oder „kt vb
+        vps“); ein Bahnhof öffnet seinen Abfahrtsplan laut Fahrplan.
       </p>
 
       <h2 id="zuege">Züge (Zugindex)</h2>
@@ -382,8 +383,9 @@ const { locale } = useI18n();
       <h2 id="bahnhoefe">Stations</h2>
       <p>
         All stations A–Z with the ÖBB operating-point abbreviation (from OpenStreetMap) and the
-        categories stopping there. The filter matches names and abbreviations ("Kt", "Vb", "Vps"); a
-        station opens its departure plan from the timetable.
+        categories stopping there. The filter matches names and abbreviations, also several
+        separated by commas or spaces, case-insensitive ("Kt, Vb, Vps" or "kt vb vps"); a station
+        opens its departure plan from the timetable.
       </p>
 
       <h2 id="zuege">Trains (train index)</h2>
