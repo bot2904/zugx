@@ -63,8 +63,8 @@ defineExpose({ position });
         />
       </span>
       <!-- wrappers keep the grid columns when arr (origin) or dep (destination) is missing -->
-      <span><EventTime :ev="s.arr" /></span>
-      <span><EventTime :ev="s.dep" /></span>
+      <span><EventTime :ev="s.arr" show-actual below /></span>
+      <span><EventTime :ev="s.dep" show-actual below /></span>
       <RouterLink :to="`/station/${s.stop.id}`" class="text-[var(--fg)]">
         {{ s.stop.name }}
         <span v-if="s.additional" class="text-xs text-[var(--warn)]">+</span>

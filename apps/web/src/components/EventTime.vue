@@ -2,7 +2,8 @@
 import type { StopEvent } from "@zugx/hafas";
 import { delayClass, fmtDelay, hhmm } from "../lib/format.ts";
 
-defineProps<{ ev?: StopEvent; showActual?: boolean }>();
+/** showActual: the realtime time next to the planned one (`below`: underneath, for narrow columns) */
+defineProps<{ ev?: StopEvent; showActual?: boolean; below?: boolean }>();
 </script>
 
 <template>
@@ -14,8 +15,11 @@ defineProps<{ ev?: StopEvent; showActual?: boolean }>();
       :class="delayClass(ev)"
       >{{ fmtDelay(ev) }}</sup
     >
-    <span v-if="showActual && ev.actual && ev.delay" class="ml-1 text-xs" :class="delayClass(ev)">{{
-      hhmm(ev.actual)
-    }}</span>
+    <span
+      v-if="showActual && ev.actual && ev.delay && !ev.cancelled"
+      class="text-xs"
+      :class="[delayClass(ev), below ? 'block leading-3' : 'ml-1']"
+      >{{ hhmm(ev.actual) }}</span
+    >
   </span>
 </template>
