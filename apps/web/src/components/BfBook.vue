@@ -24,6 +24,12 @@ const props = defineProps<{
   follow?: boolean;
   /** other sheets branching off at a station (by name): linked after the name */
   sheets?: Record<string, { id: string; name: string }[]>;
+  /**
+   * print layout (Kursbuch PDF): columns split into pages of `perPage` trains, each page with
+   * `title` as its head (and "continued"), no sticky columns
+   */
+  perPage?: number;
+  title?: string;
   /** realtime (Echtzeit on): delay and expected time per train and station */
   live?: Map<string, LiveRun>;
 }>();
@@ -111,7 +117,16 @@ function cell(r: TableRun, row: Row): string {
 
 const root = useTemplateRef<HTMLElement>("root");
 /** one block: all trains in one table (kept as a list for the template) */
-const blocks = computed(() => [runs.value]);
+const blocks = computed(() => {
+  const per = props.perPage;
+  if (!per) return [runs.value];
+  // pages of even size (no last page with a lonely train or two)
+  const n = runs.value.length;
+  const size = Math.ceil(n / Math.ceil(n / per));
+  const out: TableRun[][] = [];
+  for (let i = 0; i < n; i += size) out.push(runs.value.slice(i, i + size));
+  return out;
+});
 const anyFrom = computed(() => runs.value.some((r) => r.from));
 
 // hover: one listener per table, the column from data-c
@@ -135,11 +150,27 @@ watch(
 </script>
 
 <template>
-  <div v-if="runs.length" ref="root" class="card bf-table bf-book mt-2 p-1">
-    <h2 class="m-0 px-1 text-sm font-semibold">
+  <div
+    v-if="runs.length"
+    ref="root"
+    class="bf-table bf-book"
+    :class="perPage ? 'printed' : 'card mt-2 p-1'"
+  >
+    <h2 v-if="!perPage" class="m-0 px-1 text-sm font-semibold">
       {{ stations[0]?.name }} – {{ stations.at(-1)?.name }}
     </h2>
-    <div v-for="(block, b) in blocks" :key="b" class="overflow-x-auto" :class="b > 0 && 'mt-3'">
+    <div
+      v-for="(block, b) in blocks"
+      :key="b"
+      :class="perPage ? 'print-page' : ['overflow-x-auto', b > 0 && 'mt-3']"
+    >
+      <h2 v-if="perPage" class="print-head">
+        <span>{{ title }}</span>
+        <span class="muted">
+          {{ stations[0]?.name }} – {{ stations.at(-1)?.name
+          }}<template v-if="b > 0"> ({{ $t("kursbuch.continued") }})</template>
+        </span>
+      </h2>
       <table
         class="text-xs"
         :class="live && 'live'"
@@ -376,5 +407,30 @@ tfoot tr.note th {
 }
 .hovered {
   background: color-mix(in srgb, var(--accent) 18%, transparent) !important;
+}
+</style>
+
+<style>
+/* Kursbuch print layout: one block of trains per page, no sticky columns */
+.bf-book.printed th.stn,
+.bf-book.printed th.kind {
+  position: static;
+}
+/* short sheets share a page, a block never splits */
+.bf-book.printed .print-page {
+  break-inside: avoid;
+  margin-bottom: 4mm;
+}
+.bf-book.printed .print-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 0.25rem;
+  padding-bottom: 0.125rem;
+  border-bottom: 1.5px solid var(--fg);
+  font-size: 0.8125rem;
+}
+.bf-book.printed table {
+  width: 100%;
 }
 </style>

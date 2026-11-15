@@ -159,7 +159,9 @@ const { locale } = useI18n();
           ÖBB-Kursbuch (Bahnhöfe als Zeilen, ein Zug je Spalte, „|“ = Durchfahrt; der Bahnhofsname
           öffnet den Abfahrtsplan des Tages, daneben die Nummern der dort abzweigenden
           Fahrplanbilder als Links; mit Echtzeit Verspätung und erwartete Zeit je Halt);
-          <strong>Transponieren</strong> zeigt eine Zeile je Zug.
+          <strong>Transponieren</strong> zeigt eine Zeile je Zug. Das ganze
+          <a href="/kursbuch">Kursbuch</a> (alle Fahrplanbilder ab 100 für einen Tag, A4 mit
+          Seitenzahlen) lässt sich als PDF drucken.
         </li>
         <li>
           <strong>Zweiter Bildschirm</strong>: Diagramm und Tabellen lassen sich in eigenen Fenstern
@@ -475,7 +477,8 @@ const { locale } = useI18n();
           (stations as rows, a train per column, "|" = passes; a station name opens its departure
           plan for the day, next to it the numbers of the sheets branching off there, as links; with
           realtime on, delay and expected time per stop); <strong>Transpose</strong> shows a row per
-          train.
+          train. The whole <a href="/kursbuch">timetable book</a> (all sheets from 100 for one day,
+          A4 with page numbers) can be printed as PDF.
         </li>
         <li>
           <strong>Second monitor</strong>: chart and tables can open in their own windows; day,

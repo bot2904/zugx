@@ -6,6 +6,18 @@ export default {
     filter: "Name or abbreviation (e.g. Kt, Vb, Vps)",
     note: "Abbreviations: ÖBB operating points from OpenStreetMap (railway:ref). A station opens the live board with Live on, else its departure plan from the timetable.",
   },
+  kursbuch: {
+    title: "Timetable book",
+    continued: "continued",
+    sheets: "Sheets",
+    cols: "Trains per page",
+    print: "Print as PDF",
+    loading: "loading {n} more sheets …",
+    hint: "Every timetable sheet for the chosen day in the Kursbuch layout, a fixed number of trains per page (A4 portrait). Print → “Save as PDF”; switch off “Headers and footers” in the print dialog.",
+    cover: "Timetable for {date} · sheets {from}–{to}",
+    coverNote: "made with zugx, no guarantee",
+    contents: "Contents",
+  },
   nav: {
     main: "Main",
     menu: "Menu",

@@ -8,6 +8,18 @@ export default {
     filter: "Name oder Kürzel (z. B. Kt, Vb, Vps)",
     note: "Kürzel: ÖBB-Betriebsstellen aus OpenStreetMap (railway:ref). Ein Bahnhof öffnet mit Live die Abfahrtstafel, sonst den Abfahrtsplan laut Fahrplan.",
   },
+  kursbuch: {
+    title: "Kursbuch",
+    continued: "Fortsetzung",
+    sheets: "Fahrplanbilder",
+    cols: "Züge je Seite",
+    print: "Als PDF drucken",
+    loading: "lade noch {n} Fahrplanbilder …",
+    hint: "Alle Fahrplanbilder des gewählten Tages im Kursbuch-Layout, je Seite eine feste Zahl an Zügen (A4 hoch). Drucken → „Als PDF sichern“; im Druckdialog „Kopf- und Fußzeilen“ ausschalten.",
+    cover: "Fahrplan für {date} · Fahrplanbilder {from}–{to}",
+    coverNote: "erzeugt mit zugx, ohne Gewähr",
+    contents: "Inhalt",
+  },
   nav: {
     main: "Hauptnavigation",
     menu: "Menü",

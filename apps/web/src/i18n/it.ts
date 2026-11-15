@@ -8,6 +8,18 @@ export default {
     filter: "Nome o sigla (p. es. Kt, Vb, Vps)",
     note: "Sigle: punti di esercizio ÖBB da OpenStreetMap (railway:ref). Con Live una stazione apre il tabellone, altrimenti il quadro partenze dall’orario.",
   },
+  kursbuch: {
+    title: "Orario generale",
+    continued: "segue",
+    sheets: "Quadri orari",
+    cols: "Treni per pagina",
+    print: "Stampa in PDF",
+    loading: "caricamento di altri {n} quadri …",
+    hint: "Tutti i quadri orari del giorno scelto in formato orario generale, un numero fisso di treni per pagina (A4 verticale). Stampa → “Salva come PDF”; disattivare “Intestazioni e piè di pagina”.",
+    cover: "Orario del {date} · quadri {from}–{to}",
+    coverNote: "creato con zugx, senza garanzia",
+    contents: "Indice",
+  },
   nav: {
     main: "Principale",
     menu: "Menu",

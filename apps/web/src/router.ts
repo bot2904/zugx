@@ -27,6 +27,7 @@ export const router = createRouter({
     },
     { path: "/station/:id", component: () => import("./pages/StationBoard.vue") },
     { path: "/stations", component: () => import("./pages/Stations.vue") },
+    { path: "/kursbuch", component: () => import("./pages/Kursbuch.vue") },
     { path: "/bahnhoefe", redirect: "/stations" },
     { path: "/j/:from/:to", component: () => import("./pages/Journeys.vue") },
     { path: "/trip/:recon", component: () => import("./pages/JourneyDetail.vue") },

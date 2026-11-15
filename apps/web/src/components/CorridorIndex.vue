@@ -86,6 +86,9 @@ useKeys({
     <div class="flex flex-wrap items-baseline gap-2">
       <h1 class="m-0 text-xl">{{ $t("bf.title") }}</h1>
       <span class="muted text-sm">{{ $t("bf.subtitle", { n: index.corridors.length }) }}</span>
+      <RouterLink to="/kursbuch" class="text-sm" v-tip="$t('kursbuch.hint')"
+        >⎙ {{ $t("kursbuch.title") }} (PDF)</RouterLink
+      >
       <search class="contents">
         <input
           v-model="q"
