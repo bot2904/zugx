@@ -162,7 +162,7 @@ export default {
         supplement: "Supplemento regolare",
         slack: "molta riserva da",
       },
-      punctuality: "Puntualità",
+      punctuality: "Puntualità (tempo reale)",
       punctualitySummary: "{runs} corse in {days} giorni (raccolte in questo browser)",
       collect: "Attiva tempo reale e raccogli",
       noPunctuality:
@@ -202,7 +202,7 @@ export default {
         knoten: "Nodo",
         kreuzung: "Incroci",
         reserve: "Riserva di marcia",
-        puenktlichkeit: "Puntualità",
+        puenktlichkeit: "Puntualità (tempo reale)",
       },
       pickNode: "Analizza come nodo",
       title: "Pianificazione",

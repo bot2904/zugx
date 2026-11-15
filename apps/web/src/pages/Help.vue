@@ -150,8 +150,9 @@ const { locale } = useI18n();
           und die Schwelle für „viel Reserve“.
         </li>
         <li>
-          <strong>Pünktlichkeit</strong>: wo Züge Zeit verlieren, je Abschnitt und Halt, aus den
-          gemeldeten Echtzeiten. Gesammelt im eigenen Browser, solange Echtzeit läuft (7 Tage).
+          <strong>Pünktlichkeit (Echtzeit)</strong>: wo Züge Zeit verlieren, je Abschnitt und Halt,
+          aus den gemeldeten Echtzeiten. Gesammelt im eigenen Browser, solange Echtzeit läuft (7
+          Tage).
         </li>
       </ul>
       <p class="muted">
@@ -411,8 +412,8 @@ const { locale } = useI18n();
           threshold for much reserve.
         </li>
         <li>
-          <strong>Punctuality</strong>: where trains lose time, per stretch and stop, from the
-          reported realtime times. Collected in your browser while live runs (7 days).
+          <strong>Punctuality (live)</strong>: where trains lose time, per stretch and stop, from
+          the reported realtime times. Collected in your browser while live runs (7 days).
         </li>
       </ul>
       <p class="muted">

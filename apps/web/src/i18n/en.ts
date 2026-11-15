@@ -160,7 +160,7 @@ export default {
         supplement: "Standard supplement",
         slack: "much reserve from",
       },
-      punctuality: "Punctuality",
+      punctuality: "Punctuality (live)",
       punctualitySummary: "{runs} runs on {days} days (collected in this browser)",
       collect: "Turn on live and collect",
       noPunctuality:
@@ -199,7 +199,7 @@ export default {
         knoten: "Node",
         kreuzung: "Crossings",
         reserve: "Running-time reserve",
-        puenktlichkeit: "Punctuality",
+        puenktlichkeit: "Punctuality (live)",
       },
       pickNode: "Analyse as node",
       title: "Planning",

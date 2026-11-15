@@ -162,7 +162,7 @@ export default {
         supplement: "Regelzuschlag",
         slack: "viel Reserve ab",
       },
-      punctuality: "Pünktlichkeit",
+      punctuality: "Pünktlichkeit (Echtzeit)",
       punctualitySummary:
         "{runs} Fahrten an {days} Tagen ausgewertet (in diesem Browser gesammelt)",
       collect: "Echtzeit einschalten und sammeln",
@@ -203,7 +203,7 @@ export default {
         knoten: "Knoten",
         kreuzung: "Kreuzungen",
         reserve: "Fahrzeitreserve",
-        puenktlichkeit: "Pünktlichkeit",
+        puenktlichkeit: "Pünktlichkeit (Echtzeit)",
       },
       pickNode: "Als Knoten analysieren",
       title: "Planung",
