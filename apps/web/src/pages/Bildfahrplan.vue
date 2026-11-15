@@ -14,6 +14,7 @@ import { useI18n } from "../i18n/index.ts";
 import { useRoute, useRouter } from "vue-router";
 import CorridorIndexView from "../components/CorridorIndex.vue";
 import BfTable from "../components/BfTable.vue";
+import BfBook from "../components/BfBook.vue";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
 import { useKeys } from "../lib/keys.ts";
@@ -58,6 +59,8 @@ const hover = shallowRef<CorridorTrain>();
 
 // ---- two windows (e.g. two monitors): ?part=chart | table shows only that part; the windows
 // share the sheet, date, time window, section and the hovered train (BroadcastChannel) ----
+/** timetable tables: Kursbuch layout by default, ?transpose=1 a row per train */
+const transposed = computed(() => route.query.transpose === "1");
 const part = computed(() =>
   route.query.part === "chart" || route.query.part === "table" ? route.query.part : undefined,
 );
@@ -916,36 +919,37 @@ function toggleCat(c: string) {
         {{ $t("bf.legendHafasOnly") }}
       </span>
     </p>
-    <div v-if="data && !part" class="no-print mt-2 flex justify-end text-xs">
-      <button class="btn" v-tip="$t('bf.newWindowTip')" @click="openPart('table')">
+    <div v-if="data && part !== 'chart'" class="no-print mt-2 flex justify-end gap-1 text-xs">
+      <button
+        class="btn"
+        :class="transposed && 'btn-on'"
+        :aria-pressed="transposed"
+        v-tip="$t('bf.transposeTip')"
+        @click="setQuery({ transpose: transposed ? undefined : '1' })"
+      >
+        ⤡ {{ $t("bf.transpose") }}
+      </button>
+      <button v-if="!part" class="btn" v-tip="$t('bf.newWindowTip')" @click="openPart('table')">
         ⧉ {{ $t("bf.tableNewWindow") }}
       </button>
     </div>
-    <BfTable
-      v-if="data && part !== 'chart'"
-      :follow="part === 'table'"
-      :stations="shownStations"
-      :trains="[...trainsOnDate, ...hafasOnlyTrains].filter((t) => !hidden.has(t.cat))"
-      :dir="reversed ? -1 : 1"
-      :t0="t0"
-      :t1="t1"
-      :date="date"
-      :hover="hover"
-      @hover="hover = $event"
-    />
-    <!-- the other direction -->
-    <BfTable
-      v-if="data && part !== 'chart'"
-      :follow="part === 'table'"
-      :stations="[...shownStations].reverse()"
-      :trains="[...trainsOnDate, ...hafasOnlyTrains].filter((t) => !hidden.has(t.cat))"
-      :dir="reversed ? 1 : -1"
-      :t0="t0"
-      :t1="t1"
-      :date="date"
-      :hover="hover"
-      @hover="hover = $event"
-    />
+    <!-- both directions: Kursbuch layout (a column per train), transposed: a row per train -->
+    <template v-if="data && part !== 'chart'">
+      <component
+        :is="transposed ? BfTable : BfBook"
+        v-for="dir in [reversed ? -1 : 1, reversed ? 1 : -1] as const"
+        :key="dir"
+        :stations="dir === (reversed ? -1 : 1) ? shownStations : [...shownStations].reverse()"
+        :trains="[...trainsOnDate, ...hafasOnlyTrains].filter((t) => !hidden.has(t.cat))"
+        :dir="dir"
+        :t0="t0"
+        :t1="t1"
+        :date="date"
+        :hover="hover"
+        :follow="part === 'table'"
+        @hover="hover = $event"
+      />
+    </template>
   </section>
 </template>
 

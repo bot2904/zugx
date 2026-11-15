@@ -151,6 +151,9 @@ export default {
     hint: "Positionen werden von ÖBB HAFAS berechnet.",
   },
   bf: {
+    tableFrom: "von",
+    transpose: "Transponieren",
+    transposeTip: "Kursbuch-Ansicht (eine Spalte je Zug) oder transponiert (eine Zeile je Zug)",
     startTime: "Startzeit",
     showBoth: "Bildfahrplan und Tabelle",
     chartNewWindow: "Bildfahrplan in neuem Fenster",

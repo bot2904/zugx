@@ -6,9 +6,10 @@ import type { CorridorTrain } from "@zugx/netz";
 import { computed, ref, useTemplateRef, watch } from "vue";
 import LineBadge from "./LineBadge.vue";
 import { trainSlug } from "../lib/url.ts";
+import { hhmm, tableRuns, type TableStation } from "../lib/bf-table.ts";
 
 const props = defineProps<{
-  stations: { id: string; i: number; name: string; major: boolean }[];
+  stations: TableStation[];
   trains: CorridorTrain[];
   /** 1 = shown stations in corridor order, -1 = reversed */
   dir: 1 | -1;
@@ -21,43 +22,14 @@ const props = defineProps<{
 }>();
 const emit = defineEmits<{ hover: [t: CorridorTrain | undefined] }>();
 
-const hhmm = (min: number) =>
-  `${Math.floor(min / 60) % 24}:${String(Math.round(min) % 60).padStart(2, "0")}`;
-/**
- * passing points carry interpolated times with one decimal and arrival = departure (see
- * passingPoints in @zugx/netz); stops have whole minutes
- */
-const isPass = (a: number | null, d: number | null) => a !== null && a === d && a % 1 !== 0;
-
 const rows = computed(() => {
-  const col = new Map(props.stations.map((s, k) => [s.i, k]));
   const last = props.stations.length - 1;
-  const out: { t: CorridorTrain; cells: string[]; first: number; to?: string }[] = [];
-  for (const t of props.trains) {
-    if (t.dir !== props.dir) continue;
-    const cells: string[] = Array.from({ length: props.stations.length }, () => "");
-    let first: number | undefined;
-    let lastK = -1;
-    for (const [i, a, d] of t.pts) {
-      const k = col.get(i);
-      if (k === undefined) continue;
-      const tm = k === last ? (a ?? d) : (d ?? a);
-      if (tm === null) continue;
-      first ??= tm;
-      cells[k] = isPass(a, d) ? "|" : hhmm(tm);
-      lastK = Math.max(lastK, k);
-    }
-    // at least two stations of the section, starting in the time window
-    if (first === undefined || first < props.t0 || first >= props.t1) continue;
-    if (cells.filter(Boolean).length < 2) continue;
-    // fill the stretch between the train's first and last station: passes not in the data
-    const firstK = cells.findIndex(Boolean);
-    for (let k = firstK; k < lastK; k++) if (!cells[k]) cells[k] = "|";
-    // destination where it lies beyond the train's last shown station
-    const to = t.headsign !== props.stations[lastK]?.name ? t.headsign : undefined;
-    out.push({ t, cells, first, ...(to ? { to } : {}) });
-  }
-  return out.sort((x, y) => x.first - y.first);
+  return tableRuns(props.stations, props.trains, props.dir, props.t0, props.t1).map((r) => ({
+    ...r,
+    cells: r.at.map((x, k) =>
+      !x ? "" : x.pass ? "|" : hhmm((k === last ? (x.a ?? x.d) : (x.d ?? x.a))!),
+    ),
+  }));
 });
 
 const tbody = useTemplateRef<HTMLElement>("tbody");

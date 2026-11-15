@@ -149,6 +149,9 @@ export default {
     hint: "Positions are calculated by ÖBB HAFAS.",
   },
   bf: {
+    tableFrom: "from",
+    transpose: "Transpose",
+    transposeTip: "Kursbuch layout (a column per train) or transposed (a row per train)",
     startTime: "Start time",
     showBoth: "Show chart and table",
     chartNewWindow: "Chart in new window",

@@ -151,6 +151,10 @@ export default {
     hint: "Posizioni calcolate da ÖBB HAFAS.",
   },
   bf: {
+    tableFrom: "da",
+    transpose: "Trasponi",
+    transposeTip:
+      "Impaginazione orario ufficiale (una colonna per treno) o trasposta (una riga per treno)",
     startTime: "Ora di inizio",
     showBoth: "Grafico e tabella",
     chartNewWindow: "Grafico in nuova finestra",

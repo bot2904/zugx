@@ -149,6 +149,18 @@ test("bildfahrplan section and direction are adjustable", async ({ page }) => {
 
 test("bildfahrplan: timetable tables below the chart, both directions", async ({ page }) => {
   await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
+  // default: Kursbuch layout, stations as rows ("an"/"ab"), a column per train
+  const book = page.locator(".bf-book table").first();
+  await expect(book.locator("tbody th.stn").first()).toHaveText("Wien Hbf");
+  await expect(book.locator("tbody th.kind").first()).toHaveText("ab");
+  // blocks of as many trains as fit the width
+  expect(
+    await page.locator(".bf-book").first().locator("thead tr.trains th[data-c]").count(),
+  ).toBeGreaterThan(10);
+  await expect(book.locator("tbody td", { hasText: /^7\u2009\d\d$/ }).first()).toBeVisible();
+  // transposed: a row per train
+  await page.getByRole("button", { name: /Transpose|Transponieren|Trasponi/ }).click();
+  await expect(page).toHaveURL(/transpose=1/);
   const table = page.locator(".bf-table table").first();
   // second table: the reverse direction
   await expect(page.locator(".bf-table h2").nth(1)).toHaveText(/^Salzburg Hbf – Wien Hbf$/);
