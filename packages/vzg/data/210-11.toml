@@ -14,8 +14,8 @@ length = 0.497
 speeds = [[0, 0.499, 60, 60]]
 curves = [[0.122, 0.398, 360]]
 points = [
-  { km = 0.073, kind = "signal", label = "V504H", signal = "shunting", measured = true },
-  { km = 0.423, kind = "signal", label = "V504R", signal = "shunting", measured = true },
+  { km = 0.073, kind = "signal", label = "V504H", signal = "shunting", dir = -1, measured = true },
+  { km = 0.423, kind = "signal", label = "V504R", signal = "shunting", dir = 1, measured = true },
 ]
 
 [tracks.geo]

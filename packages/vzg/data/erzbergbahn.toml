@@ -17,12 +17,12 @@ curves = [[1.345, 1.445, 500], [1.748, 2, 470], [2.051, 2.379, 1000], [2.429, 2.
 points = [
   { km = 7.6, kind = "station", label = "Erzberg", ele = 1070, pos = [47.51637, 14.90926], measured = true },
   { km = 9.398, kind = "stop", label = "Feistawiese", pos = [47.52566, 14.92511], measured = true },
-  { km = 11.903, kind = "signal", signal = "minor" },
+  { km = 11.903, kind = "signal", signal = "minor", dir = -1 },
   { km = 12, kind = "station", label = "Präbichl", pos = [47.52085, 14.95122], measured = true, ele = 1204 },
-  { km = 12.092, kind = "signal", signal = "minor" },
-  { km = 12.816, kind = "signal", signal = "distant" },
+  { km = 12.092, kind = "signal", signal = "minor", dir = 1 },
+  { km = 12.816, kind = "signal", signal = "distant", dir = -1 },
   { km = 14.7, kind = "stop", label = "Glaslbremse", pos = [47.51181, 14.97806], measured = true },
-  { km = 17.929, kind = "signal", signal = "electricity" },
+  { km = 17.929, kind = "signal", signal = "electricity", dir = 1 },
   { km = 17.94, kind = "halt", label = "Vordernberg Markt", ele = 846, pos = [47.48579, 14.99456] },
 ]
 structures = [

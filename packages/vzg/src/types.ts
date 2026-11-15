@@ -109,6 +109,11 @@ export interface VzgPoint {
   measured?: boolean;
   /** signal type, e.g. "main", "distant", "speed_limit" */
   signal?: string;
+  /**
+   * signals: the direction it applies to — 1 for trains towards increasing km, −1 towards
+   * decreasing (OSM `railway:signal:direction` relative to the way's direction)
+   */
+  dir?: 1 | -1;
 }
 
 /** `data/index.toml`: one entry per built line */

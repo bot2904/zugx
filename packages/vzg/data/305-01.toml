@@ -16,17 +16,17 @@ length = 14.941
 speeds = [[0.41, 0.766, 200, 200], [0.766, 15.03, 160, 160], [15.03, 15.384, 80, 80]]
 curves = [[1.405, 2.155, 2040], [4.583, 4.633, 2830], [5.235, 5.335, 2610], [13.184, 15.011, 1930]]
 points = [
-  { km = 1.237, kind = "signal", label = "Xf33/zl21,yl22", signal = "distant,main,speed_limit", measured = true },
-  { km = 1.289, kind = "signal", signal = "catenary_mast,snowplow" },
-  { km = 1.517, kind = "signal", label = "1Xf33", signal = "main_repeated", measured = true },
-  { km = 1.677, kind = "signal", signal = "catenary_mast,snowplow" },
-  { km = 1.789, kind = "signal", signal = "catenary_mast,snowplow" },
-  { km = 2.206, kind = "signal", signal = "catenary_mast,snowplow" },
-  { km = 2.434, kind = "signal", label = "xf33", signal = "distant,speed_limit_distant", measured = true },
-  { km = 15.03, kind = "signal", signal = "catenary_mast,speed_limit", measured = true },
-  { km = 15.03, kind = "signal", signal = "catenary_mast,speed_limit", measured = true },
-  { km = 15.313, kind = "signal", signal = "catenary_mast,electricity" },
-  { km = 15.315, kind = "signal", signal = "catenary_mast,electricity" },
+  { km = 1.237, kind = "signal", label = "Xf33/zl21,yl22", signal = "distant,main,speed_limit", dir = -1, measured = true },
+  { km = 1.289, kind = "signal", signal = "catenary_mast,snowplow", dir = 1 },
+  { km = 1.517, kind = "signal", label = "1Xf33", signal = "main_repeated", dir = -1, measured = true },
+  { km = 1.677, kind = "signal", signal = "catenary_mast,snowplow", dir = 1 },
+  { km = 1.789, kind = "signal", signal = "catenary_mast,snowplow", dir = 1 },
+  { km = 2.206, kind = "signal", signal = "catenary_mast,snowplow", dir = 1 },
+  { km = 2.434, kind = "signal", label = "xf33", signal = "distant,speed_limit_distant", dir = -1, measured = true },
+  { km = 15.03, kind = "signal", signal = "catenary_mast,speed_limit", dir = -1, measured = true },
+  { km = 15.03, kind = "signal", signal = "catenary_mast,speed_limit", dir = 1, measured = true },
+  { km = 15.313, kind = "signal", signal = "catenary_mast,electricity", dir = 1 },
+  { km = 15.315, kind = "signal", signal = "catenary_mast,electricity", dir = -1 },
 ]
 structures = [
   { kind = "bridge", kmFrom = 1.706, kmTo = 2.213, length = 505, name = "Innbrücke" },

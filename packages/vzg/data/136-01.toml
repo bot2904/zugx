@@ -15,13 +15,13 @@ length = 0.73
 speeds = [[0.001, 0.742, 60, 60]]
 curves = [[0.106, 0.635, 350]]
 points = [
-  { km = 0.086, kind = "signal", signal = "shunting" },
-  { km = 0.134, kind = "signal", label = "S/p215", signal = "distant,main", measured = true },
-  { km = 0.136, kind = "signal", label = "d908", signal = "distant", measured = true },
-  { km = 0.551, kind = "signal", label = "D908/k", signal = "distant,main", measured = true },
-  { km = 0.63, kind = "signal", label = "VHT102", signal = "shunting", measured = true },
-  { km = 0.66, kind = "signal", label = "V102R", signal = "shunting", measured = true },
-  { km = 0.67, kind = "signal", label = "s", signal = "distant", measured = true },
+  { km = 0.086, kind = "signal", signal = "shunting", dir = 1 },
+  { km = 0.134, kind = "signal", label = "S/p215", signal = "distant,main", dir = -1, measured = true },
+  { km = 0.136, kind = "signal", label = "d908", signal = "distant", dir = 1, measured = true },
+  { km = 0.551, kind = "signal", label = "D908/k", signal = "distant,main", dir = 1, measured = true },
+  { km = 0.63, kind = "signal", label = "VHT102", signal = "shunting", dir = -1, measured = true },
+  { km = 0.66, kind = "signal", label = "V102R", signal = "shunting", dir = 1, measured = true },
+  { km = 0.67, kind = "signal", label = "s", signal = "distant", dir = -1, measured = true },
 ]
 
 [tracks.geo]

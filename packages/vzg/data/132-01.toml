@@ -14,14 +14,14 @@ length = 1.726
 speeds = [[-0.014, 1.253, 50, 50], [1.253, 1.418, 40, 50], [1.418, 1.71, 40, 40]]
 curves = [[0.911, 0.962, 1810], [1.012, 1.362, 1710], [1.411, 1.614, 210]]
 points = [
-  { km = 0.256, kind = "signal", label = "b", signal = "distant", measured = true },
-  { km = 0.321, kind = "signal", label = "X/u", signal = "distant,main,speed_limit", measured = true },
-  { km = 1.014, kind = "signal", label = "x", signal = "distant", measured = true },
-  { km = 1.253, kind = "signal", label = "B/r", signal = "distant,main", measured = true },
-  { km = 1.55, kind = "signal", label = "VHT103", signal = "shunting", measured = true },
-  { km = 1.607, kind = "signal", label = "V103R", signal = "shunting", measured = true },
-  { km = 6.012, kind = "signal", label = "V69", signal = "shunting", measured = true },
-  { km = 6.142, kind = "signal", label = "VHT703", signal = "shunting", measured = true },
+  { km = 0.256, kind = "signal", label = "b", signal = "distant", dir = 1, measured = true },
+  { km = 0.321, kind = "signal", label = "X/u", signal = "distant,main,speed_limit", dir = -1, measured = true },
+  { km = 1.014, kind = "signal", label = "x", signal = "distant", dir = -1, measured = true },
+  { km = 1.253, kind = "signal", label = "B/r", signal = "distant,main", dir = 1, measured = true },
+  { km = 1.55, kind = "signal", label = "VHT103", signal = "shunting", dir = -1, measured = true },
+  { km = 1.607, kind = "signal", label = "V103R", signal = "shunting", dir = 1, measured = true },
+  { km = 6.012, kind = "signal", label = "V69", signal = "shunting", dir = -1, measured = true },
+  { km = 6.142, kind = "signal", label = "VHT703", signal = "shunting", dir = 1, measured = true },
   { km = 7.534, kind = "halt", label = "Wien Praterkai", uic = "8101539", pos = [48.19966, 16.44127], measured = true },
 ]
 structures = [

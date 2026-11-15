@@ -12,10 +12,10 @@ length = 0.361
 speeds = [[76.424, 76.499, "", ""], [76.499, 76.506, 60, 60], [76.506, 76.534, 80, 80], [76.534, 76.616, "", ""]]
 curves = [[76.496, 76.516, 30]]
 points = [
-  { km = 76.493, kind = "signal", label = "V551H", signal = "shunting", measured = true },
-  { km = 76.506, kind = "signal", label = "V193H", signal = "shunting", measured = true },
-  { km = 76.512, kind = "signal", label = "2T2-7", signal = "main_repeated", measured = true },
-  { km = 76.613, kind = "signal", signal = "minor" },
+  { km = 76.493, kind = "signal", label = "V551H", signal = "shunting", dir = 1, measured = true },
+  { km = 76.506, kind = "signal", label = "V193H", signal = "shunting", dir = -1, measured = true },
+  { km = 76.512, kind = "signal", label = "2T2-7", signal = "main_repeated", dir = -1, measured = true },
+  { km = 76.613, kind = "signal", signal = "minor", dir = 1 },
 ]
 
 [tracks.geo]

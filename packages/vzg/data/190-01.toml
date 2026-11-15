@@ -16,19 +16,19 @@ length = 4.033
 speeds = [[0.492, 0.732, 50, 40], [0.732, 3.229, 50, 50], [3.229, 3.509, 50, 30], [3.509, 3.519, 50, 40], [3.519, 4.544, 40, 40]]
 curves = [[0.618, 0.795, 780], [1.213, 1.614, 430], [1.666, 1.719, 1470], [3.077, 3.224, 720], [3.274, 3.5, 500], [3.551, 3.728, 970]]
 points = [
-  { km = 0.552, kind = "signal", label = "VHT303", signal = "shunting", measured = true },
-  { km = 0.732, kind = "signal", label = "C/e", signal = "distant,main", measured = true },
-  { km = 1.132, kind = "signal", label = "c", signal = "distant", measured = true },
-  { km = 1.768, kind = "signal", signal = "crossing_distant" },
-  { km = 2.558, kind = "signal", label = "KT1", signal = "distant", measured = true },
-  { km = 2.958, kind = "signal", label = "A", signal = "main", measured = true },
-  { km = 2.995, kind = "signal", signal = "crossing_distant" },
-  { km = 3.014, kind = "signal", signal = "crossing_distant" },
-  { km = 3.229, kind = "signal", label = "VHT1", signal = "shunting,speed_limit", measured = true },
-  { km = 3.509, kind = "signal", signal = "speed_limit" },
-  { km = 3.518, kind = "signal", signal = "speed_limit" },
-  { km = 4.544, kind = "signal", label = "FE1", signal = "minor", measured = true },
-  { km = 9.467, kind = "signal", label = "V303", signal = "shunting", measured = true },
+  { km = 0.552, kind = "signal", label = "VHT303", signal = "shunting", dir = 1, measured = true },
+  { km = 0.732, kind = "signal", label = "C/e", signal = "distant,main", dir = -1, measured = true },
+  { km = 1.132, kind = "signal", label = "c", signal = "distant", dir = -1, measured = true },
+  { km = 1.768, kind = "signal", signal = "crossing_distant", dir = 1 },
+  { km = 2.558, kind = "signal", label = "KT1", signal = "distant", dir = 1, measured = true },
+  { km = 2.958, kind = "signal", label = "A", signal = "main", dir = 1, measured = true },
+  { km = 2.995, kind = "signal", signal = "crossing_distant", dir = -1 },
+  { km = 3.014, kind = "signal", signal = "crossing_distant", dir = 1 },
+  { km = 3.229, kind = "signal", label = "VHT1", signal = "shunting,speed_limit", dir = -1, measured = true },
+  { km = 3.509, kind = "signal", signal = "speed_limit", dir = -1 },
+  { km = 3.518, kind = "signal", signal = "speed_limit", dir = 1 },
+  { km = 4.544, kind = "signal", label = "FE1", signal = "minor", dir = 1, measured = true },
+  { km = 9.467, kind = "signal", label = "V303", signal = "shunting", dir = -1, measured = true },
 ]
 structures = [
   { kind = "bridge", kmFrom = 0.576, kmTo = 0.614, length = 37 },

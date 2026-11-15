@@ -14,16 +14,16 @@ length = 2.389
 speeds = [[36.874, 39.274, 60, 60]]
 curves = [[36.974, 37.124, 930], [37.174, 37.299, 1360], [37.45, 37.774, 490]]
 points = [
-  { km = 37.016, kind = "signal", label = "H203", signal = "main", measured = true },
-  { km = 37.368, kind = "signal", label = "G203/r", signal = "distant,main", measured = true },
-  { km = 37.566, kind = "signal", label = "V223H", signal = "shunting", measured = true },
-  { km = 37.659, kind = "signal", label = "V223R", signal = "shunting", measured = true },
-  { km = 37.659, kind = "signal", label = "h203", signal = "distant", measured = true },
-  { km = 37.916, kind = "signal", label = "S933", signal = "main,shunting", measured = true },
+  { km = 37.016, kind = "signal", label = "H203", signal = "main", dir = -1, measured = true },
+  { km = 37.368, kind = "signal", label = "G203/r", signal = "distant,main", dir = 1, measured = true },
+  { km = 37.566, kind = "signal", label = "V223H", signal = "shunting", dir = -1, measured = true },
+  { km = 37.659, kind = "signal", label = "V223R", signal = "shunting", dir = 1, measured = true },
+  { km = 37.659, kind = "signal", label = "h203", signal = "distant", dir = -1, measured = true },
+  { km = 37.916, kind = "signal", label = "S933", signal = "main,shunting", dir = -1, measured = true },
   { km = 38.04, kind = "station", label = "Ebenfurth", pos = [47.87766, 16.36213], uic = "8100225" },
-  { km = 38.119, kind = "signal", label = "R933", signal = "main,shunting", measured = true },
-  { km = 38.896, kind = "signal", label = "V953H", signal = "shunting", measured = true },
-  { km = 39.206, kind = "signal", label = "V953R", signal = "shunting", measured = true },
+  { km = 38.119, kind = "signal", label = "R933", signal = "main,shunting", dir = 1, measured = true },
+  { km = 38.896, kind = "signal", label = "V953H", signal = "shunting", dir = -1, measured = true },
+  { km = 39.206, kind = "signal", label = "V953R", signal = "shunting", dir = 1, measured = true },
 ]
 
 [tracks.geo]

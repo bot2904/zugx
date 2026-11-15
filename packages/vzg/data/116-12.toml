@@ -15,9 +15,9 @@ length = 1.571
 speeds = [[0.971, 1.24, 40, 50], [1.24, 2.408, 40, 60], [2.408, 2.546, 60, 60]]
 curves = [[1.071, 1.321, 250], [1.371, 1.572, 670], [2.349, 2.424, 2290]]
 points = [
-  { km = 1.24, kind = "signal", label = "K31/l", signal = "distant,main,speed_limit", measured = true },
+  { km = 1.24, kind = "signal", label = "K31/l", signal = "distant,main,speed_limit", dir = -1, measured = true },
   { km = 1.492, kind = "station", label = "Wien Süßenbrunn", uic = "8101619", pos = [48.28557, 16.48552] },
-  { km = 2.408, kind = "signal", label = "R31", signal = "main,shunting", measured = true },
+  { km = 2.408, kind = "signal", label = "R31", signal = "main,shunting", dir = 1, measured = true },
 ]
 structures = [
   { kind = "bridge", kmFrom = 1.332, kmTo = 1.343, length = 10 },

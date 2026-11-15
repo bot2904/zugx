@@ -14,17 +14,17 @@ length = 1.882
 speeds = [[0.18, 1.458, 40, 40]]
 curves = [[0.556, 0.729, 880], [0.98, 1.457, 210]]
 points = [
-  { km = 0.18, kind = "signal", label = "S951/l,k", signal = "distant,main,shunting", measured = true },
-  { km = 0.258, kind = "signal", label = "f951", signal = "distant", measured = true },
-  { km = 0.923, kind = "signal", label = "s951", signal = "distant", measured = true },
-  { km = 0.997, kind = "signal", label = "F951", signal = "main,shunting", measured = true },
-  { km = 1.079, kind = "signal", label = "V962H", signal = "shunting", measured = true },
-  { km = 1.247, kind = "signal", label = "V923", signal = "shunting", measured = true },
-  { km = 1.262, kind = "signal", label = "V963H", signal = "shunting", measured = true },
-  { km = 1.336, kind = "signal", label = "V969H", signal = "shunting", measured = true },
-  { km = 1.421, kind = "signal", label = "V962R", signal = "shunting", measured = true },
-  { km = 1.455, kind = "signal", label = "V963R", signal = "shunting", measured = true },
-  { km = 1.458, kind = "signal", label = "V969R", signal = "shunting", measured = true },
+  { km = 0.18, kind = "signal", label = "S951/l,k", signal = "distant,main,shunting", dir = -1, measured = true },
+  { km = 0.258, kind = "signal", label = "f951", signal = "distant", dir = 1, measured = true },
+  { km = 0.923, kind = "signal", label = "s951", signal = "distant", dir = -1, measured = true },
+  { km = 0.997, kind = "signal", label = "F951", signal = "main,shunting", dir = 1, measured = true },
+  { km = 1.079, kind = "signal", label = "V962H", signal = "shunting", dir = -1, measured = true },
+  { km = 1.247, kind = "signal", label = "V923", signal = "shunting", dir = 1, measured = true },
+  { km = 1.262, kind = "signal", label = "V963H", signal = "shunting", dir = 1, measured = true },
+  { km = 1.336, kind = "signal", label = "V969H", signal = "shunting", dir = -1, measured = true },
+  { km = 1.421, kind = "signal", label = "V962R", signal = "shunting", dir = 1, measured = true },
+  { km = 1.455, kind = "signal", label = "V963R", signal = "shunting", dir = -1, measured = true },
+  { km = 1.458, kind = "signal", label = "V969R", signal = "shunting", dir = 1, measured = true },
 ]
 
 [tracks.geo]

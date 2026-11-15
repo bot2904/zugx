@@ -14,9 +14,9 @@ length = 0.619
 speeds = [[0.109, 0.439, 40, 60], [0.439, 0.727, 40, ""]]
 curves = [[0.227, 0.627, 340]]
 points = [
-  { km = 0.206, kind = "signal", label = "n/Gl580", signal = "distant", measured = true },
-  { km = 0.439, kind = "signal", label = "K570", signal = "main", measured = true },
-  { km = 0.727, kind = "signal", label = "FE 570R", signal = "minor" },
+  { km = 0.206, kind = "signal", label = "n/Gl580", signal = "distant", dir = -1, measured = true },
+  { km = 0.439, kind = "signal", label = "K570", signal = "main", dir = -1, measured = true },
+  { km = 0.727, kind = "signal", label = "FE 570R", signal = "minor", dir = 1 },
 ]
 structures = [
   { kind = "bridge", kmFrom = 0.339, kmTo = 0.371, length = 33 },

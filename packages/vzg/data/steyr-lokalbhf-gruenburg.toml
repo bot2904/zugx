@@ -15,18 +15,18 @@ length = 16.93
 speeds = [[0, 16.93, "", ""]]
 curves = [[0.175, 0.225, 900], [0.525, 0.575, 1650], [0.65, 0.85, 510], [0.9, 1.2, 340], [1.5, 1.9, 910], [2.1, 2.4, 610], [2.45, 2.55, 480], [2.7, 2.95, 640], [3, 3.25, 450], [3.3, 3.575, 1290], [3.75, 4.5, 720], [4.55, 4.85, 1040], [4.975, 5.125, 1760], [5.45, 5.725, 250], [5.975, 6.075, 910], [6.125, 6.475, 330], [6.525, 7.25, 420], [7.3, 8.15, 570], [8.2, 8.375, 700], [8.5, 8.725, 1240], [8.9, 8.975, 2510], [9.325, 9.5, 510], [9.85, 10.2, 380], [10.825, 10.975, 890], [11.25, 11.4, 870], [11.45, 11.85, 950], [11.9, 12.075, 1240], [12.15, 12.3, 440], [12.35, 12.5, 780], [12.6, 13.075, 670], [13.175, 13.325, 940], [13.425, 13.575, 700], [13.675, 13.875, 740], [13.925, 14.05, 660], [14.1, 14.9, 510], [14.95, 15.6, 280], [15.65, 16, 370], [16.275, 16.65, 890], [16.7, 16.825, 2740]]
 points = [
-  { km = 0.355, kind = "signal", signal = "main" },
+  { km = 0.355, kind = "signal", signal = "main", dir = -1 },
   { km = 1.237, kind = "stop", label = "Unterhimmel-Christkindl", pos = [48.0399, 14.39357] },
-  { km = 1.289, kind = "signal", signal = "whistle" },
+  { km = 1.289, kind = "signal", signal = "whistle", dir = 1 },
   { km = 2.7, kind = "station", label = "Steyr Lokalbahnhof", pos = [48.03915, 14.40815], measured = true },
   { km = 5.2, kind = "halt", label = "Schloss Rosenegg", pos = [48.04289, 14.37368], measured = true },
   { km = 6.7, kind = "station", label = "Pergern", pos = [48.04939, 14.35681], measured = true },
   { km = 9.3, kind = "halt", label = "Neuzeug", pos = [48.04008, 14.33325], measured = true },
-  { km = 9.56, kind = "signal", signal = "main" },
+  { km = 9.56, kind = "signal", signal = "main", dir = 1 },
   { km = 10.5, kind = "halt", label = "Letten", pos = [48.03092, 14.33722], measured = true },
-  { km = 11.903, kind = "signal", signal = "main" },
+  { km = 11.903, kind = "signal", signal = "main", dir = 1 },
   { km = 12.1, kind = "station", label = "Aschach an der Steyr", pos = [48.01991, 14.32532], measured = true },
-  { km = 12.249, kind = "signal", signal = "main" },
+  { km = 12.249, kind = "signal", signal = "main", dir = -1 },
   { km = 14.4, kind = "halt", label = "Sommerhubermühle", pos = [48.00626, 14.30303], measured = true },
   { km = 16.906, kind = "signal", signal = "minor" },
   { km = 17.9, kind = "halt", label = "Waldneukirchen", pos = [47.98484, 14.27644], measured = true },

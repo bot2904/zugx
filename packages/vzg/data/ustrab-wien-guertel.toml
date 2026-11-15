@@ -13,7 +13,7 @@ length = 2.075
 speeds = [[0, 2.075, 50, 50]]
 curves = [[0.2, 0.25, 2460], [0.325, 0.425, 1570], [0.95, 1.05, 1930], [1.125, 1.225, 1800], [1.3, 1.65, 620], [1.85, 1.975, 360]]
 points = [
-  { km = 0.008, kind = "signal", signal = "train_protection" },
+  { km = 0.008, kind = "signal", signal = "train_protection", dir = -1 },
   { km = 0.03, kind = "halt", label = "Hauptbahnhof", pos = [48.18592, 16.37387] },
   { km = 0.4, kind = "halt", label = "Wien Hauptbahnhof", uic = "8101590", pos = [48.18599, 16.37512], measured = true },
   { km = 0.481, kind = "halt", label = "Blechturmgasse", pos = [48.1842, 16.36837] },
@@ -21,7 +21,7 @@ points = [
   { km = 1.312, kind = "halt", label = "Matzleinsdorfer Platz", pos = [48.18054, 16.3586] },
   { km = 1.394, kind = "station", label = "Südtiroler Platz – Hauptbahnhof", uic = "8170059", pos = [48.1871, 16.37344], measured = true },
   { km = 2.003, kind = "halt", label = "Eichenstraße", pos = [48.18048, 16.34962] },
-  { km = 2.054, kind = "signal", signal = "train_protection" },
+  { km = 2.054, kind = "signal", signal = "train_protection", dir = -1 },
   { km = 9.414, kind = "halt", label = "Wien Matzleinsdorfer Platz", uic = "8101227", pos = [48.18013, 16.35777], measured = true },
 ]
 structures = [

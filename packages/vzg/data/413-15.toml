@@ -15,17 +15,17 @@ length = 1.654
 speeds = [[385.635, 387.289, 60, 60]]
 curves = []
 points = [
-  { km = 385.635, kind = "signal", label = "F206/g", signal = "distant,main", measured = true },
-  { km = 385.703, kind = "signal", label = "V316o", signal = "shunting", measured = true },
-  { km = 385.91, kind = "signal", label = "V316w", signal = "shunting", measured = true },
-  { km = 385.985, kind = "signal", label = "V326o", signal = "shunting", measured = true },
-  { km = 386.058, kind = "signal", label = "GA206", signal = "speed_limit", measured = true },
-  { km = 386.07, kind = "signal", label = "V326w", signal = "shunting", measured = true },
-  { km = 386.141, kind = "signal", label = "V336o", signal = "shunting", measured = true },
-  { km = 386.35, kind = "signal", label = "V336w", signal = "shunting", measured = true },
-  { km = 386.443, kind = "signal", label = "T306", signal = "main", measured = true },
+  { km = 385.635, kind = "signal", label = "F206/g", signal = "distant,main", dir = 1, measured = true },
+  { km = 385.703, kind = "signal", label = "V316o", signal = "shunting", dir = -1, measured = true },
+  { km = 385.91, kind = "signal", label = "V316w", signal = "shunting", dir = 1, measured = true },
+  { km = 385.985, kind = "signal", label = "V326o", signal = "shunting", dir = -1, measured = true },
+  { km = 386.058, kind = "signal", label = "GA206", signal = "speed_limit", dir = -1, measured = true },
+  { km = 386.07, kind = "signal", label = "V326w", signal = "shunting", dir = 1, measured = true },
+  { km = 386.141, kind = "signal", label = "V336o", signal = "shunting", dir = -1, measured = true },
+  { km = 386.35, kind = "signal", label = "V336w", signal = "shunting", dir = 1, measured = true },
+  { km = 386.443, kind = "signal", label = "T306", signal = "main", dir = -1, measured = true },
   { km = 386.486, kind = "station", label = "Fürnitz", uic = "8100368", ele = 508, pos = [46.56322, 13.81344], measured = true },
-  { km = 386.998, kind = "signal", label = "G306", signal = "main", measured = true },
+  { km = 386.998, kind = "signal", label = "G306", signal = "main", dir = 1, measured = true },
 ]
 
 [tracks.geo]

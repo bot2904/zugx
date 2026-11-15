@@ -15,14 +15,14 @@ length = 2.523
 speeds = [[383.361, 385.635, 80, 80], [385.635, 385.883, 60, ""]]
 curves = [[383.484, 383.584, 1240], [384.009, 384.384, 440], [384.434, 385.109, 690], [385.184, 385.334, 1670], [385.734, 385.784, 2210]]
 points = [
-  { km = 0.666, kind = "signal", label = "r203", signal = "distant", measured = true },
-  { km = 1.273, kind = "signal", label = "f203", signal = "distant", measured = true },
+  { km = 0.666, kind = "signal", label = "r203", signal = "distant", dir = -1, measured = true },
+  { km = 1.273, kind = "signal", label = "f203", signal = "distant", dir = 1, measured = true },
   { km = 5.364, kind = "halt", label = "Gödersdorf", uic = "8100861", pos = [46.56847, 13.84715], measured = true },
-  { km = 5.529, kind = "signal", label = "R203", signal = "main", measured = true },
-  { km = 385.635, kind = "signal", label = "F203/g", signal = "distant,main", measured = true },
-  { km = 385.703, kind = "signal", label = "V313o", signal = "shunting", measured = true },
-  { km = 385.808, kind = "signal", label = "GA203", signal = "speed_limit", measured = true },
-  { km = 385.811, kind = "signal", label = "V313w", signal = "shunting", measured = true },
+  { km = 5.529, kind = "signal", label = "R203", signal = "main", dir = -1, measured = true },
+  { km = 385.635, kind = "signal", label = "F203/g", signal = "distant,main", dir = 1, measured = true },
+  { km = 385.703, kind = "signal", label = "V313o", signal = "shunting", dir = -1, measured = true },
+  { km = 385.808, kind = "signal", label = "GA203", signal = "speed_limit", dir = -1, measured = true },
+  { km = 385.811, kind = "signal", label = "V313w", signal = "shunting", dir = 1, measured = true },
 ]
 structures = [
   { kind = "bridge", kmFrom = 383.371, kmTo = 383.381, length = 10 },

@@ -15,14 +15,14 @@ length = 1.743
 speeds = [[0.059, 1.831, 60, 60]]
 curves = [[0.177, 0.225, 1700], [0.883, 1.264, 370], [1.482, 1.731, 430]]
 points = [
-  { km = 0.202, kind = "signal", label = "H742", signal = "main", measured = true },
-  { km = 0.394, kind = "signal", signal = "snowplow" },
-  { km = 0.413, kind = "signal", signal = "snowplow" },
-  { km = 1.076, kind = "signal", signal = "snowplow" },
-  { km = 1.279, kind = "signal", signal = "snowplow" },
-  { km = 1.398, kind = "signal", signal = "snowplow" },
-  { km = 1.537, kind = "signal", label = "1R742", signal = "main_repeated", measured = true },
-  { km = 1.63, kind = "signal", label = "R742", signal = "main", measured = true },
+  { km = 0.202, kind = "signal", label = "H742", signal = "main", dir = -1, measured = true },
+  { km = 0.394, kind = "signal", signal = "snowplow", dir = 1 },
+  { km = 0.413, kind = "signal", signal = "snowplow", dir = 1 },
+  { km = 1.076, kind = "signal", signal = "snowplow", dir = 1 },
+  { km = 1.279, kind = "signal", signal = "snowplow", dir = 1 },
+  { km = 1.398, kind = "signal", signal = "snowplow", dir = 1 },
+  { km = 1.537, kind = "signal", label = "1R742", signal = "main_repeated", dir = 1, measured = true },
+  { km = 1.63, kind = "signal", label = "R742", signal = "main", dir = 1, measured = true },
 ]
 structures = [
   { kind = "bridge", kmFrom = 0.447, kmTo = 0.465, length = 35 },

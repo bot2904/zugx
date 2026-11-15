@@ -15,17 +15,17 @@ length = 0.394
 speeds = [[0.728, 1.131, 40, 40]]
 curves = [[0.83, 1.003, 520]]
 points = [
-  { km = 0.749, kind = "signal", signal = "electricity" },
-  { km = 0.753, kind = "signal", signal = "electricity" },
-  { km = 0.771, kind = "signal", label = "K290/k280", signal = "distant,main,speed_limit", measured = true },
-  { km = 0.86, kind = "signal", label = "VHT290", signal = "shunting", measured = true },
-  { km = 0.904, kind = "signal", label = "V290", signal = "shunting", measured = true },
-  { km = 0.908, kind = "signal", label = "F290", signal = "main", measured = true },
-  { km = 0.92, kind = "signal", signal = "crossing_distant" },
-  { km = 0.962, kind = "signal", label = "K280", signal = "main", measured = true },
-  { km = 1.038, kind = "signal", label = "V234", signal = "shunting", measured = true },
-  { km = 1.04, kind = "signal", signal = "electricity" },
-  { km = 1.079, kind = "signal", label = "V231", signal = "shunting", measured = true },
+  { km = 0.749, kind = "signal", signal = "electricity", dir = 1 },
+  { km = 0.753, kind = "signal", signal = "electricity", dir = -1 },
+  { km = 0.771, kind = "signal", label = "K290/k280", signal = "distant,main,speed_limit", dir = 1, measured = true },
+  { km = 0.86, kind = "signal", label = "VHT290", signal = "shunting", dir = -1, measured = true },
+  { km = 0.904, kind = "signal", label = "V290", signal = "shunting", dir = 1, measured = true },
+  { km = 0.908, kind = "signal", label = "F290", signal = "main", dir = -1, measured = true },
+  { km = 0.92, kind = "signal", signal = "crossing_distant", dir = -1 },
+  { km = 0.962, kind = "signal", label = "K280", signal = "main", dir = 1, measured = true },
+  { km = 1.038, kind = "signal", label = "V234", signal = "shunting", dir = -1, measured = true },
+  { km = 1.04, kind = "signal", signal = "electricity", dir = 1 },
+  { km = 1.079, kind = "signal", label = "V231", signal = "shunting", dir = 1, measured = true },
 ]
 
 [tracks.geo]

@@ -15,12 +15,12 @@ length = 2.134
 speeds = [[0, 0.272, 100, 100], [0.272, 0.754, 60, 60], [0.754, 2.114, 100, 100]]
 curves = [[0.1, 0.646, 510], [0.744, 1.038, 660], [1.406, 1.605, 1060], [1.705, 1.855, 1620]]
 points = [
-  { km = 0.2, kind = "signal", label = "V375H", signal = "shunting", measured = true },
-  { km = 0.23, kind = "signal", label = "VHT375", signal = "shunting", measured = true },
-  { km = 0.272, kind = "signal", label = "bw11", signal = "distant", measured = true },
-  { km = 0.34, kind = "signal", label = "Zw11/m1", signal = "distant,main", measured = true },
-  { km = 1.42, kind = "signal", label = "Bw11", signal = "main", measured = true },
-  { km = 1.598, kind = "signal", label = "zw11", signal = "distant", measured = true },
+  { km = 0.2, kind = "signal", label = "V375H", signal = "shunting", dir = -1, measured = true },
+  { km = 0.23, kind = "signal", label = "VHT375", signal = "shunting", dir = 1, measured = true },
+  { km = 0.272, kind = "signal", label = "bw11", signal = "distant", dir = 1, measured = true },
+  { km = 0.34, kind = "signal", label = "Zw11/m1", signal = "distant,main", dir = -1, measured = true },
+  { km = 1.42, kind = "signal", label = "Bw11", signal = "main", dir = 1, measured = true },
+  { km = 1.598, kind = "signal", label = "zw11", signal = "distant", dir = -1, measured = true },
 ]
 structures = [
   { kind = "bridge", kmFrom = 0.774, kmTo = 1.341, length = 578 },
@@ -43,12 +43,12 @@ length = 2.139
 speeds = [[-0.008, 0.272, 100, 100], [0.272, 0.755, 60, 60], [0.755, 2.115, 100, 100]]
 curves = [[0.171, 0.646, 470], [0.743, 1.036, 660], [1.402, 1.601, 1080], [1.726, 1.876, 1550]]
 points = [
-  { km = 0.116, kind = "signal", label = "V376H", signal = "shunting", measured = true },
-  { km = 0.23, kind = "signal", label = "VHT376", signal = "shunting", measured = true },
-  { km = 0.272, kind = "signal", label = "aw12", signal = "distant", measured = true },
-  { km = 0.34, kind = "signal", label = "Yw12/m2", signal = "distant,main", measured = true },
-  { km = 1.42, kind = "signal", label = "Aw12", signal = "main", measured = true },
-  { km = 1.598, kind = "signal", label = "yw12", signal = "distant", measured = true },
+  { km = 0.116, kind = "signal", label = "V376H", signal = "shunting", dir = -1, measured = true },
+  { km = 0.23, kind = "signal", label = "VHT376", signal = "shunting", dir = 1, measured = true },
+  { km = 0.272, kind = "signal", label = "aw12", signal = "distant", dir = 1, measured = true },
+  { km = 0.34, kind = "signal", label = "Yw12/m2", signal = "distant,main", dir = -1, measured = true },
+  { km = 1.42, kind = "signal", label = "Aw12", signal = "main", dir = 1, measured = true },
+  { km = 1.598, kind = "signal", label = "yw12", signal = "distant", dir = -1, measured = true },
 ]
 structures = [
   { kind = "bridge", kmFrom = 0.775, kmTo = 1.34, length = 579 },

@@ -14,8 +14,8 @@ length = 1.382
 speeds = [[4.859, 6.249, 80, 80]]
 curves = [[4.959, 5.708, 310], [5.954, 6.033, 2850]]
 points = [
-  { km = 5.05, kind = "signal", label = "R111", signal = "main,speed_limit", measured = true },
-  { km = 6.087, kind = "signal", label = "H111", signal = "main,speed_limit", measured = true },
+  { km = 5.05, kind = "signal", label = "R111", signal = "main,speed_limit", dir = -1, measured = true },
+  { km = 6.087, kind = "signal", label = "H111", signal = "main,speed_limit", dir = 1, measured = true },
 ]
 structures = [
   { kind = "bridge", kmFrom = 5.975, kmTo = 5.996, length = 21 },

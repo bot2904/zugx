@@ -17,14 +17,14 @@ speeds = [[82.152, 85.605, 80, 80], [85.605, 86.008, 40, 80], [86.008, 86.836, 4
 curves = [[83.862, 84.011, 1390], [86.032, 86.108, 2150], [86.158, 86.234, 2020], [86.685, 86.76, 1110]]
 points = [
   { km = 82, kind = "halt", label = "Holmec", uic = "7900055", pos = [46.56639, 14.84139], measured = true },
-  { km = 84.851, kind = "signal", label = "ax11", signal = "distant", measured = true },
-  { km = 85.605, kind = "signal", label = "Ax11/r", signal = "distant,main", measured = true },
-  { km = 85.751, kind = "signal", label = "VHT105", signal = "shunting", measured = true },
-  { km = 85.991, kind = "signal", label = "V105R", signal = "shunting", measured = true },
-  { km = 86.008, kind = "signal", label = "GA105R", signal = "speed_limit", measured = true },
-  { km = 86.162, kind = "signal", label = "U305", signal = "main", measured = true },
+  { km = 84.851, kind = "signal", label = "ax11", signal = "distant", dir = 1, measured = true },
+  { km = 85.605, kind = "signal", label = "Ax11/r", signal = "distant,main", dir = 1, measured = true },
+  { km = 85.751, kind = "signal", label = "VHT105", signal = "shunting", dir = -1, measured = true },
+  { km = 85.991, kind = "signal", label = "V105R", signal = "shunting", dir = 1, measured = true },
+  { km = 86.008, kind = "signal", label = "GA105R", signal = "speed_limit", dir = -1, measured = true },
+  { km = 86.162, kind = "signal", label = "U305", signal = "main", dir = -1, measured = true },
   { km = 86.343, kind = "station", label = "Bleiburg/Pliberk", pos = [46.57415, 14.78659], uic = "8100393", ele = 486 },
-  { km = 86.684, kind = "signal", label = "R305", signal = "main", measured = true },
+  { km = 86.684, kind = "signal", label = "R305", signal = "main", dir = 1, measured = true },
 ]
 structures = [
   { kind = "bridge", kmFrom = 84.328, kmTo = 84.339, length = 12 },

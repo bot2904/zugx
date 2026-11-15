@@ -15,11 +15,11 @@ length = 0.94
 speeds = [[0.151, 1.093, 60, 60]]
 curves = [[0.326, 0.679, 290]]
 points = [
-  { km = 0.353, kind = "signal", label = "U334", signal = "main,shunting", measured = true },
-  { km = 0.647, kind = "signal", label = "V334N", signal = "shunting", measured = true },
-  { km = 0.755, kind = "signal", label = "Sch434H/1S3,1U334", signal = "main_repeated,minor", measured = true },
+  { km = 0.353, kind = "signal", label = "U334", signal = "main,shunting", dir = -1, measured = true },
+  { km = 0.647, kind = "signal", label = "V334N", signal = "shunting", dir = 1, measured = true },
+  { km = 0.755, kind = "signal", label = "Sch434H/1S3,1U334", signal = "main_repeated,minor", dir = -1, measured = true },
   { km = 0.85, kind = "station", label = "Tulln Stadt", pos = [48.32846, 16.05406], uic = "8101692" },
-  { km = 1.011, kind = "signal", label = "O433/r", signal = "distant,main,shunting", measured = true },
+  { km = 1.011, kind = "signal", label = "O433/r", signal = "distant,main,shunting", dir = 1, measured = true },
 ]
 structures = [
   { kind = "bridge", kmFrom = 0.246, kmTo = 0.32, length = 74 },

@@ -15,14 +15,14 @@ speeds = [[4.935, 5.3, 60, 60], [5.3, 5.303, 40, 60], [5.303, 5.802, 40, 40]]
 curves = [[5.264, 5.314, 2180], [5.363, 5.412, 2220], [5.539, 5.688, 1400]]
 points = [
   { km = 0, kind = "station", label = "Hütteldorf", uic = "8170019", pos = [48.19697, 16.26084], measured = true },
-  { km = 5.055, kind = "signal", label = "H6/yb22,zb21,ac11", signal = "distant,main,shunting", measured = true },
-  { km = 5.273, kind = "signal", label = "Sch206R/3R/Sch206R", signal = "main_repeated,minor,shunting,speed_limit", measured = true },
-  { km = 5.3, kind = "signal", label = "1H6/GA206", signal = "main_repeated,speed_limit", measured = true },
-  { km = 5.426, kind = "signal", label = "V258H", signal = "shunting", measured = true },
-  { km = 5.482, kind = "signal", label = "V258R", signal = "shunting", measured = true },
-  { km = 5.707, kind = "signal", label = "Sch308H/2H6", signal = "main_repeated,minor,shunting", measured = true },
+  { km = 5.055, kind = "signal", label = "H6/yb22,zb21,ac11", signal = "distant,main,shunting", dir = -1, measured = true },
+  { km = 5.273, kind = "signal", label = "Sch206R/3R/Sch206R", signal = "main_repeated,minor,shunting,speed_limit", dir = 1, measured = true },
+  { km = 5.3, kind = "signal", label = "1H6/GA206", signal = "main_repeated,speed_limit", dir = -1, measured = true },
+  { km = 5.426, kind = "signal", label = "V258H", signal = "shunting", dir = -1, measured = true },
+  { km = 5.482, kind = "signal", label = "V258R", signal = "shunting", dir = 1, measured = true },
+  { km = 5.707, kind = "signal", label = "Sch308H/2H6", signal = "main_repeated,minor,shunting", dir = -1, measured = true },
   { km = 5.755, kind = "station", label = "Wien Hütteldorf", pos = [48.19733, 16.26127], uic = "8101008" },
-  { km = 5.794, kind = "signal", signal = "minor" },
+  { km = 5.794, kind = "signal", signal = "minor", dir = 1 },
 ]
 
 [tracks.geo]

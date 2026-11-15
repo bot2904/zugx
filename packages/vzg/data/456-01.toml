@@ -15,15 +15,15 @@ length = 0.858
 speeds = [[3, 3.854, 60, 60]]
 curves = []
 points = [
-  { km = 3.02, kind = "signal", signal = "speed_limit_distant" },
-  { km = 3.087, kind = "signal", signal = "snowplow" },
-  { km = 3.11, kind = "signal", signal = "speed_limit,whistle" },
-  { km = 3.118, kind = "signal", signal = "snowplow" },
-  { km = 3.292, kind = "signal", signal = "snowplow" },
-  { km = 3.461, kind = "signal", signal = "snowplow" },
-  { km = 3.475, kind = "signal", signal = "snowplow" },
-  { km = 3.736, kind = "signal", signal = "snowplow" },
-  { km = 3.831, kind = "signal", signal = "speed_limit,whistle" },
+  { km = 3.02, kind = "signal", signal = "speed_limit_distant", dir = 1 },
+  { km = 3.087, kind = "signal", signal = "snowplow", dir = 1 },
+  { km = 3.11, kind = "signal", signal = "speed_limit,whistle", dir = 1 },
+  { km = 3.118, kind = "signal", signal = "snowplow", dir = 1 },
+  { km = 3.292, kind = "signal", signal = "snowplow", dir = 1 },
+  { km = 3.461, kind = "signal", signal = "snowplow", dir = 1 },
+  { km = 3.475, kind = "signal", signal = "snowplow", dir = 1 },
+  { km = 3.736, kind = "signal", signal = "snowplow", dir = 1 },
+  { km = 3.831, kind = "signal", signal = "speed_limit,whistle", dir = -1 },
 ]
 
 [tracks.geo]

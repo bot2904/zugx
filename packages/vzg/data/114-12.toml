@@ -15,8 +15,8 @@ length = 0.518
 speeds = [[0, 0.518, 60, 60]]
 curves = [[0.15, 0.4, 210]]
 points = [
-  { km = 0.562, kind = "signal", label = "S22/a61,b62", signal = "distant,main", measured = true },
-  { km = 11.076, kind = "signal", label = "H522", signal = "shunting,train_protection", measured = true },
+  { km = 0.562, kind = "signal", label = "S22/a61,b62", signal = "distant,main", dir = 1, measured = true },
+  { km = 11.076, kind = "signal", label = "H522", signal = "shunting,train_protection", dir = -1, measured = true },
 ]
 
 [tracks.geo]

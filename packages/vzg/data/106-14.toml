@@ -15,12 +15,12 @@ length = 0.801
 speeds = [[0.002, 0.812, 60, 60]]
 curves = [[0.192, 0.711, 280]]
 points = [
-  { km = 0.141, kind = "signal", label = "V142R", signal = "shunting", measured = true },
-  { km = 0.171, kind = "signal", label = "VHT142", signal = "shunting", measured = true },
-  { km = 0.26, kind = "signal", label = "C/f", signal = "distant,main", measured = true },
-  { km = 0.537, kind = "signal", label = "U", signal = "main", measured = true },
-  { km = 0.639, kind = "signal", label = "VHT642", signal = "shunting", measured = true },
-  { km = 0.672, kind = "signal", label = "V642", signal = "shunting", measured = true },
+  { km = 0.141, kind = "signal", label = "V142R", signal = "shunting", dir = -1, measured = true },
+  { km = 0.171, kind = "signal", label = "VHT142", signal = "shunting", dir = 1, measured = true },
+  { km = 0.26, kind = "signal", label = "C/f", signal = "distant,main", dir = -1, measured = true },
+  { km = 0.537, kind = "signal", label = "U", signal = "main", dir = 1, measured = true },
+  { km = 0.639, kind = "signal", label = "VHT642", signal = "shunting", dir = -1, measured = true },
+  { km = 0.672, kind = "signal", label = "V642", signal = "shunting", dir = 1, measured = true },
 ]
 structures = [
   { kind = "bridge", kmFrom = 0.158, kmTo = 0.167, length = 13 },

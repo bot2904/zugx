@@ -325,11 +325,22 @@ export function buildTrack(
         )
         .map((k) => k.slice("railway:signal:".length));
       if (!types.length) return;
+      // facing direction: forward/backward relative to the way; the path runs along the way
+      // (e.forward) towards increasing km (increasing) or not
+      const e = path[i] ?? path[i - 1];
+      const sd = t["railway:signal:direction"];
+      const dir =
+        e && (sd === "forward" || sd === "backward")
+          ? ((sd === "forward") === e.forward) === increasing
+            ? 1
+            : -1
+          : undefined;
       points.push({
         km,
         kind,
         ...(t.ref ? { label: t.ref } : {}),
         signal: types.join(","),
+        ...(dir ? { dir } : {}),
         ...(pos !== null ? { measured: true } : {}),
       });
     }

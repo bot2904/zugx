@@ -13,10 +13,10 @@ length = 0.215
 speeds = [[188.502, 188.717, 60, 60]]
 curves = []
 points = [
-  { km = 188.502, kind = "signal", label = "Sch201R/1N1", signal = "main_repeated,minor", measured = true },
+  { km = 188.502, kind = "signal", label = "Sch201R/1N1", signal = "main_repeated,minor", dir = 1, measured = true },
   { km = 188.502, kind = "station", label = "Linz Hauptbahnhof", uic = "8101073", pos = [48.29024, 14.29186] },
-  { km = 188.508, kind = "signal", label = "Sch301H/1H1", signal = "main_repeated,minor", measured = true },
-  { km = 188.717, kind = "signal", label = "N1/o", signal = "distant,main,shunting", measured = true },
+  { km = 188.508, kind = "signal", label = "Sch301H/1H1", signal = "main_repeated,minor", dir = -1, measured = true },
+  { km = 188.717, kind = "signal", label = "N1/o", signal = "distant,main,shunting", dir = 1, measured = true },
 ]
 
 [tracks.geo]

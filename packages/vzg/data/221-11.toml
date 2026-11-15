@@ -15,18 +15,18 @@ length = 2.214
 speeds = [[1.49, 2.865, 40, 40], [2.865, 3.74, 80, 80]]
 curves = [[1.904, 2.029, 1640], [2.204, 2.904, 330]]
 points = [
-  { km = 0.928, kind = "signal", label = "s603", signal = "distant", measured = true },
-  { km = 0.947, kind = "signal", label = "F603", signal = "main,shunting", measured = true },
-  { km = 1.262, kind = "signal", label = "V963H", signal = "shunting", measured = true },
-  { km = 1.455, kind = "signal", label = "V963R", signal = "shunting", measured = true },
-  { km = 2.915, kind = "signal", label = "V959H", signal = "shunting", measured = true },
-  { km = 2.919, kind = "signal", label = "r902,911", signal = "distant", measured = true },
-  { km = 2.986, kind = "signal", label = "V959R", signal = "shunting", measured = true },
-  { km = 3.066, kind = "signal", label = "U901", signal = "main,shunting", measured = true },
-  { km = 3.256, kind = "signal", label = "Sch911/1U901", signal = "main_repeated,minor", measured = true },
+  { km = 0.928, kind = "signal", label = "s603", signal = "distant", dir = -1, measured = true },
+  { km = 0.947, kind = "signal", label = "F603", signal = "main,shunting", dir = 1, measured = true },
+  { km = 1.262, kind = "signal", label = "V963H", signal = "shunting", dir = -1, measured = true },
+  { km = 1.455, kind = "signal", label = "V963R", signal = "shunting", dir = 1, measured = true },
+  { km = 2.915, kind = "signal", label = "V959H", signal = "shunting", dir = -1, measured = true },
+  { km = 2.919, kind = "signal", label = "r902,911", signal = "distant", dir = 1, measured = true },
+  { km = 2.986, kind = "signal", label = "V959R", signal = "shunting", dir = 1, measured = true },
+  { km = 3.066, kind = "signal", label = "U901", signal = "main,shunting", dir = -1, measured = true },
+  { km = 3.256, kind = "signal", label = "Sch911/1U901", signal = "main_repeated,minor", dir = -1, measured = true },
   { km = 3.313, kind = "station", label = "Linz Franckstraße", pos = [48.2859, 14.32369], uic = "8100807" },
-  { km = 3.74, kind = "signal", label = "R911", signal = "main,shunting", measured = true },
-  { km = 184.856, kind = "signal", label = "S603", signal = "main,shunting", measured = true },
+  { km = 3.74, kind = "signal", label = "R911", signal = "main,shunting", dir = 1, measured = true },
+  { km = 184.856, kind = "signal", label = "S603", signal = "main,shunting", dir = -1, measured = true },
 ]
 structures = [
   { kind = "tunnel", kmFrom = 2.472, kmTo = 2.531, length = 59 },

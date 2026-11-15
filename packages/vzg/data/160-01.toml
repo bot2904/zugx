@@ -16,20 +16,20 @@ length = 5.179
 speeds = [[0.555, 0.582, 20, 40], [0.582, 0.62, 20, 25], [0.62, 1.836, 25, 25], [1.836, 2.112, 20, 20], [2.112, 5.753, 25, 25]]
 curves = [[0.655, 0.73, 1010], [0.905, 1.081, 470], [1.131, 1.256, 320], [1.307, 1.382, 980], [1.531, 2.456, 310], [2.507, 3.358, 330], [3.485, 3.906, 730], [3.949, 4.088, 880], [4.141, 4.338, 1080], [4.462, 4.659, 860], [4.881, 5.115, 1010], [5.164, 5.213, 2350], [5.335, 5.637, 900]]
 points = [
-  { km = 0.558, kind = "signal", signal = "minor" },
-  { km = 0.582, kind = "signal", label = "X/l", signal = "distant,main", measured = true },
-  { km = 0.62, kind = "signal", signal = "speed_limit" },
-  { km = 1.074, kind = "signal", label = "x", signal = "distant", measured = true },
+  { km = 0.558, kind = "signal", signal = "minor", dir = -1 },
+  { km = 0.582, kind = "signal", label = "X/l", signal = "distant,main", dir = -1, measured = true },
+  { km = 0.62, kind = "signal", signal = "speed_limit", dir = 1 },
+  { km = 1.074, kind = "signal", label = "x", signal = "distant", dir = -1, measured = true },
   { km = 1.635, kind = "halt", label = "Perchtoldsdorf", pos = [48.12303, 16.28551], measured = true, uic = "8101346" },
-  { km = 1.836, kind = "signal", signal = "speed_limit" },
-  { km = 1.84, kind = "signal", signal = "speed_limit" },
-  { km = 2.104, kind = "signal", signal = "speed_limit" },
-  { km = 2.112, kind = "signal", signal = "speed_limit" },
-  { km = 5.086, kind = "signal", signal = "main" },
-  { km = 5.103, kind = "signal", signal = "shunting" },
-  { km = 5.257, kind = "signal", signal = "speed_limit" },
-  { km = 5.413, kind = "signal", signal = "stop" },
-  { km = 5.506, kind = "signal", signal = "minor" },
+  { km = 1.836, kind = "signal", signal = "speed_limit", dir = 1 },
+  { km = 1.84, kind = "signal", signal = "speed_limit", dir = -1 },
+  { km = 2.104, kind = "signal", signal = "speed_limit", dir = 1 },
+  { km = 2.112, kind = "signal", signal = "speed_limit", dir = -1 },
+  { km = 5.086, kind = "signal", signal = "main", dir = 1 },
+  { km = 5.103, kind = "signal", signal = "shunting", dir = -1 },
+  { km = 5.257, kind = "signal", signal = "speed_limit", dir = -1 },
+  { km = 5.413, kind = "signal", signal = "stop", dir = 1 },
+  { km = 5.506, kind = "signal", signal = "minor", dir = 1 },
 ]
 structures = [
   { kind = "bridge", kmFrom = 3.181, kmTo = 3.2, length = 20 },

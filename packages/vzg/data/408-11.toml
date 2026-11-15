@@ -16,10 +16,10 @@ speeds = [[376.2, 376.622, "", ""], [376.622, 376.625, 40, 40]]
 curves = []
 points = [
   { km = 376.2, kind = "station", label = "Villach Hbf Autoreisezug", pos = [46.62105, 13.86567], measured = true },
-  { km = 376.527, kind = "signal", label = "V332", signal = "shunting", measured = true },
-  { km = 376.603, kind = "signal", label = "V12", signal = "shunting", measured = true },
-  { km = 376.622, kind = "signal", signal = "electricity" },
-  { km = 376.625, kind = "signal", label = "V233", signal = "shunting", measured = true },
+  { km = 376.527, kind = "signal", label = "V332", signal = "shunting", dir = 1, measured = true },
+  { km = 376.603, kind = "signal", label = "V12", signal = "shunting", dir = 1, measured = true },
+  { km = 376.622, kind = "signal", signal = "electricity", dir = -1 },
+  { km = 376.625, kind = "signal", label = "V233", signal = "shunting", dir = -1, measured = true },
 ]
 
 [tracks.geo]

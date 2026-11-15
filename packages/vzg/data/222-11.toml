@@ -15,15 +15,15 @@ length = 1.844
 speeds = [[4.112, 4.688, 40, 40], [4.688, 4.856, 80, 40], [4.856, 5.68, 80, 80]]
 curves = [[4.229, 4.351, 650], [4.424, 4.595, 700], [4.718, 5.224, 2010], [5.349, 5.48, 850]]
 points = [
-  { km = 4.112, kind = "signal", label = "M601", signal = "main,speed_limit", measured = true },
-  { km = 4.246, kind = "signal", label = "V704w", signal = "shunting" },
-  { km = 4.255, kind = "signal", label = "V704o", signal = "shunting" },
-  { km = 4.621, kind = "signal", label = "V745w", signal = "shunting" },
-  { km = 4.856, kind = "signal", label = "N215", signal = "main", measured = true },
-  { km = 5.107, kind = "signal", label = "r205", signal = "distant", measured = true },
+  { km = 4.112, kind = "signal", label = "M601", signal = "main,speed_limit", dir = 1, measured = true },
+  { km = 4.246, kind = "signal", label = "V704w", signal = "shunting", dir = -1 },
+  { km = 4.255, kind = "signal", label = "V704o", signal = "shunting", dir = 1 },
+  { km = 4.621, kind = "signal", label = "V745w", signal = "shunting", dir = -1 },
+  { km = 4.856, kind = "signal", label = "N215", signal = "main", dir = -1, measured = true },
+  { km = 5.107, kind = "signal", label = "r205", signal = "distant", dir = 1, measured = true },
   { km = 5.364, kind = "halt", label = "Gödersdorf", uic = "8100861", pos = [46.56847, 13.84715], measured = true },
-  { km = 5.463, kind = "signal", label = "n215", signal = "distant", measured = true },
-  { km = 5.529, kind = "signal", label = "R205", signal = "main", measured = true },
+  { km = 5.463, kind = "signal", label = "n215", signal = "distant", dir = -1, measured = true },
+  { km = 5.529, kind = "signal", label = "R205", signal = "main", dir = 1, measured = true },
 ]
 structures = [
   { kind = "bridge", kmFrom = 5.117, kmTo = 5.159, length = 42 },
