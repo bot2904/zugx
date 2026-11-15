@@ -1011,6 +1011,7 @@ Goal: the same app for Italy, France … — ideally in one instance — by swap
 - **Data and URLs**: exports under `data/<country>/…`; URLs with a country prefix (`/it/bf/…`) or the country taken from the station's UIC code.
 - **Live data is the hard part**: ÖBB HAFAS covers Austria (neighbours partly). Each country needs an adapter behind one interface (boards, train runs, radar positions, disruptions): IT Viaggiatreno, FR SNCF API / SIRI. Independent of the SQLite pipeline, but the largest effort.
 - Prerequisite: the SQLite pipeline above (one import per feed instead of country-specific scripts).
+- **Data sources per country** (static rail GTFS/NeTEx, licence, access; checked 2026-11-15): `docs/europe-rail-data.md`. Clean and anonymous: AT (ÖBB), LU, FI, NO, LV, IE, NL (OVapi), FR (ODbL), SI (CC BY-SA); key/registration: DE, SE, DK, HU, AT (MVO); restrictive or custom: CH, BE, IT (non-commercial third-party), UK (CIF only); own XML formats: CZ, RO; community-only: PL, BG and the Balkans, TR, UA, MD.
 
 ## Sources
 
