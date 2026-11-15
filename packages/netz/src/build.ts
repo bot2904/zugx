@@ -22,6 +22,7 @@ import {
 import { feedPeriod, loadFeed, loadShapes, openFeed, parentDhid, serviceDays } from "./gtfs.ts";
 import { buildNetz } from "./netz.ts";
 import { trafficDensity } from "./density.ts";
+import { corridorKmAt, lineFinder, linePosAt, shapeLine } from "./via.ts";
 import {
   corridorTracks,
   pairTrips,
@@ -179,6 +180,19 @@ async function main() {
   const vzgLines = loadVzg();
   const speeds = loadSpeeds(vzgLines, year.feed.stations);
   const signalsAt = vzgLines.length ? signalLookup(vzgLines) : undefined;
+  // the railway line each train runs on between two corridor stations (parallel lines)
+  const findLine = vzgLines.length ? lineFinder(vzgLines) : undefined;
+  const lineCache = new Map<string, string | undefined>();
+  const lineOf = findLine
+    ? (trip: { shape?: string }, a: number, b: number) => {
+        const sh = trip.shape ? shapes.get(trip.shape) : undefined;
+        if (!sh) return undefined;
+        const k = `${trip.shape}|${a}|${b}`;
+        if (!lineCache.has(k)) lineCache.set(k, shapeLine(findLine, sh, a, b));
+        return lineCache.get(k);
+      }
+    : undefined;
+  const vzgById = new Map(vzgLines.map((l) => [l.id, l]));
   console.log(speeds ? "passing times weighted by VzG speed limits" : "passing times by distance");
   // single/double track per corridor along the trains' shapes: from the OSM tracks
   // (.cache/osm-rail.json of vzg:extract), else from the VzG network pieces
@@ -195,7 +209,7 @@ async function main() {
   console.log(`track counts from ${osm ? "the OSM tracks" : net ? "the VzG network" : "-"}`);
   const pairs = net || osm ? pairTrips(year.feed.trips, shapes) : undefined;
   for (const def of CORRIDORS) {
-    const c = buildCorridor(feed, def, day, SOURCE, names, year, shapes, speeds);
+    const c = buildCorridor(feed, def, day, SOURCE, names, year, shapes, speeds, lineOf);
     for (const st of c.stations) {
       const h = hafas?.get(st.id);
       if (h) st.hafasId = h;
@@ -206,6 +220,8 @@ async function main() {
       const down: number[] = [];
       const known: [number, number][] = [];
       const places: number[] = [];
+      /** the sheet's own line per neighbouring station pair (k → k+1) */
+      const home = new Map<number, string>();
       for (let k = 0; k + 1 < c.stations.length; k++) {
         const a = c.stations[k]!;
         const b = c.stations[k + 1]!;
@@ -215,6 +231,7 @@ async function main() {
         const sig = signalsAt([ga.lat, ga.lon], [gb.lat, gb.lon], b.km - a.km);
         if (!sig) continue;
         known.push([a.km, b.km]);
+        home.set(k, sig.line);
         for (const f of sig.places)
           places.push(Math.round((a.km + f * (b.km - a.km)) * 1000) / 1000);
         for (const s of sig.signals) {
@@ -236,12 +253,75 @@ async function main() {
         if (!nearStop && !places.some((p) => Math.abs(p - mid) < 1)) places.push(mid);
       }
       places.sort((x, y) => x - y);
+      // trains' stretches on another line than the sheet's own (majority of the station pairs)
+      for (const t of c.trains) {
+        if (!t.via) continue;
+        const keep = t.via.filter(([vi, vj, line]) => {
+          const [i, j] = vi < vj ? [vi, vj] : [vj, vi];
+          let other = 0;
+          let n = 0;
+          for (let k = i; k < j; k++) {
+            const h = home.get(k);
+            if (!h) continue;
+            n++;
+            if (h !== line) other++;
+          }
+          return n > 0 && other / n > 0.5;
+        });
+        if (keep.length) t.via = keep;
+        else delete t.via;
+      }
+      // other lines some trains take: their block signals on the corridor's km axis — each signal
+      // placed by its position (line km → position → projected onto the corridor's stations)
+      const alt: NonNullable<NonNullable<typeof c.blocks>["alt"]> = [];
+      const axis = c.stations.flatMap((st) => {
+        const g = year.feed.stations.get(st.id);
+        return g ? [{ pos: [g.lat, g.lon] as [number, number], km: st.km }] : [];
+      });
+      for (const t of c.trains)
+        for (const [vi, vj, lineId] of t.via ?? []) {
+          const [i, j] = vi < vj ? [vi, vj] : [vj, vi];
+          if (alt.some((x) => x.i === i && x.j === j && x.line === lineId)) continue;
+          const line = vzgById.get(lineId);
+          if (!line) continue;
+          const [kmA, kmB] = [c.stations[i]!.km, c.stations[j]!.km];
+          // which line direction runs along the corridor: compare two whole-km posts
+          const posts = line.tracks[0]?.geo?.posts ?? [];
+          const placed = posts
+            .map(([k, la, lo]) => [k, corridorKmAt(axis, [la, lo])] as const)
+            .filter((x): x is readonly [number, number] => x[1] !== undefined);
+          if (placed.length < 2) continue;
+          const along =
+            (placed.at(-1)![1] - placed[0]![1]) * (placed.at(-1)![0] - placed[0]![0]) > 0;
+          const sig = (rel: 1 | -1) => {
+            const lineDir = (along ? rel : -rel) as 1 | -1;
+            const tr =
+              line.tracks.length > 1
+                ? (line.tracks.find((x) => x.track === (lineDir === 1 ? "1" : "2")) ??
+                  line.tracks[0]!)
+                : line.tracks[0]!;
+            return tr.points.flatMap((p) => {
+              if (
+                p.kind !== "signal" ||
+                p.dir !== lineDir ||
+                !/main|combined|train_protection/.test(p.signal ?? "")
+              )
+                return [];
+              const pos = linePosAt(line, p.km);
+              const ck = pos ? corridorKmAt(axis, pos) : undefined;
+              return ck !== undefined && ck > kmA && ck < kmB ? [Math.round(ck * 1000) / 1000] : [];
+            });
+          };
+          const sorted = (xs: number[]) => [...new Set(xs)].sort((x, y) => x - y);
+          alt.push({ i, j, line: lineId, up: sorted(sig(1)), down: sorted(sig(-1)) });
+        }
       if (known.length)
         c.blocks = {
           up: [...new Set(up)].sort((x, y) => x - y),
           down: [...new Set(down)].sort((x, y) => x - y),
           known,
           ...(places.length ? { places } : {}),
+          ...(alt.length ? { alt } : {}),
         };
     }
     // minimum running times per category between neighbouring stations (running-time reserve)

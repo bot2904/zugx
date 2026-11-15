@@ -1206,6 +1206,8 @@ export function buildCorridor(
   year?: YearTrips,
   shapes?: Map<string, Shape>,
   speed?: SpeedLookup,
+  /** the railway line (VzG id) a trip runs on between two positions of its shape (metres) */
+  lineOf?: (trip: Trip, fromM: number, toM: number) => string | undefined,
 ): Corridor {
   const stations = corridorStations(feed, def, names);
   const idx = new Map(stations.map((s, i) => [s.id, i]));
@@ -1216,26 +1218,56 @@ export function buildCorridor(
   const begin = year?.begin ?? day;
   const end = year?.end ?? day;
   const n = Temporal.PlainDate.from(begin).until(end).days + 1;
-  const merged = new Map<string, { t: Omit<CorridorTrain, "days">; days: Set<number> }>();
+  const merged = new Map<
+    string,
+    { t: Omit<CorridorTrain, "days">; days: Set<number>; segs?: [number, number, string][] }
+  >();
   const src = (year ?? { feed }).feed;
   for (const trip of src.trips) {
     const tripDays = year ? year.days.get(trip.service) : new Set([0]);
     if (!tripDays?.size) continue;
     const first = trip.stops[0]!.st;
     const origin = src.stations.get(first)?.name ?? first;
-    for (const run of corridorRuns(withPassing ? withPassing(trip) : trip, idx, onLine)) {
+    const tp = withPassing ? withPassing(trip) : trip;
+    for (const run of corridorRuns(tp, idx, onLine)) {
       const { pts, headsign, ...head } = run;
       const t = { ...head, origin, headsign, pts }; // key order of the JSON lines
       const key = JSON.stringify(t);
       let m = merged.get(key);
-      if (!m) merged.set(key, (m = { t, days: new Set() }));
+      if (!m) {
+        merged.set(key, (m = { t, days: new Set() }));
+        // the line of each stretch between two of its corridor stations (once per run)
+        if (lineOf) {
+          const distAt = new Map<number, number>();
+          for (const s of tp.stops) {
+            const k = idx.get(s.st);
+            if (k !== undefined && !distAt.has(k) && Number.isFinite(s.dist)) distAt.set(k, s.dist);
+          }
+          m.segs = [];
+          for (let q = 1; q < pts.length; q++) {
+            const [i] = pts[q - 1]!;
+            const [j] = pts[q]!;
+            const a = distAt.get(i);
+            const b = distAt.get(j);
+            const line = a !== undefined && b !== undefined && b > a ? lineOf(tp, a, b) : undefined;
+            if (line) m.segs.push([i, j, line]);
+          }
+        }
+      }
       for (const d of tripDays) m.days.add(d);
     }
   }
-  const trains: CorridorTrain[] = [...merged.values()].map(({ t, days }) => ({
-    ...t,
-    days: encodeDays(days, n),
-  }));
+  // the line of every stretch (merged where consecutive stretches share it); the build keeps only
+  // those on another line than the sheet's own (see build.ts)
+  const trains: CorridorTrain[] = [...merged.values()].map(({ t, days, segs }) => {
+    const via: [number, number, string][] = [];
+    for (const [i, j, line] of segs ?? []) {
+      const last = via.at(-1);
+      if (last && last[1] === i && last[2] === line) last[1] = j;
+      else via.push([i, j, line]);
+    }
+    return { ...t, days: encodeDays(days, n), ...(via.length ? { via } : {}) };
+  });
   const t0 = (t: CorridorTrain) => t.pts[0]![2] ?? t.pts[0]![1] ?? 0;
   trains.sort((a, b) => t0(a) - t0(b) || a.nr.localeCompare(b.nr));
   return { id: def.id, name: def.name, day, begin, end, source, stations, trains };

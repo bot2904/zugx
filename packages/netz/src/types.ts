@@ -175,6 +175,11 @@ export interface CorridorTrain {
   headsign: string;
   pts: [number, number | null, number | null][];
   /**
+   * stretches on another railway line than the sheet's usual one (from the GTFS shape), e.g. the
+   * new Unterinntal line in the tunnel: [from station index, to station index, VzG line id]
+   */
+  via?: [number, number, string][];
+  /**
    * running days over the timetable year (see {@link Corridor.begin}): base64 bitset,
    * bit i = day `begin + i`, MSB first (like HAFAS sDaysB and the train index)
    */
@@ -212,6 +217,11 @@ export interface Corridor {
     /** stations between the timetable's stations (OSM railway=station without passenger stops,
      * e.g. passing loops): where trains can cross */
     places?: number[];
+    /**
+     * block signals of other lines that some trains take between two corridor stations (see
+     * CorridorTrain.via): station indices `i` → `j`, VzG line id, corridor km of its signals
+     */
+    alt?: { i: number; j: number; line: string; up: number[]; down: number[] }[];
   };
 }
 

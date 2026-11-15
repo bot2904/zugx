@@ -166,6 +166,6 @@ export function signalLookup(lines: VzgLine[], maxKm = 0.4) {
         const f = (p.km - ka) / (kb - ka);
         if (f > 0.02 && f < 0.98) places.push(f);
       }
-    return { signals: out, places };
+    return { signals: out, places, line: best.line.id };
   };
 }
