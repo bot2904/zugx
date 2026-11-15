@@ -5,11 +5,10 @@ import { readToml, sortKeys, writeToml } from "@zugx/toml";
 import { join } from "node:path";
 import {
   dayFromIso,
-  fetchFeeds,
+  configuredFeeds,
   isoDay,
   isRailRouteType,
   isFinalHafasError,
-  loadGtfs,
   mapPool,
   parseTrainName,
   politeClient,
@@ -19,6 +18,7 @@ import {
   type Gtfs,
   type Trip,
 } from "@zugx/gtfs";
+import { gtfsFromDb, openZugxDb } from "@zugx/db/query";
 import type { GtfsHafasMap } from "@zugx/stations";
 import { cleanGtfsName, cleanHafasName } from "@zugx/stations/match";
 import {
@@ -196,8 +196,9 @@ async function writeIndex(path: string, idx: TrainIndex): Promise<number> {
 async function main() {
   const total = timer();
   const log = console.log;
-  const feeds = await fetchFeeds();
-  const g = await loadGtfs(feeds, {
+  // the feeds' content from the local SQLite (vp run db:build); their names for the source line
+  const feeds = configuredFeeds().map((source) => ({ source }));
+  const g = gtfsFromDb(openZugxDb(), {
     keepTrip: (t, r) => !!r && isRailRouteType(r.type) && t.shortName !== "",
   });
   const year = Number(process.env.TRAINS_YEAR) || feedYear(g);

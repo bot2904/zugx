@@ -1,6 +1,7 @@
 // Shared read helpers on the local SQLite (node-gtfs schema) for the data exports.
 import { existsSync } from "node:fs";
 import { openDb } from "gtfs";
+import type { Gtfs, Route, Trip } from "@zugx/gtfs";
 import { DB_PATH } from "./index.ts";
 
 export type Db = ReturnType<typeof openDb>;
@@ -49,4 +50,119 @@ export function serviceDays(db: Db): Map<string, number[]> {
     else days.delete(dayNumber(x.date));
   }
   return new Map([...cal].map(([id, d]) => [id, [...d].sort((a, b) => a - b)]));
+}
+
+/**
+ * The in-memory GTFS structure of @zugx/gtfs (agencies, routes, trips, stops, services, stop
+ * times), read from the SQLite instead of the zip — same content and order (file order = rowid),
+ * so scripts can switch without changing their output. `keepTrip` as in loadGtfs.
+ */
+export function gtfsFromDb(
+  db: Db,
+  opts: { keepTrip?: (t: Trip, r: Route | undefined) => boolean; sources?: string[] } = {},
+): Gtfs {
+  const g: Gtfs = {
+    feeds: (opts.sources ?? []).map((source) => ({ source, path: "" })),
+    agencies: new Map(),
+    routes: new Map(),
+    trips: new Map(),
+    stops: new Map(),
+    services: serviceDays(db),
+    stopTimes: new Map(),
+  };
+  type A = { id: string | null; name: string; url: string };
+  const agencies = rows<A>(
+    db,
+    "select agency_id id, agency_name name, agency_url url from agency order by rowid",
+  );
+  for (const a of agencies)
+    g.agencies.set(a.id ?? "", { id: a.id ?? "", name: a.name, url: a.url });
+  const defaultAgency = agencies[0]?.id ?? "";
+  type R = {
+    id: string;
+    agency: string | null;
+    short: string | null;
+    long: string | null;
+    type: number;
+  };
+  for (const r of rows<R>(
+    db,
+    `select route_id id, agency_id agency, route_short_name short, route_long_name long,
+            route_type type from routes order by rowid`,
+  ))
+    g.routes.set(r.id, {
+      id: r.id,
+      agencyId: r.agency || defaultAgency,
+      shortName: r.short ?? "",
+      longName: r.long ?? "",
+      type: r.type,
+    });
+  type S = {
+    id: string;
+    name: string | null;
+    lat: number | null;
+    lon: number | null;
+    parent: string | null;
+    type: number | null;
+    platform: string | null;
+  };
+  for (const s of rows<S>(
+    db,
+    `select stop_id id, stop_name name, stop_lat lat, stop_lon lon, parent_station parent,
+            location_type type, platform_code platform from stops order by rowid`,
+  ))
+    g.stops.set(s.id, {
+      id: s.id,
+      name: s.name ?? "",
+      lat: s.lat ?? NaN,
+      lon: s.lon ?? NaN,
+      parent: s.parent ?? "",
+      type: s.type ?? 0,
+      ...(s.platform ? { platform: s.platform } : {}),
+    });
+  type T = {
+    id: string;
+    route: string;
+    service: string;
+    short: string | null;
+    headsign: string | null;
+  };
+  for (const t of rows<T>(
+    db,
+    `select trip_id id, route_id route, service_id service, trip_short_name short,
+            trip_headsign headsign from trips order by rowid`,
+  )) {
+    const trip: Trip = {
+      id: t.id,
+      routeId: t.route,
+      serviceId: t.service,
+      shortName: (t.short ?? "").trim(),
+      headsign: t.headsign ?? "",
+    };
+    if (opts.keepTrip && !opts.keepTrip(trip, g.routes.get(trip.routeId))) continue;
+    g.trips.set(trip.id, trip);
+  }
+  type ST = {
+    trip: string;
+    stop: string;
+    arr: number | null;
+    dep: number | null;
+    pu: number | null;
+    dr: number | null;
+  };
+  for (const r of rows<ST>(
+    db,
+    // trips in the order of their first row in stop_times.txt (as the streaming reader)
+    `select trip_id trip, stop_id stop, arrival_timestamp arr, departure_timestamp dep,
+            pickup_type pu, drop_off_type dr
+       from stop_times order by min(rowid) over (partition by trip_id), stop_sequence`,
+  )) {
+    if (!g.trips.has(r.trip)) continue;
+    let list = g.stopTimes.get(r.trip);
+    if (!list) g.stopTimes.set(r.trip, (list = []));
+    const arr = r.arr ?? r.dep ?? NaN;
+    const dep = r.dep ?? r.arr ?? NaN;
+    list.push({ stopId: r.stop, arr, dep, pickup: r.pu ?? 0, dropoff: r.dr ?? 0 });
+  }
+  return g;
 }
