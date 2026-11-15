@@ -1,21 +1,18 @@
 // Build data/stations.toml: rail stations in Austria from open data GTFS, mapped to HAFAS ids.
-// Run: vp run stations:build   (env: GTFS_ZIP, REMAP=1 to redo all HAFAS lookups)
+// Reads the local SQLite (vp run db:build).
+// Run: vp run stations:build   (REMAP=1 to redo all HAFAS lookups)
 import { readToml, sortKeys, writeToml } from "@zugx/toml";
 import { join } from "node:path";
 import {
   compareCategories,
   LONG_DISTANCE_CATEGORIES,
-  fetchFeeds,
-  isRailRouteType,
-  loadGtfs,
   mapPool,
   parseTrainName,
   politeClient,
   isFinalHafasError,
-  stationGroup,
   timer,
-  type Gtfs,
 } from "@zugx/gtfs";
+import { openZugxDb, RAIL_ROUTE_TYPES, rows, serviceDays, type Db } from "@zugx/db/query";
 import type { Location } from "@zugx/hafas";
 import type { GtfsHafasEntry, GtfsHafasMap, Station } from "./index.ts";
 import {
@@ -45,24 +42,54 @@ export interface GroupStats {
   cats: Set<string>;
 }
 
-/** Aggregate rail usage per GTFS station group (parent station). */
-export function railGroups(g: Gtfs): Map<string, GroupStats> {
+/**
+ * Aggregate rail usage per GTFS station group (parent station), from the local SQLite: rail trips
+ * in file order, their stop times in stop_sequence order (as the former streaming reader).
+ */
+export function railGroups(db: Db): Map<string, GroupStats> {
+  const stops = new Map(
+    rows<{ id: string; name: string; lat: number; lon: number; parent: string | null }>(
+      db,
+      "select stop_id id, stop_name name, stop_lat lat, stop_lon lon, parent_station parent from stops",
+    ).map((s) => [s.id, s]),
+  );
+  const services = serviceDays(db);
+  const trips = rows<{ id: string; name: string; service: string }>(
+    db,
+    `select t.trip_id id, trim(coalesce(t.trip_short_name, '')) name, t.service_id service
+       from trips t join routes r using (route_id) where ${RAIL_ROUTE_TYPES} order by t.rowid`,
+  );
+  type St = { trip: string; stopId: string; pickup: number; dropoff: number };
+  const stopTimes = new Map<string, St[]>();
+  for (const r of rows<St>(
+    db,
+    `select st.trip_id trip, st.stop_id stopId, coalesce(st.pickup_type, 0) pickup,
+            coalesce(st.drop_off_type, 0) dropoff
+       from stop_times st join trips t using (trip_id) join routes r using (route_id)
+      where ${RAIL_ROUTE_TYPES} order by st.trip_id, st.stop_sequence`,
+  )) {
+    const list = stopTimes.get(r.trip) ?? [];
+    list.push(r);
+    stopTimes.set(r.trip, list);
+  }
+  const group = (id: string) => stops.get(id)?.parent || id;
+
   const groups = new Map<string, GroupStats & { n: number; sLat: number; sLon: number }>();
-  for (const trip of g.trips.values()) {
-    const sts = g.stopTimes.get(trip.id);
+  for (const trip of trips) {
+    const sts = stopTimes.get(trip.id);
     if (!sts) continue;
-    const days = g.services.get(trip.serviceId)?.length ?? 0;
-    const cat = parseTrainName(trip.shortName)?.cat;
+    const days = services.get(trip.service)?.length ?? 0;
+    const cat = parseTrainName(trip.name)?.cat;
     const ld = LONG_DISTANCE_CATEGORIES.includes(cat ?? "");
     for (const [i, st] of sts.entries()) {
       if (st.pickup === 1 && st.dropoff === 1) continue;
-      const gid = stationGroup(g, st.stopId);
+      const gid = group(st.stopId);
       let s = groups.get(gid);
       if (!s) {
-        const parent = g.stops.get(gid);
+        const parent = stops.get(gid);
         s = {
           id: gid,
-          name: parent?.name ?? g.stops.get(st.stopId)?.name ?? gid,
+          name: parent?.name ?? stops.get(st.stopId)?.name ?? gid,
           lat: 0,
           lon: 0,
           deps: 0,
@@ -74,7 +101,7 @@ export function railGroups(g: Gtfs): Map<string, GroupStats> {
         };
         groups.set(gid, s);
       }
-      const stop = g.stops.get(st.stopId);
+      const stop = stops.get(st.stopId);
       if (stop && Number.isFinite(stop.lat) && stop.lat !== 0) {
         s.n++;
         s.sLat += stop.lat;
@@ -93,7 +120,7 @@ export function railGroups(g: Gtfs): Map<string, GroupStats> {
       s.lat = s.sLat / s.n;
       s.lon = s.sLon / s.n;
     } else {
-      const p = g.stops.get(s.id);
+      const p = stops.get(s.id);
       s.lat = p?.lat ?? 0;
       s.lon = p?.lon ?? 0;
     }
@@ -227,9 +254,7 @@ export function buildStations(groups: Map<string, GroupStats>, map: GtfsHafasMap
 
 async function main() {
   const total = timer();
-  const feeds = await fetchFeeds();
-  const g = await loadGtfs(feeds, { keepTrip: (_t, r) => !!r && isRailRouteType(r.type) });
-  const groups = railGroups(g);
+  const groups = railGroups(openZugxDb());
   const at = [...groups.values()].filter((s) => dhidCountry(s.id) === "at").length;
   console.log(
     `stations: ${groups.size} rail station groups (${at} in Austria, ${groups.size - at} abroad)`,

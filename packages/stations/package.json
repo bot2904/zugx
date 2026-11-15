@@ -18,6 +18,7 @@
     "test": "vp test run"
   },
   "dependencies": {
+    "@zugx/db": "workspace:*",
     "@zugx/toml": "workspace:*"
   },
   "devDependencies": {
