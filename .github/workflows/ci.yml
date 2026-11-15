@@ -50,7 +50,7 @@ jobs:
       - id: version
         run: |
           echo "hash=$(git log -1 --format=%h)" >> "$GITHUB_OUTPUT"
-          echo "date=$(git log -1 --format=%cs)" >> "$GITHUB_OUTPUT"
+          echo "date=$(TZ=Europe/Vienna git log -1 --date='format-local:%Y-%m-%d %H:%M' --format=%cd)" >> "$GITHUB_OUTPUT"
       - uses: redhat-actions/buildah-build@v2
         id: build
         with:

@@ -203,7 +203,9 @@ const shortcuts: [string, string][] = [
     <RouterLink to="/privacy">{{ $t("common.privacy") }}</RouterLink>
     <template v-if="commitHash">
       ·
-      <a :href="`https://github.com/simon04/zugx/commit/${commitHash}`" class="mono"
+      <a
+        :href="`https://github.com/simon04/zugx/commit/${commitHash}`"
+        class="mono whitespace-nowrap"
         >{{ commitHash }} ({{ commitDate }})</a
       >
     </template>

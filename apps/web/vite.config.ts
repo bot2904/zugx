@@ -6,15 +6,22 @@ import { defineConfig } from "vite-plus";
 import { toml } from "@zugx/toml/vite";
 import { precompress } from "./precompress.ts";
 
-/** last commit as `<hash> <YYYY-MM-DD>`, empty without a git checkout (e.g. container build) */
+/**
+ * last commit as `<hash>|<YYYY-MM-DD HH:MM>` (committer time in Vienna), empty without a git
+ * checkout (e.g. container build)
+ */
 function gitVersion(): string {
   try {
-    return execFileSync("git", ["log", "-1", "--format=%h %cs"], { encoding: "utf8" }).trim();
+    return execFileSync(
+      "git",
+      ["log", "-1", "--date=format-local:%Y-%m-%d %H:%M", "--format=%h|%cd"],
+      { encoding: "utf8", env: { ...process.env, TZ: "Europe/Vienna" } },
+    ).trim();
   } catch {
     return "";
   }
 }
-const [commitHash = "", commitDate = ""] = gitVersion().split(" ");
+const [commitHash = "", commitDate = ""] = gitVersion().split("|");
 // exposed as import.meta.env.VITE_*, unless already set in the environment (CI build args)
 process.env.VITE_COMMIT_HASH ??= commitHash;
 process.env.VITE_COMMIT_DATE ??= commitDate;
