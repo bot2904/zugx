@@ -152,6 +152,16 @@ export default {
   },
   bf: {
     plan: {
+      reserveCol: "Riserva",
+      assumptions: "Ipotesi",
+      resetParams: "Valori predefiniti",
+      param: {
+        accelMU: "Avviamento elettrotreno (S/R/REX/CJX)",
+        accelLoco: "Avviamento con locomotiva",
+        brake: "Frenatura",
+        supplement: "Supplemento regolare",
+        slack: "molta riserva da",
+      },
       punctuality: "Puntualità",
       punctualitySummary: "{runs} corse in {days} giorni (raccolte in questo browser)",
       collect: "Attiva tempo reale e raccogli",
@@ -172,7 +182,7 @@ export default {
       planned: "Programmato",
       minimum: "Minimo",
       reserveNote:
-        "Programmato = mediana del tempo di percorrenza tra due fermate nella giornata; minimo = alla velocità consentita (VzG/OSM, limitata alla velocità massima della categoria) più avviamento e frenatura (0,7 m/s² per elettrotreni S/R/REX/CJX, altrimenti 0,5 m/s²). Giallo: stretto (< 7 %), verde: normale, blu: molta riserva (≥ 25 %) – margine per treni più veloci o attesa per coincidenze. Senza soste, pendenze e dati del materiale: un valore indicativo.",
+        "Programmato = mediana del tempo di percorrenza tra due fermate nella giornata; minimo = marcia alla velocità consentita (VzG/OSM, limitata alla velocità massima della categoria) più accelerazione e frenatura dalla velocità media consentita, con le ipotesi sopra (salvate in questo browser). Giallo: sotto il supplemento regolare, verde: normale, blu: molta riserva – margine per treni più veloci o attesa per coincidenze. Non modellati: sosta, pendenze, massa del treno e curva di trazione, cambi di velocità nella tratta – un valore indicativo.",
       allStretches: "tutte le tratte (anche < 3 treni)",
       crossings: "Incroci",
       crossingsSummary:

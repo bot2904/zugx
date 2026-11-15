@@ -146,6 +146,8 @@ const { locale } = useI18n();
           <strong>Fahrzeitreserve</strong>: geplante Fahrzeit zwischen zwei Halten im Vergleich zur
           kürzest möglichen mit der zulässigen Geschwindigkeit (inkl. Anfahren und Bremsen) – je
           Abschnitt, Gattung und Richtung. Viel Reserve heißt Spielraum für schnellere Züge.
+          Einstellbar: Anfahrbeschleunigung (Triebzug, lokbespannt), Bremsverzögerung, Regelzuschlag
+          und die Schwelle für „viel Reserve“.
         </li>
         <li>
           <strong>Pünktlichkeit</strong>: wo Züge Zeit verlieren, je Abschnitt und Halt, aus den
@@ -404,7 +406,9 @@ const { locale } = useI18n();
         <li>
           <strong>Running-time reserve</strong>: scheduled running time between two stops vs. the
           shortest possible at the permitted speed (incl. starting and stopping) – per stretch,
-          category and direction. Much reserve means room for faster trains.
+          category and direction. Much reserve means room for faster trains. Adjustable: starting
+          acceleration (multiple unit, locomotive-hauled), braking, standard supplement and the
+          threshold for much reserve.
         </li>
         <li>
           <strong>Punctuality</strong>: where trains lose time, per stretch and stop, from the

@@ -152,6 +152,16 @@ export default {
   },
   bf: {
     plan: {
+      reserveCol: "Reserve",
+      assumptions: "Annahmen",
+      resetParams: "Standardwerte",
+      param: {
+        accelMU: "Anfahren Triebzug (S/R/REX/CJX)",
+        accelLoco: "Anfahren lokbespannt",
+        brake: "Bremsen",
+        supplement: "Regelzuschlag",
+        slack: "viel Reserve ab",
+      },
       punctuality: "Pünktlichkeit",
       punctualitySummary:
         "{runs} Fahrten an {days} Tagen ausgewertet (in diesem Browser gesammelt)",
@@ -173,7 +183,7 @@ export default {
       planned: "Fahrzeit",
       minimum: "Minimum",
       reserveNote:
-        "Fahrzeit = Median der geplanten Fahrzeit zwischen zwei Halten über den Tag; Minimum = mit der zulässigen Geschwindigkeit (VzG/OSM, begrenzt auf die Höchstgeschwindigkeit der Gattung) plus Anfahren und Bremsen (0,7 m/s² bei Triebzügen S/R/REX/CJX, sonst 0,5 m/s²). Gelb: knapp (< 7 %), grün: üblich, blau: viel Reserve (≥ 25 %) – Spielraum für schnellere Züge oder Wartezeit für Anschlüsse. Ohne Haltezeit, Steigungen und Fahrzeugdaten: ein Richtwert.",
+        "Fahrzeit = Median der geplanten Fahrzeit zwischen zwei Halten über den Tag; Minimum = Fahrt mit der zulässigen Geschwindigkeit (VzG/OSM, begrenzt auf die Höchstgeschwindigkeit der Gattung) plus Anfahren auf und Bremsen aus der mittleren zulässigen Geschwindigkeit, mit den Annahmen oben (gespeichert in diesem Browser). Gelb: unter dem Regelzuschlag, grün: üblich, blau: viel Reserve – Spielraum für schnellere Züge oder Wartezeit für Anschlüsse. Nicht modelliert: Haltezeit, Steigungen, Zugmasse und Zugkraftkennlinie, Geschwindigkeitswechsel innerhalb des Abschnitts – ein Richtwert.",
       allStretches: "alle Abschnitte (auch < 3 Züge)",
       crossings: "Kreuzungen",
       crossingsSummary:

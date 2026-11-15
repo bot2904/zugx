@@ -361,20 +361,45 @@ const median = (xs: number[]) => {
   return s.length % 2 ? s[m]! : (s[m - 1]! + s[m]!) / 2;
 };
 
-/** acceleration = braking rate in m/s²: multiple units (S-Bahn, regional) vs. locomotive-hauled */
-const accel = (cat: string) => (["S", "R", "REX", "CJX"].includes(cat) ? 0.7 : 0.5);
+/** adjustable assumptions of the running-time reserve (planners know their rolling stock) */
+export interface ReserveParams {
+  /** starting acceleration, m/s²: multiple units (S, R, REX, CJX) and locomotive-hauled trains */
+  accelMU: number;
+  accelLoco: number;
+  /** service braking deceleration, m/s² */
+  brake: number;
+  /** standard running-time supplement (Regelzuschlag), % of the minimum: below = tight */
+  supplement: number;
+  /** from this reserve on (%), "much reserve" (room for faster trains) */
+  slack: number;
+}
+export const RESERVE_DEFAULTS: ReserveParams = {
+  accelMU: 0.7,
+  accelLoco: 0.5,
+  brake: 0.6,
+  supplement: 7,
+  slack: 25,
+};
+const MU = new Set(["S", "R", "REX", "CJX"]);
 
 /**
  * Minimum running time (minutes) from stop to stop: the time at the permitted speed `atSpeed`
- * over `km` plus starting and stopping — accelerating to and braking from the average permitted
- * speed costs v/a; on short stretches where that speed is not reached, 2·√(L/a).
+ * over `km` plus starting and stopping — accelerating to the average permitted speed v costs
+ * v/(2a), braking from it v/(2b); where v is not reached on a short stretch, √(2L(1/a + 1/b)).
  */
-export function minStopToStop(atSpeed: number, km: number, cat: string): number {
+export function minStopToStop(
+  atSpeed: number,
+  km: number,
+  cat: string,
+  p: ReserveParams = RESERVE_DEFAULTS,
+): number {
   const L = km * 1000;
   if (L <= 0 || atSpeed <= 0) return atSpeed;
   const v = L / (atSpeed * 60);
-  const a = accel(cat);
-  const s = L >= (v * v) / a ? L / v + v / a : 2 * Math.sqrt(L / a);
+  const a = Math.max(0.05, MU.has(cat) ? p.accelMU : p.accelLoco);
+  const b = Math.max(0.05, p.brake);
+  const ramps = (v * v) / (2 * a) + (v * v) / (2 * b);
+  const s = L >= ramps ? L / v + v / (2 * a) + v / (2 * b) : Math.sqrt(2 * L * (1 / a + 1 / b));
   return s / 60;
 }
 
@@ -391,6 +416,7 @@ export function runningReserve(
   stationKm: number[],
   lo: number,
   hi: number,
+  params: ReserveParams = RESERVE_DEFAULTS,
 ): ReserveRow[] {
   const groups = new Map<
     string,
@@ -415,7 +441,7 @@ export function runningReserve(
         min += v;
       }
       if (!ok || min <= 0) continue;
-      min = minStopToStop(min, Math.abs((stationKm[j] ?? 0) - (stationKm[i] ?? 0)), t.cat);
+      min = minStopToStop(min, Math.abs((stationKm[j] ?? 0) - (stationKm[i] ?? 0)), t.cat, params);
       const key = `${i}|${j}|${t.cat}`;
       const g = groups.get(key) ?? { from: i, to: j, cat: t.cat, dir: t.dir, p: [], m: min };
       g.p.push(a - d);
@@ -433,11 +459,17 @@ export function runningReserve(
   }));
 }
 
-/** reserve share of the minimum: tight (< 7 %), normal, slack (≥ 25 %: room for faster trains) */
-export const reserveClass = (planned: number, min: number) => {
-  const r = (planned - min) / min;
-  // below the minimum: timetable minutes rounded, or speed data/model off — not a statement
-  return r < 0 ? "neg" : r < 0.07 ? "mid" : r >= 0.25 ? "slack" : "good";
+/**
+ * reserve share of the minimum: below the minimum (rounded minutes / data), tight (below the
+ * standard supplement), usual, slack (≥ `slack` %: room for faster trains)
+ */
+export const reserveClass = (
+  planned: number,
+  min: number,
+  p: Pick<ReserveParams, "supplement" | "slack"> = RESERVE_DEFAULTS,
+) => {
+  const r = ((planned - min) / min) * 100;
+  return r < 0 ? "neg" : r < p.supplement ? "mid" : r >= p.slack ? "slack" : "good";
 };
 
 // ---- 6. punctuality: where trains lose time (live data) ----

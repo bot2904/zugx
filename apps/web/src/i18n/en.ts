@@ -150,6 +150,16 @@ export default {
   },
   bf: {
     plan: {
+      reserveCol: "Reserve",
+      assumptions: "Assumptions",
+      resetParams: "Defaults",
+      param: {
+        accelMU: "Starting, multiple unit (S/R/REX/CJX)",
+        accelLoco: "Starting, locomotive-hauled",
+        brake: "Braking",
+        supplement: "Standard supplement",
+        slack: "much reserve from",
+      },
       punctuality: "Punctuality",
       punctualitySummary: "{runs} runs on {days} days (collected in this browser)",
       collect: "Turn on live and collect",
@@ -170,7 +180,7 @@ export default {
       planned: "Scheduled",
       minimum: "Minimum",
       reserveNote:
-        "Scheduled = median planned running time between two stops over the day; minimum = at the permitted speed (VzG/OSM, capped at the category's top speed) plus starting and stopping (0.7 m/s² for multiple units S/R/REX/CJX, else 0.5 m/s²). Amber: tight (< 7 %), green: usual, blue: much reserve (≥ 25 %) – room for faster trains or time kept for connections. No dwell, gradients or rolling-stock data: a guide value.",
+        "Scheduled = median planned running time between two stops over the day; minimum = running at the permitted speed (VzG/OSM, capped at the category's top speed) plus accelerating to and braking from the average permitted speed, with the assumptions above (kept in this browser). Amber: below the standard supplement, green: usual, blue: much reserve – room for faster trains or time kept for connections. Not modelled: dwell, gradients, train mass and tractive-effort curve, speed changes within the stretch – a guide value.",
       allStretches: "all stretches (also < 3 trains)",
       crossings: "Crossings",
       crossingsSummary:

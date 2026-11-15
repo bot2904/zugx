@@ -23,6 +23,8 @@ import BfPunctuality from "../components/BfPunctuality.vue";
 import {
   bufferClass,
   crossings,
+  RESERVE_DEFAULTS,
+  type ReserveParams,
   lossesOf,
   lossTable,
   runningReserve,
@@ -114,6 +116,10 @@ const crossingList = computed(() => {
     t1.value,
   ).filter((x) => inRange(x.i) && (x.i2 === undefined || inRange(x.i2)));
 });
+/** assumptions of the reserve model, adjustable in the panel, kept in this browser */
+const reserveParams = useLocalStorage<ReserveParams>("zugx:bf-reserve", RESERVE_DEFAULTS, {
+  mergeDefaults: true,
+});
 /** running-time reserve per stretch between stops (whole day, shown section) */
 const reserveRows = computed(() => {
   const c = data.value;
@@ -124,6 +130,7 @@ const reserveRows = computed(() => {
     c.stations.map((st) => st.km),
     range.value.lo,
     range.value.hi,
+    reserveParams.value,
   );
 });
 const delayOf = (tr: CorridorTrain) =>
@@ -1192,6 +1199,7 @@ usePageTitle(() => {
     <BfReserve
       v-if="data && plan === 'reserve' && part !== 'table'"
       :stations="data.stations"
+      v-model:params="reserveParams"
       :rows="reserveRows"
       :dir="reversed ? -1 : 1"
     />

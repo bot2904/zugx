@@ -227,6 +227,17 @@ test("bildfahrplan planning: running-time reserve", async ({ page }) => {
   // other direction
   await panel.getByRole("button", { name: /Wien Hbf/ }).click();
   await expect(panel.locator("tbody")).toContainText("St. Pölten Hbf – Wien Meidling");
+  // model assumptions are adjustable and kept; "Defaults" resets them
+  const brake = panel.getByLabel(/^(Bremsen|Braking|Frenatura)/);
+  await brake.fill("1.2");
+  await brake.press("Enter");
+  await expect(brake).toHaveValue("1.2");
+  await page.reload();
+  await expect(panel.getByLabel(/^(Bremsen|Braking|Frenatura)/)).toHaveValue("1.2");
+  await panel
+    .getByRole("button", { name: /^(Standardwerte|Defaults|Valori predefiniti)$/ })
+    .click();
+  await expect(panel.getByLabel(/^(Bremsen|Braking|Frenatura)/)).toHaveValue("0.6");
 });
 
 test("bildfahrplan planning: punctuality from collected live data", async ({ page }) => {

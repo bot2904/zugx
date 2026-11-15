@@ -7,6 +7,9 @@ import {
   lossesOf,
   lossTable,
   nodeVerdict,
+  minStopToStop,
+  RESERVE_DEFAULTS,
+  reserveClass,
   runningReserve,
 } from "./bf-plan.ts";
 
@@ -146,8 +149,19 @@ describe("running-time reserve", () => {
       0,
       2,
     );
-    // 9 km in 9′ at speed (16.7 m/s) + starting/stopping 16.7 / 0.7 s = 9.4′
+    // 9 km in 9′ at speed (16.7 m/s) + starting 16.7/(2·0.7) s + stopping 16.7/(2·0.6) s = 9.4′
     expect(rows).toEqual([{ from: 0, to: 2, cat: "R", dir: 1, n: 2, planned: 12, min: 9.4 }]);
+  });
+  it("adjustable acceleration and braking; classes by supplement and slack", () => {
+    // a = b = 1 m/s²: 540 s + 16.7 s = 9.28′
+    const p = { ...RESERVE_DEFAULTS, accelMU: 1, brake: 1 };
+    expect(minStopToStop(9, 9, "R", p)).toBeCloseTo(9.28, 2);
+    // short stretch, top speed not reached: √(2L(1/a + 1/b)) = √(2·100·2) = 20 s
+    expect(minStopToStop(0.05, 0.1, "R", p) * 60).toBeCloseTo(20, 5);
+    expect(reserveClass(10.5, 10, { supplement: 7, slack: 25 })).toBe("mid");
+    expect(reserveClass(10.5, 10, { supplement: 3, slack: 25 })).toBe("good");
+    expect(reserveClass(13, 10, { supplement: 7, slack: 25 })).toBe("slack");
+    expect(reserveClass(9, 10)).toBe("neg");
   });
 });
 
