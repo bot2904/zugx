@@ -29,6 +29,7 @@ import {
   markConflicts,
   mergeCoupled,
   withoutUnknown,
+  stationOvertaking,
   type BlockParams,
 } from "../lib/bf-capacity.ts";
 import {
@@ -160,6 +161,7 @@ const blockBoxes = computed(() => {
     c.tracks ?? [],
     [...km, ...(c.blocks?.places ?? [])],
     blockParams.value.tolerance,
+    stationOvertaking(c.blocks, km),
   );
   return boxes;
 });

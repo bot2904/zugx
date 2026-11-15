@@ -171,6 +171,33 @@ export function withoutUnknown(
   );
 }
 
+/**
+ * Overtaking in stations: a station with station tracks (entry and exit signals of a direction
+ * within 1.5 km — not a plain halt) lets a train stand at the platform while another passes on a
+ * through track. Two trains of the same direction may share a block at such a station (≤ 4 km,
+ * reaching into its limits) if one of them stops there.
+ */
+export function stationOvertaking(
+  blocks: NonNullable<Corridor["blocks"]> | undefined,
+  stationKm: number[],
+): (a: BlockBox, b: BlockBox) => boolean {
+  const withTracks = stationKm.flatMap((km, i) => {
+    const near = (xs: number[]) => xs.filter((x) => Math.abs(x - km) <= 1.5).length;
+    return blocks && (near(blocks.up) >= 2 || near(blocks.down) >= 2) ? [{ i, km }] : [];
+  });
+  const stops = (t: CorridorTrain, i: number) => {
+    const q = t.pts.findIndex(([j]) => j === i);
+    if (q < 0) return false;
+    const [, a, d] = t.pts[q]!;
+    return q === 0 || q === t.pts.length - 1 || !(a !== null && a === d && a % 1 !== 0);
+  };
+  return (a, b) =>
+    a.to - a.from <= 4 &&
+    withTracks.some(
+      (s) => a.from <= s.km + 1.5 && a.to >= s.km - 1.5 && (stops(a.t, s.i) || stops(b.t, s.i)),
+    );
+}
+
 type AltBlocks = NonNullable<NonNullable<Corridor["blocks"]>["alt"]>;
 
 /**
@@ -235,6 +262,8 @@ export function markConflicts(
   /** stations and other crossing places (passing loops) */
   stationKm: number[],
   tolerance = 0,
+  /** same direction: may these two trains share the block (overtaking on station tracks)? */
+  overtake?: (a: BlockBox, b: BlockBox) => boolean,
 ) {
   const byBlock = new Map<string, BlockBox[]>();
   for (const x of boxes) {
@@ -245,7 +274,11 @@ export function markConflicts(
     list.sort((a, b) => a.start - b.start);
     for (let i = 1; i < list.length; i++)
       for (let j = i - 1; j >= 0 && j >= i - 3; j--)
-        if (list[j]!.t !== list[i]!.t && list[j]!.end - list[i]!.start > tolerance)
+        if (
+          list[j]!.t !== list[i]!.t &&
+          list[j]!.end - list[i]!.start > tolerance &&
+          !overtake?.(list[j]!, list[i]!)
+        )
           list[i]!.conflict = list[j]!.conflict = true;
   }
   if (!tracks.length) return;

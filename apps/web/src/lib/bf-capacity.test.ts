@@ -155,3 +155,43 @@ describe("parallel lines", () => {
     expect(boxes.some((x) => x.conflict)).toBe(false);
   });
 });
+
+describe("overtaking in stations", () => {
+  it("a train stopping at a station with station tracks may be passed there", async () => {
+    const { stationOvertaking } = await import("./bf-capacity.ts");
+    // station at km 10 with entry and exit signals; the slow train stops there 10 minutes
+    const k3 = [0, 10, 20];
+    const b3 = {
+      up: [0.2, 9.2, 10.8, 19.8],
+      down: [19.8, 10.8, 9.2, 0.2],
+      known: [
+        [0, 10],
+        [10, 20],
+      ] as [number, number][],
+    };
+    const bounds = blockBounds(b3, k3, 0, 20, 1);
+    const slow = train(
+      "1",
+      1,
+      [
+        [0, null, 480],
+        [1, 490, 500],
+        [2, 510, null],
+      ],
+      "R",
+    );
+    const fast = train(
+      "2",
+      1,
+      [
+        [0, null, 492],
+        [2, 502, null],
+      ],
+      "RJX",
+    );
+    const boxes = [slow, fast].flatMap((t) => blockingTimes(t, k3, bounds));
+    markConflicts(boxes, [], k3, 0.5, stationOvertaking(b3, k3));
+    const inStation = boxes.filter((x) => x.from >= 9 && x.to <= 11);
+    expect(inStation.some((x) => x.conflict)).toBe(false);
+  });
+});
