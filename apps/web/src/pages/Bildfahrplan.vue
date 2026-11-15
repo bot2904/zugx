@@ -544,7 +544,10 @@ function toggleCat(c: string) {
           {{ c.oebb ? `${c.oebb} · ` : "" }}{{ c.name }}
         </option>
       </select>
-      <span v-if="data" class="flex items-center gap-1 text-xs">
+    </div>
+    <!-- date and time window in one row; widths stay fixed while zapping (no jumping controls) -->
+    <div v-if="data" class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+      <span class="flex items-center gap-1">
         <button
           class="btn"
           v-tip="`${$t('bf.prevDay')} (←)`"
@@ -562,7 +565,7 @@ function toggleCat(c: string) {
           :aria-label="$t('trains.runsOn')"
           @change="setQuery({ d: ($event.target as HTMLInputElement).value || undefined })"
         />
-        <span class="mono muted">{{ weekday }}</span>
+        <span class="mono muted inline-block min-w-[3ch]">{{ weekday }}</span>
         <button
           class="btn"
           v-tip="`${$t('bf.nextDay')} (→)`"
@@ -571,18 +574,17 @@ function toggleCat(c: string) {
         >
           ›
         </button>
-        <button v-if="!isToday" class="btn" @click="setQuery({ d: undefined })">
+        <button
+          class="btn"
+          :class="isToday && 'invisible'"
+          :aria-hidden="isToday"
+          :tabindex="isToday ? -1 : undefined"
+          @click="setQuery({ d: undefined })"
+        >
           {{ $t("trains.today") }}
         </button>
-        <span class="muted">{{ $t("bf.trainsOnDay", { n: trainsOnDate.length }) }}</span>
-        <span
-          v-if="data.begin && (date < data.begin || date > data.end)"
-          class="text-[var(--warn)]"
-        >
-          {{ $t("bf.outside", { begin: data.begin, end: data.end }) }}
-        </span>
       </span>
-      <span class="ml-auto flex items-center gap-1 text-xs">
+      <span class="flex items-center gap-1">
         <button class="btn" v-tip="`${$t('bf.hourEarlier')} (↑)`" @click="shiftHour(-1)">▲</button>
         <span class="mono" v-tip="$t('bf.wheelHint')">{{ hhmmOf(startMin) }}</span>
         <button class="btn" v-tip="`${$t('bf.hourLater')} (↓)`" @click="shiftHour(1)">▼</button>
@@ -595,6 +597,10 @@ function toggleCat(c: string) {
         >
           {{ h }}h
         </button>
+      </span>
+      <span class="muted tabular-nums">{{ $t("bf.trainsOnDay", { n: trainsOnDate.length }) }}</span>
+      <span v-if="data.begin && (date < data.begin || date > data.end)" class="text-[var(--warn)]">
+        {{ $t("bf.outside", { begin: data.begin, end: data.end }) }}
       </span>
     </div>
     <div v-if="data" class="my-2 flex flex-wrap items-center gap-1 text-xs">
