@@ -1,0 +1,29 @@
+id = "si-62"
+name = "Divača – Koper"
+day = "2026-11-24"
+begin = "2025-12-29"
+end = "2028-01-02"
+source = "IJPP / NAP Slovenija 2026 (CC BY-SA 4.0)"
+stations = [
+  { id = "1123004", name = "Divača", km = 0, major = true, hafasId = "7900009" },
+  { id = "1123006", name = "Hrpelje-Kozina", km = 9.4, major = false, hafasId = "7900039" },
+  { id = "1123012", name = "Koper", km = 27.2, major = true, hafasId = "7900013" },
+]
+trains = [
+  { cat = "RG", nr = "508", dir = -1, origin = "Koper", headsign = "Koper - Ljubljana", pts = [[2, "", 323], [1, 358, 359], [0, 371, ""]], days = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
+  { cat = "RG", nr = "1605", dir = 1, origin = "Maribor", headsign = "Maribor - Koper", pts = [[0, "", 481], [1, 493, 495], [2, 529, ""]], days = "AAAAAAAAAAAAAAAAAAAH/////////////////////////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
+  { cat = "MV", nr = "1470", dir = 1, origin = "Divača", headsign = "Divača - Rakitovec", pts = [[0, "", 486], [1, 498, ""]], days = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
+  { cat = "MV", nr = "1246", dir = 1, origin = "Hodoš", headsign = "Hodoš - Koper", pts = [[0, "", 529], [1, 541, 543], [2, 577, ""]], days = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB////////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
+  { cat = "MV", nr = "1473", dir = -1, origin = "Rakitovec", headsign = "Rakitovec - Divača", pts = [[1, "", 574], [0, 586, ""]], days = "AAAAAAAAAAAAAAAAAQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
+  { cat = "IC", nr = "503", dir = 1, origin = "Hodoš", headsign = "Hodoš - Koper", pts = [[0, "", 663], [1, 675, 676], [2, 710, ""]], days = "AAAAAAAAAAAAAAAAH/////////////////////////////////////////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
+  { cat = "IC", nr = "502", dir = -1, origin = "Koper", headsign = "Koper - Hodoš", pts = [[2, "", 905], [1, 940, 941], [0, 952, ""]], days = "AAAAAAAAAAAAAAAAH/////////////////////////////////////////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
+  { cat = "MV", nr = "1475", dir = -1, origin = "Hrpelje-Kozina", headsign = "Hrpelje-Kozina - Dobova", pts = [[1, "", 961], [0, 973, ""]], days = "AAAAAAAAAAAAAAAAAIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
+  { cat = "MV", nr = "1472", dir = 1, origin = "Dobova", headsign = "Dobova - Rakitovec", pts = [[0, "", 1126], [1, 1138, ""]], days = "AAAAAAAAAAAAAAAAAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
+  { cat = "MV", nr = "1474", dir = 1, origin = "Divača", headsign = "Divača - Rakitovec", pts = [[0, "", 1126], [1, 1138, ""]], days = "AAAAAAAAAAAAAAAAAQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
+  { cat = "MV", nr = "1247", dir = -1, origin = "Koper", headsign = "Koper - Hodoš", pts = [[2, "", 1130], [1, 1163, 1165], [0, 1177, ""]], days = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
+  { cat = "RG", nr = "509", dir = 1, origin = "Ljubljana", headsign = "Ljubljana - Koper", pts = [[0, "", 1187], [1, 1199, 1200], [2, 1234, ""]], days = "AAAAAAAAAAAAAAAAH/////////////////////////////////////////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
+  { cat = "RG", nr = "1604", dir = -1, origin = "Koper", headsign = "Koper - Maribor", pts = [[2, "", 1198], [1, 1237, 1238], [0, 1251, ""]], days = "AAAAAAAAAAAAAAAAAAAAAAAAAAAB/////////////////4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
+  { cat = "MV", nr = "1471", dir = -1, origin = "Rakitovec", headsign = "Rakitovec - Divača", pts = [[1, "", 1217], [0, 1229, ""]], days = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////////+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" },
+]
+blocks = { up = [], down = [], known = [[0, 9.4]], places = [5.978] }
+minRun = { RG = [[7.5, 7.5], ["", ""]], MV = [[7.5, 7.5], ["", ""]], IC = [[7.5, 7.5], ["", ""]] }

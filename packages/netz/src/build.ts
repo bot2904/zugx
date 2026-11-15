@@ -1,14 +1,16 @@
 /**
- * Build: ÖBB GTFS → data/netz.toml, data/nge.json (Netzgrafik-Editor), data/corridors/*.toml
+ * Build: GTFS (local SQLite, vp run db:build) → data/netz.toml, data/nge.json (Netzgrafik-Editor),
+ * data/corridors/*.toml; per country (COUNTRY, default at; others → data/<country>/, sheets from
+ * countries/<country>.toml, no Netzgrafik: its nodes are Austrian)
  *
- *   vpx packages/netz/src/build.ts [--day=2026-03-10] [--cats=RJX,RJ,…]
+ *   COUNTRY=si vpx packages/netz/src/build.ts [--day=2026-03-10] [--cats=RJX,RJ,…]
  *
- * GTFS source: env GTFS_DIR (unzipped) or GTFS_ZIP, else `<repo>/.cache/`
- * (downloaded if missing).
+ * Shapes: env GTFS_DIR (unzipped) or the country's feed zip (GTFS_ZIP, downloaded if missing).
  */
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
+import { currentCountry, dataDir, osmRailPath, sourceLabel } from "@zugx/gtfs/country";
 import { readToml, toToml } from "@zugx/toml";
 import { linesThrough, signalLookup, speedLookup } from "@zugx/vzg/speed";
 import type { VzgLine } from "@zugx/vzg";
@@ -16,7 +18,7 @@ import {
   buildCorridor,
   corridorToml,
   CORRIDOR_ALIASES,
-  CORRIDORS,
+  countryCorridors,
   type SpeedLookup,
 } from "./corridors.ts";
 import { feedPeriod, loadFeed, loadShapes, parentDhid, serviceDays } from "./gtfs.ts";
@@ -46,14 +48,15 @@ export const DAY_TYPES = [
 ] as const;
 /** Takt-relevant categories (night trains and R/S are left out of the Netzgrafik). */
 export const DEFAULT_CATS = ["RJX", "RJ", "ICE", "EC", "IC", "D", "IR", "CJX", "REX"];
-export const SOURCE = "ÖBB GTFS 2026 (CC BY 4.0)";
 
-const pkg = join(import.meta.dirname, "..");
-const root = join(pkg, "..", "..");
-const out = join(pkg, "data");
+const COUNTRY = currentCountry();
+const DAY = COUNTRY.day ?? DEFAULT_DAY;
+const SOURCE = sourceLabel(DAY.slice(0, 4), COUNTRY);
+const out = dataDir("netz", COUNTRY);
+const vzgDir = dataDir("vzg", COUNTRY);
 
 function loadHafasMap(): Map<string, string> | undefined {
-  const p = join(root, "packages", "stations", "data", "gtfs-hafas-map.toml");
+  const p = join(dataDir("stations", COUNTRY), "gtfs-hafas-map.toml");
   if (!existsSync(p)) return undefined;
   const raw = readToml<Record<string, unknown>>(p, {});
   const map = new Map<string, string>();
@@ -94,11 +97,10 @@ const VMAX: Record<string, number> = {
  * linked by position.
  */
 function loadVzg(): VzgLine[] {
-  const dir = join(root, "packages", "vzg", "data");
-  if (!existsSync(dir)) return [];
-  return readdirSync(dir)
+  if (!existsSync(vzgDir)) return [];
+  return readdirSync(vzgDir)
     .filter((f) => f.endsWith(".toml") && f !== "index.toml")
-    .map((f) => readToml<VzgLine>(join(dir, f), {} as VzgLine))
+    .map((f) => readToml<VzgLine>(join(vzgDir, f), {} as VzgLine))
     .filter((l) => Array.isArray(l.tracks)); // not geometry.toml
 }
 
@@ -118,7 +120,7 @@ function loadSpeeds(
 async function main() {
   const { values } = parseArgs({
     options: {
-      day: { type: "string", default: DEFAULT_DAY },
+      day: { type: "string", default: DAY },
       cats: { type: "string", default: DEFAULT_CATS.join(",") },
       candidates: { type: "boolean", default: false },
     },
@@ -140,7 +142,8 @@ async function main() {
 
   mkdirSync(join(out, "corridors"), { recursive: true });
   const hafas = loadHafasMap();
-  for (const dt of DAY_TYPES) {
+  // the Netzgrafik's nodes (NODES) are Austrian
+  for (const dt of COUNTRY.id === "at" ? DAY_TYPES : []) {
     const d = dt.type === "weekday" ? day : dt.day;
     const f = d === day ? feed : loadFeed(src, d);
     const model = buildNetz(f, { day: d, source: SOURCE, cats, nodes: NODES, hafas });
@@ -165,7 +168,7 @@ async function main() {
   // route geometry: trains skipping stations of a sheet are only drawn there if they really run
   // along its line (not on a parallel one, e.g. Wien – St. Pölten high-speed line vs. Neulengbach)
   const shapeIds = new Set(year.feed.trips.flatMap((t) => (t.shape ? [t.shape] : [])));
-  const shapes = await loadShapes(join(root, ".cache"), shapeIds);
+  const shapes = await loadShapes(shapeIds);
   console.log(`${shapes.size} shapes (${Date.now() - t0} ms)`);
   const dayIdx = Temporal.PlainDate.from(period.begin).until(day).days;
   const runsOnDay = (b64: string) => {
@@ -176,7 +179,7 @@ async function main() {
     day,
     ...period,
     source: SOURCE,
-    aliases: CORRIDOR_ALIASES,
+    aliases: COUNTRY.id === "at" ? CORRIDOR_ALIASES : {},
     corridors: [],
   };
   const vzgLines = loadVzg();
@@ -198,19 +201,19 @@ async function main() {
   console.log(speeds ? "passing times weighted by VzG speed limits" : "passing times by distance");
   // single/double track per corridor along the trains' shapes: from the OSM tracks
   // (.cache/osm-rail.json of vzg:extract), else from the VzG network pieces
-  const netFile = join(root, "packages", "vzg", "data", "network.toml");
+  const netFile = join(vzgDir, "network.toml");
   const net = existsSync(netFile)
     ? readToml<{ lines: { id: string; pieces: { line: string; tr: number }[] }[] }>(netFile, {
         lines: [],
       })
     : undefined;
-  const osmFile = join(root, ".cache", "osm-rail.json");
+  const osmFile = osmRailPath(COUNTRY);
   const osm = existsSync(osmFile)
     ? (JSON.parse(readFileSync(osmFile, "utf8")) as RailWays)
     : undefined;
   console.log(`track counts from ${osm ? "the OSM tracks" : net ? "the VzG network" : "-"}`);
   const pairs = net || osm ? pairTrips(year.feed.trips, shapes) : undefined;
-  for (const def of CORRIDORS) {
+  for (const def of countryCorridors(COUNTRY.id)) {
     const c = buildCorridor(feed, def, day, SOURCE, names, year, shapes, speeds, lineOf);
     for (const st of c.stations) {
       const h = hafas?.get(st.id);

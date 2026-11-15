@@ -1,0 +1,150 @@
+# Bildfahrplan sheets (corridors) of Slovenia, by the SŽ-Infrastruktura line numbers (OSM
+# route=tracks ref, packages/vzg/data/si). Anchors: GTFS stop ids of the IJPP feed in corridor
+# order (stations of the sheet between them are found from the trains); see CorridorDef in
+# src/corridors.ts. Austria's sheets are defined in src/corridors.ts.
+
+[[corridors]]
+id = "si-10"
+name = "Dobova – Zidani Most – Ljubljana"
+anchors = [
+  "1122782", # Dobova
+  "1122788", # Sevnica
+  "1122792", # Zidani Most
+  "1122797", # Litija
+  "1122804", # Ljubljana
+]
+
+[[corridors]]
+id = "si-20"
+name = "Ljubljana – Jesenice – Villach"
+anchors = [
+  "1122804", # Ljubljana
+  "1122811", # Kranj
+  "1122836", # Jesenice
+  "INTL-8100147", # Villach Hbf
+]
+
+[[corridors]]
+id = "si-21"
+name = "Ljubljana – Kamnik"
+anchors = [
+  "1122804", # Ljubljana
+  "1122822", # Domžale
+  "1122826", # Kamnik Graben
+]
+
+[[corridors]]
+id = "si-30"
+name = "Zidani Most – Maribor – Spielfeld-Straß"
+anchors = [
+  "1122792", # Zidani Most
+  "1122888", # Celje
+  "1122899", # Pragersko
+  "1122913", # Maribor
+  "1122935", # Šentilj
+  "INTL-8100082", # Spielfeld-Straß
+]
+
+[[corridors]]
+id = "si-31"
+name = "Celje – Velenje"
+anchors = [
+  "1122888", # Celje
+  "1122987", # Velenje
+]
+
+[[corridors]]
+id = "si-32"
+name = "Grobelno – Rogatec"
+anchors = [
+  "1122891", # Grobelno
+  "1122966", # Rogaška Slatina
+  "1122967", # Rogatec
+]
+
+[[corridors]]
+id = "si-34"
+name = "Maribor – Dravograd – Prevalje"
+anchors = [
+  "1122913", # Maribor
+  "1122917", # Ruše
+  "1122937", # Dravograd
+  "1122939", # Prevalje
+]
+
+[[corridors]]
+id = "si-40"
+name = "Pragersko – Ormož – Hodoš"
+anchors = [
+  "1122899", # Pragersko
+  "1122907", # Ptuj
+  "1122943", # Ormož
+  "1122956", # Murska Sobota
+  "1122962", # Hodoš
+]
+
+[[corridors]]
+id = "si-50"
+name = "Ljubljana – Divača – Sežana"
+anchors = [
+  "1122804", # Ljubljana
+  "1122998", # Postojna
+  "1123001", # Pivka
+  "1123004", # Divača
+  "1123015", # Sežana
+]
+
+[[corridors]]
+id = "si-62"
+name = "Divača – Koper"
+anchors = [
+  "1123004", # Divača
+  "1123012", # Koper
+]
+
+[[corridors]]
+id = "si-64"
+name = "Pivka – Ilirska Bistrica"
+anchors = [
+  "1123001", # Pivka
+  "1123053", # Ilirska Bistrica
+]
+
+[[corridors]]
+id = "si-70"
+name = "Jesenice – Nova Gorica – Sežana"
+anchors = [
+  "1122836", # Jesenice
+  "1123043", # Bohinjska Bistrica
+  "1123038", # Most na Soči
+  "1123032", # Nova Gorica
+  "1123015", # Sežana
+]
+
+[[corridors]]
+id = "si-80"
+name = "Ljubljana – Novo mesto – Metlika"
+anchors = [
+  "1122804", # Ljubljana
+  "1122865", # Grosuplje
+  "1122853", # Trebnje
+  "1122849", # Novo mesto
+  "1122841", # Črnomelj
+  "1122838", # Metlika
+]
+
+[[corridors]]
+id = "si-81"
+name = "Sevnica – Trebnje"
+anchors = [
+  "1122788", # Sevnica
+  "1122853", # Trebnje
+]
+
+[[corridors]]
+id = "si-82"
+name = "Grosuplje – Kočevje"
+anchors = [
+  "1122865", # Grosuplje
+  "1122875", # Kočevje
+]

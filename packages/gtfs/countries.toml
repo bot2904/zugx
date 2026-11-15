@@ -30,6 +30,9 @@ lineRef = '^\d{2}$'
 # through-station tracks are often tagged service=siding and renewed tracks railway=construction:
 # keep those ways where a line relation lists them (else the lines fall apart at the stations)
 osmLineMembers = true
+# reference day of the Bildfahrplan sheets: a regular Tuesday in the feed's current period (the
+# Primorska line was closed until 2026-04-05)
+day = "2026-11-24"
 licence = { name = "CC BY-SA 4.0", url = "https://creativecommons.org/licenses/by-sa/4.0/", source = "IJPP / NAP Slovenija" }
 # SŽ and the foreign rail operators name the train in the route ("ICS 20", "LP 2100"); the trip's
 # short name is empty

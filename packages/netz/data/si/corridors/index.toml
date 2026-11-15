@@ -1,0 +1,243 @@
+day = "2026-11-24"
+begin = "2025-12-29"
+end = "2028-01-02"
+source = "IJPP / NAP Slovenija 2026 (CC BY-SA 4.0)"
+aliases = {}
+
+[[corridors]]
+id = "si-10"
+name = "Dobova – Zidani Most – Ljubljana"
+from = "Dobova"
+to = "Ljubljana"
+km = 108.1
+stations = 22
+trains = 90
+file = "si-10.toml"
+major = ["Dobova", "Sevnica", "Zidani Most", "Litija", "Ljubljana"]
+names = ["Dobova", "Brežice", "Libna", "Krško", "Brestanica", "Blanca", "Sevnica", "Breg", "Loka", "Radeče", "Zidani Most", "Hrastnik", "Trbovlje", "Zagorje", "Sava", "Litija", "Kresnice", "Jevnica", "Laze", "Ljubljana Zalog", "Ljubljana Polje", "Ljubljana"]
+cats = { LPV = 56, RG = 15, EC = 6, IC = 5, MV = 4, ICS = 2, EN = 2 }
+lines = [
+  { id = "10", ref = "10", name = "Dobova – Ljubljana", stations = 21 },
+]
+
+[[corridors]]
+id = "si-20"
+name = "Ljubljana – Jesenice – Villach"
+from = "Ljubljana"
+to = "Villach Hbf"
+km = 93
+stations = 18
+trains = 69
+file = "si-20.toml"
+major = ["Ljubljana", "Kranj", "Jesenice", "Villach Hbf"]
+names = ["Ljubljana", "Litostroj", "Ljubljana Stegne", "Ljubljana Vižmarje", "Medno", "Medvode", "Reteče", "Škofja Loka", "Kranj", "Podnart", "Otoče", "Globoko", "Radovljica", "Lesce-Bled", "Žirovnica", "Slovenski Javornik", "Jesenice", "Villach Hbf"]
+cats = { LPV = 32, D = 13, RG = 7, EC = 6, EN = 6, MV = 3, LP = 2 }
+lines = [
+  { id = "70", ref = "70", name = "Jesenice – Sežana", stations = 17 },
+  { id = "20", ref = "20", name = "Ljubljana - Jesenice državna meja", stations = 16 },
+]
+
+[[corridors]]
+id = "si-21"
+name = "Ljubljana – Kamnik"
+from = "Ljubljana"
+to = "Kamnik Graben"
+km = 24
+stations = 16
+trains = 48
+file = "si-21.toml"
+major = ["Ljubljana", "Domžale", "Kamnik Graben"]
+names = ["Ljubljana", "Ljubljana Brinje", "Ljubljana Ježica", "Ljubljana Črnuče", "Trzin ind. cona", "Trzin Mlake", "Trzin", "Domžale", "Rodica", "Jarše-Mengeš", "Homec pri Kamniku", "Šmarca", "Duplica-Bakovnik", "Kamnik", "Kamnik mesto", "Kamnik Graben"]
+cats = { LP = 48 }
+lines = [
+  { id = "21", ref = "21", stations = 16 },
+]
+
+[[corridors]]
+id = "si-30"
+name = "Zidani Most – Maribor – Spielfeld-Straß"
+from = "Zidani Most"
+to = "Spielfeld-Straß"
+km = 101.9
+stations = 22
+trains = 207
+file = "si-30.toml"
+major = ["Zidani Most", "Celje", "Pragersko", "Maribor", "Šentilj", "Spielfeld-Straß"]
+names = ["Zidani Most", "Rimske Toplice", "Laško", "Celje", "Štore", "Šentjur", "Grobelno", "Ponikva", "Ostrožno", "Dolga Gora", "Poljčane", "Slovenska Bistrica", "Pragersko", "Rače", "Orehova vas", "Hoče", "Maribor Tezno", "Maribor", "Pesnica", "Cirknica", "Šentilj", "Spielfeld-Straß"]
+cats = { LPV = 77, RG = 30, LP = 25, IR = 23, MO = 12, R = 12, IC = 10, EC = 8, ICS = 6, MV = 4 }
+lines = [
+  { id = "30", ref = "30", name = "Zidani Most – Šentilj", stations = 20 },
+]
+
+[[corridors]]
+id = "si-31"
+name = "Celje – Velenje"
+from = "Celje"
+to = "Velenje"
+km = 22.5
+stations = 12
+trains = 28
+file = "si-31.toml"
+major = ["Celje", "Velenje"]
+names = ["Celje", "Celje Lava", "Petrovče", "Žalec", "Šempeter v Savinjski dolini", "Polzela", "Šmartno ob Paki", "Paška vas", "Florjan", "Šoštanj", "Velenje Pesje", "Velenje"]
+cats = { LP = 28 }
+lines = [
+  { id = "31", ref = "31", name = "Celje – Velenje", stations = 11 },
+]
+
+[[corridors]]
+id = "si-32"
+name = "Grobelno – Rogatec"
+from = "Grobelno"
+to = "Rogatec"
+km = 23.1
+stations = 10
+trains = 25
+file = "si-32.toml"
+major = ["Grobelno", "Rogaška Slatina", "Rogatec"]
+names = ["Grobelno", "Šentvid pri Grobelnem", "Šmarje pri Jelšah", "Stranje", "Mestinje", "Podplat", "Tekačevo", "Rogaška Slatina", "Rjavica", "Rogatec"]
+cats = { LP = 25 }
+lines = [
+  { id = "32", ref = "32", stations = 10 },
+]
+
+[[corridors]]
+id = "si-34"
+name = "Maribor – Dravograd – Prevalje"
+from = "Maribor"
+to = "Prevalje"
+km = 66.6
+stations = 25
+trains = 37
+file = "si-34.toml"
+major = ["Maribor", "Ruše", "Dravograd", "Prevalje"]
+names = ["Maribor", "Maribor Tabor", "Maribor Studenci", "Maribor Sokolska", "Marles", "Limbuš", "Bistrica ob Dravi", "Ruše tovarna", "Ruše", "Fala", "Ruta", "Ožbalt", "Podvelka", "Vuhred elektrarna", "Vuhred", "Sveti Vid", "Vuzenica", "Trbonjsko jezero", "Trbonje", "Sveti Danijel", "Dravograd", "Podklanc", "Dobrije", "Ravne na Koroškem", "Prevalje"]
+cats = { LP = 37 }
+lines = [
+  { id = "34", ref = "34", name = "Maribor – Prevalje", stations = 23 },
+  { id = "35", ref = "35", name = "Lok Maribor Tezno – Maribor Studenci", stations = 3 },
+]
+
+[[corridors]]
+id = "si-40"
+name = "Pragersko – Ormož – Hodoš"
+from = "Pragersko"
+to = "Hodoš"
+km = 101.5
+stations = 27
+trains = 36
+file = "si-40.toml"
+major = ["Pragersko", "Ptuj", "Ormož", "Murska Sobota", "Hodoš"]
+names = ["Pragersko", "Šikole", "Cirkovce", "Strnišče", "Kidričevo", "Hajdina", "Ptuj", "Moškanjci", "Zamušani", "Osluševci", "Velika Nedelja", "Ormož", "Pušenci", "Pavlovci", "Ivanjkovci", "Mekotnjak", "Ljutomer mesto", "Ljutomer", "Grlava", "Veržej", "Lipovci", "Murska Sobota", "Puconci", "Mačkovci", "Gornji Petrovci", "Šalovci", "Hodoš"]
+cats = { LPV = 28, RG = 4, IC = 2, MV = 2 }
+lines = [
+  { id = "41", ref = "41", name = "Predor Stanjevci (novi)", stations = 15 },
+  { id = "40", ref = "40", name = "Pragersko – Ormož", stations = 11 },
+]
+
+[[corridors]]
+id = "si-50"
+name = "Ljubljana – Divača – Sežana"
+from = "Ljubljana"
+to = "Sežana"
+km = 87.3
+stations = 17
+trains = 45
+file = "si-50.toml"
+major = ["Ljubljana", "Postojna", "Pivka", "Divača", "Sežana"]
+names = ["Ljubljana", "Ljubljana Tivoli", "Ljubljana Dolgi most(Železniški)", "Brezovica", "Notranje Gorice", "Preserje", "Borovnica", "Logatec", "Rakek", "Postojna", "Prestranek", "Pivka", "Košana", "Gornje Ležeče", "Divača", "Povir", "Sežana"]
+cats = { LPV = 36, RG = 4, MV = 2, IC = 2, LP = 1 }
+lines = [
+  { id = "50", ref = "50", name = "Ljubljana - Sežana", stations = 17 },
+  { id = "70", ref = "70", name = "Jesenice – Sežana", stations = 17 },
+]
+
+[[corridors]]
+id = "si-62"
+name = "Divača – Koper"
+from = "Divača"
+to = "Koper"
+km = 27.2
+stations = 3
+trains = 4
+file = "si-62.toml"
+major = ["Divača", "Koper"]
+names = ["Divača", "Hrpelje-Kozina", "Koper"]
+cats = { RG = 2, IC = 2 }
+
+[[corridors]]
+id = "si-64"
+name = "Pivka – Ilirska Bistrica"
+from = "Pivka"
+to = "Ilirska Bistrica"
+km = 14.1
+stations = 4
+trains = 23
+file = "si-64.toml"
+major = ["Pivka", "Ilirska Bistrica"]
+names = ["Pivka", "Narin", "Kilovče", "Ilirska Bistrica"]
+cats = { LPV = 19, MV = 2, RG = 2 }
+lines = [
+  { id = "64", ref = "64", name = "Pivka – Ilirska Bistrica", stations = 4 },
+]
+
+[[corridors]]
+id = "si-70"
+name = "Jesenice – Nova Gorica – Sežana"
+from = "Jesenice"
+to = "Sežana"
+km = 111.1
+stations = 32
+trains = 38
+file = "si-70.toml"
+major = ["Jesenice", "Bohinjska Bistrica", "Most na Soči", "Nova Gorica", "Sežana"]
+names = ["Jesenice", "Kočna", "Vintgar", "Podhom", "Bled Jezero", "Bohinjska Bela", "Nomenj", "Bohinjska Bistrica", "Podbrdo", "Hudajužna", "Grahovo", "Podmelec", "Most na Soči", "Avče", "Kanal", "Anhovo", "Plave", "Solkan", "Solkan", "Nova Gorica", "Šempeter pri Gorici", "Volčja Draga", "Okroglica", "Prvačina", "Dornberk", "Steske", "Branik", "Štanjel", "Kopriva", "Dutovlje", "Kreplje", "Sežana"]
+cats = { LP = 28, AVT = 8, RG = 2 }
+
+[[corridors]]
+id = "si-80"
+name = "Ljubljana – Novo mesto – Metlika"
+from = "Ljubljana"
+to = "Metlika"
+km = 112.2
+stations = 35
+trains = 55
+file = "si-80.toml"
+major = ["Ljubljana", "Grosuplje", "Trebnje", "Novo mesto", "Črnomelj", "Metlika"]
+names = ["Ljubljana", "Ljubljana Vodmat", "Ljubljana Rakovnik", "Lavrica(Železniški)", "Škofljica", "Šmarje-Sap", "Grosuplje", "Mlačevo", "Žalna", "Višnja Gora", "Polževo", "Ivančna Gorica", "Šentvid pri Stični", "Radohova vas", "Gaber", "Šentlovrenc", "Velika Loka", "Štefan", "Trebnje", "Ponikve na Dolenjskem", "Mirna Peč", "Hudo", "Novo mesto", "Novo mesto center", "Novo mesto Kandija", "Novo mesto Šmihel", "Birčna vas", "Uršna sela", "Rožni Dol", "Semič", "Otovec", "Črnomelj", "Gradac", "Dobravice", "Metlika"]
+cats = { LP = 52, RG = 3 }
+lines = [
+  { id = "80", ref = "80", name = "Metlika – Ljubljana", stations = 35 },
+]
+
+[[corridors]]
+id = "si-81"
+name = "Sevnica – Trebnje"
+from = "Sevnica"
+to = "Trebnje"
+km = 29.1
+stations = 11
+trains = 14
+file = "si-81.toml"
+major = ["Sevnica", "Trebnje"]
+names = ["Sevnica", "Boštanj", "Jelovec", "Tržišče", "Pijavice", "Mokronog", "Šentrupert", "Mirna", "Gomila", "Trebnje Kamna Gora", "Trebnje"]
+cats = { LP = 14 }
+lines = [
+  { id = "81", ref = "81", name = "Sevnica – Trebnje", stations = 10 },
+]
+
+[[corridors]]
+id = "si-82"
+name = "Grosuplje – Kočevje"
+from = "Grosuplje"
+to = "Kočevje"
+km = 43.6
+stations = 10
+trains = 25
+file = "si-82.toml"
+major = ["Grosuplje", "Kočevje"]
+names = ["Grosuplje", "Spodnja Slivnica", "Čušperk", "Dobrepolje", "Velike Lašče", "Ortnek", "Žlebič", "Ribnica", "Stara Cerkev", "Kočevje"]
+cats = { LP = 25 }
+lines = [
+  { id = "82", ref = "82", name = "Grosuplje – Kočevje", stations = 9 },
+]

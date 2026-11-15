@@ -7,7 +7,8 @@
  * distances are median track distances, intermediate stations are placed by
  * their relative position between the two anchors (haversine fallback).
  */
-import { toToml } from "@zugx/toml";
+import { join } from "node:path";
+import { readToml, toToml } from "@zugx/toml";
 import {
   haversineKm,
   shapeDistanceKm,
@@ -798,6 +799,16 @@ export const OEBB_CORRIDORS: CorridorDef[] = [
 ];
 
 export const CORRIDORS: CorridorDef[] = [...OEBB_CORRIDORS, ...ZUGX_CORRIDORS];
+
+/**
+ * the Bildfahrplan sheets of a country: Austria's above, the others' from
+ * `packages/netz/countries/<id>.toml` (`[[corridors]]`, none if the file is missing)
+ */
+export function countryCorridors(country: string): CorridorDef[] {
+  if (country === "at") return CORRIDORS;
+  const file = join(import.meta.dirname, "..", "countries", `${country}.toml`);
+  return readToml<{ corridors?: CorridorDef[] }>(file, {}).corridors ?? [];
+}
 
 /** ids of zugx corridors replaced by ÖBB Fahrplanbilder (old links keep working) */
 export const CORRIDOR_ALIASES: Record<string, string> = {

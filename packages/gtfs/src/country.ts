@@ -25,6 +25,8 @@ export interface Country {
    * also list real sidings
    */
   osmLineMembers?: boolean;
+  /** reference day of the timetable sheets (a regular Tuesday; default: netz DEFAULT_DAY) */
+  day?: string;
   /** licence of the timetable data, for the data files and the attribution */
   licence: { name: string; url: string; source: string };
   /** SQL run on the country's database after the import (feed quirks → the expected shape) */

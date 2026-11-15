@@ -1,15 +1,13 @@
 /**
- * GTFS loading: reads the ÖBB GTFS feed (zip or unzipped directory), keeps only
+ * GTFS loading: reads a GTFS feed (database records or CSV text), keeps only
  * rail trips that run on one reference day and resolves stops to their parent
  * stations.
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { Unzip, UnzipInflate, unzipSync } from "fflate";
+import { Unzip, UnzipInflate } from "fflate";
+import { fetchFeeds } from "@zugx/gtfs";
 import { csvRecords, textChunks } from "./csv.ts";
-
-export const GTFS_URL =
-  "https://static.web.oebb.at/open-data/soll-fahrplan-gtfs/GTFS_Fahrplan_2026.zip";
 
 export interface Station {
   /** parent station DHID, e.g. `Pat:41:3087` */
@@ -62,51 +60,14 @@ export type Source = TableSource | RecordSource;
 const table = (src: Source, name: string): Iterable<Record<string, string>> =>
   typeof src === "function" ? csvRecords(src(name) ?? []) : src.records(name);
 
-const NEEDED = ["stops", "routes", "trips", "calendar", "calendar_dates", "stop_times"]; // shapes: streamed, loadShapes
-
-/** Local path of the GTFS zip: env GTFS_ZIP, else the ÖBB feed in `cacheDir` (downloaded if missing). */
-export async function feedZip(cacheDir: string): Promise<string> {
-  let zipPath = process.env.GTFS_ZIP;
-  if (!zipPath) {
-    zipPath = join(cacheDir, "GTFS_Fahrplan_2026.zip");
-    if (!existsSync(zipPath)) {
-      console.log(`downloading ${GTFS_URL} …`);
-      const res = await fetch(GTFS_URL);
-      if (!res.ok) throw new Error(`download failed: ${res.status} ${res.statusText}`);
-      mkdirSync(cacheDir, { recursive: true });
-      writeFileSync(zipPath, new Uint8Array(await res.arrayBuffer()));
-    }
-  }
-  return zipPath;
-}
-
-/** Opens the feed: `GTFS_DIR` (unzipped), `GTFS_ZIP`, or the cached download. */
-export async function openFeed(cacheDir: string): Promise<TableSource> {
-  const dir = process.env.GTFS_DIR;
-  if (dir) {
-    return (name) => {
-      const p = join(dir, `${name}.txt`);
-      return existsSync(p) ? textChunks(readFileSync(p)) : undefined;
-    };
-  }
-  const zipPath = await feedZip(cacheDir);
-  const files = unzipSync(readFileSync(zipPath), {
-    filter: (f) => NEEDED.some((n) => f.name.endsWith(`${n}.txt`)),
-  });
-  const byName = new Map<string, Uint8Array>();
-  for (const [path, data] of Object.entries(files)) {
-    byName.set(
-      path
-        .split("/")
-        .pop()!
-        .replace(/\.txt$/, ""),
-      data,
-    );
-  }
-  return (name) => {
-    const data = byName.get(name);
-    return data ? textChunks(data) : undefined;
-  };
+/**
+ * Local path of the GTFS zip with the shapes: the first feed of the country (env GTFS_ZIP or
+ * countries.toml; downloaded into .cache if missing).
+ */
+export async function feedZip(): Promise<string> {
+  const [first] = await fetchFeeds(() => {});
+  if (!first) throw new Error("no GTFS feed configured");
+  return first.path;
 }
 
 /** "HH:MM:SS" → minutes since midnight (seconds rounded). */
@@ -239,11 +200,14 @@ export function loadFeed(src: Source, day: string | null): Feed {
     if ((services && !services.has(r.service_id!)) || busRoutes.has(r.route_id!)) continue;
     const short = (r.trip_short_name ?? "").trim();
     if (!short) continue;
+    // category and number ("RJX 760"); trains with a bare number (some SŽ / HŽ trains) are left
+    // out, as in the trains index
     const m = /^(\S+)\s+(.+)$/.exec(short);
+    if (!m) continue;
     trips.set(r.trip_id!, {
       id: r.trip_id!,
-      cat: m ? m[1]! : short,
-      nr: m ? m[2]! : "",
+      cat: m[1]!,
+      nr: m[2]!,
       headsign: shortStationName(r.trip_headsign ?? ""),
       routeId: r.route_id!,
       service: r.service_id!,
@@ -301,7 +265,7 @@ export interface Shape {
  * Loads the given shapes from `shapes.txt`, streamed (the ÖBB file is ~600 MB uncompressed):
  * env GTFS_DIR (unzipped) or the zip of {@link feedZip}.
  */
-export async function loadShapes(cacheDir: string, ids: Set<string>): Promise<Map<string, Shape>> {
+export async function loadShapes(ids: Set<string>): Promise<Map<string, Shape>> {
   const pts = new Map<string, { seq: number[]; lat: number[]; lon: number[]; dist: number[] }>();
   let rest = "";
   let header: string[] | undefined;
@@ -335,7 +299,7 @@ export async function loadShapes(cacheDir: string, ids: Set<string>): Promise<Ma
     if (existsSync(p)) for (const c of textChunks(readFileSync(p))) text(c, false);
     text("", true);
   } else {
-    const zip = readFileSync(await feedZip(cacheDir));
+    const zip = readFileSync(await feedZip());
     await new Promise<void>((resolve, reject) => {
       const decoder = new TextDecoder();
       const uz = new Unzip();
