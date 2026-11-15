@@ -20,7 +20,8 @@
     "maplibre-gl": "catalog:",
     "temporal-polyfill": "catalog:",
     "vue": "catalog:",
-    "vue-router": "catalog:"
+    "vue-router": "catalog:",
+    "workbox-window": "catalog:"
   },
   "devDependencies": {
     "@types/geojson": "catalog:",

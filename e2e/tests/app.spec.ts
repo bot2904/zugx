@@ -218,6 +218,30 @@ test("bildfahrplan planning: crossings on single track", async ({ page }) => {
   await expect(page.locator("rect.bf-single").first()).toBeAttached();
 });
 
+test("route chunk missing after a deploy: one full load instead of a blank page", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator("h1")).toContainText("zugx");
+  // the old page asks for a chunk the server no longer has (first request fails)
+  let failed = false;
+  await page.route(/\/assets\/Help-[^/]+\.js$/, (r) => {
+    if (failed) return r.continue();
+    failed = true;
+    return r.fulfill({ status: 404, body: "" });
+  });
+  // narrow screens: the nav entries are in the menu
+  const menu = page.getByRole("button", { name: /^(Menu|Menü)$/ });
+  if (await menu.isVisible()) await menu.click();
+  await page
+    .getByRole("link", { name: /^(Help|Hilfe|Aiuto)$/ })
+    .first()
+    .click();
+  await expect(page).toHaveURL(/\/help$/);
+  await expect(page.locator("h1")).toHaveText(/Help|Hilfe/);
+  expect(failed).toBe(true);
+});
+
 test("document titles: view · selection · zugx", async ({ page }) => {
   await page.goto("/bf/400?from=7&d=2026-03-10");
   await expect(page).toHaveTitle(/^[^·]+ · 400 .+ · zugx$/);

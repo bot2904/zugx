@@ -28,7 +28,9 @@ export default defineConfig({
     // .gz/.zst siblings of the text assets for Caddy's precompressed file_server
     precompress(),
     VitePWA({
-      registerType: "autoUpdate",
+      // "prompt": the new worker waits until lib/update.ts applies it (next navigation, or a tab
+      // in the background) — never in the middle of what the user is doing
+      registerType: "prompt",
       manifest: {
         name: "zugx",
         short_name: "zugx",

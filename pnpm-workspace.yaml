@@ -26,6 +26,7 @@ catalog:
   smol-toml: ^1.9.1
   pbf: ^5.1.2
   "@zugx/toml": workspace:*
+  workbox-window: ^7.4.1
 
 overrides:
   vite@*: "catalog:"
