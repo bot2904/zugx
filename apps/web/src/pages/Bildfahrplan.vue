@@ -921,6 +921,19 @@ function toggleCat(c: string) {
       :hover="hover"
       @hover="hover = $event"
     />
+    <!-- the other direction -->
+    <BfTable
+      v-if="data && part !== 'chart'"
+      :follow="part === 'table'"
+      :stations="[...shownStations].reverse()"
+      :trains="[...trainsOnDate, ...hafasOnlyTrains].filter((t) => !hidden.has(t.cat))"
+      :dir="reversed ? 1 : -1"
+      :t0="t0"
+      :t1="t1"
+      :date="date"
+      :hover="hover"
+      @hover="hover = $event"
+    />
   </section>
 </template>
 

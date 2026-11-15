@@ -74,6 +74,9 @@ watch(
 
 <template>
   <div v-if="rows.length" class="card bf-table mt-2 overflow-x-auto p-1">
+    <h2 class="sticky left-0 m-0 px-1 text-sm font-semibold">
+      {{ stations[0]?.name }} – {{ stations.at(-1)?.name }}
+    </h2>
     <table class="mono text-xs">
       <thead>
         <tr>

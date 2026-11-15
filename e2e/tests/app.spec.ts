@@ -147,9 +147,11 @@ test("bildfahrplan section and direction are adjustable", async ({ page }) => {
   );
 });
 
-test("bildfahrplan: timetable table below the chart, one direction", async ({ page }) => {
+test("bildfahrplan: timetable tables below the chart, both directions", async ({ page }) => {
   await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
-  const table = page.locator(".bf-table table");
+  const table = page.locator(".bf-table table").first();
+  // second table: the reverse direction
+  await expect(page.locator(".bf-table h2").nth(1)).toHaveText(/^Salzburg Hbf – Wien Hbf$/);
   await expect(table.locator("thead th").nth(1)).toHaveText("Wien Hbf");
   expect(await table.locator("tbody tr").count()).toBeGreaterThan(20);
   await expect(table.locator("tbody td", { hasText: /^7:\d\d$/ }).first()).toBeVisible();
@@ -190,7 +192,7 @@ test("bildfahrplan: table in a second window, view and hover in sync", async ({ 
       name: /Show chart and table|Bildfahrplan und Tabelle|Grafico e tabella/,
     })
     .click();
-  await expect(page.locator(".bf-table")).toBeVisible();
+  await expect(page.locator(".bf-table")).toHaveCount(2);
 });
 
 test("bildfahrplan index keeps its sort order after visiting a corridor", async ({ page }) => {
