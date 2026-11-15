@@ -202,6 +202,12 @@ export interface Corridor {
   source: string;
   stations: CorridorStation[];
   trains: CorridorTrain[];
+  /**
+   * station pairs [lo, hi] (indexes) between which the timetable's trains leave the corridor's
+   * line for a parallel one (shape check, e.g. Wien Meidling – Wiener Neustadt via the
+   * Pottendorfer Linie): trains known only from realtime aren't drawn across them
+   */
+  bypass?: [number, number][];
   /** single / double track along the corridor: [km from, km to, tracks] (from the VzG data) */
   tracks?: [number, number, number][];
   /**

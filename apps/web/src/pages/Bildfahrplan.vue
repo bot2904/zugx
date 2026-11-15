@@ -67,7 +67,7 @@ import {
   lastReported,
   livePaths,
   newLiveState,
-  plannedTrain,
+  plannedPieces,
   refreshLive,
   trainKey,
   type LiveRun,
@@ -664,7 +664,11 @@ function toggleLive() {
 }
 /** trains known from HAFAS only (WESTbahn & co.), drawn with their planned times */
 const hafasOnlyTrains = computed(() =>
-  liveOn.value ? [...liveRuns.value.values()].filter((r) => r.hafasOnly).map(plannedTrain) : [],
+  liveOn.value
+    ? [...liveRuns.value.values()]
+        .filter((r) => r.hafasOnly)
+        .flatMap((r) => plannedPieces(r, data.value?.bypass))
+    : [],
 );
 const drawnByKey = computed(
   () => new Map(drawn.value.map((r) => [trainKey(r.t.cat, r.t.nr), r.t] as const)),
@@ -708,7 +712,11 @@ const liveDrawn = computed(() => {
   const xi = (i: number) => (inRange(i) && c.stations[i] ? x(c.stations[i].km) : undefined);
   return [...liveRuns.value.values()]
     .filter((r) => !hidden.value.has(r.cat))
-    .map((r) => ({ r, color: categoryColor(r.cat), ...livePaths(r, xi, y, nowMin) }))
+    .map((r) => ({
+      r,
+      color: categoryColor(r.cat),
+      ...livePaths(r, xi, y, nowMin, c.bypass),
+    }))
     .filter((p) => p.past || p.future);
 });
 
@@ -1270,9 +1278,19 @@ watch([plan, nodeHafas, date, t0, t1, nodeAll], () => void loadNodeBoards(), {
             :stroke-dasharray="hoverDrawn.live?.hafasOnly ? '1 2' : undefined"
             class="pointer-events-none"
           />
-          <!-- live overlay: actual path (solid) and forecast (dashed), delay at "now" -->
-          <g v-for="p in liveDrawn" :key="`live-${p.r.key}`" class="pointer-events-none">
+          <!-- live overlay: actual path (solid) and forecast (dashed), delay at "now"; hovering or
+               clicking it acts on the train like its planned line -->
+          <g
+            v-for="p in liveDrawn"
+            :key="`live-${p.r.key}`"
+            class="cursor-pointer"
+            @mouseenter="hover = drawnByKey.get(p.r.key)"
+            @mouseleave="hover = undefined"
+            @click="drawnByKey.get(p.r.key) && openTrain(drawnByKey.get(p.r.key)!, $event)"
+          >
+            <path :d="p.past + p.future" fill="none" stroke="transparent" stroke-width="8" />
             <path
+              class="pointer-events-none"
               :d="p.past"
               fill="none"
               :stroke="p.color"
@@ -1281,6 +1299,7 @@ watch([plan, nodeHafas, date, t0, t1, nodeAll], () => void loadNodeBoards(), {
               :opacity="hover && hover !== drawnByKey.get(p.r.key) ? 0.35 : 1"
             />
             <path
+              class="pointer-events-none"
               :d="p.future"
               fill="none"
               :stroke="p.color"
@@ -1290,6 +1309,7 @@ watch([plan, nodeHafas, date, t0, t1, nodeAll], () => void loadNodeBoards(), {
             />
             <circle
               v-for="([cx, cy], k) in p.dots"
+              class="pointer-events-none"
               :key="k"
               :cx="cx"
               :cy="cy"

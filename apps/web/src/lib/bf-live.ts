@@ -67,48 +67,103 @@ export function plannedTrain(r: LiveRun): CorridorTrain {
 }
 
 /**
+ * a train known only from realtime is not drawn across a stretch where the timetable's trains
+ * take a parallel line (Corridor.bypass): seen at i and j with such a stretch in between
+ */
+export function crossesBypass(i: number, j: number, bypass?: [number, number][]): boolean {
+  const [lo, hi] = i < j ? [i, j] : [j, i];
+  return hi - lo > 1 && !!bypass?.some(([a, b]) => lo <= a && b <= hi);
+}
+
+/** a live run as corridor trains (planned times), in pieces split at bypassed stretches */
+export function plannedPieces(r: LiveRun, bypass?: [number, number][]): CorridorTrain[] {
+  const pieces: LivePt[][] = [[]];
+  for (const p of r.pts) {
+    const last = pieces.at(-1)!.at(-1);
+    if (last && crossesBypass(last.i, p.i, bypass)) pieces.push([]);
+    pieces.at(-1)!.push(p);
+  }
+  return pieces.filter((p) => p.length >= 2).map((pts) => plannedTrain({ ...r, pts }));
+}
+
+/**
+ * the times of a run's events (arrival, departure per station in running order): realtime where
+ * known; in between the delay interpolated between the reported events before and after (e.g.
+ * only the departure reported at a station: its arrival with about that delay), after the last
+ * report its delay, before the first planned; never earlier than the event before
+ */
+export function eventTimes(
+  evs: ({ plan: number; rt?: number } | undefined)[],
+): (number | undefined)[] {
+  const known = evs.flatMap((e, k) => (e?.rt !== undefined ? [k] : []));
+  let prev = Number.NEGATIVE_INFINITY;
+  return evs.map((e, k) => {
+    if (!e) return undefined;
+    let t: number;
+    if (e.rt !== undefined) t = e.rt;
+    else {
+      const a = known.filter((q) => q < k).at(-1);
+      const b = known.find((q) => q > k);
+      const da = a !== undefined ? evs[a]!.rt! - evs[a]!.plan : undefined;
+      const db = b !== undefined ? evs[b]!.rt! - evs[b]!.plan : undefined;
+      if (da === undefined) t = e.plan;
+      else if (db === undefined) t = e.plan + da;
+      else {
+        const [pa, pb] = [evs[a!]!.plan, evs[b!]!.plan];
+        const f = pb > pa ? Math.min(1, Math.max(0, (e.plan - pa) / (pb - pa))) : 1;
+        t = e.plan + da + f * (db - da);
+      }
+    }
+    prev = Math.max(prev, t);
+    return prev;
+  });
+}
+
+/**
  * Path pieces of a live run in screen coordinates, split at "now": solid up to now (actual),
- * dashed after (forecast). Realtime where known, else planned + the last known delay.
+ * dashed after (forecast). Realtime where known, in between interpolated (eventTimes); a train
+ * known only from realtime is broken at stretches where the timetable's trains take a parallel line.
  */
 export function livePaths(
   r: LiveRun,
   x: (i: number) => number | undefined,
   y: (min: number) => number,
   nowMin: number,
+  bypass?: [number, number][],
 ): { past: string; future: string; end?: [number, number]; dots: [number, number][] } {
-  const pts: [number, number][] = [];
-  // events without realtime: planned + the last known delay; never earlier than the event before
-  let lastDelay = 0;
-  let prev = Number.NEGATIVE_INFINITY;
-  const t = (e?: { plan: number; rt?: number }) => {
-    if (!e) return undefined;
-    if (e.rt !== undefined) lastDelay = e.rt - e.plan;
-    prev = Math.max(prev, e.rt ?? e.plan + lastDelay);
-    return prev;
-  };
-  // time points per station in running order: arrival then departure
-  const tm: [number, number][] = [];
+  const times = eventTimes(r.pts.flatMap((p) => [p.arr, p.dep]));
+  // time points per station in running order: arrival then departure; null = a break
+  const tm: ([number, number] | null)[] = [];
   const dots: [number, number][] = [];
-  for (const p of r.pts) {
+  let lastI: number | undefined;
+  r.pts.forEach((p, k) => {
     const px = x(p.i);
-    const a = t(p.arr);
-    const d = t(p.dep);
-    if (px === undefined) continue;
+    const a = times[2 * k];
+    const d = times[2 * k + 1];
+    if (px === undefined) return;
+    if (r.hafasOnly && lastI !== undefined && crossesBypass(lastI, p.i, bypass)) tm.push(null);
+    lastI = p.i;
     // times reported by HAFAS (not interpolated): marked with a dot
     if (p.arr?.rt !== undefined) dots.push([px, y(p.arr.rt)]);
     if (p.dep?.rt !== undefined && p.dep.rt !== p.arr?.rt) dots.push([px, y(p.dep.rt)]);
     if (a !== undefined) tm.push([px, a]);
     if (d !== undefined && d !== a) tm.push([px, d]);
-  }
-  for (const [px, m] of tm) pts.push([px, m]);
+  });
+  const pts = tm;
   const past: [number, number][][] = [[]];
   const future: [number, number][][] = [[]];
   for (let k = 0; k < pts.length; k++) {
-    const [px, m] = pts[k]!;
+    const cur = pts[k];
+    if (!cur) {
+      past.push([]);
+      future.push([]);
+      continue;
+    }
+    const [px, m] = cur;
     if (m <= nowMin) past.at(-1)!.push([px, y(m)]);
     else {
       const prev = pts[k - 1];
-      if (prev && prev[1] <= nowMin) {
+      if (prev && prev[1] <= nowMin && past.at(-1)!.length) {
         // crossing "now": split the segment
         const f = (nowMin - prev[1]) / (m - prev[1] || 1);
         const cx = prev[0] + f * (px - prev[0]);
@@ -123,7 +178,7 @@ export function livePaths(
       .filter((s) => s.length > 1)
       .map((s) => s.map(([a, b], k) => `${k ? "L" : "M"}${a.toFixed(1)},${b.toFixed(1)}`).join(""))
       .join("");
-  const lastPast = past.at(-1)!.at(-1);
+  const lastPast = past.flat().at(-1);
   return { past: d(past), future: d(future), dots, ...(lastPast ? { end: lastPast } : {}) };
 }
 

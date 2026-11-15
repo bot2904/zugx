@@ -1141,6 +1141,8 @@ export function corridorRuns(
   trip: Trip,
   stationIdx: Map<string, number>,
   onLine?: OnLine,
+  /** called with the corridor station indexes (lo < hi) where the trip leaves the line */
+  bypassed?: (lo: number, hi: number) => void,
 ): CorridorRun[] {
   const out: CorridorRun[] = [];
   let cur: [number, number | null, number | null][] = [];
@@ -1177,7 +1179,10 @@ export function corridorRuns(
     if (prev && onLine && Math.abs(k - prev[0]) > 1) {
       const [lo, hi] = prev[0] < k ? [prev[0], k] : [k, prev[0]];
       const skipped = Array.from({ length: hi - lo - 1 }, (_, n) => lo + 1 + n);
-      if (!onLine(trip, lastI, i, skipped)) flush();
+      if (!onLine(trip, lastI, i, skipped)) {
+        bypassed?.(lo, hi);
+        flush();
+      }
     }
     lastI = i;
     const pt: [number, number | null, number | null] = [k, s.arr, s.dep];
@@ -1245,13 +1250,19 @@ export function buildCorridor(
     { t: Omit<CorridorTrain, "days">; days: Set<number>; segs?: [number, number, string][] }
   >();
   const src = (year ?? { feed }).feed;
+  /** station pairs (lo-hi) where trains leave the line in between → their train-days */
+  const bypass = new Map<string, number>();
   for (const trip of src.trips) {
     const tripDays = year ? year.days.get(trip.service) : new Set([0]);
     if (!tripDays?.size) continue;
     const first = trip.stops[0]!.st;
     const origin = src.stations.get(first)?.name ?? first;
     const tp = withPassing ? withPassing(trip) : trip;
-    for (const run of corridorRuns(tp, idx, onLine)) {
+    const runs = corridorRuns(tp, idx, onLine, (lo, hi) => {
+      const k = `${lo}-${hi}`;
+      bypass.set(k, (bypass.get(k) ?? 0) + tripDays.size);
+    });
+    for (const run of runs) {
       const { pts, headsign, ...head } = run;
       const t = { ...head, origin, headsign, pts }; // key order of the JSON lines
       const key = JSON.stringify(t);
@@ -1292,7 +1303,22 @@ export function buildCorridor(
   });
   const t0 = (t: CorridorTrain) => t.pts[0]![2] ?? t.pts[0]![1] ?? 0;
   trains.sort((a, b) => t0(a) - t0(b) || a.nr.localeCompare(b.nr));
-  return { id: def.id, name: def.name, day, begin, end, source, stations, trains };
+  // stretches with a parallel line, taken by the timetable's trains on more than a few days
+  const bypasses = [...bypass]
+    .filter(([, n]) => n >= 10)
+    .map(([k]) => k.split("-").map(Number) as [number, number])
+    .sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  return {
+    id: def.id,
+    name: def.name,
+    day,
+    begin,
+    end,
+    source,
+    stations,
+    trains,
+    ...(bypasses.length ? { bypass: bypasses } : {}),
+  };
 }
 
 /** TOML text of a corridor: one station / train per line. */

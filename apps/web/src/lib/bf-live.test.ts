@@ -4,7 +4,10 @@ import {
   addEvent,
   alongCorridor,
   buildRuns,
+  crossesBypass,
+  eventTimes,
   livePaths,
+  plannedPieces,
   minutesOn,
   newLiveState,
   plannedTrain,
@@ -129,5 +132,53 @@ describe("Bildfahrplan live overlay", () => {
       dep: { plan: 632, rt: 638 },
       cancelled: true,
     });
+  });
+
+  it("a station with only the departure reported: the arrival gets about that delay (RJ 755 in Bruck)", () => {
+    // Graz dep 1020 +1, Bruck arr 1055 (no rt) / dep 1057 +8, Mürzzuschlag arr 1084 (no rt)
+    const t = eventTimes([
+      undefined,
+      { plan: 1020, rt: 1021 },
+      { plan: 1055 },
+      { plan: 1057, rt: 1065 },
+      { plan: 1084 },
+    ]);
+    expect(t[2]).toBeCloseTo(1055 + 1 + (35 / 37) * 7, 5); // ≈ +7.6, not +1
+    expect(t[4]).toBe(1084 + 8); // after the last report: its delay
+  });
+
+  it("trains known only from realtime aren't drawn across a parallel-line stretch", () => {
+    // stations 0..4; the timetable's trains take a parallel line between 1 and 4
+    const bypass: [number, number][] = [[1, 4]];
+    expect(crossesBypass(1, 4, bypass)).toBe(true);
+    expect(crossesBypass(0, 4, bypass)).toBe(true);
+    expect(crossesBypass(1, 2, bypass)).toBe(false);
+    const r = {
+      key: "WB 1009",
+      cat: "WB",
+      nr: "1009",
+      origin: "A",
+      headsign: "E",
+      hafasOnly: true,
+      final: false,
+      pts: [
+        { i: 0, dep: { plan: 600, rt: 601 } },
+        { i: 1, arr: { plan: 605, rt: 606 }, dep: { plan: 606, rt: 607 } },
+        { i: 4, arr: { plan: 630, rt: 631 }, dep: { plan: 632, rt: 633 } },
+        { i: 5, arr: { plan: 640, rt: 641 } },
+      ],
+    };
+    expect(plannedPieces(r, bypass).map((t) => t.pts.map(([i]) => i))).toEqual([
+      [0, 1],
+      [4, 5],
+    ]);
+    const p = livePaths(
+      r,
+      (i) => i * 10,
+      (m) => m,
+      700,
+      bypass,
+    );
+    expect(p.past).toBe("M0.0,601.0L10.0,606.0L10.0,607.0M40.0,631.0L40.0,633.0L50.0,641.0");
   });
 });
