@@ -319,7 +319,7 @@ function exportSvg() {
       t("vzg.exportMadeWith", { url }),
     ],
   });
-  const file = `VzG_${(line || l.id).replace(/[^\p{L}\p{N}]+/gu, "_")}_${t("vzg.track")}_${tr.track}.svg`;
+  const file = `zugx_VzG_${(line || l.id).replace(/[^\p{L}\p{N}]+/gu, "_")}_${t("vzg.track")}_${tr.track}.svg`;
   download(svg, file);
 }
 

@@ -1,7 +1,7 @@
 // Standalone SVG export of a rendered chart (e.g. the VzG-Grafik for Wikimedia Commons): the
 // app's CSS is not available there, so colours and fonts are inlined — resolved in light mode —,
 // interactive-only parts (hover targets, ARIA tooltips) dropped, and a caption and a footer with
-// the data sources added. Fonts: DejaVu, which Commons' SVG renderer (librsvg) has.
+// the data sources added. Fonts: those Commons' SVG renderer (librsvg) has (see SANS/MONO).
 
 const STYLE_PROPS = [
   "fill",
@@ -15,8 +15,10 @@ const STYLE_PROPS = [
   "font-size",
   "font-weight",
 ] as const;
-const SANS = "DejaVu Sans, Arial, sans-serif";
-const MONO = "DejaVu Sans Mono, monospace";
+// font lists as recommended by Wikimedia Commons (Help:SVG#Fonts): Liberation fonts are installed
+// on its renderer and metric-compatible with Arial / Courier New; generic family last
+const SANS = "Liberation Sans, Arial, Nimbus Sans L, Helvetica, sans-serif";
+const MONO = "Liberation Mono, Courier New, Courier, monospace";
 const NS = "http://www.w3.org/2000/svg";
 
 export interface SvgExport {

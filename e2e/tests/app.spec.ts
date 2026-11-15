@@ -481,7 +481,7 @@ test("VzG chart exports a standalone SVG with caption and data sources", async (
     page.waitForEvent("download"),
     page.getByRole("button", { name: /SVG/ }).click(),
   ]);
-  expect(dl.suggestedFilename()).toMatch(/^VzG_101_01_Westbahn_.+_2\.svg$/);
+  expect(dl.suggestedFilename()).toMatch(/^zugx_VzG_101_01_Westbahn_.+_2\.svg$/);
   const svg = await new Promise<string>((resolve) => {
     void dl.createReadStream().then((s) => {
       let t = "";
@@ -495,4 +495,5 @@ test("VzG chart exports a standalone SVG with caption and data sources", async (
   expect(svg).toContain("zugx");
   expect(svg).not.toContain("class=");
   expect(svg).not.toContain("var(--");
+  expect(svg).toContain("font-family:Liberation Sans, Arial");
 });
