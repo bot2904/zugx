@@ -2,19 +2,12 @@
 // from the open data GTFS — for the printed-style departure poster ("Abfahrt", /station/<id>/plan).
 // Identical departures (time, train, destination, route, platform) are merged over the year; their
 // running days are a base64 bitset, stored once per file in `days` and referenced by index.
+// Reads the local SQLite (vp run db:build).
 // Run: vp run departures:build   (after stations:build, uses its GTFS → HAFAS station map)
 import { mkdirSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import {
-  dayFromIso,
-  fetchFeeds,
-  isRailRouteType,
-  loadGtfs,
-  parseTrainName,
-  stationGroup,
-  timer,
-  timetableYear,
-} from "@zugx/gtfs";
+import { dayFromIso, parseTrainName, timer, timetableYear } from "@zugx/gtfs";
+import { openZugxDb, RAIL_ROUTE_TYPES, rows, serviceDays } from "@zugx/db/query";
 import type { GtfsHafasMap } from "@zugx/stations";
 import { cleanGtfsName, cleanHafasName } from "@zugx/stations/match";
 import { readToml, toToml } from "@zugx/toml";
@@ -31,13 +24,20 @@ export type DepartureRow = [number, string, string, string, string[], number, st
 
 async function main() {
   const t = timer();
-  const g = await loadGtfs(await fetchFeeds(), {
-    keepTrip: (tr, r) => !!r && isRailRouteType(r.type) && tr.shortName !== "",
-  });
-  const year = Number(process.env.TRAINS_YEAR) || feedYear(g);
+  const db = openZugxDb();
+  const services = serviceDays(db);
+  const year = Number(process.env.TRAINS_YEAR) || feedYear({ services });
   const tty = timetableYear(year);
   const begin = dayFromIso(tty.begin);
   const map = readToml<GtfsHafasMap>(MAP_PATH, {});
+  // stops: station group (parent station, else the stop itself), name, platform
+  const stops = new Map(
+    rows<{ id: string; name: string; parent: string | null; platform: string | null }>(
+      db,
+      "select stop_id id, stop_name name, parent_station parent, platform_code platform from stops",
+    ).map((s) => [s.id, s]),
+  );
+  const group = (id: string) => stops.get(id)?.parent || id;
   const names = new Map<string, string>();
   const idOf = (gid: string) => {
     const e = map[gid];
@@ -45,28 +45,49 @@ async function main() {
     if (!names.has(id))
       names.set(
         id,
-        e?.id ? cleanHafasName(e.name ?? e.gtfs) : cleanGtfsName(g.stops.get(gid)?.name ?? gid),
+        e?.id ? cleanHafasName(e.name ?? e.gtfs) : cleanGtfsName(stops.get(gid)?.name ?? gid),
       );
     return id;
   };
+  // rail trips with a train name, in file order; their stop times in stop_sequence order
+  const trips = rows<{ id: string; name: string; service: string }>(
+    db,
+    `select t.trip_id id, trim(t.trip_short_name) name, t.service_id service
+       from trips t join routes r using (route_id)
+      where ${RAIL_ROUTE_TYPES} and trim(coalesce(t.trip_short_name, '')) <> ''
+      order by t.rowid`,
+  );
+  type St = { stopId: string; dep: number; pickup: number; dropoff: number };
+  const stopTimes = new Map<string, St[]>();
+  for (const r of rows<St & { trip: string }>(
+    db,
+    `select st.trip_id trip, st.stop_id stopId,
+            coalesce(st.departure_timestamp, st.arrival_timestamp) dep,
+            coalesce(st.pickup_type, 0) pickup, coalesce(st.drop_off_type, 0) dropoff
+       from stop_times st join trips t using (trip_id) join routes r using (route_id)
+      where ${RAIL_ROUTE_TYPES} and trim(coalesce(t.trip_short_name, '')) <> ''
+      order by st.trip_id, st.stop_sequence`,
+  )) {
+    const list = stopTimes.get(r.trip) ?? [];
+    list.push(r);
+    stopTimes.set(r.trip, list);
+  }
 
   // station id → departure key → { row, day indexes }
   const byStation = new Map<
     string,
     Map<string, { row: Omit<DepartureRow, 5>; days: Set<number> }>
   >();
-  for (const trip of g.trips.values()) {
-    const tn = parseTrainName(trip.shortName);
+  for (const trip of trips) {
+    const tn = parseTrainName(trip.name);
     if (!tn) continue;
-    const sts = (g.stopTimes.get(trip.id) ?? []).filter(
-      (s) => !(s.pickup === 1 && s.dropoff === 1),
-    );
+    const sts = (stopTimes.get(trip.id) ?? []).filter((s) => !(s.pickup === 1 && s.dropoff === 1));
     if (sts.length < 2) continue;
-    const days = (g.services.get(trip.serviceId) ?? [])
+    const days = (services.get(trip.service) ?? [])
       .map((d) => d - begin)
       .filter((i) => i >= 0 && i < tty.days);
     if (!days.length) continue;
-    const ids = sts.map((s) => idOf(stationGroup(g, s.stopId)));
+    const ids = sts.map((s) => idOf(group(s.stopId)));
     const dest = ids.at(-1)!;
     for (let k = 0; k + 1 < sts.length; k++) {
       const s = sts[k]!;
@@ -74,7 +95,7 @@ async function main() {
       const id = ids[k]!;
       if (!/^\d+$/.test(id)) continue; // stations without HAFAS id: no page to show it on
       const via = ids.slice(k + 1, -1).slice(0, VIA_MAX);
-      const platform = g.stops.get(s.stopId)?.platform ?? null;
+      const platform = stops.get(s.stopId)?.platform || null;
       const row = [Math.round(s.dep / 60), tn.cat, tn.nr, dest, via, platform] as const;
       const key = JSON.stringify(row);
       let m = byStation.get(id);
