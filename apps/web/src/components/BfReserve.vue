@@ -52,7 +52,8 @@ const perCat = computed(() => {
   }
   return [...m].map(([cat, x]) => ({ cat, pct: Math.round(((x.p - x.min) / x.min) * 100) }));
 });
-const fmt = (v: number) => (Math.round(v * 10) / 10).toLocaleString(undefined);
+const fmt = (v: number) =>
+  v.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 const pct = (r: ReserveRow) => Math.round(((r.planned - r.min) / r.min) * 100);
 </script>
 

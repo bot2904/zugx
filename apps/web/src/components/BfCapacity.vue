@@ -63,7 +63,9 @@ function between(r: BlockRow) {
   if (a && b && a === b) return a.name;
   return [a?.name, b?.name].filter(Boolean).join(" – ");
 }
-const km = (v: number) => v.toLocaleString(undefined, { maximumFractionDigits: 1 });
+/** always one decimal (aligned columns): 163,0 not 163 */
+const km = (v: number) =>
+  v.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 const pct = (v: number) => `${Math.round(v * 100)} %`;
 </script>
 
