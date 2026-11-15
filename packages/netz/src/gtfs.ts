@@ -27,6 +27,8 @@ export interface StopTime {
   dep: number;
   /** shape_dist_traveled in metres (NaN if absent) */
   dist: number;
+  /** a station the train passes without stopping (added by passingPoints, time estimated) */
+  pass?: boolean;
 }
 
 export interface Trip {

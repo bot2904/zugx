@@ -1117,7 +1117,7 @@ export function passingPoints(
         acc += w[k]!;
         const t = a.dep + (acc / total) * (b.arr - a.dep);
         const tm = Math.round(t * 10) / 10;
-        extra.push({ st: p.id, arr: tm, dep: tm, dist: p.alongM });
+        extra.push({ st: p.id, arr: tm, dep: tm, dist: p.alongM, pass: true });
       });
     }
     if (!extra.length) return trip;
@@ -1133,15 +1133,25 @@ export function corridorRuns(
 ): CorridorRun[] {
   const out: CorridorRun[] = [];
   let cur: [number, number | null, number | null][] = [];
+  let passes: number[] = [];
   let dir: 1 | -1 | 0 = 0;
   const flush = () => {
     if (cur.length >= 2 && dir !== 0) {
       // start / end of the run: no arrival / departure shown
       cur[0]![1] = null;
       cur[cur.length - 1]![2] = null;
-      out.push({ cat: trip.cat, nr: trip.nr, dir, headsign: trip.headsign, pts: cur });
+      const pass = passes.filter((k) => k !== cur[0]![0] && k !== cur.at(-1)![0]);
+      out.push({
+        cat: trip.cat,
+        nr: trip.nr,
+        dir,
+        headsign: trip.headsign,
+        pts: cur,
+        ...(pass.length ? { pass } : {}),
+      });
     }
     cur = [];
+    passes = [];
     dir = 0;
   };
   let lastI = -1;
@@ -1172,6 +1182,7 @@ export function corridorRuns(
       }
     }
     cur.push(pt);
+    if (s.pass) passes.push(k);
   });
   flush();
   return out;

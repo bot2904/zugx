@@ -175,6 +175,11 @@ export interface CorridorTrain {
   headsign: string;
   pts: [number, number | null, number | null][];
   /**
+   * station indices the train passes without stopping (times estimated, see passingPoints) —
+   * build-internal, not stored in the corridor files
+   */
+  pass?: number[];
+  /**
    * stretches on another railway line than the sheet's usual one (from the GTFS shape), e.g. the
    * new Unterinntal line in the tunnel: [from station index, to station index, VzG line id]
    */

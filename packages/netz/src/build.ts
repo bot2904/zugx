@@ -271,6 +271,74 @@ async function main() {
         if (keep.length) t.via = keep;
         else delete t.via;
       }
+      // trains whose GTFS shape doesn't show the other line (ÖBB shapes often follow the old line,
+      // e.g. IR 515 in the Unterinntal tunnel): a train without a stop on a stretch that at least
+      // 5 other trains demonstrably run on another line takes that line too
+      const axisPts = c.stations.flatMap((st) => {
+        const g = year.feed.stations.get(st.id);
+        return g ? [{ pos: [g.lat, g.lon] as [number, number], km: st.km }] : [];
+      });
+      // a bypass: the other line has no stations of its own on the stretch — all its stations
+      // there are also on the sheet's own line (e.g. 330 01 next to the old line's stations)
+      const stationsOf = (lineId: string, kmA: number, kmB: number) => {
+        const line = vzgById.get(lineId);
+        const out = new Set<string>();
+        for (const t of line?.tracks ?? [])
+          for (const p of t.points) {
+            if (!p.pos || (p.kind !== "station" && p.kind !== "halt" && p.kind !== "stop"))
+              continue;
+            const ck = corridorKmAt(axisPts, p.pos, 2);
+            if (ck !== undefined && ck > kmA + 0.5 && ck < kmB - 0.5)
+              out.add(p.uic ?? p.label ?? "");
+          }
+        return out;
+      };
+      const isBypass = (lineId: string, i: number, j: number) => {
+        if (!vzgById.has(lineId)) return false;
+        const [kmA, kmB] = [c.stations[i]!.km, c.stations[j]!.km];
+        const own = new Set<string>();
+        for (let k = i; k < j; k++) {
+          const h = home.get(k);
+          if (h) for (const x of stationsOf(h, kmA, kmB)) own.add(x);
+        }
+        return [...stationsOf(lineId, kmA, kmB)].every((x) => own.has(x));
+      };
+      const seen = new Map<string, { i: number; j: number; line: string; n: number }>();
+      for (const t of c.trains)
+        for (const [vi, vj, line] of t.via ?? []) {
+          const [i, j] = vi < vj ? [vi, vj] : [vj, vi];
+          const k = `${i}|${j}|${line}`;
+          const x = seen.get(k) ?? { i, j, line, n: 0 };
+          x.n++;
+          seen.set(k, x);
+        }
+      for (const s of [...seen.values()]
+        // only stretches skipping at least two stations (skipping them is what tells the line apart),
+        // and only bypass lines without stations of their own there (e.g. the Unterinntal tunnel;
+        // not parallel lines with stations such as the Pottendorfer Linie, where not stopping
+        // says nothing about the line)
+        .filter((x) => x.n >= 5 && x.j - x.i >= 3 && isBypass(x.line, x.i, x.j))
+        .sort((a, b) => b.j - b.i - (a.j - a.i)))
+        for (const t of c.trains) {
+          const idx = t.pts.map((p) => p[0]);
+          const [lo, hi] = [Math.min(...idx), Math.max(...idx)];
+          if (lo > s.i || hi < s.j) continue; // must run the whole stretch
+          const stopInside = t.pts.some(
+            ([i], q) =>
+              i > s.i && i < s.j && (q === 0 || q === t.pts.length - 1 || !t.pass?.includes(i)),
+          );
+          if (stopInside) continue;
+          const via = t.via ?? [];
+          const covered = via.some(([a, b]) => Math.min(a, b) <= s.i && Math.max(a, b) >= s.j);
+          if (covered) continue;
+          // drop shorter stretches inside it, add this one (in the train's direction)
+          t.via = [
+            ...via.filter(([a, b]) => !(Math.min(a, b) >= s.i && Math.max(a, b) <= s.j)),
+            t.dir === 1 ? [s.i, s.j, s.line] : [s.j, s.i, s.line],
+          ];
+        }
+      // passing points were only needed for that (not written: would touch every train's line)
+      for (const t of c.trains) delete t.pass;
       // other lines some trains take: their block signals on the corridor's km axis — each signal
       // placed by its position (line km → position → projected onto the corridor's stations)
       const alt: NonNullable<NonNullable<typeof c.blocks>["alt"]> = [];
