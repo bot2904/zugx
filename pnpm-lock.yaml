@@ -410,6 +410,9 @@ importers:
       '@zugx/toml':
         specifier: workspace:*
         version: link:../toml
+      '@zugx/trains':
+        specifier: workspace:*
+        version: link:../trains
       fflate:
         specifier: 'catalog:'
         version: 0.8.3

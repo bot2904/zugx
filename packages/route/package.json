@@ -2,7 +2,7 @@
   "name": "@zugx/route",
   "version": "0.0.0",
   "private": true,
-  "description": "Timetable routing data (minotor, RAPTOR) built from the GTFS: per-day timetables and a stops index for routing in the browser",
+  "description": "Timetable routing data (minotor, RAPTOR): the committed routing input per country (export.ts, from the GTFS) and the per-day timetables and stops index built from it for routing in the browser",
   "license": "AGPL-3.0-only",
   "type": "module",
   "scripts": {
@@ -12,6 +12,7 @@
     "@zugx/db": "workspace:*",
     "@zugx/gtfs": "workspace:*",
     "@zugx/toml": "workspace:*",
+    "@zugx/trains": "workspace:*",
     "fflate": "catalog:",
     "minotor": "catalog:"
   },

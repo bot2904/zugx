@@ -68,6 +68,8 @@ export default defineConfig({
       "trains:build": { command: "vpx packages/trains/src/build.ts", cache: false },
       "departures:build": { command: "vpx packages/trains/src/departures.ts", cache: false },
       "lines:build": { command: "vpx packages/trains/src/lines.ts", cache: false },
+      // routing input per country (committed) from the SQLite → routing data from it (CI, deploy)
+      "route:export": { command: "vpx packages/route/src/export.ts", cache: false },
       "route:build": { command: "vpx packages/route/src/build.ts", cache: false },
       "kursbuch:pdf": { command: "vpx e2e/scripts/kursbuch-pdf.ts", cache: false },
       "netz:build": { command: "vpx packages/netz/src/build.ts", cache: false },

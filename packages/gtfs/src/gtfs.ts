@@ -4,6 +4,7 @@
 import { CsvParser } from "./csv.ts";
 import type { FeedSource } from "./feed.ts";
 import { streamZip, type EntrySink } from "./zip.ts";
+import { timetableYear } from "./util.ts";
 
 export interface Agency {
   id: string;
@@ -286,4 +287,30 @@ export async function loadGtfs(feeds: FeedSource[], opts: LoadOptions = {}): Pro
     );
   }
   return g;
+}
+
+/**
+ * the timetable year of a feed: the one containing today if the feed runs trains then (feeds
+ * often reach into the next year already), else the year with the most service days
+ */
+export function feedYear(g: { services: Map<string, number[]> }): number {
+  const today = Temporal.Now.plainDateISO("Europe/Vienna");
+  const current = timetableYear(
+    today.year + (today.toString() >= timetableYear(today.year + 1).begin ? 1 : 0),
+  );
+  const [b, e] = [dayFromIso(current.begin), dayFromIso(current.end)];
+  for (const days of g.services.values())
+    if (days.some((d) => d >= b && d <= e)) return Number(current.end.slice(0, 4));
+  const votes = new Map<number, number>();
+  for (const days of g.services.values())
+    for (const d of days) {
+      const iso = isoDay(d);
+      let y = +iso.slice(0, 4);
+      if (iso >= timetableYear(y + 1).begin) y++;
+      votes.set(y, (votes.get(y) ?? 0) + 1);
+    }
+  return (
+    [...votes].sort((a, b) => b[1] - a[1])[0]?.[0] ??
+    Temporal.Now.plainDateISO("Europe/Vienna").year
+  );
 }

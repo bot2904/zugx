@@ -6,9 +6,8 @@
 // Run: vp run lines:build
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { currentCountry, dataDir, parseTrainName, timer } from "@zugx/gtfs";
+import { currentCountry, dataDir, feedYear, parseTrainName, timer } from "@zugx/gtfs";
 import { openZugxDb, RAIL_ROUTE_TYPES, rows, serviceDays } from "@zugx/db/query";
-import { feedYear } from "./build.ts";
 
 const COUNTRY = currentCountry();
 const DATA = dataDir("trains", COUNTRY);

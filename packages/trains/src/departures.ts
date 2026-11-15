@@ -14,12 +14,12 @@ import {
   parseTrainName,
   timer,
   timetableYear,
+  feedYear,
 } from "@zugx/gtfs";
 import { openZugxDb, RAIL_ROUTE_TYPES, rows, serviceDays } from "@zugx/db/query";
 import type { GtfsHafasMap } from "@zugx/stations";
 import { cleanGtfsName, cleanHafasName } from "@zugx/stations/match";
 import { readToml, toToml } from "@zugx/toml";
-import { feedYear } from "./build.ts";
 import { encodeDays } from "./index.ts";
 
 const COUNTRY = currentCountry();

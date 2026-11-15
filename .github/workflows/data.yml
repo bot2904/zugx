@@ -47,6 +47,9 @@ jobs:
       - name: Build Netzgrafik + corridors
         run: vp run netz:build
 
+      - name: Export routing input (timetable search)
+        run: vp run route:export
+
       - name: Test data
         run: |
           vp test run --root packages/stations
@@ -62,6 +65,6 @@ jobs:
           commit-message: "data: weekly refresh from ÖBB GTFS"
           title: "data: weekly refresh from ÖBB GTFS"
           body: |
-            Automated refresh of `packages/stations/data` and `packages/trains/data`
-            (`vp run stations:build`, `vp run trains:build`). Review the diff before merging.
+            Automated refresh of `packages/*/data` (stations, trains, departure plans, lines,
+            Bildfahrplan sheets, routing input). Review the diff before merging.
           labels: data

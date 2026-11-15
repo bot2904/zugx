@@ -1,5 +1,6 @@
 // Build the timetable-routing data for the browser (minotor, RAPTOR): one timetable per day and a
-// stops index, from the local SQLite of every country built (vp run db:build, COUNTRY=…), merged.
+// stops index, from the committed routing input of every country (packages/route/data,
+// data/<country>; route:export), merged — no feed download, no database needed.
 //
 // minotor names a leg by its GTFS route; the ÖBB routes are timetable sheets ("A10-1"), so a
 // routing GTFS is written first in which every train is its own route ("RJX 162", rail and
@@ -8,13 +9,13 @@
 // stations.json (HAFAS station id → GTFS parent station, to start a query from the app's ids).
 // Border stations are in both feeds under different ids: the straight-line transfers join them.
 // Run: vp run route:build   (DAYS=7)
-import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { strToU8, zipSync } from "fflate";
 import { GtfsParser, standardGtfsProfile, StraightLineTransferGenerator } from "minotor/parser";
-import { openZugxDb, RAIL_ROUTE_TYPES, rows } from "@zugx/db/query";
-import { COUNTRIES, dataDir, dbPath, timer, type Country } from "@zugx/gtfs";
-import { readToml } from "@zugx/toml";
+import { COUNTRIES, dataDir, timer, type Country } from "@zugx/gtfs";
+import { fromToml, readToml } from "@zugx/toml";
+import { parseStopEntry, type RouteInput } from "./export.ts";
 
 const root = join(import.meta.dirname, "..", "..", "..");
 const OUT = join(root, "apps", "web", "public", "route");
@@ -32,96 +33,91 @@ function csv(header: string[], data: (string | number | null | undefined)[][]): 
 
 type Row = (string | number | null | undefined)[];
 
+/** the window of days the timetables are built for (and a day before: trips past midnight) */
+function windowDays(): string[] {
+  const today = Temporal.Now.plainDateISO("Europe/Vienna");
+  return Array.from({ length: DAYS + 1 }, (_, i) => today.add({ days: i - 1 }).toString());
+}
+
 /**
- * one country's part of the routing GTFS: rail trips with a train name; ids of the other countries
- * than Austria prefixed with the country ("si:1122804"), so the feeds can't collide
+ * one country's part of the routing GTFS, from its committed routing input
+ * (packages/route/data[/<country>]/trips-<year>.toml, export.ts): every train pattern a trip with
+ * its own service running on its days within the window; ids of the other countries than Austria
+ * prefixed with the country ("si:1122804"), so the feeds can't collide
  */
-function countryTables(c: Country) {
-  const db = openZugxDb(dbPath(c));
+function countryTables(c: Country, days: string[]) {
   type Id = string | number | null | undefined;
   const p = (v: Id): Id =>
     c.id === "at" || v === null || v === undefined || v === "" ? v : `${c.id}:${v}`;
-  const named = `${RAIL_ROUTE_TYPES} and trim(coalesce(t.trip_short_name, '')) <> ''`;
-  const trips = rows<{ id: string; name: string; service: string; headsign: string | null }>(
-    db,
-    `select t.trip_id id, trim(t.trip_short_name) name, t.service_id service, t.trip_headsign headsign
-       from trips t join routes r using (route_id) where ${named}`,
-  );
-  const stopTimes = rows<Record<string, string | number | null>>(
-    db,
-    `select st.trip_id, st.arrival_time, st.departure_time, st.stop_id, st.stop_sequence,
-            st.pickup_type, st.drop_off_type
-       from stop_times st join trips t using (trip_id) join routes r using (route_id)
-      where ${named}`,
-  );
-  const stops = rows<Record<string, string | number | null>>(
-    db,
-    `select stop_id, stop_name, stop_lat, stop_lon, location_type, parent_station, platform_code
-       from stops`,
-  );
-  const calendar = rows<Record<string, string | number | null>>(db, "select * from calendar");
-  const dates = rows<Record<string, string | number | null>>(
-    db,
-    "select service_id, date, exception_type from calendar_dates",
-  );
-  return {
-    trips: trips.map((t) => [t.name, p(t.service), p(t.id), t.headsign] as Row),
-    names: trips.map((t) => t.name),
-    stopTimes: stopTimes.map(
-      (s) =>
-        [
-          p(s.trip_id),
-          s.arrival_time,
-          s.departure_time,
-          p(s.stop_id),
-          s.stop_sequence,
-          s.pickup_type,
-          s.drop_off_type,
-        ] as Row,
-    ),
-    stops: stops.map(
-      (s) =>
-        [
-          p(s.stop_id),
-          s.stop_name,
-          s.stop_lat,
-          s.stop_lon,
-          s.location_type,
-          p(s.parent_station),
-          s.platform_code,
-        ] as Row,
-    ),
-    calendar: calendar.map(
-      (k) =>
-        [
-          p(k.service_id),
-          k.monday,
-          k.tuesday,
-          k.wednesday,
-          k.thursday,
-          k.friday,
-          k.saturday,
-          k.sunday,
-          k.start_date,
-          k.end_date,
-        ] as Row,
-    ),
-    dates: dates.map((k) => [p(k.service_id), k.date, k.exception_type] as Row),
-    /** HAFAS station id → (prefixed) GTFS station id */
-    hafas: Object.entries(
-      readToml<Record<string, { id?: string }>>(
-        join(dataDir("stations", c), "gtfs-hafas-map.toml"),
-        {},
-      ),
-    ).flatMap(([gid, e]) => (e.id ? [[e.id, String(p(gid))] as const] : [])),
+  const dir = dataDir("route", c);
+  const files = existsSync(dir)
+    ? readdirSync(dir).filter((f) => /^trips-\d{4}\.toml$/.test(f))
+    : [];
+  const out = {
+    trips: [] as Row[],
+    names: [] as string[],
+    stopTimes: [] as Row[],
+    stops: new Map<string, Row>(),
+    dates: [] as Row[],
+    hafas: [] as (readonly [string, string])[],
   };
+  for (const f of files) {
+    const r = fromToml<RouteInput>(readFileSync(join(dir, f), "utf8"));
+    const begin = Temporal.PlainDate.from(r.begin);
+    /** the window's days as indexes into this file's running days */
+    const idx = days
+      .map((d) => ({ d: d.replaceAll("-", ""), i: begin.until(d).days }))
+      .filter((x) => x.i >= 0);
+    for (const s of r.stops)
+      out.stops.set(String(p(s.id)), [
+        p(s.id),
+        s.name,
+        s.lat,
+        s.lon,
+        s.station ? 1 : 0,
+        p(s.parent),
+        s.platform,
+      ]);
+    r.trips.forEach((t, k) => {
+      const bits = Uint8Array.from(atob(t.days), (ch) => ch.charCodeAt(0));
+      const on = idx.filter(({ i }) => ((bits[i >> 3] ?? 0) >> (7 - (i & 7))) & 1);
+      if (!on.length) return;
+      const id = p(`${r.year}-${k}`);
+      out.trips.push([t.train, id, id, t.to]);
+      out.names.push(t.train);
+      for (const { d } of on) out.dates.push([id, d, 1]);
+      const hhmm = (m: number) =>
+        `${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}:00`;
+      t.stops.forEach((e, seq) => {
+        const s = parseStopEntry(e);
+        out.stopTimes.push([
+          id,
+          hhmm(s.arr),
+          hhmm(s.dep),
+          p(s.id),
+          seq,
+          s.pickup ? 0 : 1,
+          s.dropoff ? 0 : 1,
+        ]);
+      });
+    });
+  }
+  /** HAFAS station id → (prefixed) GTFS station id */
+  out.hafas = Object.entries(
+    readToml<Record<string, { id?: string }>>(
+      join(dataDir("stations", c), "gtfs-hafas-map.toml"),
+      {},
+    ),
+  ).flatMap(([gid, e]) => (e.id ? [[e.id, String(p(gid))] as const] : []));
+  return { ...out, stops: [...out.stops.values()], files: files.length };
 }
 
-/** the routing GTFS of all countries with a database (vp run db:build), each train a route */
+/** the routing GTFS of all countries with a routing input, each train a route */
 function writeRoutingGtfs() {
-  const countries = Object.values(COUNTRIES).filter((c) => existsSync(dbPath(c)));
-  const parts = countries.map(countryTables);
-  const all = <K extends "trips" | "stopTimes" | "stops" | "calendar" | "dates">(k: K) =>
+  const days = windowDays();
+  const countries = Object.values(COUNTRIES);
+  const parts = countries.map((c) => countryTables(c, days));
+  const all = <K extends "trips" | "stopTimes" | "stops" | "dates">(k: K) =>
     parts.flatMap((t) => t[k]);
   const trains = new Set(parts.flatMap((t) => t.names));
   const files: Record<string, Uint8Array> = {
@@ -165,21 +161,6 @@ function writeRoutingGtfs() {
       ],
       all("stops"),
     ),
-    "calendar.txt": csv(
-      [
-        "service_id",
-        "monday",
-        "tuesday",
-        "wednesday",
-        "thursday",
-        "friday",
-        "saturday",
-        "sunday",
-        "start_date",
-        "end_date",
-      ],
-      all("calendar"),
-    ),
     "calendar_dates.txt": csv(["service_id", "date", "exception_type"], all("dates")),
   };
   mkdirSync(join(root, ".cache"), { recursive: true });
@@ -192,7 +173,7 @@ function writeRoutingGtfs() {
       if (!(h in hafas) || h.startsWith(countries[i]!.uic)) hafas[h] = g;
   });
   return {
-    countries: countries.map((c) => c.id),
+    countries: countries.filter((_, i) => parts[i]!.files).map((c) => c.id),
     trains: trains.size,
     trips: parts.reduce((n, t) => n + t.trips.length, 0),
     hafas,
