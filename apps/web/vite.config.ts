@@ -112,7 +112,9 @@ export default defineConfig({
     // which is served as immutable
     license: { fileName: "licenses.txt" },
     target: "es2023",
-    chunkSizeWarningLimit: 1200,
+    // the only chunk above this is data: the full train index (trains-<year>.full, ~3 MB, ~160 KB
+    // gzip), loaded on demand and not precached; code chunks stay well below (MapLibre ~1.1 MB)
+    chunkSizeWarningLimit: 3200,
     rollupOptions: {
       output: {
         // recognisable names for corridor / VzG data chunks (excluded from the service worker

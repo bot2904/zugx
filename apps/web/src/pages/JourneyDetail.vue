@@ -3,7 +3,7 @@
 import { useClipboard } from "@vueuse/core";
 import { useAutoRefresh } from "../lib/refresh.ts";
 import type { Journey, Leg } from "@zugx/hafas";
-import { computed, onMounted } from "vue";
+import { computed, defineAsyncComponent, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import CalendarButton from "../components/CalendarButton.vue";
 import EventTime from "../components/EventTime.vue";
@@ -14,7 +14,9 @@ import { useAsync } from "../lib/async.ts";
 import { fmtDuration, instant, toLocalInput } from "../lib/format.ts";
 import { lineColor } from "../lib/products.ts";
 import { unb64url } from "../lib/url.ts";
-import MapView, { type MapLine, type MapPoint } from "../viz/MapView.vue";
+import type { MapLine, MapPoint } from "../viz/MapView.vue";
+// MapLibre (~300 KB gzip) only when the map is shown: the page renders without waiting for it
+const MapView = defineAsyncComponent(() => import("../viz/MapView.vue"));
 
 const route = useRoute();
 const router = useRouter();

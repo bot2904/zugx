@@ -2,7 +2,7 @@
 import { useAutoRefresh } from "../lib/refresh.ts";
 import type { BoardEntry } from "@zugx/hafas";
 import { useLocalStorage } from "@vueuse/core";
-import { computed, onMounted, ref, shallowRef, watch } from "vue";
+import { computed, defineAsyncComponent, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import EventTime from "../components/EventTime.vue";
 import LineBadge from "../components/LineBadge.vue";
@@ -10,7 +10,6 @@ import Platform from "../components/Platform.vue";
 import Remarks from "../components/Remarks.vue";
 import SortHeader from "../components/SortHeader.vue";
 import Status from "../components/Status.vue";
-import MapView from "../viz/MapView.vue";
 import { api } from "../lib/api.ts";
 import { useAsync } from "../lib/async.ts";
 import { fromLocalInput, hhmm, instant, ms, toLocalInput } from "../lib/format.ts";
@@ -20,6 +19,8 @@ import { catRank } from "../lib/trains.ts";
 import { loadStations, stationById } from "../lib/stations.ts";
 import { addRecent, isFavourite, toggleFavourite } from "../lib/store.ts";
 import { stationWikidata } from "../lib/wikidata.ts";
+// MapLibre (~300 KB gzip) only when the map is shown: the page renders without waiting for it
+const MapView = defineAsyncComponent(() => import("../viz/MapView.vue"));
 
 const route = useRoute();
 const router = useRouter();
@@ -384,7 +385,15 @@ watch(sel, (i) =>
         <summary class="muted cursor-pointer py-1 text-xs select-none">
           {{ $t("board.stationMap") }}
         </summary>
-        <MapView :center="coords" :zoom="17" base="osm" :fit="false" height="380px" />
+        <!-- loaded only once the panel is opened -->
+        <MapView
+          v-if="mapOpen"
+          :center="coords"
+          :zoom="17"
+          base="osm"
+          :fit="false"
+          height="380px"
+        />
       </details>
     </div>
   </section>

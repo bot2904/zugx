@@ -2,7 +2,7 @@
 // Train run ("Zuglauf"): by journey id, or friendly /train/RJX-260?d=2026-11-13.
 import { useAutoRefresh } from "../lib/refresh.ts";
 import type { Stopover, Trip, TripMatch } from "@zugx/hafas";
-import { computed, onMounted, ref, shallowRef, watch } from "vue";
+import { computed, defineAsyncComponent, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import LineBadge from "../components/LineBadge.vue";
 import Remarks from "../components/Remarks.vue";
@@ -14,7 +14,9 @@ import { delayColor, fmtSignedDelay } from "../lib/delay.ts";
 import { lineColor } from "../lib/products.ts";
 import { isJourneyId, slugToTrain, trainSlug } from "../lib/url.ts";
 import DelaySparkline from "../viz/DelaySparkline.vue";
-import MapView, { type MapLine, type MapPoint } from "../viz/MapView.vue";
+import type { MapLine, MapPoint } from "../viz/MapView.vue";
+// MapLibre (~300 KB gzip) only when the map is shown: the page renders without waiting for it
+const MapView = defineAsyncComponent(() => import("../viz/MapView.vue"));
 
 const route = useRoute();
 const router = useRouter();
