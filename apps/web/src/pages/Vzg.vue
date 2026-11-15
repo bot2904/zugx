@@ -8,6 +8,8 @@ import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import VzgIndexView from "../components/VzgIndex.vue";
 import VzgAbbr from "../components/VzgAbbr.vue";
+import { useI18n } from "../i18n/index.ts";
+import type { TipContent } from "../lib/tip.ts";
 
 const files = import.meta.glob<{ default: VzgLine }>("../../../../packages/vzg/data/*.toml");
 const indexFile = Object.entries(files).find(([p]) => p.endsWith("/index.toml"))?.[1] as
@@ -219,10 +221,63 @@ function signalColor(p: VzgPoint) {
   if (s.includes("distant")) return "var(--good)";
   return "var(--muted)";
 }
-const pointTitle = (p: VzgPoint) =>
-  [p.label, p.kind === "signal" ? p.signal : p.kind, `km ${p.km.toFixed(3)}`]
-    .filter(Boolean)
-    .join(" · ");
+// ---- tooltips
+const { t, tm, locale } = useI18n();
+const kmText = (km: number, d = 3) =>
+  km.toLocaleString(locale.value, { minimumFractionDigits: d, maximumFractionDigits: d });
+const sigName = (s: string) => (tm("vzg.sig") as Record<string, string>)[s] ?? s;
+const kindName = (k: string) => (tm("vzg.kind") as Record<string, string>)[k] ?? k;
+/** permitted speed at a km, in the direction of travel and the opposite one */
+function speedAt(km: number) {
+  const s = sections.value.find((x) => km >= Math.min(x.a, x.b) && km <= Math.max(x.a, x.b));
+  return s ? { v: s.v, o: s.o } : undefined;
+}
+function speedLine(km: number): string {
+  const s = speedAt(km);
+  if (!s || s.v === null) return t("vzg.tipNoSpeed");
+  return s.o !== null && s.o !== s.v
+    ? t("vzg.tipSpeedBoth", { v: s.v, o: s.o })
+    : t("vzg.tipSpeedHere", { v: s.v });
+}
+function pointTip(p: VzgPoint): TipContent {
+  const types =
+    p.kind === "signal"
+      ? (p.signal ?? "").split(",").filter(Boolean).map(sigName).join(" + ") || kindName("signal")
+      : kindName(stopHalts.value.has(p) ? "halt" : p.kind);
+  return {
+    title: p.label ? (p.kind === "signal" ? `${types} ${p.label}` : p.label) : types,
+    lines: [
+      p.label && p.kind !== "signal" && types,
+      t(p.measured ? "vzg.tipKmMeasured" : "vzg.tipKmInterpolated", { km: kmText(p.km) }),
+      speedLine(p.km),
+    ],
+  };
+}
+function sectionTip(s: Sec): TipContent {
+  const [a, b] = increasing.value ? [s.a, s.b] : [s.b, s.a];
+  return {
+    title: s.v === null ? t("vzg.tipNoSpeed") : `${s.v} km/h`,
+    lines: [
+      t("vzg.tipTravel"),
+      t("vzg.tipSection", { from: kmText(a), to: kmText(b), len: kmText(Math.abs(b - a), 2) }),
+      s.o !== null && s.o !== s.v && t("vzg.tipOpposite", { o: s.o }),
+    ],
+  };
+}
+function curveTip(c: [number, number, number]): TipContent {
+  return {
+    title: t("vzg.tipCurve", { r: c[2] }),
+    lines: [
+      t("vzg.tipSection", {
+        from: kmText(c[0]),
+        to: kmText(c[1]),
+        len: kmText(Math.abs(c[1] - c[0]), 2),
+      }),
+      speedLine((c[0] + c[1]) / 2),
+      t("vzg.tipCurveEst"),
+    ],
+  };
+}
 
 const curves = computed(() =>
   (track.value?.curves ?? []).filter((c) => c[1] >= domain.value.lo && c[0] <= domain.value.hi),
@@ -401,6 +456,18 @@ const fmt = (km: number) => km.toFixed(3);
             class="fill"
           />
           <path v-if="oppositePath" :d="oppositePath" class="opposite" />
+          <!-- hover targets per speed section (whole diagram width) -->
+          <rect
+            v-for="(s, i) in sections"
+            :key="`h${i}`"
+            v-tip="sectionTip(s)"
+            :x="COL.d0"
+            :y="Math.min(y(s.a), y(s.b))"
+            :width="COL.d1 - COL.d0"
+            :height="Math.max(2, Math.abs(y(s.b) - y(s.a)))"
+            fill="transparent"
+            class="hit"
+          />
           <path :d="travelPath" class="travel" />
           <!-- speed changes -->
           <g font-size="10" class="mono">
@@ -420,7 +487,15 @@ const fmt = (km: number) => km.toFixed(3);
           </g>
           <!-- operating points and signals -->
           <g font-size="10">
-            <g v-for="(p, i) in visiblePoints" :key="i" v-tip="pointTitle(p)">
+            <g v-for="(p, i) in visiblePoints" :key="i" v-tip="pointTip(p)" class="hit">
+              <!-- hover target: the whole row of symbol and label (a signal mark is 6 px) -->
+              <rect
+                :x="COL.sym - 8"
+                :y="y(p.km) - 5"
+                :width="(labelled.has(p) ? COL.change - 40 : COL.label) - COL.sym + 8"
+                height="10"
+                fill="transparent"
+              />
               <rect
                 v-if="p.kind === 'station'"
                 :x="COL.sym - 4"
@@ -455,11 +530,7 @@ const fmt = (km: number) => km.toFixed(3);
           </g>
           <!-- curves -->
           <g font-size="9" class="mono">
-            <g
-              v-for="(c, i) in curves"
-              :key="`r${i}`"
-              v-tip="`R ${c[2]} m · km ${fmt(c[0])}–${fmt(c[1])}`"
-            >
+            <g v-for="(c, i) in curves" :key="`r${i}`" v-tip="curveTip(c)" class="hit">
               <rect
                 :x="COL.curve"
                 :y="Math.min(y(c[0]), y(c[1]))"
@@ -542,6 +613,9 @@ const fmt = (km: number) => km.toFixed(3);
 .vzg .sig {
   fill: var(--muted);
   font-size: 9px;
+}
+.vzg .hit {
+  cursor: help;
 }
 .vzg .curve {
   fill: var(--link);

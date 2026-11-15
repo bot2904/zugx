@@ -3,13 +3,38 @@
 // elements, dismissed with Esc. One shared popover element for the whole app.
 //
 //   <button v-tip="$t('bf.swap')">⇄</button>      <g v-tip="`${name}: ${n}`">…</g>
+//   <g v-tip="{ title: 'Hauptsignal A12', lines: ['km 3.229', '100 km/h'] }">…</g>
 //
 // Accessibility: the text becomes the accessible name of controls without one (icon buttons),
 // otherwise an accessible description — what the `title` attribute provided before.
 import type { Directive } from "vue";
 
 type El = HTMLElement | SVGElement;
-const TEXT = new WeakMap<El, string>();
+/** plain text, or a bold title with detail lines */
+export type TipContent = string | { title?: string; lines: (string | false | undefined)[] };
+const TEXT = new WeakMap<El, TipContent>();
+
+const plain = (c: TipContent) =>
+  typeof c === "string" ? c : [c.title, ...c.lines].filter(Boolean).join(". ");
+
+function render(t: HTMLElement, c: TipContent) {
+  if (typeof c === "string") {
+    t.textContent = c;
+    return;
+  }
+  t.replaceChildren();
+  if (c.title) {
+    const b = document.createElement("strong");
+    b.textContent = c.title;
+    t.append(b);
+  }
+  for (const l of c.lines) {
+    if (!l) continue;
+    const d = document.createElement("div");
+    d.textContent = l;
+    t.append(d);
+  }
+}
 const SHOW_DELAY = 400;
 
 let tip: HTMLDivElement | undefined;
@@ -44,7 +69,7 @@ function show(el: El) {
   const text = TEXT.get(el);
   if (!text) return;
   const t = tipEl();
-  t.textContent = text;
+  render(t, text);
   owner = el;
   if (!t.matches(":popover-open")) t.showPopover();
   place(el);
@@ -96,7 +121,8 @@ function bindGlobals() {
   });
 }
 
-function label(el: El, text: string) {
+function label(el: El, content: TipContent) {
+  const text = plain(content);
   // icon-only controls get the text as their name, everything else as a description
   const named =
     el.hasAttribute("aria-label") && el.getAttribute("data-tip-label") !== "1"
@@ -110,7 +136,7 @@ function label(el: El, text: string) {
   }
 }
 
-function update(el: El, text: string | undefined) {
+function update(el: El, text: TipContent | undefined) {
   if (!text) {
     TEXT.delete(el);
     el.removeAttribute("aria-description");
@@ -120,12 +146,12 @@ function update(el: El, text: string | undefined) {
   TEXT.set(el, text);
   label(el, text);
   if (owner === el && tip) {
-    tip.textContent = text;
+    render(tip, text);
     place(el);
   }
 }
 
-export const vTip: Directive<El, string | undefined> = {
+export const vTip: Directive<El, TipContent | undefined> = {
   mounted(el, { value }) {
     bindGlobals();
     update(el, value);
@@ -136,7 +162,9 @@ export const vTip: Directive<El, string | undefined> = {
     el.addEventListener("focusout", hideTip);
   },
   updated(el, { value, oldValue }) {
-    if (value !== oldValue) update(el, value);
+    if (value === oldValue) return;
+    if (value && oldValue && typeof value === "object" && plain(value) === plain(oldValue)) return;
+    update(el, value);
   },
   beforeUnmount(el) {
     if (owner === el) hideTip();

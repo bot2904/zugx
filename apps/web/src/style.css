@@ -94,6 +94,13 @@ table.dense tbody tr:hover td {
   border: 1px solid var(--line);
   pointer-events: none;
 }
+.tip strong {
+  display: block;
+  font-weight: 600;
+}
+.tip div {
+  color: var(--muted);
+}
 .zugx-tip {
   pointer-events: none;
 }
