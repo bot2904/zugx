@@ -196,7 +196,8 @@ const shortcuts: [string, string][] = [
     <a href="https://www.openstreetmap.org/copyright">© {{ $t("common.source.osm") }}</a>
     (<a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a>) ·
     <a href="https://github.com/simon04/zugx">zugx</a>
-    (<a href="https://github.com/simon04/zugx/blob/master/LICENSE" rel="license">AGPL-3.0</a>,
+    (Simon Legner,
+    <a href="https://github.com/simon04/zugx/blob/master/LICENSE" rel="license">AGPL-3.0</a>,
     <a href="/licenses.txt" target="_blank">{{ $t("common.ossLicenses") }}</a>) ·
     <RouterLink to="/imprint">{{ $t("common.imprint") }}</RouterLink> ·
     <RouterLink to="/privacy">{{ $t("common.privacy") }}</RouterLink>
