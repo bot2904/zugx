@@ -26,7 +26,9 @@ export function useKeys(
     ]
       .filter(Boolean)
       .join("+");
-    const fn = map[key] ?? map[e.key];
+    // with Ctrl/⌘/Alt only exact matches ("mod+k"): Ctrl+R must reload, not run "r";
+    // without, also the raw key (e.g. "?" typed with Shift, "ArrowUp")
+    const fn = map[key] ?? (e.ctrlKey || e.metaKey || e.altKey ? undefined : map[e.key]);
     if (!fn) return;
     if (
       isTyping(e) &&

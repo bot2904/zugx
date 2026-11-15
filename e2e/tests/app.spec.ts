@@ -465,3 +465,17 @@ test("journeys: placeholder rows while loading later connections, new rows appen
   await expect(page.locator(".card[aria-busy=true]")).toBeVisible();
   await expect(page.locator(".skeleton")).toHaveCount(0);
 });
+
+test("shortcuts ignore Ctrl/⌘ combinations of the same letter (Ctrl+R reloads, no radar)", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page.locator("h1").waitFor();
+  await page.locator("body").click({ position: { x: 5, y: 5 } }); // focus outside the search field
+  await page.keyboard.press("Control+r");
+  await page.keyboard.press("Meta+t");
+  await page.waitForTimeout(300);
+  await expect(page).toHaveURL(/\/$/);
+  await page.keyboard.press("r");
+  await expect(page).toHaveURL(/\/radar$/);
+});
