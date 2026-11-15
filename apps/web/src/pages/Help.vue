@@ -154,7 +154,7 @@ const { locale } = useI18n();
         <kbd>Strg/⌘ K</kbd> Befehlspalette, <kbd>j</kbd>/<kbd>k</kbd> nächste/vorige Zeile,
         <kbd>h</kbd>/<kbd>l</kbd> früher/später, <kbd>g</kbd> Start, <kbd>t</kbd> Züge,
         <kbd>r</kbd> Radar. Im Bildfahrplan <kbd>←</kbd>/<kbd>→</kbd> Tag, <kbd>↑</kbd>/<kbd>↓</kbd>
-        Stunde (mit Umschalt ein ganzes Fenster), <kbd>n</kbd> jetzt.
+        zwei Stunden (mit Umschalt ein ganzes Fenster), <kbd>n</kbd> jetzt.
       </p>
 
       <h2 id="daten">Daten &amp; Quellen</h2>
@@ -330,7 +330,7 @@ const { locale } = useI18n();
         <kbd>r</kbd> radar. Graphic timetable: <kbd>←</kbd>/<kbd>→</kbd> day, <kbd>↑</kbd>/<kbd
           >↓</kbd
         >
-        hour (Shift: a whole window), <kbd>n</kbd> now.
+        two hours (Shift: a whole window), <kbd>n</kbd> now.
       </p>
 
       <h2 id="daten">Data &amp; sources</h2>

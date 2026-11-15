@@ -184,7 +184,7 @@ test("bildfahrplan: table in a second window, view and hover in sync", async ({ 
   await expect(page.locator("path.pointer-events-none[stroke-width='3']")).toHaveCount(1);
   // time window changed in the chart window → the table window follows
   await page.keyboard.press("ArrowDown");
-  await expect(popup).toHaveURL(/from=8/);
+  await expect(popup).toHaveURL(/from=9/);
   await expect(popup).toHaveURL(/part=table/);
   // back to both parts
   await page
@@ -483,9 +483,9 @@ test("bildfahrplan: arrow keys zap through days and hours", async ({ page }) => 
   await page.keyboard.press("ArrowLeft");
   await expect(page).toHaveURL(/d=2026-03-09/);
   await page.keyboard.press("ArrowDown");
-  await expect(page).toHaveURL(/from=8/);
+  await expect(page).toHaveURL(/from=9/);
   await page.keyboard.press("Shift+ArrowDown");
-  await expect(page).toHaveURL(/from=10/);
+  await expect(page).toHaveURL(/from=11/);
   await page.keyboard.press("ArrowUp");
   await expect(page).toHaveURL(/from=9/);
   await page.keyboard.press("h");

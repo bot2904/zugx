@@ -304,12 +304,12 @@ function shiftHour(delta: number) {
   const max = Math.max(0, 28 - span.value); // trains after midnight run up to ~28:00
   setQuery({ from: Math.min(max, Math.max(0, next)) });
 }
-// zapping: ←/→ day, ↑/↓ (h/l) hour, Shift+↑/↓ a whole window, n = now
+// zapping: ←/→ day, ↑/↓ two hours, h/l one hour, Shift+↑/↓ a whole window, n = now
 useKeys({
   ArrowLeft: () => id.value && shiftDay(-1),
   ArrowRight: () => id.value && shiftDay(1),
-  ArrowUp: (e) => id.value && shiftHour(e.shiftKey ? -span.value : -1),
-  ArrowDown: (e) => id.value && shiftHour(e.shiftKey ? span.value : 1),
+  ArrowUp: (e) => id.value && shiftHour(e.shiftKey ? -span.value : -2),
+  ArrowDown: (e) => id.value && shiftHour(e.shiftKey ? span.value : 2),
   h: () => id.value && shiftHour(-1),
   l: () => id.value && shiftHour(1),
   n: () =>
@@ -634,9 +634,9 @@ function toggleCat(c: string) {
         </button>
       </span>
       <span class="flex items-center gap-1">
-        <button class="btn" v-tip="`${$t('bf.hourEarlier')} (↑)`" @click="shiftHour(-1)">▲</button>
+        <button class="btn" v-tip="`${$t('bf.hourEarlier')} (↑)`" @click="shiftHour(-2)">▲</button>
         <span class="mono" v-tip="$t('bf.wheelHint')">{{ hhmmOf(startMin) }}</span>
-        <button class="btn" v-tip="`${$t('bf.hourLater')} (↓)`" @click="shiftHour(1)">▼</button>
+        <button class="btn" v-tip="`${$t('bf.hourLater')} (↓)`" @click="shiftHour(2)">▼</button>
         <button
           v-for="h in [2, 4, 8, 24]"
           :key="h"
