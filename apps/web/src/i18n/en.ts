@@ -370,7 +370,7 @@ export default {
     netDensityNone: "no trains in the timetable",
     netDensityTip: "{n} trains on {day}",
     netDensitySubtitle: "trains per day on {day} (ÖBB timetable data, CC BY 4.0)",
-    netTitle: "Network map",
+    netTitle: "Infrastructure network map",
     netSubtitle: "{n} lines · data from OpenStreetMap · click a line for its map",
     netSpeed: "Speed",
     netElectrification: "Electrification",

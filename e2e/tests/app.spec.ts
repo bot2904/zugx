@@ -861,7 +861,11 @@ test.describe("SVG snapshots of the Kamptalbahn (174 01)", () => {
 
 test("network map: all lines, colour by attribute, line links", async ({ page }) => {
   await page.goto("/vzg");
-  await page.getByRole("link", { name: /Network map|Netzkarte|Mappa della rete/ }).click();
+  await page
+    .getByRole("link", {
+      name: /Infrastructure network map|Infrastrukturnetzkarte|infrastruttura di rete/,
+    })
+    .click();
   await expect(page).toHaveURL(/\/vzg\/netz$/);
   const svg = page.locator(".map-card svg");
   await expect(svg.locator("a.net-line").first()).toBeAttached();

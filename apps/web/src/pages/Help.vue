@@ -249,11 +249,11 @@ const { locale } = useI18n();
           Streckenkilometern; als SVG herunterladbar.
         </li>
         <li>
-          <strong>Netzkarte</strong> (<code>/vzg/netz</code>): alle Strecken Österreichs, eingefärbt
-          nach Geschwindigkeit, Elektrifizierung, ETCS, PZB, Gleisanzahl, Spurweite, Betreiber oder
-          <strong>Züge pro Tag</strong> (Verkehrsstärke aus dem Fahrplan); mit Staats- und
-          Landesgrenzen, für ganz Österreich oder ein einzelnes Bundesland. Darüberfahren zeigt die
-          Werte, ein Klick öffnet die Streckenkarte; als SVG herunterladbar.
+          <strong>Infrastrukturnetzkarte</strong> (<code>/vzg/netz</code>): alle Strecken
+          Österreichs, eingefärbt nach Geschwindigkeit, Elektrifizierung, ETCS, PZB, Gleisanzahl,
+          Spurweite, Betreiber oder <strong>Züge pro Tag</strong> (Verkehrsstärke aus dem Fahrplan);
+          mit Staats- und Landesgrenzen, für ganz Österreich oder ein einzelnes Bundesland.
+          Darüberfahren zeigt die Werte, ein Klick öffnet die Streckenkarte; als SVG herunterladbar.
         </li>
         <li>
           Die Daten stammen aus OpenStreetMap, nicht aus dem amtlichen VzG: Bremswege, Neigungen und
@@ -298,7 +298,8 @@ const { locale } = useI18n();
           <strong
             >Strecken, Geschwindigkeiten, Signale, Kilometer, Ein-/Zweigleisigkeit, Grenzen</strong
           >
-          (VzG-Grafik, Strecken- und Netzkarte, Durchfahrtszeiten und Gleisanzahl im Bildfahrplan):
+          (VzG-Grafik, Strecken- und Infrastrukturnetzkarte, Durchfahrtszeiten und Gleisanzahl im
+          Bildfahrplan):
           <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap-Mitwirkende</a>, ODbL.
         </li>
         <li>
@@ -544,8 +545,8 @@ const { locale } = useI18n();
           optionally coloured by permitted speed and with line km; downloadable as SVG.
         </li>
         <li>
-          <strong>Network map</strong> (<code>/vzg/netz</code>): all lines in Austria, coloured by
-          speed, electrification, ETCS, PZB, track count, gauge, operator or
+          <strong>Infrastructure network map</strong> (<code>/vzg/netz</code>): all lines in
+          Austria, coloured by speed, electrification, ETCS, PZB, track count, gauge, operator or
           <strong>trains per day</strong> (traffic density from the timetable); with national and
           federal-state borders, for all of Austria or one federal state. Hover for the values,
           click for the line map; downloadable as SVG.
@@ -592,7 +593,8 @@ const { locale } = useI18n();
         </li>
         <li>
           <strong>Lines, speed limits, signals, km, single/double track, borders</strong> (VzG
-          chart, line and network map, passing times and track count in the graphic timetable):
+          chart, line and infrastructure network map, passing times and track count in the graphic
+          timetable):
           <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>, ODbL.
         </li>
         <li>

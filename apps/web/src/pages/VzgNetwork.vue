@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// Network map (`/vzg/netz`): all VzG lines of Austria as a vector map, coloured by an attribute —
+// Infrastructure network map (`/vzg/netz`): all VzG lines of Austria as a vector map, coloured by an attribute —
 // permitted speed, electrification, ETCS, PZB, track count, gauge or operator (`?attr=`). Drawn
 // from `packages/vzg/data/network.toml` (OSM, ODbL); fixed colours (ColorBrewer), print and SVG.
 import type { NetPiece, VzgBoundaries, VzgIndex, VzgNetwork } from "@zugx/vzg";
@@ -367,7 +367,7 @@ const ATTR_LABEL: Record<Attr, string> = {
 };
 const attrLabel = (a: Attr) =>
   ATTR_LABEL[a].startsWith("vzg.") ? t(ATTR_LABEL[a] as never) : ATTR_LABEL[a];
-// "Netzkarte · Tirol · Geschwindigkeit · zugx"
+// "Infrastrukturnetzkarte · Tirol · Geschwindigkeit · zugx"
 usePageTitle(() => [
   t("vzg.netTitle"),
   region.value === "AT" ? t("vzg.netAustria") : regionName.value,
@@ -413,7 +413,7 @@ function exportSvg() {
   svg.prepend(meta);
   download(
     `<?xml version="1.0" encoding="UTF-8"?>\n${new XMLSerializer().serializeToString(svg)}`,
-    `zugx_Netzkarte_${region.value === "AT" ? "Österreich" : regionName.value.replace(/[^\p{L}\p{N}]+/gu, "_")}_${attr.value}.svg`,
+    `zugx_Infrastrukturnetzkarte_${region.value === "AT" ? "Österreich" : regionName.value.replace(/[^\p{L}\p{N}]+/gu, "_")}_${attr.value}.svg`,
   );
 }
 const SANS = "Liberation Sans, Arial, Nimbus Sans L, Helvetica, sans-serif";

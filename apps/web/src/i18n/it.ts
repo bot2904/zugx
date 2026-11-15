@@ -376,7 +376,7 @@ export default {
     netDensityNone: "nessun treno in orario",
     netDensityTip: "{n} treni il {day}",
     netDensitySubtitle: "treni al giorno il {day} (dati orario ÖBB, CC BY 4.0)",
-    netTitle: "Mappa della rete",
+    netTitle: "Mappa dell’infrastruttura di rete",
     netSubtitle: "{n} linee · dati da OpenStreetMap · clic su una linea per la sua mappa",
     netSpeed: "Velocità",
     netElectrification: "Elettrificazione",

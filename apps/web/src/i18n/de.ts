@@ -376,7 +376,7 @@ export default {
     netDensityNone: "keine Züge im Fahrplan",
     netDensityTip: "{n} Züge am {day}",
     netDensitySubtitle: "Züge pro Tag am {day} (ÖBB-Fahrplandaten, CC BY 4.0)",
-    netTitle: "Netzkarte",
+    netTitle: "Infrastrukturnetzkarte",
     netSubtitle: "{n} Strecken · Daten aus OpenStreetMap · Linie anklicken für die Streckenkarte",
     netSpeed: "Geschwindigkeit",
     netElectrification: "Elektrifizierung",
