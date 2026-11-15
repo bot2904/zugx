@@ -186,8 +186,9 @@ export function recordSource(db: Db): { records(name: string): Iterable<Record<s
       if (!TABLES.has(name)) return;
       for (const row of db.prepare(`select * from ${name} order by rowid`).iterate()) {
         const out: Record<string, string> = {};
-        for (const [k, v] of Object.entries(row as Record<string, unknown>))
-          out[k] = v === null || v === undefined ? "" : String(v);
+        // SQLite values: text, integer, real or null
+        for (const [k, v] of Object.entries(row as Record<string, string | number | null>))
+          out[k] = v === null ? "" : String(v);
         yield out;
       }
     },
