@@ -196,6 +196,16 @@ test("bildfahrplan planning: node — Taktknoten and transfers", async ({ page }
   await expect(page).toHaveURL(/knoten=/);
 });
 
+test("bildfahrplan planning: crossings on single track", async ({ page }) => {
+  await page.goto("/bf/170?from=6&h=4&d=2026-03-10&plan=kreuzung");
+  const panel = page.locator(".bf-plan");
+  await expect(panel.locator("tbody")).toContainText("Altmünster/Traunsee");
+  expect(await panel.locator("tbody tr").count()).toBeGreaterThan(5);
+  // markers in the chart and single track shaded
+  expect(await page.locator("circle.bf-cross").count()).toBeGreaterThan(5);
+  await expect(page.locator("rect.bf-single").first()).toBeAttached();
+});
+
 test("bildfahrplan: table in a second window, view and hover in sync", async ({ page }) => {
   await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
   const [popup] = await Promise.all([

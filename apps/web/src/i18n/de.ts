@@ -152,7 +152,21 @@ export default {
   },
   bf: {
     plan: {
-      tab: { knoten: "Knoten" },
+      crossings: "Kreuzungen",
+      crossingsSummary:
+        "{n} im Zeitfenster, {fragile} mit Puffer ≤ 2′, {conflicts} Begegnungen auf eingleisiger Strecke",
+      noCrossings:
+        "Keine Kreuzungen an eingleisigen Abschnitten im Zeitfenster (oder keine Gleisdaten).",
+      time: "Zeit",
+      where: "Ort",
+      buffer: "Puffer",
+      onLine: "auf der Strecke",
+      conflictTip:
+        "Begegnung zwischen zwei Bahnhöfen dieses Bildfahrplans auf eingleisiger Strecke: entweder in einer Ausweiche/einem Betriebsbahnhof ohne Personenhalt (nicht in den Fahrplandaten) – oder so nicht fahrbar. Durchfahrtszeiten sind geschätzt.",
+      bufferTip: "{late} darf {buf}′ verspätet sein, bevor {waiting} warten muss",
+      crossingsNote:
+        "Kreuzung = Züge beider Richtungen gleichzeitig im Bahnhof, neben einem eingleisigen Abschnitt. Puffer = wie viel Verspätung des Gegenzugs der Zug abfängt; darüber überträgt sich die Verspätung (rot +n′: erwartet aus den Echtzeitdaten). Grau hinterlegt: eingleisig. Eingleisigkeit aus OSM, Durchfahrtszeiten geschätzt.",
+      tab: { knoten: "Knoten", kreuzung: "Kreuzungen" },
       pickNode: "Als Knoten analysieren",
       title: "Planung",
       tabNode: "Knoten",

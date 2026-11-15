@@ -16,7 +16,8 @@ import CorridorIndexView from "../components/CorridorIndex.vue";
 import BfTable from "../components/BfTable.vue";
 import BfBook from "../components/BfBook.vue";
 import BfNode from "../components/BfNode.vue";
-import { stopsAt } from "../lib/bf-plan.ts";
+import BfCrossings from "../components/BfCrossings.vue";
+import { bufferClass, crossings, stopsAt } from "../lib/bf-plan.ts";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
 import { useKeys } from "../lib/keys.ts";
@@ -62,7 +63,7 @@ const hover = shallowRef<CorridorTrain>();
 // ---- two windows (e.g. two monitors): ?part=chart | table shows only that part; the windows
 // share the sheet, date, time window, section and the hovered train (BroadcastChannel) ----
 // ---- planning panels (?plan=knoten …, PLAN.md "Bildfahrplan as a planning tool") ----
-const PLANS = ["knoten"] as const;
+const PLANS = ["knoten", "kreuzung"] as const;
 type Plan = (typeof PLANS)[number];
 const plan = computed<Plan | undefined>(() =>
   (PLANS as readonly string[]).includes(String(route.query.plan))
@@ -90,6 +91,24 @@ const nodeIdx = computed(() => {
   return best;
 });
 const setNode = (i: number) => setQuery({ knoten: data.value?.stations[i]?.id });
+/** crossings next to single track within the shown section and window */
+const crossingList = computed(() => {
+  const c = data.value;
+  if (plan.value !== "kreuzung" || !c?.tracks) return [];
+  return crossings(
+    planTrains.value,
+    c.stations.map((st) => st.km),
+    c.tracks,
+    t0.value,
+    t1.value,
+  ).filter((x) => inRange(x.i) && (x.i2 === undefined || inRange(x.i2)));
+});
+const delayOf = (tr: CorridorTrain) =>
+  liveOn.value ? liveRuns.value.get(trainKey(tr.cat, tr.nr))?.delay : undefined;
+/** single-track stretches shaded in the chart (crossings panel) */
+const singleBands = computed(() =>
+  plan.value === "kreuzung" ? trackRuns.value.filter((r) => r.n === 1) : [],
+);
 
 /** timetable tables: Kursbuch layout by default, ?transpose=1 a row per train */
 const transposed = computed(() => route.query.transpose === "1");
@@ -933,6 +952,36 @@ function toggleCat(c: string) {
               {{ r.t.cat }} {{ r.t.nr }}
             </text>
           </g>
+          <!-- crossings panel: single track shaded, crossings as dots (buffer colour), conflicts ✕ -->
+          <rect
+            v-for="(b, k) in singleBands"
+            :key="`sb${k}`"
+            :x="b.x1"
+            :y="M.top"
+            :width="b.x2 - b.x1"
+            :height="H - M.top - M.bottom"
+            class="bf-single pointer-events-none"
+          />
+          <g v-for="(c, k) in crossingList" :key="`x${k}`" class="pointer-events-none">
+            <text
+              v-if="c.conflict"
+              :x="x(c.km)"
+              :y="y(c.time) + 4"
+              text-anchor="middle"
+              font-size="13"
+              font-weight="700"
+              fill="var(--bad)"
+            >
+              ✕
+            </text>
+            <circle
+              v-else
+              :cx="x(c.km)"
+              :cy="y(c.time)"
+              r="4"
+              :class="`bf-cross ${bufferClass(Math.min(c.bufUp ?? 99, c.bufDown ?? 99))}`"
+            />
+          </g>
           <!-- hovered train once more on top, so crossing trains don't cover it -->
           <path
             v-if="hoverDrawn"
@@ -1056,6 +1105,14 @@ function toggleCat(c: string) {
         {{ $t(`bf.plan.tab.${p}`) }}
       </button>
     </div>
+    <BfCrossings
+      v-if="data && plan === 'kreuzung' && part !== 'table'"
+      :stations="data.stations"
+      :list="crossingList"
+      :delay-of="delayOf"
+      :hover="hover"
+      @hover="hover = $event"
+    />
     <BfNode
       v-if="data && plan === 'knoten' && part !== 'table'"
       :stations="data.stations"
@@ -1120,6 +1177,23 @@ function toggleCat(c: string) {
   stroke-width: 0.5;
   stroke-dasharray: 1.5 3;
   opacity: 0.4;
+}
+.bf-single {
+  fill: var(--muted);
+  opacity: 0.07;
+}
+.bf-cross {
+  stroke: var(--bg2);
+  stroke-width: 1;
+}
+.bf-cross.good {
+  fill: var(--good);
+}
+.bf-cross.mid {
+  fill: var(--warn);
+}
+.bf-cross.bad {
+  fill: var(--bad);
 }
 .bf-tracks line {
   stroke: var(--muted);

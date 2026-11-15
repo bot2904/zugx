@@ -152,7 +152,21 @@ export default {
   },
   bf: {
     plan: {
-      tab: { knoten: "Nodo" },
+      crossings: "Incroci",
+      crossingsSummary:
+        "{n} nella finestra, {fragile} con margine ≤ 2′, {conflicts} incontri su binario unico",
+      noCrossings:
+        "Nessun incrocio vicino a binario unico nella finestra (o nessun dato sui binari).",
+      time: "Ora",
+      where: "Luogo",
+      buffer: "Margine",
+      onLine: "in linea",
+      conflictTip:
+        "Incontro tra due stazioni di questo quadro su binario unico: in un posto di incrocio senza fermata passeggeri (non nei dati d'orario) – oppure non realizzabile così. Gli orari di transito sono stimati.",
+      bufferTip: "{late} può avere {buf}′ di ritardo prima che {waiting} debba attendere",
+      crossingsNote:
+        "Incrocio = treni di entrambe le direzioni contemporaneamente in stazione, vicino a binario unico. Margine = quanto ritardo del treno opposto viene assorbito; oltre si trasmette (rosso +n′: atteso dai dati in tempo reale). Ombreggiato: binario unico. Binario unico da OSM, orari di transito stimati.",
+      tab: { knoten: "Nodo", kreuzung: "Incroci" },
       pickNode: "Analizza come nodo",
       title: "Pianificazione",
       tabNode: "Nodo",

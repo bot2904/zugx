@@ -1,6 +1,6 @@
 import type { CorridorTrain } from "@zugx/netz";
 import { describe, expect, it } from "vite-plus/test";
-import { connections, linesAtNode, nodeVerdict } from "./bf-plan.ts";
+import { connections, crossings, linesAtNode, nodeVerdict } from "./bf-plan.ts";
 
 const train = (
   cat: string,
@@ -66,5 +66,54 @@ describe("Taktknoten", () => {
     expect(v.meeting).toBe(2);
     // dep(→) :03 + arr(←) :56 = 59 → 29.5 (≙ :59.5)
     expect(v.symmetry).toEqual([{ cat: "REX", minute: 29.5 }]);
+  });
+});
+
+describe("crossings", () => {
+  // stations 0 (km 0), 1 (km 10), 2 (km 20); single track 0–20 except a loop at station 1
+  const km = [0, 10, 20];
+  const tracks: [number, number, number][] = [[0, 20, 1]];
+  it("crossing at a station with buffers each way", () => {
+    const up = train("R", "1", 1, "C", [
+      [0, null, 480],
+      [1, 490, 492],
+      [2, 502, null],
+    ]);
+    const down = train("R", "2", -1, "A", [
+      [2, null, 481],
+      [1, 489, 494],
+      [0, 504, null],
+    ]);
+    const [c] = crossings([up, down], km, tracks, 470, 520);
+    expect(c).toMatchObject({ i: 1, conflict: false, bufUp: 3, bufDown: 4 });
+  });
+  it("meeting on single track between stations is a conflict", () => {
+    const up = train("R", "1", 1, "C", [
+      [0, null, 480],
+      [1, 490, 490.5],
+      [2, 500, null],
+    ]);
+    const down = train("R", "2", -1, "A", [
+      [2, null, 482],
+      [1, 495, 495.5],
+      [0, 505, null],
+    ]);
+    const [c] = crossings([up, down], km, tracks, 470, 520);
+    expect(c).toMatchObject({ i: 1, i2: 2, conflict: true });
+    expect(c!.km).toBeGreaterThan(10);
+    expect(c!.km).toBeLessThan(20);
+  });
+  it("double track: no crossing reported", () => {
+    const up = train("R", "1", 1, "C", [
+      [0, null, 480],
+      [1, 490, 492],
+      [2, 502, null],
+    ]);
+    const down = train("R", "2", -1, "A", [
+      [2, null, 481],
+      [1, 489, 494],
+      [0, 504, null],
+    ]);
+    expect(crossings([up, down], km, [[0, 20, 2]], 470, 520)).toEqual([]);
   });
 });

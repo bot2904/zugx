@@ -150,7 +150,20 @@ export default {
   },
   bf: {
     plan: {
-      tab: { knoten: "Node" },
+      crossings: "Crossings",
+      crossingsSummary:
+        "{n} in the time window, {fragile} with a buffer ≤ 2′, {conflicts} meetings on single track",
+      noCrossings: "No crossings next to single track in the time window (or no track data).",
+      time: "Time",
+      where: "Where",
+      buffer: "Buffer",
+      onLine: "on the line",
+      conflictTip:
+        "Meeting between two stations of this sheet on single track: either at a passing loop / operational station without passenger stop (not in the timetable data) – or not possible as planned. Passing times are estimated.",
+      bufferTip: "{late} may be {buf}′ late before {waiting} has to wait",
+      crossingsNote:
+        "Crossing = trains of both directions in the station at the same time, next to single track. Buffer = how much delay of the opposite train is absorbed; beyond that the delay carries over (red +n′: expected from the live data). Shaded: single track. Single track from OSM, passing times estimated.",
+      tab: { knoten: "Node", kreuzung: "Crossings" },
       pickNode: "Analyse as node",
       title: "Planning",
       tabNode: "Node",

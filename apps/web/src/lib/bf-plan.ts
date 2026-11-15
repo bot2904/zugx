@@ -203,3 +203,139 @@ export function nodeVerdict(lines: LineAtNode[]): NodeVerdict {
     symmetry,
   };
 }
+
+// ---- 4./5. crossings on single track ----
+
+/** [km from, km to, tracks] along the corridor (Corridor.tracks) */
+export type TrackRuns = [number, number, number][];
+
+/** single track somewhere on the stretch between two km (≥ 300 m), false if double, undefined unknown */
+export function singleTrack(tracks: TrackRuns, k1: number, k2: number): boolean | undefined {
+  const [lo, hi] = k1 < k2 ? [k1, k2] : [k2, k1];
+  let known = 0;
+  let single = false;
+  for (const [a, b, n] of tracks) {
+    const len = Math.min(b, hi) - Math.max(a, lo);
+    if (len <= 0) continue;
+    known += len;
+    if (n === 1 && len >= 0.3) single = true;
+  }
+  if (single) return true;
+  return known >= (hi - lo) * 0.5 ? false : undefined;
+}
+
+export interface Crossing {
+  /** train in corridor order (dir 1) and against it (dir −1) */
+  up: CorridorTrain;
+  down: CorridorTrain;
+  /** station index where they cross; for a meeting on the line: the stretch [i, i2] */
+  i: number;
+  i2?: number;
+  km: number;
+  /** time of the meeting (station: when both are there; line: intersection) */
+  time: number;
+  /**
+   * buffers in minutes, at a station crossing on single track: how late the other train may be
+   * before this one has to wait (undefined where the stretch it enters is double track)
+   */
+  bufUp?: number;
+  bufDown?: number;
+  /** meeting on a single-track stretch between stations: impossible as planned */
+  conflict: boolean;
+}
+
+interface At {
+  km: number;
+  a: number;
+  d: number;
+}
+function pointsOf(t: CorridorTrain, km: (i: number) => number): Map<number, At> {
+  const m = new Map<number, At>();
+  for (const [i, a, d] of t.pts) {
+    if (a === null && d === null) continue;
+    m.set(i, { km: km(i), a: (a ?? d)!, d: (d ?? a)! });
+  }
+  return m;
+}
+
+/**
+ * Where trains of opposite directions meet, on stretches with single track next to them:
+ * crossings at stations (both there at the same time) with the buffer each way, and meetings
+ * between stations on single track (conflicts). Only trains meeting in [t0, t1).
+ */
+export function crossings(
+  trains: CorridorTrain[],
+  stationKm: number[],
+  tracks: TrackRuns,
+  t0: number,
+  t1: number,
+): Crossing[] {
+  const km = (i: number) => stationKm[i] ?? 0;
+  const ups = trains.filter((t) => t.dir === 1).map((t) => ({ t, p: pointsOf(t, km) }));
+  const downs = trains.filter((t) => t.dir === -1).map((t) => ({ t, p: pointsOf(t, km) }));
+  const span = (p: Map<number, At>) => {
+    let lo = Infinity;
+    let hi = -Infinity;
+    for (const x of p.values()) [lo, hi] = [Math.min(lo, x.a), Math.max(hi, x.d)];
+    return [lo, hi] as const;
+  };
+  const out: Crossing[] = [];
+  for (const U of ups) {
+    const [ul, uh] = span(U.p);
+    if (uh < t0 - 60 || ul > t1 + 60) continue;
+    for (const D of downs) {
+      const [dl, dh] = span(D.p);
+      if (dh < ul || dl > uh) continue;
+      // stations both trains have a time at, in km order
+      const common = [...U.p.keys()].filter((i) => D.p.has(i)).sort((x, y) => km(x) - km(y));
+      for (let k = 0; k < common.length; k++) {
+        const i = common[k]!;
+        const u = U.p.get(i)!;
+        const d = D.p.get(i)!;
+        // both at the station at the same time
+        if (Math.max(u.a, d.a) <= Math.min(u.d, d.d)) {
+          const next = common[k + 1];
+          const prev = common[k - 1];
+          // the up train enters the stretch towards `next`, the down train came from there
+          const sUp = next !== undefined ? singleTrack(tracks, km(i), km(next)) : undefined;
+          const sDown = prev !== undefined ? singleTrack(tracks, km(prev), km(i)) : undefined;
+          if (!sUp && !sDown) break;
+          const time = Math.max(u.a, d.a);
+          if (time >= t0 && time < t1)
+            out.push({
+              up: U.t,
+              down: D.t,
+              i,
+              km: km(i),
+              time,
+              ...(sUp ? { bufUp: Math.round(u.d - d.a) } : {}),
+              ...(sDown ? { bufDown: Math.round(d.d - u.a) } : {}),
+              conflict: false,
+            });
+          break;
+        }
+        // meeting on the line between i and the next common station
+        const i2 = common[k + 1];
+        if (i2 === undefined) break;
+        const u2 = U.p.get(i2)!;
+        const d2 = D.p.get(i2)!;
+        if (u.d < d.a && d2.d < u2.a) {
+          // intersection of up (km(i), u.d) → (km(i2), u2.a) and down (km(i2), d2.d) → (km(i), d.a)
+          const L = km(i2) - km(i) || 1e-6;
+          const su = (u2.a - u.d) / L;
+          const sd = (d.a - d2.d) / L; // time per km going down
+          const x = (d.a - u.d) / (su + sd); // km from station i
+          const time = u.d + su * x;
+          const single = singleTrack(tracks, km(i), km(i2));
+          if (single && time >= t0 && time < t1)
+            out.push({ up: U.t, down: D.t, i, i2, km: km(i) + x, time, conflict: true });
+          break;
+        }
+      }
+    }
+  }
+  return out.sort((a, b) => a.time - b.time);
+}
+
+/** colour class of a crossing buffer: fragile (≤ 2′), tight (≤ 5′), comfortable */
+export const bufferClass = (b: number) => (b <= 2 ? "bad" : b <= 5 ? "mid" : "good");
