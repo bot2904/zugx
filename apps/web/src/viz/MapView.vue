@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // MapLibre map with OSM + OpenRailwayMap raster tiles; draws lines (legs) and points (stops/trains).
+import { badgeEl } from "../lib/tip.ts";
 import "maplibre-gl/dist/maplibre-gl.css";
 // MapLibre 6 runs a module worker; its URL must be set explicitly, otherwise the production
 // build has no worker and GeoJSON layers (lines, markers) are never drawn
@@ -28,6 +29,8 @@ export interface MapPoint {
   lat: number;
   lon: number;
   label?: string;
+  /** line badge before the label in the tooltip (like the LineBadge component) */
+  badge?: { text: string; color: string };
   color?: string;
   /** outline colour (default black) */
   stroke?: string;
@@ -84,6 +87,7 @@ function pointData() {
       type: "Feature",
       properties: {
         label: p.label ?? "",
+        ...(p.badge ? { badgeText: p.badge.text, badgeColor: p.badge.color } : {}),
         color: p.color ?? "#e6e8eb",
         stroke: p.stroke ?? "#000",
         id: p.id ?? "",
@@ -279,10 +283,14 @@ onMounted(() => {
     let tipId: string | undefined;
     const showTip = (f: MapGeoJSONFeature | undefined) => {
       if (!f || f.geometry.type !== "Point" || !f.properties?.label) return;
-      tip
-        .setLngLat(f.geometry.coordinates as [number, number])
-        .setText(String(f.properties.label))
-        .addTo(map);
+      tip.setLngLat(f.geometry.coordinates as [number, number]);
+      const pr = f.properties;
+      if (pr.badgeText) {
+        const el = document.createElement("div");
+        el.append(badgeEl(String(pr.badgeText), String(pr.badgeColor)), " ", String(pr.label));
+        tip.setDOMContent(el);
+      } else tip.setText(String(pr.label));
+      tip.addTo(map);
       tipId = String(f.properties.id ?? f.properties.label);
     };
     const hideTip = () => {

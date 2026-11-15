@@ -12,11 +12,27 @@ import type { Directive } from "vue";
 
 type El = HTMLElement | SVGElement;
 /** plain text, or a bold title with detail lines */
-export type TipContent = string | { title?: string; lines: (string | false | undefined)[] };
+export type TipContent =
+  | string
+  | {
+      /** a line badge like <LineBadge> (category colour), before the title */
+      badge?: { text: string; color: string };
+      title?: string;
+      lines: (string | false | undefined)[];
+    };
+
+/** a line badge element, styled like the LineBadge component (also for map popups) */
+export function badgeEl(text: string, color: string): HTMLSpanElement {
+  const b = document.createElement("span");
+  b.className = "line-badge";
+  b.style.background = color;
+  b.textContent = text;
+  return b;
+}
 const TEXT = new WeakMap<El, TipContent>();
 
 const plain = (c: TipContent) =>
-  typeof c === "string" ? c : [c.title, ...c.lines].filter(Boolean).join(". ");
+  typeof c === "string" ? c : [c.badge?.text, c.title, ...c.lines].filter(Boolean).join(". ");
 
 function render(t: HTMLElement, c: TipContent) {
   if (typeof c === "string") {
@@ -24,10 +40,12 @@ function render(t: HTMLElement, c: TipContent) {
     return;
   }
   t.replaceChildren();
-  if (c.title) {
-    const b = document.createElement("strong");
-    b.textContent = c.title;
-    t.append(b);
+  if (c.badge || c.title) {
+    const head = document.createElement("strong");
+    if (c.badge) head.append(badgeEl(c.badge.text, c.badge.color));
+    if (c.badge && c.title) head.append(" ");
+    if (c.title) head.append(c.title);
+    t.append(head);
   }
   for (const l of c.lines) {
     if (!l) continue;

@@ -133,7 +133,6 @@ const counts = computed(() => {
 });
 
 /** "RJX 162", "S 2 (22734)" — always show the train number */
-const trainLabel = (l: Line) => (l.trainNumber ? `${l.name} (${l.trainNumber})` : l.name);
 /** " · +7′", " · −2′" (early), " · ±0′", or " · no realtime data" */
 /** category legend: categories in view, most frequent first (max. 10) */
 const catCounts = computed(() => {
@@ -156,7 +155,9 @@ const points = computed<MapPoint[]>(() =>
     lon: m.lon,
     id: m.journeyId,
     color: mode.value === "delay" ? delayColor(m.delay) : lineColor(m.line),
-    label: `${trainLabel(m.line)} → ${m.direction}${fmtDelay(m.delay)}`,
+    // train as a line badge, as in the journey search
+    badge: { text: m.line.name, color: lineColor(m.line) },
+    label: `→ ${m.direction}${fmtDelay(m.delay)}`,
     bearing: m.bearing,
     big: m.journeyId === selectedId.value,
   })),

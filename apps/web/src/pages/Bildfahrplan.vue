@@ -350,7 +350,7 @@ function trainTip(tr: CorridorTrain): TipContent {
   const live = liveOn.value ? liveRuns.value.get(trainKey(tr.cat, tr.nr)) : undefined;
   const rep = live ? lastReported(live, viennaMinutes(now.value)) : undefined;
   return {
-    title: `${tr.cat} ${tr.nr}`,
+    badge: { text: `${tr.cat} ${tr.nr}`, color: categoryColor(tr.cat) },
     lines: [
       [tr.origin, tr.headsign].filter(Boolean).join(" → "),
       live &&
