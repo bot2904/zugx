@@ -9,6 +9,7 @@ import { useRoute, useRouter } from "vue-router";
 import VzgIndexView from "../components/VzgIndex.vue";
 import VzgAbbr from "../components/VzgAbbr.vue";
 import VzgBand from "../components/VzgBand.vue";
+import VzgProfile from "../components/VzgProfile.vue";
 import { useI18n } from "../i18n/index.ts";
 import { itemWikidata } from "../lib/wikidata.ts";
 import { download, standaloneSvg } from "../lib/svg-export.ts";
@@ -701,6 +702,7 @@ const fmt = (km: number) => km.toFixed(3);
           </g>
         </svg>
       </div>
+      <VzgProfile :line="data" />
       <section v-if="connections.length" class="my-3">
         <h2 class="m-0 mb-1 text-base">{{ $t("vzg.connections") }}</h2>
         <ul class="m-0 list-none p-0 text-sm">

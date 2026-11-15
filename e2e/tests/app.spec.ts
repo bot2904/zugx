@@ -498,6 +498,16 @@ test("VzG chart exports a standalone SVG with caption and data sources", async (
   expect(svg).toContain("font-family:Liberation Sans, Arial");
 });
 
+test("VzG line profile: key figures of the line", async ({ page }) => {
+  await page.goto("/vzg/174-01");
+  const prof = page
+    .locator("section section")
+    .filter({ has: page.getByRole("heading", { name: /Line profile|Streckenprofil|Profilo/ }) });
+  await expect(prof).toContainText(/Length|Länge|Lunghezza/);
+  await expect(prof).toContainText(/80 km\/h/);
+  await expect(prof).toContainText(/(trains per day|Züge pro Tag|treni al giorno)/);
+});
+
 test("VzG chart links connecting lines at junction stations", async ({ page }) => {
   await page.goto("/vzg/101-03");
   await page.locator("svg.vzg").waitFor();
