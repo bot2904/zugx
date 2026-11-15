@@ -1,10 +1,11 @@
 <script setup lang="ts">
 // Stop list of a train run: line with the current position, arrival/departure (realtime),
 // station → departure board, platform, remarks. Used by the train page and the radar panel.
-import type { Stopover, Trip } from "@zugx/hafas";
+import { operationalChanges, partSections, type Stopover, type Trip } from "@zugx/hafas";
 import { computed } from "vue";
 import EventTime from "./EventTime.vue";
 import Platform from "./Platform.vue";
+import LineBadge from "./LineBadge.vue";
 import Remarks from "./Remarks.vue";
 import { ms } from "../lib/format.ts";
 import { lineColor } from "../lib/products.ts";
@@ -27,6 +28,8 @@ const atStation = (i: number) => {
   const s = props.trip.stopovers[i];
   return !!s && tArr(s) <= props.now && t(s) > props.now;
 };
+/** coupled commercial-only parts: stops where the operational train changes ("ab hier NJ 466") */
+const opChanges = computed(() => operationalChanges(partSections(props.trip)));
 defineExpose({ position });
 </script>
 
@@ -66,6 +69,9 @@ defineExpose({ position });
         {{ s.stop.name }}
         <span v-if="s.additional" class="text-xs text-[var(--warn)]">+</span>
       </RouterLink>
+      <span v-if="opChanges.get(i)" class="muted col-start-4 col-end-6 text-xs">
+        {{ $t("trip.fromHere") }} <LineBadge :line="opChanges.get(i)!.line" small />
+      </span>
       <span class="text-right text-xs"><Platform :ev="s.dep ?? s.arr" /></span>
       <Remarks
         v-if="s.remarks?.length"
