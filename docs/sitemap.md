@@ -45,22 +45,22 @@ Every function of zugx, where to find it, and along three dimensions: **data** (
 ## Plan: new navigation (draft, for discussion)
 
 ```
-zugx   Suche 🔴   Fahrplan ▾   Infrastruktur ▾   Hilfe          [🔴 Live]   ⌘K  DE  ☀
+zugx   Suche 🔴   Radar 🔴   Störungen 🔴   Fahrplan ▾   Infrastruktur ▾   Hilfe      [🔴 Live]   ⌘K  DE  ☀
 ```
 
 🔴 = red recording dot (a CSS dot, not an emoji): on the **Live** switch it lights up when live is on (grey when off); as a **suffix** it marks entries that are always live — Suche, Radar, Störungen — so the switch doesn't apply to them and they are never greyed out.
 
-**Three entries + one switch.** Suche stays the start page. Fahrplan and Infrastruktur are dropdowns. The **Live** switch (top right, remembered, also `?live=1` in links) decides whether a page shows the timetable (GTFS) or the realtime (HAFAS) where both exist.
+**Three live entries, two dropdowns, one switch.** Suche stays the start page; Radar and Störungen are main entries next to it (all three always live). Fahrplan and Infrastruktur are dropdowns. The **Live** switch (top right, remembered, also `?live=1` in links) decides whether a page shows the timetable (GTFS) or the realtime (HAFAS) where both exist.
 
 | Menu            | Entry                              | Live off (timetable)                                    | Live on (realtime)                  | Today                               |
 | --------------- | ---------------------------------- | ------------------------------------------------------- | ----------------------------------- | ----------------------------------- |
 | Suche 🔴        | journey search                     | – (always live)                                         | journeys, journey detail            | `/`, `/j`, `/trip`                  |
+| Radar 🔴        | radar                              | – (always live)                                         | live positions                      | `/radar`                            |
+| Störungen 🔴    | disruptions                        | – (always live)                                         | disruption reports                  | `/him`                              |
 | Fahrplan ▾      | Bahnhöfe                           | index → **Abfahrtsplan**                                | index → **Abfahrtstafel**           | `/stations`, `/station/<id>[/plan]` |
 |                 | Züge                               | train index → planned run                               | train index → train run with delays | `/trains`, `/train/<id>`            |
 |                 | Bildfahrplan (+ Kursbuch, Planung) | chart, Kursbuch, Knoten, Kreuzungen, Reserve, Kapazität | + realtime overlay, Pünktlichkeit   | `/bf/<sheet>`                       |
 |                 | Netzgrafik                         | nodes and lines                                         | – (same)                            | `/netz`                             |
-|                 | Radar 🔴                           | – (always live)                                         | live positions                      | `/radar`                            |
-|                 | Störungen 🔴                       | – (always live)                                         | disruption reports                  | `/him`                              |
 | Infrastruktur ▾ | Strecken (VzG)                     | line index → VzG chart, line profile                    | – (same)                            | `/vzg`, `/vzg/<line>`               |
 |                 | Streckenkarte                      | per line (from the line page)                           | – (same)                            | `/vzg/<line>/map`                   |
 |                 | Infrastrukturnetzkarte             | speed, ETCS, tracks, trains/day                         | – (same)                            | `/vzg/netz`                         |
