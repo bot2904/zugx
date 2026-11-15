@@ -2,11 +2,18 @@ import type en from "./en.ts";
 
 export default {
   app: { tagline: "Österreichs Züge, schnell. Abfahrten, Verbindungen, Zugläufe – live." },
+  stations: {
+    title: "Bahnhöfe",
+    count: "{n} Bahnhöfe",
+    filter: "Name oder Kürzel (z. B. Kt, Vb, Vps)",
+    note: "Kürzel: ÖBB-Betriebsstellen aus OpenStreetMap (railway:ref). Ein Bahnhof öffnet seinen Abfahrtsplan laut Fahrplan.",
+  },
   nav: {
     main: "Hauptnavigation",
     menu: "Menü",
     search: "Suche",
     trains: "Züge",
+    stations: "Bahnhöfe",
     radar: "Radar",
     bildfahrplan: "Bildfahrplan",
     vzg: "VzG-Grafik",

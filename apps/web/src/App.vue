@@ -70,6 +70,7 @@ useKeys({
 const nav: { to: string; key: MessageKey }[] = [
   { to: "/", key: "nav.search" },
   { to: "/trains", key: "nav.trains" },
+  { to: "/stations", key: "nav.stations" },
   { to: "/radar", key: "nav.radar" },
   { to: "/bf", key: "nav.bildfahrplan" },
   { to: "/vzg", key: "nav.vzg" },

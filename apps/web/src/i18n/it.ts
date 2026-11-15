@@ -2,11 +2,18 @@ import type en from "./en.ts";
 
 export default {
   app: { tagline: "I treni austriaci, veloci. Partenze, collegamenti, percorsi – in tempo reale." },
+  stations: {
+    title: "Stazioni",
+    count: "{n} stazioni",
+    filter: "Nome o sigla (p. es. Kt, Vb, Vps)",
+    note: "Sigle: punti di esercizio ÖBB da OpenStreetMap (railway:ref). Una stazione apre il suo quadro partenze dall’orario.",
+  },
   nav: {
     main: "Principale",
     menu: "Menu",
     search: "Cerca",
     trains: "Treni",
+    stations: "Stazioni",
     radar: "Radar",
     bildfahrplan: "Orario grafico",
     vzg: "Grafico VzG",

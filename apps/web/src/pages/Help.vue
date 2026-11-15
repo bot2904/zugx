@@ -70,6 +70,13 @@ const { locale } = useI18n();
         hält nur zum Einsteigen, ◖ hält nur zum Aussteigen, | kein Halt zum Ein- oder Aussteigen.
       </p>
 
+      <h2 id="bahnhoefe">Bahnhöfe</h2>
+      <p>
+        Alle Bahnhöfe von A bis Z mit dem ÖBB-Betriebsstellen-Kürzel (aus OpenStreetMap) und den
+        dort haltenden Gattungen. Das Suchfeld filtert nach Name oder Kürzel („Kt“, „Vb“, „Vps“);
+        ein Bahnhof öffnet seinen Abfahrtsplan laut Fahrplan.
+      </p>
+
       <h2 id="zuege">Züge (Zugindex)</h2>
       <p>
         Alle Züge des Fahrplanjahres in Österreich – Nummer, Name, Laufweg, Verkehrstage – zum
@@ -370,6 +377,13 @@ const { locale } = useI18n();
         train anywhere, or open e.g. <code>/train/RJX-162</code> (add <code>?d=2026-11-13</code>
         for another date). When late, the expected actual time is shown under the planned one. Signs
         as in the ÖBB Kursbuch: ◗ boarding only, ◖ alighting only, | no stop for passengers.
+      </p>
+
+      <h2 id="bahnhoefe">Stations</h2>
+      <p>
+        All stations A–Z with the ÖBB operating-point abbreviation (from OpenStreetMap) and the
+        categories stopping there. The filter matches names and abbreviations ("Kt", "Vb", "Vps"); a
+        station opens its departure plan from the timetable.
       </p>
 
       <h2 id="zuege">Trains (train index)</h2>

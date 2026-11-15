@@ -1,10 +1,17 @@
 export default {
   app: { tagline: "Austrian trains, fast. Departures, connections, train runs – live." },
+  stations: {
+    title: "Stations",
+    count: "{n} stations",
+    filter: "Name or abbreviation (e.g. Kt, Vb, Vps)",
+    note: "Abbreviations: ÖBB operating points from OpenStreetMap (railway:ref). A station opens its departure plan from the timetable.",
+  },
   nav: {
     main: "Main",
     menu: "Menu",
     search: "Search",
     trains: "Trains",
+    stations: "Stations",
     radar: "Radar",
     bildfahrplan: "Graphic timetable",
     vzg: "VzG chart",

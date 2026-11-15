@@ -880,3 +880,16 @@ test("network map: all lines, colour by attribute, line links", async ({ page })
   await expect(page).toHaveURL(/attr=density/);
   await expect(svg.locator("text", { hasText: "Tirol" }).first()).toBeVisible();
 });
+
+test("station index: A–Z with abbreviations, filter by abbreviation, opens the departure plan", async ({
+  page,
+}) => {
+  await page.goto("/stations");
+  await expect(page.locator(".row").first()).toBeVisible();
+  expect(await page.locator(".row").count()).toBeGreaterThan(500);
+  await page.locator('input[type="search"]').fill("Vb");
+  await expect(page.locator(".row").first()).toContainText("Villach Hbf");
+  await expect(page.locator(".row .abbr").first()).toHaveText("Vb");
+  await page.locator(".row a.name").first().click();
+  await expect(page).toHaveURL(/\/station\/\d+\/plan/);
+});
