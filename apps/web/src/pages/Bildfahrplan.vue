@@ -4,11 +4,12 @@ import { addDays, daysBetween, viennaDate, viennaMinutes, viennaNow } from "../l
 import {
   useDebounceFn,
   useDocumentVisibility,
+  useElementSize,
   useIntervalFn,
   useSessionStorage,
 } from "@vueuse/core";
 import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
-import { computed, onMounted, onUnmounted, ref, shallowRef, watch } from "vue";
+import { computed, onMounted, onUnmounted, ref, shallowRef, useTemplateRef, watch } from "vue";
 import { useI18n } from "../i18n/index.ts";
 import { useRoute, useRouter } from "vue-router";
 import CorridorIndexView from "../components/CorridorIndex.vue";
@@ -182,7 +183,10 @@ function setQuery(patch: Record<string, string | number | undefined>) {
 }
 
 // layout
-const W = 1100;
+// width follows the page (full document width, 1 SVG unit = 1 px, text stays 10 px); at least 800
+const chartBox = useTemplateRef<HTMLElement>("chartBox");
+const { width: boxWidth } = useElementSize(chartBox);
+const W = computed(() => Math.max(800, Math.round(boxWidth.value) || 1100));
 const H = 760;
 const M = { top: 110, right: 20, bottom: 20, left: 46 };
 // ---- section: first/last station (?a=, ?b= station ids) and direction (?rev=1) ----
@@ -211,7 +215,7 @@ const kmHi = computed(() => data.value?.stations[range.value.hi]?.km ?? 1);
 const x = (km: number) => {
   const span = Math.max(1, kmHi.value - kmLo.value);
   const rel = reversed.value ? kmHi.value - km : km - kmLo.value;
-  return M.left + (rel / span) * (W - M.left - M.right);
+  return M.left + (rel / span) * (W.value - M.left - M.right);
 };
 const inRange = (i: number) => i >= range.value.lo && i <= range.value.hi;
 /** first/last station as shown (left/right): direction follows from their order on the corridor */
@@ -687,7 +691,7 @@ function toggleCat(c: string) {
         ⧉ {{ $t("bf.chartNewWindow") }}
       </button>
     </div>
-    <div v-if="data && part !== 'table'" class="card overflow-x-auto p-1">
+    <div v-if="data && part !== 'table'" ref="chartBox" class="card overflow-x-auto p-1">
       <svg
         :viewBox="`0 0 ${W} ${H}`"
         class="block w-full min-w-[800px]"

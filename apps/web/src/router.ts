@@ -27,7 +27,11 @@ export const router = createRouter({
     { path: "/him", component: () => import("./pages/Him.vue") },
     { path: "/trains/:op?/:cat?", component: () => import("./pages/Trains.vue") },
     { path: "/radar", component: () => import("./pages/Radar.vue"), meta: { wide: true } },
-    { path: "/bf/:corridor?", component: () => import("./pages/Bildfahrplan.vue") },
+    {
+      path: "/bf/:corridor?",
+      component: () => import("./pages/Bildfahrplan.vue"),
+      meta: { wide: true },
+    },
     { path: "/vzg/netz", component: () => import("./pages/VzgNetwork.vue") },
     { path: "/vzg/:line/map", component: () => import("./pages/VzgMap.vue") },
     { path: "/vzg/:line?", component: () => import("./pages/Vzg.vue") },
