@@ -152,6 +152,13 @@ export default {
   },
   bf: {
     plan: {
+      source: "Fonte",
+      sourceSheet: "solo questo quadro",
+      sourceAll: "tutte le linee",
+      sourceAllTip:
+        "Anche tutti gli altri treni in stazione (altre linee, WESTbahn …) dall'orario ÖBB – tabellone arrivi e partenze per la finestra.",
+      otherTrains: "+{n} treni di altre linee",
+      otherLines: "altre linee",
       reserveCol: "Riserva",
       assumptions: "Ipotesi",
       resetParams: "Valori predefiniti",
@@ -231,7 +238,7 @@ export default {
       allLines: "tutte le linee (+{n} con < 3 treni)",
       regularLines: "solo linee cadenzate",
       nodeNote:
-        "Solo treni di questo quadro; mancano le coincidenze con altre linee. Linea = categoria + direzione + destinazione; minuti = minuto più frequente della giornata. Nodo: le linee arrivano fino a 10′ prima del minuto del nodo e partono fino a 10′ dopo.",
+        "Linea = categoria + direzione + destinazione (altre linee che terminano qui: + origine); minuti = minuto più frequente nel periodo mostrato. Nodo: le linee arrivano fino a 10′ prima del minuto del nodo e partono fino a 10′ dopo. «tutte le linee»: treni di altre linee dall'orario ÖBB (orari programmati, solo la finestra), senza tempi di percorso a piedi tra parti della stazione.",
     },
     scale: "Scala",
     scaleTip: "Scala dei tempi: 2× e 4× allungano l'asse dei tempi",

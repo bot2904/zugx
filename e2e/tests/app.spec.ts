@@ -194,6 +194,14 @@ test("bildfahrplan planning: node — Taktknoten and transfers", async ({ page }
   // another node via the select → in the URL
   await panel.locator("select").selectOption({ label: "Attnang-Puchheim" });
   await expect(page).toHaveURL(/knoten=/);
+  // source: this sheet only / all lines (HAFAS boards of the node)
+  await panel
+    .getByRole("button", { name: /^(nur Bildfahrplan|this sheet only|solo questo quadro)$/ })
+    .click();
+  await expect(
+    panel.getByRole("button", { name: /^(alle Linien|all lines|tutte le linee)$/ }),
+  ).toHaveAttribute("aria-pressed", "false");
+  await expect(panel.locator("th", { hasText: /andere Linien|other lines/ })).toHaveCount(0);
 });
 
 test("bildfahrplan planning: crossings on single track", async ({ page }) => {

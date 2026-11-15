@@ -133,7 +133,9 @@ const { locale } = useI18n();
           die Linien mit ihren üblichen Ankunfts- und Abfahrtsminuten und ihrem Takt, ob sie sich um
           eine Knotenminute treffen (Vollknoten :00, Halbknoten :30), die Symmetrieminute; dazu für
           jede Ankunft der erste Anschluss je Richtung (grün ≤ 10′, gelb ≤ 20′, rot länger) und
-          knapp verpasste Anschlüsse. Der Mindestumstieg ist einstellbar.
+          knapp verpasste Anschlüsse. Der Mindestumstieg ist einstellbar. Mit „alle Linien“ kommen
+          alle anderen Züge am Bahnhof aus der ÖBB-Fahrplanauskunft dazu (andere Strecken, WESTbahn
+          …).
         </li>
         <li>
           <strong>Kreuzungen</strong>: wo sich Züge beider Richtungen neben eingleisigen Abschnitten
@@ -156,8 +158,8 @@ const { locale } = useI18n();
         </li>
       </ul>
       <p class="muted">
-        Grenzen: nur Züge dieses Bildfahrplans (Anschlüsse an andere Strecken fehlen); Ein-/
-        Zweigleisigkeit aus OpenStreetMap, Durchfahrtszeiten und Mindestfahrzeiten geschätzt.
+        Grenzen: Kreuzungen, Fahrzeitreserve und Pünktlichkeit nur für Züge dieses Bildfahrplans;
+        Ein-/ Zweigleisigkeit aus OpenStreetMap, Durchfahrtszeiten und Mindestfahrzeiten geschätzt.
       </p>
 
       <h2 id="vzg">VzG-Grafik</h2>
@@ -396,7 +398,8 @@ const { locale } = useI18n();
           with their usual arrival and departure minutes and interval, whether they meet around a
           node minute (full node :00, half node :30), the symmetry minute; and for every arrival the
           first connection per direction (green ≤ 10′, amber ≤ 20′, red longer) and near misses. The
-          minimum transfer time is adjustable.
+          minimum transfer time is adjustable. With “all lines”, every other train at the station
+          comes in from the ÖBB journey planner (other lines, WESTbahn …).
         </li>
         <li>
           <strong>Crossings</strong>: where trains of both directions meet next to single track –
@@ -417,8 +420,8 @@ const { locale } = useI18n();
         </li>
       </ul>
       <p class="muted">
-        Limits: only trains of this sheet (transfers to other lines missing); single/double track
-        from OpenStreetMap, passing times and minimum running times estimated.
+        Limits: crossings, running-time reserve and punctuality only for trains of this sheet;
+        single/double track from OpenStreetMap, passing times and minimum running times estimated.
       </p>
 
       <h2 id="vzg">VzG chart</h2>

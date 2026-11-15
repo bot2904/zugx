@@ -180,3 +180,32 @@ describe("punctuality", () => {
     expect(rows[0]).toEqual({ i: 0, j: 1, n: 2, mean: 2, bad: 0.5 });
   });
 });
+
+describe("other lines at a node", () => {
+  it("trains of another operator on the sheet's line get its direction", async () => {
+    const { assignDirections } = await import("./bf-node-board.ts");
+    const stations = ["A", "B", "C"].map((name, k) => ({ id: name, name, km: k, major: true }));
+    const sheet = [
+      train("R", "1", 1, "Z", [
+        [0, null, 1],
+        [1, 2, 3],
+      ]),
+    ];
+    const ext = (headsign: string, origin: string) => ({
+      t: { ...train("WB", "9", 1, headsign, []), origin },
+      a: 10,
+      d: 12,
+      ext: true,
+    });
+    const [a, b, c, d] = assignDirections(
+      [ext("C", ""), ext("", "C"), ext("Z", ""), ext("X", "Y")],
+      stations,
+      1,
+      sheet,
+    );
+    expect([a!.ext, a!.t.dir]).toEqual([false, 1]); // to C (beyond the node)
+    expect([b!.ext, b!.t.dir]).toEqual([false, -1]); // from C
+    expect([c!.ext, c!.t.dir]).toEqual([false, 1]); // to Z, like the sheet's R 1
+    expect(d!.ext).toBe(true); // another line
+  });
+});

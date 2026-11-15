@@ -152,6 +152,13 @@ export default {
   },
   bf: {
     plan: {
+      source: "Quelle",
+      sourceSheet: "nur Bildfahrplan",
+      sourceAll: "alle Linien",
+      sourceAllTip:
+        "Auch alle anderen Züge am Bahnhof (andere Strecken, WESTbahn …) aus der ÖBB-Fahrplanauskunft – Ankunfts- und Abfahrtstafel für das Zeitfenster.",
+      otherTrains: "+{n} Züge anderer Linien",
+      otherLines: "andere Linien",
       reserveCol: "Reserve",
       assumptions: "Annahmen",
       resetParams: "Standardwerte",
@@ -232,7 +239,7 @@ export default {
       allLines: "alle Linien (+{n} mit < 3 Zügen)",
       regularLines: "nur Linien im Takt",
       nodeNote:
-        "Nur Züge dieses Bildfahrplans; Anschlüsse an andere Strecken fehlen. Linie = Gattung + Richtung + Ziel; Minuten = häufigste Minute über den Tag. Taktknoten: Linien kommen bis 10′ vor der Knotenminute an und fahren bis 10′ danach ab.",
+        "Linie = Gattung + Richtung + Ziel (andere Linien, die hier enden: + Herkunft); Minuten = häufigste Minute im gezeigten Zeitraum. Taktknoten: Linien kommen bis 10′ vor der Knotenminute an und fahren bis 10′ danach ab. „alle Linien“: Züge anderer Strecken aus der ÖBB-Fahrplanauskunft (geplante Zeiten, nur Zeitfenster), ohne Fußwege zwischen Bahnhofsteilen.",
     },
     scale: "Maßstab",
     scaleTip: "Zeitmaßstab: 2× und 4× strecken die Zeitachse",

@@ -29,7 +29,9 @@ import {
   lossTable,
   runningReserve,
   stopsAt,
+  type Stop,
 } from "../lib/bf-plan.ts";
+import { assignDirections, nodeBoardStops } from "../lib/bf-node-board.ts";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
 import { useKeys } from "../lib/keys.ts";
@@ -691,6 +693,42 @@ usePageTitle(() => {
     partial && st.length > 1 && `${st[0]!.name} – ${st.at(-1)!.name}`,
   ];
 });
+
+// other lines at the node: the station's HAFAS boards for the time window ("alle Linien")
+const nodeAll = useLocalStorage("zugx:bf-node-all", true);
+const nodeHafas = computed(() => data.value?.stations[nodeIdx.value]?.hafasId);
+const nodeExtra = shallowRef<Stop[]>([]);
+const nodeLoading = ref(false);
+const nodeError = ref(false);
+let nodeRound = 0;
+const loadNodeBoards = useDebounceFn(async () => {
+  const round = ++nodeRound;
+  const hid = nodeHafas.value;
+  if (plan.value !== "knoten" || !nodeAll.value || !hid) {
+    nodeExtra.value = [];
+    return;
+  }
+  nodeLoading.value = true;
+  try {
+    const stops = await nodeBoardStops(
+      api(true),
+      hid,
+      date.value,
+      t0.value,
+      t1.value,
+      planTrains.value,
+    );
+    const dirs = assignDirections(stops, data.value!.stations, nodeIdx.value, planTrains.value);
+    if (round === nodeRound) [nodeExtra.value, nodeError.value] = [dirs, false];
+  } catch {
+    if (round === nodeRound) [nodeExtra.value, nodeError.value] = [[], true];
+  } finally {
+    if (round === nodeRound) nodeLoading.value = false;
+  }
+}, 400);
+watch([plan, nodeHafas, date, t0, t1, nodeAll], () => void loadNodeBoards(), {
+  immediate: true,
+});
 </script>
 
 <template>
@@ -1220,6 +1258,12 @@ usePageTitle(() => {
       :t0="t0"
       :t1="t1"
       :hover="hover"
+      :extra="nodeExtra"
+      :all="nodeAll && !!nodeHafas"
+      :can-all="!!nodeHafas"
+      :loading="nodeLoading"
+      :error="nodeError"
+      @all="nodeAll = $event"
       @node="setNode"
       @hover="hover = $event"
     />

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 // Planning panel "Knoten": Taktknoten check and transfers at one station of the Bildfahrplan
-// (PLAN.md "Bildfahrplan as a planning tool", items 1 and 2). Only trains of this sheet: transfers
-// to lines not on the sheet are not in the data.
+// (PLAN.md "Bildfahrplan as a planning tool", items 1 and 2). The sheet's trains, plus — with
+// "alle Linien" — every other line at the station from its HAFAS boards (`extra`).
 import type { CorridorStation, CorridorTrain } from "@zugx/netz";
 import { computed, ref } from "vue";
 import LineBadge from "./LineBadge.vue";
-import { connections, linesAtNode, nodeVerdict, waitClass } from "../lib/bf-plan.ts";
+import { connections, linesAtNode, nodeVerdict, waitClass, type Stop } from "../lib/bf-plan.ts";
 import { hhmm } from "../lib/bf-table.ts";
 
 const props = defineProps<{
@@ -18,18 +18,32 @@ const props = defineProps<{
   t0: number;
   t1: number;
   hover?: CorridorTrain;
+  /** other lines at the station (boards), when `all` */
+  extra: Stop[];
+  /** source: the sheet only, or all lines (boards) */
+  all: boolean;
+  /** the node has a HAFAS id (boards possible) */
+  canAll: boolean;
+  loading: boolean;
+  error: boolean;
 }>();
-const emit = defineEmits<{ node: [i: number]; hover: [t: CorridorTrain | undefined] }>();
+const emit = defineEmits<{
+  node: [i: number];
+  hover: [t: CorridorTrain | undefined];
+  all: [v: boolean];
+}>();
+const ext = computed(() => (props.all ? props.extra : []));
 
 const minTransfer = ref(3);
 const allLines = ref(false);
-const lines = computed(() => linesAtNode(props.trains, props.node));
+const lines = computed(() => linesAtNode(props.trains, props.node, ext.value));
 const verdict = computed(() => nodeVerdict(lines.value));
 const rows = computed(() =>
-  connections(props.trains, props.node, props.t0, props.t1, minTransfer.value),
+  connections(props.trains, props.node, props.t0, props.t1, minTransfer.value, 60, 5, ext.value),
 );
-const dirName = (dir: 1 | -1) =>
-  dir === 1 ? props.stations.at(-1)?.name : props.stations[0]?.name;
+const dirName = (dir: 1 | -1 | 0) =>
+  dir === 1 ? props.stations.at(-1)?.name : dir === -1 ? props.stations[0]?.name : undefined;
+const arrow = (dir: 1 | -1 | 0) => (dir === 1 ? "→" : dir === -1 ? "←" : "↗");
 const mm = (m: number | null) => (m === null ? "–" : `:${String(m).padStart(2, "0")}`);
 const sym = (s: number) => {
   const f = (v: number) => `:${v.toFixed(1).replace(/\.0$/, "").padStart(2, "0")}`;
@@ -61,6 +75,31 @@ const sym = (s: number) => {
         />
         ′
       </label>
+      <span class="flex gap-1" role="group" :aria-label="$t('bf.plan.source')">
+        <button
+          class="btn py-0"
+          :class="!all && 'btn-on'"
+          :aria-pressed="!all"
+          @click="emit('all', false)"
+        >
+          {{ $t("bf.plan.sourceSheet") }}
+        </button>
+        <button
+          class="btn py-0"
+          :class="all && 'btn-on'"
+          :aria-pressed="all"
+          :disabled="!canAll"
+          v-tip="$t('bf.plan.sourceAllTip')"
+          @click="emit('all', true)"
+        >
+          {{ $t("bf.plan.sourceAll") }}
+        </button>
+      </span>
+      <span v-if="all && loading" class="muted" role="status">…</span>
+      <span v-else-if="all && error" class="text-[var(--bad)]">{{ $t("bf.liveError") }}</span>
+      <span v-else-if="all && extra.length" class="muted">
+        {{ $t("bf.plan.otherTrains", { n: extra.length }) }}
+      </span>
     </div>
 
     <!-- 2. Taktknoten -->
@@ -108,7 +147,10 @@ const sym = (s: number) => {
             :key="`${l.cat}|${l.dir}|${l.to}`"
           >
             <td><LineBadge :cat="l.cat" small /></td>
-            <td>{{ l.dir === 1 ? "→" : "←" }} {{ l.to }}</td>
+            <td>
+              <template v-if="l.from">{{ $t("bf.tableFrom") }} {{ l.to }}</template>
+              <template v-else>{{ arrow(l.dir) }} {{ l.to }}</template>
+            </td>
             <td class="num mono">{{ mm(l.arrMin) }}</td>
             <td class="num mono">{{ mm(l.depMin) }}</td>
             <td class="num mono">{{ l.headway ? `${l.headway}′` : "–" }}</td>
@@ -145,6 +187,7 @@ const sym = (s: number) => {
             <th>{{ $t("bf.tableFrom") }}</th>
             <th>→ {{ dirName(1) }}</th>
             <th>→ {{ dirName(-1) }}</th>
+            <th v-if="ext.length">↗ {{ $t("bf.plan.otherLines") }}</th>
           </tr>
         </thead>
         <tbody>
@@ -161,11 +204,21 @@ const sym = (s: number) => {
             <td v-for="d in r.dirs" :key="d.dir">
               <span v-if="d.continues" class="muted">{{ $t("bf.plan.continues") }}</span>
               <template v-else>
-                <span v-if="d.next" class="whitespace-nowrap">
+                <template v-if="d.others">
+                  <span v-for="(o, k) in d.others" :key="k" class="block whitespace-nowrap">
+                    <LineBadge :cat="o.t.cat" :nr="o.t.nr" small />
+                    <span class="wait mono" :class="waitClass(o.wait)">
+                      {{ Math.round(o.wait) }}′</span
+                    >
+                    <span class="muted"> → {{ o.t.headsign }}</span>
+                  </span>
+                </template>
+                <span v-else-if="d.next" class="whitespace-nowrap">
                   <LineBadge :cat="d.next.t.cat" :nr="d.next.t.nr" small />
                   <span class="wait mono" :class="waitClass(d.next.wait)">
                     {{ Math.round(d.next.wait) }}′</span
                   >
+                  <span v-if="d.dir === 0" class="muted"> → {{ d.next.t.headsign }}</span>
                 </span>
                 <span v-else class="muted">–</span>
                 <span

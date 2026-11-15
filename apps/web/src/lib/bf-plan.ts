@@ -8,19 +8,26 @@ import type { CorridorTrain } from "@zugx/netz";
  */
 export const isPass = (a: number | null, d: number | null) => a !== null && a === d && a % 1 !== 0;
 
-/** a train stopping at a station: arrival (null where it starts), departure (null where it ends) */
+/**
+ * a train stopping at a station: arrival (null where it starts), departure (null where it ends);
+ * `ext`: a train of another line (not on the sheet, from the station's boards) — `t.dir` is
+ * meaningless then, `t.origin` / `t.headsign` come from the boards
+ */
 export interface Stop {
   t: CorridorTrain;
   a: number | null;
   d: number | null;
+  ext?: boolean;
 }
-export function stopsAt(trains: CorridorTrain[], i: number): Stop[] {
+export function stopsAt(trains: CorridorTrain[], i: number, extra: Stop[] = []): Stop[] {
   const out: Stop[] = [];
   for (const t of trains)
     for (const [j, a, d] of t.pts)
       if (j === i && !isPass(a, d) && (a !== null || d !== null)) out.push({ t, a, d });
-  return out;
+  return [...out, ...extra];
 }
+/** direction of a stop: along the sheet (1), against it (−1), another line (0) */
+const dirOf = (s: Stop): 1 | -1 | 0 => (s.ext ? 0 : s.t.dir);
 
 // ---- 1. transfers ----
 
@@ -32,21 +39,24 @@ export interface Transfer {
 }
 export interface ArrivalConnections {
   arr: Stop & { a: number };
-  /** per direction (1 = corridor order, -1 = reverse) */
+  /** per direction (1 = corridor order, −1 = reverse, 0 = other lines) */
   dirs: {
-    dir: 1 | -1;
+    dir: 1 | -1 | 0;
     /** the arriving train itself continues in this direction */
     continues: boolean;
     /** first departure of another train reachable with the minimum transfer time */
     next?: Transfer;
     /** last departure missed by at most `nearMiss` minutes: `short` = minutes too short */
     missed?: Transfer & { short: number };
+    /** other lines (dir 0): the first connection per destination, soonest first (≤ 3) */
+    others?: Transfer[];
   }[];
 }
 
 /**
  * For every train arriving at station `i` in [t0, t1): the first connection per direction with
- * at least `minTransfer` minutes, and a near miss (departure just before that).
+ * at least `minTransfer` minutes, and a near miss (departure just before that). With `extra`
+ * (other lines from the station's boards) also to and from those (direction 0).
  */
 export function connections(
   trains: CorridorTrain[],
@@ -56,8 +66,10 @@ export function connections(
   minTransfer = 3,
   maxWait = 90,
   nearMiss = 5,
+  extra: Stop[] = [],
 ): ArrivalConnections[] {
-  const stops = stopsAt(trains, i);
+  const stops = stopsAt(trains, i, extra);
+  const dirs: (1 | -1 | 0)[] = extra.length ? [1, -1, 0] : [1, -1];
   const deps = stops
     .filter((s): s is Stop & { d: number } => s.d !== null)
     .sort((x, y) => x.d - y.d);
@@ -66,16 +78,28 @@ export function connections(
     .sort((x, y) => x.a - y.a)
     .map((arr) => ({
       arr,
-      dirs: ([1, -1] as const).map((dir) => {
-        const continues = arr.d !== null && arr.t.dir === dir;
-        const cands = deps.filter((s) => s.t !== arr.t && s.t.dir === dir);
+      dirs: dirs.map((dir) => {
+        const continues = arr.d !== null && dirOf(arr) === dir;
+        const cands = deps.filter((s) => s.t !== arr.t && dirOf(s) === dir);
         const n = cands.find((s) => s.d >= arr.a + minTransfer && s.d <= arr.a + maxWait);
         const m = cands.findLast(
           (s) => s.d < arr.a + minTransfer && s.d >= arr.a + minTransfer - nearMiss,
         );
+        // other lines lead to different places: the first connection to each destination
+        const others: Transfer[] = [];
+        if (dir === 0)
+          for (const s of cands)
+            if (
+              s.d >= arr.a + minTransfer &&
+              s.d <= arr.a + maxWait &&
+              !others.some((o) => o.t.headsign === s.t.headsign) &&
+              others.length < 3
+            )
+              others.push({ t: s.t, d: s.d, wait: s.d - arr.a });
         return {
           dir,
           continues,
+          ...(others.length > 1 ? { others } : {}),
           ...(n ? { next: { t: n.t, d: n.d, wait: n.d - arr.a } } : {}),
           ...(m
             ? {
@@ -102,8 +126,11 @@ const mod60 = (m: number) => ((Math.round(m) % 60) + 60) % 60;
 /** a line at the station: category, direction, destination, with its typical minutes */
 export interface LineAtNode {
   cat: string;
-  dir: 1 | -1;
+  /** 1 / −1 along / against the sheet, 0 another line */
+  dir: 1 | -1 | 0;
+  /** destination; for lines ending here (other lines): the origin, `from` set */
   to: string;
+  from?: boolean;
   /** trains of the line stopping here on the day */
   n: number;
   /** most frequent arrival / departure minute of the hour (null: starts / ends here) */
@@ -126,17 +153,19 @@ function mode(xs: number[], wrap = 60): { v: number; share: number } | undefined
   return { v: best.v, share: best.n / xs.length };
 }
 
-export function linesAtNode(trains: CorridorTrain[], i: number): LineAtNode[] {
+export function linesAtNode(trains: CorridorTrain[], i: number, extra: Stop[] = []): LineAtNode[] {
   const groups = new Map<string, Stop[]>();
-  for (const s of stopsAt(trains, i)) {
-    const k = `${s.t.cat}|${s.t.dir}|${s.t.headsign}`;
+  for (const s of stopsAt(trains, i, extra)) {
+    // other lines ending here: grouped by where they come from
+    const ends = s.ext && s.d === null;
+    const k = `${s.t.cat}|${dirOf(s)}|${ends ? s.t.origin : s.t.headsign}|${ends ? 1 : 0}`;
     const list = groups.get(k) ?? [];
     list.push(s);
     groups.set(k, list);
   }
   const out: LineAtNode[] = [];
   for (const [k, list] of groups) {
-    const [cat, dir, to] = k.split("|") as [string, string, string];
+    const [cat, dir, to, from] = k.split("|") as [string, string, string, string];
     const arr = mode(list.flatMap((s) => (s.a !== null ? [mod60(s.a)] : [])));
     const dep = mode(list.flatMap((s) => (s.d !== null ? [mod60(s.d)] : [])));
     const times = list
@@ -147,8 +176,9 @@ export function linesAtNode(trains: CorridorTrain[], i: number): LineAtNode[] {
     const hw = mode(gaps, Infinity);
     out.push({
       cat,
-      dir: Number(dir) as 1 | -1,
+      dir: Number(dir) as 1 | -1 | 0,
       to,
+      ...(from === "1" ? { from: true } : {}),
       n: list.length,
       arrMin: arr?.v ?? null,
       depMin: dep?.v ?? null,

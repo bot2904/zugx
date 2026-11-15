@@ -150,6 +150,13 @@ export default {
   },
   bf: {
     plan: {
+      source: "Source",
+      sourceSheet: "this sheet only",
+      sourceAll: "all lines",
+      sourceAllTip:
+        "Also every other train at the station (other lines, WESTbahn …) from the ÖBB journey planner – arrival and departure board for the time window.",
+      otherTrains: "+{n} trains of other lines",
+      otherLines: "other lines",
       reserveCol: "Reserve",
       assumptions: "Assumptions",
       resetParams: "Defaults",
@@ -228,7 +235,7 @@ export default {
       allLines: "all lines (+{n} with < 3 trains)",
       regularLines: "regular lines only",
       nodeNote:
-        "Only trains of this sheet; transfers to other lines are missing. Line = category + direction + destination; minutes = most frequent minute over the day. Node: lines arrive up to 10′ before the node minute and leave up to 10′ after.",
+        "Line = category + direction + destination (other lines ending here: + origin); minutes = most frequent minute in the shown period. Node: lines arrive up to 10′ before the node minute and leave up to 10′ after. “All lines”: trains of other lines from the ÖBB journey planner (planned times, time window only), no walking times between parts of a station.",
     },
     scale: "Scale",
     scaleTip: "Time scale: 2× and 4× stretch the time axis",
