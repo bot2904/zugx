@@ -9,7 +9,8 @@
  *   inline, `{ id = "…", … }`, one per line inside a multi-line array or as `key = { … }`;
  * - everything else becomes `[table]` / `[[array.of.tables]]` sections.
  */
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname } from "node:path";
 import { parse } from "smol-toml";
 
 type Obj = Record<string, unknown>;
@@ -135,6 +136,7 @@ export function readToml<T>(path: string, fallback: T): T {
 /** writes TOML and returns the text */
 export function writeToml(path: string, data: unknown): string {
   const text = toToml(data);
+  mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, text);
   return text;
 }

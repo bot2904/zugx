@@ -1,0 +1,437 @@
+1120963 = { id = "7942857", name = "Spodnja Slivnica", lat = 45.934276, lon = 14.655339, p = 16, d = 36, gtfs = "Spodnja Slivnica" }
+1120967 = { id = "7942859", name = "Cusperk", lat = 45.890651, lon = 14.699152, p = 16, d = 76, gtfs = "Čušperk" }
+1122782 = { id = "7900017", name = "Dobova", lat = 45.898391, lon = 15.655182, p = 28, d = 38, gtfs = "Dobova" }
+1122783 = { id = "7900016", name = "Brezice", lat = 45.92383, lon = 15.589929, p = 28, d = 2, gtfs = "Brežice" }
+1122784 = { id = "7900138", name = "Libna", lat = 45.945485, lon = 15.5403, p = 24, d = 9, gtfs = "Libna" }
+1122785 = { id = "7900030", name = "Krsko", lat = 45.956237, lon = 15.493457, p = 28, d = 7, gtfs = "Krško" }
+1122786 = { id = "7900084", name = "Brestanica", lat = 45.987654, lon = 15.469707, p = 24, d = 21, gtfs = "Brestanica" }
+1122787 = { id = "7900078", name = "Blanca", lat = 45.989874, lon = 15.395816, p = 24, d = 7, gtfs = "Blanca" }
+1122788 = { id = "7900018", name = "Sevnica", lat = 46.009579, lon = 15.300998, p = 28, d = 11, gtfs = "Sevnica" }
+1122789 = { id = "7900083", name = "Breg", lat = 46.041733, lon = 15.235646, p = 24, d = 12, gtfs = "Breg" }
+1122790 = { id = "7900147", name = "Loka(SZ)", lat = 46.053599, lon = 15.205604, p = 24, d = 8, gtfs = "Loka" }
+1122791 = { id = "7900197", name = "Radece", lat = 46.064395, lon = 15.192579, p = 24, d = 25, gtfs = "Radeče" }
+1122792 = { id = "7900004", name = "Zidani Most", lat = 46.085582, lon = 15.170322, p = 28, d = 31, gtfs = "Zidani Most" }
+1122793 = { id = "7900114", name = "Hrastnik", lat = 46.122663, lon = 15.093518, p = 28, d = 13, gtfs = "Hrastnik" }
+1122794 = { id = "7900037", name = "Trbovlje", lat = 46.126483, lon = 15.037218, p = 28, d = 34, gtfs = "Trbovlje" }
+1122795 = { id = "7900252", name = "Zagorje", lat = 46.120649, lon = 14.991095, p = 28, d = 11, gtfs = "Zagorje" }
+1122796 = { id = "7900208", name = "Sava", lat = 46.0888, lon = 14.899009, p = 24, d = 13, gtfs = "Sava" }
+1122797 = { id = "7900140", name = "Litija", lat = 46.058057, lon = 14.825163, p = 28, d = 8, gtfs = "Litija" }
+1122798 = { id = "7900135", name = "Kresnice", lat = 46.102806, lon = 14.791687, p = 24, d = 44, gtfs = "Kresnice" }
+1122799 = { id = "7900122", name = "Jevnica", lat = 46.084108, lon = 14.736727, p = 24, d = 6, gtfs = "Jevnica" }
+1122800 = { id = "7900137", name = "Laze", lat = 46.088171, lon = 14.687637, p = 24, d = 5, gtfs = "Laze" }
+1122801 = { id = "7900142", name = "Ljubljana Polje", lat = 46.058947, lon = 14.584728, p = 24, d = 65, gtfs = "Ljubljana Polje" }
+1122803 = { id = "7900163", name = "Ljubljana Zalog", lat = 46.059675, lon = 14.615346, p = 24, d = 30, gtfs = "Ljubljana Zalog" }
+1122804 = { id = "7900003", name = "Ljubljana", lat = 46.058687, lon = 14.51294, p = 30, d = 20, gtfs = "Ljubljana" }
+1122806 = { id = "7900047", name = "Ljubljana Vizmarje", lat = 46.100576, lon = 14.464498, p = 28, d = 19, gtfs = "Ljubljana Vižmarje" }
+1122807 = { id = "7900269", name = "Medno", lat = 46.122159, lon = 14.439049, p = 28, d = 8, gtfs = "Medno" }
+1122808 = { id = "7900150", name = "Medvode", lat = 46.13798, lon = 14.412234, p = 28, d = 10, gtfs = "Medvode" }
+1122809 = { id = "7900201", name = "Retece", lat = 46.156615, lon = 14.371208, p = 28, d = 12, gtfs = "Reteče" }
+1122810 = { id = "7900048", name = "Skofja Loka", lat = 46.174333, lon = 14.335619, p = 28, d = 17, gtfs = "Škofja Loka" }
+1122811 = { id = "7900014", name = "Kranj", lat = 46.23901, lon = 14.348168, p = 28, d = 10, gtfs = "Kranj" }
+1122812 = { id = "7900049", name = "Podnart", lat = 46.293862, lon = 14.258285, p = 28, d = 15, gtfs = "Podnart" }
+1122813 = { id = "7900050", name = "Otoce", lat = 46.310915, lon = 14.232639, p = 28, d = 15, gtfs = "Otoče" }
+1122814 = { id = "7900104", name = "Globoko", lat = 46.323329, lon = 14.208413, p = 28, d = 7, gtfs = "Globoko" }
+1122815 = { id = "7900045", name = "Radovljica", lat = 46.340498, lon = 14.173777, p = 24, d = 9, gtfs = "Radovljica" }
+1122816 = { id = "7900002", name = "Lesce-Bled", lat = 46.360418, lon = 14.157974, p = 28, d = 13, gtfs = "Lesce-Bled" }
+1122817 = { id = "7900046", name = "Zirovnica", lat = 46.40194, lon = 14.135582, p = 28, d = 9, gtfs = "Žirovnica" }
+1122818 = { id = "7900051", name = "Slovenski Javornik", lat = 46.427217, lon = 14.0882, p = 28, d = 7, gtfs = "Slovenski Javornik" }
+1122819 = { id = "7900141", name = "Ljubljana Litostroj", lat = 46.077195, lon = 14.48991, p = 28, d = 20, gtfs = "Litostroj" }
+1122820 = { id = "7900266", name = "Ljubljana Stegne", lat = 46.086814, lon = 14.479968, p = 28, d = 6, gtfs = "Ljubljana Stegne" }
+1122821 = { id = "7900090", name = "Ljubljana Crnuce", lat = 46.101098, lon = 14.526316, p = 16, d = 24, gtfs = "Ljubljana Črnuče" }
+1122822 = { id = "7900067", name = "Domzale", lat = 46.139275, lon = 14.592459, p = 16, d = 4, gtfs = "Domžale" }
+1122823 = { id = "7900120", name = "Jarse-Menges", lat = 46.165667, lon = 14.593888, p = 16, d = 3, gtfs = "Jarše-Mengeš" }
+1122824 = { id = "7900058", name = "Kamnik", lat = 46.220834, lon = 14.603803, p = 16, d = 16, gtfs = "Kamnik" }
+1122825 = { id = "7900124", name = "Kamnik mesto", lat = 46.224879, lon = 14.609314, p = 16, d = 14, gtfs = "Kamnik mesto" }
+1122826 = { id = "7900059", name = "Kamnik Graben", lat = 46.228861, lon = 14.609601, p = 16, d = 16, gtfs = "Kamnik Graben" }
+1122827 = { id = "7900085", name = "Ljubljana Brinje", lat = 46.076341, lon = 14.503043, p = 16, d = 12, gtfs = "Ljubljana Brinje" }
+1122828 = { id = "7900238", name = "Trzin Mlake", lat = 46.128802, lon = 14.559936, p = 16, d = 30, gtfs = "Trzin Mlake" }
+1122829 = { id = "7900237", name = "Trzin", lat = 46.132785, lon = 14.567658, p = 16, d = 6, gtfs = "Trzin" }
+1122830 = { id = "7900203", name = "Rodica", lat = 46.14901, lon = 14.592396, p = 16, d = 9, gtfs = "Rodica" }
+1122831 = { id = "7900270", name = "Homec", lat = 46.179816, lon = 14.590643, p = 16, d = 2, gtfs = "Homec pri Kamniku" }
+1122832 = { id = "7900224", name = "Smarca", lat = 46.19312, lon = 14.588585, p = 16, d = 2, gtfs = "Šmarca" }
+1122833 = { id = "7900268", name = "Duplica-Bakovnik", lat = 46.206083, lon = 14.594302, p = 16, d = 6, gtfs = "Duplica-Bakovnik" }
+1122834 = { id = "7900267", name = "Ljubljana Jezica", lat = 46.089627, lon = 14.507313, p = 16, d = 25, gtfs = "Ljubljana Ježica" }
+1122835 = { id = "7900278", name = "Trzin ind. cona", lat = 46.118923, lon = 14.550947, p = 16, d = 8, gtfs = "Trzin ind. cona" }
+1122836 = { id = "7900001", name = "Jesenice(SLO)", lat = 46.436323, lon = 14.054913, p = 28, d = 94, gtfs = "Jesenice" }
+1122837 = { id = "7900205", name = "Rosalnice", lat = 45.648823, lon = 15.336173, p = 16, d = 4, gtfs = "Rosalnice" }
+1122838 = { id = "7900032", name = "Metlika", lat = 45.642423, lon = 15.322887, p = 16, d = 20, gtfs = "Metlika" }
+1122839 = { id = "7900093", name = "Dobravice", lat = 45.632256, lon = 15.269814, p = 16, d = 6, gtfs = "Dobravice" }
+1122840 = { id = "7900107", name = "Gradac(SLO)", lat = 45.614341, lon = 15.241372, p = 16, d = 3, gtfs = "Gradac" }
+1122841 = { id = "7900028", name = "Crnomelj", lat = 45.579786, lon = 15.190511, p = 16, d = 53, gtfs = "Črnomelj" }
+1122842 = { id = "7900166", name = "Otovec", lat = 45.598879, lon = 15.161611, p = 16, d = 3, gtfs = "Otovec" }
+1122843 = { id = "7900035", name = "Semic", lat = 45.643088, lon = 15.161728, p = 16, d = 15, gtfs = "Semič" }
+1122844 = { id = "7900206", name = "Rozni Dol", lat = 45.682182, lon = 15.148262, p = 16, d = 43, gtfs = "Rožni Dol" }
+1122845 = { id = "7900240", name = "Ursna sela", lat = 45.714615, lon = 15.127713, p = 16, d = 18, gtfs = "Uršna sela" }
+1122846 = { id = "7900076", name = "Bircna vas", lat = 45.758033, lon = 15.148091, p = 16, d = 41, gtfs = "Birčna vas" }
+1122847 = { id = "7900271", name = "Novo mesto Kandija", lat = 45.79977, lon = 15.160667, p = 16, d = 3, gtfs = "Novo mesto Kandija" }
+1122848 = { id = "7900160", name = "Novo mesto Center", lat = 45.804499, lon = 15.162114, p = 16, d = 4, gtfs = "Novo mesto center" }
+1122849 = { id = "7900025", name = "Novo mesto", lat = 45.810953, lon = 15.155777, p = 16, d = 13, gtfs = "Novo mesto" }
+1122850 = { id = "7900153", name = "Mirna Pec", lat = 45.866722, lon = 15.091477, p = 16, d = 7, gtfs = "Mirna Peč" }
+1122851 = { id = "7900189", name = "Ponikve na Dolenjsk.", lat = 45.897717, lon = 15.042738, p = 16, d = 8, gtfs = "Ponikve na Dolenjskem" }
+1122852 = { id = "7900117", name = "Hudo", lat = 45.833884, lon = 15.136064, p = 16, d = 20, gtfs = "Hudo" }
+1122853 = { id = "7900038", name = "Trebnje", lat = 45.906814, lon = 15.00866, p = 16, d = 12, gtfs = "Trebnje" }
+1122854 = { id = "7900230", name = "Stefan", lat = 45.912738, lon = 14.980308, p = 16, d = 9, gtfs = "Štefan" }
+1122855 = { id = "7900241", name = "Velika Loka", lat = 45.932029, lon = 14.969413, p = 16, d = 13, gtfs = "Velika Loka" }
+1122856 = { id = "7900217", name = "Sentlovrenc", lat = 45.938006, lon = 14.940899, p = 16, d = 11, gtfs = "Šentlovrenc" }
+1122857 = { id = "7900103", name = "Gaber", lat = 45.940532, lon = 14.909311, p = 16, d = 5, gtfs = "Gaber" }
+1122858 = { id = "7900198", name = "Radohova vas", lat = 45.943346, lon = 14.873084, p = 16, d = 18, gtfs = "Radohova vas" }
+1122859 = { id = "7900221", name = "Sentvid pri Sticni", lat = 45.940847, lon = 14.850027, p = 16, d = 11, gtfs = "Šentvid pri Stični" }
+1122860 = { id = "7900118", name = "Ivancna Gorica", lat = 45.938051, lon = 14.803121, p = 16, d = 5, gtfs = "Ivančna Gorica" }
+1122861 = { id = "7900187", name = "Polzevo", lat = 45.940721, lon = 14.779102, p = 16, d = 9, gtfs = "Polževo" }
+1122862 = { id = "7900247", name = "Visnja Gora", lat = 45.95807, lon = 14.742228, p = 16, d = 11, gtfs = "Višnja Gora" }
+1122863 = { id = "7900256", name = "Zalna", lat = 45.939687, lon = 14.707548, p = 16, d = 9, gtfs = "Žalna" }
+1122864 = { id = "7900154", name = "Mlacevo", lat = 45.940335, lon = 14.685201, p = 16, d = 5, gtfs = "Mlačevo" }
+1122865 = { id = "7900060", name = "Grosuplje", lat = 45.956066, lon = 14.652345, p = 16, d = 18, gtfs = "Grosuplje" }
+1122866 = { id = "7900226", name = "Smarje-Sap", lat = 45.975078, lon = 14.617512, p = 16, d = 18, gtfs = "Šmarje-Sap" }
+1122867 = { id = "7900223", name = "Skofljica", lat = 45.984427, lon = 14.572854, p = 16, d = 12, gtfs = "Škofljica" }
+1122868 = { id = "7900143", name = "Ljubljana Rakovnik", lat = 46.03705, lon = 14.518891, p = 16, d = 17, gtfs = "Ljubljana Rakovnik" }
+1122869 = { id = "7900284", name = "Ljubljana Vodmat", lat = 46.055864, lon = 14.529076, p = 16, d = 13, gtfs = "Ljubljana Vodmat" }
+1122870 = { id = "7942851", name = "Dobrepolje", lat = 45.858497, lon = 14.682162, p = 16, d = 54, gtfs = "Dobrepolje" }
+1122871 = { id = "7942852", name = "Velike Lasce", lat = 45.841651, lon = 14.645361, p = 16, d = 31, gtfs = "Velike Lašče" }
+1122872 = { id = "7942853", name = "Ortnek", lat = 45.790206, lon = 14.680338, p = 16, d = 4, gtfs = "Ortnek" }
+1122873 = { id = "7942854", name = "Ribnica", lat = 45.74348, lon = 14.730569, p = 16, d = 6, gtfs = "Ribnica" }
+1122874 = { id = "7942855", name = "Stara Cerkev", lat = 45.669247, lon = 14.838089, p = 16, d = 172, gtfs = "Stara Cerkev" }
+1122875 = { id = "7942856", name = "Kocevje", lat = 45.646261, lon = 14.857075, p = 16, d = 13, gtfs = "Kočevje" }
+1122876 = { id = "7942860", name = "Zlebic", lat = 45.767814, lon = 14.692554, p = 16, d = 31, gtfs = "Žlebič" }
+1122877 = { id = "7900081", name = "Bostanj", lat = 46.007439, lon = 15.290049, p = 16, d = 7, gtfs = "Boštanj" }
+1122878 = { id = "7900121", name = "Jelovec", lat = 45.989874, lon = 15.241624, p = 16, d = 152, gtfs = "Jelovec" }
+1122879 = { id = "7900239", name = "Trzisce", lat = 45.966637, lon = 15.190862, p = 16, d = 19, gtfs = "Tržišče" }
+1122880 = { id = "7900173", name = "Pijavice", lat = 45.968273, lon = 15.163337, p = 16, d = 8, gtfs = "Pijavice" }
+1122881 = { id = "7900155", name = "Mokronog", lat = 45.95798, lon = 15.121474, p = 16, d = 5, gtfs = "Mokronog" }
+1122882 = { id = "7900219", name = "Sentrupert", lat = 45.959527, lon = 15.087693, p = 16, d = 7, gtfs = "Šentrupert" }
+1122883 = { id = "7900152", name = "Mirna", lat = 45.949279, lon = 15.062379, p = 16, d = 11, gtfs = "Mirna" }
+1122884 = { id = "7900105", name = "Gomila", lat = 45.934761, lon = 15.044958, p = 16, d = 4, gtfs = "Gomila" }
+1122885 = { id = "7900123", name = "Trebnje Kamna Gora", lat = 45.906113, lon = 15.024508, p = 16, d = 4, gtfs = "Trebnje Kamna Gora" }
+1122886 = { id = "7900034", name = "Rimske Toplice", lat = 46.123625, lon = 15.203042, p = 28, d = 10, gtfs = "Rimske Toplice" }
+1122887 = { id = "7900031", name = "Lasko", lat = 46.154044, lon = 15.232194, p = 28, d = 53, gtfs = "Laško" }
+1122888 = { id = "7900005", name = "Celje", lat = 46.228556, lon = 15.26798, p = 30, d = 28, gtfs = "Celje" }
+1122889 = { id = "7900231", name = "Store", lat = 46.221544, lon = 15.321898, p = 16, d = 12, gtfs = "Štore" }
+1122890 = { id = "7900216", name = "Sentjur", lat = 46.213148, lon = 15.396122, p = 20, d = 21, gtfs = "Šentjur" }
+1122891 = { id = "7900024", name = "Grobelno", lat = 46.212959, lon = 15.439665, p = 16, d = 15, gtfs = "Grobelno" }
+1122892 = { id = "7900188", name = "Ponikva", lat = 46.247847, lon = 15.430721, p = 16, d = 5, gtfs = "Ponikva" }
+1122893 = { id = "7900096", name = "Dolga Gora", lat = 46.277475, lon = 15.498176, p = 16, d = 9, gtfs = "Dolga Gora" }
+1122894 = { id = "7900185", name = "Poljcane", lat = 46.313441, lon = 15.57676, p = 28, d = 14, gtfs = "Poljčane" }
+1122895 = { id = "7900036", name = "Slovenska Bistrica", lat = 46.363277, lon = 15.598172, p = 16, d = 19, gtfs = "Slovenska Bistrica" }
+1122896 = { id = "7900165", name = "Ostrozno", lat = 46.264072, lon = 15.472791, p = 16, d = 11, gtfs = "Ostrožno" }
+1122897 = { id = "7900275", name = "Sentvid pri Grobelnem", lat = 46.227441, lon = 15.470283, p = 16, d = 2, gtfs = "Šentvid pri Grobelnem" }
+1122898 = { id = "7900276", name = "Smarje pri Jelsah", lat = 46.230605, lon = 15.516928, p = 16, d = 7, gtfs = "Šmarje pri Jelšah" }
+1122899 = { id = "7900007", name = "Pragersko", lat = 46.395378, lon = 15.66205, p = 28, d = 10, gtfs = "Pragersko" }
+1122900 = { id = "7900196", name = "Race", lat = 46.453924, lon = 15.663937, p = 16, d = 45, gtfs = "Rače" }
+1122901 = { id = "7900258", name = "Orehova vas", lat = 46.47308, lon = 15.663488, p = 16, d = 3, gtfs = "Orehova vas" }
+1122902 = { id = "7900112", name = "Hoce", lat = 46.501001, lon = 15.662895, p = 16, d = 4, gtfs = "Hoče" }
+1122903 = { id = "7900088", name = "Cirkovce", lat = 46.400897, lon = 15.724255, p = 16, d = 7, gtfs = "Cirkovce" }
+1122904 = { id = "7900212", name = "Strnisce", lat = 46.40069, lon = 15.770504, p = 16, d = 9, gtfs = "Strnišče" }
+1122905 = { id = "7900128", name = "Kidricevo", lat = 46.400744, lon = 15.800358, p = 20, d = 11, gtfs = "Kidričevo" }
+1122906 = { id = "7900110", name = "Hajdina", lat = 46.403117, lon = 15.855147, p = 16, d = 11, gtfs = "Hajdina" }
+1122907 = { id = "7900027", name = "Ptuj", lat = 46.422318, lon = 15.878815, p = 28, d = 8, gtfs = "Ptuj" }
+1122908 = { id = "7900156", name = "Moskanjci", lat = 46.423244, lon = 15.983666, p = 16, d = 15, gtfs = "Moškanjci" }
+1122909 = { id = "7900164", name = "Oslusevci", lat = 46.419424, lon = 16.049341, p = 16, d = 105, gtfs = "Osluševci" }
+1122910 = { id = "7900242", name = "Velika Nedelja", lat = 46.415091, lon = 16.10529, p = 16, d = 28, gtfs = "Velika Nedelja" }
+1122911 = { id = "7900253", name = "Zamusani", lat = 46.421365, lon = 16.017114, p = 16, d = 59, gtfs = "Zamušani" }
+1122912 = { id = "7900222", name = "Sikole", lat = 46.400969, lon = 15.696937, p = 16, d = 4, gtfs = "Šikole" }
+1122913 = { id = "7900006", name = "Maribor", lat = 46.562065, lon = 15.658013, p = 28, d = 30, gtfs = "Maribor" }
+1122914 = { id = "7900148", name = "Maribor Studenci", lat = 46.55437, lon = 15.634857, p = 16, d = 34, gtfs = "Maribor Studenci" }
+1122915 = { id = "7900139", name = "Limbus", lat = 46.558864, lon = 15.582935, p = 16, d = 2, gtfs = "Limbuš" }
+1122916 = { id = "7900077", name = "Bistrica ob Dravi", lat = 46.557687, lon = 15.55426, p = 16, d = 8, gtfs = "Bistrica ob Dravi" }
+1122917 = { id = "7900052", name = "Ruse(SLO)", lat = 46.540913, lon = 15.503965, p = 16, d = 12, gtfs = "Ruše" }
+1122918 = { id = "7900100", name = "Fala", lat = 46.548041, lon = 15.451639, p = 16, d = 1, gtfs = "Fala" }
+1122919 = { id = "7900207", name = "Ruta", lat = 46.562981, lon = 15.431656, p = 16, d = 6, gtfs = "Ruta" }
+1122920 = { id = "7900167", name = "Ozbalt", lat = 46.574901, lon = 15.406441, p = 16, d = 7, gtfs = "Ožbalt" }
+1122921 = { id = "7900184", name = "Podvelka", lat = 46.590569, lon = 15.330671, p = 16, d = 115, gtfs = "Podvelka" }
+1122922 = { id = "7900250", name = "Vuhred elektrarna", lat = 46.586416, lon = 15.279864, p = 16, d = 11, gtfs = "Vuhred elektrarna" }
+1122923 = { id = "7900053", name = "Vuhred", lat = 46.596457, lon = 15.236024, p = 16, d = 11, gtfs = "Vuhred" }
+1122924 = { id = "7900251", name = "Vuzenica", lat = 46.593671, lon = 15.158465, p = 16, d = 3, gtfs = "Vuzenica" }
+1122925 = { id = "", gtfs = "Trbonje", checked = "2026-11-15" }
+1122926 = { id = "7900233", name = "Maribor Tabor", lat = 46.551628, lon = 15.645779, p = 16, d = 30, gtfs = "Maribor Tabor" }
+1122927 = { id = "7900149", name = "Marles", lat = 46.558864, lon = 15.596581, p = 16, d = 48, gtfs = "Marles" }
+1122928 = { id = "7900260", name = "Ruse(SLO) tovarna", lat = 46.545039, lon = 15.515031, p = 16, d = 21, gtfs = "Ruše tovarna" }
+1122929 = { id = "7900236", name = "Trbonjsko jezero", lat = 46.593913, lon = 15.126041, p = 16, d = 20, gtfs = "Trbonjsko jezero" }
+1122930 = { id = "7900091", name = "Sveti Danijel", lat = 46.602956, lon = 15.064123, p = 16, d = 50, gtfs = "Sveti Danijel" }
+1122931 = { id = "7900213", name = "Sveti Vid", lat = 46.611748, lon = 15.188111, p = 16, d = 14, gtfs = "Sveti Vid" }
+1122932 = { id = "7900111", name = "Maribor Sokolska", lat = 46.556464, lon = 15.62487, p = 16, d = 5, gtfs = "Maribor Sokolska" }
+1122933 = { id = "7900171", name = "Pesnica", lat = 46.60986, lon = 15.680423, p = 16, d = 5, gtfs = "Pesnica" }
+1122934 = { id = "7900087", name = "Cirknica", lat = 46.641538, lon = 15.664593, p = 16, d = 106, gtfs = "Cirknica" }
+1122935 = { id = "7900064", name = "Sentilj", lat = 46.675104, lon = 15.656971, p = 20, d = 123, gtfs = "Šentilj" }
+1122937 = { id = "7900054", name = "Dravograd", lat = 46.587019, lon = 15.026845, p = 16, d = 8, gtfs = "Dravograd" }
+1122938 = { id = "7900200", name = "Ravne na Koroskem", lat = 46.54699, lon = 14.963363, p = 16, d = 8, gtfs = "Ravne na Koroškem" }
+1122939 = { id = "7900023", name = "Prevalje", lat = 46.54992, lon = 14.921725, p = 16, d = 7, gtfs = "Prevalje" }
+1122940 = { id = "7900055", name = "Holmec", lat = 46.56637, lon = 14.841289, p = 16, d = 6, gtfs = "Holmec" }
+1122941 = { id = "", gtfs = "Podklanc", checked = "2026-11-15" }
+1122942 = { id = "7900095", name = "Dobrije", lat = 46.550352, lon = 14.985872, p = 16, d = 396, gtfs = "Dobrije" }
+1122943 = { id = "7900026", name = "Ormoz", lat = 46.403216, lon = 16.156169, p = 28, d = 8, gtfs = "Ormož" }
+1122944 = { id = "7900195", name = "Pusenci", lat = 46.409787, lon = 16.17625, p = 16, d = 5, gtfs = "Pušenci" }
+1122945 = { id = "7900169", name = "Pavlovci", lat = 46.422318, lon = 16.177761, p = 16, d = 468, gtfs = "Pavlovci" }
+1122946 = { id = "7900119", name = "Ivanjkovci", lat = 46.458832, lon = 16.156609, p = 28, d = 19, gtfs = "Ivanjkovci" }
+1122947 = { id = "7900257", name = "Mekotnjak", lat = 46.500803, lon = 16.155297, p = 16, d = 20, gtfs = "Mekotnjak" }
+1122948 = { id = "7900144", name = "Ljutomer mesto", lat = 46.520984, lon = 16.199721, p = 28, d = 10, gtfs = "Ljutomer mesto" }
+1122949 = { id = "7900161", name = "Obrez", lat = 46.390964, lon = 16.225745, p = 16, d = 14, gtfs = "Obrež" }
+1122950 = { id = "7900066", name = "Sredisce", lat = 46.389157, lon = 16.277352, p = 16, d = 15, gtfs = "Središče" }
+1122952 = { id = "7900065", name = "Ljutomer", lat = 46.528715, lon = 16.189258, p = 16, d = 13, gtfs = "Ljutomer" }
+1122953 = { id = "7900244", name = "Verzej", lat = 46.573966, lon = 16.181941, p = 16, d = 36, gtfs = "Veržej" }
+1122954 = { id = "7900109", name = "Grlava", lat = 46.557237, lon = 16.174273, p = 16, d = 20, gtfs = "Grlava" }
+1122955 = { id = "7900075", name = "Lipovci", lat = 46.623335, lon = 16.211461, p = 28, d = 50, gtfs = "Lipovci" }
+1122956 = { id = "7900033", name = "Murska Sobota", lat = 46.659445, lon = 16.171666, p = 28, d = 51, gtfs = "Murska Sobota" }
+1122957 = { id = "7900281", name = "Puconci", lat = 46.703312, lon = 16.153697, p = 16, d = 8, gtfs = "Puconci" }
+1122959 = { id = "7943774", name = "Maekovci", lat = 46.783172, lon = 16.164645, p = 20, d = 19, gtfs = "Mačkovci" }
+1122960 = { id = "7943775", name = "Gornji Petrovci", lat = 46.80071, lon = 16.218356, p = 16, d = 5, gtfs = "Gornji Petrovci" }
+1122961 = { id = "7943776", name = "Salovci", lat = 46.821134, lon = 16.282107, p = 16, d = 4, gtfs = "Šalovci" }
+1122962 = { id = "7900279", name = "Hodos", lat = 46.820289, lon = 16.329112, p = 28, d = 25, gtfs = "Hodoš" }
+1122963 = { id = "7900062", name = "Stranje", lat = 46.217301, lon = 15.560103, p = 16, d = 17, gtfs = "Stranje" }
+1122964 = { id = "7900151", name = "Mestinje", lat = 46.235055, lon = 15.564373, p = 16, d = 6, gtfs = "Mestinje" }
+1122965 = { id = "7900183", name = "Podplat", lat = 46.24408, lon = 15.573191, p = 16, d = 1, gtfs = "Podplat" }
+1122966 = { id = "7900068", name = "Rogaska Slatina", lat = 46.231837, lon = 15.638336, p = 16, d = 15, gtfs = "Rogaška Slatina" }
+1122967 = { id = "7900063", name = "Rogatec", lat = 46.224529, lon = 15.697925, p = 16, d = 7, gtfs = "Rogatec" }
+1122968 = { id = "7900092", name = "Dobovec", lat = 46.220771, lon = 15.751483, p = 16, d = 12, gtfs = "Dobovec" }
+1122969 = { id = "7900214", name = "Sveti Rok ob Sotli", lat = 46.208797, lon = 15.760014, p = 16, d = 5, gtfs = "Sveti Rok ob Sotli" }
+1122970 = { id = "7900232", name = "Tekacevo", lat = 46.239882, lon = 15.618191, p = 16, d = 59, gtfs = "Tekačevo" }
+1122971 = { id = "7900202", name = "Rjavica", lat = 46.219773, lon = 15.652332, p = 16, d = 1, gtfs = "Rjavica" }
+1122972 = { id = "7900245", name = "Vidina", lat = 46.216699, lon = 15.729693, p = 16, d = 3, gtfs = "Vidina" }
+1122973 = { id = "7900194", name = "Pristava", lat = 46.198756, lon = 15.581803, p = 16, d = 1, gtfs = "Pristava" }
+1122974 = { id = "7900209", name = "Sodna vas", lat = 46.176032, lon = 15.601984, p = 16, d = 7, gtfs = "Sodna vas" }
+1122975 = { id = "7900177", name = "Podcetrtek", lat = 46.150359, lon = 15.599575, p = 16, d = 4, gtfs = "Podčetrtek" }
+1122976 = { id = "7900061", name = "Imeno", lat = 46.126996, lon = 15.60113, p = 16, d = 8, gtfs = "Imeno" }
+1122977 = { id = "7900178", name = "Podcetrtek Toplice", lat = 46.165892, lon = 15.604752, p = 16, d = 5, gtfs = "Podčetrtek Toplice" }
+1122978 = { id = "7900072", name = "Atomske Toplice hot.", lat = 46.158143, lon = 15.608564, p = 16, d = 6, gtfs = "Atomske Toplice hotel" }
+1122979 = { id = "7900172", name = "Petrovce", lat = 46.246121, lon = 15.189577, p = 16, d = 17, gtfs = "Petrovče" }
+1122980 = { id = "7900255", name = "Zalec", lat = 46.249671, lon = 15.166178, p = 16, d = 18, gtfs = "Žalec" }
+1122981 = { id = "7900215", name = "Sempeter v Sav.dolni", lat = 46.260557, lon = 15.112251, p = 16, d = 6, gtfs = "Šempeter v Savinjski dolini" }
+1122982 = { id = "7900186", name = "Polzela", lat = 46.282626, lon = 15.066038, p = 16, d = 7, gtfs = "Polzela" }
+1122983 = { id = "7900227", name = "Smartno ob Paki", lat = 46.328084, lon = 15.037713, p = 16, d = 11, gtfs = "Šmartno ob Paki" }
+1122984 = { id = "7900168", name = "Paska vas", lat = 46.341451, lon = 15.019752, p = 16, d = 3, gtfs = "Paška vas" }
+1122985 = { id = "7900228", name = "Sostanj", lat = 46.376743, lon = 15.049632, p = 16, d = 10, gtfs = "Šoštanj" }
+1122986 = { id = "7900274", name = "Velenje Pesje", lat = 46.368068, lon = 15.08131, p = 16, d = 5, gtfs = "Velenje Pesje" }
+1122987 = { id = "7900069", name = "Velenje", lat = 46.363448, lon = 15.104197, p = 16, d = 6, gtfs = "Velenje" }
+1122988 = { id = "7900273", name = "Celje Lava", lat = 46.236736, lon = 15.25598, p = 16, d = 281, gtfs = "Celje Lava" }
+1122989 = { id = "7900101", name = "Florjan", lat = 46.381166, lon = 15.030072, p = 16, d = 5, gtfs = "Florjan" }
+1122990 = { id = "7900071", name = "Brezovica", lat = 46.021426, lon = 14.4265, p = 30, d = 14, gtfs = "Brezovica" }
+1122991 = { id = "7900159", name = "Notranje Gorice", lat = 45.987636, lon = 14.402562, p = 30, d = 10, gtfs = "Notranje Gorice" }
+1122992 = { id = "7900191", name = "Preserje", lat = 45.965666, lon = 14.396234, p = 30, d = 12, gtfs = "Preserje" }
+1122993 = { id = "7900080", name = "Borovnica", lat = 45.921322, lon = 14.367971, p = 30, d = 19, gtfs = "Borovnica" }
+1122995 = { id = "7900145", name = "Logatec", lat = 45.917709, lon = 14.235641, p = 30, d = 16, gtfs = "Logatec" }
+1122997 = { id = "7900199", name = "Rakek", lat = 45.815286, lon = 14.312796, p = 28, d = 30, gtfs = "Rakek" }
+1122998 = { id = "7900012", name = "Postojna", lat = 45.773099, lon = 14.221465, p = 28, d = 20, gtfs = "Postojna" }
+1122999 = { id = "7900192", name = "Prestranek", lat = 45.728522, lon = 14.185463, p = 28, d = 14, gtfs = "Prestranek" }
+1123000 = { id = "7900283", name = "Ljubljana Tivoli", lat = 46.049958, lon = 14.493479, p = 30, d = 54, gtfs = "Ljubljana Tivoli" }
+1123001 = { id = "7900011", name = "Pivka", lat = 45.675252, lon = 14.191378, p = 28, d = 9, gtfs = "Pivka" }
+1123002 = { id = "7900133", name = "Kosana", lat = 45.670398, lon = 14.105549, p = 20, d = 29, gtfs = "Košana" }
+1123003 = { id = "7900259", name = "Gornje Lezece", lat = 45.666469, lon = 14.072181, p = 20, d = 21, gtfs = "Gornje Ležeče" }
+1123004 = { id = "7900009", name = "Divaca", lat = 45.681607, lon = 13.965003, p = 30, d = 18, gtfs = "Divača" }
+1123006 = { id = "7900039", name = "Hrpelje-Kozina", lat = 45.603716, lon = 13.935069, p = 30, d = 18, gtfs = "Hrpelje-Kozina" }
+1123007 = { id = "7900190", name = "Povir", lat = 45.699415, lon = 13.930439, p = 16, d = 14, gtfs = "Povir" }
+1123009 = { id = "7900179", name = "Podgorje", lat = 45.534418, lon = 13.942952, p = 8, d = 2, gtfs = "Podgorje" }
+1123011 = { id = "7900041", name = "Rakitovec", lat = 45.465992, lon = 13.955304, p = 8, d = 8, gtfs = "Rakitovec" }
+1123012 = { id = "7900013", name = "Koper", lat = 45.539128, lon = 13.738313, p = 22, d = 25, gtfs = "Koper" }
+1123015 = { id = "7900022", name = "Sezana", lat = 45.704107, lon = 13.863569, p = 16, d = 9, gtfs = "Sežana" }
+1123016 = { id = "7900134", name = "Kreplje", lat = 45.742149, lon = 13.827414, p = 16, d = 9, gtfs = "Kreplje" }
+1123017 = { id = "7900131", name = "Kopriva", lat = 45.784875, lon = 13.831801, p = 16, d = 4, gtfs = "Kopriva" }
+1123018 = { id = "7900229", name = "Stanjel", lat = 45.817785, lon = 13.848179, p = 16, d = 15, gtfs = "Štanjel" }
+1123019 = { id = "7900082", name = "Branik", lat = 45.85589, lon = 13.784185, p = 16, d = 6, gtfs = "Branik" }
+1123020 = { id = "7900211", name = "Steske", lat = 45.876026, lon = 13.757532, p = 16, d = 8, gtfs = "Steske" }
+1123021 = { id = "7900097", name = "Dornberk", lat = 45.88577, lon = 13.734223, p = 16, d = 21, gtfs = "Dornberk" }
+1123022 = { id = "7900021", name = "Prvacina", lat = 45.887613, lon = 13.722825, p = 16, d = 18, gtfs = "Prvačina" }
+1123023 = { id = "7900162", name = "Okroglica", lat = 45.899128, lon = 13.690248, p = 16, d = 8, gtfs = "Okroglica" }
+1123024 = { id = "7900248", name = "Volcja Draga", lat = 45.905834, lon = 13.675784, p = 16, d = 7, gtfs = "Volčja Draga" }
+1123025 = { id = "7900106", name = "Sempeter pri Gorici", lat = 45.928163, lon = 13.646866, p = 16, d = 9, gtfs = "Šempeter pri Gorici" }
+1123027 = { id = "7900057", name = "Ajdovscina", lat = 45.885995, lon = 13.900326, p = 16, d = 11, gtfs = "Ajdovščina" }
+1123028 = { id = "7900098", name = "Dornberk vas", lat = 45.890229, lon = 13.73647, p = 16, d = 39, gtfs = "Dornberk vas" }
+1123030 = { id = "7900094", name = "Dobravlje", lat = 45.882489, lon = 13.845285, p = 16, d = 11, gtfs = "Dobravlje" }
+1123031 = { id = "7900086", name = "Cesta", lat = 45.886885, lon = 13.865349, p = 16, d = 12, gtfs = "Cesta" }
+1123032 = { id = "7900010", name = "Nova Gorica", lat = 45.955221, lon = 13.635369, p = 16, d = 331, gtfs = "Nova Gorica" }
+1123033 = { id = "7900210", name = "Solkan", lat = 45.972633, lon = 13.646281, p = 16, d = 3, gtfs = "Solkan" }
+1123034 = { id = "7900175", name = "Plave", lat = 46.046272, lon = 13.589883, p = 16, d = 14, gtfs = "Plave" }
+1123035 = { id = "7900056", name = "Anhovo", lat = 46.058255, lon = 13.617309, p = 16, d = 40, gtfs = "Anhovo" }
+1123036 = { id = "7900126", name = "Kanal", lat = 46.083722, lon = 13.631728, p = 16, d = 6, gtfs = "Kanal" }
+1123037 = { id = "7900073", name = "Avce", lat = 46.108073, lon = 13.684432, p = 16, d = 11, gtfs = "Avče" }
+1123038 = { id = "7900020", name = "Most na Soci", lat = 46.146511, lon = 13.759402, p = 16, d = 22, gtfs = "Most na Soči" }
+1123039 = { id = "7900182", name = "Podmelec", lat = 46.159411, lon = 13.813966, p = 16, d = 9, gtfs = "Podmelec" }
+1123040 = { id = "7900108", name = "Grahovo", lat = 46.151536, lon = 13.856953, p = 16, d = 19, gtfs = "Grahovo" }
+1123041 = { id = "7900116", name = "Hudajuzna", lat = 46.179798, lon = 13.919913, p = 16, d = 8, gtfs = "Hudajužna" }
+1123042 = { id = "7900176", name = "Podbrdo", lat = 46.209112, lon = 13.966729, p = 16, d = 24, gtfs = "Podbrdo" }
+1123043 = { id = "7900015", name = "Bohinjska Bistrica", lat = 46.274374, lon = 13.95898, p = 16, d = 22, gtfs = "Bohinjska Bistrica" }
+1123044 = { id = "7900158", name = "Nomenj", lat = 46.289107, lon = 14.002596, p = 16, d = 15, gtfs = "Nomenj" }
+1123045 = { id = "7900079", name = "Bohinjska Bela", lat = 46.338458, lon = 14.060397, p = 16, d = 11, gtfs = "Bohinjska Bela" }
+1123046 = { id = "7900008", name = "Bled Jezero", lat = 46.368302, lon = 14.082303, p = 16, d = 9, gtfs = "Bled Jezero" }
+1123047 = { id = "7900180", name = "Podhom", lat = 46.38753, lon = 14.094241, p = 16, d = 11, gtfs = "Podhom" }
+1123048 = { id = "7900246", name = "Vintgar", lat = 46.410174, lon = 14.098816, p = 16, d = 4, gtfs = "Vintgar" }
+1123049 = { id = "7900130", name = "Kocna", lat = 46.4239, lon = 14.078645, p = 16, d = 14, gtfs = "Kočna" }
+1123050 = { id = "7900099", name = "Dutovlje", lat = 45.764811, lon = 13.826281, p = 16, d = 5, gtfs = "Dutovlje" }
+1123051 = { id = "7900157", name = "Narin(SLO)", lat = 45.641237, lon = 14.198129, p = 16, d = 8, gtfs = "Narin" }
+1123052 = { id = "7900129", name = "Kilovce", lat = 45.615608, lon = 14.185958, p = 16, d = 10, gtfs = "Kilovče" }
+1123053 = { id = "7900029", name = "Ilirska Bistrica", lat = 45.569278, lon = 14.236037, p = 24, d = 13, gtfs = "Ilirska Bistrica" }
+1123054 = { id = "7900234", name = "Maribor Tezno", lat = 46.538881, lon = 15.651289, p = 16, d = 22, gtfs = "Maribor Tezno" }
+1152010 = { id = "7942514", name = "Novo Mesto Smihel", lat = 45.795959, lon = 15.161512, p = 16, d = 76, gtfs = "Novo mesto Šmihel" }
+1152016 = { id = "7944012", name = "Ljubljana Dolgi Most", lat = 46.036753, lon = 14.462691, p = 30, d = 195, gtfs = "Ljubljana Dolgi most(Železniški)" }
+1152017 = { id = "7942803", name = "Lavrica", lat = 45.999717, lon = 14.554129, p = 16, d = 76, gtfs = "Lavrica(Železniški)" }
+1167093 = { id = "7942301", name = "Ljubljana Siska", lat = 46.065959, lon = 14.500176, p = 16, d = 574, gtfs = "Ljubljana Šiška" }
+1168303 = { id = "7900210", name = "Solkan", lat = 45.972633, lon = 13.646281, p = 16, d = 300, gtfs = "Solkan" }
+1168304 = { id = "7900102", name = "Frankovci", lat = 46.394865, lon = 16.195029, p = 16, d = 14, gtfs = "Frankovci" }
+INTL-5500007 = { id = "5500007", name = "Budapest-Déli", lat = 47.498534, lon = 19.025292, p = 30, d = 109, gtfs = "Budapest-Déli" }
+INTL-5500008 = { id = "5500008", name = "Budapest-Kelenföld", lat = 47.464357, lon = 19.020455, p = 31, d = 14, gtfs = "Budapest-Kelenföld" }
+INTL-5500009 = { id = "5500009", name = "Tatabanya", lat = 47.584929, lon = 18.393611, p = 29, d = 78, gtfs = "Tatabánya" }
+INTL-5500010 = { id = "5500010", name = "Tata", lat = 47.663621, lon = 18.328205, p = 28, d = 44, gtfs = "Tata" }
+INTL-5500012 = { id = "5500012", name = "Komarom", lat = 47.749593, lon = 18.114496, p = 30, d = 45, gtfs = "Komárom" }
+INTL-5500028 = { id = "5500028", name = "Szombathely", lat = 47.237532, lon = 16.63275, p = 30, d = 20, gtfs = "Szombathely" }
+INTL-5500029 = { id = "5500029", name = "Szentgotthárd", lat = 46.95741, lon = 16.26341, p = 22, d = 7, gtfs = "Szentgotthárd" }
+INTL-5500030 = { id = "5500030", name = "Csorna", lat = 47.601712, lon = 17.248592, p = 22, d = 36, gtfs = "Csorna" }
+INTL-5500035 = { id = "5500035", name = "Szekesfehervar", lat = 47.183327, lon = 18.425945, p = 30, d = 80, gtfs = "Székesfehérvár" }
+INTL-5500056 = { id = "5500056", name = "Varpalota", lat = 47.194582, lon = 18.149437, p = 30, d = 41, gtfs = "Várpalota" }
+INTL-5500059 = { id = "5500059", name = "Veszprem", lat = 47.119153, lon = 17.910854, p = 30, d = 47, gtfs = "Veszprém" }
+INTL-5500060 = { id = "5500060", name = "Ajka", lat = 47.105768, lon = 17.573471, p = 30, d = 50, gtfs = "Ajka" }
+INTL-5500077 = { id = "5500077", name = "Ukk", lat = 47.040731, lon = 17.196301, p = 30, d = 14, gtfs = "Ukk" }
+INTL-5500079 = { id = "5500079", name = "Zalaber-Batyk", lat = 46.982921, lon = 17.040842, p = 28, d = 22, gtfs = "Zalabér-Batyk" }
+INTL-5500080 = { id = "5500080", name = "Györ", lat = 47.682031, lon = 17.634624, p = 31, d = 16, gtfs = "Győr" }
+INTL-5500081 = { id = "5500081", name = "Zalaszentivan", lat = 46.88742, lon = 16.90924, p = 30, d = 142, gtfs = "Zalaszentiván" }
+INTL-5500087 = { id = "5500087", name = "Zalaegerszeg", lat = 46.83326, lon = 16.848239, p = 30, d = 33, gtfs = "Zalaegerszeg" }
+INTL-5500127 = { id = "5500127", name = "Körmend", lat = 47.016128, lon = 16.597206, p = 22, d = 8, gtfs = "Körmend" }
+INTL-5500187 = { id = "5500187", name = "Alsorönök", lat = 46.964125, lon = 16.378238, p = 22, d = 16, gtfs = "Alsórönök" }
+INTL-5500192 = { id = "5500192", name = "Andrashida", lat = 46.864129, lon = 16.777233, p = 16, d = 202, gtfs = "Andráshida" }
+INTL-5500221 = { id = "5500221", name = "Bagod", lat = 46.875069, lon = 16.745951, p = 16, d = 19, gtfs = "Bagod" }
+INTL-5500340 = { id = "5500340", name = "Budafa", lat = 46.85176, lon = 16.624821, p = 16, d = 31, gtfs = "Budafa" }
+INTL-5500368 = { id = "5500368", name = "Csakanydoroszlo", lat = 46.978481, lon = 16.500159, p = 22, d = 36, gtfs = "Csákánydoroszló" }
+INTL-5500471 = { id = "5500471", name = "Egyhazasradoc", lat = 47.09125, lon = 16.619625, p = 22, d = 46, gtfs = "Egyházasrádóc" }
+INTL-5500613 = { id = "5500613", name = "Haris", lat = 46.964772, lon = 16.282485, p = 22, d = 18, gtfs = "Haris" }
+INTL-5501056 = { id = "5501056", name = "Petfürdö", lat = 47.167389, lon = 18.122002, p = 30, d = 21, gtfs = "Pétfürdő" }
+INTL-5501125 = { id = "5501125", name = "Ratot", lat = 46.967631, lon = 16.432973, p = 22, d = 3, gtfs = "Rátót" }
+INTL-5501132 = { id = "5501132", name = "Repcelak", lat = 47.419267, lon = 17.009101, p = 20, d = 27, gtfs = "Répcelak" }
+INTL-5501280 = { id = "5501280", name = "Szombathely-Szölös", lat = 47.206519, lon = 16.641757, p = 20, d = 13, gtfs = "Szombathely-Szőlős" }
+INTL-5501474 = { id = "5501474", name = "Zalacseb-Salomvar", lat = 46.857864, lon = 16.661057, p = 16, d = 17, gtfs = "Zalacséb-Salomvár" }
+INTL-5501475 = { id = "5501475", name = "Zalaegerszeg-Ola", lat = 46.851095, lon = 16.837173, p = 16, d = 133, gtfs = "Zalaegerszeg-Ola" }
+INTL-5501478 = { id = "5501478", name = "Zalalövö", lat = 46.846025, lon = 16.576981, p = 28, d = 76, gtfs = "Zalalövő" }
+INTL-5501479 = { id = "5501479", name = "Zalapatakalja", lat = 46.845288, lon = 16.603499, p = 16, d = 45, gtfs = "Zalapatakalja" }
+INTL-5501481 = { id = "5501481", name = "Zalaszentgyörgy", lat = 46.872076, lon = 16.711333, p = 16, d = 80, gtfs = "Zalaszentgyörgy" }
+INTL-5501511 = { id = "5501511", name = "Janoshaza", lat = 47.115647, lon = 17.172219, p = 30, d = 48, gtfs = "Jánosháza" }
+INTL-5501609 = { id = "5501609", name = "Jak-Balogunyom", lat = 47.161294, lon = 16.630655, p = 20, d = 30, gtfs = "Ják-Balogunyom" }
+INTL-5501621 = { id = "5501621", name = "Horvatnadalja", lat = 47.005718, lon = 16.545788, p = 22, d = 6, gtfs = "Horvátnádalja" }
+INTL-5501684 = { id = "5501684", name = "Pankasz", lat = 46.836218, lon = 16.497219, p = 16, d = 37, gtfs = "Pankasz" }
+INTL-5501685 = { id = "5501685", name = "Nagyrakos", lat = 46.826788, lon = 16.454503, p = 16, d = 105, gtfs = "Nagyrákos" }
+INTL-5501686 = { id = "5501686", name = "Öriszentpeter", lat = 46.828442, lon = 16.416649, p = 28, d = 85, gtfs = "Őriszentpéter" }
+INTL-5501687 = { id = "5501687", name = "Bajansenye", lat = 46.818455, lon = 16.357985, p = 16, d = 39, gtfs = "Bajánsenye" }
+INTL-5501689 = { id = "5501689", name = "Felsöjánosfa", lat = 46.841395, lon = 16.543442, p = 16, d = 4, gtfs = "Felsőjánosfa" }
+INTL-7800002 = { id = "7800002", name = "Opatija Matulji", lat = 45.364701, lon = 14.320976, p = 24, d = 10, gtfs = "Opatija-Matulji" }
+INTL-7800003 = { id = "7800003", name = "Pula", lat = 44.879706, lon = 13.847199, p = 24, d = 10, gtfs = "Pula" }
+INTL-7800008 = { id = "7800008", name = "Nova Gradiska", lat = 45.253505, lon = 17.379295, p = 24, d = 18, gtfs = "Nova Gradiška" }
+INTL-7800009 = { id = "7800009", name = "Novska", lat = 45.326983, lon = 16.976749, p = 24, d = 35, gtfs = "Novska" }
+INTL-7800010 = { id = "7800010", name = "Banova Jaruga", lat = 45.445892, lon = 16.876303, p = 24, d = 28, gtfs = "Banova Jaruga" }
+INTL-7800013 = { id = "7800013", name = "Rijeka", lat = 45.330138, lon = 14.430339, p = 26, d = 16, gtfs = "Rijeka" }
+INTL-7800015 = { id = "7800015", name = "Slavonski Brod", lat = 45.163406, lon = 18.011407, p = 24, d = 23, gtfs = "Slavonski Brod" }
+INTL-7800018 = { id = "7800018", name = "Vinkovci", lat = 45.300222, lon = 18.802737, p = 24, d = 17, gtfs = "Vinkovci" }
+INTL-7800020 = { id = "7800020", name = "Zagreb Glavni kolodvor", lat = 45.804436, lon = 15.978704, p = 28, d = 10, gtfs = "Zagreb Glavni kolodvor" }
+INTL-7800021 = { id = "7800021", name = "Buzet", lat = 45.426224, lon = 13.98513, p = 24, d = 6, gtfs = "Buzet" }
+INTL-7800022 = { id = "7800022", name = "Cerovlje", lat = 45.276364, lon = 14.013913, p = 24, d = 30, gtfs = "Cerovlje" }
+INTL-7800024 = { id = "7800024", name = "Dugo Selo", lat = 45.801334, lon = 16.233961, p = 28, d = 62, gtfs = "Dugo Selo" }
+INTL-7800027 = { id = "7800027", name = "Kanfanar", lat = 45.117165, lon = 13.836799, p = 24, d = 8, gtfs = "Kanfanar" }
+INTL-7800029 = { id = "7800029", name = "Sveti Petar u Sumi", lat = 45.185088, lon = 13.867137, p = 24, d = 12, gtfs = "Sveti Petar u Šumi" }
+INTL-7800032 = { id = "7800032", name = "Ivanic Grad", lat = 45.70746, lon = 16.397835, p = 24, d = 20, gtfs = "Ivanić Grad" }
+INTL-7800034 = { id = "7800034", name = "Kutina", lat = 45.475251, lon = 16.773844, p = 24, d = 10, gtfs = "Kutina" }
+INTL-7800038 = { id = "7800038", name = "Lupoglav", lat = 45.355487, lon = 14.105316, p = 26, d = 14, gtfs = "Lupoglav" }
+INTL-7800044 = { id = "7800044", name = "Pazin", lat = 45.239769, lon = 13.945982, p = 24, d = 9, gtfs = "Pazin" }
+INTL-7800046 = { id = "7800046", name = "Nova Kapela", lat = 45.189924, lon = 17.650338, p = 24, d = 12, gtfs = "Nova Kapela-Batrina" }
+INTL-7800047 = { id = "7800047", name = "Strizivojna-Vrpolje", lat = 45.227211, lon = 18.413854, p = 24, d = 24, gtfs = "Strizivojna-Vrpolje" }
+INTL-7800052 = { id = "7800052", name = "Zabok", lat = 46.024033, lon = 15.902044, p = 16, d = 13, gtfs = "Zabok" }
+INTL-7800054 = { id = "7800054", name = "Cakovec", lat = 46.384303, lon = 16.42064, p = 16, d = 12, gtfs = "Čakovec" }
+INTL-7800061 = { id = "7800061", name = "Zapresic", lat = 45.844492, lon = 15.813185, p = 28, d = 10, gtfs = "Zaprešić" }
+INTL-7800065 = { id = "7800065", name = "Zagreb Zapadni kolodvor", lat = 45.809137, lon = 15.954217, p = 24, d = 3, gtfs = "Zagreb Zapadni kolodvor" }
+INTL-7800067 = { id = "7800067", name = "Sapjane", lat = 45.477031, lon = 14.244352, p = 8, d = 44, gtfs = "Šapjane" }
+INTL-7800084 = { id = "7800084", name = "Savski Marof", lat = 45.872062, lon = 15.739887, p = 24, d = 17, gtfs = "Savski Marof" }
+INTL-7800085 = { id = "7800085", name = "Vodnjan", lat = 44.966731, lon = 13.855973, p = 24, d = 6, gtfs = "Vodnjan" }
+INTL-7800105 = { id = "7800105", name = "Djurmanec", lat = 46.193696, lon = 15.843218, p = 16, d = 2, gtfs = "Đurmanec" }
+INTL-7800106 = { id = "7800106", name = "Mursko Sredisce", lat = 46.508741, lon = 16.446233, p = 16, d = 50, gtfs = "Mursko Središće" }
+INTL-7800108 = { id = "7800108", name = "Cakovec-Buzovec", lat = 46.383772, lon = 16.445828, p = 16, d = 13, gtfs = "Čakovec-Buzovec" }
+INTL-7800109 = { id = "7800109", name = "Hromec", lat = 46.206577, lon = 15.808511, p = 16, d = 6, gtfs = "Hromec" }
+INTL-7800111 = { id = "7800111", name = "Vratisinec", lat = 46.473161, lon = 16.453478, p = 16, d = 21, gtfs = "Vratišinec" }
+INTL-7800115 = { id = "7800115", name = "Novo Selo Rok", lat = 46.429635, lon = 16.456453, p = 16, d = 11, gtfs = "Novo Selo Rok" }
+INTL-7800216 = { id = "7800216", name = "Borut", lat = 45.304429, lon = 14.052252, p = 24, d = 9, gtfs = "Borut" }
+INTL-7800221 = { id = "7800221", name = "Brdovec", lat = 45.863755, lon = 15.766378, p = 24, d = 60, gtfs = "Brdovec" }
+INTL-7800243 = { id = "7800243", name = "Cabrunici", lat = 45.041629, lon = 13.866086, p = 24, d = 12, gtfs = "Čabrunići" }
+INTL-7800244 = { id = "7800244", name = "Cabrunici Selo", lat = 45.031004, lon = 13.864998, p = 24, d = 28, gtfs = "Čabrunići Selo" }
+INTL-7800280 = { id = "7800280", name = "Dukovec", lat = 46.096118, lon = 15.896003, p = 16, d = 14, gtfs = "Dukovec" }
+INTL-7800283 = { id = "7800283", name = "Gajnice", lat = 45.813578, lon = 15.872865, p = 24, d = 4, gtfs = "Gajnice" }
+INTL-7800284 = { id = "7800284", name = "Galizana", lat = 44.933516, lon = 13.871506, p = 24, d = 34, gtfs = "Galižana" }
+INTL-7800301 = { id = "7800301", name = "Heki Stajaliste", lat = 45.21557, lon = 13.887201, p = 24, d = 11, gtfs = "Heki Stajalište" }
+INTL-7800302 = { id = "7800302", name = "Heki", lat = 45.22518, lon = 13.894438, p = 24, d = 8, gtfs = "Heki" }
+INTL-7800308 = { id = "7800308", name = "Hum u Istri", lat = 45.343891, lon = 14.073053, p = 24, d = 9, gtfs = "Hum u Istri" }
+INTL-7800320 = { id = "7800320", name = "Jursici", lat = 45.0249, lon = 13.865277, p = 24, d = 19, gtfs = "Juršići" }
+INTL-7800337 = { id = "7800337", name = "Krajcar Brijeg", lat = 45.16008, lon = 13.862544, p = 24, d = 7, gtfs = "Krajcar Brijeg" }
+INTL-7800338 = { id = "7800338", name = "Krapina", lat = 46.159483, lon = 15.87219, p = 16, d = 9, gtfs = "Krapina" }
+INTL-7800347 = { id = "7800347", name = "Kustosija", lat = 45.810683, lon = 15.925883, p = 24, d = 106, gtfs = "Kustošija" }
+INTL-7800400 = { id = "7800400", name = "Novaki(HR)", lat = 45.259042, lon = 13.989517, p = 24, d = 18, gtfs = "Novaki" }
+INTL-7800407 = { id = "7800407", name = "Novoselec", lat = 45.649228, lon = 16.530012, p = 24, d = 4, gtfs = "Novoselec" }
+INTL-7800408 = { id = "7800408", name = "Nugla", lat = 45.412353, lon = 14.024467, p = 24, d = 11, gtfs = "Nugla" }
+INTL-7800442 = { id = "7800442", name = "Podsused Stajaliste", lat = 45.815537, lon = 15.835856, p = 24, d = 42, gtfs = "Podsused Stajalište" }
+INTL-7800468 = { id = "7800468", name = "Roc", lat = 45.400344, lon = 14.038921, p = 24, d = 2, gtfs = "Roč" }
+INTL-7800469 = { id = "7800469", name = "Rocko Polje", lat = 45.373879, lon = 14.07993, p = 24, d = 3, gtfs = "Ročko Polje" }
+INTL-7800479 = { id = "7800479", name = "Savicenta", lat = 45.065846, lon = 13.858858, p = 24, d = 12, gtfs = "Savičenta" }
+INTL-7800491 = { id = "7800491", name = "Smoljanci", lat = 45.091789, lon = 13.844503, p = 24, d = 10, gtfs = "Smoljanci" }
+INTL-7800513 = { id = "7800513", name = "Sijana", lat = 44.888471, lon = 13.86605, p = 24, d = 2, gtfs = "Šijana" }
+INTL-7800521 = { id = "7800521", name = "Strucljevo", lat = 46.056304, lon = 15.911599, p = 16, d = 70, gtfs = "Štrucljevo" }
+INTL-7800531 = { id = "7800531", name = "Velika Ves", lat = 46.115552, lon = 15.887436, p = 16, d = 27, gtfs = "Velika Ves" }
+INTL-7800549 = { id = "7800549", name = "Vrapce", lat = 45.812229, lon = 15.896506, p = 24, d = 21, gtfs = "Vrapče" }
+INTL-7800564 = { id = "7800564", name = "Zapresic-Savska", lat = 45.854928, lon = 15.794865, p = 24, d = 3, gtfs = "Zaprešić-Savska" }
+INTL-7800580 = { id = "7800580", name = "Zminj", lat = 45.146362, lon = 13.855568, p = 24, d = 9, gtfs = "Žminj" }
+INTL-7800582 = { id = "7800582", name = "Zutnica", lat = 46.182207, lon = 15.853556, p = 16, d = 13, gtfs = "Žutnica" }
+INTL-7800584 = { id = "7800584", name = "Sveti Kriz Zacretje", lat = 46.076917, lon = 15.903275, p = 16, d = 6, gtfs = "Sveti Križ Začretje" }
+INTL-7800591 = { id = "7800591", name = "Dolice(HR)", lat = 46.171348, lon = 15.863111, p = 16, d = 54, gtfs = "Doliće" }
+INTL-7851335 = { id = "7851335", name = "Vodnjan Stajaliste", lat = 44.960852, lon = 13.855829, p = 24, d = 11, gtfs = "Vodnjan stajalište" }
+INTL-7874611 = { id = "7874611", name = "Pristava Krapinska", lat = 46.137243, lon = 15.877557, p = 16, d = 6, gtfs = "Pristava Krapinska" }
+INTL-7900070 = { id = "7900070", name = "Lendava", lat = 46.556617, lon = 16.446322, p = 16, d = 11, gtfs = "Lendava / Lendva" }
+INTL-7943778 = { id = "7943778", name = "Hodos Drzavna meja", lat = 46.819453, lon = 16.340609, p = 16, d = 0, gtfs = "Hodos Drzavna meja" }
+INTL-8000013 = { id = "8000013", name = "Augsburg Hbf", lat = 48.365444, lon = 10.885568, p = 4127, d = 10, gtfs = "Augsburg Hauptbahnhof" }
+INTL-8000096 = { id = "8000096", name = "Stuttgart Hbf", lat = 48.784782, lon = 9.18276, p = 4157, d = 103, gtfs = "Stuttgart Hauptbahnhof" }
+INTL-8000108 = { id = "8000108", name = "Freilassing (Oberbayern)", lat = 47.837005, lon = 12.976792, p = 63, d = 14, gtfs = "Freilassing" }
+INTL-8000116 = { id = "8000116", name = "Traunstein", lat = 47.869698, lon = 12.638887, p = 23, d = 7, gtfs = "Traunstein" }
+INTL-8000127 = { id = "8000127", name = "Göppingen", lat = 48.700023, lon = 9.65197, p = 24, d = 42, gtfs = "Göppingen" }
+INTL-8000170 = { id = "8000170", name = "Ulm Hbf", lat = 48.399397, lon = 9.982611, p = 4127, d = 2, gtfs = "Ulm Hauptbahnhof" }
+INTL-8000261 = { id = "8000261", name = "München Hbf", lat = 48.140417, lon = 11.558761, p = 4159, d = 139, gtfs = "München Hauptbahnhof" }
+INTL-8000262 = { id = "8000262", name = "München Ost", lat = 48.127437, lon = 11.604975, p = 4159, d = 51, gtfs = "München Ost" }
+INTL-8000320 = { id = "8000320", name = "Rosenheim in Oberbayern", lat = 47.850021, lon = 12.119203, p = 4127, d = 43, gtfs = "Rosenheim" }
+INTL-8004885 = { id = "8004885", name = "Prien am Chiemsee", lat = 47.855226, lon = 12.346981, p = 4119, d = 24, gtfs = "Prien am Chiemsee" }
+INTL-8100002 = { id = "8100002", name = "Salzburg Hbf", lat = 47.813057, lon = 13.045856, p = 4159, d = 0, gtfs = "Salzburg Hauptbahnhof" }
+INTL-8100032 = { id = "8100032", name = "Bruck/Mur Bahnhof", lat = 47.413891, lon = 15.279496, p = 4157, d = 1, gtfs = "Bruck an der Mur" }
+INTL-8100035 = { id = "8100035", name = "Leibnitz Bahnhof", lat = 46.779918, lon = 15.547347, p = 60, d = 0, gtfs = "Leibnitz" }
+INTL-8100041 = { id = "8100041", name = "Golling/Salzach-Abtenau Bahnhof", lat = 47.600813, lon = 13.164055, p = 4157, d = 1, gtfs = "Golling-Abtenau" }
+INTL-8100042 = { id = "8100042", name = "Bischofshofen Bahnhof", lat = 47.417901, lon = 13.219959, p = 4157, d = 1, gtfs = "Bischofshofen" }
+INTL-8100043 = { id = "8100043", name = "St.Johann im Pongau Bahnhof", lat = 47.348162, lon = 13.194861, p = 4157, d = 28, gtfs = "St. Johann im Pongau" }
+INTL-8100044 = { id = "8100044", name = "Schwarzach im Pongau-St.Veit Bahnhof", lat = 47.318624, lon = 13.154518, p = 4157, d = 9, gtfs = "Schwarzach-St. Veit" }
+INTL-8100063 = { id = "8100063", name = "Landeck-Zams Bahnhof", lat = 47.14817, lon = 10.57838, p = 4157, d = 1, gtfs = "Landeck-Zams" }
+INTL-8100064 = { id = "8100064", name = "St.Anton am Arlberg Bahnhof", lat = 47.127378, lon = 10.267326, p = 4109, d = 1, gtfs = "St. Anton am Arlberg" }
+INTL-8100065 = { id = "8100065", name = "Langen am Arlberg Bahnhof", lat = 47.131603, lon = 10.121251, p = 13, d = 1, gtfs = "Langen am Arlberg" }
+INTL-8100067 = { id = "8100067", name = "Bludenz Bahnhof", lat = 47.154723, lon = 9.81489, p = 4157, d = 0, gtfs = "Bludenz" }
+INTL-8100082 = { id = "8100082", name = "Spielfeld-Straß in Stmk Bahnhof", lat = 46.709578, lon = 15.629122, p = 60, d = 7, gtfs = "Spielfeld-Straß" }
+INTL-8100083 = { id = "8100083", name = "Rosenbach b.Villach Bahnhst", lat = 46.530539, lon = 14.035092, p = 52, d = 0, gtfs = "Rosenbach" }
+INTL-8100090 = { id = "8100090", name = "Bregenz Bahnhof", lat = 47.503019, lon = 9.739776, p = 4157, d = 1, gtfs = "Bregenz" }
+INTL-8100092 = { id = "8100092", name = "Spittal/Drau-Millstätter See Bahnhof", lat = 46.79573, lon = 13.487541, p = 4157, d = 1, gtfs = "Spittal-Millstättersee" }
+INTL-8100093 = { id = "8100093", name = "Mallnitz-Obervellach im Mölltal Bahnhof", lat = 46.981645, lon = 13.176137, p = 29, d = 30, gtfs = "Mallnitz-Obervellach" }
+INTL-8100095 = { id = "8100095", name = "Bad Gastein Bahnhof", lat = 47.111773, lon = 13.131928, p = 29, d = 0, gtfs = "Bad Gastein" }
+INTL-8100099 = { id = "8100099", name = "Wörgl Hbf", lat = 47.491513, lon = 12.06062, p = 4157, d = 0, gtfs = "Wörgl Hauptbahnhof" }
+INTL-8100108 = { id = "8100108", name = "Innsbruck Hbf", lat = 47.263043, lon = 11.401019, p = 4157, d = 28, gtfs = "Innsbruck Hauptbahnhof" }
+INTL-8100147 = { id = "8100147", name = "Villach Hbf", lat = 46.618616, lon = 13.848449, p = 4157, d = 0, gtfs = "Villach Hauptbahnhof" }
+INTL-8100173 = { id = "8100173", name = "Graz Hbf", lat = 47.0724, lon = 15.416518, p = 4157, d = 0, gtfs = "Graz Hauptbahnhof" }
+INTL-8100175 = { id = "8100175", name = "Feldbach/Raab Bahnhof", lat = 46.958543, lon = 15.88927, p = 52, d = 56, gtfs = "Feldbach" }
+INTL-8100176 = { id = "8100176", name = "Fehring Bahnhof", lat = 46.949482, lon = 16.013123, p = 52, d = 3, gtfs = "Fehring" }
+INTL-8100195 = { id = "8100195", name = "Gleisdorf Bahnhof", lat = 47.099368, lon = 15.708865, p = 52, d = 0, gtfs = "Gleisdorf" }
+INTL-8100197 = { id = "8100197", name = "Feldkirch Bahnhof", lat = 47.240921, lon = 9.604309, p = 4157, d = 0, gtfs = "Feldkirch" }
+INTL-8100371 = { id = "8100371", name = "Graz Ostbahnhof", lat = 47.053397, lon = 15.44825, p = 52, d = 3, gtfs = "Graz Ostbahnhof" }
+INTL-8100393 = { id = "8100393", name = "Bleiburg Bahnhof", lat = 46.574155, lon = 14.78659, p = 48, d = 0, gtfs = "Bleiburg/Pliberk" }
+INTL-8100514 = { id = "8100514", name = "Wien Meidling Bahnhof", lat = 48.174532, lon = 16.333966, p = 4157, d = 0, gtfs = "Wien Meidling" }
+INTL-8100593 = { id = "8100593", name = "Werndorf Bahnhof", lat = 46.916311, lon = 15.476971, p = 32, d = 0, gtfs = "Werndorf" }
+INTL-8100601 = { id = "8100601", name = "Flughafen Graz-Feldkirchen b.Graz Bahnhst", lat = 46.997996, lon = 15.449437, p = 36, d = 1, gtfs = "Flughafen Graz-Feldkirchen" }
+INTL-8100763 = { id = "8100763", name = "Ehrenhausen an der Weinstraße Bahnhof", lat = 46.727664, lon = 15.585578, p = 52, d = 5, gtfs = "Ehrenhausen" }
+INTL-8101010 = { id = "8101010", name = "Jennersdorf Bahnhof", lat = 46.935063, lon = 16.139017, p = 20, d = 68, gtfs = "Jennersdorf" }
+INTL-8101019 = { id = "8101019", name = "Kalsdorf b.Graz Bahnhof", lat = 46.964296, lon = 15.47004, p = 32, d = 9, gtfs = "Kalsdorf" }
+INTL-8101137 = { id = "8101137", name = "Lebring Bahnhst", lat = 46.854924, lon = 15.532245, p = 48, d = 92, gtfs = "Lebring" }
+INTL-8101398 = { id = "8101398", name = "Graz Puntigam Bahnhof", lat = 47.030807, lon = 15.429247, p = 52, d = 9, gtfs = "Graz Puntigam" }
+INTL-8101774 = { id = "8101774", name = "Wildon Bahnhof", lat = 46.884184, lon = 15.521, p = 52, d = 79, gtfs = "Wildon" }
+INTL-8101918 = { id = "8101918", name = "Kaindorf/Sulm Bahnhst", lat = 46.802373, lon = 15.542412, p = 52, d = 0, gtfs = "Kaindorf an der Sulm" }
+INTL-8103000 = { id = "8103000", name = "Wien Hbf (Bahnsteige 3-12)", lat = 48.184986, lon = 16.37795, p = 4157, d = 1, gtfs = "Wien Hauptbahnhof" }
+INTL-8103174 = { id = "8103174", name = "Feldkirchen b.Graz-Seiersberg Bahnhst", lat = 47.012604, lon = 15.440474, p = 32, d = 20, gtfs = "Feldkirchen-Seiersberg" }
+INTL-8103490 = { id = "8103490", name = "Graz Don Bosco Bahnhst", lat = 47.058206, lon = 15.419503, p = 52, d = 21, gtfs = "Graz Don Bosco" }
+INTL-8300086 = { id = "8300086", name = "Conegliano", lat = 45.884664, lon = 12.299104, p = 89, d = 9, gtfs = "Conegliano" }
+INTL-8300093 = { id = "8300093", name = "Venezia Mestre", lat = 45.481903, lon = 12.231901, p = 93, d = 64, gtfs = "Venezia Mestre" }
+INTL-8300096 = { id = "8300096", name = "Gorizia Centrale", lat = 45.933305, lon = 13.606936, p = 89, d = 30, gtfs = "Gorizia Centrale" }
+INTL-8300110 = { id = "8300110", name = "Pordenone", lat = 45.956353, lon = 12.653684, p = 93, d = 44, gtfs = "Pordenone" }
+INTL-8300115 = { id = "8300115", name = "Udine", lat = 46.055783, lon = 13.242162, p = 93, d = 24, gtfs = "Udine" }
+INTL-8300130 = { id = "8300130", name = "Treviso Centrale", lat = 45.6597, lon = 12.245133, p = 93, d = 40, gtfs = "Treviso Centrale" }
+INTL-8300392 = { id = "8300392", name = "Villa Opicina", lat = 45.694408, lon = 13.791754, p = 80, d = 43, gtfs = "Villa Opicina / Opčine" }
+INTL-8503000 = { id = "8503000", name = "Zürich HB", lat = 47.378177, lon = 8.540211, p = 61, d = 64, gtfs = "Zürich Hauptbahnhof" }
+INTL-8509404 = { id = "8509404", name = "Buchs SG", lat = 47.168414, lon = 9.47864, p = 61, d = 35, gtfs = "Buchs SG" }
+INTL-8509411 = { id = "8509411", name = "Sargans", lat = 47.044821, lon = 9.44626, p = 61, d = 92, gtfs = "Sargans" }

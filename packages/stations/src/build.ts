@@ -1,4 +1,6 @@
-// Build data/stations.toml: rail stations in Austria from open data GTFS, mapped to HAFAS ids.
+// Build data/stations.toml: the rail stations of a country (COUNTRY, default at → data/,
+// else data/<country>/) from its GTFS, mapped to HAFAS ids (ÖBB HAFAS knows the stations of the
+// neighbouring countries too; their ids are UIC codes).
 // Reads the local SQLite (vp run db:build).
 // Run: vp run stations:build   (REMAP=1 to redo all HAFAS lookups)
 import { readToml, sortKeys, writeToml } from "@zugx/toml";
@@ -11,6 +13,9 @@ import {
   politeClient,
   isFinalHafasError,
   timer,
+  currentCountry,
+  dataDir,
+  type Country,
 } from "@zugx/gtfs";
 import { openZugxDb, RAIL_ROUTE_TYPES, rows, serviceDays, type Db } from "@zugx/db/query";
 import type { Location } from "@zugx/hafas";
@@ -24,7 +29,8 @@ import {
   type Scored,
 } from "./match.ts";
 
-const DATA = join(import.meta.dirname, "..", "data");
+const COUNTRY = currentCountry();
+const DATA = dataDir("stations", COUNTRY);
 export const MAP_PATH = join(DATA, "gtfs-hafas-map.toml");
 const STATIONS_PATH = join(DATA, "stations.toml");
 /** retry unmatched stations after this many days */
@@ -204,14 +210,23 @@ export async function updateMap(
   return map;
 }
 
+/**
+ * a station group of this run's country: by its DHID ("at:…") where the feed has them, else by
+ * the UIC country code of its HAFAS id (e.g. 79… for Slovenia)
+ */
+export function inCountry(gid: string, e?: GtfsHafasEntry, c: Country = COUNTRY): boolean {
+  const d = dhidCountry(gid);
+  return d ? d === c.id : !!e?.id?.startsWith(c.uic);
+}
+
 export function buildStations(groups: Map<string, GroupStats>, map: GtfsHafasMap): Station[] {
   const byId = new Map<
     string,
     { e: GtfsHafasEntry; deps: number; ldDeps: number; cats: Set<string>; gtfsNames: Set<string> }
   >();
   for (const s of groups.values()) {
-    if (dhidCountry(s.id) !== "at") continue;
     const e = map[s.id];
+    if (!inCountry(s.id, e)) continue;
     if (!e?.id) continue;
     let x = byId.get(e.id);
     if (!x) byId.set(e.id, (x = { e, deps: 0, ldDeps: 0, cats: new Set(), gtfsNames: new Set() }));
@@ -255,10 +270,7 @@ export function buildStations(groups: Map<string, GroupStats>, map: GtfsHafasMap
 async function main() {
   const total = timer();
   const groups = railGroups(openZugxDb());
-  const at = [...groups.values()].filter((s) => dhidCountry(s.id) === "at").length;
-  console.log(
-    `stations: ${groups.size} rail station groups (${at} in Austria, ${groups.size - at} abroad)`,
-  );
+  console.log(`stations: ${COUNTRY.id}: ${groups.size} rail station groups`);
   const map = await updateMap(groups.values());
   const unmapped = [...groups.values()].filter((s) => !map[s.id]?.id);
   const far = [...groups.values()].filter((s) => (map[s.id]?.d ?? 0) > 400);
@@ -271,7 +283,7 @@ async function main() {
   const text = writeToml(STATIONS_PATH, { stations });
   console.log(
     `stations: mapped ${groups.size - unmapped.length}/${groups.size} groups ` +
-      `(${unmapped.filter((s) => dhidCountry(s.id) === "at").length} unmapped in Austria); ` +
+      `(${unmapped.length} unmapped); ` +
       `wrote ${stations.length} stations, ${(text.length / 1024).toFixed(0)} KiB → ${STATIONS_PATH} in ${total()}`,
   );
 }
