@@ -8,7 +8,7 @@ import {
   useSessionStorage,
 } from "@vueuse/core";
 import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
-import { computed, nextTick, onMounted, ref, shallowRef, watch } from "vue";
+import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useI18n } from "../i18n/index.ts";
 import { useRoute, useRouter } from "vue-router";
 import CorridorIndexView from "../components/CorridorIndex.vue";
@@ -28,7 +28,6 @@ import {
   type LiveRun,
 } from "../lib/bf-live.ts";
 import { loadStations, stationById } from "../lib/stations.ts";
-import { stationWikidata } from "../lib/wikidata.ts";
 
 type CorridorRef = Pick<CorridorIndexEntry, "id" | "name" | "oebb" | "lines">;
 
@@ -58,18 +57,11 @@ const hover = shallowRef<CorridorTrain>();
 // railway lines (VzG) of the current sheet, from the index
 const sheetLines = computed(() => list.value.find((c) => c.id === id.value)?.lines ?? []);
 
-// station menu: opened at the click position
-const stationMenu = ref<HTMLElement>();
-const menuStation = shallowRef<{ name: string; hafasId?: string }>();
-async function openStationMenu(s: { name: string; hafasId?: string }, e: MouseEvent) {
-  menuStation.value = s;
-  const el = stationMenu.value;
-  if (!el) return;
-  el.style.left = `${Math.min(e.clientX, innerWidth - 220)}px`;
-  el.style.top = `${e.clientY + 8}px`;
-  el.showPopover();
-  await nextTick();
-  el.querySelector<HTMLElement>("[role=menuitem]")?.focus();
+/** station name → its departure board (plain clicks in the SPA; Ctrl/⌘/middle click: new tab) */
+function openStation(hafasId: string | undefined, e: MouseEvent) {
+  if (!hafasId || e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
+  e.preventDefault();
+  void router.push(`/station/${hafasId}`);
 }
 const now = shallowRef(viennaNow());
 useIntervalFn(() => (now.value = viennaNow()), 30_000);
@@ -637,9 +629,8 @@ function toggleCat(c: string) {
           <a
             :href="s.hafasId ? `/station/${s.hafasId}` : undefined"
             class="bf-station"
-            aria-haspopup="menu"
-            @click.prevent="s.hafasId && openStationMenu(s, $event)"
-            v-tip="s.name"
+            @click="openStation(s.hafasId, $event)"
+            v-tip="s.hafasId ? { title: s.name, lines: [`${$t('search.board')} →`] } : s.name"
           >
             <text
               :transform="`translate(${x(s.km) + 3} ${M.top - 8}) rotate(-60)`"
@@ -829,41 +820,10 @@ function toggleCat(c: string) {
         {{ $t("bf.legendHafasOnly") }}
       </span>
     </p>
-    <!-- station menu (click on a station name): departure board, Wikidata -->
-    <div ref="stationMenu" popover="auto" class="bf-station-menu card" role="menu">
-      <template v-if="menuStation">
-        <div class="mb-1 text-xs font-semibold">{{ menuStation.name }}</div>
-        <RouterLink
-          role="menuitem"
-          :to="`/station/${menuStation.hafasId}`"
-          class="block"
-          @click="stationMenu?.hidePopover()"
-          >{{ $t("search.board") }} →</RouterLink
-        >
-        <a
-          role="menuitem"
-          :href="stationWikidata(menuStation.hafasId!)"
-          target="_blank"
-          rel="noopener"
-          class="block"
-          @click="stationMenu?.hidePopover()"
-          >Wikidata ↗</a
-        >
-      </template>
-    </div>
   </section>
 </template>
 
 <style scoped>
-.bf-station-menu:popover-open {
-  position: fixed;
-  margin: 0;
-  inset: auto;
-  padding: 0.4rem 0.6rem;
-  font-size: 0.8125rem;
-  line-height: 1.7;
-  box-shadow: 0 4px 16px rgb(0 0 0 / 0.25);
-}
 /* time grid: hours clearly visible, 30/10 minutes thinner and dashed */
 .bf-grid-hour {
   stroke: var(--muted);

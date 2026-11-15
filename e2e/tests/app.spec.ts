@@ -345,7 +345,7 @@ test("station board: Later appends the next departures and keeps the shown ones"
   await expect(page).not.toHaveURL(/[?&]t=/);
 });
 
-test("bildfahrplan: station menu (departure board, Wikidata via IBNR) and VzG railway lines", async ({
+test("bildfahrplan: station name opens its departure board; VzG railway lines", async ({
   page,
 }) => {
   await page.goto("/bf/500?from=14&h=2&d=2026-03-10");
@@ -356,13 +356,7 @@ test("bildfahrplan: station menu (departure board, Wikidata via IBNR) and VzG ra
     .locator("a.bf-station")
     .filter({ hasText: /^\s*Semmering\s*$/ })
     .click();
-  const menu = page.getByRole("menu");
-  await expect(menu).toBeVisible();
-  await expect(menu.getByRole("menuitem", { name: /Wikidata/ })).toHaveAttribute(
-    "href",
-    "https://dinodata.toolforge.org/#P954=8100028",
-  );
-  await menu.getByRole("menuitem", { name: /Departures|Abfahrten|Partenze/ }).click();
+  // the station name opens its departure board (which links to Wikidata)
   await expect(page).toHaveURL(/\/station\/8100028/);
   await expect(page.getByRole("link", { name: /Wikidata/ })).toHaveAttribute(
     "href",
