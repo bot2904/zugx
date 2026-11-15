@@ -1042,6 +1042,18 @@ Licence: CC BY-SA 4.0 is share-alike — everything derived from the Slovenian d
 - Slovenian stations have UIC codes 79xxxxx, which ÖBB HAFAS also uses: the live board works for Slovenian stations with the trains HAFAS knows (mainly cross-border).
 - Cross-border trains (Villach – Jesenice – Ljubljana, Graz – Maribor) appear in both feeds → dedupe by train number and day.
 
+**Built (2026-11-15)** — see docs/data-flow.md for the commands:
+
+- `packages/gtfs/countries.toml` + `COUNTRY=si` for every data script; per-country SQLite; SQL fix-up: train names from `route_short_name`.
+- Stations: 266 (435/437 GTFS groups matched to HAFAS; diacritics restored from GTFS: Divača), 127 SŽ abbreviations from OSM `railway:ref`.
+- Trains: 829 (70 long-distance/night), departure plans for 354 stations; trains with a bare number (some HŽ/SŽ) left out. No regional line names in the feed (route = train).
+- VzG: 37 lines by SŽ number (`lineRef = '^\d{2}$'`); `osmLineMembers` keeps relation-listed sidings and tracks under renewal (Slovenian through-station tracks are often `service=siding`; for Austria this would break lines, so it's per country).
+- Bildfahrplan: 15 sheets (`packages/netz/countries/si.toml`, ids `si-<line>`, to Villach and Spielfeld-Straß), reference day 2026-11-24 (the Primorska line was closed until 2026-04-05); no Netzgrafik (its nodes are Austrian).
+- Timetable search: AT + SI merged (Slovenian ids prefixed `si:`); a train split at the border into two feed trips is one leg; CI builds both databases.
+- App: country selector (`zugx:land`, `?land=si`), footer attribution per country.
+
+Next: GTFS-RT (derp.si) for the Live switch in Slovenia; dedupe the cross-border trains in the train index; sheet numbers in the index file instead of from the id.
+
 **Open decisions**: (1) scope of the first step — (a) station index, departure plan, train index, timetable search (recommended) or (b) also Bildfahrplan sheets (SŽ has no ÖBB-style sheets; corridors along OSM lines?); (2) GTFS (anonymous) or NeTEx (registration) — start with GTFS; (3) ~~update rhythm~~ — decided: no automatic updates; (4) ~~country switch~~ — decided: country selector in the menu.
 
 ## Sources
