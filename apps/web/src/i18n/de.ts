@@ -251,7 +251,7 @@ export default {
       "Kurvenradius: Bögen enger als 3.000 m, aus der OSM-Gleisgeometrie geschätzt (nicht aus dem ÖBB-VzG); dunkler = enger.",
     measured: "km aus OSM",
     interpolated: "km interpoliert",
-    osm: "Daten © OpenStreetMap-Mitwirkende (ODbL), {date}",
+    asOf: "Stand {date}",
     noData: "Strecke nicht gefunden.",
     partial: "nur km {from}–{to} (Lücken in OSM)",
   },
@@ -302,7 +302,12 @@ export default {
     commandPalette: "Befehlspalette",
     today: "heute",
     tomorrow: "morgen",
-    source: { data: "Daten", unofficial: "inoffiziell", openData: "ÖBB Open Data" },
+    source: {
+      data: "Daten",
+      unofficial: "inoffiziell",
+      openData: "ÖBB Open Data",
+      osm: "OpenStreetMap-Mitwirkende",
+    },
   },
   products: {
     highspeed: "RJX/RJ/ICE",

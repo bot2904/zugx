@@ -187,7 +187,9 @@ const shortcuts: [string, string][] = [
     <a href="https://data.oebb.at/de/datensaetze~soll-fahrplan-gtfs~">{{
       $t("common.source.openData")
     }}</a>
-    (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>) ·
+    (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>),
+    <a href="https://www.openstreetmap.org/copyright">© {{ $t("common.source.osm") }}</a>
+    (<a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a>) ·
     <a href="https://github.com/simon04/zugx">zugx</a>
     (<a href="https://github.com/simon04/zugx/blob/master/LICENSE" rel="license">AGPL-3.0</a>,
     <a href="/licenses.txt" target="_blank">{{ $t("common.ossLicenses") }}</a>) ·

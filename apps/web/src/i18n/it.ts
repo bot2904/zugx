@@ -252,7 +252,7 @@ export default {
       "Raggio di curva: curve più strette di 3.000 m, stimate dalla geometria dei binari OSM (non dal VzG ÖBB); più scuro = più stretta.",
     measured: "km da OSM",
     interpolated: "km interpolato",
-    osm: "Dati © contributori di OpenStreetMap (ODbL), {date}",
+    asOf: "aggiornato al {date}",
     noData: "Linea non trovata.",
     partial: "solo km {from}–{to} (lacune in OSM)",
   },
@@ -303,7 +303,12 @@ export default {
     commandPalette: "Palette comandi",
     today: "oggi",
     tomorrow: "domani",
-    source: { data: "Dati", unofficial: "non ufficiale", openData: "ÖBB open data" },
+    source: {
+      data: "Dati",
+      unofficial: "non ufficiale",
+      openData: "ÖBB open data",
+      osm: "contributori di OpenStreetMap",
+    },
   },
   products: {
     highspeed: "RJX/RJ/ICE",

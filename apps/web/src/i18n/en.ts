@@ -248,7 +248,7 @@ export default {
       "Curve radius: curves tighter than 3,000 m, estimated from the OSM track geometry (not from the ÖBB VzG); darker = tighter.",
     measured: "km from OSM",
     interpolated: "km interpolated",
-    osm: "Data © OpenStreetMap contributors (ODbL), {date}",
+    asOf: "as of {date}",
     noData: "Line not found.",
     partial: "covers km {from}–{to} only (gaps in OSM)",
   },
@@ -299,7 +299,12 @@ export default {
     commandPalette: "Command palette",
     today: "today",
     tomorrow: "tomorrow",
-    source: { data: "Data", unofficial: "unofficial", openData: "ÖBB open data" },
+    source: {
+      data: "Data",
+      unofficial: "unofficial",
+      openData: "ÖBB open data",
+      osm: "OpenStreetMap contributors",
+    },
   },
   products: {
     highspeed: "RJX/RJ/ICE",
