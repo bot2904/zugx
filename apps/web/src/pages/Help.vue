@@ -138,7 +138,8 @@ const { locale } = useI18n();
           <strong>Fahrplantabellen</strong> unter dem Diagramm, für beide Richtungen: wie im
           ÖBB-Kursbuch (Bahnhöfe als Zeilen, ein Zug je Spalte, „|“ = Durchfahrt; der Bahnhofsname
           öffnet den Abfahrtsplan des Tages, daneben die Nummern der dort abzweigenden
-          Fahrplanbilder als Links); <strong>Transponieren</strong> zeigt eine Zeile je Zug.
+          Fahrplanbilder als Links; mit Echtzeit Verspätung und erwartete Zeit je Halt);
+          <strong>Transponieren</strong> zeigt eine Zeile je Zug.
         </li>
         <li>
           <strong>Zweiter Bildschirm</strong>: Diagramm und Tabellen lassen sich in eigenen Fenstern
@@ -431,8 +432,9 @@ const { locale } = useI18n();
         <li>
           <strong>Timetable tables</strong> below the chart, both directions: like the ÖBB Kursbuch
           (stations as rows, a train per column, "|" = passes; a station name opens its departure
-          plan for the day, next to it the numbers of the sheets branching off there, as links);
-          <strong>Transpose</strong> shows a row per train.
+          plan for the day, next to it the numbers of the sheets branching off there, as links; with
+          realtime on, delay and expected time per stop); <strong>Transpose</strong> shows a row per
+          train.
         </li>
         <li>
           <strong>Second monitor</strong>: chart and tables can open in their own windows; day,
