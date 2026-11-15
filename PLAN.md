@@ -956,7 +956,7 @@ Request (planner feedback): colours by offer level as common in Austrian timetab
 
 Root causes: four medium-dark reds (RJX, RJ, EC/IC, D); the white-text limit; red/green is the classic CVD pair.
 
-**Adopted badge palette** (light; all ≥ 4.5:1 with white): RJX `#d0102a`, RJ `#b8157a` (magenta), EC/IC/D `#7d1a14` (brown-red, one colour), ICE `#4b4f55`, NJ/EN `#26296b`, IR/CJX `#8448b8`, REX `#2a7a2e`, R `#5a7590`, S `#1659c9`, private long-distance `#b35800`, rail replacement `#795548`, bus/other `#6b6b6b`. Remaining pairs below the targets:
+**Adopted badge palette** (light; all ≥ 4.5:1 with white): RJX `#b8157a` (magenta), RJ `#d0102a` (red; swapped with RJX on planner feedback, current usage), EC/IC/D `#7d1a14` (brown-red, one colour), ICE `#4b4f55`, NJ/EN `#26296b`, IR/CJX `#8448b8`, REX `#2a7a2e`, R `#5a7590`, S `#1659c9`, private long-distance `#b35800`, rail replacement `#795548`, bus/other `#6b6b6b`. Remaining pairs below the targets:
 
 | Pair                          | ΔE normal | ΔE CVD  | Note                                                |
 | ----------------------------- | --------- | ------- | --------------------------------------------------- |
@@ -968,7 +968,7 @@ Root causes: four medium-dark reds (RJX, RJ, EC/IC, D); the white-text limit; re
 | R – S                         | 14.7      | 13.8    | (was 6.8)                                           |
 | RJX – REX                     | 30.8      | 5.7     | red/green: inherent to the FBS convention           |
 
-**Dark mode**: the badge colours are too dark as lines/text on the dark surface, so `lineColor`/`categoryColor` return lighter steps there (badges keep `lineBadgeColor`/`categoryBadgeColor`): RJX `#ff4b5c`, RJ `#e862b6`, EC/IC/D `#c4553c`, ICE `#d0d4d8`, NJ/EN `#aab0ff`, IR/CJX `#b07fea`, REX `#4fb052`, R `#7f9cc0`, S `#2f7ff0`, private `#f0902a`, SEV `#a58670`, bus `#7a7a7a` — all ≥ 3:1 against `#0b0d10`; closest pairs SEV – bus 8.1, then ≥ 11.7 (NJ – R, RJX – EC/IC, NJ – IR/CJX), RJX – RJ 12.6.
+**Dark mode**: the badge colours are too dark as lines/text on the dark surface, so `lineColor`/`categoryColor` return lighter steps there (badges keep `lineBadgeColor`/`categoryBadgeColor`): RJX `#e862b6`, RJ `#ff4b5c`, EC/IC/D `#c4553c`, ICE `#d0d4d8`, NJ/EN `#aab0ff`, IR/CJX `#b07fea`, REX `#4fb052`, R `#7f9cc0`, S `#2f7ff0`, private `#f0902a`, SEV `#a58670`, bus `#7a7a7a` — all ≥ 3:1 against `#0b0d10`; closest pairs SEV – bus 8.1, then ≥ 11.7 (NJ – R, RJX – EC/IC, NJ – IR/CJX), RJX – RJ 12.6.
 
 Open: CVD-safe separation of RJX/RJ/private and IR/S needs a second cue (e.g. dashed RJ paths in the Bildfahrplan, or a border on RJX badges); identity is never colour-alone today since badges and paths carry the category text.
 

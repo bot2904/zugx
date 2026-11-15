@@ -36,8 +36,8 @@ const PRIVATE_LD_OPERATORS = /westbahn|regiojet|leo express|flixtrain/i;
 // Tuned for mutual distinguishability (OKLab ΔE, also under protan/deutan simulation) within the
 // ≥ 4.5:1 white-text limit — see PLAN.md "Category colours".
 const CAT_COLORS: Record<string, string> = {
-  RJX: "#d0102a",
-  RJ: "#b8157a",
+  RJX: "#b8157a",
+  RJ: "#d0102a",
   ICE: "#4b4f55",
   EC: "#7d1a14",
   IC: "#7d1a14",
@@ -77,8 +77,8 @@ const PRODUCT_COLORS: Record<ProductId, string> = {
  * against the dark background
  */
 const DARK: Record<string, string> = {
-  "#d0102a": "#ff4b5c", // RJX
-  "#b8157a": "#e862b6", // RJ
+  "#d0102a": "#ff4b5c", // RJ
+  "#b8157a": "#e862b6", // RJX
   "#7d1a14": "#c4553c", // EC/IC/D
   "#4b4f55": "#d0d4d8", // ICE
   "#26296b": "#aab0ff", // NJ/EN
