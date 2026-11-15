@@ -472,7 +472,7 @@ points = [
   { km = 244.46, kind = "signal", signal = "snowplow", dir = -1 },
   { km = 244.462, kind = "signal", label = "Zr11", signal = "main", dir = 1, measured = true },
   { km = 244.674, kind = "stop", label = "Graz Liebenau Murpark", pos = [47.04, 15.46267] },
-  { km = 244.674, kind = "halt", label = "Graz Liebenau-Murpark", pos = [47.04004, 15.46269] },
+  { km = 244.675, kind = "halt", label = "Graz Liebenau-Murpark", pos = [47.04004, 15.46269] },
   { km = 244.785, kind = "signal", signal = "crossing_distant", dir = 1 },
   { km = 244.82, kind = "signal", label = "VHT441", signal = "shunting", dir = -1, measured = true },
   { km = 244.95, kind = "signal", label = "u1", signal = "distant", dir = 1, measured = true },

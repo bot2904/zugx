@@ -897,6 +897,13 @@ lines = [
 ]
 
 [[connections]]
+km = 14.541
+station = "Leopoldau"
+lines = [
+  { id = "138-01", ref = "138 01", name = "Floridsdorfer Hochbahn", km = 14.541 },
+]
+
+[[connections]]
 km = 17.339
 station = "Wien Praterkai"
 lines = [

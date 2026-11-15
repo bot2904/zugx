@@ -143,7 +143,7 @@ points = [
   { km = 13.287, kind = "signal", signal = "snowplow", dir = -1 },
   { km = 13.386, kind = "signal", signal = "crossing_distant", dir = -1 },
   { km = 13.4, kind = "signal", label = "H311", signal = "main", dir = -1, measured = true },
-  { km = 13.677, kind = "station", label = "Schützen am Gebirge", pos = [47.84809, 16.61877] },
+  { km = 13.632, kind = "station", label = "Schützen am Gebirge", pos = [47.84809, 16.61877] },
   { km = 13.79, kind = "signal", label = "R311", signal = "main", dir = 1, measured = true },
   { km = 13.848, kind = "signal", signal = "station_distant", dir = 1 },
   { km = 13.852, kind = "signal", signal = "crossing_distant", dir = -1 },

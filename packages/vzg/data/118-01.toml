@@ -34,7 +34,7 @@ points = [
   { km = 4.748, kind = "signal", signal = "speed_limit", dir = -1 },
   { km = 4.854, kind = "signal", label = "M1/l1", signal = "distant,main,shunting", dir = -1, measured = true },
   { km = 4.854, kind = "signal", label = "E1/f1", signal = "distant,main,shunting", dir = 1, measured = true },
-  { km = 4.854, kind = "station", label = "Wien Zentralfriedhof", uic = "8101820", pos = [48.15411, 16.4261] },
+  { km = 4.856, kind = "station", label = "Wien Zentralfriedhof", uic = "8101820", pos = [48.15411, 16.4261] },
   { km = 5.849, kind = "signal", label = "F1", signal = "main,shunting", dir = 1, measured = true },
   { km = 5.89, kind = "signal", label = "T1/m1", signal = "distant,main,shunting", dir = -1, measured = true },
   { km = 6.185, kind = "signal", label = "V401N", signal = "shunting", dir = -1, measured = true },
@@ -312,7 +312,7 @@ points = [
   { km = 4.748, kind = "signal", signal = "speed_limit", dir = -1 },
   { km = 4.854, kind = "signal", label = "M1/l1", signal = "distant,main,shunting", dir = -1, measured = true },
   { km = 4.854, kind = "signal", label = "E1/f1", signal = "distant,main,shunting", dir = 1, measured = true },
-  { km = 4.854, kind = "station", label = "Wien Zentralfriedhof", uic = "8101820", pos = [48.15411, 16.4261] },
+  { km = 4.856, kind = "station", label = "Wien Zentralfriedhof", uic = "8101820", pos = [48.15411, 16.4261] },
   { km = 5.849, kind = "signal", label = "F1", signal = "main,shunting", dir = 1, measured = true },
   { km = 5.89, kind = "signal", label = "T1/m1", signal = "distant,main,shunting", dir = -1, measured = true },
   { km = 6.185, kind = "signal", label = "V401N", signal = "shunting", dir = -1, measured = true },
@@ -574,10 +574,10 @@ lines = [
 ]
 
 [[connections]]
-km = 4.854
+km = 4.856
 station = "Wien Zentralfriedhof"
 lines = [
-  { id = "105-01", ref = "105 01", name = "Südbahn", km = -6.529 },
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = -6.527 },
   { id = "191-01", ref = "191 01", name = "Pressburger Bahn", km = 6.756 },
 ]
 

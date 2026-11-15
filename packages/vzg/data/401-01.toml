@@ -67,7 +67,7 @@ points = [
   { km = 30.356, kind = "signal", label = "V201R", signal = "shunting", dir = 1, measured = true },
   { km = 30.53, kind = "signal", label = "V7", signal = "shunting", dir = 1, measured = true },
   { km = 30.653, kind = "signal", label = "H301", signal = "train_protection", dir = -1, measured = true },
-  { km = 31.324, kind = "station", label = "Wettmannstätten", uic = "8101809", pos = [46.83731, 15.38087] },
+  { km = 31.302, kind = "station", label = "Wettmannstätten", uic = "8101809", pos = [46.83731, 15.38087] },
   { km = 31.437, kind = "signal", label = "R301", signal = "train_protection", dir = 1, measured = true },
   { km = 31.556, kind = "signal", label = "V56", signal = "shunting", dir = -1, measured = true },
   { km = 31.73, kind = "signal", label = "V501H", signal = "shunting", dir = -1, measured = true },
@@ -82,6 +82,7 @@ points = [
   { km = 37.278, kind = "signal", label = "V101R", signal = "shunting", dir = 1, measured = true },
   { km = 37.795, kind = "signal", label = "V6", signal = "shunting", dir = 1, measured = true },
   { km = 37.965, kind = "signal", label = "H301", signal = "train_protection", dir = -1, measured = true },
+  { km = 38.404, kind = "station", label = "Weststeiermark", uic = "8101345", pos = [46.81381, 15.29689] },
   { km = 38.86, kind = "signal", label = "R301", signal = "train_protection", dir = 1, measured = true },
   { km = 39.152, kind = "signal", label = "V60", signal = "shunting", dir = -1, measured = true },
   { km = 39.612, kind = "signal", label = "V401H", signal = "shunting", dir = -1, measured = true },
@@ -159,7 +160,7 @@ points = [
   { km = 86.747, kind = "signal", label = "VHT102", signal = "shunting", dir = -1, measured = true },
   { km = 86.775, kind = "signal", label = "V102R", signal = "shunting", dir = 1, measured = true },
   { km = 87.27, kind = "signal", label = "V202H", signal = "shunting", dir = -1, measured = true },
-  { km = 87.27, kind = "station", label = "Wiederndorf-Aich", pos = [46.62074, 14.79492] },
+  { km = 87.279, kind = "station", label = "Wiederndorf-Aich", pos = [46.62074, 14.79492] },
   { km = 87.36, kind = "signal", label = "VHT202", signal = "shunting", dir = 1, measured = true },
   { km = 87.735, kind = "signal", label = "Yi12", signal = "train_protection", dir = -1, measured = true },
   { km = 89.039, kind = "signal", label = "Ai12", signal = "train_protection", dir = 1, measured = true },
@@ -171,7 +172,7 @@ points = [
   { km = 93.426, kind = "signal", label = "Ai42", signal = "train_protection", dir = 1, measured = true },
   { km = 93.825, kind = "signal", label = "VHT112", signal = "shunting", dir = -1, measured = true },
   { km = 94.182, kind = "signal", label = "V112R", signal = "shunting", dir = 1, measured = true },
-  { km = 94.363, kind = "station", label = "Mittlern", uic = "8100418", pos = [46.59891, 14.7145] },
+  { km = 94.398, kind = "station", label = "Mittlern", uic = "8100418", pos = [46.59891, 14.7145] },
   { km = 94.528, kind = "signal", label = "H312", signal = "train_protection", dir = -1, measured = true },
   { km = 95.281, kind = "signal", label = "R312", signal = "train_protection", dir = 1, measured = true },
   { km = 95.887, kind = "signal", label = "V412H", signal = "shunting", dir = -1, measured = true },
@@ -185,7 +186,7 @@ points = [
   { km = 101.801, kind = "signal", label = "VHT102", signal = "shunting", dir = -1, measured = true },
   { km = 102.086, kind = "signal", label = "V3", signal = "shunting", dir = 1, measured = true },
   { km = 102.484, kind = "signal", label = "H202", signal = "train_protection", dir = -1, measured = true },
-  { km = 102.598, kind = "station", label = "Kühnsdorf-Klopeiner See", uic = "8100336", pos = [46.62485, 14.62089] },
+  { km = 102.595, kind = "station", label = "Kühnsdorf-Klopeiner See", uic = "8100336", pos = [46.62485, 14.62089] },
   { km = 102.758, kind = "signal", label = "R202", signal = "train_protection", dir = 1, measured = true },
   { km = 102.922, kind = "signal", label = "V302H", signal = "shunting", dir = -1, measured = true },
   { km = 102.998, kind = "signal", label = "VHT302", signal = "shunting", dir = 1, measured = true },
@@ -438,7 +439,7 @@ points = [
   { km = 30.127, kind = "signal", label = "V202H", signal = "shunting", dir = -1, measured = true },
   { km = 30.322, kind = "signal", label = "V202R", signal = "shunting", dir = 1, measured = true },
   { km = 30.606, kind = "signal", label = "H302", signal = "train_protection", dir = -1, measured = true },
-  { km = 31.323, kind = "station", label = "Wettmannstätten", uic = "8101809", pos = [46.83731, 15.38087] },
+  { km = 31.302, kind = "station", label = "Wettmannstätten", uic = "8101809", pos = [46.83731, 15.38087] },
   { km = 31.329, kind = "signal", label = "R302", signal = "train_protection", dir = 1, measured = true },
   { km = 31.64, kind = "signal", label = "V58", signal = "shunting", dir = 1, measured = true },
   { km = 31.764, kind = "signal", label = "V502H", signal = "shunting", dir = -1, measured = true },
@@ -453,6 +454,7 @@ points = [
   { km = 37.308, kind = "signal", label = "V102R", signal = "shunting", dir = 1, measured = true },
   { km = 37.714, kind = "signal", label = "V5", signal = "shunting", dir = 1, measured = true },
   { km = 37.917, kind = "signal", label = "H302", signal = "train_protection", dir = -1, measured = true },
+  { km = 38.401, kind = "station", label = "Weststeiermark", uic = "8101345", pos = [46.81381, 15.29689] },
   { km = 38.853, kind = "signal", label = "R302", signal = "train_protection", dir = 1, measured = true },
   { km = 39.072, kind = "signal", label = "V61", signal = "shunting", dir = -1, measured = true },
   { km = 39.657, kind = "signal", label = "V402H", signal = "shunting", dir = -1, measured = true },
@@ -486,7 +488,7 @@ points = [
   { km = 73.317, kind = "signal", label = "VHT102", signal = "shunting", dir = -1, measured = true },
   { km = 73.884, kind = "signal", label = "V102R", signal = "shunting", dir = 1, measured = true },
   { km = 74.443, kind = "signal", label = "H302", signal = "train_protection", dir = -1, measured = true },
-  { km = 74.789, kind = "station", label = "St. Paul im Lavanttal", uic = "8100501", pos = [46.72151, 14.85585] },
+  { km = 74.787, kind = "station", label = "St. Paul im Lavanttal", uic = "8100501", pos = [46.72151, 14.85585] },
   { km = 75.26, kind = "signal", label = "R302", signal = "train_protection", dir = 1, measured = true },
   { km = 75.419, kind = "signal", label = "V56", signal = "shunting", dir = -1, measured = true },
   { km = 75.808, kind = "signal", label = "V402H", signal = "shunting", dir = -1, measured = true },
@@ -508,7 +510,7 @@ points = [
   { km = 86.747, kind = "signal", label = "VHT102", signal = "shunting", dir = -1, measured = true },
   { km = 86.775, kind = "signal", label = "V102R", signal = "shunting", dir = 1, measured = true },
   { km = 87.27, kind = "signal", label = "V202H", signal = "shunting", dir = -1, measured = true },
-  { km = 87.27, kind = "station", label = "Wiederndorf-Aich", pos = [46.62074, 14.79492] },
+  { km = 87.279, kind = "station", label = "Wiederndorf-Aich", pos = [46.62074, 14.79492] },
   { km = 87.36, kind = "signal", label = "VHT202", signal = "shunting", dir = 1, measured = true },
   { km = 87.735, kind = "signal", label = "Yi12", signal = "train_protection", dir = -1, measured = true },
   { km = 89.039, kind = "signal", label = "Ai12", signal = "train_protection", dir = 1, measured = true },
@@ -520,7 +522,7 @@ points = [
   { km = 93.426, kind = "signal", label = "Ai42", signal = "train_protection", dir = 1, measured = true },
   { km = 93.825, kind = "signal", label = "VHT112", signal = "shunting", dir = -1, measured = true },
   { km = 94.182, kind = "signal", label = "V112R", signal = "shunting", dir = 1, measured = true },
-  { km = 94.363, kind = "station", label = "Mittlern", uic = "8100418", pos = [46.59891, 14.7145] },
+  { km = 94.398, kind = "station", label = "Mittlern", uic = "8100418", pos = [46.59891, 14.7145] },
   { km = 94.528, kind = "signal", label = "H312", signal = "train_protection", dir = -1, measured = true },
   { km = 95.281, kind = "signal", label = "R312", signal = "train_protection", dir = 1, measured = true },
   { km = 95.887, kind = "signal", label = "V412H", signal = "shunting", dir = -1, measured = true },
@@ -534,7 +536,7 @@ points = [
   { km = 101.801, kind = "signal", label = "VHT102", signal = "shunting", dir = -1, measured = true },
   { km = 102.086, kind = "signal", label = "V3", signal = "shunting", dir = 1, measured = true },
   { km = 102.484, kind = "signal", label = "H202", signal = "train_protection", dir = -1, measured = true },
-  { km = 102.598, kind = "station", label = "Kühnsdorf-Klopeiner See", uic = "8100336", pos = [46.62485, 14.62089] },
+  { km = 102.595, kind = "station", label = "Kühnsdorf-Klopeiner See", uic = "8100336", pos = [46.62485, 14.62089] },
   { km = 102.758, kind = "signal", label = "R202", signal = "train_protection", dir = 1, measured = true },
   { km = 102.922, kind = "signal", label = "V302H", signal = "shunting", dir = -1, measured = true },
   { km = 102.998, kind = "signal", label = "VHT302", signal = "shunting", dir = 1, measured = true },
@@ -755,21 +757,28 @@ lines = [
 ]
 
 [[connections]]
-km = 31.324
+km = 31.302
 station = "Wettmannstätten"
 lines = [
   { id = "435-01", ref = "435 01", name = "Wieserbahn", km = 17.246 },
 ]
 
 [[connections]]
-km = 87.27
+km = 38.404
+station = "Weststeiermark"
+lines = [
+  { id = "435-01", ref = "435 01", name = "Wieserbahn", km = 24.359 },
+]
+
+[[connections]]
+km = 87.279
 station = "Wiederndorf-Aich"
 lines = [
   { id = "410-01", ref = "410 01", name = "Jauntalbahn", km = 79.949 },
 ]
 
 [[connections]]
-km = 94.363
+km = 94.398
 station = "Mittlern"
 lines = [
   { id = "410-01", ref = "410 01", name = "Jauntalbahn", km = 94.368 },

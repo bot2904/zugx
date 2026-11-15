@@ -196,8 +196,8 @@ points = [
   { km = 25.469, kind = "signal", label = "Yc12/h", signal = "distant,main", dir = 1, measured = true },
   { km = 25.75, kind = "signal", label = "bc12", signal = "distant", dir = 1, measured = true },
   { km = 26.003, kind = "signal", signal = "station_distant", dir = 1 },
+  { km = 26.477, kind = "halt", label = "Gartenbahn Hauptbahnhof", pos = [48.32531, 16.67106] },
   { km = 26.569, kind = "signal", label = "yc12", signal = "distant", dir = -1, measured = true },
-  { km = 26.569, kind = "halt", label = "Gartenbahn Hauptbahnhof", pos = [48.32531, 16.67106] },
   { km = 26.85, kind = "signal", label = "Bc12", signal = "main", dir = 1, measured = true },
   { km = 27.1, kind = "halt", label = "Silberwald", uic = "8100591", pos = [48.32819, 16.67785], measured = true },
   { km = 27.304, kind = "signal", label = "Zc22", signal = "main", dir = -1, measured = true },
@@ -595,8 +595,8 @@ points = [
   { km = 25.469, kind = "signal", label = "Yc12/h", signal = "distant,main", dir = 1, measured = true },
   { km = 25.75, kind = "signal", label = "bc12", signal = "distant", dir = 1, measured = true },
   { km = 26.003, kind = "signal", signal = "station_distant", dir = 1 },
+  { km = 26.477, kind = "halt", label = "Gartenbahn Hauptbahnhof", pos = [48.32531, 16.67106] },
   { km = 26.569, kind = "signal", label = "yc12", signal = "distant", dir = -1, measured = true },
-  { km = 26.569, kind = "halt", label = "Gartenbahn Hauptbahnhof", pos = [48.32531, 16.67106] },
   { km = 26.85, kind = "signal", label = "Bc12", signal = "main", dir = 1, measured = true },
   { km = 27.1, kind = "halt", label = "Silberwald", uic = "8100591", pos = [48.32819, 16.67785], measured = true },
   { km = 27.304, kind = "signal", label = "Zc22", signal = "main", dir = -1, measured = true },
@@ -832,6 +832,13 @@ km = 6.912
 station = "Wien Siemensstraße"
 lines = [
   { id = "138-01", ref = "138 01", name = "Floridsdorfer Hochbahn", km = 6.95 },
+]
+
+[[connections]]
+km = 14.541
+station = "Leopoldau"
+lines = [
+  { id = "138-01", ref = "138 01", name = "Floridsdorfer Hochbahn", km = 14.541 },
 ]
 
 [[connections]]

@@ -678,7 +678,7 @@ points = [
   { km = 76.58, kind = "signal", signal = "speed_limit", dir = 1 },
   { km = 76.581, kind = "signal", signal = "speed_limit", dir = -1 },
   { km = 76.933, kind = "station", label = "Innsbruck Westbf", pos = [47.25552, 11.39148], uic = "8100109", ele = 583 },
-  { km = 79.037, kind = "station", label = "Innsbruck Stubaitalbf", pos = [47.25354, 11.39771] },
+  { km = 79.041, kind = "station", label = "Innsbruck Stubaitalbf", pos = [47.25354, 11.39771] },
   { km = 79.738, kind = "signal", signal = "shunting", dir = 1 },
   { km = 79.807, kind = "signal", signal = "shunting", dir = -1 },
   { km = 79.947, kind = "signal", signal = "shunting", dir = 1 },

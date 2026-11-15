@@ -106,7 +106,7 @@ lines = [
 km = 1.138
 station = "Kledt"
 lines = [
-  { id = "205-01", ref = "205 01", name = "Passauer Bahn", km = 28.632 },
+  { id = "205-01", ref = "205 01", name = "Passauer Bahn", km = 28.656 },
 ]
 
 [[connections]]

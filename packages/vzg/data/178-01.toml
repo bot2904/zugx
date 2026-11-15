@@ -16,8 +16,8 @@ points = [
   { km = 1.131, kind = "signal", signal = "snowplow", dir = 1 },
   { km = 1.347, kind = "signal", signal = "snowplow", dir = 1 },
   { km = 1.397, kind = "signal", signal = "snowplow", dir = 1 },
+  { km = 1.736, kind = "halt", label = "Alt Nagelberg Ergo", pos = [48.85157, 14.99937] },
   { km = 1.758, kind = "signal", signal = "stop", dir = 1 },
-  { km = 1.758, kind = "halt", label = "Alt Nagelberg Ergo", pos = [48.85157, 14.99937] },
 ]
 
 [tracks.geo]
@@ -27,8 +27,8 @@ segments = [
 posts = [[2, 48.85162, 15.00291], [3, 48.84894, 15.01389], [4, 48.84704, 15.02496]]
 
 [[connections]]
-km = 1.758
+km = 1.736
 station = "Alt Nagelberg Ergo"
 lines = [
-  { id = "177-01", ref = "177 01", name = "Waldviertelbahn", km = 12.958 },
+  { id = "177-01", ref = "177 01", name = "Waldviertelbahn", km = 12.98 },
 ]

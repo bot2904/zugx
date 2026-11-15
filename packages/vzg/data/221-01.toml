@@ -118,7 +118,7 @@ points = [
   { km = 18.501, kind = "signal", label = "H111", signal = "main", dir = -1, measured = true },
   { km = 18.608, kind = "signal", signal = "speed_limit", dir = 1 },
   { km = 18.614, kind = "signal", signal = "speed_limit", dir = -1 },
-  { km = 18.902, kind = "station", label = "Lungitz", uic = "8101185", pos = [48.28866, 14.47834] },
+  { km = 18.895, kind = "station", label = "Lungitz", uic = "8101185", pos = [48.28866, 14.47834] },
   { km = 19.128, kind = "signal", label = "R111", signal = "main", dir = 1, measured = true },
   { km = 19.224, kind = "signal", label = "V141H", signal = "shunting", dir = -1, measured = true },
   { km = 19.358, kind = "signal", label = "VHT141", signal = "shunting", dir = 1, measured = true },

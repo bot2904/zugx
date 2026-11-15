@@ -19,7 +19,7 @@ points = [
   { km = 1.639, kind = "signal", label = "y", signal = "distant", dir = -1, measured = true },
   { km = 2.195, kind = "signal", label = "U/g", signal = "distant,main", dir = 1, measured = true },
   { km = 13.492, kind = "signal", label = "H1", signal = "main", dir = -1, measured = true },
-  { km = 13.574, kind = "station", label = "Oberlaa", uic = "8170176", pos = [48.14231, 16.39989] },
+  { km = 13.573, kind = "station", label = "Oberlaa", uic = "8170176", pos = [48.14231, 16.39989] },
   { km = 14.165, kind = "signal", signal = "speed_limit_distant", dir = -1 },
   { km = 14.242, kind = "signal", label = "R1", signal = "main", dir = 1, measured = true },
   { km = 14.302, kind = "signal", label = "V53", signal = "shunting", dir = 1, measured = true },
@@ -45,8 +45,8 @@ segments = [
 posts = [[16, 48.14006, 16.43028], [15, 48.13782, 16.41787], [14, 48.14081, 16.4052]]
 
 [[connections]]
-km = 13.574
+km = 13.573
 station = "Oberlaa"
 lines = [
-  { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 13.579 },
+  { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 13.576 },
 ]

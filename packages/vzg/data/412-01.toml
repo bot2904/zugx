@@ -43,7 +43,7 @@ points = [
   { km = 21.933, kind = "signal", label = "aw22", signal = "distant", dir = -1, measured = true },
   { km = 21.935, kind = "signal", label = "yw22", signal = "distant,speed_limit_distant", dir = 1, measured = true },
   { km = 22.933, kind = "signal", label = "Aw22", signal = "main", dir = -1, measured = true },
-  { km = 69.755, kind = "halt", label = "Vordernberg Markt", ele = 846, pos = [47.48579, 14.99456] },
+  { km = 69.837, kind = "halt", label = "Vordernberg Markt", ele = 846, pos = [47.48579, 14.99456] },
   { km = 70.032, kind = "signal", signal = "electricity", dir = -1 },
   { km = 75.16, kind = "signal", signal = "distant", dir = 1 },
   { km = 75.89, kind = "signal", signal = "minor", dir = -1 },
@@ -741,7 +741,7 @@ lines = [
 ]
 
 [[connections]]
-km = 69.755
+km = 69.837
 station = "Vordernberg Markt"
 lines = [
   { id = "erzbergbahn", name = "Erzbergbahn", km = 17.94 },
@@ -752,7 +752,7 @@ km = 102.383
 station = "Hieflau"
 lines = [
   { id = "102-01", ref = "102 01", name = "Ennstalbahn", km = 138.358 },
-  { id = "220-01", ref = "220 01", name = "Erzbergbahn", km = -0.004 },
+  { id = "220-01", ref = "220 01", name = "Erzbergbahn", km = -0.011 },
 ]
 
 [[connections]]

@@ -64,7 +64,7 @@ points = [
   { km = 187.736, kind = "signal", label = "V133H", signal = "shunting", dir = -1, measured = true },
   { km = 187.836, kind = "signal", label = "V133R", signal = "shunting", dir = 1, measured = true },
   { km = 188.29, kind = "signal", label = "H17", signal = "main,shunting", dir = -1, measured = true },
-  { km = 188.372, kind = "station", label = "Linz Hauptbahnhof", uic = "8101073", pos = [48.29024, 14.29186] },
+  { km = 188.39, kind = "station", label = "Linz Hauptbahnhof", uic = "8101073", pos = [48.29024, 14.29186] },
   { km = 188.538, kind = "signal", label = "Sch217R", signal = "minor", dir = 1, measured = true },
   { km = 188.694, kind = "signal", label = "Sch317H", signal = "minor", dir = -1, measured = true },
   { km = 189.011, kind = "signal", label = "N17/o", signal = "distant,main,shunting", dir = 1, measured = true },
@@ -146,7 +146,7 @@ points = [
   { km = 187.736, kind = "signal", label = "V133H", signal = "shunting", dir = -1, measured = true },
   { km = 187.836, kind = "signal", label = "V133R", signal = "shunting", dir = 1, measured = true },
   { km = 188.29, kind = "signal", label = "H17", signal = "main,shunting", dir = -1, measured = true },
-  { km = 188.372, kind = "station", label = "Linz Hauptbahnhof", uic = "8101073", pos = [48.29024, 14.29186] },
+  { km = 188.39, kind = "station", label = "Linz Hauptbahnhof", uic = "8101073", pos = [48.29024, 14.29186] },
   { km = 188.538, kind = "signal", label = "Sch217R", signal = "minor", dir = 1, measured = true },
   { km = 188.694, kind = "signal", label = "Sch317H", signal = "minor", dir = -1, measured = true },
   { km = 189.011, kind = "signal", label = "N17/o", signal = "distant,main,shunting", dir = 1, measured = true },
@@ -179,7 +179,7 @@ lines = [
 ]
 
 [[connections]]
-km = 188.372
+km = 188.39
 station = "Linz Hauptbahnhof"
 lines = [
   { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 183.944 },

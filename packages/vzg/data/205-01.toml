@@ -105,7 +105,7 @@ points = [
   { km = 18.056, kind = "signal", label = "VHT101", signal = "shunting", dir = -1, measured = true },
   { km = 18.148, kind = "signal", label = "V2", signal = "shunting", dir = 1, measured = true },
   { km = 18.537, kind = "signal", label = "H1", signal = "main,shunting,speed_limit", dir = -1, measured = true },
-  { km = 18.995, kind = "station", label = "Grieskirchen-Gallspach", uic = "8100022", pos = [48.23125, 13.83896] },
+  { km = 19.005, kind = "station", label = "Grieskirchen-Gallspach", uic = "8100022", pos = [48.23125, 13.83896] },
   { km = 19.144, kind = "signal", label = "R1", signal = "main,shunting", dir = 1, measured = true },
   { km = 19.357, kind = "signal", signal = "speed_limit", dir = 1 },
   { km = 19.36, kind = "signal", signal = "speed_limit", dir = -1 },
@@ -146,7 +146,7 @@ points = [
   { km = 28.428, kind = "signal", signal = "speed_limit", dir = -1 },
   { km = 28.521, kind = "signal", label = "2B", signal = "main_repeated", dir = 1, measured = true },
   { km = 28.632, kind = "signal", label = "1B", signal = "main_repeated", dir = 1, measured = true },
-  { km = 28.632, kind = "halt", label = "Kledt", pos = [48.27385, 13.73952] },
+  { km = 28.656, kind = "halt", label = "Kledt", pos = [48.27385, 13.73952] },
   { km = 28.851, kind = "signal", label = "B/n", signal = "distant,main,speed_limit,speed_limit_distant", dir = 1, measured = true },
   { km = 28.951, kind = "signal", label = "VHT101", signal = "shunting", dir = -1, measured = true },
   { km = 29.135, kind = "signal", label = "V101R", signal = "shunting", dir = 1, measured = true },
@@ -539,7 +539,7 @@ points = [
   { km = 18.056, kind = "signal", label = "VHT101", signal = "shunting", dir = -1, measured = true },
   { km = 18.148, kind = "signal", label = "V2", signal = "shunting", dir = 1, measured = true },
   { km = 18.537, kind = "signal", label = "H1", signal = "main,shunting,speed_limit", dir = -1, measured = true },
-  { km = 18.995, kind = "station", label = "Grieskirchen-Gallspach", uic = "8100022", pos = [48.23125, 13.83896] },
+  { km = 19.005, kind = "station", label = "Grieskirchen-Gallspach", uic = "8100022", pos = [48.23125, 13.83896] },
   { km = 19.144, kind = "signal", label = "R1", signal = "main,shunting", dir = 1, measured = true },
   { km = 19.357, kind = "signal", signal = "speed_limit", dir = 1 },
   { km = 19.36, kind = "signal", signal = "speed_limit", dir = -1 },
@@ -580,7 +580,7 @@ points = [
   { km = 28.428, kind = "signal", signal = "speed_limit", dir = -1 },
   { km = 28.521, kind = "signal", label = "2B", signal = "main_repeated", dir = 1, measured = true },
   { km = 28.632, kind = "signal", label = "1B", signal = "main_repeated", dir = 1, measured = true },
-  { km = 28.632, kind = "halt", label = "Kledt", pos = [48.27385, 13.73952] },
+  { km = 28.656, kind = "halt", label = "Kledt", pos = [48.27385, 13.73952] },
   { km = 28.851, kind = "signal", label = "B/n", signal = "distant,main,speed_limit,speed_limit_distant", dir = 1, measured = true },
   { km = 28.951, kind = "signal", label = "VHT101", signal = "shunting", dir = -1, measured = true },
   { km = 29.135, kind = "signal", label = "V101R", signal = "shunting", dir = 1, measured = true },
@@ -884,7 +884,7 @@ lines = [
 ]
 
 [[connections]]
-km = 28.632
+km = 28.656
 station = "Kledt"
 lines = [
   { id = "lokalbahn-neumarkt-waizenkirchen", name = "Lokalbahn Neumarkt – Waizenkirchen", km = 1.138 },

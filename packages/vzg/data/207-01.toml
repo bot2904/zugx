@@ -26,7 +26,7 @@ points = [
   { km = 5.61, kind = "signal", signal = "station_distant", dir = 1 },
   { km = 6.225, kind = "signal", signal = "speed_limit", dir = 1 },
   { km = 6.234, kind = "signal", signal = "speed_limit", dir = -1 },
-  { km = 6.439, kind = "halt", label = "Wendling bei Haag", uic = "8101785", pos = [48.24653, 13.6503] },
+  { km = 6.44, kind = "halt", label = "Wendling bei Haag", uic = "8101785", pos = [48.24653, 13.6503] },
   { km = 7.243, kind = "signal", signal = "station_distant", dir = -1 },
   { km = 7.701, kind = "signal", signal = "speed_limit", dir = 1 },
   { km = 7.709, kind = "signal", signal = "speed_limit", dir = -1 },

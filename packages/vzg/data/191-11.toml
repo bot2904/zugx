@@ -21,7 +21,7 @@ points = [
   { km = 6.3, kind = "signal", label = "H734", signal = "main,shunting", dir = -1, measured = true },
   { km = 6.376, kind = "signal", label = "F392/g,l", signal = "distant,main,shunting", dir = -1, measured = true },
   { km = 6.66, kind = "signal", label = "V744H", signal = "shunting", dir = -1, measured = true },
-  { km = 6.772, kind = "station", label = "Wien Zentralfriedhof", uic = "8101820", pos = [48.15411, 16.4261] },
+  { km = 6.758, kind = "station", label = "Wien Zentralfriedhof", uic = "8101820", pos = [48.15411, 16.4261] },
   { km = 6.926, kind = "signal", label = "R744", signal = "main,shunting", dir = 1, measured = true },
   { km = 7.027, kind = "signal", label = "V754H", signal = "shunting", dir = -1, measured = true },
   { km = 7.193, kind = "signal", label = "V754R", signal = "shunting", dir = 1, measured = true },
@@ -40,10 +40,10 @@ segments = [
 posts = [[8, 48.14374, 16.43228], [7, 48.15206, 16.42726]]
 
 [[connections]]
-km = 6.772
+km = 6.758
 station = "Wien Zentralfriedhof"
 lines = [
-  { id = "105-01", ref = "105 01", name = "Südbahn", km = -6.529 },
-  { id = "118-01", ref = "118 01", name = "Ostbahn", km = 4.854 },
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = -6.527 },
+  { id = "118-01", ref = "118 01", name = "Ostbahn", km = 4.856 },
   { id = "191-01", ref = "191 01", name = "Pressburger Bahn", km = 6.756 },
 ]

@@ -53,7 +53,7 @@ points = [
   { km = 5.215, kind = "signal", signal = "speed_limit,whistle", dir = -1 },
   { km = 5.237, kind = "signal", signal = "snowplow", dir = 1 },
   { km = 5.266, kind = "signal", signal = "speed_limit", dir = -1 },
-  { km = 5.359, kind = "station", label = "Ferlach", pos = [46.52299, 14.30432] },
+  { km = 5.369, kind = "station", label = "Ferlach", pos = [46.52299, 14.30432] },
 ]
 structures = [
   { kind = "bridge", kmFrom = 0.45, kmTo = 0.459, length = 10 },

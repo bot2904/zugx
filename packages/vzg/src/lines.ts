@@ -376,19 +376,28 @@ export function buildTrack(
       if (p) p.pos = [round(st.lat, 5), round(st.lon, 5)];
       continue;
     }
+    // distance to the path's segments (not only its nodes: a station beside a long straight
+    // way can be far from the nearest node), km interpolated at the foot point
     let best = Infinity;
-    let at = 0;
-    for (let i = 0; i < pts.length; i++) {
-      const d = distKm(pts[i]!, [st.lat, st.lon]);
+    let kmFoot = 0;
+    const kx = 111.32 * Math.cos((st.lat * Math.PI) / 180);
+    for (let i = 0; i + 1 < pts.length; i++) {
+      const [a, b] = [pts[i]!, pts[i + 1]!];
+      const ax = (a[1] - st.lon) * kx;
+      const ay = (a[0] - st.lat) * 111.32;
+      const dx = (b[1] - a[1]) * kx;
+      const dy = (b[0] - a[0]) * 111.32;
+      const f = Math.max(0, Math.min(1, -(ax * dx + ay * dy) / (dx * dx + dy * dy || 1e-12)));
+      const d = Math.hypot(ax + f * dx, ay + f * dy);
       if (d < best) {
         best = d;
-        at = i;
+        kmFoot = kmAt[i]! + f * (kmAt[i + 1]! - kmAt[i]!);
       }
     }
     if (best > 0.25) continue;
     const pos = parsePosition(st.tags["railway:position:exact"] ?? st.tags["railway:position"]);
     points.push({
-      km: round(pos ?? kmAt[at]!),
+      km: round(pos ?? kmFoot),
       kind: st.tags.railway!,
       label: name,
       ...(st.tags.uic_ref ? { uic: st.tags.uic_ref } : {}),

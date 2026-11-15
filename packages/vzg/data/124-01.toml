@@ -104,8 +104,8 @@ points = [
   { km = 12.25, kind = "signal", label = "VHT601", signal = "shunting", dir = -1, measured = true },
   { km = 12.278, kind = "signal", label = "X/c,m", signal = "distant,main", dir = -1, measured = true },
   { km = 12.35, kind = "signal", label = "A/e", signal = "distant,main", dir = 1, measured = true },
+  { km = 12.443, kind = "station", label = "Neulaa", uic = "8110051", pos = [48.14577, 16.38561] },
   { km = 12.496, kind = "signal", signal = "electricity", dir = 1 },
-  { km = 12.496, kind = "station", label = "Neulaa", uic = "8110051", pos = [48.14577, 16.38561] },
   { km = 12.5, kind = "signal", signal = "electricity", dir = -1 },
   { km = 12.582, kind = "signal", signal = "electricity", dir = 1 },
   { km = 12.588, kind = "signal", signal = "electricity", dir = -1 },
@@ -119,7 +119,7 @@ points = [
   { km = 13.309, kind = "signal", label = "V1w", signal = "shunting", dir = -1, measured = true },
   { km = 13.398, kind = "signal", label = "V5", signal = "shunting", dir = 1, measured = true },
   { km = 13.542, kind = "signal", label = "H2", signal = "main,shunting", dir = -1, measured = true },
-  { km = 13.579, kind = "station", label = "Oberlaa", uic = "8170176", pos = [48.14231, 16.39989] },
+  { km = 13.576, kind = "station", label = "Oberlaa", uic = "8170176", pos = [48.14231, 16.39989] },
   { km = 14.166, kind = "signal", signal = "speed_limit_distant", dir = -1 },
   { km = 14.21, kind = "signal", label = "R2", signal = "main,shunting", dir = 1, measured = true },
   { km = 14.371, kind = "signal", label = "V52", signal = "shunting", dir = -1, measured = true },
@@ -145,7 +145,7 @@ points = [
   { km = 18.102, kind = "signal", label = "V12", signal = "shunting", dir = 1, measured = true },
   { km = 18.181, kind = "signal", label = "H309", signal = "main,shunting", dir = -1, measured = true },
   { km = 18.779, kind = "signal", label = "K309", signal = "main,shunting", dir = 1, measured = true },
-  { km = 18.846, kind = "station", label = "Wien Kaiserebersdorf", uic = "8100374", pos = [48.14617, 16.46543] },
+  { km = 18.862, kind = "station", label = "Wien Kaiserebersdorf", uic = "8100374", pos = [48.14617, 16.46543] },
   { km = 18.922, kind = "signal", label = "V56H", signal = "shunting", dir = -1, measured = true },
   { km = 19.094, kind = "signal", label = "V409H", signal = "shunting", dir = -1, measured = true },
   { km = 19.4, kind = "signal", label = "e439", signal = "distant", dir = 1, measured = true },
@@ -320,8 +320,8 @@ points = [
   { km = 12.25, kind = "signal", label = "VHT601", signal = "shunting", dir = -1, measured = true },
   { km = 12.278, kind = "signal", label = "X/c,m", signal = "distant,main", dir = -1, measured = true },
   { km = 12.35, kind = "signal", label = "A/e", signal = "distant,main", dir = 1, measured = true },
+  { km = 12.443, kind = "station", label = "Neulaa", uic = "8110051", pos = [48.14577, 16.38561] },
   { km = 12.496, kind = "signal", signal = "electricity", dir = 1 },
-  { km = 12.496, kind = "station", label = "Neulaa", uic = "8110051", pos = [48.14577, 16.38561] },
   { km = 12.5, kind = "signal", signal = "electricity", dir = -1 },
   { km = 12.582, kind = "signal", signal = "electricity", dir = 1 },
   { km = 12.588, kind = "signal", signal = "electricity", dir = -1 },
@@ -335,7 +335,7 @@ points = [
   { km = 13.309, kind = "signal", label = "V1w", signal = "shunting", dir = -1, measured = true },
   { km = 13.398, kind = "signal", label = "V5", signal = "shunting", dir = 1, measured = true },
   { km = 13.542, kind = "signal", label = "H2", signal = "main,shunting", dir = -1, measured = true },
-  { km = 13.579, kind = "station", label = "Oberlaa", uic = "8170176", pos = [48.14231, 16.39989] },
+  { km = 13.576, kind = "station", label = "Oberlaa", uic = "8170176", pos = [48.14231, 16.39989] },
   { km = 14.166, kind = "signal", signal = "speed_limit_distant", dir = -1 },
   { km = 14.21, kind = "signal", label = "R2", signal = "main,shunting", dir = 1, measured = true },
   { km = 14.371, kind = "signal", label = "V52", signal = "shunting", dir = -1, measured = true },
@@ -361,7 +361,7 @@ points = [
   { km = 18.102, kind = "signal", label = "V12", signal = "shunting", dir = 1, measured = true },
   { km = 18.181, kind = "signal", label = "H309", signal = "main,shunting", dir = -1, measured = true },
   { km = 18.779, kind = "signal", label = "K309", signal = "main,shunting", dir = 1, measured = true },
-  { km = 18.846, kind = "station", label = "Wien Kaiserebersdorf", uic = "8100374", pos = [48.14617, 16.46543] },
+  { km = 18.862, kind = "station", label = "Wien Kaiserebersdorf", uic = "8100374", pos = [48.14617, 16.46543] },
   { km = 18.922, kind = "signal", label = "V56H", signal = "shunting", dir = -1, measured = true },
   { km = 19.094, kind = "signal", label = "V409H", signal = "shunting", dir = -1, measured = true },
   { km = 19.4, kind = "signal", label = "e439", signal = "distant", dir = 1, measured = true },
@@ -497,7 +497,7 @@ lines = [
 ]
 
 [[connections]]
-km = 18.846
+km = 18.862
 station = "Wien Kaiserebersdorf"
 lines = [
   { id = "191-01", ref = "191 01", name = "Pressburger Bahn", km = 11.077 },

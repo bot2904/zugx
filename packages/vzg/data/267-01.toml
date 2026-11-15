@@ -219,8 +219,8 @@ points = [
   { km = 25.014, kind = "signal", signal = "snowplow", dir = 1 },
   { km = 25.063, kind = "signal", signal = "stop", dir = -1 },
   { km = 25.082, kind = "signal", signal = "stop_demand" },
+  { km = 25.092, kind = "station", label = "Stuhlfelden Ort", uic = "8100314", pos = [47.28579, 12.52672] },
   { km = 25.095, kind = "stop", label = "Stuhlfelden", uic = "8100314", pos = [47.2858, 12.52666] },
-  { km = 25.095, kind = "station", label = "Stuhlfelden Ort", uic = "8100314", pos = [47.28579, 12.52672] },
   { km = 25.124, kind = "signal", signal = "stop", dir = 1 },
   { km = 25.169, kind = "signal", signal = "snowplow", dir = 1 },
   { km = 25.204, kind = "signal", signal = "speed_limit", dir = 1 },
@@ -346,5 +346,5 @@ lines = [
 km = 2.216
 station = "Kitzsteinhornstraße"
 lines = [
-  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", km = 97.289 },
+  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", km = 97.275 },
 ]

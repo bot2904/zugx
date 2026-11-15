@@ -285,7 +285,7 @@ points = [
   { km = 25.338, kind = "signal", label = "E55", signal = "main", dir = -1 },
   { km = 25.448, kind = "signal", signal = "crossing_distant", dir = -1 },
   { km = 25.5, kind = "halt", label = "Baden Leesdorf", pos = [47.99957, 16.25146] },
-  { km = 26.297, kind = "halt", label = "Baden", uic = "8100025", pos = [48.00404, 16.24279] },
+  { km = 26.3, kind = "halt", label = "Baden", uic = "8100025", pos = [48.00404, 16.24279] },
   { km = 26.418, kind = "stop", label = "Baden Viadukt", pos = [48.00385, 16.24082] },
   { km = 27.015, kind = "stop", label = "Baden Josefsplatz", pos = [48.00584, 16.23378] },
   { km = 27.145, kind = "signal", label = "Z43", signal = "main", dir = 1, measured = true },
@@ -374,6 +374,6 @@ lines = [
 km = 26.418
 station = "Baden Viadukt"
 lines = [
-  { id = "105-01", ref = "105 01", name = "Südbahn", km = 26.126 },
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 26.126 },
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 26.129 },
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 26.129 },
 ]

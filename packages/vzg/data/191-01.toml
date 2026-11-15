@@ -901,13 +901,13 @@ posts = [[56, 48.13619, 17.00372], [55, 48.14047, 16.99207], [54, 48.1435, 16.97
 km = 6.756
 station = "Wien Zentralfriedhof"
 lines = [
-  { id = "105-01", ref = "105 01", name = "Südbahn", km = -6.529 },
-  { id = "118-01", ref = "118 01", name = "Ostbahn", km = 4.854 },
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = -6.527 },
+  { id = "118-01", ref = "118 01", name = "Ostbahn", km = 4.856 },
 ]
 
 [[connections]]
 km = 11.077
 station = "Wien Kaiserebersdorf"
 lines = [
-  { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 18.846 },
+  { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 18.862 },
 ]

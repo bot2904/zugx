@@ -74,7 +74,7 @@ points = [
   { km = 14.43, kind = "signal", signal = "crossing_distant", dir = -1 },
   { km = 14.609, kind = "signal", signal = "shunting", dir = -1 },
   { km = 14.794, kind = "signal", signal = "shunting", dir = -1 },
-  { km = 14.794, kind = "station", label = "Weiz Bahnhof", uic = "8101813", pos = [47.21466, 15.63061] },
+  { km = 14.799, kind = "station", label = "Weiz Bahnhof", uic = "8101813", pos = [47.21466, 15.63061] },
   { km = 15.074, kind = "signal", signal = "main", dir = 1 },
   { km = 15.147, kind = "signal", label = "SV 174", signal = "shunting", dir = 1 },
   { km = 15.365, kind = "signal", label = "SZ 176", signal = "main", dir = -1 },

@@ -64,7 +64,7 @@ points = [
   { km = 10.839, kind = "signal", signal = "shunting", dir = -1 },
   { km = 10.856, kind = "signal", signal = "speed_limit", dir = -1 },
   { km = 11.021, kind = "signal", signal = "stop", dir = -1 },
-  { km = 11.021, kind = "station", label = "Kirchberg-Thürnau", pos = [48.27519, 14.16575] },
+  { km = 11.023, kind = "station", label = "Kirchberg-Thürnau", pos = [48.27519, 14.16575] },
   { km = 11.175, kind = "signal", signal = "speed_limit", dir = 1 },
   { km = 11.219, kind = "signal", signal = "shunting", dir = 1 },
   { km = 11.261, kind = "signal", signal = "main,resetting_switch,speed_limit", dir = -1 },
@@ -82,7 +82,7 @@ points = [
   { km = 15.008, kind = "signal", signal = "main", dir = 1 },
   { km = 15.081, kind = "signal", signal = "crossing_distant", dir = -1 },
   { km = 15.099, kind = "signal", signal = "shunting", dir = -1 },
-  { km = 15.648, kind = "station", label = "Alkoven", pos = [48.28815, 14.11501] },
+  { km = 15.635, kind = "station", label = "Alkoven", pos = [48.28815, 14.11501] },
   { km = 16.531, kind = "halt", label = "Alkoven Schule", pos = [48.28626, 14.10346] },
   { km = 18.206, kind = "halt", label = "Straß-Emling", pos = [48.28785, 14.08198] },
   { km = 21.446, kind = "stop", label = "Fraham", pos = [48.28747, 14.03965] },
@@ -273,7 +273,7 @@ km = 1.817
 station = "Linz Untergaumberg"
 lines = [
   { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 184.002 },
-  { id = "204-01", ref = "204 01", name = "Pyhrnbahn", km = 1.394 },
+  { id = "204-01", ref = "204 01", name = "Pyhrnbahn", km = 1.413 },
 ]
 
 [[connections]]

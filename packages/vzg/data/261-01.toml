@@ -132,8 +132,8 @@ points = [
   { km = 30.851, kind = "signal", signal = "crossing_distant", dir = 1 },
   { km = 31.035, kind = "signal", signal = "speed_limit", dir = -1 },
   { km = 31.088, kind = "signal", signal = "crossing_distant", dir = -1 },
+  { km = 31.262, kind = "halt", label = "St. Georgen an der Mattig", uic = "8101506", pos = [48.21627, 13.09884] },
   { km = 31.265, kind = "stop", label = "St. Georgen an der Mattig", uic = "8101506", pos = [48.21633, 13.09888] },
-  { km = 31.265, kind = "halt", label = "St. Georgen an der Mattig", uic = "8101506", pos = [48.21627, 13.09884] },
   { km = 31.404, kind = "signal", signal = "speed_limit_distant", dir = -1 },
   { km = 31.925, kind = "signal", signal = "station_distant", dir = -1 },
   { km = 32.049, kind = "signal", signal = "crossing_distant", dir = -1 },
@@ -181,5 +181,5 @@ posts = [[36, 48.25261, 13.07352], [35, 48.24364, 13.07554], [34, 48.2348, 13.07
 km = 0.587
 station = "Steindorf bei Straßwalchen"
 lines = [
-  { id = "101-02", ref = "101 02", name = "Westbahn", km = 287.406 },
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 287.408 },
 ]

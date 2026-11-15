@@ -15,13 +15,13 @@ points = [
   { km = 0.349, kind = "signal", label = "n5", signal = "distant", dir = 1, measured = true },
   { km = 0.563, kind = "signal", label = "T5/h", signal = "distant,main,shunting", dir = -1, measured = true },
   { km = 0.772, kind = "signal", label = "P5/q", signal = "distant,main,shunting", dir = 1, measured = true },
+  { km = 0.857, kind = "station", label = "Innsbruck Stubaitalbf", pos = [47.25354, 11.39771] },
   { km = 0.865, kind = "signal", label = "V627H", signal = "shunting", dir = -1, measured = true },
-  { km = 0.865, kind = "station", label = "Innsbruck Stubaitalbf", pos = [47.25354, 11.39771] },
   { km = 0.932, kind = "signal", label = "V627R", signal = "shunting", dir = 1, measured = true },
   { km = 1.02, kind = "signal", label = "V637H", signal = "shunting", dir = -1, measured = true },
   { km = 1.051, kind = "signal", label = "V637R", signal = "shunting", dir = 1, measured = true },
   { km = 1.245, kind = "signal", label = "S7/t", signal = "distant,main,shunting", dir = -1, measured = true },
-  { km = 1.356, kind = "station", label = "Innsbruck Westbf", uic = "8100109", ele = 583, pos = [47.25552, 11.39148] },
+  { km = 1.355, kind = "station", label = "Innsbruck Westbf", uic = "8100109", ele = 583, pos = [47.25552, 11.39148] },
   { km = 1.829, kind = "signal", label = "1Q7", signal = "main_repeated", dir = 1, measured = true },
   { km = 1.889, kind = "signal", label = "Q7", signal = "main,shunting", dir = 1, measured = true },
   { km = 2.067, kind = "signal", label = "V767H", signal = "shunting", dir = -1, measured = true },
@@ -35,15 +35,15 @@ segments = [
 posts = [[1, 47.25473, 11.39593], [2, 47.25495, 11.38304]]
 
 [[connections]]
-km = 0.865
+km = 0.857
 station = "Innsbruck Stubaitalbf"
 lines = [
-  { id = "101-05", ref = "101 05", name = "Arlbergbahn", km = 0.867 },
+  { id = "101-05", ref = "101 05", name = "Arlbergbahn", km = 0.863 },
   { id = "stubaitalbahn", name = "Stubaitalbahn", km = 0.014 },
 ]
 
 [[connections]]
-km = 1.356
+km = 1.355
 station = "Innsbruck Westbf"
 lines = [
   { id = "101-05", ref = "101 05", name = "Arlbergbahn", km = 1.353 },

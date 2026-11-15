@@ -37,7 +37,9 @@ points = [
   { km = 8.593, kind = "signal", label = "V114H", signal = "shunting", dir = -1, measured = true },
   { km = 8.792, kind = "signal", label = "V105", signal = "shunting", dir = 1, measured = true },
   { km = 8.899, kind = "signal", label = "Q204", signal = "main,shunting", dir = -1, measured = true },
+  { km = 9.201, kind = "station", label = "Wien Leopoldau", uic = "8101170", pos = [48.27755, 16.44937], measured = true },
   { km = 9.816, kind = "signal", label = "R204", signal = "main,shunting", dir = 1, measured = true },
+  { km = 14.541, kind = "station", label = "Leopoldau", uic = "8170129", pos = [48.27758, 16.45207], measured = true },
 ]
 structures = [
   { kind = "bridge", kmFrom = 0.063, kmTo = 0.087, length = 24 },
@@ -73,4 +75,12 @@ station = "Wien Siemensstraße"
 lines = [
   { id = "114-01", ref = "114 01", name = "Nordbahn", km = 6.912 },
   { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 6.911 },
+]
+
+[[connections]]
+km = 14.541
+station = "Leopoldau"
+lines = [
+  { id = "114-01", ref = "114 01", name = "Nordbahn", km = 14.541 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 14.541 },
 ]

@@ -87,7 +87,7 @@ points = [
   { km = 16.24, kind = "halt", label = "Mattersburg Hirtengasse", uic = "8102015", pos = [47.74146, 16.4025], measured = true },
   { km = 16.373, kind = "signal", signal = "speed_limit", dir = 1 },
   { km = 16.383, kind = "signal", signal = "speed_limit", dir = -1 },
-  { km = 16.999, kind = "station", label = "Mattersburg", uic = "8100408", ele = 243, pos = [47.73575, 16.40894] },
+  { km = 16.997, kind = "station", label = "Mattersburg", uic = "8100408", ele = 243, pos = [47.73575, 16.40894] },
   { km = 18.513, kind = "signal", signal = "station_distant", dir = 1 },
   { km = 19.375, kind = "signal", signal = "snowplow", dir = 1 },
   { km = 19.492, kind = "halt", label = "Marz-Rohrbach", uic = "8100472", pos = [47.71756, 16.42883], measured = true },

@@ -73,12 +73,12 @@ posts = [[80, 46.62036, 14.79467], [81, 46.61181, 14.79545], [82, 46.60298, 14.7
 km = 79.949
 station = "Wiederndorf-Aich"
 lines = [
-  { id = "401-01", ref = "401 01", name = "Koralmbahn", km = 87.27 },
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", km = 87.279 },
 ]
 
 [[connections]]
 km = 94.368
 station = "Mittlern"
 lines = [
-  { id = "401-01", ref = "401 01", name = "Koralmbahn", km = 94.363 },
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", km = 94.398 },
 ]

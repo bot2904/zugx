@@ -20,7 +20,7 @@ points = [
   { km = 1.482, kind = "signal", signal = "electricity", dir = 1, measured = true },
   { km = 1.598, kind = "signal", signal = "electricity", dir = -1, measured = true },
   { km = 1.598, kind = "signal", signal = "electricity", dir = 1, measured = true },
-  { km = 1.744, kind = "halt", label = "Lustenau Museum", pos = [47.44788, 9.66041] },
+  { km = 1.742, kind = "halt", label = "Lustenau Museum", pos = [47.44788, 9.66041] },
   { km = 1.78, kind = "signal", signal = "electricity", dir = -1 },
   { km = 1.8, kind = "signal", label = "A*501", signal = "distant", dir = -1, measured = true },
   { km = 1.827, kind = "signal", label = "1A", signal = "main_repeated", dir = 1, measured = true },

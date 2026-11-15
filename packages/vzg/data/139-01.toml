@@ -23,9 +23,11 @@ points = [
   { km = 1.804, kind = "signal", signal = "speed_limit", dir = -1 },
   { km = 1.817, kind = "signal", label = "VHT63", signal = "shunting", dir = -1, measured = true },
   { km = 8.899, kind = "signal", label = "Q204", signal = "main,shunting", dir = -1, measured = true },
+  { km = 9.201, kind = "station", label = "Wien Leopoldau", uic = "8101170", pos = [48.27755, 16.44937], measured = true },
   { km = 9.816, kind = "signal", label = "R204", signal = "main,shunting", dir = 1, measured = true },
   { km = 9.993, kind = "signal", label = "V284H", signal = "shunting", dir = -1, measured = true },
   { km = 10.124, kind = "signal", label = "V284R", signal = "shunting", dir = 1, measured = true },
+  { km = 14.541, kind = "station", label = "Leopoldau", uic = "8170129", pos = [48.27758, 16.45207], measured = true },
 ]
 
 [tracks.geo]
@@ -34,3 +36,21 @@ segments = [
   { line = "}oteH{hmcBjOhhA", v = 70 },
 ]
 posts = [[1, 48.28188, 16.46933], [0, 48.27903, 16.45654]]
+
+[[connections]]
+km = 9.201
+station = "Wien Leopoldau"
+lines = [
+  { id = "114-01", ref = "114 01", name = "Nordbahn", km = 9.077 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 9.072 },
+  { id = "138-01", ref = "138 01", name = "Floridsdorfer Hochbahn", km = 9.201 },
+]
+
+[[connections]]
+km = 14.541
+station = "Leopoldau"
+lines = [
+  { id = "114-01", ref = "114 01", name = "Nordbahn", km = 14.541 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 14.541 },
+  { id = "138-01", ref = "138 01", name = "Floridsdorfer Hochbahn", km = 14.541 },
+]

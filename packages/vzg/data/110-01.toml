@@ -237,7 +237,7 @@ points = [
   { km = 46.347, kind = "signal", label = "h8/GA118H", signal = "distant,speed_limit", dir = -1, measured = true },
   { km = 46.609, kind = "stop", label = "St. Pölten Hauptbahnhof", pos = [48.20845, 15.62666] },
   { km = 46.751, kind = "stop", label = "St. Pölten Hauptbahnhof", pos = [48.20855, 15.62475] },
-  { km = 46.751, kind = "station", label = "St. Pölten Hauptbahnhof", uic = "8101032", ele = 273, pos = [48.20828, 15.62468] },
+  { km = 46.755, kind = "station", label = "St. Pölten Hauptbahnhof", uic = "8101032", ele = 273, pos = [48.20828, 15.62468] },
   { km = 60.289, kind = "signal", label = "T8", signal = "departure,main,shunting", dir = -1, measured = true },
   { km = 60.446, kind = "signal", label = "Sch208R/1E8", signal = "departure,main_repeated,minor", dir = 1, measured = true },
   { km = 60.517, kind = "signal", label = "Sch308H/1T8,1T10", signal = "departure,main_repeated,minor", dir = -1, measured = true },
@@ -302,7 +302,7 @@ lines = [
 km = 7.049
 station = "Tullnerfeld"
 lines = [
-  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 30 },
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 29.855 },
 ]
 
 [[connections]]

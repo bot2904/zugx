@@ -44,7 +44,7 @@ points = [
   { km = 236.662, kind = "signal", label = "V101R", signal = "shunting", dir = 1, measured = true },
   { km = 237.31, kind = "signal", label = "V111H", signal = "shunting", dir = -1, measured = true },
   { km = 237.334, kind = "signal", label = "H201", signal = "main", dir = -1, measured = true },
-  { km = 237.554, kind = "station", label = "Schwanenstadt", uic = "8101090", pos = [48.05357, 13.76722] },
+  { km = 237.552, kind = "station", label = "Schwanenstadt", uic = "8101090", pos = [48.05357, 13.76722] },
   { km = 237.947, kind = "signal", label = "R201", signal = "main,speed_limit", dir = 1, measured = true },
   { km = 237.967, kind = "signal", label = "V211R", signal = "shunting", dir = 1, measured = true },
   { km = 238.422, kind = "signal", label = "V401H", signal = "shunting", dir = -1, measured = true },
@@ -103,7 +103,7 @@ points = [
   { km = 247.145, kind = "signal", label = "za21", signal = "distant", dir = -1, measured = true },
   { km = 247.293, kind = "signal", label = "H1", signal = "main,speed_limit", dir = -1, measured = true },
   { km = 247.423, kind = "signal", label = "Sch401", signal = "minor", dir = -1, measured = true },
-  { km = 248.028, kind = "station", label = "Vöcklabruck", uic = "8101093", pos = [48.01008, 13.66378] },
+  { km = 247.97, kind = "station", label = "Vöcklabruck", uic = "8101093", pos = [48.01008, 13.66378] },
   { km = 248.137, kind = "signal", label = "R1", signal = "main", dir = 1, measured = true },
   { km = 248.345, kind = "signal", label = "V62", signal = "shunting", dir = -1, measured = true },
   { km = 248.444, kind = "signal", label = "V701", signal = "shunting", dir = -1, measured = true },
@@ -124,7 +124,7 @@ points = [
   { km = 253.074, kind = "signal", label = "H1", signal = "main", dir = -1, measured = true },
   { km = 253.318, kind = "station", label = "Timelkam", pos = [48.00802, 13.59586], uic = "8101095" },
   { km = 253.628, kind = "signal", label = "R1", signal = "main", dir = 1, measured = true },
-  { km = 253.715, kind = "halt", label = "Timelkam Energie-AG", pos = [48.00947, 13.5911] },
+  { km = 253.702, kind = "halt", label = "Timelkam Energie-AG", pos = [48.00947, 13.5911] },
   { km = 253.974, kind = "signal", label = "V59", signal = "shunting", dir = -1, measured = true },
   { km = 254.179, kind = "signal", label = "VHT601", signal = "shunting", dir = 1, measured = true },
   { km = 254.32, kind = "signal", label = "Z/h", signal = "distant,main", dir = -1, measured = true },
@@ -143,7 +143,7 @@ points = [
   { km = 258.939, kind = "signal", label = "VHT101", signal = "shunting", dir = -1, measured = true },
   { km = 259.033, kind = "signal", label = "V101", signal = "shunting", dir = 1, measured = true },
   { km = 259.236, kind = "signal", label = "H1", signal = "main", dir = -1, measured = true },
-  { km = 259.821, kind = "station", label = "Redl-Zipf", uic = "8101097", pos = [48.02626, 13.51499] },
+  { km = 259.72, kind = "station", label = "Redl-Zipf", uic = "8101097", pos = [48.02626, 13.51499] },
   { km = 259.938, kind = "signal", label = "R1", signal = "main", dir = 1, measured = true },
   { km = 259.978, kind = "signal", signal = "speed_limit", dir = 1 },
   { km = 259.983, kind = "signal", signal = "speed_limit", dir = -1 },
@@ -164,7 +164,7 @@ points = [
   { km = 263.492, kind = "signal", label = "V6", signal = "shunting", dir = 1, measured = true },
   { km = 263.626, kind = "signal", label = "H1", signal = "main", dir = -1, measured = true },
   { km = 263.798, kind = "signal", label = "1H1", signal = "main_repeated", dir = -1, measured = true },
-  { km = 264.055, kind = "station", label = "Vöcklamarkt", uic = "8101098", pos = [47.99801, 13.48945] },
+  { km = 264.05, kind = "station", label = "Vöcklamarkt", uic = "8101098", pos = [47.99801, 13.48945] },
   { km = 264.196, kind = "signal", label = "1R1", signal = "main_repeated", dir = 1, measured = true },
   { km = 264.381, kind = "signal", label = "R1", signal = "main,speed_limit", dir = 1, measured = true },
   { km = 264.509, kind = "signal", label = "V301H", signal = "shunting", dir = -1, measured = true },
@@ -274,7 +274,7 @@ points = [
   { km = 286.575, kind = "signal", signal = "electricity", dir = -1 },
   { km = 286.636, kind = "signal", label = "V101R", signal = "shunting", dir = 1, measured = true },
   { km = 286.826, kind = "signal", label = "H1/z", signal = "distant,main", dir = -1, measured = true },
-  { km = 287.406, kind = "station", label = "Steindorf bei Straßwalchen", uic = "8101105", pos = [47.96692, 13.23922] },
+  { km = 287.408, kind = "station", label = "Steindorf bei Straßwalchen", uic = "8101105", pos = [47.96692, 13.23922] },
   { km = 287.598, kind = "signal", label = "N301/r", signal = "distant,main,shunting", dir = 1, measured = true },
   { km = 287.731, kind = "signal", label = "V53", signal = "shunting", dir = -1, measured = true },
   { km = 287.814, kind = "signal", label = "V60", signal = "shunting", dir = -1, measured = true },
@@ -526,7 +526,7 @@ length = 114.954
 speeds = [[196.932, 196.936, 230, 230], [196.936, 211.448, 200, 200], [211.448, 212.537, 160, 160], [212.537, 212.56, 130, 130], [212.56, 212.566, 60, 60], [212.566, 212.571, 130, 130], [212.571, 213.654, 160, 160], [213.654, 228.498, 200, 200], [228.498, 232.554, 230, 230], [232.554, 240.419, 200, 200], [240.419, 242.984, 160, 160], [242.984, 244.246, 80, 80], [244.246, 246.272, 130, 130], [246.272, 246.757, 120, 130], [246.757, 247.169, 100, 100], [247.169, 248.028, 120, 120], [248.028, 249.09, 140, 140], [249.09, 252.894, 150, 150], [252.894, 252.995, 100, 150], [252.995, 253.094, 160, 100], [253.094, 258.521, 160, 160], [258.521, 259.997, 140, 140], [259.997, 260.241, 120, 120], [260.241, 261.391, 130, 130], [261.391, 263.254, 130, 140], [263.254, 265.799, 120, 120], [265.799, 267.238, 100, 100], [267.238, 267.343, 120, 100], [267.343, 270.139, 120, 120], [270.139, 273.515, 110, 110], [273.515, 276.913, 100, 100], [276.913, 278.707, 110, 110], [278.707, 279.271, 90, 90], [279.271, 281.453, 130, 130], [281.453, 282.355, 95, 95], [282.355, 284.806, 130, 130], [284.806, 285.35, 110, 110], [285.35, 285.752, 95, 95], [285.752, 286.453, 110, 110], [286.453, 289.193, 130, 130], [289.193, 289.854, 100, 100], [289.854, 292.25, 130, 130], [292.25, 293.204, 110, 110], [293.204, 295.508, 140, 140], [295.508, 296.145, 110, 110], [296.145, 298.492, 100, 100], [298.492, 302.994, 110, 110], [302.994, 303.254, 90, 90], [303.254, 310.851, 95, 95], [310.851, 310.92, 60, 60], [310.92, 312.47, 95, 95]]
 curves = [[197.957, 198.082, 2220], [198.332, 198.457, 2200], [198.582, 198.732, 2210], [198.782, 198.882, 2750], [198.982, 199.057, 2760], [199.107, 199.232, 2430], [199.407, 199.532, 1850], [199.707, 200.007, 2630], [207.182, 207.257, 2230], [207.682, 207.757, 2530], [208.057, 208.107, 2580], [212.555, 212.57, 840], [217.103, 217.178, 2890], [217.328, 217.427, 2280], [217.852, 217.902, 2340], [225.045, 225.42, 2720], [225.594, 225.744, 2010], [225.895, 226.02, 2440], [226.07, 226.12, 2520], [226.245, 226.345, 2310], [226.395, 226.546, 2390], [226.672, 226.797, 2250], [227.073, 227.147, 2280], [229.836, 229.912, 2670], [229.987, 230.087, 2600], [230.212, 230.312, 2460], [230.462, 230.588, 2730], [230.713, 230.913, 2670], [231.063, 231.163, 2170], [231.288, 231.388, 2240], [231.488, 231.588, 2530], [231.713, 231.813, 2370], [231.938, 232.063, 2590], [239.676, 239.726, 2870], [243.003, 243.052, 2340], [243.552, 243.601, 2370], [243.651, 243.851, 880], [243.902, 244.157, 590], [244.371, 244.86, 1180], [245.784, 246.284, 990], [246.742, 247.167, 520], [248.245, 249.022, 900], [251.258, 252.043, 1250], [254.205, 254.807, 1960], [255.258, 256.011, 2310], [259.843, 261.396, 810], [262.599, 263.8, 1410], [263.875, 264.279, 1040], [264.41, 264.703, 1240], [265.856, 266.407, 580], [266.828, 267.204, 520], [269.714, 270.474, 900], [271.069, 271.419, 680], [271.495, 272.345, 580], [272.597, 273.251, 960], [273.501, 274.378, 470], [275.681, 275.981, 860], [276.155, 276.906, 430], [277.837, 277.986, 1880], [278.036, 278.086, 2950], [278.733, 279.252, 480], [279.506, 280.185, 1160], [280.538, 281.061, 1190], [281.511, 282.366, 480], [282.793, 283.192, 1520], [285.314, 285.498, 1350], [285.548, 286.421, 760], [287.857, 288.204, 1670], [289.283, 289.813, 560], [292.365, 293.137, 580], [293.212, 294.014, 1540], [295.514, 295.865, 700], [296.192, 296.842, 480], [296.943, 297.243, 640], [297.596, 298.047, 510], [298.122, 298.447, 570], [298.67, 299.047, 2050], [299.944, 300.571, 690], [301.595, 301.82, 1490], [302.196, 302.901, 640], [302.979, 303.278, 550], [303.367, 304.066, 670], [304.199, 304.89, 400], [305.014, 306.056, 740], [306.181, 306.776, 700], [306.925, 307.482, 430], [307.557, 308.029, 440], [308.352, 309.409, 680], [309.559, 309.959, 500], [310.255, 310.763, 390], [311.314, 311.789, 960], [312.09, 312.215, 1350], [312.29, 312.366, 1160]]
 points = [
-  { km = 199.078, kind = "station", label = "Lambach", uic = "8101086", pos = [48.094, 13.88835] },
+  { km = 199.092, kind = "station", label = "Lambach", uic = "8101086", pos = [48.094, 13.88835] },
   { km = 202.337, kind = "signal", signal = "snowplow", dir = 1 },
   { km = 202.544, kind = "signal", signal = "snowplow", dir = 1 },
   { km = 207.041, kind = "signal", signal = "snowplow", dir = 1 },
@@ -734,7 +734,7 @@ points = [
   { km = 253.036, kind = "signal", label = "H2", signal = "main", dir = -1, measured = true },
   { km = 253.315, kind = "station", label = "Timelkam", pos = [48.00802, 13.59586], uic = "8101095" },
   { km = 253.691, kind = "signal", label = "R2", signal = "main", dir = 1, measured = true },
-  { km = 253.691, kind = "halt", label = "Timelkam Energie-AG", pos = [48.00947, 13.5911] },
+  { km = 253.701, kind = "halt", label = "Timelkam Energie-AG", pos = [48.00947, 13.5911] },
   { km = 253.869, kind = "signal", label = "V57", signal = "shunting", dir = -1, measured = true },
   { km = 253.953, kind = "signal", label = "V58", signal = "shunting", dir = -1, measured = true },
   { km = 254.179, kind = "signal", label = "VHT602", signal = "shunting", dir = 1, measured = true },
@@ -757,7 +757,7 @@ points = [
   { km = 258.939, kind = "signal", label = "VHT102", signal = "shunting", dir = -1, measured = true },
   { km = 259.028, kind = "signal", label = "V102", signal = "shunting", dir = 1, measured = true },
   { km = 259.219, kind = "signal", label = "H2", signal = "main", dir = -1, measured = true },
-  { km = 259.825, kind = "station", label = "Redl-Zipf", uic = "8101097", pos = [48.02626, 13.51499] },
+  { km = 259.723, kind = "station", label = "Redl-Zipf", uic = "8101097", pos = [48.02626, 13.51499] },
   { km = 259.907, kind = "signal", label = "R2", signal = "main", dir = 1, measured = true },
   { km = 259.982, kind = "signal", signal = "speed_limit", dir = 1 },
   { km = 259.987, kind = "signal", signal = "speed_limit", dir = -1 },
@@ -781,7 +781,7 @@ points = [
   { km = 263.523, kind = "signal", label = "V5", signal = "shunting", dir = 1, measured = true },
   { km = 263.646, kind = "signal", label = "H2", signal = "main", dir = -1, measured = true },
   { km = 263.798, kind = "signal", label = "1H2", signal = "main_repeated", dir = -1, measured = true },
-  { km = 264.053, kind = "station", label = "Vöcklamarkt", uic = "8101098", pos = [47.99801, 13.48945] },
+  { km = 264.046, kind = "station", label = "Vöcklamarkt", uic = "8101098", pos = [47.99801, 13.48945] },
   { km = 264.08, kind = "signal", label = "1R2", signal = "main_repeated", dir = 1, measured = true },
   { km = 264.317, kind = "signal", label = "R2", signal = "main,speed_limit", dir = 1, measured = true },
   { km = 264.432, kind = "signal", label = "V302H", signal = "shunting", dir = -1, measured = true },
@@ -901,7 +901,7 @@ points = [
   { km = 286.66, kind = "signal", label = "V102R", signal = "shunting", dir = 1, measured = true },
   { km = 286.752, kind = "signal", label = "V5", signal = "shunting", dir = 1, measured = true },
   { km = 286.882, kind = "signal", label = "H2/y,z", signal = "distant,main", dir = -1, measured = true },
-  { km = 287.406, kind = "station", label = "Steindorf bei Straßwalchen", uic = "8101105", pos = [47.96692, 13.23922] },
+  { km = 287.408, kind = "station", label = "Steindorf bei Straßwalchen", uic = "8101105", pos = [47.96692, 13.23922] },
   { km = 287.528, kind = "signal", label = "N302/r", signal = "distant,main,shunting,speed_limit,speed_limit_distant", dir = 1, measured = true },
   { km = 287.839, kind = "signal", label = "V61", signal = "shunting", dir = -1, measured = true },
   { km = 287.979, kind = "signal", label = "M402/h,f", signal = "distant,main,speed_limit,speed_limit_distant", dir = -1, measured = true },
@@ -1190,21 +1190,21 @@ lines = [
 ]
 
 [[connections]]
-km = 253.715
+km = 253.702
 station = "Timelkam Energie-AG"
 lines = [
   { id = "ampflwanger-bahn", name = "Ampflwanger Bahn", km = 0.143 },
 ]
 
 [[connections]]
-km = 264.055
+km = 264.05
 station = "Vöcklamarkt"
 lines = [
-  { id = "lokalbahn-voecklamarkt-attersee", name = "Lokalbahn Vöcklamarkt – Attersee", km = 0 },
+  { id = "lokalbahn-voecklamarkt-attersee", name = "Lokalbahn Vöcklamarkt – Attersee", km = 0.002 },
 ]
 
 [[connections]]
-km = 287.406
+km = 287.408
 station = "Steindorf bei Straßwalchen"
 lines = [
   { id = "261-01", ref = "261 01", name = "Mattigtalbahn", km = 0.587 },

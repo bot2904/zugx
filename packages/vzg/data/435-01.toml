@@ -733,5 +733,12 @@ lines = [
 km = 17.246
 station = "Wettmannstätten"
 lines = [
-  { id = "401-01", ref = "401 01", name = "Koralmbahn", km = 31.324 },
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", km = 31.302 },
+]
+
+[[connections]]
+km = 24.359
+station = "Weststeiermark"
+lines = [
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", km = 38.404 },
 ]

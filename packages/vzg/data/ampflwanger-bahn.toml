@@ -35,5 +35,5 @@ posts = [[0, 48.00878, 13.59269], [1, 48.01438, 13.59777], [2, 48.02293, 13.5997
 km = 0.143
 station = "Timelkam Energie-AG"
 lines = [
-  { id = "101-02", ref = "101 02", name = "Westbahn", km = 253.715 },
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 253.702 },
 ]
