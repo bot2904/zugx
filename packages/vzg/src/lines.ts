@@ -601,7 +601,15 @@ export function networkPieces(
       ...(Number.isFinite(etcs) && etcs > 0 ? { etcs } : {}),
       ...(t["railway:pzb"] ? { pzb: t["railway:pzb"] !== "no" } : {}),
       ...(t.gauge ? { g: t.gauge } : {}),
-      tr: otherDirection && !otherDirection.has(e.way.id) ? 2 : 1,
+      // double track: in the Austrian OSM data each track of a double-track line carries a
+      // preferred direction (forward/backward), single-track lines none (or "both"); also where
+      // the two computed directions run on different ways
+      tr:
+        t["railway:preferred_direction"] === "forward" ||
+        t["railway:preferred_direction"] === "backward" ||
+        (otherDirection && !otherDirection.has(e.way.id))
+          ? 2
+          : 1,
     };
   };
   const key = (a: Omit<NetPiece, "line">) => JSON.stringify(a);
