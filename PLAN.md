@@ -1003,7 +1003,7 @@ Goal: the same app for Italy, France … — ideally in one instance — by swap
 
 ## Sources
 
-- public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
+- public-transport-enabler `OebbProvider`: https://github.com/schildbach/public-transport-enabler/blob/master/src/de/schildbach/pte/OebbProvider.java
 - KDE KPublicTransport ÖBB network config: https://autoconfig.kde.org/kpublictransport/networks/at_oebb-26.04.0.json
 - hafas-client ÖBB profile: https://cdn.jsdelivr.net/npm/hafas-client@6.3.6/p/oebb/readme.md
 - hafas-client readme: https://cdn.jsdelivr.net/npm/hafas-client@6.3.6/readme.md
