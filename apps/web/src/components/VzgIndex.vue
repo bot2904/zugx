@@ -80,6 +80,7 @@ useKeys({
       <span class="muted text-sm"
         ><VzgAbbr :text="$t('vzg.subtitle', { n: index.lines.length })"
       /></span>
+      <RouterLink to="/vzg/netz" class="text-sm">{{ $t("vzg.netTitle") }} →</RouterLink>
       <search class="contents">
         <input
           v-model="q"

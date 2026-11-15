@@ -594,3 +594,15 @@ test.describe("SVG snapshots of the Kamptalbahn (174 01)", () => {
     svgSnapshot(page, "/vzg/174-01?ansicht=band", "174-01-streckenband.svg"));
   test("line map", ({ page }) => svgSnapshot(page, "/vzg/174-01/map", "174-01-map.svg"));
 });
+
+test("network map: all lines, colour by attribute, line links", async ({ page }) => {
+  await page.goto("/vzg");
+  await page.getByRole("link", { name: /Network map|Netzkarte|Mappa della rete/ }).click();
+  await expect(page).toHaveURL(/\/vzg\/netz$/);
+  const svg = page.locator(".map-card svg");
+  await expect(svg.locator("a.net-line").first()).toBeAttached();
+  expect(await svg.locator("a.net-line").count()).toBeGreaterThan(150);
+  await page.getByRole("button", { name: /^(Operator|Betreiber|Gestore)$/ }).click();
+  await expect(page).toHaveURL(/attr=operator/);
+  await expect(svg.locator("text", { hasText: "ÖBB-Infrastruktur AG" })).toBeVisible();
+});
