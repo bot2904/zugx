@@ -148,6 +148,21 @@ export default {
     trains: "{n} trains in view",
     hint: "Positions are calculated by ÖBB HAFAS.",
   },
+  poster: {
+    title: "Departure poster",
+    departure: "Departure",
+    live: "Live departures",
+    count: "{n} departures",
+    print: "Print",
+    noData: "No timetable data for this station (only stations in the ÖBB GTFS).",
+    none: "No departures on this day.",
+    platform: "Platform",
+    via: "via",
+    source:
+      "Timetable {begin} – {end}, {source}. No guarantee; changes and realtime: live departures.",
+    link: "Departure poster",
+    linkTip: "All departures of a day from the annual timetable, like the poster in the station",
+  },
   bf: {
     indexDay: "trains/day and train mix on {day}",
     plan: {

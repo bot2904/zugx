@@ -20,6 +20,11 @@ export const router = createRouter({
   routes: [
     { path: "/", component: () => import("./pages/Home.vue") },
     { path: "/s", component: () => import("./pages/StationSearch.vue") },
+    {
+      path: "/station/:id/plan",
+      component: () => import("./pages/DeparturePoster.vue"),
+      meta: { wide: true },
+    },
     { path: "/station/:id", component: () => import("./pages/StationBoard.vue") },
     { path: "/j/:from/:to", component: () => import("./pages/Journeys.vue") },
     { path: "/trip/:recon", component: () => import("./pages/JourneyDetail.vue") },

@@ -150,6 +150,21 @@ export default {
     trains: "{n} Züge im Ausschnitt",
     hint: "Positionen werden von ÖBB HAFAS berechnet.",
   },
+  poster: {
+    title: "Abfahrtsplan",
+    departure: "Abfahrt",
+    live: "Live-Abfahrten",
+    count: "{n} Abfahrten",
+    print: "Drucken",
+    noData: "Für diesen Bahnhof gibt es keine Fahrplandaten (nur Bahnhöfe im ÖBB-GTFS).",
+    none: "Keine Abfahrten an diesem Tag.",
+    platform: "Gleis",
+    via: "über",
+    source:
+      "Fahrplan {begin} – {end}, {source}. Ohne Gewähr; Änderungen und Echtzeit: Live-Abfahrten.",
+    link: "Abfahrtsplan",
+    linkTip: "Alle Abfahrten eines Tages aus dem Jahresfahrplan, wie der Aushang im Bahnhof",
+  },
   bf: {
     indexDay: "Züge/Tag und Zugmix am {day}",
     plan: {

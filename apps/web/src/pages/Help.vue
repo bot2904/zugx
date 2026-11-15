@@ -54,6 +54,11 @@ const { locale } = useI18n();
         Hbf führen auch Straßenbahn und Bus – diese lassen sich über die Filter einblenden. Der
         Stern merkt den Bahnhof als Favorit; der Wikidata-Link führt zum Bahnhof auf Wikidata.
       </p>
+      <p>
+        <strong>Abfahrtsplan</strong> (Link auf der Abfahrtstafel): alle Abfahrten eines Tages aus
+        dem Jahresfahrplan, gestaltet wie der Aushang im Bahnhof – nach Stunden, mit Zug, Ziel,
+        Unterwegshalten und Gleis; Datum wählbar (←/→), druckbar. Ohne Echtzeit.
+      </p>
 
       <h2 id="zuglauf">Zuglauf</h2>
       <p>
@@ -333,6 +338,11 @@ const { locale } = useI18n();
         refreshes automatically. Big stations such as Wien Hbf also list trams and buses – enable
         them with the filters. The star saves the station as a favourite; the Wikidata link opens
         the station on Wikidata.
+      </p>
+      <p>
+        <strong>Departure poster</strong> (link on the station board): all departures of a day from
+        the annual timetable, laid out like the poster in the station – by hour, with train,
+        destination, following stops and platform; choose the date (←/→), print it. No realtime.
       </p>
 
       <h2 id="zuglauf">Train run</h2>

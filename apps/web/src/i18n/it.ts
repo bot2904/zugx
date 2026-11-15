@@ -150,6 +150,21 @@ export default {
     trains: "{n} treni visibili",
     hint: "Posizioni calcolate da ÖBB HAFAS.",
   },
+  poster: {
+    title: "Orario partenze",
+    departure: "Partenza",
+    live: "Partenze in tempo reale",
+    count: "{n} partenze",
+    print: "Stampa",
+    noData: "Nessun dato d'orario per questa stazione (solo stazioni nel GTFS ÖBB).",
+    none: "Nessuna partenza in questo giorno.",
+    platform: "Binario",
+    via: "via",
+    source:
+      "Orario {begin} – {end}, {source}. Senza garanzia; modifiche e tempo reale: partenze in tempo reale.",
+    link: "Orario partenze",
+    linkTip: "Tutte le partenze di un giorno dall'orario annuale, come il manifesto in stazione",
+  },
   bf: {
     indexDay: "treni/giorno e composizione il {day}",
     plan: {

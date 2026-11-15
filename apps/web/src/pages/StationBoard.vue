@@ -238,6 +238,10 @@ watch(sel, (i) =>
         v-tip="$t('board.wikidataTip')"
         >Wikidata ↗</a
       >
+      <!-- the printed-style departure poster of the timetable (GTFS) -->
+      <RouterLink :to="`/station/${id}/plan`" class="text-xs" v-tip="$t('poster.linkTip')">{{
+        $t("poster.link")
+      }}</RouterLink>
       <div class="ml-auto flex gap-1">
         <button class="btn" :class="!arrivals && 'btn-on'" @click="setQuery({ arr: undefined })">
           {{ $t("board.departures") }}

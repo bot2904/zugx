@@ -242,6 +242,24 @@ test("route chunk missing after a deploy: one full load instead of a blank page"
   expect(failed).toBe(true);
 });
 
+test("departure poster: all departures of a day from the timetable, by hour", async ({ page }) => {
+  await page.goto("/station/8100013");
+  await page
+    .getByRole("link", { name: /^(Abfahrtsplan|Departure poster|Orario partenze)$/ })
+    .click();
+  await expect(page).toHaveURL(/\/station\/8100013\/plan/);
+  await page.goto("/station/8100013/plan?d=2026-03-10");
+  const poster = page.locator(".poster");
+  await expect(poster.locator(".station")).toHaveText(/Linz/);
+  expect(await poster.locator(".dep").count()).toBeGreaterThan(200);
+  await expect(poster.locator(".hour-head").first()).toBeVisible();
+  // a train links to its run on that day
+  await expect(poster.locator(".dep a").first()).toHaveAttribute("href", /\/train\/.*d=2026-03-10/);
+  // next day
+  await page.keyboard.press("ArrowRight");
+  await expect(page).toHaveURL(/d=2026-03-11/);
+});
+
 test("document titles: view · selection · zugx", async ({ page }) => {
   await page.goto("/bf/400?from=7&d=2026-03-10");
   await expect(page).toHaveTitle(/^[^·]+ · 400 .+ · zugx$/);

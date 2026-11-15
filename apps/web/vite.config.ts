@@ -86,10 +86,10 @@ export default defineConfig({
         navigateFallbackDenylist: [/^\/api\//, /\.txt$/],
         // big, rarely used data (67 Bildfahrplan corridors, 156 VzG lines, full train index): not precached on
         // install, cached on first use instead (hashed file names → cache-first is safe)
-        globIgnores: ["**/corridor-*.js", "**/vzg-*.js", "**/trains-*.full-*.js"],
+        globIgnores: ["**/corridor-*.js", "**/vzg-*.js", "**/dep-*.js", "**/trains-*.full-*.js"],
         runtimeCaching: [
           {
-            urlPattern: /\/assets\/(corridor-|vzg-|trains-\d{4}\.full-)[^/]+\.js$/,
+            urlPattern: /\/assets\/(corridor-|vzg-|dep-|trains-\d{4}\.full-)[^/]+\.js$/,
             handler: "CacheFirst",
             options: { cacheName: "zugx-data", expiration: { maxEntries: 40 } },
           },
@@ -126,6 +126,7 @@ export default defineConfig({
           if (id.endsWith("/index.toml")) return "assets/[name]-[hash].js";
           if (id.includes("/netz/data/corridors/")) return "assets/corridor-[name]-[hash].js";
           if (id.includes("/vzg/data/")) return "assets/vzg-[name]-[hash].js";
+          if (id.includes("/trains/data/departures/")) return "assets/dep-[name]-[hash].js";
           return "assets/[name]-[hash].js";
         },
       },
