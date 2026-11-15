@@ -153,11 +153,11 @@ const { locale } = useI18n();
         </li>
         <li>
           <strong>Kapazität</strong>: die Sperrzeitentreppe – je Zug und Blockabschnitt (von
-          Hauptsignal zu Hauptsignal, aus OpenStreetMap) die Zeit, in der der Abschnitt für andere
-          Züge gesperrt ist, im Diagramm als Kästchen; rot = Konflikt. Die Tabelle zeigt je
-          Blockabschnitt die Belegung im Zeitfenster, die längste Sperrzeit und den Engpass.
-          Einstellbar: Vorsignalabstand, Fahrstraßen- und Reaktionszeit, Auflösezeit, Zuglängen,
-          Toleranz.
+          Hauptsignal zu Hauptsignal, bei ETCS Level 2 von ETCS-Halttafel zu ETCS-Halttafel, aus
+          OpenStreetMap) die Zeit, in der der Abschnitt für andere Züge gesperrt ist, im Diagramm
+          als Kästchen; rot = Konflikt. Die Tabelle zeigt je Blockabschnitt die Belegung im
+          Zeitfenster, die längste Sperrzeit und den Engpass. Einstellbar: Vorsignalabstand,
+          Fahrstraßen- und Reaktionszeit, Auflösezeit, Zuglängen, Toleranz.
         </li>
         <li>
           <strong>Pünktlichkeit (Echtzeit)</strong>: wo Züge Zeit verlieren, je Abschnitt und Halt,
@@ -424,11 +424,11 @@ const { locale } = useI18n();
         </li>
         <li>
           <strong>Capacity</strong>: the blocking-time stairway – per train and block section (main
-          signal to main signal, from OpenStreetMap) the time the section is blocked for other
-          trains, drawn as boxes in the chart; red = conflict. The table shows per block section the
-          occupancy of the time window, the longest blocking time and the bottleneck. Adjustable:
-          distant signal distance, route setting and reaction time, release time, train lengths,
-          tolerance.
+          signal to main signal, on ETCS Level 2 from ETCS marker to ETCS marker, from
+          OpenStreetMap) the time the section is blocked for other trains, drawn as boxes in the
+          chart; red = conflict. The table shows per block section the occupancy of the time window,
+          the longest blocking time and the bottleneck. Adjustable: distant signal distance, route
+          setting and reaction time, release time, train lengths, tolerance.
         </li>
         <li>
           <strong>Punctuality (live)</strong>: where trains lose time, per stretch and stop, from

@@ -100,7 +100,7 @@ export function linesThrough(lines: VzgLine[], stations: Coord[], maxKm = 0.25) 
 }
 
 /**
- * Main signals (block boundaries) between two stations: `(posA, posB, lengthKm)` → each main or
+ * Main signals and ETCS markers (block boundaries) between two stations: `(posA, posB, lengthKm)` → each main or
  * combined signal on the VzG track that has both stations, as the fraction `f` of the way from A
  * to B and the direction it applies to (1 = trains from A towards B, −1 = from B towards A); per
  * direction the Regelgleis of that direction where a line has two. Plus the stations in between
@@ -146,7 +146,13 @@ export function signalLookup(lines: VzgLine[], maxKm = 0.4) {
         // double track: the Regelgleis of this direction ("1" = towards increasing km)
         if (tracks.length > 1 && t.track !== (lineDir === 1 ? "1" : "2")) continue;
         for (const p of t.points) {
-          if (p.kind !== "signal" || p.dir !== lineDir || !/main|combined/.test(p.signal ?? ""))
+          // main and combined signals; ETCS markers: the block boundaries of ETCS Level 2
+          // lines without lineside signals (e.g. Koralmbahn)
+          if (
+            p.kind !== "signal" ||
+            p.dir !== lineDir ||
+            !/main|combined|train_protection/.test(p.signal ?? "")
+          )
             continue;
           const f = (p.km - ka) / (kb - ka);
           if (f > 0.001 && f < 0.999) out.push({ f, dir: rel });

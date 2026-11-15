@@ -57,8 +57,8 @@ major = ["Wien Westbf", "Neulengbach", "St. Pölten Hbf"]
 names = ["Wien Westbf", "Wien Penzing", "Wien Hütteldorf", "Wien Wolf in der Au", "Wien Hadersdorf", "Wien Weidlingau", "Purkersdorf Sanatorium Bhf.", "Unterpurkersdorf", "Purkersdorf Zentrum", "Untertullnerbach", "Tullnerbach-Pressbaum", "Pressbaum", "Dürrwien", "Rekawinkel", "Eichgraben-Altlengbach", "Maria Anzbach", "Neulengbach Stadt", "Neulengbach", "Ollersbach", "Kirchstetten", "Böheimkirchen", "Pottenbrunn", "St. Pölten Hbf"]
 cats = { S = 369, REX = 81, CJX = 58, RJX = 57, IC = 44, EC = 25, NJ = 11, ICE = 8, D = 8, EN = 8, RJ = 5 }
 lines = [
-  { id = "101-01", ref = "101 01", name = "Westbahn", stations = 21 },
-  { id = "103-01", ref = "103 01", name = "Westbahn", stations = 18 },
+  { id = "101-01", ref = "101 01", name = "Westbahn", stations = 22 },
+  { id = "103-01", ref = "103 01", name = "Westbahn", stations = 19 },
   { id = "123-01", ref = "123 01", name = "Verbindungsbahn", stations = 6 },
   { id = "130-01", ref = "130 01", name = "Neue Westbahn", stations = 4 },
 ]
@@ -393,7 +393,7 @@ lines = [
   { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", stations = 23 },
   { id = "222-01", ref = "222 01", name = "Tauernbahn", stations = 17 },
   { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", stations = 12 },
-  { id = "401-01", ref = "401 01", name = "Koralmbahn", stations = 4 },
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", stations = 5 },
 ]
 
 [[corridors]]
@@ -539,7 +539,7 @@ cats = { S = 659, REX = 206, RJX = 83, IC = 64, CJX = 54, IR = 54, RJ = 45, EC =
 lines = [
   { id = "105-01", ref = "105 01", name = "Südbahn", stations = 26 },
   { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", stations = 13 },
-  { id = "401-01", ref = "401 01", name = "Koralmbahn", stations = 4 },
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", stations = 5 },
   { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 3 },
   { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
   { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
@@ -1179,7 +1179,7 @@ names = ["Graz Hbf", "Weststeiermark", "St.Paul im Lavanttal", "Kühnsdorf-Klope
 cats = { S = 87, RJ = 35, REX = 27, RJX = 22, ICE = 9, IC = 4, NJ = 4, EC = 1 }
 lines = [
   { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", stations = 12 },
-  { id = "401-01", ref = "401 01", name = "Koralmbahn", stations = 6 },
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", stations = 7 },
 ]
 
 [[corridors]]
