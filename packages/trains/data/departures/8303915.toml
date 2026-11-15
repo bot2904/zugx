@@ -1,0 +1,54 @@
+id = "8303915"
+name = "Tarvisio Boscoverde"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["////////////////////////////////////////////////////////////8A==", "fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv378A==", "gQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIEAA==", "///////+ffn//8+f///58///////////////////////////////////////4A==", "AAAAAAABAgQAACBAAAAECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==", "////////f/3//+/f///9+///////////////////////////////////////8A==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/////////////////////////////8A==", "gx4tGDBgwYMGDBgwYMHDBgw4MGDhowYMGDBgwYMGDBgwYMGDBgwYOGDBgwYNEA==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIMGDBgwYMGDBgwYMGDBgwYOGDBgwYNEA=="]
+deps = [
+  [405,"R","1895","8300107",["8300115"],8,"1"],
+  [511,"D","1820","8100147",["8101675","8100056","8100368","8100382"],0,"1"],
+  [622,"REX","1821","8300115",[],7,"1"],
+  [777,"RJX","134","8100085",["8100147"],0,"1"],
+  [1017,"RJX","132","8100085",["8100147"],1,"1"],
+  [1017,"RJX","136","8100085",["8100147"],2,"1"],
+  [1114,"D","1822","8100147",["8101675","8100056","8100368","8100382"],0,"1"],
+  [1197,"RJX","130","8100085",["8100147"],0,"1"],
+  [1205,"REX","1823","8300115",[],0,"1"],
+  [1224,"REX","1894","8100147",["8100056"],6,"1"],
+  [1445,"NJ","236","8100002",["8100147"],0,"1"],
+  [1445,"NJ","40236","8103000",["8100147","8100002","8100017","8100014","8100013","8100012","8100008","8100514"],0,"1"],
+  [1549,"NJ","295","8300262",["8300217"],5,"1"],
+  [1549,"NJ","40233","8300262",["8300217"],5,"1"],
+  [1653,"NJ","294","8100002",["8100147","8100044"],3,"1"],
+  [1653,"NJ","294","8100042",["8100147","8100044"],4,"1"],
+  [1653,"NJ","40294","8103000",["8100147","8100085","8100173","8100516","8100514"],5,"1"],
+  [1770,"NJ","237","8300094",["8300115","8300093"],0,"1"],
+  [1770,"NJ","40466","8300094",["8300115","8300093"],0,"1"],
+]
+
+[names]
+8100002 = "Salzburg Hbf"
+8100008 = "St.Pölten Hbf"
+8100012 = "Amstetten NÖ Bahnhof"
+8100013 = "Linz/Donau Hbf"
+8100014 = "Wels Hbf"
+8100017 = "Attnang-Puchheim Bahnhof"
+8100042 = "Bischofshofen Bahnhof"
+8100044 = "Schwarzach im Pongau-St.Veit Bahnhof"
+8100056 = "Arnoldstein Bahnhof"
+8100085 = "Klagenfurt Hbf"
+8100147 = "Villach Hbf"
+8100173 = "Graz Hbf"
+8100368 = "Fürnitz Bahnhof"
+8100382 = "Villach Warmbad Bahnhof"
+8100514 = "Wien Meidling Bahnhof"
+8100516 = "Wr.Neustadt Hbf"
+8101675 = "Thörl-Maglern Bahnhst"
+8103000 = "Wien Hbf"
+8300093 = "Venezia Mestre"
+8300094 = "Venezia Santa Lucia"
+8300107 = "Trieste Centrale"
+8300115 = "Udine"
+8300217 = "Bologna Centrale"
+8300262 = "Roma Tiburtina"

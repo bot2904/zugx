@@ -1,0 +1,12 @@
+id = "8100216"
+name = "Baumgarten im Bgld-Schattendorf Bahnhof"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["fOHS58+fPnz58+fPnz48+fPHzp8edPnz58+fPnz58+fPnz58+fPnx58+fPny4A=="]
+deps = [
+  [1084,"REX","7691","8100361",["8100220"],0,"1"],
+]
+
+names = { 8100220 = "Draßburg Bahnhst", 8100361 = "Wulkaprodersdorf Bahnhof" }

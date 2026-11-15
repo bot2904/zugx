@@ -1,0 +1,13 @@
+id = "5100020"
+name = "Katowice"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["////////wf8H//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==", "AAAAAAAAAAAAAA//////////////////////////////////////////////4A=="]
+deps = [
+  [1355,"IC","407","5400038",[],0,"1"],
+  [1358,"IC","407","5400038",[],1,"1"],
+]
+
+names = { 5400038 = "Bohumin" }

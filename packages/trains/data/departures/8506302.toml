@@ -1,0 +1,13 @@
+id = "8506302"
+name = "St. Gallen(CH)"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///////////////////+AAAAAAAAAAA=="]
+deps = [
+  [464,"EC","13473","8506314",[],0,""],
+  [958,"RJX","13483","8506314",[],0,""],
+]
+
+names = { 8506314 = "St. Margrethen SG" }

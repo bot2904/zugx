@@ -1,0 +1,23 @@
+id = "8300115"
+name = "Udine"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["////////////////////////////////////////////////////////////8A==", "gx4tGDBgwYMGDBgwYMHDBgw4MGDBowYMGDBgwYMGDBgwYMGDBgwYMGDBgwYNEA==", "gx4tGDBgwYMGDBgwYMHDBgw4MGDhowYMGDBgwYMGDBgwYMGDBgwYOGDBgwYNEA==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/////////////////////////////8A==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIMGDBgwYMGDBgwYMGDBgwYOGDBgwYNEA=="]
+deps = [
+  [434,"REX","1820","8303915",[],0,"1"],
+  [486,"R","1895","8300107",[],5,"1"],
+  [694,"REX","1817","8300107",[],1,"1"],
+  [704,"RJX","134","8303915",[],0,"1"],
+  [777,"REX","1895","8300107",[],3,"1"],
+  [1035,"REX","1822","8303915",[],0,"1"],
+  [1138,"R","1894","8303915",[],4,"1"],
+  [1277,"REX","1819","8300107",[],2,"1"],
+  [1367,"NJ","236","8303915",[],0,"1"],
+  [1367,"NJ","40236","8303915",[],0,"1"],
+  [1825,"NJ","237","8300094",["8300093"],0,"1"],
+  [1825,"NJ","40466","8300094",["8300093"],0,"1"],
+]
+
+names = { 8300093 = "Venezia Mestre", 8300094 = "Venezia Santa Lucia", 8300107 = "Trieste Centrale", 8303915 = "Tarvisio Boscoverde" }

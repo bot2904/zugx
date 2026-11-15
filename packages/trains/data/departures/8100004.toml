@@ -1,0 +1,14 @@
+id = "8100004"
+name = "Wien Hbf (Autoreisezug)"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/////////////////////////////8A==", "//////////////////////////////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==", "AAAAAAAAAAAAAAAAAAAAAACpUqVKlSpUqVKlSpUqVKlSpUqVKlQAAAAAAAAAAA=="]
+deps = [
+  [1137,"EN","1273","8100082",["8103000","8100514","8100516","8100032","8100173"],2,"13"],
+  [1354,"NJ","19946","8100090",["8103000","8100514","8100008","8100012","8100013","8100014","8100017","8100507"],0,"15"],
+  [1354,"NJ","446","8100090",["8103000","8100514","8100008","8100012","8100013","8100014","8100017","8100507"],1,"15"],
+]
+
+names = { 8100008 = "St.Pölten Hbf", 8100012 = "Amstetten NÖ Bahnhof", 8100013 = "Linz/Donau Hbf", 8100014 = "Wels Hbf", 8100017 = "Attnang-Puchheim Bahnhof", 8100032 = "Bruck/Mur Bahnhof", 8100082 = "Spielfeld-Straß in Stmk Bahnhof", 8100090 = "Bregenz Bahnhof", 8100173 = "Graz Hbf", 8100507 = "Vöcklabruck Bahnhof", 8100514 = "Wien Meidling Bahnhof", 8100516 = "Wr.Neustadt Hbf", 8103000 = "Wien Hbf" }

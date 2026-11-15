@@ -1,0 +1,12 @@
+id = "8300084"
+name = "Bolzano/Bozen"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/////////////////////////////8A=="]
+deps = [
+  [444,"RJX","186","8300092",["8300076","8300089"],0,"30299"],
+]
+
+names = { 8300076 = "Bressanone/Brixen", 8300089 = "Fortezza/Franzensfeste", 8300092 = "Brennero/Brenner" }

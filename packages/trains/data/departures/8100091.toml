@@ -1,0 +1,15 @@
+id = "8100091"
+name = "Kolbnitz Bahnhof"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["fOHS58+fPnz58+fPnz48+fPHzp8edPnz58+fPnz58+fPnz58+fPnx58+fPny4A=="]
+deps = [
+  [384,"R","4694","8100093",[],0,"1"],
+  [417,"R","4657","8100092",["8100087","8101373"],0,"1"],
+  [1039,"R","4696","8100093",[],0,"1"],
+  [1069,"R","4697","8100092",["8100087","8101373"],0,"1"],
+]
+
+names = { 8100087 = "Mühldorf-Möllbrücke Bahnhst", 8100092 = "Spittal/Drau-Millstätter See Bahnhof", 8100093 = "Mallnitz-Obervellach im Mölltal Bahnhof", 8101373 = "Pusarnitz Bahnhof" }

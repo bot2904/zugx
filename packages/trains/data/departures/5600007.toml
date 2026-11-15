@@ -1,0 +1,14 @@
+id = "5600007"
+name = "Kosice"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////////////////////////8A=="]
+deps = [
+  [247,"EC","46","5600207",[],0,"zug"],
+  [487,"EC","44","5600207",[],0,"zug"],
+  [727,"EC","42","5600207",[],0,"zug"],
+]
+
+names = { 5600207 = "Bratislava hl.st." }

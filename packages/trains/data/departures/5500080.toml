@@ -1,0 +1,23 @@
+id = "5500080"
+name = "Györ"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/////////////////////////////8A==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///////////////////+AAAAAAAAAAA==", "////////////////////////////////////////////////////////////8A==", "AAAA///+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==", "///9////////////////////////////////////////////////////////8A==", "AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==", "AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="]
+deps = [
+  [482,"RJX","19912","8100001",["8103000","8100514","8100008","8100013","8100002"],0,"51"],
+  [536,"EC","463","5500003",[],6,"51"],
+  [656,"RJX","19929","5500003",[],1,"51"],
+  [1196,"RJX","165","5500003",[],3,"51"],
+  [1196,"RJX","19915","5500003",[],1,"51"],
+  [1225,"D","347","5300007",[],2,"51"],
+  [1225,"D","40347","2200005",["5500058","5500061","5500064","2200010","2200033","Pua:22517","2200072","2200025"],2,"51"],
+  [1225,"D","50347","2200010",["5500058","5500061","5500064"],2,"51"],
+  [1893,"D","346","5500017",[],2,"51"],
+  [1893,"D","40007","5500017",[],2,"51"],
+  [1916,"EN","40467","5500003",[],4,"51"],
+  [1976,"EN","40467","5500003",[],5,"51"],
+]
+
+names = { 2200005 = "Kyiv Pasazhyrskyi", 2200010 = "Chop", 2200025 = "Lviv", 2200033 = "Mukacheve", 2200072 = "Stryj", 5300007 = "Bucuresti Nord Gara A", 5500003 = "Budapest-Keleti", 5500017 = "Hegyeshalom", 5500058 = "Debrecen", 5500061 = "Nyiregyhaza", 5500064 = "Zahony", 8100001 = "Kufstein Bahnhof", 8100002 = "Salzburg Hbf", 8100008 = "St.Pölten Hbf", 8100013 = "Linz/Donau Hbf", 8100514 = "Wien Meidling Bahnhof", 8103000 = "Wien Hbf", "Pua:22517" = "Swaljawa" }

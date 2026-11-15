@@ -1,0 +1,19 @@
+id = "8101014"
+name = "Johnsbach im Nationalpark Bahnhst"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["BECAIECBAgQIECBAgQIECBBAQgECEAgQIECBAgQIECBAgQIECBAgQIECBAgQIA==", "hUKBKFChQoUKFChQoUJFChRIUiEikQoUKFChQoUKFChQoUKFChQoSKFChQoRIA==", "gx4tGDBgwYMGDBgwYMHDBgw4MWDhiwYMGDBgwYMGDBgwYMGDBgwYOGDBgwYNEA=="]
+deps = [
+  [587,"R","1944","8100150",["8100161"],2,"1"],
+  [668,"R","1925","8101806",["8100159","8100158"],2,"1"],
+  [777,"R","1910","8100150",["8100161"],2,"1"],
+  [908,"R","1933","8100158",["8100159"],2,"1"],
+  [990,"IC","1114","8100150",["8100161"],0,"1"],
+  [1017,"R","1918","8100150",["8100161"],2,"1"],
+  [1093,"R","9109","8100012",["8100159","8100158","8101806","8100156","8101079","8100511","8100154","8101313"],2,"1"],
+  [1170,"IC","1115","8100003",["8100159","8100158","8101806","8100511","8100445","8101695","8100012","8100008"],1,"1"],
+]
+
+names = { 8100003 = "Wien Westbahnhof", 8100008 = "St.Pölten Hbf", 8100012 = "Amstetten NÖ Bahnhof", 8100150 = "Selzthal Bahnhof", 8100154 = "Gaflenz Bahnhst", 8100156 = "Kleinreifling Bahnhof", 8100158 = "Hieflau Bahnhof", 8100159 = "Gstatterboden im Nationalpark Bahnhof", 8100161 = "Admont Bahnhof", 8100445 = "Waidhofen/Ybbs Bahnhof", 8100511 = "Weyer/Enns Bahnhof", 8101079 = "Kastenreith Bahnhst", 8101313 = "Oberland OÖ Bahnhst", 8101695 = "Ulmerfeld-Hausmening Bahnhof", 8101806 = "Weißenbach/Enns-St.Gallen Bahnhof" }

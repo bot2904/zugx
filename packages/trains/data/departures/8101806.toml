@@ -1,0 +1,52 @@
+id = "8101806"
+name = "Weißenbach/Enns-St.Gallen Bahnhof"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["BECAIECBAgQIECBAgQIECBBAQgECEAgQIECBAgQIECBAgQIECBAgQIECBAgQIA==", "hUKBKFChQoUKFChQoUJFChRIUiEikQoUKFChQoUKFChQoUKFChQoSKFChQoRIA==", "fOHS58+fPnz58+fPnz48+fPHzp8edPnz58+fPnz58+fPnz58+fPnx58+fPny4A==", "////////////////////////////////////////////////////////////8A==", "gx4tGDBgwYMGDBgwYMHDBgw4MWDhiwYMGDBgwYMGDBgwYMGDBgwYOGDBgwYNEA=="]
+deps = [
+  [363,"R","3604","8100248",["8100156","8101079","8101099","8100876","8101431","8100463","8101686","8100322"],2,"1"],
+  [426,"R","3781","8100511",["8100156","8101079"],2,"1"],
+  [552,"R","1944","8100158",[],4,"1"],
+  [580,"REX","3612","8100009",["8100156","8101079","8101099","8100876","8101431","8100463","8101686","8100322"],2,"1"],
+  [704,"R","1925","8100012",["8100156","8101079","8100511","8100154","8101313","8101635","8100445","8100713"],4,"1"],
+  [738,"R","1910","8100158",[],4,"1"],
+  [818,"REX","3620","8100009",["8100156","8101079","8101099","8100876","8101431","8100463","8101686","8100322"],2,"1"],
+  [947,"R","1933","8100012",["8100156","8101079","8100511","8100154","8101313","8101635","8100445","8100713"],4,"1"],
+  [957,"IC","1114","8100150",["8100158","8100159","8101014","8100161"],0,"1"],
+  [978,"R","1918","8100158",[],4,"1"],
+  [999,"R","3628","8100248",["8100156","8101079","8101099","8100876","8101431","8100463","8101686","8100322"],2,"1"],
+  [1058,"REX","3630","8100009",["8100156","8101079","8101099","8100876","8101431","8100463","8101686","8100322"],2,"1"],
+  [1129,"R","9109","8100012",["8100156","8101079","8100511","8100154","8101313","8101635","8100445","8100713"],4,"1"],
+  [1181,"R","3731","8100156",[],3,"1"],
+  [1213,"IC","1115","8100003",["8100511","8100445","8101695","8100012","8100008","8100447"],1,"1"],
+]
+
+[names]
+8100003 = "Wien Westbahnhof"
+8100008 = "St.Pölten Hbf"
+8100009 = "St.Valentin Bahnhof"
+8100012 = "Amstetten NÖ Bahnhof"
+8100150 = "Selzthal Bahnhof"
+8100154 = "Gaflenz Bahnhst"
+8100156 = "Kleinreifling Bahnhof"
+8100158 = "Hieflau Bahnhof"
+8100159 = "Gstatterboden im Nationalpark Bahnhof"
+8100161 = "Admont Bahnhof"
+8100248 = "Garsten Bahnhof"
+8100322 = "Ternberg Bahnhst"
+8100445 = "Waidhofen/Ybbs Bahnhof"
+8100447 = "Wien Hütteldorf Bahnhof"
+8100463 = "Losenstein Bahnhst"
+8100511 = "Weyer/Enns Bahnhof"
+8100713 = "Böhlerwerk Bahnhof"
+8100876 = "Großraming Bahnhst"
+8101014 = "Johnsbach im Nationalpark Bahnhst"
+8101079 = "Kastenreith Bahnhst"
+8101099 = "Küpfern Bahnhst"
+8101313 = "Oberland OÖ Bahnhst"
+8101431 = "Reichraming Bahnhst"
+8101635 = "Waidhofen/Ybbs Stadt Bahnhof"
+8101686 = "Trattenbach/Enns Bahnhst"
+8101695 = "Ulmerfeld-Hausmening Bahnhof"

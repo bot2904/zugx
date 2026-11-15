@@ -1,0 +1,14 @@
+id = "8098160"
+name = "Berlin Hbf (Tiefgeschoß)"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAA/////////////////////////8AAAAAAAAAAAAA==", "AAAAAAAAAH/4D//8P//////AAAAAAAAAAAAAAAAAAAAAAAAAD///////////8A==", "///nx///f4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="]
+deps = [
+  [1211,"NJ","457","5400202",["8011113","5400003","5400201","5400014","5400001"],1,"14"],
+  [1211,"NJ","457","5400202",["8011113","5400003","5400201","5400014","5400001"],2,"3"],
+  [1213,"NJ","457","5400202",["8011113","5400003","5400201","5400014","5400001"],0,"14"],
+]
+
+names = { 5400001 = "Brno hl.n.", 5400003 = "Decin hl.n.", 5400014 = "Praha hl.n.", 5400201 = "Praha-Holesovice", 5400202 = "Breclav", 8011113 = "Berlin Südkreuz" }

@@ -1,0 +1,13 @@
+id = "5100066"
+name = "Warszawa Wschodnia"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["////////wf8H////////////////////////////////////////////////4A==", "AAAAAAAAPgD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="]
+deps = [
+  [1181,"IC","407","5400038",["5100020"],0,"1"],
+  [1181,"IC","407","5100020",[],1,"1"],
+]
+
+names = { 5100020 = "Katowice", 5400038 = "Bohumin" }

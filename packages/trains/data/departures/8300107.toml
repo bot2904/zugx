@@ -1,0 +1,15 @@
+id = "8300107"
+name = "Trieste Centrale"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["gx4tGDBgwYMGDBgwYMHDBgw4MGDhowYMGDBgwYMGDBgwYMGDBgwYOGDBgwYNEA==", "AAAAAAAAAAAGDBgwYMHDBgw4MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==", "gx4tGDBgwYMAAAAAAAAAAAAAAGDhowYMGDBgwYMGDBgwYMGDBgwYOGDBgwYNEA==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/////////////////////////////8A=="]
+deps = [
+  [343,"REX","1816","8300115",[],2,"1"],
+  [343,"REX","33750","8300115",[],1,"1"],
+  [945,"REX","1818","8300115",[],0,"1"],
+  [1072,"R","16644","8300115",[],3,"1"],
+]
+
+names = { 8300115 = "Udine" }

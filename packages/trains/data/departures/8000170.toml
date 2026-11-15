@@ -1,0 +1,15 @@
+id = "8000170"
+name = "Ulm Hbf"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["+f//////////////////////////////////////////////////////////4A==", "AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==", "AAAAA///////////////////////////////////////////////////////8A==", "+P///AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="]
+deps = [
+  [1313,"EN","50237","8000320",["8000013","8000262"],1,"1"],
+  [1313,"NJ","237","8000320",["8000013","8000262"],2,"1"],
+  [1313,"NJ","237","8000320",["8000013","8000262"],3,"2"],
+  [1899,"NJ","236","8000096",[],0,"1"],
+]
+
+names = { 8000013 = "Augsburg Hbf", 8000096 = "Stuttgart Hbf", 8000262 = "München Ost", 8000320 = "Rosenheim in Oberbayern" }

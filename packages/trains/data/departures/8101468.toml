@@ -1,0 +1,20 @@
+id = "8101468"
+name = "Säusenstein Bahnhof"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["gx4tGDBgwYMGDBgwYMHDBgw4MWDhiwYMGDBgwYMGDBgwYMGDBgwYOGDBgwYNEA==", "fOHS58+fPnz58+fPnz48+fPHzp8edPnz58+fPnz58+fPnz58+fPnx58+fPny4A==", "fuXa9+/fv379+/fv378+/fvX7t+fdv379+/fv3798/fv379+/fv359+/fv368A==", "////////////////////////////////////////////////////////////8A==", "QIECBAgQIECBAgQIECAAgQIECBAAQIECBAgQIECBAgQIECBAgQIEABAgQIECAA==", "PGDQ48ePHjx48ePHjx48ePHDxo8eNHjx48ePHjx48ePHjx48ePHjx48ePHjw4A=="]
+deps = [
+  [319,"R","2052","8100012",["8100007","8101293","8100669"],2,"2"],
+  [320,"CJX","1905","8100003",["8101083","8100006","8100005","8101169","8100890","8101203","8101387","8100008"],3,"1"],
+  [348,"CJX","1907","8100003",["8101083","8100006","8100005","8101169","8100890","8101203","8101387","8100008"],1,"1"],
+  [363,"CJX","1600","8100012",["8100007","8101293","8100669"],4,"2"],
+  [363,"CJX","9120","8100012",["8100007","8101293","8100669"],5,"2"],
+  [408,"CJX","1911","8100003",["8101083","8100006","8100005","8101169","8100890","8101203","8101387","8100008"],1,"1"],
+  [408,"R","2051","8100008",["8101083","8100006","8100005","8101169","8100890","8101203","8101387"],0,"1"],
+  [423,"CJX","1902","8100012",["8100007","8101293","8100669"],1,"2"],
+  [467,"R","2053","8100008",["8101083","8100006","8100005","8101169","8100890","8101203","8101387"],1,"1"],
+]
+
+names = { 8100003 = "Wien Westbahnhof", 8100005 = "Melk Bahnhof", 8100006 = "Pöchlarn Bahnhof", 8100007 = "Ybbs/Donau Bahnhof", 8100008 = "St.Pölten Hbf", 8100012 = "Amstetten NÖ Bahnhof", 8100669 = "Blindenmarkt b.Amstetten Bahnhof", 8100890 = "Groß Sierning Bahnhst", 8101083 = "Krummnußbaum an der Westbahn Bahnhst", 8101169 = "Loosdorf b.Melk Bahnhof", 8101203 = "Markersdorf/Pielach Bahnhst", 8101293 = "Neumarkt/Ybbs-Karlsbach Bahnhst", 8101387 = "Prinzersdorf Bahnhof" }

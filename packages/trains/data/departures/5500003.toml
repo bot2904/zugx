@@ -1,0 +1,13 @@
+id = "5500003"
+name = "Budapest-Keleti"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/////////////////////////////8A==", "////////////////////////////////////////////////////////////8A=="]
+deps = [
+  [400,"RJX","19912","8100001",["5500080","8103000","8100514","8100008","8100013","8100002"],0,"1"],
+  [1240,"EN","40462","5500080",[],1,"1"],
+]
+
+names = { 5500080 = "Györ", 8100001 = "Kufstein Bahnhof", 8100002 = "Salzburg Hbf", 8100008 = "St.Pölten Hbf", 8100013 = "Linz/Donau Hbf", 8100514 = "Wien Meidling Bahnhof", 8103000 = "Wien Hbf" }

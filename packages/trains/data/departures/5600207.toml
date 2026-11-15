@@ -1,0 +1,21 @@
+id = "5600207"
+name = "Bratislava hl.st."
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["AAAA///+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/////////////////////////////8A==", "AAAAAAAAAAAAAAAAAAAAAACpUqVKlSpUqVKlSpUqVKlSpUqVKlQAAAAAAAAAAA==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////////////////////////8A=="]
+deps = [
+  [331,"EC","48","8100003",["8103000","8100514"],3,"1"],
+  [368,"RJX","160","5600582",[],0,"1"],
+  [368,"RJX","19910","5600582",[],1,"1"],
+  [571,"EC","46","8100003",["8103000","8100514"],3,"1"],
+  [632,"EC","43","5600007",[],3,"1"],
+  [811,"EC","44","8100003",["8103000","8100514"],3,"1"],
+  [872,"EC","45","5600007",[],3,"1"],
+  [1040,"EN","1273","8100082",["8100004","8103000","8100514","8100516","8100032","8100173"],2,"1"],
+  [1051,"EC","42","8100003",["8103000","8100514"],3,"1"],
+  [1112,"EC","47","5600007",[],3,"1"],
+]
+
+names = { 5600007 = "Kosice", 5600582 = "Bratislava-Petrzalka", 8100003 = "Wien Westbahnhof", 8100004 = "Wien Hbf (Autoreisezug)", 8100032 = "Bruck/Mur Bahnhof", 8100082 = "Spielfeld-Straß in Stmk Bahnhof", 8100173 = "Graz Hbf", 8100514 = "Wien Meidling Bahnhof", 8100516 = "Wr.Neustadt Hbf", 8103000 = "Wien Hbf" }

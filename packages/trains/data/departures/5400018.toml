@@ -1,0 +1,14 @@
+id = "5400018"
+name = "Ceské Velenice"
+year = 2026
+begin = "2025-12-14"
+end = "2026-12-12"
+source = "ÖBB GTFS (CC BY 4.0)"
+days = ["fOHS58+fPnz58+fPnz48+fPHzp8edPnz58+fPnz58+fPnz58+fPnx58+fPny4A==", "gx4tGDBgwYMGDBgwYMHDBgw4MWDhiwYMGDBgwYMGDBgwYMGDBgwYOGDBgwYNEA=="]
+deps = [
+  [1027,"SP","2133","8100129",[],1,"1"],
+  [1145,"SP","2131","8100129",[],0,"1"],
+  [1147,"SP","2135","8100129",[],1,"1"],
+]
+
+names = { 8100129 = "Gmünd NÖ Bahnhof" }
