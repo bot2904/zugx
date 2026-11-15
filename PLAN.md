@@ -932,6 +932,8 @@ Plan:
 
 Limits: in a joined section the operational number is only a guess (lower number / non-commercial range).
 
+**Status (2026-11-15):** A–D done (`groupMovements`, `partSections`, `operationalChanges` in `packages/hafas/src/coupled.ts`; box `TrainParts.vue`; fixtures EN 40462 / EN 40237). Open: HAFAS hints EN 415 only from Jesenice (Salzburg–Schwarzach has neither partner nor matchId); the radar header badges come from the merged markers only (not from `parts` when the train is selected by link).
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java

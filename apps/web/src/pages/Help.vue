@@ -83,6 +83,16 @@ const { locale } = useI18n();
         berechnet – sie sind keine GPS-Positionen. Die „Bahnkarte“ blendet die Strecken der
         OpenRailwayMap ein.
       </p>
+      <p>
+        <strong>Zugteile</strong>: Vereinigte Züge (Nachtzüge, Railjets mit Flügelzug) stehen als
+        ein Zug auf der Karte, z. B. „NJ 466 / EN 40462“ – der vermutlich betriebliche Zug zuerst
+        (rein kommerzielle Nummern ab 40000 zuletzt, sonst die kleinere Nummer). Im Zuglauf wählt
+        man den Zugteil per Klick auf sein Abzeichen. Der Kasten „Zugteile“ (auch auf der Zugseite)
+        zeigt je Abschnitt, mit welchen Zügen vereinigt gefahren wird und – bei rein kommerziellen
+        Nummern – den betrieblichen Zug (EN 40462: bis Salzburg EC 462, „ab hier NJ 466“). Grundlage
+        sind die Angaben der ÖBB-Auskunft; welche Nummer im vereinigten Abschnitt betrieblich gilt,
+        ist dort nicht immer erkennbar.
+      </p>
 
       <h2 id="bildfahrplan">Bildfahrplan</h2>
       <p>
@@ -365,6 +375,16 @@ const { locale } = useI18n();
         direction. Click a train to open its run in a side panel. Positions are computed by the ÖBB
         journey planner from timetable and realtime data – they are not GPS positions. "Railway map"
         adds the OpenRailwayMap tracks.
+      </p>
+      <p>
+        <strong>Train parts</strong>: joined trains (night trains, Railjets with a portion for
+        another destination) show as one train on the map, e.g. "NJ 466 / EN 40462" – the likely
+        operational train first (commercial-only numbers from 40000 last, else the lower number). In
+        the run, pick a part by clicking its badge. The "Train parts" box (also on the train page)
+        lists per stretch the trains it runs joined with and – for commercial-only numbers – the
+        operational train (EN 40462: EC 462 to Salzburg, "from here NJ 466"). Based on the ÖBB
+        journey planner's data; which number is the operational one in a joined stretch is not
+        always visible there.
       </p>
 
       <h2 id="bildfahrplan">Graphic timetable (Bildfahrplan)</h2>
