@@ -20,6 +20,16 @@ import BfNode from "../components/BfNode.vue";
 import BfCrossings from "../components/BfCrossings.vue";
 import BfReserve from "../components/BfReserve.vue";
 import BfPunctuality from "../components/BfPunctuality.vue";
+import BfCapacity from "../components/BfCapacity.vue";
+import {
+  BLOCK_DEFAULTS,
+  blockBounds,
+  blockingTimes,
+  blockTable,
+  markConflicts,
+  mergeCoupled,
+  type BlockParams,
+} from "../lib/bf-capacity.ts";
 import {
   bufferClass,
   crossings,
@@ -78,7 +88,7 @@ const hover = shallowRef<CorridorTrain>();
 // ---- two windows (e.g. two monitors): ?part=chart | table shows only that part; the windows
 // share the sheet, date, time window, section and the hovered train (BroadcastChannel) ----
 // ---- planning panels (?plan=knoten …, PLAN.md "Bildfahrplan as a planning tool") ----
-const PLANS = ["knoten", "kreuzung", "reserve", "puenktlichkeit"] as const;
+const PLANS = ["knoten", "kreuzung", "reserve", "puenktlichkeit", "kapazitaet"] as const;
 type Plan = (typeof PLANS)[number];
 const plan = computed<Plan | undefined>(() =>
   (PLANS as readonly string[]).includes(String(route.query.plan))
@@ -116,8 +126,48 @@ const crossingList = computed(() => {
     c.tracks,
     t0.value,
     t1.value,
+    c.blocks?.places,
   ).filter((x) => inRange(x.i) && (x.i2 === undefined || inRange(x.i2)));
 });
+// capacity: blocking times per block section (Sperrzeitentreppe), see lib/bf-capacity.ts
+const blockParams = useLocalStorage<BlockParams>("zugx:bf-blocks", BLOCK_DEFAULTS, {
+  mergeDefaults: true,
+});
+const blockBoxes = computed(() => {
+  const c = data.value;
+  if (plan.value !== "kapazitaet" || !c) return [];
+  const km = c.stations.map((st) => st.km);
+  const [lo, hi] = [Math.min(kmLo.value, kmHi.value), Math.max(kmLo.value, kmHi.value)];
+  const bounds = {
+    1: blockBounds(c.blocks, km, lo, hi, 1),
+    [-1]: blockBounds(c.blocks, km, lo, hi, -1),
+  } as Record<1 | -1, number[]>;
+  // trains in the window (with some lead time: blocking starts before the train is there)
+  const boxes = mergeCoupled(
+    planTrains.value
+      .flatMap((tr) => blockingTimes(tr, km, bounds[tr.dir], blockParams.value))
+      .filter((b) => b.end > t0.value - 5 && b.start < t1.value + 5),
+  );
+  markConflicts(
+    boxes,
+    c.tracks ?? [],
+    [...km, ...(c.blocks?.places ?? [])],
+    blockParams.value.tolerance,
+  );
+  return boxes;
+});
+const blockRows = computed(() => blockTable(blockBoxes.value, t0.value, t1.value));
+/** share of the shown section with signal data (rest: stations as block boundaries) */
+const signalCoverage = computed(() => {
+  const c = data.value;
+  const [lo, hi] = [Math.min(kmLo.value, kmHi.value), Math.max(kmLo.value, kmHi.value)];
+  const known = (c?.blocks?.known ?? []).reduce(
+    (s, [a, b]) => s + Math.max(0, Math.min(b, hi) - Math.max(a, lo)),
+    0,
+  );
+  return hi > lo ? known / (hi - lo) : 0;
+});
+
 /** assumptions of the reserve model, adjustable in the panel, kept in this browser */
 const reserveParams = useLocalStorage<ReserveParams>("zugx:bf-reserve", RESERVE_DEFAULTS, {
   mergeDefaults: true,
@@ -1071,6 +1121,22 @@ watch([plan, nodeHafas, date, t0, t1, nodeAll], () => void loadNodeBoards(), {
               {{ r.t.cat }} {{ r.t.nr }}
             </text>
           </g>
+          <!-- capacity panel: blocking times as boxes (Sperrzeitentreppe), conflicts red -->
+          <g v-if="blockBoxes.length" class="bf-blocks pointer-events-none">
+            <rect
+              v-for="(b, k) in blockBoxes"
+              :key="`bb${k}`"
+              :x="Math.min(x(b.from), x(b.to))"
+              :y="y(b.start)"
+              :width="Math.max(1, Math.abs(x(b.to) - x(b.from)))"
+              :height="Math.max(1, y(b.end) - y(b.start))"
+              :fill="b.conflict ? 'var(--bad)' : categoryColor(b.t.cat)"
+              :fill-opacity="b.conflict ? 0.45 : hover && hover === b.t ? 0.45 : 0.16"
+              :stroke="b.conflict ? 'var(--bad)' : categoryColor(b.t.cat)"
+              :stroke-opacity="b.conflict ? 0.9 : 0.35"
+              stroke-width="0.5"
+            />
+          </g>
           <!-- crossings panel: single track shaded, crossings as dots (buffer colour), conflicts ✕ -->
           <rect
             v-for="(b, k) in singleBands"
@@ -1224,6 +1290,14 @@ watch([plan, nodeHafas, date, t0, t1, nodeAll], () => void loadNodeBoards(), {
         {{ $t(`bf.plan.tab.${p}`) }}
       </button>
     </div>
+    <BfCapacity
+      v-if="data && plan === 'kapazitaet' && part !== 'table'"
+      v-model:params="blockParams"
+      :stations="data.stations"
+      :rows="blockRows"
+      :dir="reversed ? -1 : 1"
+      :coverage="signalCoverage"
+    />
     <BfPunctuality
       v-if="data && plan === 'puenktlichkeit' && part !== 'table'"
       :stations="data.stations"

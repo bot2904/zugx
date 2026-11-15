@@ -272,6 +272,8 @@ export interface Crossing {
   bufDown?: number;
   /** meeting on a single-track stretch between stations: impossible as planned */
   conflict: boolean;
+  /** crossing at a passing loop between the stations (no passenger stop, from the signals) */
+  loop?: boolean;
 }
 
 interface At {
@@ -299,6 +301,8 @@ export function crossings(
   tracks: TrackRuns,
   t0: number,
   t1: number,
+  /** crossing places between the timetable's stations (passing loops, Corridor.blocks.places) */
+  places: number[] = [],
 ): Crossing[] {
   const km = (i: number) => stationKm[i] ?? 0;
   const ups = trains.filter((t) => t.dir === 1).map((t) => ({ t, p: pointsOf(t, km) }));
@@ -357,8 +361,21 @@ export function crossings(
           const x = (d.a - u.d) / (su + sd); // km from station i
           const time = u.d + su * x;
           const single = singleTrack(tracks, km(i), km(i2));
+          // a passing loop between the two stations: the crossing happens there
+          const loop = places
+            .filter((p) => p > km(i) && p < km(i2))
+            .sort((a, b) => Math.abs(a - km(i) - x) - Math.abs(b - km(i) - x))[0];
           if (single && time >= t0 && time < t1)
-            out.push({ up: U.t, down: D.t, i, i2, km: km(i) + x, time, conflict: true });
+            out.push({
+              up: U.t,
+              down: D.t,
+              i,
+              i2,
+              km: loop ?? km(i) + x,
+              time,
+              conflict: loop === undefined,
+              ...(loop !== undefined ? { loop: true } : {}),
+            });
           break;
         }
       }

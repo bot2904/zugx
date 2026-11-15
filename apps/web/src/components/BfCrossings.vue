@@ -64,6 +64,13 @@ function knockOn(buf: number | undefined, late: CorridorTrain): number | undefin
           >
             <td class="num mono">{{ hhmm(c.time) }}</td>
             <td>
+              <span v-if="c.loop" class="muted" v-tip="$t('bf.plan.loopTip')">
+                {{
+                  $t("bf.plan.loop", {
+                    km: c.km.toLocaleString(undefined, { maximumFractionDigits: 1 }),
+                  })
+                }}:
+              </span>
               <span v-if="c.conflict" class="conflict" v-tip="$t('bf.plan.conflictTip')">
                 ⚠ {{ $t("bf.plan.onLine") }}: </span
               >{{ where(c) }}

@@ -151,6 +151,28 @@ export default {
   bf: {
     indexDay: "trains/day and train mix on {day}",
     plan: {
+      loop: "passing loop km {km}",
+      loopTip:
+        "Crossing at a passing loop / operational station without passenger stop – recognised by entry and exit signals of both directions (OSM).",
+      capacity: "Capacity (blocking times)",
+      onlyTight: "bottlenecks only (> 60 % or conflict)",
+      capacitySummary: "{blocks} block sections, mean occupancy {mean}, {conflicts} conflicts",
+      bottleneck: "Bottleneck",
+      noBlocks: "No block sections with trains in the time window.",
+      blockLength: "Length km",
+      occupancy: "Occupancy",
+      maxBlock: "longest blocking time",
+      conflicts: "Conflicts",
+      capacityNote:
+        "Blocking time per train and block section (main signal to main signal, OSM): from passing the distant signal (or departure, if the train stops before) minus route setting and sight/reaction time, until the train has cleared the section with its full length, plus release time. In the chart as boxes (blocking-time stairway); red = conflict (two trains in the same block; on single track also opposite trains between two stations). Occupancy = share of the time window the block is blocked; colours after UIC 406 (≤ 60 %, ≤ 75 %, above congested). Signals for {coverage} % of the section from OSM, elsewhere stations as block boundaries. Even speed between two stops, passing times estimated – a guide value.",
+      block: {
+        tolerance: "Tolerance (rounded timetable)",
+        approach: "Distant signal distance",
+        setup: "Route setting + sight/reaction",
+        release: "Release time",
+        lengthMU: "Train length multiple unit",
+        lengthLoco: "Train length loco-hauled",
+      },
       source: "Source",
       sourceSheet: "this sheet only",
       sourceAll: "all lines",
@@ -208,6 +230,7 @@ export default {
         kreuzung: "Crossings",
         reserve: "Running-time reserve",
         puenktlichkeit: "Punctuality (live)",
+        kapazitaet: "Capacity",
       },
       pickNode: "Analyse as node",
       title: "Planning",

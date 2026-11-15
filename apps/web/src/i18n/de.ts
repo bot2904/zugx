@@ -153,6 +153,28 @@ export default {
   bf: {
     indexDay: "Züge/Tag und Zugmix am {day}",
     plan: {
+      loop: "Ausweiche km {km}",
+      loopTip:
+        "Kreuzung in einer Ausweiche/einem Betriebsbahnhof ohne Personenhalt – erkannt an Ein- und Ausfahrsignalen beider Richtungen (OSM).",
+      capacity: "Kapazität (Sperrzeiten)",
+      onlyTight: "nur Engpässe (> 60 % oder Konflikt)",
+      capacitySummary: "{blocks} Blockabschnitte, Ø Belegung {mean}, {conflicts} Konflikte",
+      bottleneck: "Engpass",
+      noBlocks: "Keine Blockabschnitte mit Zügen im Zeitfenster.",
+      blockLength: "Länge km",
+      occupancy: "Belegung",
+      maxBlock: "längste Sperrzeit",
+      conflicts: "Konflikte",
+      capacityNote:
+        "Sperrzeit je Zug und Blockabschnitt (von Hauptsignal zu Hauptsignal, OSM): ab Vorbeifahrt am Vorsignal (bzw. Abfahrt, wenn der Zug davor hält) minus Fahrstraßenbildung und Sicht-/Reaktionszeit, bis der Zug den Abschnitt mit seiner ganzen Länge geräumt hat, plus Auflösezeit. Im Diagramm als Kästchen (Sperrzeitentreppe); rot = Konflikt (zwei Züge im selben Block, eingleisig auch Gegenzüge zwischen zwei Bahnhöfen). Belegung = Anteil des Zeitfensters, in dem der Block gesperrt ist; Ampel nach UIC 406 (≤ 60 %, ≤ 75 %, darüber überlastet). Signale für {coverage} % des Abschnitts aus OSM, sonst Bahnhöfe als Blockgrenzen. Geschwindigkeit zwischen zwei Halten gleichmäßig, Durchfahrtszeiten geschätzt – ein Richtwert.",
+      block: {
+        tolerance: "Toleranz (Fahrplanrundung)",
+        approach: "Vorsignalabstand",
+        setup: "Fahrstraße + Sicht/Reaktion",
+        release: "Auflösezeit",
+        lengthMU: "Zuglänge Triebzug",
+        lengthLoco: "Zuglänge lokbespannt",
+      },
       source: "Quelle",
       sourceSheet: "nur Bildfahrplan",
       sourceAll: "alle Linien",
@@ -212,6 +234,7 @@ export default {
         kreuzung: "Kreuzungen",
         reserve: "Fahrzeitreserve",
         puenktlichkeit: "Pünktlichkeit (Echtzeit)",
+        kapazitaet: "Kapazität",
       },
       pickNode: "Als Knoten analysieren",
       title: "Planung",

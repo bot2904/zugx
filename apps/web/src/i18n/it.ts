@@ -153,6 +153,29 @@ export default {
   bf: {
     indexDay: "treni/giorno e composizione il {day}",
     plan: {
+      loop: "posto di incrocio km {km}",
+      loopTip:
+        "Incrocio in un posto di incrocio senza fermata passeggeri – riconosciuto dai segnali di entrata e uscita di entrambe le direzioni (OSM).",
+      capacity: "Capacità (tempi di blocco)",
+      onlyTight: "solo colli di bottiglia (> 60 % o conflitto)",
+      capacitySummary:
+        "{blocks} sezioni di blocco, occupazione media {mean}, {conflicts} conflitti",
+      bottleneck: "Collo di bottiglia",
+      noBlocks: "Nessuna sezione di blocco con treni nella finestra.",
+      blockLength: "Lunghezza km",
+      occupancy: "Occupazione",
+      maxBlock: "tempo di blocco più lungo",
+      conflicts: "Conflitti",
+      capacityNote:
+        "Tempo di blocco per treno e sezione (da segnale principale a segnale principale, OSM): dal passaggio al segnale di avviso (o dalla partenza, se il treno si ferma prima) meno formazione itinerario e tempo di vista/reazione, fino alla liberazione della sezione con l'intera lunghezza, più tempo di liberazione. Nel grafico come rettangoli (scala dei tempi di blocco); rosso = conflitto. Occupazione = quota della finestra in cui il blocco è occupato; colori secondo UIC 406 (≤ 60 %, ≤ 75 %, oltre saturo). Segnali per il {coverage} % della tratta da OSM, altrove stazioni come limiti di blocco. Velocità uniforme tra due fermate, orari di transito stimati – un valore indicativo.",
+      block: {
+        tolerance: "Tolleranza (arrotondamento orario)",
+        approach: "Distanza segnale di avviso",
+        setup: "Formazione itinerario + vista/reazione",
+        release: "Tempo di liberazione",
+        lengthMU: "Lunghezza elettrotreno",
+        lengthLoco: "Lunghezza con locomotiva",
+      },
       source: "Fonte",
       sourceSheet: "solo questo quadro",
       sourceAll: "tutte le linee",
@@ -211,6 +234,7 @@ export default {
         kreuzung: "Incroci",
         reserve: "Riserva di marcia",
         puenktlichkeit: "Puntualità (tempo reale)",
+        kapazitaet: "Capacità",
       },
       pickNode: "Analizza come nodo",
       title: "Pianificazione",

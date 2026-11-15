@@ -124,7 +124,7 @@ const { locale } = useI18n();
       </ul>
       <h3 id="planung">Planung</h3>
       <p>
-        Unter dem Diagramm werten vier Ansichten den gezeigten Fahrplan aus – für kürzere Umstiege,
+        Unter dem Diagramm werten fünf Ansichten den gezeigten Fahrplan aus – für kürzere Umstiege,
         verlässlichere Züge auf eingleisigen Strecken und schnellere Fahrten:
       </p>
       <ul>
@@ -150,6 +150,14 @@ const { locale } = useI18n();
           Abschnitt, Gattung und Richtung. Viel Reserve heißt Spielraum für schnellere Züge.
           Einstellbar: Anfahrbeschleunigung (Triebzug, lokbespannt), Bremsverzögerung, Regelzuschlag
           und die Schwelle für „viel Reserve“.
+        </li>
+        <li>
+          <strong>Kapazität</strong>: die Sperrzeitentreppe – je Zug und Blockabschnitt (von
+          Hauptsignal zu Hauptsignal, aus OpenStreetMap) die Zeit, in der der Abschnitt für andere
+          Züge gesperrt ist, im Diagramm als Kästchen; rot = Konflikt. Die Tabelle zeigt je
+          Blockabschnitt die Belegung im Zeitfenster, die längste Sperrzeit und den Engpass.
+          Einstellbar: Vorsignalabstand, Fahrstraßen- und Reaktionszeit, Auflösezeit, Zuglängen,
+          Toleranz.
         </li>
         <li>
           <strong>Pünktlichkeit (Echtzeit)</strong>: wo Züge Zeit verlieren, je Abschnitt und Halt,
@@ -389,7 +397,7 @@ const { locale } = useI18n();
       </ul>
       <h3 id="planning">Planning</h3>
       <p>
-        Below the chart, four views evaluate the shown timetable – for shorter transfers, more
+        Below the chart, five views evaluate the shown timetable – for shorter transfers, more
         reliable trains on single track and faster journeys:
       </p>
       <ul>
@@ -413,6 +421,14 @@ const { locale } = useI18n();
           category and direction. Much reserve means room for faster trains. Adjustable: starting
           acceleration (multiple unit, locomotive-hauled), braking, standard supplement and the
           threshold for much reserve.
+        </li>
+        <li>
+          <strong>Capacity</strong>: the blocking-time stairway – per train and block section (main
+          signal to main signal, from OpenStreetMap) the time the section is blocked for other
+          trains, drawn as boxes in the chart; red = conflict. The table shows per block section the
+          occupancy of the time window, the longest blocking time and the bottleneck. Adjustable:
+          distant signal distance, route setting and reaction time, release time, train lengths,
+          tolerance.
         </li>
         <li>
           <strong>Punctuality (live)</strong>: where trains lose time, per stretch and stop, from

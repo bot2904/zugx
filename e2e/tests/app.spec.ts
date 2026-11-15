@@ -283,6 +283,23 @@ test("bildfahrplan planning: punctuality from collected live data", async ({ pag
   await expect(first).toContainText("67 %");
 });
 
+test("bildfahrplan planning: capacity — blocking times per block section", async ({ page }) => {
+  await page.goto("/bf/170?from=6&h=3&d=2026-03-10&plan=kapazitaet");
+  const panel = page.locator(".bf-plan");
+  await expect(panel).toContainText(/Engpass|Bottleneck|Collo/, { timeout: 15_000 });
+  expect(await panel.locator("tbody tr").count()).toBeGreaterThan(10);
+  // the Sperrzeitentreppe in the chart
+  expect(await page.locator(".bf-blocks rect").count()).toBeGreaterThan(50);
+  // assumptions kept in the browser
+  const app = panel.getByLabel(/^(Vorsignalabstand|Distant signal distance|Distanza)/);
+  await app.fill("700");
+  await app.press("Enter");
+  await page.reload();
+  await expect(
+    page.locator(".bf-plan").getByLabel(/^(Vorsignalabstand|Distant signal distance|Distanza)/),
+  ).toHaveValue("700", { timeout: 15_000 });
+});
+
 test("bildfahrplan: table in a second window, view and hover in sync", async ({ page }) => {
   await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
   const [popup] = await Promise.all([
