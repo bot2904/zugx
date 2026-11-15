@@ -58,9 +58,9 @@ jobs:
           node-version: "26"
           cache: true
       - run: vp install --frozen-lockfile
-      # every country of packages/gtfs/countries.toml: route:build merges their databases
+      # Austria only: the Slovenian feed (~45 MB) is not downloaded in CI (route:build merges the
+      # databases that exist, locally both)
       - run: vp run db:build
-      - run: COUNTRY=si vp run db:build
       - run: DAYS=14 vp run route:build
       - uses: redhat-actions/buildah-build@v2
         id: build
