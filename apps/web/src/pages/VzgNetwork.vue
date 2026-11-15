@@ -23,15 +23,67 @@ const router = useRouter();
 const { t } = useI18n();
 const network = shallowRef<VzgNetwork>();
 const index = shallowRef<VzgIndex>();
+// trains per day per km section (netz build, GTFS reference day)
+const densityFile = import.meta.glob("../../../../packages/netz/data/density.toml");
+interface Density {
+  day: string;
+  lines: { id: string; km: number[]; n: number[] }[];
+}
+const density = shallowRef<Density>();
 onMounted(async () => {
-  [network.value, index.value] = await Promise.all([
+  const d = Object.values(densityFile)[0];
+  [network.value, index.value, density.value] = await Promise.all([
     load<VzgNetwork>("network"),
     load<VzgIndex>("index"),
+    d ? ((await d()) as { default: Density }).default : undefined,
   ]);
+});
+/** density classes: ColorBrewer YlOrRd (6), width growing with the trains per day */
+const DENSITY_BINS = [10, 25, 50, 100, 200, Infinity];
+const DENSITY_COLORS = ["#ffffb2", "#fed976", "#feb24c", "#fd8d3c", "#f03b20", "#bd0026"];
+const DENSITY_WIDTHS = [1.6, 2.2, 2.8, 3.6, 4.6, 6];
+const densityClass = (n: number) => DENSITY_BINS.findIndex((b) => n <= b);
+/** per line: segments between consecutive km posts with their trains per day */
+const densitySegments = computed(() => {
+  if (attr.value !== "density" || !density.value || !view.value) return [];
+  const byLine = new Map(density.value.lines.map((l) => [l.id, l]));
+  const out: { id: string; label: string; d: string; n: number; color: string; width: number }[] =
+    [];
+  for (const l of network.value?.lines ?? []) {
+    const dl = byLine.get(l.id);
+    if (!dl || !l.posts) continue;
+    const nAt = new Map(dl.km.map((k, i) => [k, dl.n[i]!]));
+    const pts = decodePolyline(l.posts.line);
+    const km = l.posts.km;
+    for (let i = 1; i < pts.length; i++) {
+      if (Math.abs(km[i]! - km[i - 1]!) !== 1) continue;
+      const n = nAt.get(Math.min(km[i]!, km[i - 1]!));
+      if (!n) continue;
+      const c = densityClass(n);
+      out.push({
+        id: l.id,
+        label: [l.ref, l.name].filter(Boolean).join(" ") || l.id,
+        d: d([pts[i - 1]!, pts[i]!]),
+        n,
+        color: DENSITY_COLORS[c]!,
+        width: DENSITY_WIDTHS[c]!,
+      });
+    }
+  }
+  return out.sort((a, b) => a.n - b.n);
 });
 
 // ---- attributes and their colours (ColorBrewer: RdYlBu for speed, Dark2/Set1 categorical)
-const ATTRS = ["speed", "electrified", "etcs", "pzb", "tracks", "gauge", "operator"] as const;
+const ATTRS = [
+  "speed",
+  "density",
+  "electrified",
+  "etcs",
+  "pzb",
+  "tracks",
+  "gauge",
+  "operator",
+] as const;
 type Attr = (typeof ATTRS)[number];
 const attr = computed<Attr>(() =>
   ATTRS.includes(route.query.attr as Attr) ? (route.query.attr as Attr) : "speed",
@@ -88,6 +140,9 @@ interface Style {
 }
 function style(p: NetPiece, operator?: string): Style {
   switch (attr.value) {
+    case "density":
+      // the base network thin and grey, the densities drawn on top
+      return { color: "#d5d8dc", width: 1.2, key: "base" };
     case "speed": {
       if (p.v === undefined) return { color: GREY, width: 1.4, key: "?" };
       const i = SPEED_BINS.findIndex((b) => p.v! <= b);
@@ -133,6 +188,20 @@ function style(p: NetPiece, operator?: string): Style {
 /** legend entries of the current attribute: [colour, width, label] */
 const legend = computed<[string, number, string][]>(() => {
   switch (attr.value) {
+    case "density":
+      return [
+        ...DENSITY_COLORS.map(
+          (c, i) =>
+            [
+              c,
+              DENSITY_WIDTHS[i]!,
+              i === DENSITY_BINS.length - 1
+                ? `> ${DENSITY_BINS[i - 1]}`
+                : `${i ? DENSITY_BINS[i - 1]! + 1 : 1}–${DENSITY_BINS[i]}`,
+            ] as [string, number, string],
+        ),
+        ["#d5d8dc", 1.2, t("vzg.netDensityNone")],
+      ];
     case "speed":
       return [
         ...SPEED_COLORS.map(
@@ -245,6 +314,7 @@ const scale = computed(() => {
 
 const ATTR_LABEL: Record<Attr, string> = {
   speed: "vzg.netSpeed",
+  density: "vzg.netDensity",
   electrified: "vzg.netElectrification",
   etcs: "ETCS",
   pzb: "PZB",
@@ -333,7 +403,12 @@ const url = computed(
         <rect :width="W" :height="H" fill="#ffffff" />
         <text :x="PAD" y="30" font-size="20" font-weight="700" fill="#1f2328">{{ title }}</text>
         <text :x="PAD" y="50" font-size="11" fill="#5b636c">
-          {{ $t("vzg.netSubtitle", { n: drawn.length }) }}
+          {{ $t("vzg.netSubtitle", { n: drawn.length })
+          }}{{
+            attr === "density"
+              ? ` · ${$t("vzg.netDensitySubtitle", { day: density?.day ?? "" })}`
+              : ""
+          }}
         </text>
         <g fill="none" stroke-linecap="round" stroke-linejoin="round">
           <a
@@ -357,6 +432,34 @@ const url = computed(
               v-for="(x, i) in l.pieces"
               :key="i"
               v-tip="tip(l, x.p)"
+              data-tip-at="pointer"
+              :d="x.d"
+              :stroke="x.color"
+              :stroke-width="x.width"
+            />
+          </a>
+        </g>
+        <!-- trains per day (density mode), busiest on top; casing for the pale classes -->
+        <g v-if="attr === 'density'" fill="none" stroke-linecap="round">
+          <path
+            v-for="(x, i) in densitySegments"
+            :key="`dc${i}`"
+            :d="x.d"
+            stroke="#5b636c"
+            :stroke-width="x.width + 1.2"
+          />
+          <a
+            v-for="(x, i) in densitySegments"
+            :key="`d${i}`"
+            :href="`/vzg/${x.id}/map`"
+            class="net-line"
+            @click="go(x.id, $event)"
+          >
+            <path
+              v-tip="{
+                title: x.label,
+                lines: [$t('vzg.netDensityTip', { n: x.n, day: density?.day ?? '' })],
+              }"
               data-tip-at="pointer"
               :d="x.d"
               :stroke="x.color"

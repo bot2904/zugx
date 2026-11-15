@@ -605,4 +605,9 @@ test("network map: all lines, colour by attribute, line links", async ({ page })
   await page.getByRole("button", { name: /^(Operator|Betreiber|Gestore)$/ }).click();
   await expect(page).toHaveURL(/attr=operator/);
   await expect(svg.locator("text", { hasText: "ÖBB-Infrastruktur AG" })).toBeVisible();
+  // traffic density: trains per day from the GTFS, colour/width classes
+  await page.getByRole("button", { name: /^(Trains\/day|Züge\/Tag|Treni\/giorno)$/ }).click();
+  await expect(page).toHaveURL(/attr=density/);
+  await expect(svg.locator("text", { hasText: "> 200" })).toBeVisible();
+  await expect(svg.locator("path[stroke='#bd0026']").first()).toBeAttached();
 });

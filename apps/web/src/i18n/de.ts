@@ -191,6 +191,10 @@ export default {
     liveAt: "Echtzeit an {n} Bahnhöfen, zuletzt {station} {time}",
   },
   vzg: {
+    netDensity: "Züge/Tag",
+    netDensityNone: "keine Züge im Fahrplan",
+    netDensityTip: "{n} Züge am {day}",
+    netDensitySubtitle: "Züge pro Tag am {day} (ÖBB-Fahrplandaten, CC BY 4.0)",
     netTitle: "Netzkarte",
     netSubtitle: "{n} Strecken · Daten aus OpenStreetMap · Linie anklicken für die Streckenkarte",
     netSpeed: "Geschwindigkeit",

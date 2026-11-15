@@ -191,6 +191,10 @@ export default {
     liveAt: "tempo reale in {n} stazioni, ultima {station} {time}",
   },
   vzg: {
+    netDensity: "Treni/giorno",
+    netDensityNone: "nessun treno in orario",
+    netDensityTip: "{n} treni il {day}",
+    netDensitySubtitle: "treni al giorno il {day} (dati orario ÖBB, CC BY 4.0)",
     netTitle: "Mappa della rete",
     netSubtitle: "{n} linee · dati da OpenStreetMap · clic su una linea per la sua mappa",
     netSpeed: "Velocità",

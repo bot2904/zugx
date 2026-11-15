@@ -188,6 +188,10 @@ export default {
     liveAt: "realtime at {n} stations, last {station} {time}",
   },
   vzg: {
+    netDensity: "Trains/day",
+    netDensityNone: "no trains in the timetable",
+    netDensityTip: "{n} trains on {day}",
+    netDensitySubtitle: "trains per day on {day} (ÖBB timetable data, CC BY 4.0)",
     netTitle: "Network map",
     netSubtitle: "{n} lines · data from OpenStreetMap · click a line for its map",
     netSpeed: "Speed",
