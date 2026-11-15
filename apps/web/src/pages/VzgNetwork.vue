@@ -68,7 +68,7 @@ const densitySegments = computed(() => {
         d: d([pts[i - 1]!, pts[i]!]),
         n,
         color: DENSITY_COLORS[c]!,
-        width: DENSITY_WIDTHS[c]!,
+        width: DENSITY_WIDTHS[c]! * widthScale.value,
       });
     }
   }
@@ -275,9 +275,23 @@ const areas = computed(() =>
     rings: a.rings.map((r) => decodePolyline(r)),
   })),
 );
+// region: Austria or one federal state (?region=AT-7)
+const region = computed(() => {
+  const r = typeof route.query.region === "string" ? route.query.region : "AT";
+  return areas.value.some((a) => a.code === r) ? r : "AT";
+});
+const regionName = computed(() => areas.value.find((a) => a.code === region.value)?.name ?? "");
+const states = computed(() =>
+  areas.value.filter((a) => a.code !== "AT").sort((a, b) => a.name.localeCompare(b.name)),
+);
+const setRegion = (r: string) =>
+  void router.replace({ query: { ...route.query, region: r === "AT" ? undefined : r } });
+/** lines a bit thicker when zoomed into a state */
+const widthScale = computed(() => (region.value === "AT" ? 1 : 1.5));
+
 const view = computed(() => {
-  // the frame: Austria's outline (else all lines), with a small margin
-  const outline = areas.value.find((a) => a.code === "AT")?.rings.flat();
+  // the frame: the region's outline (else all lines), with a small margin
+  const outline = areas.value.find((a) => a.code === region.value)?.rings.flat();
   const all = outline?.length
     ? outline
     : decoded.value.flatMap((l) => l.pieces.flatMap((x) => x.pts));
@@ -292,6 +306,12 @@ const view = computed(() => {
   const m = 0.04 * (n - s);
   [s, n, w, e] = [s - m, n + m, w - m * 1.5, e + m * 1.5];
   const kx = Math.cos((((s + n) / 2) * Math.PI) / 180);
+  // at least 1.2 : 1 (tall states such as Vorarlberg get wider, not taller)
+  const minW = ((n - s) * 1.2) / kx;
+  if (e - w < minW) {
+    const c = (w + e) / 2;
+    [w, e] = [c - minW / 2, c + minW / 2];
+  }
   const mapW = W - 2 * PAD;
   const k = mapW / ((e - w) * kx);
   const mapH = Math.round((n - s) * k);
@@ -317,14 +337,20 @@ const drawn = computed(() =>
     label: [l.ref, l.name].filter(Boolean).join(" ") || l.id,
     operator: l.operator,
     pieces: l.pieces
-      .map((x) => ({ d: d(x.pts), ...style(x.p, l.operator), p: x.p }))
+      .map((x) => {
+        const st = style(x.p, l.operator);
+        return { d: d(x.pts), ...st, width: st.width * widthScale.value, p: x.p };
+      })
       .sort((a, b) => a.width - b.width),
   })),
 );
 const scale = computed(() => {
   const v = view.value;
   if (!v) return undefined;
-  const km = 50;
+  const target = (W / 8) * v.kmPerPx;
+  const km = [5, 10, 20, 25, 50, 100].reduce((a, b) =>
+    Math.abs(b - target) < Math.abs(a - target) ? b : a,
+  );
   return { km, px: km / v.kmPerPx };
 });
 
@@ -340,7 +366,10 @@ const ATTR_LABEL: Record<Attr, string> = {
 };
 const attrLabel = (a: Attr) =>
   ATTR_LABEL[a].startsWith("vzg.") ? t(ATTR_LABEL[a] as never) : ATTR_LABEL[a];
-const title = computed(() => `${t("vzg.netTitle")} – ${attrLabel(attr.value)}`);
+const title = computed(
+  () =>
+    `${t("vzg.netTitle")}${region.value === "AT" ? "" : ` ${regionName.value}`} – ${attrLabel(attr.value)}`,
+);
 
 function tip(l: { label: string; operator?: string }, p: NetPiece): TipContent {
   return {
@@ -377,19 +406,31 @@ function exportSvg() {
   svg.prepend(meta);
   download(
     `<?xml version="1.0" encoding="UTF-8"?>\n${new XMLSerializer().serializeToString(svg)}`,
-    `zugx_Netzkarte_${attr.value}.svg`,
+    `zugx_Netzkarte_${region.value === "AT" ? "Österreich" : regionName.value.replace(/[^\p{L}\p{N}]+/gu, "_")}_${attr.value}.svg`,
   );
 }
 const SANS = "Liberation Sans, Arial, Nimbus Sans L, Helvetica, sans-serif";
-const url = computed(
-  () => `${location.origin}/vzg/netz${attr.value === "speed" ? "" : `?attr=${attr.value}`}`,
-);
+const url = computed(() => {
+  const q = new URLSearchParams();
+  if (attr.value !== "speed") q.set("attr", attr.value);
+  if (region.value !== "AT") q.set("region", region.value);
+  return `${location.origin}/vzg/netz${q.size ? `?${q}` : ""}`;
+});
 </script>
 
 <template>
   <section class="vzg-map">
     <div class="no-print mb-2 flex flex-wrap items-center gap-2">
       <h1 class="m-0 text-xl">{{ $t("vzg.netTitle") }}</h1>
+      <select
+        class="input text-sm"
+        :value="region"
+        :aria-label="$t('vzg.netRegion')"
+        @change="setRegion(($event.target as HTMLSelectElement).value)"
+      >
+        <option value="AT">{{ $t("vzg.netAustria") }}</option>
+        <option v-for="a in states" :key="a.code" :value="a.code">{{ a.name }}</option>
+      </select>
       <span class="ml-auto flex flex-wrap gap-1 text-xs">
         <button
           v-for="a in ATTRS"
@@ -437,7 +478,14 @@ const url = computed(
             v-for="a in areas.filter((x) => x.code === 'AT')"
             :key="a.code"
             :d="a.rings.map((r) => `${d(r)}Z`).join('')"
-            fill="#f4f3ee"
+            :fill="region === 'AT' ? '#f4f3ee' : '#fafaf7'"
+            stroke="none"
+          />
+          <path
+            v-for="a in areas.filter((x) => x.code === region && region !== 'AT')"
+            :key="`r${a.code}`"
+            :d="a.rings.map((r) => `${d(r)}Z`).join('')"
+            fill="#f1efe7"
             stroke="none"
           />
           <path

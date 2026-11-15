@@ -867,7 +867,7 @@ Ordered by what they need; numbers for reference.
 
 **Existing data only (static, cheap)**
 
-1. **Network map by attribute**: all of Austria, lines coloured by permitted speed, electrification, ETCS/PZB, track count, gauge or operator. _Done_ (`/vzg/netz`); open: track count understates double track (both computed directions often share the same OSM ways), base layers (borders, water) as on the line map.
+1. **Network map by attribute**: all of Austria, lines coloured by permitted speed, electrification, ETCS/PZB, track count, gauge or operator. _Done_ (`/vzg/netz`, with national and federal-state borders and a region switch `?region=AT-n`); open: track count understates double track (both computed directions often share the same OSM ways), water and places as on the line map.
 2. **Traffic density**: trains per day per section from the GTFS, as line width/colour on the network map ("Verkehrsstärke"). _Done_ (network map mode "Züge/Tag", `packages/netz/data/density.toml`); open: other days/day types, per category (long-distance/regional/S-Bahn), lines of other operators (not in the ÖBB GTFS).
 3. **Line profile per Streckennummer**: length, double-track share, top and average speed, tunnels/bridges, electrification, train protection, trains per day, stations, connecting lines — one overview combining VzG, GTFS and the map. _Done_ (box "Streckenprofil" on the VzG page); open: reliable double-track share (see 1), gradients/elevation profile from a DEM, comparison between lines (sortable index columns).
 4. **Isochrones**: how far one gets from a station in 1/2/3 h, from the GTFS, for a chosen departure time.

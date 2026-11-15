@@ -188,6 +188,8 @@ export default {
     liveAt: "realtime at {n} stations, last {station} {time}",
   },
   vzg: {
+    netRegion: "Region",
+    netAustria: "Austria",
     profSpeedValueSlow: "max. {max} km/h, average {avg} km/h",
     profile: "Line profile",
     profLength: "Length",

@@ -191,6 +191,8 @@ export default {
     liveAt: "Echtzeit an {n} Bahnhöfen, zuletzt {station} {time}",
   },
   vzg: {
+    netRegion: "Region",
+    netAustria: "Österreich",
     profSpeedValueSlow: "höchstens {max} km/h, im Mittel {avg} km/h",
     profile: "Streckenprofil",
     profLength: "Länge",

@@ -620,4 +620,9 @@ test("network map: all lines, colour by attribute, line links", async ({ page })
   await expect(page).toHaveURL(/attr=density/);
   await expect(svg.locator("text", { hasText: "> 200" })).toBeVisible();
   await expect(svg.locator("path[stroke='#bd0026']").first()).toBeAttached();
+  // region switch: zoom into a federal state
+  await page.getByRole("combobox", { name: /^(Region|Regione)$/ }).selectOption("AT-7");
+  await expect(page).toHaveURL(/region=AT-7/);
+  await expect(page).toHaveURL(/attr=density/);
+  await expect(svg.locator("text", { hasText: "Tirol" }).first()).toBeVisible();
 });
