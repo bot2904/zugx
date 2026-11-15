@@ -2,9 +2,8 @@
 // Timetable below the Bildfahrplan in the layout of the printed ÖBB Kursbuch (Fahrplanbild):
 // stations as rows (with "an"/"ab" rows at the major stations and the ends), a column per train
 // with category and number, "von" above and "nach" below; "|" where it passes without stopping.
-// Long tables are split into blocks of as many trains as fit the width, like the book's pages.
+// One table for the whole window, scrolling horizontally (station and an/ab columns stay put).
 import type { CorridorTrain } from "@zugx/netz";
-import { useElementSize } from "@vueuse/core";
 import { computed, ref, useTemplateRef, watch } from "vue";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
@@ -66,18 +65,9 @@ function cell(r: TableRun, row: Row): string {
   return time(x.d ?? x.a);
 }
 
-// blocks of as many train columns as fit (station column ~11rem, a train column ~3.25rem)
 const root = useTemplateRef<HTMLElement>("root");
-const { width } = useElementSize(root);
-const perBlock = computed(() => Math.max(4, Math.floor(((width.value || 1100) - 180) / 52)));
-const blocks = computed(() => {
-  // blocks of even size (no last block with a lonely train or two)
-  const n = runs.value.length;
-  const per = Math.ceil(n / Math.ceil(n / perBlock.value));
-  const out: TableRun[][] = [];
-  for (let i = 0; i < n; i += per) out.push(runs.value.slice(i, i + per));
-  return out;
-});
+/** one block: all trains in one table (kept as a list for the template) */
+const blocks = computed(() => [runs.value]);
 const anyFrom = computed(() => runs.value.some((r) => r.from));
 
 // hover: one listener per table, the column from data-c
@@ -210,6 +200,10 @@ tr.major th.stn {
   font-weight: 600;
 }
 th.kind {
+  position: sticky;
+  left: 10rem;
+  z-index: 1;
+  background: var(--bg2);
   width: 1.5rem;
   font-weight: 400;
   text-align: left;
