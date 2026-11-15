@@ -29,4 +29,4 @@ deps = [
   [1300,"NJ","467","8509411",[],3,"3"],
 ]
 
-names = { 8506000 = "Winterthur", 8506302 = "St. Gallen(CH)", 8506314 = "St. Margrethen SG", 8509404 = "Buchs SG", 8509411 = "Sargans" }
+names = { 8506000 = "Winterthur", 8506302 = "St. Gallen", 8506314 = "St. Margrethen SG", 8509404 = "Buchs SG", 8509411 = "Sargans" }

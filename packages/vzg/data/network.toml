@@ -1773,7 +1773,7 @@ pieces = [
 [[lines]]
 id = "168-01"
 ref = "168 01"
-name = "Hochstraßtunnel"
+name = "Pinkatalbahn"
 operator = "ÖBB-Infrastruktur AG"
 pieces = [
   { line = "ymo_HkocbBaeAhlB{IlYkPlXuJbGgM`R", v = 40, e = false, g = "1435", tr = 1 },

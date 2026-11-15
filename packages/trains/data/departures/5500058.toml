@@ -11,4 +11,4 @@ deps = [
   [1601,"D","40007","5500017",["5500080"],0,"1"],
 ]
 
-names = { 2200005 = "Kyiv Pasazhyrskyi", 2200010 = "Chop", 2200025 = "Lviv", 2200033 = "Mukacheve", 2200072 = "Stryj", 5500017 = "Hegyeshalom", 5500061 = "Nyiregyhaza", 5500064 = "Zahony", 5500080 = "Györ", "Pua:22517" = "Swaljawa" }
+names = { 2200005 = "Kyiv Pasazhyrskyi", 2200010 = "Chop", 2200025 = "Lviv", 2200033 = "Mukacheve", 2200072 = "Stryj", 5500017 = "Hegyeshalom", 5500061 = "Nyíregyháza", 5500064 = "Záhony", 5500080 = "Györ", "Pua:22517" = "Swaljawa" }

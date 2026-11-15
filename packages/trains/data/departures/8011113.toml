@@ -9,4 +9,4 @@ deps = [
   [1225,"NJ","457","5400202",["5400003","5400201","5400014","5400001"],0,"3"],
 ]
 
-names = { 5400001 = "Brno hl.n.", 5400003 = "Decin hl.n.", 5400014 = "Praha hl.n.", 5400201 = "Praha-Holesovice", 5400202 = "Breclav" }
+names = { 5400001 = "Brno hl.n.", 5400003 = "Decin hl.n.", 5400014 = "Praha hl.n.", 5400201 = "Praha-Holešovice", 5400202 = "Břeclav" }

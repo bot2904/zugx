@@ -22,8 +22,13 @@ export const LONG_DISTANCE = new Set([
   "EX",
   "SC",
 ]);
-export const REGIONAL = new Set(["CJX", "REX", "R", "RB", "RE", "ER", "Os", "SB"]);
-export const SUBURBAN = new Set(["S"]);
+export const REGIONAL = new Set([
+  ...["CJX", "REX", "R", "RB", "RE", "ER", "Os", "SB"],
+  // Slovenia (LP local, LPV, RG regional, MV/MO international regional), Bulgaria (PV)
+  ...["LP", "LPV", "RG", "MV", "MO", "PV"],
+]);
+/** S-Bahn and suburban trains (Bulgaria: KPV крайградски) */
+export const SUBURBAN = new Set(["S", "KPV"]);
 export const NIGHT = new Set(["NJ", "EN"]);
 
 /** private long-distance operators (WESTbahn, RegioJet, Leo Express): orange */

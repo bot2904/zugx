@@ -7,7 +7,7 @@ import { isImeEnter, useKeys } from "../lib/keys.ts";
 import SortHeader from "./SortHeader.vue";
 import { normalize } from "../lib/normalize.ts";
 import { categoryColor } from "../lib/products.ts";
-import { sheetNumber } from "../lib/sheets.ts";
+import { compareSheetNumbers, sheetNumber } from "../lib/sheets.ts";
 
 const props = defineProps<{ index: CorridorIndex }>();
 const route = useRoute();
@@ -41,10 +41,19 @@ const rows = computed<CorridorIndexEntry[]>(() => {
   });
   const dir = desc.value ? -1 : 1;
   // corridors without a number sort after the numbered ones
-  const oebbKey = (c: CorridorIndexEntry) => (sheetNumber(c)?.padStart(3, "0") ?? "zzz") + c.name;
+  const byNumber = (a: CorridorIndexEntry, b: CorridorIndexEntry) => {
+    const [x, y] = [sheetNumber(a), sheetNumber(b)];
+    return x && y
+      ? compareSheetNumbers(x, y) || a.name.localeCompare(b.name)
+      : x
+        ? -1
+        : y
+          ? 1
+          : a.name.localeCompare(b.name);
+  };
   return list.sort((a, b) =>
     sort.value === "oebb"
-      ? dir * oebbKey(a).localeCompare(oebbKey(b))
+      ? dir * byNumber(a, b)
       : sort.value === "name"
         ? dir * a.name.localeCompare(b.name)
         : dir * (a[sort.value] - b[sort.value]),

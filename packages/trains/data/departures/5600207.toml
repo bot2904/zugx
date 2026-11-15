@@ -18,4 +18,4 @@ deps = [
   [1112,"EC","47","5600007",[],3,"1"],
 ]
 
-names = { 5600007 = "Kosice", 5600582 = "Bratislava-Petrzalka", 8100003 = "Wien Westbahnhof", 8100004 = "Wien Hbf (Autoreisezug)", 8100032 = "Bruck/Mur Bahnhof", 8100082 = "Spielfeld-Straß in Stmk Bahnhof", 8100173 = "Graz Hbf", 8100514 = "Wien Meidling Bahnhof", 8100516 = "Wr.Neustadt Hbf", 8103000 = "Wien Hbf" }
+names = { 5600007 = "Košice", 5600582 = "Bratislava-Petrzalka", 8100003 = "Wien Westbahnhof", 8100004 = "Wien Hbf (Autoreisezug)", 8100032 = "Bruck/Mur Bahnhof", 8100082 = "Spielfeld-Straß in Stmk Bahnhof", 8100173 = "Graz Hbf", 8100514 = "Wien Meidling Bahnhof", 8100516 = "Wr.Neustadt Hbf", 8103000 = "Wien Hbf" }

@@ -1,5 +1,5 @@
 id = "5400202"
-name = "Breclav"
+name = "Břeclav"
 year = 2026
 begin = "2025-12-14"
 end = "2026-12-12"
@@ -74,7 +74,7 @@ deps = [
 5400001 = "Brno hl.n."
 5400003 = "Decin hl.n."
 5400014 = "Praha hl.n."
-5400201 = "Praha-Holesovice"
+5400201 = "Praha-Holešovice"
 8000108 = "Freilassing (Oberbayern)"
 8011113 = "Berlin Südkreuz"
 8098160 = "Berlin Hbf (Tiefgeschoß)"

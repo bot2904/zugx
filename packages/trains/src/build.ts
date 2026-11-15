@@ -23,7 +23,7 @@ import {
 } from "@zugx/gtfs";
 import { gtfsFromDb, openZugxDb } from "@zugx/db/query";
 import type { GtfsHafasMap } from "@zugx/stations";
-import { cleanGtfsName, cleanHafasName } from "@zugx/stations/match";
+import { cleanGtfsName, stationName } from "@zugx/stations/match";
 import {
   decodeDays,
   encodeDays,
@@ -258,7 +258,7 @@ async function main() {
   const hafasId = (gid: string): string => {
     const e = map[gid];
     if (e?.id) {
-      if (!stationNames.has(e.id)) stationNames.set(e.id, cleanHafasName(e.name ?? e.gtfs));
+      if (!stationNames.has(e.id)) stationNames.set(e.id, stationName(e));
       return e.id;
     }
     unmapped.set(gid, (unmapped.get(gid) ?? 0) + 1);

@@ -90,11 +90,21 @@ export function cleanHafasName(name: string): string {
 export function withDiacritics(hafas: string, gtfsNames: Iterable<string>): string {
   const plain = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   if (plain(hafas) !== hafas) return hafas;
+  // a country suffix HAFAS adds to foreign names: "Pozega(HR)", "Jesenice(SLO)"
+  const base = /^(.*\S)\s*\([A-Z]{2,3}\)$/.exec(hafas)?.[1];
   for (const g of gtfsNames) {
     const c = cleanGtfsName(g);
-    if (c !== hafas && plain(c) === hafas) return c;
+    if (c !== hafas && (plain(c) === hafas || (base && plain(c) === base))) return c;
   }
   return hafas;
+}
+
+/**
+ * the display name of a matched station (a gtfs-hafas-map entry): the HAFAS name, with diacritics
+ * and without the country suffix where the GTFS name allows (withDiacritics)
+ */
+export function stationName(e: { name?: string; gtfs: string }): string {
+  return withDiacritics(cleanHafasName(e.name ?? e.gtfs), [e.gtfs]);
 }
 
 /** Remove GTFS name suffixes like " Bahnhof" that HAFAS names don't carry. */

@@ -18,7 +18,7 @@ import {
 } from "@zugx/gtfs";
 import { openZugxDb, RAIL_ROUTE_TYPES, rows, serviceDays } from "@zugx/db/query";
 import type { GtfsHafasMap } from "@zugx/stations";
-import { cleanGtfsName, cleanHafasName } from "@zugx/stations/match";
+import { cleanGtfsName, stationName } from "@zugx/stations/match";
 import { readToml, toToml } from "@zugx/toml";
 import { encodeDays } from "./index.ts";
 
@@ -64,10 +64,7 @@ async function main() {
     const e = map[gid];
     const id = e?.id ?? gid;
     if (!names.has(id))
-      names.set(
-        id,
-        e?.id ? cleanHafasName(e.name ?? e.gtfs) : cleanGtfsName(stops.get(gid)?.name ?? gid),
-      );
+      names.set(id, e?.id ? stationName(e) : cleanGtfsName(stops.get(gid)?.name ?? gid));
     return id;
   };
   // rail trips with a train name, in file order; their stop times in stop_sequence order

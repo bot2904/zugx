@@ -121,6 +121,12 @@ export function feedPeriod(src: Source): { begin: string; end: string } {
     if (r.start_date! < lo) lo = r.start_date!;
     if (r.end_date! > hi) hi = r.end_date!;
   }
+  // feeds with calendar_dates only (one service per day, e.g. BDZ): the added days
+  for (const r of table(src, "calendar_dates")) {
+    if (r.exception_type !== "1") continue;
+    if (r.date! < lo) lo = r.date!;
+    if (r.date! > hi) hi = r.date!;
+  }
   const iso = (d: string) => `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}`;
   return { begin: iso(lo), end: iso(hi) };
 }

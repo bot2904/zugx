@@ -1,5 +1,5 @@
 id = "5400201"
-name = "Praha-Holesovice"
+name = "Praha-Holešovice"
 year = 2026
 begin = "2025-12-14"
 end = "2026-12-12"
@@ -11,4 +11,4 @@ deps = [
   [1644,"NJ","456","8098160",["5400003","8011113"],2,"1"],
 ]
 
-names = { 5400001 = "Brno hl.n.", 5400003 = "Decin hl.n.", 5400014 = "Praha hl.n.", 5400202 = "Breclav", 8011113 = "Berlin Südkreuz", 8098160 = "Berlin Hbf (Tiefgeschoß)" }
+names = { 5400001 = "Brno hl.n.", 5400003 = "Decin hl.n.", 5400014 = "Praha hl.n.", 5400202 = "Břeclav", 8011113 = "Berlin Südkreuz", 8098160 = "Berlin Hbf (Tiefgeschoß)" }

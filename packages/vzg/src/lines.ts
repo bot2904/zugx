@@ -794,7 +794,9 @@ export function buildLines(ex: RailExtract, lineRef: RegExp = OEBB_LINE_REF): Vz
     const name = g.oebb
       ? rel?.name && rel.name !== g.key
         ? rel.name
-        : g.ways.find((w) => w.tags.name)?.tags.name
+        : // a way's name, not a tunnel's or bridge's own name ("Tunel br. 245")
+          (g.ways.find((w) => w.tags.name && !w.tags.tunnel && !w.tags.bridge)?.tags.name ??
+          g.ways.find((w) => w.tags.name)?.tags.name)
       : g.key;
     const gauge = common(lineWays, "gauge");
     const operator = rel?.operator || common(lineWays, "operator");

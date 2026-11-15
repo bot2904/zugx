@@ -103,4 +103,4 @@ deps = [
   [1458,"REX","2372","8100457",[],4,"2"],
 ]
 
-names = { 5400202 = "Breclav", 8100130 = "Hohenau/March Bahnhof", 8100221 = "Drösing Bahnhof", 8100457 = "Bernhardsthal Bahnhof", 8100516 = "Wr.Neustadt Hbf", 8100619 = "Angern/March Bahnhof", 8100724 = "Dürnkrut Bahnhof", 8101012 = "Jedenspeigen Bahnhof", 8101227 = "Wien Matzleinsdorfer Platz Bahnhst", 8101524 = "Sierndorf/March Bahnhst", 8101536 = "Stillfried Bahnhst", 8101644 = "Tallesbrunn Bahnhst" }
+names = { 5400202 = "Břeclav", 8100130 = "Hohenau/March Bahnhof", 8100221 = "Drösing Bahnhof", 8100457 = "Bernhardsthal Bahnhof", 8100516 = "Wr.Neustadt Hbf", 8100619 = "Angern/March Bahnhof", 8100724 = "Dürnkrut Bahnhof", 8101012 = "Jedenspeigen Bahnhof", 8101227 = "Wien Matzleinsdorfer Platz Bahnhst", 8101524 = "Sierndorf/March Bahnhst", 8101536 = "Stillfried Bahnhst", 8101644 = "Tallesbrunn Bahnhst" }

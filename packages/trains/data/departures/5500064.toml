@@ -1,5 +1,5 @@
 id = "5500064"
-name = "Zahony"
+name = "Záhony"
 year = 2026
 begin = "2025-12-14"
 end = "2026-12-12"
@@ -11,4 +11,4 @@ deps = [
   [1650,"D","50347","2200010",[],0,"1"],
 ]
 
-names = { 2200005 = "Kyiv Pasazhyrskyi", 2200010 = "Chop", 2200025 = "Lviv", 2200033 = "Mukacheve", 2200072 = "Stryj", 5500017 = "Hegyeshalom", 5500058 = "Debrecen", 5500061 = "Nyiregyhaza", 5500080 = "Györ", "Pua:22517" = "Swaljawa" }
+names = { 2200005 = "Kyiv Pasazhyrskyi", 2200010 = "Chop", 2200025 = "Lviv", 2200033 = "Mukacheve", 2200072 = "Stryj", 5500017 = "Hegyeshalom", 5500058 = "Debrecen", 5500061 = "Nyíregyháza", 5500080 = "Györ", "Pua:22517" = "Swaljawa" }

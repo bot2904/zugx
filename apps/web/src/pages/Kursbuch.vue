@@ -11,7 +11,7 @@ import { useI18n } from "../i18n/index.ts";
 import { daysBetween, viennaDate } from "../lib/format.ts";
 import { usePageTitle } from "../lib/title.ts";
 import { country, ofCountry } from "../lib/country.ts";
-import { sheetNumber } from "../lib/sheets.ts";
+import { compareSheetNumbers, sheetGroup, sheetNumber } from "../lib/sheets.ts";
 
 const { t, locale } = useI18n();
 const route = useRoute();
@@ -49,8 +49,8 @@ const index = shallowRef<CorridorIndex>();
 const allSheets = computed(() =>
   (index.value?.corridors ?? [])
     .map((c) => ({ ...c, nr: sheetNumber(c) ?? "" }))
-    .filter((c) => /^\d+$/.test(c.nr))
-    .sort((a, b) => +a.nr - +b.nr || a.id.localeCompare(b.id)),
+    .filter((c) => /^[A-Z]?\d+[A-Z]?(-\d)?$/.test(c.nr))
+    .sort((a, b) => compareSheetNumbers(a.nr, b.nr) || a.id.localeCompare(b.id)),
 );
 /** chosen sheets (?bilder=100,101,300); none = the range von–bis */
 const picked = computed(
@@ -61,15 +61,18 @@ const picked = computed(
 );
 const sheets = computed(() =>
   allSheets.value.filter((c) =>
-    picked.value.size ? picked.value.has(c.nr) : +c.nr >= from.value && +c.nr <= to.value,
+    picked.value.size
+      ? picked.value.has(c.nr)
+      : // the range (?von/?bis) counts the numeric part (M101 → 101)
+        +c.nr.replace(/^[A-Z]|[A-Z]$|-\d$/g, "") >= from.value &&
+        +c.nr.replace(/^[A-Z]|[A-Z]$|-\d$/g, "") <= to.value,
   ),
 );
 /** the selection by hundreds (1xx, 2xx …), as the book's sections */
 const groups = computed(() => {
   const m = new Map<string, typeof allSheets.value>();
   for (const c of allSheets.value) {
-    // by hundreds (1xx, 2xx …), two-digit numbers by tens
-    const g = c.nr.length > 2 ? `${c.nr[0]}00` : `${c.nr[0]}0`;
+    const g = sheetGroup(c.nr);
     m.set(g, [...(m.get(g) ?? []), c]);
   }
   return [...m];

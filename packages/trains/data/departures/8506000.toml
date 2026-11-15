@@ -10,4 +10,4 @@ deps = [
   [898,"RJX","13483","8506314",["8506302"],0,""],
 ]
 
-names = { 8506302 = "St. Gallen(CH)", 8506314 = "St. Margrethen SG" }
+names = { 8506302 = "St. Gallen", 8506314 = "St. Margrethen SG" }

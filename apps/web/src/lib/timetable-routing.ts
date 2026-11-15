@@ -130,7 +130,10 @@ export async function timetableJourneys(
     let prevArr = -Infinity;
     for (const l of route.legs) {
       if ("route" in l) {
-        const [cat = "", ...rest] = l.route.name.split(" ");
+        // "RJX 162"; a bare number ("481", some trains of the Slovenian feed) has no category
+        const [cat = "", ...rest] = /^\d+$/.test(l.route.name)
+          ? ["", l.route.name]
+          : l.route.name.split(" ");
         // the same train continuing (border stations: each country's feed has its part, sometimes
         // under another category, D 311 → MV 311): one leg
         const prev = legs.at(-1);

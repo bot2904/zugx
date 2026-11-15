@@ -46,6 +46,14 @@ export const LONG_DISTANCE_CATEGORIES: readonly string[] = [
   "IR",
   "D",
   "WB",
+  // other countries' long-distance trains: Slovenia InterCity Slovenija, Croatia international,
+  // Montenegro / Serbia brzi voz, Bulgaria бърз, експресен, международен бърз влак
+  "ICS",
+  "INT",
+  "B",
+  "BV",
+  "EV",
+  "MBV",
 ];
 
 export const NIGHT_CATEGORIES: readonly string[] = ["NJ", "EN"];
@@ -63,7 +71,8 @@ export function compareCategories(a: string, b: string): number {
 
 /** "RJX 260" → { cat: "RJX", nr: "260" }; undefined if it doesn't look like a train name. */
 export function parseTrainName(s: string): { cat: string; nr: string } | undefined {
-  const m = /^\s*([A-Za-zÄÖÜäöü]{1,5})\s*(\d{1,6}[A-Za-z]?)\s*$/.exec(s);
+  // any letters (also "SŽ", "HŽ": operator instead of category where a feed has none)
+  const m = /^\s*(\p{L}{1,5})\s*(\d{1,6}[A-Za-z]?)\s*$/u.exec(s);
   if (!m) return undefined;
   return { cat: m[1]!.toUpperCase(), nr: m[2]! };
 }

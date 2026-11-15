@@ -45,9 +45,16 @@ const countryName = computed(
 const year = computed(
   () => Number(route.query.y) || yearFor(todayIso, country.value) || years.value[0] || 0,
 );
+/** the country's default index (long-distance + night) turned out empty (Montenegro) */
+const emptyDefault = ref(false);
+watch(country, () => (emptyDefault.value = false));
+/** the default view: long-distance, or all trains where a country has none */
+const defaultQuick = computed<QuickFilter>(() => (emptyDefault.value ? "all" : "long"));
 const quick = computed<QuickFilter>(() => {
   const q = route.query.g;
-  return q === "all" || q === "regional" || q === "suburban" || q === "night" ? q : "long";
+  return q === "all" || q === "regional" || q === "suburban" || q === "night" || q === "long"
+    ? q
+    : defaultQuick.value;
 });
 const op = computed(() =>
   route.params.op && route.params.op !== "all" ? String(route.params.op) : "",
@@ -89,6 +96,7 @@ async function load() {
   loading.value = true;
   try {
     index.value = await loadTrains(year.value, full, c);
+    if (!full && index.value && !index.value.trains.length) emptyDefault.value = true;
     isFull.value = full && !!index.value;
     if (!index.value && full) index.value = await loadTrains(year.value, false, c);
     indexCountry.value = c;
@@ -264,7 +272,7 @@ function goFilter(o: string, c: string) {
 }
 
 function setQuick(g: QuickFilter) {
-  const query = { ...route.query, g: g === "long" ? undefined : g };
+  const query = { ...route.query, g: g === defaultQuick.value ? undefined : g };
   void router.push({ path: op.value ? `/trains/${op.value}` : "/trains", query });
 }
 

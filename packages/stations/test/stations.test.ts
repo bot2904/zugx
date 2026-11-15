@@ -126,8 +126,12 @@ describe("withDiacritics", () => {
     expect(withDiacritics("Divaca", ["Divača"])).toBe("Divača");
     expect(withDiacritics("Sezana", ["Sežana Bahnhof"])).toBe("Sežana");
   });
+  it("drops HAFAS's country suffix when the GTFS name is the bare name", () => {
+    expect(withDiacritics("Pozega(HR)", ["Požega"])).toBe("Požega");
+    expect(withDiacritics("Jesenice(SLO)", ["Jesenice"])).toBe("Jesenice");
+  });
   it("keeps HAFAS names that differ otherwise or already have diacritics", () => {
-    expect(withDiacritics("Jesenice(SLO)", ["Jesenice"])).toBe("Jesenice(SLO)");
+    expect(withDiacritics("Jesenice(SLO)", ["Jesenice na Dolenjskem"])).toBe("Jesenice(SLO)");
     expect(withDiacritics("Wien Hbf", ["Wien Hauptbahnhof"])).toBe("Wien Hbf");
     expect(withDiacritics("Völs", ["Vols"])).toBe("Völs");
   });
