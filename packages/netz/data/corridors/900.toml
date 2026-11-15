@@ -3040,3 +3040,4 @@ trains = [
   { cat = "NJ", nr = "499", dir = 1, origin = "Passau Hbf", headsign = "Wien Hbf", pts = [[5, "", 2018.2], [6, 2019, 2022], [7, 2025.1, 2025.1], [8, 2028, ""]], days = "AAAAAAAAA/////////////////////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },
   { cat = "NJ", nr = "469", dir = 1, origin = "Freilassing", headsign = "Wien Hbf", pts = [[5, "", 2044.1], [6, 2045, 2048], [7, 2050.6, 2050.6], [8, 2053, ""]], days = "VKlSpUqVKlSpUqVKlSpUqVKlSpUqVKlSpUqVKlSpUqVKlSpUqVKlSpUqVKlSoA==" },
 ]
+tracks = [[0, 15.14, 2], [20, 28.9, 2]]

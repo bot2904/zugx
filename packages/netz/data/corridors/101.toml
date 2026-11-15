@@ -779,3 +779,4 @@ trains = [
   { cat = "NJ", nr = "40421", dir = -1, origin = "Passau Hbf", headsign = "Wien Hbf", pts = [[6, "", 1923], [5, 1927.3, 1927.3], [4, 1930.5, 1930.5], [3, 1932.7, 1932.7], [2, 1934.1, 1934.1], [1, 1936.6, 1936.6], [0, 1939, ""]], days = "AAAAAAAAA/////////////////////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },
   { cat = "NJ", nr = "499", dir = -1, origin = "Passau Hbf", headsign = "Wien Hbf", pts = [[6, "", 1923], [5, 1927.3, 1927.3], [4, 1930.5, 1930.5], [3, 1932.7, 1932.7], [2, 1934.1, 1934.1], [1, 1936.6, 1936.6], [0, 1939, ""]], days = "AAAAAAAAA/////////////////////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },
 ]
+tracks = [[2.06, 18.74, 2], [20.1, 36.99, 2], [38.9, 124.2, 2]]

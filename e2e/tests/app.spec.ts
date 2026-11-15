@@ -149,6 +149,11 @@ test("bildfahrplan section and direction are adjustable", async ({ page }) => {
 
 test("bildfahrplan: timetable tables below the chart, both directions", async ({ page }) => {
   await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
+  // single/double track along the top edge (Westbahn: double track)
+  await expect(page.locator(".bf-tracks g").first()).toBeAttached();
+  expect(await page.locator(".bf-tracks line").count()).toBeGreaterThan(
+    await page.locator(".bf-tracks g").count(),
+  );
   // default: Kursbuch layout, stations as rows ("an"/"ab"), a column per train
   const book = page.locator(".bf-book table").first();
   await expect(book.locator("tbody th.stn").first()).toHaveText("Wien Hbf");

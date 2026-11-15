@@ -179,3 +179,4 @@ trains = [
   { cat = "NJ", nr = "40421", dir = -1, origin = "Passau Hbf", headsign = "Wien Hbf", pts = [[18, "", 1875.6], [17, 1877.5, ""]], days = "AAAAAAAAAf////////////////////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },
   { cat = "NJ", nr = "499", dir = -1, origin = "Passau Hbf", headsign = "Wien Hbf", pts = [[18, "", 1875.6], [17, 1877.5, ""]], days = "AAAAAAAAAf////////////////////gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },
 ]
+tracks = [[0.4, 63.8, 1]]

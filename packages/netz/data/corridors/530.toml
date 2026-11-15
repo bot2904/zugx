@@ -392,3 +392,4 @@ trains = [
   { cat = "NJ", nr = "465", dir = -1, origin = "Feldkirch", headsign = "Graz Hbf", pts = [[1, "", 1947.1], [0, 1948, ""]], days = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/////////8A==" },
   { cat = "NJ", nr = "465", dir = -1, origin = "Buchs", headsign = "Graz Hbf", pts = [[1, "", 1947.1], [0, 1948, ""]], days = "////AAAB//////////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },
 ]
+tracks = [[0.38, 80, 1]]

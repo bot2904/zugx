@@ -520,3 +520,4 @@ trains = [
   { cat = "NJ", nr = "465", dir = 1, origin = "Buchs", headsign = "Graz Hbf", pts = [[27, "", 1889.1], [28, 1896, ""]], days = "////AAAB//////////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },
   { cat = "NJ", nr = "13485", dir = 1, origin = "Schwarzach-St.Veit", headsign = "Graz Hbf", pts = [[27, "", 1889.3], [28, 1896, ""]], days = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///////////////////+AAAAAAAAAAA==" },
 ]
+tracks = [[0, 44.12, 2], [44.22, 44.75, 1], [44.86, 81.79, 2], [81.89, 82.5, 1], [82.6, 94.4, 2], [94.5, 96.5, 1], [96.6, 112.88, 2], [113.29, 127.1, 1], [127.2, 139, 2], [139.1, 153.8, 1]]

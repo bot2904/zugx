@@ -891,3 +891,4 @@ trains = [
   { cat = "S", nr = "20081", dir = -1, origin = "Eichgraben-Altlengbach", headsign = "Wien Westbahnhof", pts = [[9, "", 1466], [8, 1469, ""]], days = "////////////////////////////////////////////////////////////4A==" },
   { cat = "CJX", nr = "1947", dir = -1, origin = "Amstetten", headsign = "Wien Westbahnhof", pts = [[9, "", 1477], [8, 1480.2, ""]], days = "////////////////////////////////////////////////////////////8A==" },
 ]
+tracks = [[1.76, 2.39, 1], [2.49, 12.9, 2], [13, 15.5, 1]]

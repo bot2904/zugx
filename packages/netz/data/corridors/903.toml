@@ -1754,3 +1754,4 @@ trains = [
   { cat = "S", nr = "28112", dir = 1, origin = "Wiener Neustadt Hbf", headsign = "Wien Floridsdorf", pts = [[0, "", 1497], [1, 1498, 1498], [2, 1500, 1501], [3, 1503, 1504], [4, 1507, 1508], [5, 1510, 1511], [6, 1512, 1513], [7, 1516, ""]], days = "+cOlz58+fPnz58+fPnx58+ePnT486fPnz58+fPnz58+fIAAAAAAAAAAAAAAAAA==" },
   { cat = "S", nr = "28112", dir = 1, origin = "Wiener Neustadt Hbf", headsign = "Stockerau", pts = [[0, "", 1497], [1, 1498, 1498], [2, 1500, 1501], [3, 1503, 1504], [4, 1507, 1508], [5, 1510, 1511], [6, 1512, 1513], [7, 1516, 1518], [8, 1520, 1520], [9, 1521, 1522], [10, 1524, 1524], [11, 1527, 1528], [12, 1529, 1530], [13, 1532, 1533], [14, 1536, 1536], [15, 1539, 1540], [16, 1544, ""]], days = "BjxaMGDBgwYMGDBgwYOGDBhwYsHDFgwYMGDBgwYMGDBgwAAAAAAAAAAAAAAAAA==" },
 ]
+tracks = [[5.1, 31.81, 2], [31.91, 87.1, 1]]

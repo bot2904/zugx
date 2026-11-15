@@ -6,7 +6,7 @@
  * GTFS source: env GTFS_DIR (unzipped) or GTFS_ZIP, else `<repo>/.cache/`
  * (downloaded if missing).
  */
-import { existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
 import { readToml, toToml } from "@zugx/toml";
@@ -22,6 +22,14 @@ import {
 import { feedPeriod, loadFeed, loadShapes, openFeed, parentDhid, serviceDays } from "./gtfs.ts";
 import { buildNetz } from "./netz.ts";
 import { trafficDensity } from "./density.ts";
+import {
+  corridorTracks,
+  pairTrips,
+  pieceTracks,
+  trackLookup,
+  wayTracks,
+  type RailWays,
+} from "./tracks.ts";
 import { toNge } from "./nge.ts";
 import { nodeCandidates, NODES } from "./nodes.ts";
 import type { CorridorIndex } from "./types.ts";
@@ -171,11 +179,41 @@ async function main() {
   const vzgLines = loadVzg();
   const speeds = loadSpeeds(vzgLines, year.feed.stations);
   console.log(speeds ? "passing times weighted by VzG speed limits" : "passing times by distance");
+  // single/double track per corridor along the trains' shapes: from the OSM tracks
+  // (.cache/osm-rail.json of vzg:extract), else from the VzG network pieces
+  const netFile = join(root, "packages", "vzg", "data", "network.toml");
+  const net = existsSync(netFile)
+    ? readToml<{ lines: { id: string; pieces: { line: string; tr: number }[] }[] }>(netFile, {
+        lines: [],
+      })
+    : undefined;
+  const osmFile = join(root, ".cache", "osm-rail.json");
+  const osm = existsSync(osmFile)
+    ? (JSON.parse(readFileSync(osmFile, "utf8")) as RailWays)
+    : undefined;
+  console.log(`track counts from ${osm ? "the OSM tracks" : net ? "the VzG network" : "-"}`);
+  const pairs = net || osm ? pairTrips(year.feed.trips, shapes) : undefined;
   for (const def of CORRIDORS) {
     const c = buildCorridor(feed, def, day, SOURCE, names, year, shapes, speeds);
     for (const st of c.stations) {
       const h = hafas?.get(st.id);
       if (h) st.hafasId = h;
+    }
+    if (pairs) {
+      // only the VzG lines through the sheet's stations (not a neighbouring single-track line)
+      const pos = c.stations.flatMap((st) => {
+        const g = year.feed.stations.get(st.id);
+        return g ? [[g.lat, g.lon] as [number, number]] : [];
+      });
+      const through = linesThrough(vzgLines, pos);
+      const ids = new Set(through.map((l) => l.id));
+      const lookup = trackLookup(
+        osm
+          ? wayTracks(osm, new Set(through.flatMap((l) => (l.ref ? [l.ref] : []))))
+          : pieceTracks(net!.lines.filter((l) => ids.has(l.id)).flatMap((l) => l.pieces)),
+      );
+      const tr = corridorTracks(c.stations, pairs, shapes, lookup);
+      if (tr.length) c.tracks = tr;
     }
     const onDay = c.trains.filter((t) => runsOnDay(t.days));
     const file = `${c.id}.toml`;

@@ -411,3 +411,4 @@ trains = [
   { cat = "NJ", nr = "294", dir = -1, origin = "Tarvisio Citta Boscoverde", headsign = "München Hbf", pts = [[22, "", 1802], [21, 1807, 1807], [20, 1812.2, 1812.2], [19, 1814.9, 1814.9], [18, 1819.6, 1819.6], [17, 1820.8, 1820.8], [16, 1823.9, 1823.9], [15, 1837.4, 1837.4], [14, 1839.4, 1839.4], [13, 1841.2, 1841.2], [12, 1842.1, 1842.1], [11, 1843.1, 1843.1], [10, 1844, 1844], [9, 1845, 1845], [8, 1845.9, 1845.9], [7, 1846.7, 1846.7], [6, 1849.2, 1849.2], [5, 1850, 1850], [4, 1851.8, 1851.8], [3, 1852.7, 1852.7], [2, 1853.8, 1853.8], [1, 1854.6, 1854.6], [0, 1858, ""]], days = "gAAAAAAAQAEAAAgQAAABAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },
   { cat = "NJ", nr = "294", dir = -1, origin = "Tarvisio Citta Boscoverde", headsign = "Bischofshofen", pts = [[22, "", 1843], [21, 1848, 1848], [20, 1853.2, 1853.2], [19, 1856, ""]], days = "AAAAAAABAgQAACBAAAAECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },
 ]
+tracks = [[0, 0.4, 1], [0.5, 191.2, 2]]

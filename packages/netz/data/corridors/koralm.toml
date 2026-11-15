@@ -303,3 +303,4 @@ trains = [
   { cat = "NJ", nr = "465", dir = -1, origin = "Salzburg Hbf", headsign = "Graz Hbf", pts = [[17, "", 1836], [16, 1837.9, 1837.9], [15, 1841.4, 1841.4], [14, 1843.1, 1843.1], [13, 1845, 1847], [12, 1851, 1851], [11, 1853, 1855], [10, 1856.4, 1856.4], [9, 1859.1, 1859.1], [8, 1861.3, 1861.3], [7, 1862.1, 1862.1], [6, 1864, ""]], days = "AAAA///+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },
   { cat = "NJ", nr = "465", dir = -1, origin = "Klagenfurt Hbf", headsign = "Graz Hbf", pts = [[6, "", 1867], [5, 1868.3, 1868.3], [4, 1873.6, 1873.6], [3, 1880.7, 1880.7], [2, 1896, 1898], [1, 1916, 1927], [0, 1948, ""]], days = "AAAA///+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },
 ]
+tracks = [[1.1, 8.12, 2], [19.65, 33.19, 2], [37.7, 111.7, 2], [111.8, 113.8, 1], [113.9, 163.55, 2]]

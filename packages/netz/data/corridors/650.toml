@@ -83,3 +83,4 @@ trains = [
   { cat = "S", nr = "4339", dir = 1, origin = "Feldkirchen in Ktn", headsign = "Villach Hbf", pts = [[7, "", 1412], [8, 1416, 1417], [9, 1421, 1422], [10, 1425, 1426], [11, 1428, 1428], [12, 1432, 1433], [13, 1435, 1435], [14, 1439, 1440], [15, 1442, 1442], [16, 1446, ""]], days = "AAxYAAAAAwYAAAAAAYMAAABwAsGAFgwYMGDBg34MGDBgwYAAAAAAYMAAAAAAAA==" },
   { cat = "S", nr = "4338", dir = -1, origin = "Villach Hbf", headsign = "Feldkirchen in Ktn", pts = [[16, "", 1433], [15, 1436, 1437], [14, 1439, 1440], [13, 1443, 1443], [12, 1446, 1447], [11, 1451, 1451], [10, 1453, 1454], [9, 1457, 1458], [8, 1462, 1463], [7, 1467, ""]], days = "AAxYAAAAAwYAAAAAAYMAAABwAsGAFgwYMGDBg34MGDBgwYAAAAAAYMAAAAAAAA==" },
 ]
+tracks = [[0.65, 50.2, 1]]

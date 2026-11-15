@@ -2172,3 +2172,4 @@ trains = [
   { cat = "NJ", nr = "40294", dir = -1, origin = "Tarvisio Citta Boscoverde", headsign = "Wien Hbf", pts = [[3, "", 1981], [2, 1983.6, 1983.6], [1, 1986, ""]], days = "////////f/3//+/f///9+///////////////////////////////////////8A==" },
   { cat = "EN", nr = "1272", dir = -1, origin = "Šentilj železniška postaja", headsign = "Bratislava hlavná stanica", pts = [[3, "", 1998], [2, 2000.6, 2000.6], [1, 2003, ""]], days = "AAAAAAAAAAAAAAAAAAAAAABUqVKlSpUqVKlSpUqVKlSpUqVKlSoAAAAAAAAAAA==" },
 ]
+tracks = [[14.78, 161.15, 2], [163.42, 165.41, 2], [177.81, 182.09, 2], [189.76, 203.8, 2]]

@@ -404,3 +404,4 @@ trains = [
   { cat = "S", nr = "21079", dir = -1, origin = "St. Pölten Hbf", headsign = "Wien Franz-Josefs-Bahnhof", pts = [[2, "", 1453], [1, 1455, 1456], [0, 1458, ""]], days = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//////////////////////////8A==" },
   { cat = "REX", nr = "2879", dir = -1, origin = "Krems", headsign = "Wien Franz-Josefs-Bahnhof", pts = [[4, "", 1464], [3, 1471, 1472], [2, 1493, 1494], [1, 1496, 1497], [0, 1500, ""]], days = "BjxaMGDBgwYMGDBgwYOGDBhwYMHDFgwYMGDBgwYMGDBgwYMGDBgwcMGDBgwaMA==" },
 ]
+tracks = [[0, 1.8, 1], [1.9, 44.41, 2], [44.51, 163.2, 1]]

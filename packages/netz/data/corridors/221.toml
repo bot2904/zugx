@@ -187,3 +187,4 @@ trains = [
   { cat = "EN", nr = "40465", dir = 1, origin = "Schwarzach-St.Veit", headsign = "Zagreb Glavni kolodvor", pts = [[0, "", 1806], [1, 1807.7, 1807.7], [2, 1810.9, 1810.9], [3, 1813.8, 1813.8], [4, 1815.4, 1815.4], [5, 1818.7, 1818.7], [6, 1822.2, 1822.2], [7, 1830.1, 1830.1], [8, 1843, ""]], days = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///////////////////8AAAAAAAAAAA==" },
   { cat = "EN", nr = "40465", dir = 1, origin = "Salzburg Hbf", headsign = "Zagreb Glavni kolodvor", pts = [[0, "", 1806], [1, 1807.7, 1807.7], [2, 1810.9, 1810.9], [3, 1813.8, 1813.8], [4, 1815.4, 1815.4], [5, 1818.7, 1818.7], [6, 1822.2, 1822.2], [7, 1830.1, 1830.1], [8, 1843, ""]], days = "AAAA///+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },
 ]
+tracks = [[0.34, 1.26, 1], [1.37, 7.3, 2], [7.4, 24.2, 1]]

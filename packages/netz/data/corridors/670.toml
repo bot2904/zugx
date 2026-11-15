@@ -195,3 +195,4 @@ trains = [
   { cat = "EN", nr = "40465", dir = 1, origin = "Schwarzach-St.Veit", headsign = "Zagreb Glavni kolodvor", pts = [[0, "", 1806], [1, 1807.4, 1807.4], [2, 1810, ""]], days = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///////////////////8AAAAAAAAAAA==" },
   { cat = "EN", nr = "40465", dir = 1, origin = "Salzburg Hbf", headsign = "Zagreb Glavni kolodvor", pts = [[0, "", 1806], [1, 1807.4, 1807.4], [2, 1810, ""]], days = "AAAA///+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },
 ]
+tracks = [[0.34, 1.26, 1], [1.37, 17.99, 2], [18.09, 47.9, 1]]

@@ -192,6 +192,8 @@ export interface Corridor {
   source: string;
   stations: CorridorStation[];
   trains: CorridorTrain[];
+  /** single / double track along the corridor: [km from, km to, tracks] (from the VzG data) */
+  tracks?: [number, number, number][];
 }
 
 export interface CorridorIndexEntry {

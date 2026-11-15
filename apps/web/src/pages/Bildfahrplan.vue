@@ -213,6 +213,22 @@ const shownStations = computed(() => {
     .map((st, k) => ({ ...st, i: range.value.lo + k }));
   return reversed.value ? part.reverse() : part;
 });
+/** single/double track runs within the shown section, in chart x */
+const trackRuns = computed(() => {
+  const lo = Math.min(kmLo.value, kmHi.value);
+  const hi = Math.max(kmLo.value, kmHi.value);
+  const st = data.value?.stations ?? [];
+  // the stretch named by the stations at (or just inside) its ends
+  const before = (km: number) => st.findLast((s) => s.km <= km + 0.6)?.name ?? "";
+  const after = (km: number) => st.find((s) => s.km >= km - 0.6)?.name ?? "";
+  return (data.value?.tracks ?? []).flatMap(([a, b, n]) => {
+    const [ca, cb] = [Math.max(a, lo), Math.min(b, hi)];
+    if (cb <= ca) return [];
+    const [x1, x2] = [x(ca), x(cb)].sort((p, q) => p - q) as [number, number];
+    const [from, to] = reversed.value ? [after(cb), before(ca)] : [before(ca), after(cb)];
+    return [{ x1, x2, n, from, to }];
+  });
+});
 const kmLo = computed(() => data.value?.stations[range.value.lo]?.km ?? 0);
 const kmHi = computed(() => data.value?.stations[range.value.hi]?.km ?? 1);
 const x = (km: number) => {
@@ -741,6 +757,22 @@ function toggleCat(c: string) {
             </text>
           </a>
         </g>
+        <!-- single / double track along the top edge: one line or two parallel lines -->
+        <g class="bf-tracks">
+          <g
+            v-for="(tk, k) in trackRuns"
+            :key="k"
+            v-tip="{
+              title: tk.n === 2 ? $t('vzg.double') : $t('vzg.single'),
+              lines: [`${tk.from} – ${tk.to}`],
+            }"
+            data-tip-at="pointer"
+          >
+            <rect :x="tk.x1" :y="M.top - 8" :width="tk.x2 - tk.x1" height="8" fill="transparent" />
+            <line :x1="tk.x1" :x2="tk.x2" :y1="M.top - 5" :y2="M.top - 5" />
+            <line v-if="tk.n === 2" :x1="tk.x1" :x2="tk.x2" :y1="M.top - 2" :y2="M.top - 2" />
+          </g>
+        </g>
         <!-- time -->
         <g class="mono" font-size="10">
           <g v-for="tk in hourTicks" :key="tk.label">
@@ -971,6 +1003,10 @@ function toggleCat(c: string) {
   stroke-width: 0.5;
   stroke-dasharray: 1.5 3;
   opacity: 0.4;
+}
+.bf-tracks line {
+  stroke: var(--muted);
+  stroke-width: 1.2;
 }
 .bf-station[href] {
   cursor: pointer;

@@ -175,3 +175,4 @@ trains = [
   { cat = "R", nr = "3987", dir = 1, origin = "Kirchdorf/Krems", headsign = "Selzthal", pts = [[15, "", 1429], [16, 1432, 1433], [17, 1440, 1442], [18, 1450, 1451], [19, 1461, 1461], [20, 1464, 1465], [21, 1470, 1471], [22, 1480, 1481], [23, 1487, ""]], days = "AAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },
   { cat = "IR", nr = "19814", dir = -1, origin = "Kremsmünster", headsign = "Linz/Donau Hbf", pts = [[11, "", 1436], [10, 1440, 1441], [9, 1445.1, 1445.1], [8, 1448, 1449], [7, 1451.5, 1451.5], [6, 1453.8, 1453.8], [5, 1455.4, 1455.4], [4, 1457, 1459], [3, 1460.3, 1460.3], [2, 1462, 1462], [1, 1463.5, 1463.5], [0, 1467, ""]], days = "AAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" },
 ]
+tracks = [[0, 12.7, 2], [12.8, 38.68, 1], [38.78, 47, 2], [47.1, 103.5, 1]]
