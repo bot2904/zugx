@@ -25,28 +25,38 @@ export const REGIONAL = new Set(["CJX", "REX", "R", "RB", "RE", "ER", "Os", "SB"
 export const SUBURBAN = new Set(["S"]);
 export const NIGHT = new Set(["NJ", "EN"]);
 
+/** private long-distance operators (WESTbahn, RegioJet, Leo Express): orange */
+const PRIVATE_LD = "#b85000";
+const PRIVATE_LD_CATS = new Set(["WB", "RGJ", "LEO"]);
+const PRIVATE_LD_OPERATORS = /westbahn|regiojet|leo express|flixtrain/i;
+
+// Colours by offer level, as common among Austrian timetable planners (FBS): RJX ≠ RJ (two levels
+// of the long-distance offer), IR + CJX violet, REX green (≠ R), private long-distance orange.
 const CAT_COLORS: Record<string, string> = {
   RJX: "#c8102e",
-  RJ: "#c8102e",
+  RJ: "#9b1b5a",
   ICE: "#6e767e",
   EC: "#a6192e",
   IC: "#a6192e",
   NJ: "#3b3f8f",
   EN: "#3b3f8f",
   D: "#9e3d22",
-  WB: "#3f8433",
-  CJX: "#0060f0",
-  REX: "#2773d1",
+  IR: "#7b3fa0",
+  CJX: "#7b3fa0",
+  REX: "#2e7d32",
   R: "#56708f",
   S: "#3367aa",
+  WB: PRIVATE_LD,
+  RGJ: PRIVATE_LD,
+  LEO: PRIVATE_LD,
 };
 
 const PRODUCT_COLORS: Record<ProductId, string> = {
   highspeed: "#c8102e",
   night: "#3b3f8f",
-  replacement: "#ae611c",
+  replacement: "#795548",
   intercity: "#a6192e",
-  interregional: "#9e3d22",
+  interregional: "#7b3fa0",
   regional: "#2773d1",
   suburban: "#3367aa",
   bus: "#6c7b29",
@@ -58,8 +68,14 @@ const PRODUCT_COLORS: Record<ProductId, string> = {
   other: "#6b6b6b",
 };
 
-export function lineColor(line?: Pick<Line, "category" | "product">): string {
+export function lineColor(line?: Pick<Line, "category" | "product" | "operator">): string {
   if (!line) return "var(--muted)";
+  const longDistance = ["highspeed", "intercity", "interregional", "night"].includes(line.product);
+  if (
+    PRIVATE_LD_CATS.has(line.category) ||
+    (longDistance && PRIVATE_LD_OPERATORS.test(line.operator ?? ""))
+  )
+    return PRIVATE_LD;
   return CAT_COLORS[line.category] ?? PRODUCT_COLORS[line.product] ?? "#6b6b6b";
 }
 
