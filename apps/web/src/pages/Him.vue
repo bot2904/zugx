@@ -12,10 +12,11 @@ import { useAsync } from "../lib/async.ts";
  */
 const KINDS = [
   { id: "stoerung", cats: [5] },
+  { id: "behoben", cats: [6] },
   { id: "ausfall", cats: [2] },
   { id: "baustelle", cats: [1] },
   { id: "sev", cats: [0] },
-  { id: "info", cats: [3, 4, 6, 7] },
+  { id: "info", cats: [3, 4, 7] },
 ] as const;
 type KindId = (typeof KINDS)[number]["id"];
 const kindOf = (w: Warning): KindId =>
@@ -156,6 +157,9 @@ const d = (iso?: string) =>
 }
 .k-stoerung {
   color: var(--bad);
+}
+.k-behoben {
+  color: var(--good);
 }
 .k-ausfall {
   color: var(--bad);

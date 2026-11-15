@@ -125,6 +125,7 @@ export default {
     kind: {
       all: "Alle",
       stoerung: "Störung",
+      behoben: "Behobene Störung",
       ausfall: "Ausfall",
       baustelle: "Baustelle",
       sev: "Ersatzverkehr",

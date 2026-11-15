@@ -124,6 +124,7 @@ export default {
     kind: {
       all: "Tutti",
       stoerung: "Guasto",
+      behoben: "Guasto risolto",
       ausfall: "Soppressione",
       baustelle: "Lavori",
       sev: "Servizio sostitutivo",

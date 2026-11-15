@@ -123,6 +123,7 @@ export default {
     kind: {
       all: "All",
       stoerung: "Disruption",
+      behoben: "Resolved disruption",
       ausfall: "Cancellation",
       baustelle: "Construction",
       sev: "Replacement service",
