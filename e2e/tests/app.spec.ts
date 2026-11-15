@@ -539,4 +539,17 @@ test("VzG line map: drawn from the line's geometry, exportable as SVG", async ({
     page.getByRole("button", { name: /SVG/ }).click(),
   ]);
   expect(dl.suggestedFilename()).toMatch(/^zugx_.*101_03.*\.svg$/);
+  const file = await new Promise<string>((resolve) => {
+    void dl.createReadStream().then((st) => {
+      let t = "";
+      st.on("data", (c: Buffer) => (t += c.toString()));
+      st.on("end", () => resolve(t));
+    });
+  });
+  expect(file).not.toContain("href=");
+  // links: connecting line → its map, station → departure board
+  await svg.locator("a", { hasText: "222 01" }).first().click();
+  await expect(page).toHaveURL(/\/vzg\/222-01\/map$/);
+  await page.locator(".map-card svg a", { hasText: "Schwarzach" }).first().click();
+  await expect(page).toHaveURL(/\/station\/\d+/);
 });

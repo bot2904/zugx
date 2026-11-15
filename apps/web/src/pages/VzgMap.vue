@@ -7,9 +7,10 @@
 import type { VzgIndex, VzgLine, VzgPoint } from "@zugx/vzg";
 import { decodePolyline } from "@zugx/vzg/geo";
 import { computed, onMounted, ref, shallowRef, watch } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useI18n } from "../i18n/index.ts";
 import { download } from "../lib/svg-export.ts";
+import { loadStations, nearestStations } from "../lib/stations.ts";
 
 type Coord = [number, number];
 const files = import.meta.glob<{ default: VzgLine }>("../../../../packages/vzg/data/*.toml");
@@ -19,6 +20,13 @@ const loaderOf = (name: string) =>
     | undefined;
 
 const route = useRoute();
+const router = useRouter();
+/** SVG links: in-app navigation for plain clicks (Ctrl/⌘/middle click: new tab) */
+function go(to: string, e: MouseEvent) {
+  if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
+  e.preventDefault();
+  void router.push(to);
+}
 const { t, locale } = useI18n();
 const id = computed(() => String(route.params.line ?? ""));
 const line = shallowRef<VzgLine>();
@@ -141,13 +149,47 @@ const postList = computed(() => {
   return ps.filter(([k]) => k % step === 0).map(([k, la, lo]) => ({ k, x: v.x(lo), y: v.y(la) }));
 });
 
+// ---- links: station → its departure board (HAFAS id = OSM uic_ref, else the nearest station
+// of the station index within 300 m); connecting line → its map
+const stationsReady = ref(false);
+onMounted(async () => {
+  await loadStations();
+  stationsReady.value = true;
+});
+function stationId(p: VzgPoint & { pos: Coord }): string | undefined {
+  if (p.uic) return p.uic;
+  if (!stationsReady.value) return undefined;
+  const n = nearestStations(p.pos[0], p.pos[1], 1)[0];
+  return n && n.dist <= 300 ? n.id : undefined;
+}
+const SUB_CHAR = 5.3; // average glyph width at 9.5 px
+/** "↗ 222 01, 101 04" as separate links, laid out like the one text they replace */
+function subLinks(
+  others: { id: string; ref?: string; name?: string }[],
+  x: number,
+  anchor: Label["anchor"],
+  chars: number,
+) {
+  const total = chars * SUB_CHAR;
+  let cx = anchor === "start" ? x : anchor === "end" ? x - total : x - total / 2;
+  return others.map((o, i) => {
+    const text = `${i ? ", " : "↗ "}${o.ref ?? o.name ?? o.id}`;
+    const item = { text, id: o.id, x: cx };
+    cx += text.length * SUB_CHAR;
+    return item;
+  });
+}
+
 // ---- stations and labels (greedy, no overlaps)
 interface Label {
   x: number;
   y: number;
   anchor: "start" | "end" | "middle";
   text: string;
-  sub?: string;
+  /** HAFAS station id: the label links to its departure board */
+  station?: string;
+  /** connecting lines under the name, each linking to its map */
+  subs?: { text: string; id: string; x: number }[];
   bold: boolean;
 }
 const CHAR = 6.1; // average glyph width at 11 px
@@ -203,10 +245,8 @@ const stations = computed(() => {
     const x = v.x(p.pos[1]);
     const y = v.y(p.pos[0]);
     const c = conn.get(p.label);
-    const sub = c?.lines
-      .slice(0, 2)
-      .map((o) => o.ref ?? o.name)
-      .join(", ");
+    const others = (c?.lines ?? []).slice(0, 3);
+    const sub = others.length ? `↗ ${others.map((o) => o.ref ?? o.name).join(", ")}` : undefined;
     const w = Math.max(p.label.length, (sub?.length ?? 0) + 2) * CHAR + 4;
     const h = sub ? 26 : 13;
     const tries: [number, number, Label["anchor"]][] = [
@@ -225,8 +265,9 @@ const stations = computed(() => {
         y: by + 10,
         anchor,
         text: p.label,
-        ...(sub ? { sub: `↗ ${sub}` } : {}),
         bold: ends.has(p.label),
+        ...(stationId(p) ? { station: stationId(p) } : {}),
+        ...(sub ? { subs: subLinks(others, tx, anchor, sub.length) } : {}),
       });
       break;
     }
@@ -279,6 +320,11 @@ function exportSvg() {
   // the drawing uses attributes only; drop the app's classes/ARIA on the root, fix the size
   const svg = svgEl.value.cloneNode(true) as SVGSVGElement;
   for (const a of ["class", "role", "aria-label"]) svg.removeAttribute(a);
+  // app links mean nothing on Commons / in print files
+  for (const el of svg.querySelectorAll("a")) {
+    el.removeAttribute("href");
+    el.removeAttribute("class");
+  }
   const xml = new XMLSerializer().serializeToString(svg);
   const name = [line.value.ref, line.value.name].filter(Boolean).join(" ") || id.value;
   download(
@@ -392,7 +438,29 @@ const print = () => window.print();
             :stroke-width="d.big ? 1.6 : 1.2"
           />
           <g v-for="(l, i) in stations.labels" :key="`t${i}`">
+            <a
+              v-if="l.station"
+              :href="`/station/${l.station}`"
+              class="map-link"
+              @click="go(`/station/${l.station}`, $event)"
+            >
+              <text
+                :x="l.x"
+                :y="l.y"
+                :text-anchor="l.anchor"
+                font-size="11"
+                :font-weight="l.bold ? 700 : 400"
+                :fill="C.text"
+                paint-order="stroke"
+                stroke="#ffffff"
+                stroke-width="3"
+                stroke-linejoin="round"
+              >
+                {{ l.text }}
+              </text>
+            </a>
             <text
+              v-else
               :x="l.x"
               :y="l.y"
               :text-anchor="l.anchor"
@@ -406,20 +474,26 @@ const print = () => window.print();
             >
               {{ l.text }}
             </text>
-            <text
-              v-if="l.sub"
-              :x="l.x"
-              :y="l.y + 12"
-              :text-anchor="l.anchor"
-              font-size="9.5"
-              :fill="C.muted"
-              paint-order="stroke"
-              stroke="#ffffff"
-              stroke-width="3"
-              stroke-linejoin="round"
+            <a
+              v-for="o in l.subs ?? []"
+              :key="o.id"
+              :href="`/vzg/${o.id}/map`"
+              class="map-link"
+              @click="go(`/vzg/${o.id}/map`, $event)"
             >
-              {{ l.sub }}
-            </text>
+              <text
+                :x="o.x"
+                :y="l.y + 12"
+                font-size="9.5"
+                :fill="C.muted"
+                paint-order="stroke"
+                stroke="#ffffff"
+                stroke-width="3"
+                stroke-linejoin="round"
+              >
+                {{ o.text }}
+              </text>
+            </a>
           </g>
         </g>
         <!-- north arrow -->
@@ -472,6 +546,12 @@ const print = () => window.print();
 </template>
 
 <style>
+.vzg-map .map-link {
+  cursor: pointer;
+}
+.vzg-map .map-link:hover text {
+  text-decoration: underline;
+}
 /* print: only the map, full page width */
 @media print {
   header,
