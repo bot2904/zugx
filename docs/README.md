@@ -22,7 +22,7 @@ One page per feature: where the data comes from and how it is shown or computed.
 - **ÖBB HAFAS** (`fahrplan.oebb.at/bin/mgate.exe`) — the unofficial JSON API behind ÖBB Scotty. Everything _live_ (realtime delays, platforms, routing, positions, disruptions). The browser talks to it through the same-origin proxy `/api/mgate` (Caddy in the container, Vite in dev); the request/response handling is in `packages/hafas`. Identical requests are cached in the browser for 30 s.
 - **ÖBB open data GTFS** ([data.oebb.at](https://data.oebb.at/de/datensaetze~soll-fahrplan-gtfs~), CC BY 4.0) — the planned timetable of the timetable year. Everything _static_ (station index, train index, Bildfahrplan, Netzgrafik) is built from it in CI (`vp run stations:build`, `trains:build`, `netz:build`), committed as TOML and refreshed weekly by a pull request. Coverage: ÖBB-Personenverkehr, CAT, Montafonerbahn — **not** WESTbahn, GKB, Raaberbahn etc.
 - **OpenStreetMap** ([Geofabrik](https://download.geofabrik.de/europe/austria.html) Austria extract, ODbL) — railway lines, tracks, speed limits, km positions, signals for the VzG-Grafik (`vp run vzg:extract`, `vzg:build`; manual for now). Also the map tiles (OpenFreeMap, OSM, OpenRailwayMap), loaded live.
-- **Wikidata** (CC0) — railway lines of the Bildfahrplan sheets, queried at `netz:build`.
+- **Wikidata** (CC0) — ids of the VzG lines, from the OSM relations' `wikidata` tag (no query at build time); the Bildfahrplan sheets' railway lines come from the VzG data.
 
 Timetable formats offered by Austrian open-data portals (DINO, GTFS, NeTEx) compared: [timetable-formats.md](timetable-formats.md). Planning tools used by experts in the DACH region (FBS, TPS, Viriato, RailSys …): [expert-tools.md](expert-tools.md).
 
