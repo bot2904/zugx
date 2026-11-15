@@ -961,16 +961,16 @@ Root causes: four medium-dark reds (RJX, RJ, EC/IC, D); the white-text limit; re
 | Pair                          | ΔE normal | ΔE CVD  | Note                                                |
 | ----------------------------- | --------- | ------- | --------------------------------------------------- |
 | R – bus, SEV – bus, ICE – SEV | 5.8–8.5   | 5.2–5.5 | buses are off by default in the radar; SEV is a bus |
-| RJX – private                 | 11.5      | 1.9     | red vs orange: CVD-identical                        |
+| RJ – private                  | 11.5      | 1.9     | red vs orange: CVD-identical                        |
 | RJX – RJ                      | 12.5      | 12.6    | both in the red family (was 11.4)                   |
 | ICE – R                       | 13.2      | 12.8    | (was 4.9)                                           |
 | IR/CJX – S                    | 14.3      | 2.8     | violet vs blue: CVD-close                           |
 | R – S                         | 14.7      | 13.8    | (was 6.8)                                           |
-| RJX – REX                     | 30.8      | 5.7     | red/green: inherent to the FBS convention           |
+| RJ – REX                      | 30.8      | 5.7     | red/green: inherent to the FBS convention           |
 
 **Dark mode**: the badge colours are too dark as lines/text on the dark surface, so `lineColor`/`categoryColor` return lighter steps there (badges keep `lineBadgeColor`/`categoryBadgeColor`): RJX `#e862b6`, RJ `#ff4b5c`, EC/IC/D `#c4553c`, ICE `#d0d4d8`, NJ/EN `#aab0ff`, IR/CJX `#b07fea`, REX `#4fb052`, R `#7f9cc0`, S `#2f7ff0`, private `#f0902a`, SEV `#a58670`, bus `#7a7a7a` — all ≥ 3:1 against `#0b0d10`; closest pairs SEV – bus 8.1, then ≥ 11.7 (NJ – R, RJX – EC/IC, NJ – IR/CJX), RJX – RJ 12.6.
 
-Open: CVD-safe separation of RJX/RJ/private and IR/S needs a second cue (e.g. dashed RJ paths in the Bildfahrplan, or a border on RJX badges); identity is never colour-alone today since badges and paths carry the category text.
+Open: CVD-safe separation of RJ/RJX/private and IR/S needs a second cue (e.g. dashed RJ paths in the Bildfahrplan, or a border on RJX badges); identity is never colour-alone today since badges and paths carry the category text.
 
 ## Sources
 
