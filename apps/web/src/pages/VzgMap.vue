@@ -170,8 +170,13 @@ const context = computed(() => {
     .map(path);
 });
 
-// ---- km posts: every 1/2/5/10/20/50 km, about a dozen along the line
+// ---- km posts (?km=1, off by default): every 1/2/5/10/20/50 km, about a dozen along the line
+const showKm = computed(() => route.query.km === "1");
+function toggleKm() {
+  void router.replace({ query: { ...route.query, km: showKm.value ? undefined : "1" } });
+}
 const postList = computed(() => {
+  if (!showKm.value) return [];
   const v = view.value;
   const ps = track.value?.geo?.posts ?? [];
   if (!v || ps.length < 2) return [];
@@ -398,6 +403,10 @@ const print = () => window.print();
         >
           {{ $t("vzg.mapColorSpeed") }}
         </button>
+        <label class="flex items-center gap-1">
+          <input type="checkbox" :checked="showKm" @change="toggleKm" />
+          {{ $t("vzg.mapLegendKm") }}
+        </label>
         <button class="btn" v-tip="$t('vzg.exportTip')" @click="exportSvg">⤓ SVG</button>
         <button class="btn" @click="print">⎙ {{ $t("vzg.print") }}</button>
       </span>
@@ -583,8 +592,10 @@ const print = () => window.print();
           <text x="480">{{ $t("vzg.kind.station") }}</text>
           <circle cx="560" cy="-4" r="2.6" fill="#fff" :stroke="C.text" stroke-width="1.2" />
           <text x="568">{{ $t("vzg.kind.halt") }}</text>
-          <circle cx="660" cy="-4" r="2" :fill="C.text" />
-          <text x="668">{{ $t("vzg.mapLegendKm") }}</text>
+          <template v-if="showKm">
+            <circle cx="660" cy="-4" r="2" :fill="C.text" />
+            <text x="668">{{ $t("vzg.mapLegendKm") }}</text>
+          </template>
         </g>
         <!-- speed scale (colour mode "by speed") -->
         <g
