@@ -861,6 +861,34 @@ First version done (`/vzg/:line/map`): line in red with tunnels dashed, other li
 
 Overview of the planning tools used in the DACH region (FBS, TPS, Viriato, RailSys, OpenTrack, LUKS, ProVI, PlanPro, railML …): [docs/expert-tools.md](docs/expert-tools.md). Idea: a **railML export** of the VzG data (lines, km, speeds, signals, structures) and of Bildfahrplan sheets, so planners can load zugx data into FBS/TPS/Viriato/RailSys; validation of the OSM-derived data against the official VzG/Streckenlisten.
 
+### Feature ideas (collected 2026-11-15)
+
+Ordered by what they need; numbers for reference.
+
+**Existing data only (static, cheap)**
+
+1. **Network map by attribute**: all of Austria, lines coloured by permitted speed, electrification, ETCS/PZB, track count, gauge or operator (OSM tags already extracted; the line map already colours by speed). _In progress._
+2. **Traffic density**: trains per day per section from the GTFS, as line width/colour on the network map ("Verkehrsstärke"). _In progress._
+3. **Line profile per Streckennummer**: length, double-track share, top and average speed, tunnels/bridges, electrification, train protection, trains per day, stations, connecting lines — one overview combining VzG, GTFS and the map. _In progress._
+4. **Isochrones**: how far one gets from a station in 1/2/3 h, from the GTFS, for a chosen departure time.
+5. **Timetable-change comparison**: 2027 vs 2026 per corridor/train (new, dropped, faster/slower trains); the 2027 GTFS is available.
+6. **Batch export for Wikipedia**: maps, Streckenband and VzG charts for all ~200 lines at once, plus BS wikitext for route diagrams.
+7. **Open dataset**: the derived VzG data (lines, km, speeds, signals, structures, geometry) as a documented download (ODbL), later as railML.
+
+**With live data (HAFAS)**
+
+8. **Connections at a station**: arrivals × departures matrix with transfer times and live delays.
+9. **Live delay map**: radar aggregated per line/section.
+10. **Disruptions on the map**: HIM messages assigned to lines/sections, also in the Bildfahrplan and VzG view.
+
+**Needs storage over time (small backend or scheduled CI job)**
+
+11. **Punctuality statistics** per train, line, station, time of day — the most valuable for passengers, the first that needs storage.
+12. **Planned vs. actual running times** per section (where trains lose time; ties in with the VzG speeds).
+13. **Watching a train**: push notification on delay or platform change (PWA).
+
+Also see the planned items above: line map layers (water, places, locator), Streckenband details, Bildfahrplan acceleration/braking, vagonweb, station plans, other operators (WESTbahn via mobilitaetsverbuende data), railML export.
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
