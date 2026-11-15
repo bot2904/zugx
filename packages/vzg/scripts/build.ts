@@ -23,6 +23,22 @@ for (const [l, c] of connections(lines)) l.connections = c;
 mkdirSync(out, { recursive: true });
 for (const f of readdirSync(out))
   if (f.endsWith(".toml") && f !== "index.toml") rmSync(join(out, f));
+// the network map's pieces go to their own file, not into the line files
+const network = lines.flatMap((l) => {
+  const pieces = l.tracks[0]?.net;
+  for (const t of l.tracks) delete t.net;
+  return pieces?.length
+    ? [
+        {
+          id: l.id,
+          ...(l.ref ? { ref: l.ref } : {}),
+          ...(l.name ? { name: l.name } : {}),
+          ...(l.operator ? { operator: l.operator } : {}),
+          pieces,
+        },
+      ]
+    : [];
+});
 const index: VzgIndexEntry[] = [];
 for (const l of lines) {
   const file = `${l.id}.toml`;
@@ -82,6 +98,7 @@ writeToml(join(out, "geometry.toml"), {
     ];
   }),
 });
+writeToml(join(out, "network.toml"), { lines: network });
 writeToml(join(out, "index.toml"), {
   source: `OpenStreetMap (${ex.source}), © OpenStreetMap contributors, ODbL 1.0`,
   created: ex.created,

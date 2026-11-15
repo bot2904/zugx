@@ -78,6 +78,8 @@ export interface VzgTrack {
   points: VzgPoint[];
   /** bridges (≥ 10 m) and tunnels (≥ 50 m) along the track, in km order */
   structures?: VzgStructure[];
+  /** network map pieces (build only; written to data/network.toml, not to the line files) */
+  net?: NetPiece[];
   /** map geometry (line maps): the path in pieces (tunnels marked), and a km post every km */
   geo?: {
     /** Google encoded polylines (1e5), simplified to ~10 m */
@@ -166,4 +168,27 @@ export interface VzgStructure {
   length: number;
   /** OSM bridge:name / tunnel:name (or a way name that names the structure) */
   name?: string;
+}
+
+/** a piece of a line with equal attributes, for the network map (`data/network.toml`) */
+export interface NetPiece {
+  /** Google encoded polyline (1e5), simplified to ~30 m */
+  line: string;
+  /** permitted speed km/h (higher direction) */
+  v?: number;
+  /** electrified (OSM electrified ≠ no) */
+  e?: boolean;
+  /** ETCS level */
+  etcs?: number;
+  /** PZB (Indusi) */
+  pzb?: boolean;
+  /** gauge mm */
+  g?: string;
+  /** track count: 2 = double track */
+  tr: number;
+}
+
+/** `data/network.toml` */
+export interface VzgNetwork {
+  lines: { id: string; ref?: string; name?: string; operator?: string; pieces: NetPiece[] }[];
 }

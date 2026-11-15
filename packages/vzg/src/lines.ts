@@ -5,7 +5,7 @@
  */
 import { encodePolyline, simplify } from "./geo.ts";
 import { lineId } from "./types.ts";
-import type { RailExtract, VzgLine, VzgPoint, VzgStructure, VzgTrack } from "./types.ts";
+import type { NetPiece, RailExtract, VzgLine, VzgPoint, VzgStructure, VzgTrack } from "./types.ts";
 
 type Way = RailExtract["ways"][number];
 type Coord = [number, number];
@@ -579,6 +579,52 @@ export function farthestEnds(ways: Way[], coords: RailExtract["coords"]) {
   return best;
 }
 
+/**
+ * The path as pieces of equal attributes for the network map: permitted speed (higher
+ * direction), electrified, ETCS level, PZB, gauge, track count (2 where the other direction runs
+ * on other ways). Simplified to ~30 m.
+ */
+export function networkPieces(
+  path: Edge[],
+  coords: RailExtract["coords"],
+  otherDirection?: Set<number>,
+): NetPiece[] {
+  const attrs = (e: Edge): Omit<NetPiece, "line"> => {
+    const t = e.way.tags;
+    const vs = [t.maxspeed, t["maxspeed:forward"], t["maxspeed:backward"]]
+      .map(parseSpeed)
+      .filter((v): v is number => v !== null);
+    const etcs = Number.parseInt(t["railway:etcs"] ?? "", 10);
+    return {
+      ...(vs.length ? { v: Math.max(...vs) } : {}),
+      ...(t.electrified ? { e: t.electrified !== "no" } : {}),
+      ...(Number.isFinite(etcs) && etcs > 0 ? { etcs } : {}),
+      ...(t["railway:pzb"] ? { pzb: t["railway:pzb"] !== "no" } : {}),
+      ...(t.gauge ? { g: t.gauge } : {}),
+      tr: otherDirection && !otherDirection.has(e.way.id) ? 2 : 1,
+    };
+  };
+  const key = (a: Omit<NetPiece, "line">) => JSON.stringify(a);
+  const out: NetPiece[] = [];
+  let run: [number, number][] = [];
+  let cur: Omit<NetPiece, "line"> | undefined;
+  const flush = () => {
+    if (cur && run.length > 1) out.push({ line: encodePolyline(simplify(run, 30)), ...cur });
+  };
+  for (const e of path) {
+    const a = attrs(e);
+    const [pa, pb] = [coords[e.a]!, coords[e.b]!];
+    if (!cur || key(a) !== key(cur)) {
+      flush();
+      run = [pa];
+      cur = a;
+    }
+    run.push(pb);
+  }
+  flush();
+  return out;
+}
+
 export function lineTracks(
   ref: string,
   lineWays: Way[],
@@ -623,12 +669,22 @@ export function lineTracks(
   let fallback: { ts: VzgTrack[]; ratio: number } | undefined;
   for (const ext of candidates) {
     const ts: VzgTrack[] = [];
+    const paths: Edge[][] = [];
     for (const [track, d] of runs) {
       const path = shortestPath(adj, ext.lo.n, ext.hi.n, (e) => cost(e, d));
       const t = path && buildTrack(track, path, ex, nodeTags);
-      if (t) ts.push(t);
+      if (t) {
+        ts.push(t);
+        paths.push(path!);
+      }
     }
     if (!ts.length) continue;
+    // network map pieces (first track; double track where the second runs on other ways)
+    ts[0]!.net = networkPieces(
+      paths[0]!,
+      ex.coords,
+      paths[1] ? new Set(paths[1].map((e) => e.way.id)) : undefined,
+    );
     const ratio = Math.max(...ts.map((t) => (t.length - 2) / Math.max(1, t.kmTo - t.kmFrom)));
     if (ratio <= 1.3) return ts;
     if (!fallback || ratio < fallback.ratio) fallback = { ts, ratio };
