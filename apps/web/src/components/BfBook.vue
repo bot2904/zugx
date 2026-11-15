@@ -128,7 +128,7 @@ watch(
                 :to="{ path: `/train/${trainSlug(`${r.t.cat} ${r.t.nr}`)}`, query: { d: date } }"
                 class="train-link"
               >
-                <span class="cat">{{ r.t.cat }}</span>
+                <span class="cat mono">{{ r.t.cat }}</span>
                 <span class="mono block">{{ r.t.nr }}</span>
               </RouterLink>
             </th>
@@ -230,9 +230,9 @@ thead tr.trains th {
   border-bottom: 1px solid var(--muted);
   line-height: 1rem;
 }
+/* category like the line badges: monospace, semibold, upright */
 .cat {
-  font-weight: 700;
-  font-style: italic;
+  font-weight: 600;
 }
 .train-link {
   color: inherit;
