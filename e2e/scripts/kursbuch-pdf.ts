@@ -20,7 +20,11 @@ const t0 = Date.now();
 await page.goto(`${base}/kursbuch?${q}`);
 // all sheets loaded and rendered
 await page.locator(".kursbuch[data-ready]").waitFor({ timeout: 600_000 });
+const tReady = Date.now();
 await page.emulateMedia({ media: "print" });
 await page.pdf({ path: out, format: "A4", printBackground: true, preferCSSPageSize: true });
 await browser.close();
-console.log(`kursbuch: ${out} (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
+const s = (ms: number) => `${(ms / 1000).toFixed(0)} s`;
+console.log(
+  `kursbuch: ${out} (loaded and typeset ${s(tReady - t0)}, PDF ${s(Date.now() - tReady)})`,
+);

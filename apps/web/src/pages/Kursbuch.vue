@@ -28,6 +28,12 @@ const num = (k: string, d: number) => {
 const from = computed(() => num("von", 100));
 const to = computed(() => num("bis", 999));
 const cols = computed(() => num("cols", 12));
+/**
+ * parts for the parallel PDF script: ?teil=vorne (cover and contents only), ?teil=bilder (the
+ * sheets only); ?seiten=0 leaves out the page numbers (the script stamps them after merging)
+ */
+const part = computed(() => (typeof route.query.teil === "string" ? route.query.teil : ""));
+const pageNumbers = computed(() => route.query.seiten !== "0");
 
 const index = shallowRef<CorridorIndex>();
 /** the sheets in book order: a single ÖBB number in the range, ascending */
@@ -45,20 +51,38 @@ const date = computed(() => {
 });
 
 const loaded = shallowRef<Corridor[]>([]);
+/** sheets still to load */
 const loading = shallowRef(0);
+/** sheets typeset so far (rendered one after another, so the page stays responsive) */
+const shownCount = shallowRef(0);
 void indexFile?.().then((m) => (index.value = m.default));
+let run = 0;
 watch(
-  sheets,
+  () => (part.value === "vorne" ? [] : sheets.value),
   async (list) => {
+    const my = ++run;
     loaded.value = [];
+    shownCount.value = 0;
     loading.value = list.length;
-    const out: Corridor[] = [];
-    for (const s of list) {
-      const f = Object.entries(files).find(([p]) => p.endsWith(`/${s.file}`))?.[1];
-      if (f) out.push((await f()).default);
-      loading.value--;
+    // several files at once (they are separate chunks), results in book order
+    const out: (Corridor | undefined)[] = Array.from({ length: list.length });
+    let next = 0;
+    const worker = async () => {
+      while (next < list.length) {
+        const i = next++;
+        const f = Object.entries(files).find(([p]) => p.endsWith(`/${list[i]!.file}`))?.[1];
+        out[i] = f ? (await f()).default : undefined;
+        if (my === run) loading.value--;
+      }
+    };
+    await Promise.all(Array.from({ length: 6 }, worker));
+    if (my !== run) return;
+    loaded.value = out.filter((c): c is Corridor => !!c);
+    // typeset sheet by sheet: one per frame
+    while (shownCount.value < loaded.value.length && my === run) {
+      shownCount.value++;
+      await new Promise((r) => requestAnimationFrame(() => setTimeout(r, 0)));
     }
-    loaded.value = out;
   },
   { immediate: true },
 );
@@ -90,7 +114,12 @@ const dateLong = computed(() =>
 );
 /** everything loaded and rendered (the PDF script waits for data-ready) */
 const ready = computed(
-  () => sheets.value.length > 0 && loading.value === 0 && book.value.length === sheets.value.length,
+  () =>
+    part.value === "vorne" ||
+    (sheets.value.length > 0 &&
+      loading.value === 0 &&
+      book.value.length === sheets.value.length &&
+      shownCount.value >= book.value.length),
 );
 const setQuery = (q: Record<string, string | undefined>) =>
   void router.replace({ query: { ...route.query, ...q } });
@@ -144,14 +173,33 @@ usePageTitle(() => [t("kursbuch.title"), date.value]);
         />
       </label>
       <button class="btn" :disabled="!ready" @click="print">⎙ {{ $t("kursbuch.print") }}</button>
-      <span v-if="loading" class="muted text-xs" role="status">
-        {{ $t("kursbuch.loading", { n: loading }) }}
-      </span>
+
       <p class="muted m-0 w-full text-xs">{{ $t("kursbuch.hint") }}</p>
+      <!-- progress: loading the sheets, then typesetting them -->
+      <div v-if="!ready && sheets.length" class="progress w-full" role="status">
+        <div class="bar">
+          <span
+            class="load"
+            :style="{ width: `${(100 * (sheets.length - loading)) / sheets.length}%` }"
+          />
+          <span class="set" :style="{ width: `${(100 * shownCount) / sheets.length}%` }" />
+        </div>
+        <span class="muted text-xs">
+          <span class="spin" aria-hidden="true">⟳</span>
+          {{
+            loading
+              ? $t("kursbuch.loading", { n: sheets.length - loading, total: sheets.length })
+              : $t("kursbuch.typesetting", { n: shownCount, total: sheets.length })
+          }}
+        </span>
+      </div>
     </div>
 
+    <component :is="'style'" v-if="pageNumbers">
+      @media print { @page { @bottom-center { content: counter(page); font-size: 8pt } } }
+    </component>
     <!-- cover -->
-    <div class="cover print-page-break">
+    <div v-if="part !== 'bilder'" class="cover print-page-break">
       <p class="cover-kicker">zugx</p>
       <h1 class="cover-title">{{ $t("kursbuch.title") }}</h1>
       <p class="cover-sub">
@@ -167,7 +215,11 @@ usePageTitle(() => [t("kursbuch.title"), date.value]);
     </div>
 
     <!-- contents -->
-    <nav class="toc print-page-break" :aria-label="$t('kursbuch.contents')">
+    <nav
+      v-if="part !== 'bilder'"
+      class="toc print-page-break"
+      :aria-label="$t('kursbuch.contents')"
+    >
       <h2>{{ $t("kursbuch.contents") }}</h2>
       <ol>
         <li v-for="s in sheets" :key="s.id">
@@ -178,7 +230,7 @@ usePageTitle(() => [t("kursbuch.title"), date.value]);
     </nav>
 
     <!-- sheets: both directions, pages of `cols` trains -->
-    <section v-for="c in book" :id="`kb-${c.id}`" :key="c.id" class="sheet">
+    <section v-for="c in book.slice(0, shownCount)" :id="`kb-${c.id}`" :key="c.id" class="sheet">
       <BfBook
         v-for="dir in [1, -1] as const"
         :key="dir"
@@ -230,6 +282,44 @@ usePageTitle(() => [t("kursbuch.title"), date.value]);
 .sheet {
   margin-top: 1rem;
 }
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.progress .bar {
+  position: relative;
+  flex: 1;
+  height: 0.5rem;
+  border-radius: 0.25rem;
+  background: color-mix(in srgb, var(--muted) 20%, transparent);
+  overflow: hidden;
+}
+.progress .bar span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  transition: width 0.2s;
+}
+.progress .load {
+  background: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.progress .set {
+  background: var(--accent);
+}
+.spin {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spin {
+    animation: none;
+  }
+}
 </style>
 
 <style>
@@ -238,10 +328,6 @@ usePageTitle(() => [t("kursbuch.title"), date.value]);
   @page {
     size: A4 portrait;
     margin: 10mm 8mm 12mm;
-    @bottom-center {
-      content: counter(page);
-      font-size: 8pt;
-    }
   }
   header,
   footer,
