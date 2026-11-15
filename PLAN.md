@@ -889,6 +889,24 @@ Ordered by what they need; numbers for reference.
 
 Also see the planned items above: line map layers (water, places, locator), Streckenband details, Bildfahrplan acceleration/braking, vagonweb, station plans, other operators (WESTbahn via mobilitaetsverbuende data), railML export.
 
+### Bildfahrplan as a planning tool: shorter connections, reliable single-track lines, faster trains (planned 2026-11-15)
+
+Goal from the passenger's side: shorter transfer times, more reliable trains on single-track lines, faster trains (no waiting for connections) — with the same number of trains. From the planner's side: the Bildfahrplan should not only show but evaluate. Data: planned times (GTFS, whole year), passing points, single/double track (`tracks`), VzG speed limits, live delays (HAFAS).
+
+**Connections**
+
+1. **Transfer view per station**: click a node → all arrival → departure pairs between trains of different lines with the transfer time; green < 10′, amber 10–20′, red missed/too short; best and waiting times at the major nodes.
+2. **Taktknoten check**: do the trains meet around the full/half hour (Vollknoten / Halbknoten), symmetry minute per station (arrival + departure ≈ 60′ for opposite directions); flag nodes where a few minutes' shift would turn a long wait into a short transfer.
+3. **Missed connections live**: with the live overlay, which transfers break today and the resulting arrival delay.
+
+**Reliability on single-track lines** 4. **Crossings (Kreuzungen)**: where trains of opposite directions meet on single track, mark the crossing station; a meeting point inside a single-track stretch (between stations) is a conflict. 5. **Crossing as a delay chain**: buffer at each crossing (time between the first train's arrival and the second train's departure); a late train delays the opposite one by (delay − buffer). 6. **Punctuality on top of the plan**: where do trains lose time (per stretch, per hour) — from the live data; one day in the browser for a start, collected over days later (needs storage/a backend). 7. **Occupancy band per single-track stretch**: occupied minutes per hour (a simple capacity view, light version of UIC 406).
+
+**Faster trains** 8. **Running-time reserve**: scheduled running time per stretch vs. the minimum at the permitted speed (VzG) → slack (padding or waiting for connections) vs. tight. 9. **Stop pattern check**: cost per stop (braking, dwell, accelerating) and the gain of an express variant. 10. **Following and overtaking**: fast trains behind slow ones, possible overtaking stations, lost time.
+
+**Planning in the browser (later)** 11. Drag a path by ±n minutes, transfers/crossings update live; shareable link. 12. Scenario comparison (timetable year vs. variant). 13. Edited section → Netzgrafik-Editor (NGE JSON).
+
+Order: 1 + 2, 4 + 5, 8, 6; then 3, 7, 9, 10; 11–13 later.
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
