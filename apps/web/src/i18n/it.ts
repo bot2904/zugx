@@ -152,7 +152,7 @@ export default {
   },
   bf: {
     scale: "Scala",
-    scaleTip: "Scala delle distanze: 1× alla larghezza della pagina, 2× e 4× allargano il grafico",
+    scaleTip: "Scala dei tempi: 2× e 4× allungano l'asse dei tempi",
     tableFrom: "da",
     transpose: "Trasponi",
     transposeTip:

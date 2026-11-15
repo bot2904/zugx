@@ -152,7 +152,7 @@ export default {
   },
   bf: {
     scale: "Maßstab",
-    scaleTip: "Wegmaßstab: 1× passt auf die Seitenbreite, 2× und 4× verbreitern den Bildfahrplan",
+    scaleTip: "Zeitmaßstab: 2× und 4× strecken die Zeitachse",
     tableFrom: "von",
     transpose: "Transponieren",
     transposeTip: "Kursbuch-Ansicht (eine Spalte je Zug) oder transponiert (eine Zeile je Zug)",

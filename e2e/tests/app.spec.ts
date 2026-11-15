@@ -507,14 +507,14 @@ test("bildfahrplan: arrow keys zap through days and hours", async ({ page }) => 
   await expect(page).toHaveURL(/from=9/);
   await page.keyboard.press("h");
   await expect(page).toHaveURL(/from=8/);
-  // Maßstab: + widens the chart (2×), the button back to 1×
+  // Maßstab: + stretches the time axis (2×), the button back to 1×
   const svg = page.locator("svg[role=img]");
-  const w1 = (await svg.boundingBox())!.width;
+  const h1 = (await svg.boundingBox())!.height;
   await page.keyboard.press("+");
-  await expect(page).toHaveURL(/x=2/);
-  await expect.poll(async () => (await svg.boundingBox())!.width).toBeGreaterThan(w1 * 1.9);
+  await expect(page).toHaveURL(/y=2/);
+  await expect.poll(async () => (await svg.boundingBox())!.height).toBeGreaterThan(h1 * 1.7);
   await page.getByRole("button", { name: "1×" }).click();
-  await expect(page).not.toHaveURL(/x=/);
+  await expect(page).not.toHaveURL(/y=/);
   // start time typed into the time input
   await page.getByLabel(/^(Start time|Startzeit|Ora di inizio)$/).fill("14:30");
   await expect(page).toHaveURL(/from=14.5/);

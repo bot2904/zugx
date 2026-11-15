@@ -189,16 +189,16 @@ function setQuery(patch: Record<string, string | number | undefined>) {
 // width follows the page (full document width, 1 SVG unit = 1 px, text stays 10 px); at least 800
 const chartBox = useTemplateRef<HTMLElement>("chartBox");
 const { width: boxWidth } = useElementSize(chartBox);
-// Maßstab (distance axis): 1× fits the page, 2×/4× widen the chart (scrolls sideways), ?x=
+// Maßstab (time axis): 1× = 630 px plot height, 2×/4× stretch the time axis (page scrolls), ?y=
 const SCALES = [1, 2, 4] as const;
 const scale = computed(() => {
-  const v = Number(route.query.x);
+  const v = Number(route.query.y);
   return (SCALES as readonly number[]).includes(v) ? v : 1;
 });
-const setScale = (v: number) => setQuery({ x: v === 1 ? undefined : v });
-const W = computed(() => Math.max(800, Math.round(boxWidth.value) || 1100) * scale.value);
-const H = 760;
+const setScale = (v: number) => setQuery({ y: v === 1 ? undefined : v });
+const W = computed(() => Math.max(800, Math.round(boxWidth.value) || 1100));
 const M = { top: 110, right: 20, bottom: 20, left: 46 };
+const H = computed(() => M.top + M.bottom + (760 - M.top - M.bottom) * scale.value);
 // ---- section: first/last station (?a=, ?b= station ids) and direction (?rev=1) ----
 const stationIdx = (sid: unknown) =>
   typeof sid === "string" ? (data.value?.stations.findIndex((st) => st.id === sid) ?? -1) : -1;
@@ -270,7 +270,7 @@ watch(from, (f) => (startMin.value = f * 60));
 const t0 = computed(() => startMin.value);
 const t1 = computed(() => t0.value + span.value * 60);
 const y = (min: number) =>
-  M.top + ((min - t0.value) / (t1.value - t0.value)) * (H - M.top - M.bottom);
+  M.top + ((min - t0.value) / (t1.value - t0.value)) * (H.value - M.top - M.bottom);
 
 /**
  * Time grid: solid hour lines, dashed half-hour and (where at least 6 px apart) 10-minute lines;
