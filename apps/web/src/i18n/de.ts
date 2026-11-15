@@ -156,7 +156,7 @@ export default {
     count: "{n} Abfahrten",
     noData: "Für diesen Bahnhof gibt es keine Fahrplandaten (nur Bahnhöfe im ÖBB-GTFS).",
     none: "Keine Abfahrten an diesem Tag.",
-    platform: "Gleis",
+    platform: "Bst.",
     via: "über",
     source:
       "Fahrplan {begin} – {end}, {source}. Ohne Gewähr; Änderungen und Echtzeit: Live-Abfahrten.",
