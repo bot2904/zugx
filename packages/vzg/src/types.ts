@@ -200,3 +200,9 @@ export interface VzgNetwork {
     posts?: { km: number[]; line: string };
   }[];
 }
+
+/** `data/boundaries.toml` (scripts/extract-boundaries.ts): Austria and its federal states */
+export interface VzgBoundaries {
+  source: string;
+  areas: { code: string; name: string; rings: string[] }[];
+}

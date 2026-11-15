@@ -2,7 +2,7 @@
 // Network map (`/vzg/netz`): all VzG lines of Austria as a vector map, coloured by an attribute —
 // permitted speed, electrification, ETCS, PZB, track count, gauge or operator (`?attr=`). Drawn
 // from `packages/vzg/data/network.toml` (OSM, ODbL); fixed colours (ColorBrewer), print and SVG.
-import type { NetPiece, VzgIndex, VzgNetwork } from "@zugx/vzg";
+import type { NetPiece, VzgBoundaries, VzgIndex, VzgNetwork } from "@zugx/vzg";
 import { decodePolyline } from "@zugx/vzg/geo";
 import { computed, onMounted, shallowRef } from "vue";
 import { useRoute, useRouter } from "vue-router";
@@ -23,6 +23,7 @@ const router = useRouter();
 const { t } = useI18n();
 const network = shallowRef<VzgNetwork>();
 const index = shallowRef<VzgIndex>();
+const boundaries = shallowRef<VzgBoundaries>();
 // trains per day per km section (netz build, GTFS reference day)
 const densityFile = import.meta.glob("../../../../packages/netz/data/density.toml");
 interface Density {
@@ -32,10 +33,11 @@ interface Density {
 const density = shallowRef<Density>();
 onMounted(async () => {
   const d = Object.values(densityFile)[0];
-  [network.value, index.value, density.value] = await Promise.all([
+  [network.value, index.value, density.value, boundaries.value] = await Promise.all([
     load<VzgNetwork>("network"),
     load<VzgIndex>("index"),
     d ? ((await d()) as { default: Density }).default : undefined,
+    load<VzgBoundaries>("boundaries"),
   ]);
 });
 /** density classes: ColorBrewer YlOrRd (6), width growing with the trains per day */
@@ -265,8 +267,20 @@ const decoded = computed(() =>
     pieces: l.pieces.map((p) => ({ p, pts: decodePolyline(p.line) })),
   })),
 );
+/** borders: Austria and the federal states, decoded */
+const areas = computed(() =>
+  (boundaries.value?.areas ?? []).map((a) => ({
+    code: a.code,
+    name: a.name,
+    rings: a.rings.map((r) => decodePolyline(r)),
+  })),
+);
 const view = computed(() => {
-  const all = decoded.value.flatMap((l) => l.pieces.flatMap((x) => x.pts));
+  // the frame: Austria's outline (else all lines), with a small margin
+  const outline = areas.value.find((a) => a.code === "AT")?.rings.flat();
+  const all = outline?.length
+    ? outline
+    : decoded.value.flatMap((l) => l.pieces.flatMap((x) => x.pts));
   if (!all.length) return undefined;
   let [s, n, w, e] = [90, -90, 180, -180];
   for (const [la, lo] of all) {
@@ -275,6 +289,8 @@ const view = computed(() => {
     w = Math.min(w, lo);
     e = Math.max(e, lo);
   }
+  const m = 0.04 * (n - s);
+  [s, n, w, e] = [s - m, n + m, w - m * 1.5, e + m * 1.5];
   const kx = Math.cos((((s + n) / 2) * Math.PI) / 180);
   const mapW = W - 2 * PAD;
   const k = mapW / ((e - w) * kx);
@@ -410,7 +426,39 @@ const url = computed(
               : ""
           }}
         </text>
-        <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- land and borders (OSM): Austria filled, federal states dashed -->
+        <defs>
+          <clipPath id="net-clip">
+            <rect :x="PAD" :y="HEAD" :width="W - 2 * PAD" :height="view.mapH" />
+          </clipPath>
+        </defs>
+        <g clip-path="url(#net-clip)">
+          <path
+            v-for="a in areas.filter((x) => x.code === 'AT')"
+            :key="a.code"
+            :d="a.rings.map((r) => `${d(r)}Z`).join('')"
+            fill="#f4f3ee"
+            stroke="none"
+          />
+          <path
+            v-for="a in areas.filter((x) => x.code !== 'AT')"
+            :key="a.code"
+            :d="a.rings.map((r) => `${d(r)}Z`).join('')"
+            fill="none"
+            stroke="#a7adb4"
+            stroke-width="0.8"
+            stroke-dasharray="4 3"
+          />
+          <path
+            v-for="a in areas.filter((x) => x.code === 'AT')"
+            :key="`b${a.code}`"
+            :d="a.rings.map((r) => `${d(r)}Z`).join('')"
+            fill="none"
+            stroke="#6b7280"
+            stroke-width="1.4"
+          />
+        </g>
+        <g fill="none" stroke-linecap="round" stroke-linejoin="round" clip-path="url(#net-clip)">
           <a
             v-for="l in drawn"
             :key="l.id"
@@ -440,7 +488,7 @@ const url = computed(
           </a>
         </g>
         <!-- trains per day (density mode), busiest on top; casing for the pale classes -->
-        <g v-if="attr === 'density'" fill="none" stroke-linecap="round">
+        <g v-if="attr === 'density'" fill="none" stroke-linecap="round" clip-path="url(#net-clip)">
           <path
             v-for="(x, i) in densitySegments"
             :key="`dc${i}`"
