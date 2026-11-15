@@ -163,6 +163,36 @@ test("bildfahrplan: timetable table below the chart, one direction", async ({ pa
   await expect(page).toHaveURL(/\/train\//);
 });
 
+test("bildfahrplan: table in a second window, view and hover in sync", async ({ page }) => {
+  await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
+  const [popup] = await Promise.all([
+    page.waitForEvent("popup"),
+    page
+      .getByRole("button", { name: /Table in new window|Tabelle in neuem Fenster|Tabella/ })
+      .click(),
+  ]);
+  await expect(page).toHaveURL(/part=chart/);
+  await expect(page.locator(".bf-table")).toHaveCount(0);
+  await expect(popup).toHaveURL(/part=table/);
+  await expect(popup.locator("svg[role=img]")).toHaveCount(0);
+  const row = popup.locator(".bf-table tbody tr").first();
+  await row.waitFor();
+  // hover in the table window → the train is emphasized in the chart window
+  await row.hover();
+  await expect(page.locator("path.pointer-events-none[stroke-width='3']")).toHaveCount(1);
+  // time window changed in the chart window → the table window follows
+  await page.keyboard.press("ArrowDown");
+  await expect(popup).toHaveURL(/from=8/);
+  await expect(popup).toHaveURL(/part=table/);
+  // back to both parts
+  await page
+    .getByRole("button", {
+      name: /Show chart and table|Bildfahrplan und Tabelle|Grafico e tabella/,
+    })
+    .click();
+  await expect(page.locator(".bf-table")).toBeVisible();
+});
+
 test("bildfahrplan index keeps its sort order after visiting a corridor", async ({ page }) => {
   await page.goto("/bf");
   await page.getByRole("columnheader", { name: /^km/ }).click();

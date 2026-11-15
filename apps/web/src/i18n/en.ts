@@ -149,6 +149,11 @@ export default {
     hint: "Positions are calculated by ÖBB HAFAS.",
   },
   bf: {
+    showBoth: "Show chart and table",
+    chartNewWindow: "Chart in new window",
+    tableNewWindow: "Table in new window",
+    newWindowTip:
+      "For a second monitor: opens this part in its own window, this one keeps the other part. Both stay in sync: date, time, section and the hovered train.",
     tableTo: "to",
     swap: "Swap direction",
     fullRoute: "Whole route",

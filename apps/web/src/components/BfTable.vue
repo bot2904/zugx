@@ -3,7 +3,7 @@
 // one direction only (the shown one), a row per train, a column per station with its departure
 // (arrival at the last station), "|" where it passes without stopping, then the destination.
 import type { CorridorTrain } from "@zugx/netz";
-import { computed } from "vue";
+import { computed, ref, useTemplateRef, watch } from "vue";
 import LineBadge from "./LineBadge.vue";
 import { trainSlug } from "../lib/url.ts";
 
@@ -16,6 +16,8 @@ const props = defineProps<{
   t1: number;
   date: string;
   hover?: CorridorTrain;
+  /** scroll the hovered train's row into view (table in its own window, hover from the chart) */
+  follow?: boolean;
 }>();
 const emit = defineEmits<{ hover: [t: CorridorTrain | undefined] }>();
 
@@ -57,6 +59,17 @@ const rows = computed(() => {
   }
   return out.sort((x, y) => x.first - y.first);
 });
+
+const tbody = useTemplateRef<HTMLElement>("tbody");
+const inside = ref(false);
+watch(
+  () => props.hover,
+  (h) => {
+    if (!props.follow || inside.value || !h) return;
+    const k = rows.value.findIndex((r) => r.t === h);
+    tbody.value?.children[k]?.scrollIntoView({ block: "nearest", inline: "nearest" });
+  },
+);
 </script>
 
 <template>
@@ -78,10 +91,10 @@ const rows = computed(() => {
           </th>
         </tr>
       </thead>
-      <tbody>
+      <tbody ref="tbody" @mouseenter="inside = true" @mouseleave="inside = false">
         <tr
           v-for="r in rows"
-          :key="`${r.t.cat} ${r.t.nr}`"
+          :key="`${r.t.cat} ${r.t.nr} ${r.first}`"
           :class="hover === r.t && 'hovered'"
           @mouseenter="emit('hover', r.t)"
           @mouseleave="emit('hover', undefined)"

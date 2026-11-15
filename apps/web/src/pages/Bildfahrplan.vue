@@ -8,7 +8,7 @@ import {
   useSessionStorage,
 } from "@vueuse/core";
 import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
-import { computed, onMounted, ref, shallowRef, watch } from "vue";
+import { computed, onMounted, onUnmounted, ref, shallowRef, watch } from "vue";
 import { useI18n } from "../i18n/index.ts";
 import { useRoute, useRouter } from "vue-router";
 import CorridorIndexView from "../components/CorridorIndex.vue";
@@ -54,6 +54,64 @@ const from = computed(() =>
 const span = computed(() => Number(route.query.h ?? 4));
 // shallow: a deep ref would wrap the train in a proxy, and `hover === r.t` would never match
 const hover = shallowRef<CorridorTrain>();
+
+// ---- two windows (e.g. two monitors): ?part=chart | table shows only that part; the windows
+// share the sheet, date, time window, section and the hovered train (BroadcastChannel) ----
+const part = computed(() =>
+  route.query.part === "chart" || route.query.part === "table" ? route.query.part : undefined,
+);
+const channel =
+  typeof BroadcastChannel === "undefined" ? undefined : new BroadcastChannel("zugx:bf");
+onUnmounted(() => channel?.close());
+type SyncMsg =
+  | { kind: "hover"; key: string | null }
+  | { kind: "view"; id: string; query: Record<string, string> };
+const ownQuery = () =>
+  Object.fromEntries(
+    Object.entries(route.query).filter(
+      (e): e is [string, string] => e[0] !== "part" && typeof e[1] === "string",
+    ),
+  );
+const viewSig = (c: string, q: Record<string, string>) =>
+  JSON.stringify([c, Object.entries(q).sort(([a], [b]) => a.localeCompare(b))]);
+// what came from the other window is not sent back (no ping-pong while the mouse moves on)
+let lastHover: string | null = null;
+let lastView = "";
+if (channel)
+  channel.onmessage = ({ data: m }: MessageEvent<SyncMsg>) => {
+    if (m.kind === "hover") {
+      lastHover = m.key;
+      hover.value = m.key ? trainByKey.value.get(m.key) : undefined;
+    } else if (m.kind === "view") {
+      if (viewSig(m.id, m.query) === viewSig(id.value ?? "", ownQuery())) return;
+      lastView = viewSig(m.id, m.query);
+      void router.replace({
+        path: `/bf/${m.id}`,
+        query: { ...m.query, ...(part.value ? { part: part.value } : {}) },
+      });
+    }
+  };
+watch(hover, (h) => {
+  const key = h ? trainKey(h.cat, h.nr) : null;
+  if (key !== lastHover) channel?.postMessage({ kind: "hover", key } satisfies SyncMsg);
+  lastHover = null;
+});
+watch(
+  () => [id.value, route.query] as const,
+  ([c]) => {
+    if (!c) return;
+    const q = ownQuery();
+    if (viewSig(c, q) !== lastView)
+      channel?.postMessage({ kind: "view", id: c, query: q } satisfies SyncMsg);
+    lastView = "";
+  },
+);
+/** opens one part in a new window, this window keeps the other one */
+function openPart(p: "chart" | "table") {
+  const href = router.resolve({ query: { ...route.query, part: p } }).href;
+  window.open(href, "_blank", "popup,width=1280,height=900");
+  setQuery({ part: p === "chart" ? "table" : "chart" });
+}
 
 // railway lines (VzG) of the current sheet, from the index
 const sheetLines = computed(() => list.value.find((c) => c.id === id.value)?.lines ?? []);
@@ -259,7 +317,8 @@ const weekday = computed(() =>
 );
 
 // ---- live overlay (?live=1, today only): realtime paths from HAFAS, see lib/bf-live.ts ----
-const liveOn = computed(() => route.query.live === "1" && isToday.value);
+// the table-only window (second monitor) draws no live paths and fetches none
+const liveOn = computed(() => route.query.live === "1" && isToday.value && part.value !== "table");
 const liveRuns = shallowRef(new Map<string, LiveRun>());
 const liveBusy = ref(false);
 const liveError = ref(false);
@@ -445,6 +504,12 @@ function openTrain(t: CorridorTrain) {
   void router.push({ path: `/train/${trainSlug(`${t.cat} ${t.nr}`)}`, query: { d: date.value } });
 }
 
+const trainByKey = computed(
+  () =>
+    new Map(
+      [...trainsOnDate.value, ...hafasOnlyTrains.value].map((t) => [trainKey(t.cat, t.nr), t]),
+    ),
+);
 const cats = computed(() => [
   ...new Set([...trainsOnDate.value, ...hafasOnlyTrains.value].map((t) => t.cat)),
 ]);
@@ -608,7 +673,15 @@ function toggleCat(c: string) {
     </div>
 
     <p v-if="!list.length && !loading" class="muted">{{ $t("bf.noData") }}</p>
-    <div v-if="data" class="card overflow-x-auto p-1">
+    <div v-if="data" class="no-print mt-1 flex justify-end gap-1 text-xs">
+      <button v-if="part" class="btn" @click="setQuery({ part: undefined })">
+        {{ $t("bf.showBoth") }}
+      </button>
+      <button v-else class="btn" v-tip="$t('bf.newWindowTip')" @click="openPart('chart')">
+        ⧉ {{ $t("bf.chartNewWindow") }}
+      </button>
+    </div>
+    <div v-if="data && part !== 'table'" class="card overflow-x-auto p-1">
       <svg
         :viewBox="`0 0 ${W} ${H}`"
         class="block w-full min-w-[800px]"
@@ -821,8 +894,14 @@ function toggleCat(c: string) {
         {{ $t("bf.legendHafasOnly") }}
       </span>
     </p>
+    <div v-if="data && !part" class="no-print mt-2 flex justify-end text-xs">
+      <button class="btn" v-tip="$t('bf.newWindowTip')" @click="openPart('table')">
+        ⧉ {{ $t("bf.tableNewWindow") }}
+      </button>
+    </div>
     <BfTable
-      v-if="data"
+      v-if="data && part !== 'chart'"
+      :follow="part === 'table'"
       :stations="shownStations"
       :trains="[...trainsOnDate, ...hafasOnlyTrains].filter((t) => !hidden.has(t.cat))"
       :dir="reversed ? -1 : 1"

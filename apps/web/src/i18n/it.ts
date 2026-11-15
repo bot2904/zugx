@@ -151,6 +151,11 @@ export default {
     hint: "Posizioni calcolate da ÖBB HAFAS.",
   },
   bf: {
+    showBoth: "Grafico e tabella",
+    chartNewWindow: "Grafico in nuova finestra",
+    tableNewWindow: "Tabella in nuova finestra",
+    newWindowTip:
+      "Per un secondo monitor: apre questa parte in una finestra propria, questa mantiene l'altra. Restano sincronizzate: data, ora, tratta e il treno sotto il puntatore.",
     tableTo: "per",
     swap: "Inverti direzione",
     fullRoute: "Linea intera",

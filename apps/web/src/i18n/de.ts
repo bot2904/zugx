@@ -151,6 +151,11 @@ export default {
     hint: "Positionen werden von ÖBB HAFAS berechnet.",
   },
   bf: {
+    showBoth: "Bildfahrplan und Tabelle",
+    chartNewWindow: "Bildfahrplan in neuem Fenster",
+    tableNewWindow: "Tabelle in neuem Fenster",
+    newWindowTip:
+      "Für einen zweiten Bildschirm: öffnet diesen Teil in einem eigenen Fenster, dieses behält den anderen. Beide bleiben synchron: Datum, Uhrzeit, Abschnitt und der Zug unter dem Mauszeiger.",
     tableTo: "nach",
     swap: "Richtung tauschen",
     fullRoute: "Ganze Strecke",
