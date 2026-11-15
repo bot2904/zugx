@@ -9,6 +9,7 @@ export default defineConfig({
       "packages/trains/data/**",
       "packages/netz/data/**",
       "packages/vzg/data/**",
+      "e2e/tests/snapshots/**",
     ],
   },
   lint: {

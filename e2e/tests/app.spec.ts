@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
 import { mockApi } from "./mock.ts";
 
@@ -559,4 +559,26 @@ test("VzG line map: drawn from the line's geometry, exportable as SVG", async ({
   await expect(page).toHaveURL(/\/vzg\/222-01\/map$/);
   await page.locator(".map-card svg a", { hasText: "Schwarzach" }).first().click();
   await expect(page).toHaveURL(/\/station\/\d+/);
+});
+
+test("line map SVG of the Stubaitalbahn matches the snapshot", async ({ page }) => {
+  test.skip(test.info().project.name !== "desktop", "same SVG in every project");
+  await page.goto("/vzg/stubaitalbahn/map");
+  await page.locator(".map-card svg").waitFor();
+  const [dl] = await Promise.all([
+    page.waitForEvent("download"),
+    page.getByRole("button", { name: /SVG/ }).click(),
+  ]);
+  const svg = await new Promise<string>((resolve) => {
+    void dl.createReadStream().then((s) => {
+      let t = "";
+      s.on("data", (c: Buffer) => (t += c.toString()));
+      s.on("end", () => resolve(t));
+    });
+  });
+  // the link back depends on the test server's address
+  const normalized = svg.replace(/https?:\/\/[^/\s<]+\/vzg\//g, "https://zugx.legner.me/vzg/");
+  const file = new URL("snapshots/stubaitalbahn-map.svg", import.meta.url);
+  if (process.env.UPDATE_SNAPSHOTS) writeFileSync(file, normalized);
+  expect(normalized).toBe(readFileSync(file, "utf8"));
 });
