@@ -99,6 +99,20 @@ describe("Bildfahrplan live overlay", () => {
     expect(alongCorridor([0, 1, 2], [st("A", 0), st("B", 1), st("C", 2)])).toBe(true);
   });
 
+  it("trains not in the GTFS taking another way between two stations are left out", () => {
+    // timetable: A → C in 58′ (RJX 162); IR seen at A and C 3 hours apart (runs via elsewhere)
+    const s = newLiveState();
+    s.extra.set("IR 583", { cat: "IR", nr: "583", headsign: "C" });
+    addEvent(s, "IR 583", 0, "dep", ev("08:10", "08:10"), DAY);
+    addEvent(s, "IR 583", 3, "arr", ev("11:11", "11:11"), DAY);
+    expect(buildRuns(s, [rjx], stations, 680).has("IR 583")).toBe(false);
+    // the same within plausible time: drawn
+    s.extra.set("IR 585", { cat: "IR", nr: "585", headsign: "C" });
+    addEvent(s, "IR 585", 0, "dep", ev("10:10", "10:10"), DAY);
+    addEvent(s, "IR 585", 3, "arr", ev("11:20", "11:21"), DAY);
+    expect(buildRuns(s, [rjx], stations, 690).has("IR 585")).toBe(true);
+  });
+
   it("radar and board events merge per station", () => {
     const s = newLiveState();
     addEvent(s, K, 2, "arr", ev("10:30", "10:36"), DAY);

@@ -168,6 +168,51 @@ export function alongCorridor(is: number[], stations: CorridorStation[]): boolea
   return u.length === 2 && Math.abs(kms[0]! - kms[1]!) >= 10;
 }
 
+/**
+ * longest planned running time of the timetable's trains between two corridor stations (either
+ * direction), undefined if no train runs between them
+ */
+export function slowestRun(trains: CorridorTrain[], a: number, b: number): number | undefined {
+  let max: number | undefined;
+  for (const t of trains) {
+    const pa = t.pts.find(([i]) => i === a);
+    const pb = t.pts.find(([i]) => i === b);
+    if (!pa || !pb) continue;
+    const ta = pa[2] ?? pa[1];
+    const tb = pb[1] ?? pb[2];
+    const ta2 = pa[1] ?? pa[2];
+    const tb2 = pb[2] ?? pb[1];
+    if (ta === null || tb === null || ta2 === null || tb2 === null) continue;
+    const d = Math.min(Math.abs(tb - ta), Math.abs(ta2 - tb2));
+    if (max === undefined || d > max) max = d;
+  }
+  return max;
+}
+
+/**
+ * a train not in the GTFS, seen at corridor stations: cut where it takes far longer between two
+ * of them than any timetable train (it runs another way in between, e.g. IR Graz – Klagenfurt
+ * via Bruck an der Mur instead of the Koralmbahn); the longest plausible piece
+ */
+export function plausiblePiece(pts: LivePt[], trains: CorridorTrain[]): LivePt[] {
+  const time = (p: LivePt) => p.dep?.plan ?? p.arr?.plan ?? 0;
+  const arrive = (p: LivePt) => p.arr?.plan ?? p.dep?.plan ?? 0;
+  let best: LivePt[] = [];
+  let cur: LivePt[] = [];
+  for (const p of pts) {
+    const prev = cur.at(-1);
+    if (prev) {
+      const slow = slowestRun(trains, prev.i, p.i);
+      if (slow !== undefined && arrive(p) - time(prev) > slow * 1.5 + 10) {
+        if (cur.length > best.length) best = cur;
+        cur = [];
+      }
+    }
+    cur.push(p);
+  }
+  return cur.length > best.length ? cur : best;
+}
+
 /** record a HAFAS stop event of train `key` at corridor station `i` */
 export function addEvent(
   st: LiveState,
@@ -254,9 +299,17 @@ export function buildRuns(
     const rt = st.rt.get(key);
     if (!rt || !alongCorridor([...rt.keys()], stations)) continue;
     const time = (s: StationRt) => s.arr?.plan ?? s.dep?.plan ?? 0;
-    const pts: LivePt[] = [...rt]
-      .sort((a, b) => time(a[1]) - time(b[1]))
-      .map(([i, s]) => ({ i, ...s }));
+    const pts = plausiblePiece(
+      [...rt].sort((a, b) => time(a[1]) - time(b[1])).map(([i, s]) => ({ i, ...s })),
+      trains,
+    );
+    if (
+      !alongCorridor(
+        pts.map((p) => p.i),
+        stations,
+      )
+    )
+      continue;
     const run = finish({
       key,
       cat: x.cat,
