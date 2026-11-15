@@ -622,3 +622,42 @@ points = [
   { km = 80.606, kind = "signal", signal = "shunting" },
   { km = 80.607, kind = "signal", label = "V230", signal = "shunting" },
 ]
+
+[[connections]]
+km = 0
+station = "Jenbach Achenseebahn"
+lines = [
+  { id = "330-01", ref = "330 01", name = "Neue Unterinntalbahn", km = 0 },
+  { id = "achenseebahn", name = "Achenseebahn", km = 0 },
+  { id = "zillertalbahn", name = "Zillertalbahn", km = 0 },
+]
+
+[[connections]]
+km = 16.027
+station = "Wörgl Hauptbahnhof"
+lines = [
+  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", km = 192.359 },
+  { id = "302-01", ref = "302 01", name = "Unterinntalbahn", km = 15.972 },
+]
+
+[[connections]]
+km = 40.87
+station = "Jenbach"
+lines = [
+  { id = "achenseebahn", name = "Achenseebahn", km = 40.882 },
+  { id = "zillertalbahn", name = "Zillertalbahn", km = 0.042 },
+]
+
+[[connections]]
+km = 61.155
+station = "Volders-Baumkirchen"
+lines = [
+  { id = "330-01", ref = "330 01", name = "Neue Unterinntalbahn", km = 61.16 },
+]
+
+[[connections]]
+km = 75.084
+station = "Innsbruck Hauptbahnhof"
+lines = [
+  { id = "302-02", ref = "302 02", name = "Brennerbahn", km = 75.518 },
+]

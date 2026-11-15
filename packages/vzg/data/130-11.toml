@@ -38,3 +38,10 @@ points = [
   { km = 75.069, kind = "signal", signal = "station_distant" },
   { km = 75.242, kind = "signal", label = "R2", signal = "main", measured = true },
 ]
+
+[[connections]]
+km = 73.955
+station = "Groß Sierning"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 74.035 },
+]

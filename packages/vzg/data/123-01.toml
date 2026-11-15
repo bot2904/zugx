@@ -63,3 +63,49 @@ points = [
   { km = 11.881, kind = "signal", label = "Sch217H", signal = "minor", measured = true },
   { km = 12.093, kind = "signal", label = "G217/r", signal = "distant,main", measured = true },
 ]
+
+[[connections]]
+km = 0
+station = "Hütteldorf"
+lines = [
+  { id = "101-01", ref = "101 01", name = "Westbahn", km = 0 },
+  { id = "120-01", ref = "120 01", name = "Vorortelinie", km = 0 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 0 },
+]
+
+[[connections]]
+km = 5.952
+station = "Wien Hütteldorf"
+lines = [
+  { id = "120-01", ref = "120 01", name = "Vorortelinie", km = -3.284 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 36.502 },
+]
+
+[[connections]]
+km = 7.926
+station = "Wien Wolf in der Au"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 7.885 },
+]
+
+[[connections]]
+km = 9.138
+station = "Wien Hadersdorf"
+lines = [
+  { id = "103-01", ref = "103 01", name = "Westbahn", km = 9.238 },
+]
+
+[[connections]]
+km = 9.956
+station = "Wien Weidlingau"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 9.94 },
+]
+
+[[connections]]
+km = 11.839
+station = "Unter Purkersdorf"
+lines = [
+  { id = "101-01", ref = "101 01", name = "Westbahn", km = 11.839 },
+  { id = "103-01", ref = "103 01", name = "Westbahn", km = 11.839 },
+]

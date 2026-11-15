@@ -63,3 +63,11 @@ points = [
   { km = 14.874, kind = "signal", label = "VEK", signal = "shunting" },
   { km = 15.719, kind = "signal", signal = "shunting" },
 ]
+
+[[connections]]
+km = -0.004
+station = "Hieflau"
+lines = [
+  { id = "102-01", ref = "102 01", name = "Ennstalbahn", km = 138.358 },
+  { id = "412-01", ref = "412 01", name = "Erzbergbahn", km = 102.383 },
+]

@@ -54,3 +54,10 @@ points = [
   { km = 9.836, kind = "signal", signal = "main" },
   { km = 9.996, kind = "signal", signal = "whistle" },
 ]
+
+[[connections]]
+km = 0.147
+station = "Mixnitz-Bärenschützklamm"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 170.903 },
+]

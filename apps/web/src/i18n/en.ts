@@ -187,6 +187,7 @@ export default {
     liveAt: "realtime at {n} stations, last {station} {time}",
   },
   vzg: {
+    connections: "Connecting lines",
     exportTip:
       "Download as SVG (e.g. for Wikimedia Commons): with caption, legend and data sources",
     exportDesc:

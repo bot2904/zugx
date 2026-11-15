@@ -171,3 +171,17 @@ points = [
   { km = 166.615, kind = "signal", label = "V58L", signal = "shunting" },
   { km = 166.621, kind = "signal", signal = "speed_limit" },
 ]
+
+[[connections]]
+km = 73.675
+station = "Zellerndorf"
+lines = [
+  { id = "112-01", ref = "112 01", name = "Nordwestbahn", km = 73.652 },
+]
+
+[[connections]]
+km = 82.605
+station = "Laa an der Thaya"
+lines = [
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 82.548 },
+]

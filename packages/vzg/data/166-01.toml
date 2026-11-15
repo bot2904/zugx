@@ -69,3 +69,10 @@ points = [
   { km = 5.218, kind = "signal", signal = "speed_limit" },
   { km = 5.222, kind = "signal", signal = "speed_limit" },
 ]
+
+[[connections]]
+km = -0.008
+station = "Bad Fischau-Brunn"
+lines = [
+  { id = "163-01", ref = "163 01", name = "Schneebergbahn", km = 5.281 },
+]

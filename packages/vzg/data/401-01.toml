@@ -507,3 +507,47 @@ points = [
   { km = 218.641, kind = "signal", label = "Aa12", signal = "catenary_mast,train_protection", measured = true },
   { km = 220.123, kind = "halt", label = "Flughafen Graz-Feldkirchen", uic = "8100601", pos = [46.998, 15.44944], measured = true },
 ]
+
+[[connections]]
+km = 1.644
+station = "Graz Don Bosco"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 213.029 },
+  { id = "414-01", ref = "414 01", name = "Steirische Ostbahn", km = 249.123 },
+]
+
+[[connections]]
+km = 31.324
+station = "Wettmannstätten"
+lines = [
+  { id = "435-01", ref = "435 01", name = "Wieserbahn", km = 17.246 },
+]
+
+[[connections]]
+km = 87.27
+station = "Wiederndorf-Aich"
+lines = [
+  { id = "410-01", ref = "410 01", name = "Jauntalbahn", km = 79.949 },
+]
+
+[[connections]]
+km = 94.363
+station = "Mittlern"
+lines = [
+  { id = "410-01", ref = "410 01", name = "Jauntalbahn", km = 94.368 },
+]
+
+[[connections]]
+km = 125.872
+station = "Klagenfurt Hauptbahnhof"
+lines = [
+  { id = "409-01", ref = "409 01", name = "Rosentalbahn", km = 17.951 },
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", km = 343.322 },
+]
+
+[[connections]]
+km = 220.123
+station = "Flughafen Graz-Feldkirchen"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 220.157 },
+]

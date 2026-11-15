@@ -21,3 +21,12 @@ points = [
   { km = 376.622, kind = "signal", signal = "electricity" },
   { km = 376.625, kind = "signal", label = "V233", signal = "shunting", measured = true },
 ]
+
+[[connections]]
+km = 376.2
+station = "Villach Hbf Autoreisezug"
+lines = [
+  { id = "408-01", ref = "408 01", name = "Rudolfsbahn", km = 376.2 },
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", km = 376.2 },
+  { id = "413-14", ref = "413 14", name = "Nordschleife", km = 376.2 },
+]

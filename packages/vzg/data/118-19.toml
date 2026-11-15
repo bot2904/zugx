@@ -23,3 +23,10 @@ points = [
   { km = 1.435, kind = "signal", label = "R714", signal = "main,shunting", measured = true },
   { km = 9.7, kind = "halt", label = "Lanzendorf-Rannersdorf", uic = "8101173", pos = [48.11348, 16.44744], measured = true },
 ]
+
+[[connections]]
+km = 9.7
+station = "Lanzendorf-Rannersdorf"
+lines = [
+  { id = "118-01", ref = "118 01", name = "Ostbahn", km = 9.665 },
+]

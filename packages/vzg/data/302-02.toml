@@ -521,3 +521,17 @@ points = [
   { km = 239, kind = "signal", label = "7A", signal = "main", measured = true },
   { km = 239.387, kind = "signal", signal = "shunting", measured = true },
 ]
+
+[[connections]]
+km = 2.35
+station = "Innsbruck Sonnenburgerhof"
+lines = [
+  { id = "stubaitalbahn", name = "Stubaitalbahn", km = 2.35 },
+]
+
+[[connections]]
+km = 75.518
+station = "Innsbruck Hauptbahnhof"
+lines = [
+  { id = "101-04", ref = "101 04", name = "Unterinntalbahn", km = 75.084 },
+]

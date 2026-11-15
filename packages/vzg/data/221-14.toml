@@ -26,3 +26,10 @@ points = [
   { km = 3.066, kind = "signal", label = "U901", signal = "main,shunting", measured = true },
   { km = 3.323, kind = "station", label = "Linz Franckstraße", uic = "8100807", pos = [48.2859, 14.32369], measured = true },
 ]
+
+[[connections]]
+km = 3.323
+station = "Linz Franckstraße"
+lines = [
+  { id = "221-01", ref = "221 01", name = "Summerauer Bahn", km = 3.313 },
+]

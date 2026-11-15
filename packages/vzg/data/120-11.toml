@@ -24,3 +24,23 @@ points = [
   { km = 5.755, kind = "stop", label = "Wien Hütteldorf", pos = [48.19737, 16.2624] },
   { km = 5.794, kind = "signal", signal = "minor" },
 ]
+
+[[connections]]
+km = 0
+station = "Hütteldorf"
+lines = [
+  { id = "101-01", ref = "101 01", name = "Westbahn", km = 0 },
+  { id = "120-01", ref = "120 01", name = "Vorortelinie", km = 0 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 0 },
+  { id = "123-01", ref = "123 01", name = "Verbindungsbahn", km = 0 },
+]
+
+[[connections]]
+km = 5.755
+station = "Wien Hütteldorf"
+lines = [
+  { id = "101-01", ref = "101 01", name = "Westbahn", km = 5.835 },
+  { id = "120-01", ref = "120 01", name = "Vorortelinie", km = -3.284 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 36.502 },
+  { id = "123-01", ref = "123 01", name = "Verbindungsbahn", km = 5.952 },
+]

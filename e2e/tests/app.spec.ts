@@ -497,3 +497,15 @@ test("VzG chart exports a standalone SVG with caption and data sources", async (
   expect(svg).not.toContain("var(--");
   expect(svg).toContain("font-family:Liberation Sans, Arial");
 });
+
+test("VzG chart links connecting lines at junction stations", async ({ page }) => {
+  await page.goto("/vzg/101-03");
+  await page.locator("svg.vzg").waitFor();
+  const list = page.locator("section section", {
+    has: page.getByRole("heading", { name: /Connecting|Anschluss|coincidenza/ }),
+  });
+  await expect(list).toContainText("Schwarzach");
+  await list.getByRole("link", { name: /^222 01/ }).click();
+  await expect(page).toHaveURL(/\/vzg\/222-01\?km=/);
+  await expect(page.locator("svg.vzg")).toBeVisible();
+});

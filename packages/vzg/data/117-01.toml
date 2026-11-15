@@ -285,3 +285,26 @@ points = [
   { km = 37.865, kind = "signal", signal = "catenary_mast,electricity" },
   { km = 37.866, kind = "signal", signal = "catenary_mast,electricity" },
 ]
+
+[[connections]]
+km = -2.196
+station = "Wien Stadlau"
+lines = [
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 9.877 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 9.877 },
+]
+
+[[connections]]
+km = 6.376
+station = "Stadlau"
+lines = [
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 6.376 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 6.376 },
+]
+
+[[connections]]
+km = 35.508
+station = "Marchegg"
+lines = [
+  { id = "115-01", ref = "115 01", name = "ÖBB Gänserndorf – Marchegg", km = 49.344 },
+]

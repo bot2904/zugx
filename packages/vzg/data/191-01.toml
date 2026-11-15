@@ -740,3 +740,18 @@ points = [
   { km = 56.182, kind = "station", label = "Wolfsthal", uic = "8100360", pos = [48.13553, 17.00624], measured = true },
   { km = 56.3, kind = "signal", label = "FE731R/V731R", signal = "minor,shunting", measured = true },
 ]
+
+[[connections]]
+km = 6.756
+station = "Wien Zentralfriedhof"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = -6.529 },
+  { id = "118-01", ref = "118 01", name = "Ostbahn", km = 4.854 },
+]
+
+[[connections]]
+km = 11.077
+station = "Wien Kaiserebersdorf"
+lines = [
+  { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 18.846 },
+]

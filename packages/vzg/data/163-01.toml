@@ -397,3 +397,26 @@ points = [
   { km = 49.241, kind = "signal", label = "r704", signal = "distant", measured = true },
   { km = 49.241, kind = "signal", label = "P704/s", signal = "distant,main,speed_limit_distant", measured = true },
 ]
+
+[[connections]]
+km = -1.433
+station = "Wiener Neustadt Hauptbahnhof"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 48.178 },
+  { id = "108-01", ref = "108 01", name = "Mattersburger Bahn", km = -0.433 },
+  { id = "167-01", ref = "167 01", name = "Thermenbahn", km = 51.016 },
+]
+
+[[connections]]
+km = 5.281
+station = "Bad Fischau-Brunn"
+lines = [
+  { id = "166-01", ref = "166 01", name = "ÖBB Bad Fischau-Brunn – Wöllersdorf", km = -0.008 },
+]
+
+[[connections]]
+km = 28.01
+station = "Puchberg am Schneeberg"
+lines = [
+  { id = "198-01", ref = "198 01", name = "Schneebergbahn", km = 9.739 },
+]

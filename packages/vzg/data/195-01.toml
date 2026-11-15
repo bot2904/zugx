@@ -306,3 +306,10 @@ points = [
   { km = 40.105, kind = "signal", label = "Xl11", signal = "main", measured = true },
   { km = 40.163, kind = "signal", signal = "speed_limit" },
 ]
+
+[[connections]]
+km = 40.037
+station = "Parndorf Ort / Pandrof mjesto"
+lines = [
+  { id = "118-01", ref = "118 01", name = "Ostbahn", km = 47.64 },
+]

@@ -255,3 +255,41 @@ points = [
   { km = 9.405, kind = "signal", label = "VHT931", signal = "shunting", measured = true },
   { km = 16.361, kind = "station", label = "Heiligenstadt", uic = "8170015", pos = [48.24805, 16.36554], measured = true },
 ]
+
+[[connections]]
+km = -3.284
+station = "Wien Hütteldorf"
+lines = [
+  { id = "101-01", ref = "101 01", name = "Westbahn", km = 5.835 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 36.502 },
+  { id = "123-01", ref = "123 01", name = "Verbindungsbahn", km = 5.952 },
+]
+
+[[connections]]
+km = 0
+station = "Hütteldorf"
+lines = [
+  { id = "123-01", ref = "123 01", name = "Verbindungsbahn", km = 0 },
+]
+
+[[connections]]
+km = 1.341
+station = "Ober St. Veit"
+lines = [
+  { id = "101-01", ref = "101 01", name = "Westbahn", km = 1.341 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 1.341 },
+]
+
+[[connections]]
+km = 8.863
+station = "Wien Heiligenstadt"
+lines = [
+  { id = "109-01", ref = "109 01", name = "Franz-Josefs-Bahn", km = 2.664 },
+]
+
+[[connections]]
+km = 16.361
+station = "Heiligenstadt"
+lines = [
+  { id = "109-01", ref = "109 01", name = "Franz-Josefs-Bahn", km = 16.361 },
+]

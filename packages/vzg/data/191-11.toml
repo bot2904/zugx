@@ -28,3 +28,12 @@ points = [
   { km = 7.258, kind = "signal", label = "V358", signal = "shunting", measured = true },
   { km = 7.283, kind = "signal", label = "h", signal = "distant", measured = true },
 ]
+
+[[connections]]
+km = 6.772
+station = "Wien Zentralfriedhof"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = -6.529 },
+  { id = "118-01", ref = "118 01", name = "Ostbahn", km = 4.854 },
+  { id = "191-01", ref = "191 01", name = "Pressburger Bahn", km = 6.756 },
+]

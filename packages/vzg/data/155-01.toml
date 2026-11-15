@@ -201,3 +201,10 @@ points = [
   { km = 95.032, kind = "signal", label = "V705H", signal = "shunting", measured = true },
   { km = 95.164, kind = "signal", label = "h705", signal = "distant,speed_limit_distant", measured = true },
 ]
+
+[[connections]]
+km = 0.008
+station = "Pöchlarn"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 94.04 },
+]

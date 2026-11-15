@@ -912,3 +912,26 @@ points = [
   { km = 194.02, kind = "signal", label = "a", signal = "distant", measured = true },
   { km = 206.785, kind = "halt", label = "Lendorf", uic = "8101126", pos = [46.82756, 13.41873], measured = true },
 ]
+
+[[connections]]
+km = -0.03
+station = "Schwarzach-St. Veit"
+lines = [
+  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", km = 66.516 },
+]
+
+[[connections]]
+km = 116.669
+station = "Villach Hauptbahnhof"
+lines = [
+  { id = "408-01", ref = "408 01", name = "Rudolfsbahn", km = 377.614 },
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", km = 375.155 },
+  { id = "413-14", ref = "413 14", name = "Nordschleife", km = 377.645 },
+]
+
+[[connections]]
+km = 206.785
+station = "Lendorf"
+lines = [
+  { id = "407-01", ref = "407 01", name = "Drautalbahn", km = 206.785 },
+]

@@ -26,3 +26,11 @@ points = [
   { km = 0.858, kind = "signal", label = "1H4", signal = "main_repeated", measured = true },
   { km = 1, kind = "signal", label = "H4/zw31,yw32", signal = "distant,main", measured = true },
 ]
+
+[[connections]]
+km = 0.12
+station = "St. Michael"
+lines = [
+  { id = "404-01", ref = "404 01", name = "Rudolfsbahn", km = 202.249 },
+  { id = "412-01", ref = "412 01", name = "Erzbergbahn", km = 202.254 },
+]

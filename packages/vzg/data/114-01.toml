@@ -665,3 +665,61 @@ points = [
   { km = 77.946, kind = "signal", signal = "electricity" },
   { km = 77.948, kind = "signal", signal = "electricity" },
 ]
+
+[[connections]]
+km = -0.152
+station = "Wien Praterstern"
+lines = [
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = -0.155 },
+]
+
+[[connections]]
+km = 2.673
+station = "Wien Handelskai"
+lines = [
+  { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 32.716 },
+]
+
+[[connections]]
+km = 4.64
+station = "Wien Floridsdorf"
+lines = [
+  { id = "112-01", ref = "112 01", name = "Nordwestbahn", km = 4.642 },
+]
+
+[[connections]]
+km = 6.912
+station = "Wien Siemensstraße"
+lines = [
+  { id = "138-01", ref = "138 01", name = "Floridsdorfer Hochbahn", km = 6.95 },
+]
+
+[[connections]]
+km = 15.319
+station = "Handelskai"
+lines = [
+  { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 15.319 },
+]
+
+[[connections]]
+km = 17.347
+station = "Floridsdorf"
+lines = [
+  { id = "112-01", ref = "112 01", name = "Nordwestbahn", km = 17.347 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 17.347 },
+]
+
+[[connections]]
+km = 31.346
+station = "Gänserndorf"
+lines = [
+  { id = "115-01", ref = "115 01", name = "ÖBB Gänserndorf – Marchegg", km = 31.313 },
+  { id = "183-01", ref = "183 01", name = "Lokalbahn Gänserndorf – Mistelbach", km = -0.451 },
+]
+
+[[connections]]
+km = 58.428
+station = "Drösing"
+lines = [
+  { id = "186-01", ref = "186 01", name = "Lokalbahn Drösing – Zistersdorf", km = 0.004 },
+]

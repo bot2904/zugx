@@ -499,3 +499,27 @@ points = [
   { km = 67.411, kind = "signal", signal = "speed_limit" },
   { km = 101.73, kind = "signal", label = "C2/d", signal = "distant,main,shunting,speed_limit", measured = true },
 ]
+
+[[connections]]
+km = 2.832
+station = "Wien Grillgasse"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = -8.55 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 2.858 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 2.858 },
+]
+
+[[connections]]
+km = 4.854
+station = "Wien Zentralfriedhof"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = -6.529 },
+  { id = "191-01", ref = "191 01", name = "Pressburger Bahn", km = 6.756 },
+]
+
+[[connections]]
+km = 47.64
+station = "Parndorf Ort / Pandrof mjesto"
+lines = [
+  { id = "195-01", ref = "195 01", name = "Pannoniabahn", km = 40.037 },
+]

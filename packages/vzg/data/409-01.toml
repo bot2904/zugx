@@ -106,3 +106,11 @@ points = [
   { km = 126.36, kind = "signal", label = "V609H", signal = "shunting", measured = true },
   { km = 126.39, kind = "signal", label = "V609R", signal = "shunting", measured = true },
 ]
+
+[[connections]]
+km = 17.951
+station = "Klagenfurt Hauptbahnhof"
+lines = [
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", km = 125.872 },
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", km = 343.322 },
+]

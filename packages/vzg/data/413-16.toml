@@ -24,3 +24,10 @@ points = [
   { km = 385.808, kind = "signal", label = "GA203", signal = "speed_limit", measured = true },
   { km = 385.811, kind = "signal", label = "V313w", signal = "shunting", measured = true },
 ]
+
+[[connections]]
+km = 5.364
+station = "Gödersdorf"
+lines = [
+  { id = "222-02", ref = "222 02", name = "ÖBB Villach – Rosenbach", km = 5.389 },
+]

@@ -1791,3 +1791,40 @@ points = [
   { km = 192.37, kind = "signal", label = "Sch206R", signal = "minor" },
   { km = 192.377, kind = "signal", label = "Sch306H", signal = "minor" },
 ]
+
+[[connections]]
+km = -0.154
+station = "Salzburg Hauptbahnhof"
+lines = [
+  { id = "217-01", ref = "217 01", km = 88.374 },
+  { id = "strecke-salzburg-lamprechtshausen", ref = "N", name = "Strecke Salzburg – Lamprechtshausen", km = -0.082 },
+]
+
+[[connections]]
+km = 1.526
+station = "Tischlerhäusl"
+lines = [
+  { id = "267-01", ref = "267 01", name = "267 01 Pinzgauer Lokalbahn", km = 1.522 },
+]
+
+[[connections]]
+km = 66.516
+station = "Schwarzach-St. Veit"
+lines = [
+  { id = "222-01", ref = "222 01", name = "Tauernbahn", km = -0.03 },
+]
+
+[[connections]]
+km = 97.289
+station = "Kitzsteinhornstraße"
+lines = [
+  { id = "267-01", ref = "267 01", name = "267 01 Pinzgauer Lokalbahn", km = 2.216 },
+]
+
+[[connections]]
+km = 192.359
+station = "Wörgl Hauptbahnhof"
+lines = [
+  { id = "101-04", ref = "101 04", name = "Unterinntalbahn", km = 16.027 },
+  { id = "302-01", ref = "302 01", name = "Unterinntalbahn", km = 15.972 },
+]

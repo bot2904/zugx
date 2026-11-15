@@ -467,3 +467,18 @@ points = [
   { km = 39.941, kind = "stop", label = "Köflach", pos = [47.06159, 15.08295] },
   { km = 39.959, kind = "signal", label = "FE231R", signal = "minor", measured = true },
 ]
+
+[[connections]]
+km = -0.052
+station = "Graz Hauptbahnhof"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 211.399 },
+  { id = "414-01", ref = "414 01", name = "Steirische Ostbahn", km = 250.72 },
+]
+
+[[connections]]
+km = 15.794
+station = "Lieboch"
+lines = [
+  { id = "435-01", ref = "435 01", name = "Wieserbahn", km = 0.005 },
+]

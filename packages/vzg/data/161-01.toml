@@ -208,3 +208,19 @@ points = [
   { km = 41.955, kind = "signal", signal = "station_distant" },
   { km = 42.575, kind = "stop", label = "Felixdorf", pos = [47.88783, 16.24819] },
 ]
+
+[[connections]]
+km = 41.376
+station = "Sollenau"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 38.392 },
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 38.392 },
+]
+
+[[connections]]
+km = 42.575
+station = "Felixdorf"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 39.585 },
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 39.585 },
+]

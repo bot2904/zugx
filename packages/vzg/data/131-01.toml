@@ -40,3 +40,19 @@ points = [
   { km = 5.521, kind = "signal", label = "R4/a1,b1", signal = "distant,main,shunting,speed_limit", measured = true },
   { km = 13.402, kind = "station", label = "Simmering", uic = "8170076", pos = [48.16978, 16.42053], measured = true },
 ]
+
+[[connections]]
+km = 3.773
+station = "Wien Simmering"
+lines = [
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 3.859 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 21.025 },
+]
+
+[[connections]]
+km = 13.402
+station = "Simmering"
+lines = [
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 13.402 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 13.402 },
+]

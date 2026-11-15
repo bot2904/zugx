@@ -19,3 +19,11 @@ points = [
   { km = 1.492, kind = "station", label = "Wien Süßenbrunn", uic = "8101619", pos = [48.28557, 16.48552] },
   { km = 2.408, kind = "signal", label = "R31", signal = "main,shunting", measured = true },
 ]
+
+[[connections]]
+km = 1.492
+station = "Wien Süßenbrunn"
+lines = [
+  { id = "114-01", ref = "114 01", name = "Nordbahn", km = 12.033 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 11.552 },
+]

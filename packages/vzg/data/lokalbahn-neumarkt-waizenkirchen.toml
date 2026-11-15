@@ -75,3 +75,24 @@ points = [
   { km = 12.427, kind = "signal", signal = "whistle" },
   { km = 12.624, kind = "stop", label = "Waizenkirchen", pos = [48.33053, 13.85299] },
 ]
+
+[[connections]]
+km = 0.087
+station = "Neumarkt-Kallham"
+lines = [
+  { id = "205-01", ref = "205 01", name = "Passauer Bahn", km = 29.704 },
+]
+
+[[connections]]
+km = 1.138
+station = "Kledt"
+lines = [
+  { id = "205-01", ref = "205 01", name = "Passauer Bahn", km = 28.632 },
+]
+
+[[connections]]
+km = 12.624
+station = "Waizenkirchen"
+lines = [
+  { id = "lokalbahn-linz-waizenkirchen", name = "Lokalbahn Linz – Waizenkirchen", km = 42.327 },
+]

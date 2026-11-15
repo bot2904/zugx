@@ -902,3 +902,31 @@ points = [
   { km = 311.982, kind = "signal", label = "za41", signal = "distant", measured = true },
   { km = 312.47, kind = "signal", label = "D/l", signal = "distant,main", measured = true },
 ]
+
+[[connections]]
+km = 243.301
+station = "Attnang-Puchheim"
+lines = [
+  { id = "206-01", ref = "206 01", name = "Salzkammergutbahn", km = 107.558 },
+]
+
+[[connections]]
+km = 253.715
+station = "Timelkam Energie-AG"
+lines = [
+  { id = "ampflwanger-bahn", name = "Ampflwanger Bahn", km = 0.143 },
+]
+
+[[connections]]
+km = 264.055
+station = "Vöcklamarkt"
+lines = [
+  { id = "lokalbahn-voecklamarkt-attersee", name = "Lokalbahn Vöcklamarkt – Attersee", km = 0 },
+]
+
+[[connections]]
+km = 287.406
+station = "Steindorf bei Straßwalchen"
+lines = [
+  { id = "261-01", ref = "261 01", name = "Mattigtalbahn", km = 0.587 },
+]

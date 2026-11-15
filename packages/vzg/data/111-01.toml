@@ -333,3 +333,25 @@ points = [
   { km = 44.458, kind = "signal", label = "V503H", signal = "shunting", measured = true },
   { km = 44.552, kind = "signal", label = "V503R", signal = "shunting", measured = true },
 ]
+
+[[connections]]
+km = 0.01
+station = "Absdorf-Hippersdorf"
+lines = [
+  { id = "109-01", ref = "109 01", name = "Franz-Josefs-Bahn", km = 43.92 },
+  { id = "113-01", ref = "113 01", name = "ÖBB Absdorf-Hippersdorf – Stockerau", km = -0.1 },
+]
+
+[[connections]]
+km = 22.132
+station = "Hadersdorf am Kamp"
+lines = [
+  { id = "174-01", ref = "174 01", name = "Kamptalbahn", km = -0.02 },
+]
+
+[[connections]]
+km = 31.431
+station = "Krems an der Donau"
+lines = [
+  { id = "173-01", ref = "173 01", name = "Kremser Bahn", km = 20.339 },
+]

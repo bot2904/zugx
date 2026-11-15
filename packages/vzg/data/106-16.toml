@@ -21,3 +21,16 @@ points = [
   { km = 0.595, kind = "signal", label = "S635/p", signal = "distant,main,shunting,speed_limit", measured = true },
   { km = 5.191, kind = "station", label = "Bahnhof Meidling", uic = "8170040", pos = [48.17353, 16.33142], measured = true },
 ]
+
+[[connections]]
+km = 5.191
+station = "Bahnhof Meidling"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 5.191 },
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 5.191 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 5.191 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 5.191 },
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 5.191 },
+  { id = "lokalbahn-wien-baden", name = "Lokalbahn Wien – Baden", km = 5.191 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", km = 5.191 },
+]

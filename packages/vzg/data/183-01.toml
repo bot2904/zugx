@@ -128,3 +128,18 @@ points = [
   { km = 31.494, kind = "signal", label = "Sch403H/SN/Sch403H", signal = "main_repeated,minor", measured = true },
   { km = 31.747, kind = "signal", label = "R403", signal = "main,shunting,speed_limit", measured = true },
 ]
+
+[[connections]]
+km = -0.451
+station = "Gänserndorf"
+lines = [
+  { id = "114-01", ref = "114 01", name = "Nordbahn", km = 31.346 },
+  { id = "115-01", ref = "115 01", name = "ÖBB Gänserndorf – Marchegg", km = 31.313 },
+]
+
+[[connections]]
+km = 13.697
+station = "Groß Schweinbarth"
+lines = [
+  { id = "182-01", ref = "182 01", name = "Weinviertler Landesbahn", km = 29.225 },
+]

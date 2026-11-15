@@ -39,3 +39,25 @@ points = [
   { km = 8.899, kind = "signal", label = "Q204", signal = "main,shunting", measured = true },
   { km = 9.816, kind = "signal", label = "R204", signal = "main,shunting", measured = true },
 ]
+
+[[connections]]
+km = 5.686
+station = "Wien Brünner Straße"
+lines = [
+  { id = "112-01", ref = "112 01", name = "Nordwestbahn", km = 5.558 },
+]
+
+[[connections]]
+km = 6.5
+station = "Wien Jedlersdorf"
+lines = [
+  { id = "112-01", ref = "112 01", name = "Nordwestbahn", km = 6.449 },
+]
+
+[[connections]]
+km = 6.95
+station = "Wien Siemensstraße"
+lines = [
+  { id = "114-01", ref = "114 01", name = "Nordbahn", km = 6.912 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 6.911 },
+]

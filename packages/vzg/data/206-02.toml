@@ -721,3 +721,17 @@ points = [
   { km = 171.222, kind = "signal", signal = "crossing_distant" },
   { km = 242.89, kind = "signal", label = "V206", signal = "shunting", measured = true },
 ]
+
+[[connections]]
+km = 140.597
+station = "Ried im Innkreis"
+lines = [
+  { id = "207-01", ref = "207 01", name = "Innkreisbahn", km = 21.6 },
+]
+
+[[connections]]
+km = 171.12
+station = "Gopperding"
+lines = [
+  { id = "205-01", ref = "205 01", name = "Passauer Bahn", km = 171.12 },
+]

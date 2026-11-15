@@ -362,3 +362,73 @@ points = [
   { km = 32.547, kind = "signal", signal = "speed_limit_distant" },
   { km = 32.715, kind = "stop", label = "Wien Handelskai", pos = [48.24219, 16.38607] },
 ]
+
+[[connections]]
+km = 3.601
+station = "Schöpfwerk"
+lines = [
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 3.601 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 3.601 },
+  { id = "lokalbahn-wien-baden", name = "Lokalbahn Wien – Baden", km = 3.49 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", km = 3.601 },
+]
+
+[[connections]]
+km = 3.952
+station = "Wien Nußdorf"
+lines = [
+  { id = "109-01", ref = "109 01", name = "Franz-Josefs-Bahn", km = 3.985 },
+]
+
+[[connections]]
+km = 4.141
+station = "Tscherttegasse"
+lines = [
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", km = 4.141 },
+]
+
+[[connections]]
+km = 4.26
+station = "Gutheil-Schoder-Gasse"
+lines = [
+  { id = "lokalbahn-wien-baden", name = "Lokalbahn Wien – Baden", km = 4.138 },
+]
+
+[[connections]]
+km = 5.22
+station = "Wien Hetzendorf"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 5.243 },
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 5.243 },
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 5.22 },
+]
+
+[[connections]]
+km = 7.534
+station = "Wien Praterkai"
+lines = [
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 7.548 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 17.339 },
+]
+
+[[connections]]
+km = 15.319
+station = "Handelskai"
+lines = [
+  { id = "114-01", ref = "114 01", name = "Nordbahn", km = 15.319 },
+]
+
+[[connections]]
+km = 18.846
+station = "Wien Kaiserebersdorf"
+lines = [
+  { id = "191-01", ref = "191 01", name = "Pressburger Bahn", km = 11.077 },
+]
+
+[[connections]]
+km = 32.716
+station = "Wien Handelskai"
+lines = [
+  { id = "114-01", ref = "114 01", name = "Nordbahn", km = 2.673 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 2.674 },
+]

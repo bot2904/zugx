@@ -25,3 +25,10 @@ points = [
   { km = 11.083, kind = "signal", signal = "main" },
   { km = 11.3, kind = "station", label = "Stainz", pos = [46.8904, 15.26866], measured = true },
 ]
+
+[[connections]]
+km = 0.004
+station = "Preding-Wieselsdorf"
+lines = [
+  { id = "435-01", ref = "435 01", name = "Wieserbahn", km = 14.481 },
+]

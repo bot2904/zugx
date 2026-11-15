@@ -2441,3 +2441,128 @@ points = [
   { km = 259.844, kind = "signal", signal = "snowplow" },
   { km = 260.126, kind = "signal", signal = "speed_limit" },
 ]
+
+[[connections]]
+km = -8.55
+station = "Wien Grillgasse"
+lines = [
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 2.858 },
+  { id = "118-01", ref = "118 01", name = "Ostbahn", km = 2.832 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 2.858 },
+]
+
+[[connections]]
+km = -6.529
+station = "Wien Zentralfriedhof"
+lines = [
+  { id = "118-01", ref = "118 01", name = "Ostbahn", km = 4.854 },
+  { id = "191-01", ref = "191 01", name = "Pressburger Bahn", km = 6.756 },
+]
+
+[[connections]]
+km = 0.066
+station = "Wien Hauptbahnhof"
+lines = [
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 4.05 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", km = 0.068 },
+]
+
+[[connections]]
+km = 5.191
+station = "Bahnhof Meidling"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 5.191 },
+  { id = "lokalbahn-wien-baden", name = "Lokalbahn Wien – Baden", km = 5.191 },
+]
+
+[[connections]]
+km = 5.243
+station = "Wien Hetzendorf"
+lines = [
+  { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 5.22 },
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 5.22 },
+]
+
+[[connections]]
+km = 26.126
+station = "Baden Viadukt"
+lines = [
+  { id = "lokalbahn-wien-baden", name = "Lokalbahn Wien – Baden", km = 26.418 },
+]
+
+[[connections]]
+km = 38.392
+station = "Sollenau"
+lines = [
+  { id = "161-01", ref = "161 01", name = "Aspangbahn", km = 41.376 },
+]
+
+[[connections]]
+km = 39.585
+station = "Felixdorf"
+lines = [
+  { id = "161-01", ref = "161 01", name = "Aspangbahn", km = 42.575 },
+]
+
+[[connections]]
+km = 48.178
+station = "Wiener Neustadt Hauptbahnhof"
+lines = [
+  { id = "108-01", ref = "108 01", name = "Mattersburger Bahn", km = -0.433 },
+  { id = "163-01", ref = "163 01", name = "Schneebergbahn", km = -1.433 },
+  { id = "167-01", ref = "167 01", name = "Thermenbahn", km = 51.016 },
+]
+
+[[connections]]
+km = 101.05
+station = "Wien Hauptbahnhof Autoreisezug"
+lines = [
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 101.05 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 101.05 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 101.05 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", km = 101.05 },
+]
+
+[[connections]]
+km = 157.864
+station = "Bruck an der Mur"
+lines = [
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", km = 177.965 },
+]
+
+[[connections]]
+km = 170.903
+station = "Mixnitz-Bärenschützklamm"
+lines = [
+  { id = "lokalbahn-mixnitz-st-erhard", name = "Lokalbahn Mixnitz – St. Erhard", km = 0.147 },
+]
+
+[[connections]]
+km = 211.399
+station = "Graz Hauptbahnhof"
+lines = [
+  { id = "414-01", ref = "414 01", name = "Steirische Ostbahn", km = 250.72 },
+  { id = "434-01", ref = "434 01", name = "Köflacherbahn", km = -0.052 },
+]
+
+[[connections]]
+km = 213.029
+station = "Graz Don Bosco"
+lines = [
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", km = 1.644 },
+  { id = "414-01", ref = "414 01", name = "Steirische Ostbahn", km = 249.123 },
+]
+
+[[connections]]
+km = 220.157
+station = "Flughafen Graz-Feldkirchen"
+lines = [
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", km = 220.123 },
+]
+
+[[connections]]
+km = 257.899
+station = "Spielfeld-Straß"
+lines = [
+  { id = "462-01", ref = "462 01", name = "Radkersburger Bahn", km = -0.024 },
+]

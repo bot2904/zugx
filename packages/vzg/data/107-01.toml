@@ -190,3 +190,10 @@ points = [
   { km = 72.254, kind = "signal", label = "A/r", signal = "distant,main", measured = true },
   { km = 72.4, kind = "halt", label = "St. Pölten Bildungscampus", uic = "8101330", pos = [48.18971, 15.61507], measured = true },
 ]
+
+[[connections]]
+km = 56.549
+station = "Traisen"
+lines = [
+  { id = "151-01", ref = "151 01", name = "Traisentalbahn", km = -0.071 },
+]

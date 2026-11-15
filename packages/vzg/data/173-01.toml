@@ -162,3 +162,10 @@ points = [
   { km = 20.339, kind = "stop", label = "Krems an der Donau", pos = [48.40911, 15.60551] },
   { km = 31.352, kind = "signal", label = "S1", signal = "main,shunting", measured = true },
 ]
+
+[[connections]]
+km = 20.339
+station = "Krems an der Donau"
+lines = [
+  { id = "111-01", ref = "111 01", name = "ÖBB Absdorf-Hippersdorf – Krems", km = 31.431 },
+]

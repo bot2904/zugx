@@ -137,3 +137,10 @@ points = [
   { km = 12.393, kind = "signal", signal = "whistle" },
   { km = 56.701, kind = "signal", label = "R3", signal = "main,shunting", measured = true },
 ]
+
+[[connections]]
+km = -0.071
+station = "Traisen"
+lines = [
+  { id = "107-01", ref = "107 01", name = "Leobersdorfer Bahn (stillgelegt)", km = 56.549 },
+]

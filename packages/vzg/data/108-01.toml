@@ -106,3 +106,12 @@ points = [
   { km = 25.183, kind = "stop", label = "Loipersbach-Schattendorf", pos = [47.70073, 16.49185] },
   { km = 48.515, kind = "signal", label = "K5", signal = "main", measured = true },
 ]
+
+[[connections]]
+km = -0.433
+station = "Wiener Neustadt Hauptbahnhof"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 48.178 },
+  { id = "163-01", ref = "163 01", name = "Schneebergbahn", km = -1.433 },
+  { id = "167-01", ref = "167 01", name = "Thermenbahn", km = 51.016 },
+]

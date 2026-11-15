@@ -18,3 +18,10 @@ points = [
   { km = 0.143, kind = "halt", label = "Timelkam Energie-AG", pos = [48.00947, 13.5911] },
   { km = 9.897, kind = "station", label = "Ampflwang", pos = [48.087, 13.56281] },
 ]
+
+[[connections]]
+km = 0.143
+station = "Timelkam Energie-AG"
+lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 253.715 },
+]

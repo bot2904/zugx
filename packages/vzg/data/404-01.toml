@@ -535,3 +535,17 @@ points = [
   { km = 204.203, kind = "signal", label = "E3/s", signal = "distant,main,speed_limit,speed_limit_distant" },
   { km = 204.318, kind = "signal", label = "V7", signal = "shunting" },
 ]
+
+[[connections]]
+km = 145.285
+station = "Stadt Rottenmann"
+lines = [
+  { id = "412-01", ref = "412 01", name = "Erzbergbahn", km = 145.288 },
+]
+
+[[connections]]
+km = 202.249
+station = "St. Michael"
+lines = [
+  { id = "412-01", ref = "412 01", name = "Erzbergbahn", km = 202.254 },
+]

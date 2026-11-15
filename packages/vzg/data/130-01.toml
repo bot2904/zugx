@@ -1236,3 +1236,107 @@ points = [
   { km = 190.303, kind = "signal", label = "P541/r", signal = "distant,main", measured = true },
   { km = 190.303, kind = "signal", label = "P542/r", signal = "distant,main", measured = true },
 ]
+
+[[connections]]
+km = 3.645
+station = "Wien Speising"
+lines = [
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 32.456 },
+]
+
+[[connections]]
+km = 5.191
+station = "Bahnhof Meidling"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 5.191 },
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 5.191 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 5.191 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 5.191 },
+  { id = "lokalbahn-wien-baden", name = "Lokalbahn Wien – Baden", km = 5.191 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", km = 5.191 },
+]
+
+[[connections]]
+km = 5.22
+station = "Wien Hetzendorf"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 5.243 },
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 5.243 },
+  { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 5.22 },
+]
+
+[[connections]]
+km = 7.885
+station = "Wien Wolf in der Au"
+lines = [
+  { id = "101-01", ref = "101 01", name = "Westbahn", km = 7.885 },
+  { id = "123-01", ref = "123 01", name = "Verbindungsbahn", km = 7.926 },
+]
+
+[[connections]]
+km = 9.238
+station = "Wien Hadersdorf"
+lines = [
+  { id = "103-01", ref = "103 01", name = "Westbahn", km = 9.238 },
+]
+
+[[connections]]
+km = 9.94
+station = "Wien Weidlingau"
+lines = [
+  { id = "101-01", ref = "101 01", name = "Westbahn", km = 9.94 },
+  { id = "123-01", ref = "123 01", name = "Verbindungsbahn", km = 9.956 },
+]
+
+[[connections]]
+km = 11.665
+station = "Michelhausen"
+lines = [
+  { id = "110-01", ref = "110 01", name = "Tullnerfelder Bahn", km = 11.665 },
+]
+
+[[connections]]
+km = 60.439
+station = "St. Pölten Hauptbahnhof"
+lines = [
+  { id = "103-01", ref = "103 01", name = "Westbahn", km = 60.477 },
+  { id = "103-02", ref = "103 02", name = "Eisbergbogentunnel", km = 60.478 },
+  { id = "110-01", ref = "110 01", name = "Tullnerfelder Bahn", km = 46.609 },
+]
+
+[[connections]]
+km = 68.596
+station = "Prinzersdorf"
+lines = [
+  { id = "103-02", ref = "103 02", name = "Eisbergbogentunnel", km = 68.596 },
+]
+
+[[connections]]
+km = 94.04
+station = "Pöchlarn"
+lines = [
+  { id = "155-01", ref = "155 01", name = "Erlauftalbahn", km = 0.008 },
+]
+
+[[connections]]
+km = 180.655
+station = "Linz Ebelsberg"
+lines = [
+  { id = "208-01", ref = "208 01", name = "Westbahn", km = 180.655 },
+]
+
+[[connections]]
+km = 183.944
+station = "Linz Hauptbahnhof"
+lines = [
+  { id = "204-01", ref = "204 01", name = "Pyhrnbahn", km = -0.041 },
+  { id = "208-01", ref = "208 01", name = "Westbahn", km = 188.372 },
+]
+
+[[connections]]
+km = 184.002
+station = "Linz Untergaumberg"
+lines = [
+  { id = "204-01", ref = "204 01", name = "Pyhrnbahn", km = 1.394 },
+  { id = "lokalbahn-linz-waizenkirchen", name = "Lokalbahn Linz – Waizenkirchen", km = 1.817 },
+]

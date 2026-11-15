@@ -24,3 +24,10 @@ points = [
   { km = 84.24, kind = "signal", label = "1E904", signal = "main_repeated", measured = true },
   { km = 84.402, kind = "signal", label = "E904/n", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
 ]
+
+[[connections]]
+km = 83.993
+station = "Salzburg Liefering"
+lines = [
+  { id = "217-01", ref = "217 01", km = 83.964 },
+]

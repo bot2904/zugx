@@ -21,3 +21,10 @@ points = [
   { km = 0.85, kind = "stop", label = "Tulln Stadt", pos = [48.32847, 16.05403] },
   { km = 1.011, kind = "signal", label = "O433/r", signal = "distant,main,shunting", measured = true },
 ]
+
+[[connections]]
+km = 0.85
+station = "Tulln Stadt"
+lines = [
+  { id = "110-01", ref = "110 01", name = "Tullnerfelder Bahn", km = 0.85 },
+]

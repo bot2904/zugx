@@ -27,3 +27,21 @@ points = [
   { km = 189.733, kind = "signal", label = "V508R", signal = "shunting", measured = true },
   { km = 189.733, kind = "halt", label = "Linz Untergaumberg", uic = "8101699", pos = [48.28001, 14.27998] },
 ]
+
+[[connections]]
+km = 188.39
+station = "Linz Hauptbahnhof"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 183.944 },
+  { id = "204-01", ref = "204 01", name = "Pyhrnbahn", km = -0.041 },
+  { id = "208-01", ref = "208 01", name = "Westbahn", km = 188.372 },
+]
+
+[[connections]]
+km = 189.733
+station = "Linz Untergaumberg"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 184.002 },
+  { id = "204-01", ref = "204 01", name = "Pyhrnbahn", km = 1.394 },
+  { id = "lokalbahn-linz-waizenkirchen", name = "Lokalbahn Linz – Waizenkirchen", km = 1.817 },
+]

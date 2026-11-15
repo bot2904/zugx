@@ -918,3 +918,41 @@ points = [
   { km = 60.477, kind = "stop", label = "St. Pölten Hauptbahnhof", pos = [48.2082, 15.62579] },
   { km = 60.477, kind = "station", label = "St. Pölten Hauptbahnhof", uic = "8101032", pos = [48.20828, 15.62468] },
 ]
+
+[[connections]]
+km = -24.856
+station = "Kirchstetten"
+lines = [
+  { id = "101-01", ref = "101 01", name = "Westbahn", km = 43.527 },
+]
+
+[[connections]]
+km = 9.238
+station = "Wien Hadersdorf"
+lines = [
+  { id = "123-01", ref = "123 01", name = "Verbindungsbahn", km = 9.138 },
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 9.238 },
+]
+
+[[connections]]
+km = 11.839
+station = "Unter Purkersdorf"
+lines = [
+  { id = "123-01", ref = "123 01", name = "Verbindungsbahn", km = 11.839 },
+]
+
+[[connections]]
+km = 54.445
+station = "Pottenbrunn"
+lines = [
+  { id = "101-01", ref = "101 01", name = "Westbahn", km = 54.445 },
+]
+
+[[connections]]
+km = 60.477
+station = "St. Pölten Hauptbahnhof"
+lines = [
+  { id = "103-02", ref = "103 02", name = "Eisbergbogentunnel", km = 60.478 },
+  { id = "110-01", ref = "110 01", name = "Tullnerfelder Bahn", km = 46.609 },
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 60.439 },
+]

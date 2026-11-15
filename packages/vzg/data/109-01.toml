@@ -1591,3 +1591,53 @@ points = [
   { km = 162.808, kind = "signal", signal = "catenary_mast,electricity" },
   { km = 162.824, kind = "signal", label = "z", signal = "distant", measured = true },
 ]
+
+[[connections]]
+km = 2.664
+station = "Wien Heiligenstadt"
+lines = [
+  { id = "120-01", ref = "120 01", name = "Vorortelinie", km = 8.863 },
+]
+
+[[connections]]
+km = 3.985
+station = "Wien Nußdorf"
+lines = [
+  { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 3.952 },
+]
+
+[[connections]]
+km = 16.361
+station = "Heiligenstadt"
+lines = [
+  { id = "120-01", ref = "120 01", name = "Vorortelinie", km = 16.361 },
+]
+
+[[connections]]
+km = 33.011
+station = "Tulln an der Donau"
+lines = [
+  { id = "110-01", ref = "110 01", name = "Tullnerfelder Bahn", km = -0.042 },
+]
+
+[[connections]]
+km = 43.92
+station = "Absdorf-Hippersdorf"
+lines = [
+  { id = "111-01", ref = "111 01", name = "ÖBB Absdorf-Hippersdorf – Krems", km = 0.01 },
+  { id = "113-01", ref = "113 01", name = "ÖBB Absdorf-Hippersdorf – Stockerau", km = -0.1 },
+]
+
+[[connections]]
+km = 88.805
+station = "Sigmundsherberg"
+lines = [
+  { id = "174-01", ref = "174 01", name = "Kamptalbahn", km = 44.015 },
+]
+
+[[connections]]
+km = 138.238
+station = "Schwarzenau"
+lines = [
+  { id = "176-01", ref = "176 01", km = 0.113 },
+]

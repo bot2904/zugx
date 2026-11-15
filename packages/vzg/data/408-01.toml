@@ -493,3 +493,20 @@ points = [
   { km = 376.472, kind = "signal", label = "V104R", signal = "shunting", measured = true },
   { km = 377.614, kind = "stop", label = "Villach Hauptbahnhof", pos = [46.61876, 13.84844] },
 ]
+
+[[connections]]
+km = 376.2
+station = "Villach Hbf Autoreisezug"
+lines = [
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", km = 376.2 },
+  { id = "413-14", ref = "413 14", name = "Nordschleife", km = 376.2 },
+]
+
+[[connections]]
+km = 377.614
+station = "Villach Hauptbahnhof"
+lines = [
+  { id = "222-01", ref = "222 01", name = "Tauernbahn", km = 116.669 },
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", km = 375.155 },
+  { id = "413-14", ref = "413 14", name = "Nordschleife", km = 377.645 },
+]

@@ -506,3 +506,54 @@ points = [
   { km = 211.377, kind = "stop", label = "Leoben Hauptbahnhof", pos = [47.38656, 15.08958] },
   { km = 211.73, kind = "signal", label = "H2", signal = "main" },
 ]
+
+[[connections]]
+km = 7.6
+station = "Erzberg"
+lines = [
+  { id = "erzbergbahn", name = "Erzbergbahn", km = 7.6 },
+]
+
+[[connections]]
+km = 69.755
+station = "Vordernberg Markt"
+lines = [
+  { id = "erzbergbahn", name = "Erzbergbahn", km = 17.94 },
+]
+
+[[connections]]
+km = 102.383
+station = "Hieflau"
+lines = [
+  { id = "102-01", ref = "102 01", name = "Ennstalbahn", km = 138.358 },
+  { id = "220-01", ref = "220 01", name = "Erzbergbahn", km = -0.004 },
+]
+
+[[connections]]
+km = 139.097
+station = "Selzthal"
+lines = [
+  { id = "102-01", ref = "102 01", name = "Ennstalbahn", km = 98.893 },
+  { id = "204-01", ref = "204 01", name = "Pyhrnbahn", km = 104.327 },
+]
+
+[[connections]]
+km = 145.288
+station = "Stadt Rottenmann"
+lines = [
+  { id = "404-01", ref = "404 01", name = "Rudolfsbahn", km = 145.285 },
+]
+
+[[connections]]
+km = 202.254
+station = "St. Michael"
+lines = [
+  { id = "404-01", ref = "404 01", name = "Rudolfsbahn", km = 202.249 },
+]
+
+[[connections]]
+km = 211.377
+station = "Leoben Hauptbahnhof"
+lines = [
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", km = 194.472 },
+]

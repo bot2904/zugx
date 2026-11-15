@@ -519,3 +519,19 @@ points = [
   { km = 249.155, kind = "signal", label = "K9/l", signal = "distant,main,speed_limit", measured = true },
   { km = 250.72, kind = "stop", label = "Graz Hauptbahnhof", pos = [47.07247, 15.41668] },
 ]
+
+[[connections]]
+km = 249.123
+station = "Graz Don Bosco"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 213.029 },
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", km = 1.644 },
+]
+
+[[connections]]
+km = 250.72
+station = "Graz Hauptbahnhof"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 211.399 },
+  { id = "434-01", ref = "434 01", name = "Köflacherbahn", km = -0.052 },
+]

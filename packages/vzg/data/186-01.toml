@@ -78,3 +78,10 @@ points = [
   { km = 58.602, kind = "signal", label = "V32", signal = "shunting", measured = true },
   { km = 58.737, kind = "signal", label = "R3", signal = "main,shunting", measured = true },
 ]
+
+[[connections]]
+km = 0.004
+station = "Drösing"
+lines = [
+  { id = "114-01", ref = "114 01", name = "Nordbahn", km = 58.428 },
+]

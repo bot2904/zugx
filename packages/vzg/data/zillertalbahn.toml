@@ -64,3 +64,21 @@ points = [
   { km = 28.75, kind = "stop", label = "Bichl im Zillertal", pos = [47.19502, 11.87055], measured = true },
   { km = 31.728, kind = "stop", label = "Mayrhofen im Zillertal", pos = [47.16955, 11.86235] },
 ]
+
+[[connections]]
+km = 0
+station = "Jenbach Achenseebahn"
+lines = [
+  { id = "101-04", ref = "101 04", name = "Unterinntalbahn", km = 0 },
+  { id = "330-01", ref = "330 01", name = "Neue Unterinntalbahn", km = 0 },
+  { id = "achenseebahn", name = "Achenseebahn", km = 0 },
+]
+
+[[connections]]
+km = 0.042
+station = "Jenbach"
+lines = [
+  { id = "101-04", ref = "101 04", name = "Unterinntalbahn", km = 40.87 },
+  { id = "330-01", ref = "330 01", name = "Neue Unterinntalbahn", km = 40.882 },
+  { id = "achenseebahn", name = "Achenseebahn", km = 40.882 },
+]

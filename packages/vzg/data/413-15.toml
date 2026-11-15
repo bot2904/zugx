@@ -27,3 +27,10 @@ points = [
   { km = 386.486, kind = "station", label = "Fürnitz", uic = "8100368", pos = [46.56322, 13.81344], measured = true },
   { km = 386.998, kind = "signal", label = "G306", signal = "main", measured = true },
 ]
+
+[[connections]]
+km = 386.486
+station = "Fürnitz"
+lines = [
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", km = 386.495 },
+]

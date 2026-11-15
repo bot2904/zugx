@@ -26,3 +26,19 @@ points = [
   { km = 1.889, kind = "signal", label = "Q7", signal = "main,shunting", measured = true },
   { km = 2.067, kind = "signal", label = "V767H", signal = "shunting", measured = true },
 ]
+
+[[connections]]
+km = 0.865
+station = "Innsbruck Stubaitalbf"
+lines = [
+  { id = "101-05", ref = "101 05", name = "Arlbergbahn", km = 0.867 },
+  { id = "stubaitalbahn", name = "Stubaitalbahn", km = 0.014 },
+]
+
+[[connections]]
+km = 1.356
+station = "Innsbruck Westbf"
+lines = [
+  { id = "101-05", ref = "101 05", name = "Arlbergbahn", km = 1.353 },
+  { id = "351-01", ref = "351 01", name = "Karwendelbahn", km = 0.056 },
+]

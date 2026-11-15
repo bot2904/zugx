@@ -24,3 +24,10 @@ points = [
   { km = 8.619, kind = "halt", label = "Hengsttal", pos = [47.78508, 15.89911] },
   { km = 9.739, kind = "stop", label = "Puchberg am Schneeberg", pos = [47.79055, 15.91047] },
 ]
+
+[[connections]]
+km = 9.739
+station = "Puchberg am Schneeberg"
+lines = [
+  { id = "163-01", ref = "163 01", name = "Schneebergbahn", km = 28.01 },
+]

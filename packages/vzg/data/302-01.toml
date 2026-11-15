@@ -189,3 +189,11 @@ points = [
   { km = 15.991, kind = "signal", label = "Sch301H", signal = "minor" },
   { km = 16.146, kind = "signal", label = "F1/g", signal = "distant,main", measured = true },
 ]
+
+[[connections]]
+km = 15.972
+station = "Wörgl Hauptbahnhof"
+lines = [
+  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", km = 192.359 },
+  { id = "101-04", ref = "101 04", name = "Unterinntalbahn", km = 16.027 },
+]

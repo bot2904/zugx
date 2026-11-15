@@ -153,3 +153,10 @@ points = [
   { km = 36.583, kind = "signal", label = "VHT183", signal = "shunting", measured = true },
   { km = 36.75, kind = "signal", label = "V183R", signal = "shunting", measured = true },
 ]
+
+[[connections]]
+km = 0.587
+station = "Steindorf bei Straßwalchen"
+lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 287.406 },
+]

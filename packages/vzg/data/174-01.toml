@@ -543,3 +543,17 @@ points = [
   { km = 89.03, kind = "signal", label = "1R305", signal = "main_repeated", measured = true },
   { km = 89.099, kind = "signal", label = "R305", signal = "main", measured = true },
 ]
+
+[[connections]]
+km = -0.02
+station = "Hadersdorf am Kamp"
+lines = [
+  { id = "111-01", ref = "111 01", name = "ÖBB Absdorf-Hippersdorf – Krems", km = 22.132 },
+]
+
+[[connections]]
+km = 44.015
+station = "Sigmundsherberg"
+lines = [
+  { id = "109-01", ref = "109 01", name = "Franz-Josefs-Bahn", km = 88.805 },
+]

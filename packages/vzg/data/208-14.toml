@@ -31,3 +31,11 @@ points = [
   { km = 182.416, kind = "signal", label = "Sch124H", signal = "minor,shunting", measured = true },
   { km = 182.835, kind = "signal", label = "Sch124R/1G22/1G24", signal = "main_repeated,minor,shunting", measured = true },
 ]
+
+[[connections]]
+km = 180.655
+station = "Linz Ebelsberg"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 180.655 },
+  { id = "208-01", ref = "208 01", name = "Westbahn", km = 180.655 },
+]

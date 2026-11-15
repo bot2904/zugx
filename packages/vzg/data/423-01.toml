@@ -26,3 +26,10 @@ points = [
   { km = 86.343, kind = "stop", label = "Bleiburg/Pliberk", pos = [46.57413, 14.78648] },
   { km = 86.684, kind = "signal", label = "R305", signal = "main", measured = true },
 ]
+
+[[connections]]
+km = 86.343
+station = "Bleiburg/Pliberk"
+lines = [
+  { id = "410-01", ref = "410 01", name = "Jauntalbahn", km = 86.34 },
+]

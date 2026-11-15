@@ -29,3 +29,21 @@ points = [
   { km = 6.7, kind = "station", label = "Achensee Seespitz", pos = [47.42588, 11.72969], measured = true },
   { km = 40.882, kind = "station", label = "Jenbach", uic = "8100102", pos = [47.38842, 11.77827], measured = true },
 ]
+
+[[connections]]
+km = 0
+station = "Jenbach Achenseebahn"
+lines = [
+  { id = "101-04", ref = "101 04", name = "Unterinntalbahn", km = 0 },
+  { id = "330-01", ref = "330 01", name = "Neue Unterinntalbahn", km = 0 },
+  { id = "zillertalbahn", name = "Zillertalbahn", km = 0 },
+]
+
+[[connections]]
+km = 40.882
+station = "Jenbach"
+lines = [
+  { id = "101-04", ref = "101 04", name = "Unterinntalbahn", km = 40.87 },
+  { id = "330-01", ref = "330 01", name = "Neue Unterinntalbahn", km = 40.882 },
+  { id = "zillertalbahn", name = "Zillertalbahn", km = 0.042 },
+]

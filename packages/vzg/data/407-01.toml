@@ -140,3 +140,10 @@ points = [
   { km = 300.945, kind = "halt", label = "Weitlanbrunn", uic = "8101784", pos = [46.74252, 12.39551], measured = true },
   { km = 302.955, kind = "signal", signal = "speed_limit" },
 ]
+
+[[connections]]
+km = 206.785
+station = "Lendorf"
+lines = [
+  { id = "222-01", ref = "222 01", name = "Tauernbahn", km = 206.785 },
+]

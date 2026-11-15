@@ -215,3 +215,17 @@ points = [
   { km = 19.933, kind = "signal", signal = "whistle" },
   { km = 20.503, kind = "signal", signal = "minor" },
 ]
+
+[[connections]]
+km = 0.114
+station = "Haiding"
+lines = [
+  { id = "205-01", ref = "205 01", name = "Passauer Bahn", km = 7.249 },
+]
+
+[[connections]]
+km = 12.478
+station = "Eferding"
+lines = [
+  { id = "lokalbahn-linz-waizenkirchen", name = "Lokalbahn Linz – Waizenkirchen", km = 24.341 },
+]

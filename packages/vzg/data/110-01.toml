@@ -243,3 +243,26 @@ points = [
   { km = 60.517, kind = "signal", label = "Sch308H/1T8,1T10", signal = "departure,main_repeated,minor", measured = true },
   { km = 60.611, kind = "signal", label = "E8/r", signal = "departure,distant,main", measured = true },
 ]
+
+[[connections]]
+km = -0.042
+station = "Tulln an der Donau"
+lines = [
+  { id = "109-01", ref = "109 01", name = "Franz-Josefs-Bahn", km = 33.011 },
+]
+
+[[connections]]
+km = 7.049
+station = "Tullnerfeld"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 30 },
+]
+
+[[connections]]
+km = 46.609
+station = "St. Pölten Hauptbahnhof"
+lines = [
+  { id = "103-01", ref = "103 01", name = "Westbahn", km = 60.477 },
+  { id = "103-02", ref = "103 02", name = "Eisbergbogentunnel", km = 60.478 },
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 60.439 },
+]

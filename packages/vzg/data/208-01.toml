@@ -132,3 +132,18 @@ points = [
   { km = 188.694, kind = "signal", label = "Sch317H", signal = "minor", measured = true },
   { km = 189.011, kind = "signal", label = "N17/o", signal = "distant,main,shunting", measured = true },
 ]
+
+[[connections]]
+km = 180.655
+station = "Linz Ebelsberg"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 180.655 },
+]
+
+[[connections]]
+km = 188.372
+station = "Linz Hauptbahnhof"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 183.944 },
+  { id = "204-01", ref = "204 01", name = "Pyhrnbahn", km = -0.041 },
+]

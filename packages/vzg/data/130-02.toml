@@ -18,3 +18,12 @@ points = [
   { km = 188.508, kind = "signal", label = "Sch301H/1H1", signal = "main_repeated,minor", measured = true },
   { km = 188.717, kind = "signal", label = "N1/o", signal = "distant,main,shunting", measured = true },
 ]
+
+[[connections]]
+km = 188.502
+station = "Linz Hauptbahnhof"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 183.944 },
+  { id = "204-01", ref = "204 01", name = "Pyhrnbahn", km = -0.041 },
+  { id = "208-01", ref = "208 01", name = "Westbahn", km = 188.372 },
+]

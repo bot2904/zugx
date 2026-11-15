@@ -100,3 +100,17 @@ points = [
   { km = 29.263, kind = "signal", label = "R3", signal = "main" },
   { km = 29.474, kind = "signal", label = "V55", signal = "shunting" },
 ]
+
+[[connections]]
+km = 26.722
+station = "Obersdorf"
+lines = [
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 26.7 },
+]
+
+[[connections]]
+km = 29.225
+station = "Groß Schweinbarth"
+lines = [
+  { id = "183-01", ref = "183 01", name = "Lokalbahn Gänserndorf – Mistelbach", km = 13.697 },
+]

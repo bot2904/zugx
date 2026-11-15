@@ -288,3 +288,17 @@ points = [
   { km = 28.57, kind = "station", label = "Mittersill Bahnhof", uic = "8100480", pos = [47.28366, 12.48108], measured = true },
   { km = 28.597, kind = "signal", signal = "stop_demand" },
 ]
+
+[[connections]]
+km = 1.522
+station = "Tischlerhäusl"
+lines = [
+  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", km = 1.526 },
+]
+
+[[connections]]
+km = 2.216
+station = "Kitzsteinhornstraße"
+lines = [
+  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", km = 97.289 },
+]

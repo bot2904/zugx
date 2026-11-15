@@ -1656,3 +1656,24 @@ points = [
   { km = 195.501, kind = "signal", signal = "crossing_distant" },
   { km = 196.767, kind = "stop", label = "Lochau-Hörbranz", pos = [47.52939, 9.74244] },
 ]
+
+[[connections]]
+km = 0.867
+station = "Innsbruck Stubaitalbf"
+lines = [
+  { id = "stubaitalbahn", name = "Stubaitalbahn", km = 0.014 },
+]
+
+[[connections]]
+km = 1.353
+station = "Innsbruck Westbf"
+lines = [
+  { id = "351-01", ref = "351 01", name = "Karwendelbahn", km = 0.056 },
+]
+
+[[connections]]
+km = 156.687
+station = "Feldkirch"
+lines = [
+  { id = "303-01", ref = "303 01", name = "ÖBB Feldkirch – Buchs", km = 0.007 },
+]

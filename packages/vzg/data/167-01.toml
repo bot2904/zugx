@@ -930,3 +930,12 @@ points = [
   { km = 183.356, kind = "signal", signal = "speed_limit" },
   { km = 183.37, kind = "signal", label = "V903H", signal = "shunting" },
 ]
+
+[[connections]]
+km = 51.016
+station = "Wiener Neustadt Hauptbahnhof"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 48.178 },
+  { id = "108-01", ref = "108 01", name = "Mattersburger Bahn", km = -0.433 },
+  { id = "163-01", ref = "163 01", name = "Schneebergbahn", km = -1.433 },
+]

@@ -19,3 +19,10 @@ points = [
   { km = 1.758, kind = "signal", signal = "stop" },
   { km = 1.758, kind = "halt", label = "Alt Nagelberg Ergo", pos = [48.85157, 14.99937] },
 ]
+
+[[connections]]
+km = 1.758
+station = "Alt Nagelberg Ergo"
+lines = [
+  { id = "177-01", ref = "177 01", name = "Waldviertelbahn", km = 12.958 },
+]

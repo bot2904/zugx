@@ -7,6 +7,7 @@
 import { mkdirSync, readFileSync, readdirSync, rmSync } from "node:fs";
 import { join } from "node:path";
 import { writeToml } from "@zugx/toml";
+import { connections } from "../src/connections.ts";
 import { buildLines } from "../src/lines.ts";
 import type { RailExtract, VzgIndexEntry } from "../src/types.ts";
 
@@ -16,6 +17,8 @@ const out = join(import.meta.dirname, "..", "data");
 const t0 = Date.now();
 const ex = JSON.parse(readFileSync(input, "utf8")) as RailExtract;
 const lines = buildLines(ex);
+// connecting lines at the stations (after all lines are built)
+for (const [l, c] of connections(lines)) l.connections = c;
 mkdirSync(out, { recursive: true });
 for (const f of readdirSync(out))
   if (f.endsWith(".toml") && f !== "index.toml") rmSync(join(out, f));

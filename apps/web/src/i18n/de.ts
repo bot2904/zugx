@@ -190,6 +190,7 @@ export default {
     liveAt: "Echtzeit an {n} Bahnhöfen, zuletzt {station} {time}",
   },
   vzg: {
+    connections: "Anschlussstrecken",
     exportTip:
       "Als SVG herunterladen (z. B. für Wikimedia Commons): mit Titel, Legende und Datenquellen",
     exportDesc:

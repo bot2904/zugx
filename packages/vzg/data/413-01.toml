@@ -2110,3 +2110,48 @@ points = [
   { km = 400.528, kind = "signal", label = "R2", signal = "main", measured = true },
   { km = 401.014, kind = "signal", label = "V56", signal = "shunting", measured = true },
 ]
+
+[[connections]]
+km = 177.965
+station = "Bruck an der Mur"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 157.864 },
+]
+
+[[connections]]
+km = 194.472
+station = "Leoben Hauptbahnhof"
+lines = [
+  { id = "412-01", ref = "412 01", name = "Erzbergbahn", km = 211.377 },
+]
+
+[[connections]]
+km = 343.322
+station = "Klagenfurt Hauptbahnhof"
+lines = [
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", km = 125.872 },
+  { id = "409-01", ref = "409 01", name = "Rosentalbahn", km = 17.951 },
+]
+
+[[connections]]
+km = 375.155
+station = "Villach Hauptbahnhof"
+lines = [
+  { id = "222-01", ref = "222 01", name = "Tauernbahn", km = 116.669 },
+  { id = "408-01", ref = "408 01", name = "Rudolfsbahn", km = 377.614 },
+  { id = "413-14", ref = "413 14", name = "Nordschleife", km = 377.645 },
+]
+
+[[connections]]
+km = 376.2
+station = "Villach Hbf Autoreisezug"
+lines = [
+  { id = "408-01", ref = "408 01", name = "Rudolfsbahn", km = 376.2 },
+]
+
+[[connections]]
+km = 389.334
+station = "Neuhaus an der Gail"
+lines = [
+  { id = "413-14", ref = "413 14", name = "Nordschleife", km = 389.338 },
+]

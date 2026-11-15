@@ -665,3 +665,31 @@ points = [
   { km = 212.632, kind = "signal", label = "H4", signal = "departure,main", measured = true },
   { km = 213.041, kind = "signal", label = "R4", signal = "departure,main", measured = true },
 ]
+
+[[connections]]
+km = 7.249
+station = "Haiding"
+lines = [
+  { id = "256-01", ref = "256 01", name = "Aschacher Bahn", km = 0.114 },
+]
+
+[[connections]]
+km = 28.632
+station = "Kledt"
+lines = [
+  { id = "lokalbahn-neumarkt-waizenkirchen", name = "Lokalbahn Neumarkt – Waizenkirchen", km = 1.138 },
+]
+
+[[connections]]
+km = 29.704
+station = "Neumarkt-Kallham"
+lines = [
+  { id = "lokalbahn-neumarkt-waizenkirchen", name = "Lokalbahn Neumarkt – Waizenkirchen", km = 0.087 },
+]
+
+[[connections]]
+km = 171.12
+station = "Gopperding"
+lines = [
+  { id = "206-02", ref = "206 02", name = "Salzkammergutbahn", km = 171.12 },
+]

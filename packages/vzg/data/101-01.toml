@@ -582,3 +582,55 @@ points = [
   { km = 55.7, kind = "signal", label = "K6/h", signal = "distant,main,shunting,speed_limit,speed_limit_distant", measured = true },
   { km = 56.15, kind = "signal", label = "R6", signal = "main,speed_limit", measured = true },
 ]
+
+[[connections]]
+km = 0
+station = "Hütteldorf"
+lines = [
+  { id = "120-01", ref = "120 01", name = "Vorortelinie", km = 0 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 0 },
+  { id = "123-01", ref = "123 01", name = "Verbindungsbahn", km = 0 },
+]
+
+[[connections]]
+km = 5.835
+station = "Wien Hütteldorf"
+lines = [
+  { id = "120-01", ref = "120 01", name = "Vorortelinie", km = -3.284 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 36.502 },
+]
+
+[[connections]]
+km = 7.885
+station = "Wien Wolf in der Au"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 7.885 },
+]
+
+[[connections]]
+km = 9.238
+station = "Wien Hadersdorf"
+lines = [
+  { id = "103-01", ref = "103 01", name = "Westbahn", km = 9.238 },
+]
+
+[[connections]]
+km = 9.94
+station = "Wien Weidlingau"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 9.94 },
+]
+
+[[connections]]
+km = 11.839
+station = "Unter Purkersdorf"
+lines = [
+  { id = "123-01", ref = "123 01", name = "Verbindungsbahn", km = 11.839 },
+]
+
+[[connections]]
+km = 54.445
+station = "Pottenbrunn"
+lines = [
+  { id = "103-01", ref = "103 01", name = "Westbahn", km = 54.445 },
+]

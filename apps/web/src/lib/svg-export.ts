@@ -103,6 +103,7 @@ export function standaloneSvg(svg: SVGSVGElement, o: SvgExport): string {
           a.name === "role" ||
           a.name.startsWith("aria-") ||
           a.name.startsWith("data-") ||
+          a.name === "href" || // app links (e.g. to other lines' charts) mean nothing on Commons
           a.value.includes("var(") // app CSS variables: resolved into the style attribute
         )
           el.removeAttribute(a.name);

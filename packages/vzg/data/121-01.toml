@@ -32,3 +32,19 @@ points = [
   { km = 1.56, kind = "signal", label = "VHTW105R", signal = "shunting", measured = true },
   { km = 2.079, kind = "station", label = "Unter St. Veit", uic = "8170063", pos = [48.19112, 16.28599], measured = true },
 ]
+
+[[connections]]
+km = 0.065
+station = "Wien Penzing"
+lines = [
+  { id = "101-01", ref = "101 01", name = "Westbahn", km = 2.522 },
+  { id = "120-01", ref = "120 01", name = "Vorortelinie", km = 0.033 },
+]
+
+[[connections]]
+km = 2.079
+station = "Unter St. Veit"
+lines = [
+  { id = "101-01", ref = "101 01", name = "Westbahn", km = 2.079 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 2.079 },
+]

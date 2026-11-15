@@ -190,6 +190,7 @@ export default {
     liveAt: "tempo reale in {n} stazioni, ultima {station} {time}",
   },
   vzg: {
+    connections: "Linee in coincidenza",
     exportTip:
       "Scarica come SVG (ad es. per Wikimedia Commons): con titolo, legenda e fonti dei dati",
     exportDesc:

@@ -104,3 +104,18 @@ points = [
   { km = 43.904, kind = "signal", label = "Sch414H/1U4", signal = "main_repeated,minor", measured = true },
   { km = 44.239, kind = "signal", label = "R4", signal = "main,shunting", measured = true },
 ]
+
+[[connections]]
+km = -0.1
+station = "Absdorf-Hippersdorf"
+lines = [
+  { id = "109-01", ref = "109 01", name = "Franz-Josefs-Bahn", km = 43.92 },
+  { id = "111-01", ref = "111 01", name = "ÖBB Absdorf-Hippersdorf – Krems", km = 0.01 },
+]
+
+[[connections]]
+km = 17.106
+station = "Stockerau"
+lines = [
+  { id = "112-01", ref = "112 01", name = "Nordwestbahn", km = 25.737 },
+]

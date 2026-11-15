@@ -46,3 +46,17 @@ points = [
   { km = 94.553, kind = "signal", label = "SM313H", signal = "train_protection", measured = true },
   { km = 95.341, kind = "signal", label = "R313", signal = "train_protection", measured = true },
 ]
+
+[[connections]]
+km = 79.949
+station = "Wiederndorf-Aich"
+lines = [
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", km = 87.27 },
+]
+
+[[connections]]
+km = 94.368
+station = "Mittlern"
+lines = [
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", km = 94.363 },
+]

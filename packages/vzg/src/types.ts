@@ -44,6 +44,16 @@ export interface VzgLine {
   to?: string;
   source: string;
   tracks: VzgTrack[];
+  /** other lines meeting this one at its stations (scripts/build.ts, src/connections.ts) */
+  connections?: VzgConnection[];
+}
+
+export interface VzgConnection {
+  /** km of the station on this line */
+  km: number;
+  station: string;
+  /** the other lines there, with the station's km on them */
+  lines: { id: string; ref?: string; name?: string; km: number }[];
 }
 
 export interface VzgTrack {

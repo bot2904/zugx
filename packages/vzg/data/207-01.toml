@@ -184,3 +184,10 @@ points = [
   { km = 58.953, kind = "signal", label = "f", signal = "distant" },
   { km = 59.08, kind = "signal", label = "Zr11/t", signal = "distant,main", measured = true },
 ]
+
+[[connections]]
+km = 21.6
+station = "Ried im Innkreis"
+lines = [
+  { id = "206-02", ref = "206 02", name = "Salzkammergutbahn", km = 140.597 },
+]

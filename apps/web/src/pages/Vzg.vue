@@ -4,7 +4,7 @@
 // km · operating points/signals · km of the speed changes · speed diagram · curve radii · km.
 // Data: packages/vzg/data (from OpenStreetMap, ODbL).
 import type { VzgIndex, VzgLine, VzgPoint, VzgTrack } from "@zugx/vzg";
-import { computed, onMounted, ref, shallowRef, watch } from "vue";
+import { computed, nextTick, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import VzgIndexView from "../components/VzgIndex.vue";
 import VzgAbbr from "../components/VzgAbbr.vue";
@@ -323,6 +323,51 @@ function exportSvg() {
   download(svg, file);
 }
 
+// ---- connecting lines (build time: same station on other lines ≥ 5 km)
+const connections = computed(() => {
+  const d = domain.value;
+  return (data.value?.connections ?? [])
+    .filter((c) => c.km >= d.lo - 1 && c.km <= d.hi + 1)
+    .sort((a, b) => (increasing.value ? a.km - b.km : b.km - a.km));
+});
+/** link to another line's chart at a km (same track number if it has it) */
+const kmParam = (km: number) => String(Math.round(km * 10) / 10 || 0);
+const lineLink = (o: { id: string; km: number }) => ({
+  path: `/vzg/${o.id}`,
+  query: { km: kmParam(o.km) },
+});
+/** OSM names sometimes repeat the number ("267 01 Pinzgauer Lokalbahn") */
+const lineName = (o: { ref?: string; name?: string }) =>
+  o.ref && o.name?.startsWith(o.ref) ? o.name.slice(o.ref.length).trim() : o.name;
+const lineText = (o: { ref?: string; name?: string; id: string }) =>
+  [o.ref, lineName(o)].filter(Boolean).join(" ") || o.id;
+/** in the chart: markers at the junction stations whose label is shown */
+const connectionMarks = computed(() =>
+  connections.value.filter((c) =>
+    [...labelled.value].some((p) => p.label === c.station || Math.abs(p.km - c.km) < 0.05),
+  ),
+);
+function openLine(o: { id: string; km: number }, e: MouseEvent) {
+  if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
+  e.preventDefault();
+  void router.push(lineLink(o));
+}
+// ?km=: scroll the chart to that km (links from other lines' junctions)
+const scrolledFor = ref("");
+watch(
+  [data, track, () => route.query.km],
+  async ([d, tr, km]) => {
+    if (!d || !tr || typeof km !== "string" || scrolledFor.value === `${d.id}@${km}`) return;
+    scrolledFor.value = `${d.id}@${km}`;
+    await nextTick();
+    const el = chart.value;
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + scrollY + y(Number(km)) - innerHeight / 3;
+    scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  },
+  { flush: "post" },
+);
+
 const entry = computed(() => index.value?.lines.find((l) => l.id === data.value?.id));
 const fmt = (km: number) => km.toFixed(3);
 </script>
@@ -578,6 +623,29 @@ const fmt = (km: number) => km.toFixed(3);
               </text>
             </g>
           </g>
+          <!-- connecting lines at junction stations: links to their charts -->
+          <g font-size="9" class="conn">
+            <a
+              v-for="c in connectionMarks"
+              :key="`c-${c.station}`"
+              :href="`/vzg/${c.lines[0]!.id}?km=${kmParam(c.lines[0]!.km)}`"
+              v-tip="{
+                title: c.station,
+                lines: c.lines.map((o) => `↗ ${lineText(o)}`),
+              }"
+              @click="openLine(c.lines[0]!, $event)"
+            >
+              <text :x="COL.change - 44" :y="y(c.km) + 3.5" text-anchor="end">
+                ↗
+                {{
+                  c.lines
+                    .slice(0, 2)
+                    .map((o) => o.ref ?? lineName(o))
+                    .join(" · ")
+                }}{{ c.lines.length > 2 ? ` +${c.lines.length - 2}` : "" }}
+              </text>
+            </a>
+          </g>
           <!-- curves -->
           <g font-size="9" class="mono">
             <g v-for="(c, i) in curves" :key="`r${i}`" v-tip="curveTip(c)" class="hit">
@@ -596,6 +664,22 @@ const fmt = (km: number) => km.toFixed(3);
           </g>
         </svg>
       </div>
+      <section v-if="connections.length" class="my-3">
+        <h2 class="m-0 mb-1 text-base">{{ $t("vzg.connections") }}</h2>
+        <ul class="m-0 list-none p-0 text-sm">
+          <li v-for="c in connections" :key="c.station" class="py-0.5">
+            <span class="mono muted mr-1">km {{ kmText(c.km, 1) }}</span>
+            <span class="font-medium">{{ c.station }}</span>:
+            <template v-for="(o, i) in c.lines" :key="o.id"
+              ><template v-if="i"> · </template
+              ><RouterLink :to="lineLink(o)"
+                ><span v-if="o.ref" class="mono">{{ o.ref }}</span
+                >{{ o.ref && lineName(o) ? " " : "" }}{{ lineName(o) }}</RouterLink
+              ></template
+            >
+          </li>
+        </ul>
+      </section>
       <p v-if="entry && entry.speedCoverage < 0.95" class="muted text-xs">
         {{ $t("vzg.coverage", { p: Math.round(entry.speedCoverage * 100) }) }}
       </p>
@@ -663,6 +747,12 @@ const fmt = (km: number) => km.toFixed(3);
 .vzg .sig {
   fill: var(--muted);
   font-size: 9px;
+}
+.vzg .conn text {
+  fill: var(--link);
+}
+.vzg .conn a:hover text {
+  text-decoration: underline;
 }
 .vzg .hit {
   cursor: help;

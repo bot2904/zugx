@@ -580,3 +580,24 @@ points = [
   { km = 50.68, kind = "stop", label = "Wies-Eibiswald", pos = [46.71837, 15.25929] },
   { km = 50.714, kind = "signal", label = "FE441/V441R", signal = "minor,shunting", measured = true },
 ]
+
+[[connections]]
+km = 0.005
+station = "Lieboch"
+lines = [
+  { id = "434-01", ref = "434 01", name = "Köflacherbahn", km = 15.794 },
+]
+
+[[connections]]
+km = 14.481
+station = "Preding-Wieselsdorf"
+lines = [
+  { id = "stainzerbahn", name = "Stainzerbahn", km = 0.004 },
+]
+
+[[connections]]
+km = 17.246
+station = "Wettmannstätten"
+lines = [
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", km = 31.324 },
+]

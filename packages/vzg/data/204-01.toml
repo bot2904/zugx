@@ -1259,3 +1259,27 @@ points = [
   { km = 188.849, kind = "signal", label = "S6/h", signal = "distant,main,shunting", measured = true },
   { km = 189.771, kind = "signal", label = "O506/p", signal = "distant,main,shunting,speed_limit", measured = true },
 ]
+
+[[connections]]
+km = -0.041
+station = "Linz Hauptbahnhof"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 183.944 },
+  { id = "208-01", ref = "208 01", name = "Westbahn", km = 188.372 },
+]
+
+[[connections]]
+km = 1.394
+station = "Linz Untergaumberg"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 184.002 },
+  { id = "lokalbahn-linz-waizenkirchen", name = "Lokalbahn Linz – Waizenkirchen", km = 1.817 },
+]
+
+[[connections]]
+km = 104.327
+station = "Selzthal"
+lines = [
+  { id = "102-01", ref = "102 01", name = "Ennstalbahn", km = 98.893 },
+  { id = "412-01", ref = "412 01", name = "Erzbergbahn", km = 139.097 },
+]

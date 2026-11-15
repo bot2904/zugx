@@ -61,3 +61,10 @@ points = [
   { km = 8.339, kind = "signal", signal = "speed_limit_distant" },
   { km = 8.687, kind = "signal", signal = "station_distant" },
 ]
+
+[[connections]]
+km = 0.007
+station = "Feldkirch"
+lines = [
+  { id = "101-05", ref = "101 05", name = "Arlbergbahn", km = 156.687 },
+]

@@ -2591,3 +2591,26 @@ points = [
   { km = 217.709, kind = "signal", signal = "electricity" },
   { km = 217.713, kind = "signal", signal = "electricity" },
 ]
+
+[[connections]]
+km = 80.388
+station = "Stainach-Irdning"
+lines = [
+  { id = "206-01", ref = "206 01", name = "Salzkammergutbahn", km = 0.569 },
+]
+
+[[connections]]
+km = 98.893
+station = "Selzthal"
+lines = [
+  { id = "204-01", ref = "204 01", name = "Pyhrnbahn", km = 104.327 },
+  { id = "412-01", ref = "412 01", name = "Erzbergbahn", km = 139.097 },
+]
+
+[[connections]]
+km = 138.358
+station = "Hieflau"
+lines = [
+  { id = "220-01", ref = "220 01", name = "Erzbergbahn", km = -0.004 },
+  { id = "412-01", ref = "412 01", name = "Erzbergbahn", km = 102.383 },
+]

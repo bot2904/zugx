@@ -61,3 +61,18 @@ points = [
   { km = 24.247, kind = "stop", label = "Zehmemoos", uic = "8101817", pos = [47.98949, 12.93743] },
   { km = 25.286, kind = "stop", label = "Lamprechtshausen", uic = "8100298", pos = [47.9902, 12.95135] },
 ]
+
+[[connections]]
+km = -0.082
+station = "Salzburg Hauptbahnhof"
+lines = [
+  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", km = -0.154 },
+  { id = "217-01", ref = "217 01", km = 88.374 },
+]
+
+[[connections]]
+km = 23.05
+station = "Bürmoos"
+lines = [
+  { id = "strecke-buermoos-ostermiething", ref = "T", name = "Strecke Bürmoos – Ostermiething", km = 23.05 },
+]

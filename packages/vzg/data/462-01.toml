@@ -75,3 +75,10 @@ points = [
   { km = 257.91, kind = "signal", label = "Sch305H", signal = "minor", measured = true },
   { km = 258.06, kind = "signal", label = "Sch305R/2R1", signal = "main_repeated,minor", measured = true },
 ]
+
+[[connections]]
+km = -0.024
+station = "Spielfeld-Straß"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 257.899 },
+]

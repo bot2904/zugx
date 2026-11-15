@@ -157,3 +157,27 @@ points = [
   { km = 61.16, kind = "halt", label = "Volders-Baumkirchen", uic = "8100337", pos = [47.296, 11.56389], measured = true },
   { km = 61.819, kind = "signal", label = "Cc84", signal = "train_protection", measured = true },
 ]
+
+[[connections]]
+km = 0
+station = "Jenbach Achenseebahn"
+lines = [
+  { id = "101-04", ref = "101 04", name = "Unterinntalbahn", km = 0 },
+  { id = "achenseebahn", name = "Achenseebahn", km = 0 },
+  { id = "zillertalbahn", name = "Zillertalbahn", km = 0 },
+]
+
+[[connections]]
+km = 40.882
+station = "Jenbach"
+lines = [
+  { id = "achenseebahn", name = "Achenseebahn", km = 40.882 },
+  { id = "zillertalbahn", name = "Zillertalbahn", km = 0.042 },
+]
+
+[[connections]]
+km = 61.16
+station = "Volders-Baumkirchen"
+lines = [
+  { id = "101-04", ref = "101 04", name = "Unterinntalbahn", km = 61.155 },
+]

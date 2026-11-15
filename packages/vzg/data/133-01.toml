@@ -31,3 +31,10 @@ points = [
   { km = 15.946, kind = "signal", signal = "speed_limit" },
   { km = 16.18, kind = "signal", signal = "shunting" },
 ]
+
+[[connections]]
+km = 13.574
+station = "Oberlaa"
+lines = [
+  { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 13.579 },
+]

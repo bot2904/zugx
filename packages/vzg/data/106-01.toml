@@ -635,3 +635,67 @@ points = [
   { km = 101.03, kind = "signal", label = "X14", signal = "main,shunting,speed_limit", measured = true },
   { km = 101.05, kind = "station", label = "Wien Hauptbahnhof Autoreisezug", uic = "8103090", pos = [48.17797, 16.39109], measured = true },
 ]
+
+[[connections]]
+km = 0.061
+station = "Wien Meidling"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 3.601 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 3.227 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 28.548 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", km = 3.492 },
+]
+
+[[connections]]
+km = 3.601
+station = "Schöpfwerk"
+lines = [
+  { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 3.601 },
+  { id = "lokalbahn-wien-baden", name = "Lokalbahn Wien – Baden", km = 3.49 },
+]
+
+[[connections]]
+km = 5.191
+station = "Bahnhof Meidling"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 5.191 },
+]
+
+[[connections]]
+km = 5.243
+station = "Wien Hetzendorf"
+lines = [
+  { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 5.22 },
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 5.22 },
+]
+
+[[connections]]
+km = 26.126
+station = "Baden Viadukt"
+lines = [
+  { id = "lokalbahn-wien-baden", name = "Lokalbahn Wien – Baden", km = 26.418 },
+]
+
+[[connections]]
+km = 38.392
+station = "Sollenau"
+lines = [
+  { id = "161-01", ref = "161 01", name = "Aspangbahn", km = 41.376 },
+]
+
+[[connections]]
+km = 39.585
+station = "Felixdorf"
+lines = [
+  { id = "161-01", ref = "161 01", name = "Aspangbahn", km = 42.575 },
+]
+
+[[connections]]
+km = 101.05
+station = "Wien Hauptbahnhof Autoreisezug"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 101.05 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 101.05 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 101.05 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", km = 101.05 },
+]

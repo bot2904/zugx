@@ -85,3 +85,18 @@ points = [
   { km = 48.492, kind = "signal", label = "V103R", signal = "shunting", measured = true },
   { km = 49.344, kind = "stop", label = "Marchegg", pos = [48.25006, 16.9172] },
 ]
+
+[[connections]]
+km = 31.313
+station = "Gänserndorf"
+lines = [
+  { id = "114-01", ref = "114 01", name = "Nordbahn", km = 31.346 },
+  { id = "183-01", ref = "183 01", name = "Lokalbahn Gänserndorf – Mistelbach", km = -0.451 },
+]
+
+[[connections]]
+km = 49.344
+station = "Marchegg"
+lines = [
+  { id = "117-01", ref = "117 01", name = "Marchegger Ostbahn", km = 35.508 },
+]

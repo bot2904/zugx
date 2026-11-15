@@ -36,3 +36,35 @@ points = [
   { km = 7.87, kind = "signal", label = "V438H", signal = "shunting", measured = true },
   { km = 8.129, kind = "signal", signal = "speed_limit" },
 ]
+
+[[connections]]
+km = 5.191
+station = "Bahnhof Meidling"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 5.191 },
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 5.191 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 5.191 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 5.191 },
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 5.191 },
+  { id = "lokalbahn-wien-baden", name = "Lokalbahn Wien – Baden", km = 5.191 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", km = 5.191 },
+]
+
+[[connections]]
+km = 5.22
+station = "Wien Hetzendorf"
+lines = [
+  { id = "124-01", ref = "124 01", name = "Donauländebahn", km = 5.22 },
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 5.22 },
+]
+
+[[connections]]
+km = 7.58
+station = "Wien Meidling"
+lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", km = 3.601 },
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", km = 0.061 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", km = 3.227 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", km = 28.548 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", km = 3.492 },
+]

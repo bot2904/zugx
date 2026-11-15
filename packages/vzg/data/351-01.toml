@@ -228,3 +228,10 @@ points = [
   { km = 33.121, kind = "signal", signal = "electricity" },
   { km = 33.164, kind = "signal", signal = "electricity" },
 ]
+
+[[connections]]
+km = 0.056
+station = "Innsbruck Westbf"
+lines = [
+  { id = "101-05", ref = "101 05", name = "Arlbergbahn", km = 1.353 },
+]

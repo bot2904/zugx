@@ -25,3 +25,17 @@ points = [
   { km = 17.929, kind = "signal", signal = "electricity" },
   { km = 17.94, kind = "halt", label = "Vordernberg Markt", pos = [47.48579, 14.99456] },
 ]
+
+[[connections]]
+km = 7.6
+station = "Erzberg"
+lines = [
+  { id = "412-01", ref = "412 01", name = "Erzbergbahn", km = 7.6 },
+]
+
+[[connections]]
+km = 17.94
+station = "Vordernberg Markt"
+lines = [
+  { id = "412-01", ref = "412 01", name = "Erzbergbahn", km = 69.755 },
+]

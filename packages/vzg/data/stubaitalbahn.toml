@@ -117,3 +117,17 @@ points = [
   { km = 18.116, kind = "signal", signal = "crossing_distant,crossing_info" },
   { km = 18.164, kind = "station", label = "Fulpmes", uic = "8100540", pos = [47.15561, 11.35242], measured = true },
 ]
+
+[[connections]]
+km = 0.014
+station = "Innsbruck Stubaitalbf"
+lines = [
+  { id = "101-05", ref = "101 05", name = "Arlbergbahn", km = 0.867 },
+]
+
+[[connections]]
+km = 2.35
+station = "Innsbruck Sonnenburgerhof"
+lines = [
+  { id = "302-02", ref = "302 02", name = "Brennerbahn", km = 2.35 },
+]

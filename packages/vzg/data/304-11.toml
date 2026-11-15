@@ -24,3 +24,17 @@ points = [
   { km = 14.118, kind = "signal", label = "Sch703/1R3,2U705", signal = "main_repeated,minor", measured = true },
   { km = 14.441, kind = "signal", label = "L3/s,t", signal = "distant,main", measured = true },
 ]
+
+[[connections]]
+km = -0.054
+station = "Lauterach"
+lines = [
+  { id = "101-05", ref = "101 05", name = "Arlbergbahn", km = 189.304 },
+]
+
+[[connections]]
+km = 8.5
+station = "Lauterach Unterfeld"
+lines = [
+  { id = "304-01", ref = "304 01", name = "ÖBB St. Margrethen – Lauterach Nord", km = 8.561 },
+]

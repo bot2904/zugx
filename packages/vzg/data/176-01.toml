@@ -244,3 +244,10 @@ points = [
   { km = 138.539, kind = "signal", label = "V705H", signal = "shunting", measured = true },
   { km = 138.597, kind = "signal", label = "V705R", signal = "shunting", measured = true },
 ]
+
+[[connections]]
+km = 0.113
+station = "Schwarzenau"
+lines = [
+  { id = "109-01", ref = "109 01", name = "Franz-Josefs-Bahn", km = 138.238 },
+]

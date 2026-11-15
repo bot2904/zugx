@@ -46,3 +46,11 @@ points = [
   { km = 88.374, kind = "stop", label = "Salzburg Hauptbahnhof", pos = [47.81292, 13.04566] },
   { km = 88.374, kind = "station", label = "Salzburg Hauptbahnhof (S-Bahn)", uic = "8100414", pos = [47.81278, 13.04451] },
 ]
+
+[[connections]]
+km = 88.374
+station = "Salzburg Hauptbahnhof"
+lines = [
+  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", km = -0.154 },
+  { id = "strecke-salzburg-lamprechtshausen", ref = "N", name = "Strecke Salzburg – Lamprechtshausen", km = -0.082 },
+]

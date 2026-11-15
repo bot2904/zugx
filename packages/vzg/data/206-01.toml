@@ -689,3 +689,17 @@ points = [
   { km = 243.936, kind = "signal", label = "V603R", signal = "shunting", measured = true },
   { km = 244.061, kind = "signal", label = "V703H", signal = "shunting", measured = true },
 ]
+
+[[connections]]
+km = 0.569
+station = "Stainach-Irdning"
+lines = [
+  { id = "102-01", ref = "102 01", name = "Ennstalbahn", km = 80.388 },
+]
+
+[[connections]]
+km = 107.558
+station = "Attnang-Puchheim"
+lines = [
+  { id = "101-02", ref = "101 02", name = "Westbahn", km = 243.301 },
+]

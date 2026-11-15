@@ -88,3 +88,26 @@ points = [
   { km = 389.338, kind = "halt", label = "Neuhaus an der Gail", uic = "8101267", pos = [46.55499, 13.77958] },
   { km = 389.535, kind = "signal", label = "R434", signal = "main,speed_limit", measured = true },
 ]
+
+[[connections]]
+km = 376.2
+station = "Villach Hbf Autoreisezug"
+lines = [
+  { id = "408-01", ref = "408 01", name = "Rudolfsbahn", km = 376.2 },
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", km = 376.2 },
+]
+
+[[connections]]
+km = 377.645
+station = "Villach Hauptbahnhof"
+lines = [
+  { id = "222-01", ref = "222 01", name = "Tauernbahn", km = 116.669 },
+  { id = "408-01", ref = "408 01", name = "Rudolfsbahn", km = 377.614 },
+]
+
+[[connections]]
+km = 389.338
+station = "Neuhaus an der Gail"
+lines = [
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", km = 389.334 },
+]

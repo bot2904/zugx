@@ -33,3 +33,10 @@ points = [
   { km = 11.352, kind = "stop", label = "Ostermiething", pos = [48.04373, 12.84658] },
   { km = 23.05, kind = "station", label = "Bürmoos", uic = "8100217", pos = [47.9825, 12.92623], measured = true },
 ]
+
+[[connections]]
+km = 23.05
+station = "Bürmoos"
+lines = [
+  { id = "strecke-salzburg-lamprechtshausen", ref = "N", name = "Strecke Salzburg – Lamprechtshausen", km = 23.05 },
+]

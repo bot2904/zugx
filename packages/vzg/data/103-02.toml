@@ -58,3 +58,19 @@ points = [
   { km = 68.596, kind = "stop", label = "Prinzersdorf", pos = [48.20307, 15.52645] },
   { km = 68.757, kind = "signal", label = "R5", signal = "main,shunting,speed_limit", measured = true },
 ]
+
+[[connections]]
+km = 60.478
+station = "St. Pölten Hauptbahnhof"
+lines = [
+  { id = "103-01", ref = "103 01", name = "Westbahn", km = 60.477 },
+  { id = "110-01", ref = "110 01", name = "Tullnerfelder Bahn", km = 46.609 },
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 60.439 },
+]
+
+[[connections]]
+km = 68.596
+station = "Prinzersdorf"
+lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", km = 68.596 },
+]
