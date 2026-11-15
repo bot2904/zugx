@@ -1,11 +1,13 @@
-// Locate / download GTFS feeds. Default: ÖBB open data GTFS (CC BY 4.0).
-// Override with GTFS_ZIP=<path or URL>[,<path or URL>...] to use (and merge) other feeds,
-// e.g. the Austria-wide dataset from mobilitydata.gv.at.
+// Locate / download GTFS feeds. Default: the feeds of the current country (COUNTRY, see
+// country.ts; Austria: ÖBB open data GTFS, CC BY 4.0). Override with
+// GTFS_ZIP=<path or URL>[,<path or URL>...] to use (and merge) other feeds, e.g. the Austria-wide
+// dataset from mobilitydata.gv.at.
 import { createWriteStream, existsSync } from "node:fs";
 import { mkdir, rename, stat } from "node:fs/promises";
 import { basename, isAbsolute, join, resolve } from "node:path";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
+import { currentCountry } from "./country.ts";
 
 export const OEBB_GTFS_URL =
   "https://static.web.oebb.at/open-data/soll-fahrplan-gtfs/GTFS_Fahrplan_2026.zip";
@@ -23,7 +25,7 @@ export interface FeedSource {
 
 export function configuredFeeds(env = process.env): string[] {
   const v = env.GTFS_ZIP?.trim();
-  if (!v) return [OEBB_GTFS_URL];
+  if (!v) return currentCountry(env).feeds;
   return v
     .split(",")
     .map((s) => s.trim())

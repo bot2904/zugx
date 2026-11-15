@@ -1,0 +1,36 @@
+# The countries zugx builds data for: where their data comes from and where it goes.
+# Read by the data scripts (packages/gtfs/src/country.ts; COUNTRY=<id> selects, default "at") and
+# by the app (country selector). Adding a country = adding an entry here: its GTFS feed(s), its OSM
+# extract, its licence and — where its feed differs from the shape the pipeline expects — SQL
+# fix-ups run after the import.
+
+[at]
+name = { de = "Österreich", en = "Austria" }
+# UIC country code: station ids (HAFAS/UIC) of this country start with it
+uic = "81"
+timezone = "Europe/Vienna"
+feeds = ["https://static.web.oebb.at/open-data/soll-fahrplan-gtfs/GTFS_Fahrplan_2026.zip"]
+# Geofabrik extract name: the newest .cache/<osm>-YYMMDD.osm.pbf is used
+osm = "austria"
+licence = { name = "CC BY 4.0", url = "https://creativecommons.org/licenses/by/4.0/", source = "ÖBB GTFS" }
+
+[si]
+name = { de = "Slowenien", en = "Slovenia" }
+uic = "79"
+timezone = "Europe/Ljubljana"
+# the national IJPP feed (NAP nap.si) via the derp.si mirror: the NAP URL refuses some clients
+feeds = [
+  "https://gitlab.com/api/v4/projects/derp-si%2Fgtfs-generators/packages/generic/IJPP/latest/ijpp_intl_gtfs.zip",
+]
+osm = "slovenia"
+licence = { name = "CC BY-SA 4.0", url = "https://creativecommons.org/licenses/by-sa/4.0/", source = "IJPP / NAP Slovenija" }
+# SŽ and the foreign rail operators name the train in the route ("ICS 20", "LP 2100"); the trip's
+# short name is empty
+fixups = [
+  """
+  update trips set trip_short_name = (
+    select r.route_short_name from routes r where r.route_id = trips.route_id)
+  where coalesce(trim(trip_short_name), '') = ''
+    and route_id in (select route_id from routes where route_type = 2 or route_type between 100 and 117)
+  """,
+]

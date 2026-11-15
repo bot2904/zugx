@@ -348,6 +348,9 @@ importers:
       '@zugx/hafas':
         specifier: workspace:*
         version: link:../hafas
+      '@zugx/toml':
+        specifier: workspace:*
+        version: link:../toml
       fflate:
         specifier: 'catalog:'
         version: 0.8.3

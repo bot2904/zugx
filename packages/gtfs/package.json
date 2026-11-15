@@ -7,13 +7,16 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./categories": "./src/categories.ts"
+    "./categories": "./src/categories.ts",
+    "./country": "./src/country.ts",
+    "./countries.toml": "./countries.toml"
   },
   "scripts": {
     "test": "vp test run"
   },
   "dependencies": {
     "@zugx/hafas": "workspace:*",
+    "@zugx/toml": "workspace:*",
     "fflate": "catalog:"
   },
   "devDependencies": {
