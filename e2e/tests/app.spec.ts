@@ -216,6 +216,34 @@ test("bildfahrplan planning: running-time reserve", async ({ page }) => {
   await expect(panel.locator("tbody")).toContainText("St. Pölten Hbf – Wien Meidling");
 });
 
+test("bildfahrplan planning: punctuality from collected live data", async ({ page }) => {
+  // observations collected earlier in this browser: sheet → day → train → [from, to, gain]
+  await page.addInitScript(() =>
+    localStorage.setItem(
+      "zugx:bf-punct",
+      JSON.stringify({
+        westbahn: {
+          "2026-03-09": {
+            "RJX 1": [
+              [0, 2, 3],
+              [2, 2, 1],
+            ],
+            "RJX 3": [[0, 2, 1]],
+          },
+          "2026-03-10": { "RJX 5": [[0, 2, 2]] },
+        },
+      }),
+    ),
+  );
+  await page.goto("/bf/westbahn?from=6&h=4&d=2026-03-10&plan=puenktlichkeit");
+  const panel = page.locator(".bf-plan");
+  await expect(panel).toContainText(/3 (Fahrten|runs)/);
+  const first = panel.locator("tbody tr").first();
+  await expect(first).toContainText("Wien Hbf → Wien Meidling");
+  await expect(first).toContainText("+2′");
+  await expect(first).toContainText("67 %");
+});
+
 test("bildfahrplan: table in a second window, view and hover in sync", async ({ page }) => {
   await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
   const [popup] = await Promise.all([

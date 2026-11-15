@@ -6,6 +6,7 @@ import {
   useDocumentVisibility,
   useElementSize,
   useIntervalFn,
+  useLocalStorage,
   useSessionStorage,
 } from "@vueuse/core";
 import type { Corridor, CorridorIndex, CorridorIndexEntry, CorridorTrain } from "@zugx/netz";
@@ -18,7 +19,15 @@ import BfBook from "../components/BfBook.vue";
 import BfNode from "../components/BfNode.vue";
 import BfCrossings from "../components/BfCrossings.vue";
 import BfReserve from "../components/BfReserve.vue";
-import { bufferClass, crossings, runningReserve, stopsAt } from "../lib/bf-plan.ts";
+import BfPunctuality from "../components/BfPunctuality.vue";
+import {
+  bufferClass,
+  crossings,
+  lossesOf,
+  lossTable,
+  runningReserve,
+  stopsAt,
+} from "../lib/bf-plan.ts";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
 import { useKeys } from "../lib/keys.ts";
@@ -64,7 +73,7 @@ const hover = shallowRef<CorridorTrain>();
 // ---- two windows (e.g. two monitors): ?part=chart | table shows only that part; the windows
 // share the sheet, date, time window, section and the hovered train (BroadcastChannel) ----
 // ---- planning panels (?plan=knoten …, PLAN.md "Bildfahrplan as a planning tool") ----
-const PLANS = ["knoten", "kreuzung", "reserve"] as const;
+const PLANS = ["knoten", "kreuzung", "reserve", "puenktlichkeit"] as const;
 type Plan = (typeof PLANS)[number];
 const plan = computed<Plan | undefined>(() =>
   (PLANS as readonly string[]).includes(String(route.query.plan))
@@ -487,6 +496,43 @@ const updateLiveSoon = useDebounceFn(updateLive, 500);
 watch([liveOn, data, t0, t1, range], () => void updateLiveSoon(), { immediate: true });
 watch(visibility, (v) => v === "visible" && void updateLiveSoon());
 useIntervalFn(() => void updateLive(), 60_000);
+// punctuality: delay gained per stretch/stop from the live runs, collected in this browser
+// (sheet → day → train → [from, to, gain]), the last 7 days
+type LossStore = Record<string, Record<string, Record<string, [number, number, number][]>>>;
+const lossStore = useLocalStorage<LossStore>("zugx:bf-punct", {});
+watch(liveRuns, (runs) => {
+  const c = id.value;
+  if (!c || !liveOn.value || !runs.size) return;
+  const nowMin = viennaMinutes(viennaNow());
+  const day = { ...lossStore.value[c]?.[date.value] };
+  let changed = false;
+  for (const r of runs.values()) {
+    const l = lossesOf(r.pts, nowMin).map((x) => [x.i, x.j, x.gain] as [number, number, number]);
+    if (l.length && l.length >= (day[r.key]?.length ?? 0)) {
+      day[r.key] = l;
+      changed = true;
+    }
+  }
+  if (!changed) return;
+  const keep = addDays(today, -7);
+  const sheet = Object.fromEntries(
+    Object.entries({ ...lossStore.value[c], [date.value]: day }).filter(([d]) => d >= keep),
+  );
+  lossStore.value = { ...lossStore.value, [c]: sheet };
+});
+const punctuality = computed(() => {
+  const sheet = (id.value && lossStore.value[id.value]) || {};
+  const samples = Object.values(sheet).flatMap((day) =>
+    Object.values(day).map((l) =>
+      l.map(([i, j, gain]) => ({ i, j, gain })).filter((x) => inRange(x.i) && inRange(x.j)),
+    ),
+  );
+  return {
+    rows: lossTable(samples),
+    days: Object.keys(sheet).length,
+    runs: samples.length,
+  };
+});
 function toggleLive() {
   setQuery({ live: route.query.live === "1" ? undefined : "1" });
 }
@@ -1118,6 +1164,16 @@ function toggleCat(c: string) {
         {{ $t(`bf.plan.tab.${p}`) }}
       </button>
     </div>
+    <BfPunctuality
+      v-if="data && plan === 'puenktlichkeit' && part !== 'table'"
+      :stations="data.stations"
+      :rows="punctuality.rows"
+      :days="punctuality.days"
+      :runs="punctuality.runs"
+      :live-on="liveOn"
+      :is-today="isToday"
+      @live="toggleLive"
+    />
     <BfReserve
       v-if="data && plan === 'reserve' && part !== 'table'"
       :stations="data.stations"

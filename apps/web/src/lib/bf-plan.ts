@@ -439,3 +439,71 @@ export const reserveClass = (planned: number, min: number) => {
   // below the minimum: timetable minutes rounded, or speed data/model off — not a statement
   return r < 0 ? "neg" : r < 0.07 ? "mid" : r >= 0.25 ? "slack" : "good";
 };
+
+// ---- 6. punctuality: where trains lose time (live data) ----
+
+/** delay gained by one train on one stretch (`i` → `j`) or while standing at `i` (`j` = `i`) */
+export interface Loss {
+  i: number;
+  j: number;
+  gain: number;
+}
+interface LiveEvent {
+  i: number;
+  arr?: { plan: number; rt?: number };
+  dep?: { plan: number; rt?: number };
+}
+
+/**
+ * Delay changes of a live run between its observed events (realtime times up to `nowMin`, so
+ * forecasts don't count): on each stretch from one reported station to the next (arrival delay −
+ * departure delay before) and while standing at a station (departure − arrival delay).
+ */
+export function lossesOf(pts: LiveEvent[], nowMin: number): Loss[] {
+  const obs = (e?: { plan: number; rt?: number }) =>
+    e?.rt !== undefined && e.rt <= nowMin ? e.rt - e.plan : undefined;
+  const out: Loss[] = [];
+  let prev: { i: number; delay: number } | undefined;
+  for (const p of pts) {
+    const a = obs(p.arr);
+    const d = obs(p.dep);
+    if (prev && a !== undefined) out.push({ i: prev.i, j: p.i, gain: a - prev.delay });
+    if (a !== undefined && d !== undefined) out.push({ i: p.i, j: p.i, gain: d - a });
+    const last = d ?? a;
+    // stations without an observation: the next stretch starts at the last reported one
+    if (last !== undefined) prev = { i: p.i, delay: last };
+  }
+  return out;
+}
+
+export interface LossRow {
+  i: number;
+  j: number;
+  /** observed runs */
+  n: number;
+  /** mean delay gained (minutes; negative = time made up) */
+  mean: number;
+  /** share of runs gaining ≥ 2′ */
+  bad: number;
+}
+
+/** per stretch / station over all observations, most time lost first */
+export function lossTable(samples: Loss[][]): LossRow[] {
+  const m = new Map<string, { i: number; j: number; g: number[] }>();
+  for (const run of samples)
+    for (const l of run) {
+      const k = `${l.i}|${l.j}`;
+      const x = m.get(k) ?? { i: l.i, j: l.j, g: [] };
+      x.g.push(l.gain);
+      m.set(k, x);
+    }
+  return [...m.values()]
+    .map((x) => ({
+      i: x.i,
+      j: x.j,
+      n: x.g.length,
+      mean: Math.round((x.g.reduce((a, b) => a + b, 0) / x.g.length) * 10) / 10,
+      bad: x.g.filter((g) => g >= 2).length / x.g.length,
+    }))
+    .sort((a, b) => b.mean - a.mean);
+}

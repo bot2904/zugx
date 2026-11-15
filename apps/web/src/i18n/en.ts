@@ -150,6 +150,17 @@ export default {
   },
   bf: {
     plan: {
+      punctuality: "Punctuality",
+      punctualitySummary: "{runs} runs on {days} days (collected in this browser)",
+      collect: "Turn on live and collect",
+      noPunctuality:
+        "No live data for this sheet yet. Turn on live (today only): while the view is open, the reported times are collected and kept for 7 days.",
+      runs: "Runs",
+      meanLoss: "Mean time lost",
+      shareLoss: "Share ≥ 2′",
+      stopAt: "Stop",
+      punctualityNote:
+        "Time lost = increase of the delay between two reported stations (or during the stop), only times actually reported (no forecasts). Red ≥ 1′, amber ≥ 0.5′, blue: time made up. Collected only in your browser while live runs – a sample, not statistics.",
       negTip:
         "Below the computed minimum: timetable minutes are rounded (up to ±1′ on 2′ stretches), or the speed data/model doesn't fit here – no statement.",
       reserve: "Running-time reserve",
@@ -174,7 +185,12 @@ export default {
       bufferTip: "{late} may be {buf}′ late before {waiting} has to wait",
       crossingsNote:
         "Crossing = trains of both directions in the station at the same time, next to single track. Buffer = how much delay of the opposite train is absorbed; beyond that the delay carries over (red +n′: expected from the live data). Shaded: single track. Single track from OSM, passing times estimated.",
-      tab: { knoten: "Node", kreuzung: "Crossings", reserve: "Running-time reserve" },
+      tab: {
+        knoten: "Node",
+        kreuzung: "Crossings",
+        reserve: "Running-time reserve",
+        puenktlichkeit: "Punctuality",
+      },
       pickNode: "Analyse as node",
       title: "Planning",
       tabNode: "Node",

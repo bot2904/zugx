@@ -152,6 +152,17 @@ export default {
   },
   bf: {
     plan: {
+      punctuality: "Puntualità",
+      punctualitySummary: "{runs} corse in {days} giorni (raccolte in questo browser)",
+      collect: "Attiva tempo reale e raccogli",
+      noPunctuality:
+        "Ancora nessun dato in tempo reale per questo quadro. Attiva il tempo reale (solo oggi): mentre la vista è aperta, gli orari rilevati vengono raccolti e conservati per 7 giorni.",
+      runs: "Corse",
+      meanLoss: "Perdita media",
+      shareLoss: "Quota ≥ 2′",
+      stopAt: "Fermata",
+      punctualityNote:
+        "Tempo perso = aumento del ritardo tra due stazioni rilevate (o durante la fermata), solo orari effettivamente rilevati (nessuna previsione). Rosso ≥ 1′, giallo ≥ 0,5′, blu: tempo recuperato. Raccolto solo nel tuo browser mentre il tempo reale è attivo – un campione, non una statistica.",
       negTip:
         "Sotto il minimo calcolato: i minuti d'orario sono arrotondati (fino a ±1′ su tratte di 2′), oppure dati di velocità/modello non adatti qui – nessuna indicazione.",
       reserve: "Riserva di marcia",
@@ -177,7 +188,12 @@ export default {
       bufferTip: "{late} può avere {buf}′ di ritardo prima che {waiting} debba attendere",
       crossingsNote:
         "Incrocio = treni di entrambe le direzioni contemporaneamente in stazione, vicino a binario unico. Margine = quanto ritardo del treno opposto viene assorbito; oltre si trasmette (rosso +n′: atteso dai dati in tempo reale). Ombreggiato: binario unico. Binario unico da OSM, orari di transito stimati.",
-      tab: { knoten: "Nodo", kreuzung: "Incroci", reserve: "Riserva di marcia" },
+      tab: {
+        knoten: "Nodo",
+        kreuzung: "Incroci",
+        reserve: "Riserva di marcia",
+        puenktlichkeit: "Puntualità",
+      },
       pickNode: "Analizza come nodo",
       title: "Pianificazione",
       tabNode: "Nodo",

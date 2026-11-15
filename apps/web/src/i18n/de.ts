@@ -152,6 +152,18 @@ export default {
   },
   bf: {
     plan: {
+      punctuality: "Pünktlichkeit",
+      punctualitySummary:
+        "{runs} Fahrten an {days} Tagen ausgewertet (in diesem Browser gesammelt)",
+      collect: "Echtzeit einschalten und sammeln",
+      noPunctuality:
+        "Noch keine Echtzeitdaten für diesen Bildfahrplan. Echtzeit einschalten (nur heute): während die Ansicht offen ist, werden die gemeldeten Zeiten gesammelt und 7 Tage aufbewahrt.",
+      runs: "Fahrten",
+      meanLoss: "Ø Zeitverlust",
+      shareLoss: "Anteil ≥ 2′",
+      stopAt: "Halt",
+      punctualityNote:
+        "Zeitverlust = Zunahme der Verspätung zwischen zwei gemeldeten Bahnhöfen (bzw. während des Halts), nur tatsächlich gemeldete Zeiten (keine Prognosen). Rot ≥ 1′, gelb ≥ 0,5′, blau: Zeit aufgeholt. Gesammelt nur im eigenen Browser, solange Echtzeit läuft – ein Ausschnitt, keine Statistik.",
       negTip:
         "Unter dem errechneten Minimum: die Fahrplanminuten sind gerundet (bei 2′-Abschnitten bis ±1′), oder Geschwindigkeitsdaten/Modell passen hier nicht – keine Aussage.",
       reserve: "Fahrzeitreserve",
@@ -177,7 +189,12 @@ export default {
       bufferTip: "{late} darf {buf}′ verspätet sein, bevor {waiting} warten muss",
       crossingsNote:
         "Kreuzung = Züge beider Richtungen gleichzeitig im Bahnhof, neben einem eingleisigen Abschnitt. Puffer = wie viel Verspätung des Gegenzugs der Zug abfängt; darüber überträgt sich die Verspätung (rot +n′: erwartet aus den Echtzeitdaten). Grau hinterlegt: eingleisig. Eingleisigkeit aus OSM, Durchfahrtszeiten geschätzt.",
-      tab: { knoten: "Knoten", kreuzung: "Kreuzungen", reserve: "Fahrzeitreserve" },
+      tab: {
+        knoten: "Knoten",
+        kreuzung: "Kreuzungen",
+        reserve: "Fahrzeitreserve",
+        puenktlichkeit: "Pünktlichkeit",
+      },
       pickNode: "Als Knoten analysieren",
       title: "Planung",
       tabNode: "Knoten",

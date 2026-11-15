@@ -1,6 +1,14 @@
 import type { CorridorTrain } from "@zugx/netz";
 import { describe, expect, it } from "vite-plus/test";
-import { connections, crossings, linesAtNode, nodeVerdict, runningReserve } from "./bf-plan.ts";
+import {
+  connections,
+  crossings,
+  linesAtNode,
+  lossesOf,
+  lossTable,
+  nodeVerdict,
+  runningReserve,
+} from "./bf-plan.ts";
 
 const train = (
   cat: string,
@@ -140,5 +148,21 @@ describe("running-time reserve", () => {
     );
     // 9 km in 9′ at speed (16.7 m/s) + starting/stopping 16.7 / 0.7 s = 9.4′
     expect(rows).toEqual([{ from: 0, to: 2, cat: "R", dir: 1, n: 2, planned: 12, min: 9.4 }]);
+  });
+});
+
+describe("punctuality", () => {
+  it("delay gained on stretches and at stations, forecasts ignored", () => {
+    const pts = [
+      { i: 0, dep: { plan: 480, rt: 481 } },
+      { i: 1, arr: { plan: 490, rt: 494 }, dep: { plan: 491, rt: 496 } },
+      { i: 2, arr: { plan: 500, rt: 505 } }, // forecast (after now)
+    ];
+    expect(lossesOf(pts, 500)).toEqual([
+      { i: 0, j: 1, gain: 3 },
+      { i: 1, j: 1, gain: 1 },
+    ]);
+    const rows = lossTable([lossesOf(pts, 500), [{ i: 0, j: 1, gain: 1 }]]);
+    expect(rows[0]).toEqual({ i: 0, j: 1, n: 2, mean: 2, bad: 0.5 });
   });
 });
