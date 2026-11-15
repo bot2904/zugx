@@ -29,8 +29,10 @@ const { locale } = useI18n();
         roter Punkt ●), dann Bahnhöfe und Züge, dann Bildfahrplan und Netzgrafik (Fahrplan), dann
         Strecken und Infrastrukturnetzkarte. Der Schalter <strong>● Live</strong> rechts oben (Taste
         <kbd>e</kbd>) wählt, wo eine Seite beides hat, zwischen Echtzeit und Fahrplan: beim Bahnhof
-        Abfahrtstafel oder Abfahrtsplan, im Bildfahrplan die Echtzeit-Überlagerung. Die Wahl wird
-        gemerkt. Schnellzugriff (<kbd>⌘K</kbd>) und Roh-JSON (<kbd>d</kbd>) stehen in der Fußzeile.
+        Abfahrtstafel oder Abfahrtsplan, im Bildfahrplan die Echtzeit-Überlagerung, und in der
+        Suche: mit Live aus werden Verbindungen ohne Server direkt im Browser aus dem ÖBB-Fahrplan
+        berechnet (Bahn, die nächsten Tage, ohne Verspätungen). Die Wahl wird gemerkt.
+        Schnellzugriff (<kbd>⌘K</kbd>) und Roh-JSON (<kbd>d</kbd>) stehen in der Fußzeile.
       </p>
 
       <h2 id="suche">Suche &amp; Verbindungen</h2>
@@ -355,8 +357,9 @@ const { locale } = useI18n();
         (timetable), then Lines and the infrastructure network map. The
         <strong>● Live</strong> switch top right (key <kbd>e</kbd>) chooses realtime or timetable
         where a page has both: live board or departure plan for a station, the realtime overlay in
-        the graphic timetable. It is remembered. Quick jump (<kbd>⌘K</kbd>) and raw JSON
-        (<kbd>d</kbd>) are in the footer.
+        the graphic timetable, and the search: with Live off, journeys are computed in the browser
+        from the ÖBB timetable (rail, the next days, no delays). It is remembered. Quick jump
+        (<kbd>⌘K</kbd>) and raw JSON (<kbd>d</kbd>) are in the footer.
       </p>
 
       <h2 id="suche">Search &amp; journeys</h2>
