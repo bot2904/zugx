@@ -151,6 +151,7 @@ export default {
     hint: "Positionen werden von ÖBB HAFAS berechnet.",
   },
   bf: {
+    indexDay: "Züge/Tag und Zugmix am {day}",
     plan: {
       source: "Quelle",
       sourceSheet: "nur Bildfahrplan",
@@ -264,7 +265,8 @@ export default {
     hourEarlier: "2 Stunden früher",
     hourLater: "2 Stunden später",
     trainsOnDay: "{n} Züge",
-    subtitle: "{n} Strecken, Zeit-Weg-Diagramme eines Werktags",
+    subtitle:
+      "{n} Strecken: Bildfahrplan und Kursbuch für jeden Tag des Fahrplanjahres, mit Echtzeit und Planung",
     filter: "Strecke oder Bahnhof…",
     stations: "Bahnhöfe",
     lines: "Strecken",
@@ -400,7 +402,8 @@ export default {
       signal: "Signal",
     },
     title: "VzG-Grafik",
-    subtitle: "{n} Strecken: zulässige Geschwindigkeiten je Gleis (VzG), aus OpenStreetMap",
+    subtitle:
+      "{n} Strecken: zulässige Geschwindigkeiten je Gleis (VzG), Streckenband, Profil und Karten – aus OpenStreetMap",
     filter: "Streckennummer, Name oder Bahnhof…",
     line: "Strecke",
     name: "Name",

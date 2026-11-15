@@ -100,7 +100,9 @@ useKeys({
       </search>
     </div>
     <p class="muted my-1 text-xs">
-      {{ rows.length }} / {{ index.corridors.length }} · {{ index.day }} · {{ index.source }}
+      {{ rows.length }} / {{ index.corridors.length }} ·
+      {{ $t("bf.indexDay", { day: index.day }) }} ·
+      {{ index.source }}
     </p>
     <table class="dense mt-1">
       <caption class="sr-only">

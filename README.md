@@ -7,8 +7,9 @@ Fast, mobile-friendly, information-dense timetable browser for Austrian trains (
 - Train runs (Zuglauf) with delay profile and map; friendly URLs like `/train/RJX-162?d=2026-11-13`
 - **Live radar** of train positions
 - **Train index** of every train running in Austria in the timetable year (`/trains`)
-- **Bildfahrplan** (time–distance diagrams) for corridors, **Netzgrafik** of the integrated interval timetable (+ export for SBB's Netzgrafik-Editor)
-- **VzG-Grafik**: permitted speeds, stations, signals and curves per railway line (Streckennummer) and track (`/vzg`)
+- **Bildfahrplan** (time–distance diagrams) for every ÖBB Fahrplanbild, any day of the timetable year: live overlay, single/double track, Kursbuch-style timetable tables, a second-monitor mode, and **planning views** — Taktknoten and transfers (all lines at a station), crossings on single track, running-time reserve, punctuality
+- **Netzgrafik** of the integrated interval timetable (+ export for SBB's Netzgrafik-Editor)
+- **VzG-Grafik**: permitted speeds, stations, signals and curves per railway line (Streckennummer) and track, route strip, line profile, print-ready **line map** and **network map** (speed, electrification, ETCS, track count, trains per day …, per federal state) (`/vzg`)
 - Raw API JSON view (`d`), command palette (`Ctrl/⌘ K`), UI in English, German, Italian
 
 See [docs/](docs/README.md) for how each feature works (data source, computation, display) and [PLAN.md](PLAN.md) for the design and decisions.

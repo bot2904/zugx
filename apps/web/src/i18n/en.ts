@@ -149,6 +149,7 @@ export default {
     hint: "Positions are calculated by ÖBB HAFAS.",
   },
   bf: {
+    indexDay: "trains/day and train mix on {day}",
     plan: {
       source: "Source",
       sourceSheet: "this sheet only",
@@ -260,7 +261,8 @@ export default {
     hourEarlier: "2 hours earlier",
     hourLater: "2 hours later",
     trainsOnDay: "{n} trains",
-    subtitle: "{n} corridors, time–distance diagrams of one weekday",
+    subtitle:
+      "{n} corridors: graphic timetable and Kursbuch tables for any day of the timetable year, with live data and planning",
     filter: "Corridor or station…",
     stations: "Stations",
     lines: "Lines",
@@ -395,7 +397,8 @@ export default {
       signal: "signal",
     },
     title: "VzG chart",
-    subtitle: "{n} railway lines: permitted speeds per track (VzG), from OpenStreetMap",
+    subtitle:
+      "{n} railway lines: permitted speeds per track (VzG), route strip, profile and maps – from OpenStreetMap",
     filter: "Line number, name or station…",
     line: "Line",
     name: "Name",

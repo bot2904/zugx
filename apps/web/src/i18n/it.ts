@@ -151,6 +151,7 @@ export default {
     hint: "Posizioni calcolate da ÖBB HAFAS.",
   },
   bf: {
+    indexDay: "treni/giorno e composizione il {day}",
     plan: {
       source: "Fonte",
       sourceSheet: "solo questo quadro",
@@ -264,7 +265,8 @@ export default {
     hourEarlier: "2 ore prima",
     hourLater: "2 ore dopo",
     trainsOnDay: "{n} treni",
-    subtitle: "{n} linee, diagrammi spazio-tempo di un giorno feriale",
+    subtitle:
+      "{n} linee: orario grafico e tabelle orario per ogni giorno dell'anno, con tempo reale e pianificazione",
     filter: "Linea o stazione…",
     stations: "Stazioni",
     lines: "Linee",
@@ -400,7 +402,8 @@ export default {
       signal: "segnale",
     },
     title: "Grafico VzG",
-    subtitle: "{n} linee: velocità ammesse per binario (VzG), da OpenStreetMap",
+    subtitle:
+      "{n} linee: velocità ammesse per binario (VzG), schema di linea, profilo e mappe – da OpenStreetMap",
     filter: "Numero di linea, nome o stazione…",
     line: "Linea",
     name: "Nome",
