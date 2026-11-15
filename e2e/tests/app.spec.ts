@@ -290,6 +290,13 @@ test("bildfahrplan hover tooltip shows train, departure station and destination"
   const tip = page.getByRole("tooltip");
   await expect(tip.locator("strong")).toHaveText(/^\S+ \d+$/);
   await expect(tip).toContainText(" → ");
+  // hovered train emphasised (drawn again on top), the others faded
+  await train.dispatchEvent("mouseenter");
+  await expect(page.locator("svg[role=img] path[stroke-width='3']").first()).toBeAttached();
+  await expect(train.locator("path").nth(1)).toHaveAttribute("opacity", "1");
+  await expect(
+    page.locator("svg[role=img] g.cursor-pointer").nth(1).locator("path").nth(1),
+  ).toHaveAttribute("opacity", "0.35");
 });
 
 test("netzgrafik opens the Netzgrafik-Editor with the network in the URL fragment", async ({

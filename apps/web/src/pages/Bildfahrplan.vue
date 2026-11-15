@@ -52,7 +52,8 @@ const from = computed(() =>
   Number(route.query.from ?? Math.max(0, Math.floor(viennaMinutes() / 60) - 1)),
 );
 const span = computed(() => Number(route.query.h ?? 4));
-const hover = ref<CorridorTrain>();
+// shallow: a deep ref would wrap the train in a proxy, and `hover === r.t` would never match
+const hover = shallowRef<CorridorTrain>();
 
 // railway lines of the current sheet (Wikidata, from the index)
 const sheetLines = computed(() => list.value.find((c) => c.id === id.value)?.lines ?? []);
@@ -340,6 +341,9 @@ const hafasOnlyTrains = computed(() =>
 );
 const drawnByKey = computed(
   () => new Map(drawn.value.map((r) => [trainKey(r.t.cat, r.t.nr), r.t] as const)),
+);
+const hoverDrawn = computed(() =>
+  hover.value ? drawn.value.find((r) => r.t === hover.value) : undefined,
 );
 /** tooltip of a train: number, route, and with Live its delay and last report */
 function trainTip(tr: CorridorTrain): TipContent {
@@ -722,6 +726,17 @@ function toggleCat(c: string) {
               {{ r.t.cat }} {{ r.t.nr }}
             </text>
           </g>
+          <!-- hovered train once more on top, so crossing trains don't cover it -->
+          <path
+            v-if="hoverDrawn"
+            :d="hoverDrawn.d"
+            fill="none"
+            :stroke="hoverDrawn.color"
+            stroke-width="3"
+            stroke-linejoin="round"
+            :stroke-dasharray="hoverDrawn.live?.hafasOnly ? '1 2' : undefined"
+            class="pointer-events-none"
+          />
           <!-- live overlay: actual path (solid) and forecast (dashed), delay at "now" -->
           <g v-for="p in liveDrawn" :key="`live-${p.r.key}`" class="pointer-events-none">
             <path
