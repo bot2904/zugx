@@ -38,6 +38,12 @@
 "IC 518" = { name = "BORSOD", checked = "2026-11-15" }
 "IC 523" = { name = "LPV", checked = "2026-11-15" }
 "IC 526" = { name = "ZEMPLEN", checked = "2026-11-15" }
+"ICS 11" = { checked = "2026-11-15" }
+"ICS 14" = { checked = "2026-11-15" }
+"ICS 17" = { checked = "2026-11-15" }
+"ICS 20" = { checked = "2026-11-15" }
+"ICS 31" = { checked = "2026-11-15" }
+"ICS 36" = { checked = "2026-11-15" }
 "IR 572" = { checked = "2026-11-15" }
 "IR 573" = { checked = "2026-11-15" }
 "IR 574" = { checked = "2026-11-15" }

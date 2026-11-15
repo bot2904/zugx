@@ -20,10 +20,10 @@ licence = { name = "CC BY 4.0", url = "https://creativecommons.org/licenses/by/4
 name = { de = "Slowenien", en = "Slovenia", it = "Slovenia", sl = "Slovenija" }
 uic = "79"
 timezone = "Europe/Ljubljana"
-# the national IJPP feed (NAP nap.si) via the derp.si mirror: the NAP URL refuses some clients
-feeds = [
-  "https://gitlab.com/api/v4/projects/derp-si%2Fgtfs-generators/packages/generic/IJPP/latest/ijpp_intl_gtfs.zip",
-]
+# the national timetable (IJPP) as published by DUJPP, linked from the NAP Slovenija dataset
+# "Timetables (GTFS)" (CC BY-SA 4.0). Only this official file: community mirrors add trains
+# scraped from ÖBB HAFAS and route names of unclear origin (licence check 2026-11-15)
+feeds = ["https://dujpp.si/gtfs/dujpp-ijpp.zip"]
 osm = "slovenia"
 # SŽ-Infrastruktura line numbers ("10" Dobova – Ljubljana)
 lineRef = '^\d{2}$'
@@ -33,14 +33,23 @@ osmLineMembers = true
 # reference day of the Bildfahrplan sheets: a regular Tuesday in the feed's current period (the
 # Primorska line was closed until 2026-04-05)
 day = "2026-11-24"
-licence = { name = "CC BY-SA 4.0", url = "https://creativecommons.org/licenses/by-sa/4.0/", source = "IJPP / NAP Slovenija", page = "https://www.nap.si/" }
-# SŽ and the foreign rail operators name the train in the route ("ICS 20", "LP 2100"); the trip's
-# short name is empty
+licence = { name = "CC BY-SA 4.0", url = "https://creativecommons.org/licenses/by-sa/4.0/", source = "DUJPP via NAP Slovenija", page = "https://nap.si/en/datasets_details?id=6fc3966a-5e3f-cf10-1df3-70d3af14d03d" }
+# SŽ (agency 1161) has one route per train, named "Ž<number>"; the feed has no train category and
+# no headsigns: the train is "SŽ <number>", its headsign the name of its last stop
 fixups = [
   """
-  update trips set trip_short_name = (
-    select r.route_short_name from routes r where r.route_id = trips.route_id)
-  where coalesce(trim(trip_short_name), '') = ''
+  update trips set trip_short_name = 'SŽ ' || (
+    select substr(r.route_short_name, 2) from routes r where r.route_id = trips.route_id)
+  where route_id in (
+    select route_id from routes
+     where agency_id = '1161' and route_short_name glob 'Ž[0-9]*'
+       and (route_type = 2 or route_type between 100 and 117))
+  """,
+  """
+  update trips set trip_headsign = (
+    select s.stop_name from stop_times st join stops s using (stop_id)
+     where st.trip_id = trips.trip_id order by st.stop_sequence desc limit 1)
+  where coalesce(trim(trip_headsign), '') = ''
     and route_id in (select route_id from routes where route_type = 2 or route_type between 100 and 117)
   """,
 ]

@@ -16,12 +16,11 @@ anchors = [
 
 [[corridors]]
 id = "si-20"
-name = "Ljubljana – Jesenice – Villach"
+name = "Ljubljana – Kranj – Jesenice"
 anchors = [
   "1122804", # Ljubljana
   "1122811", # Kranj
   "1122836", # Jesenice
-  "INTL-8100147", # Villach Hbf
 ]
 
 [[corridors]]
@@ -35,14 +34,13 @@ anchors = [
 
 [[corridors]]
 id = "si-30"
-name = "Zidani Most – Maribor – Spielfeld-Straß"
+name = "Zidani Most – Celje – Maribor – Šentilj"
 anchors = [
   "1122792", # Zidani Most
   "1122888", # Celje
   "1122899", # Pragersko
   "1122913", # Maribor
   "1122935", # Šentilj
-  "INTL-8100082", # Spielfeld-Straß
 ]
 
 [[corridors]]

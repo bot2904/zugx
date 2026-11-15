@@ -3,11 +3,11 @@ name = "Rakitovec"
 year = 2026
 begin = "2025-12-14"
 end = "2026-12-12"
-source = "IJPP / NAP Slovenija (CC BY-SA 4.0)"
+source = "DUJPP via NAP Slovenija (CC BY-SA 4.0)"
 days = ["AAAAAAAAAAAAAAAAAAACBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIEA==", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH//////////wAAAAAAAAAAAAAAAAAA=="]
 deps = [
-  [549,"MV","1473","7900009",["7900179","7900039"],0,""],
-  [1193,"MV","1471","7900009",["7900179","7900039"],1,""],
+  [549,"SŽ","1473","7900009",["7900179","7900039"],0,""],
+  [1193,"SŽ","1471","7900009",["7900179","7900039"],1,""],
 ]
 
-names = { 7900009 = "Divaca", 7900039 = "Hrpelje-Kozina", 7900179 = "Podgorje" }
+names = { 7900009 = "Divača", 7900039 = "Hrpelje-Kozina", 7900179 = "Podgorje" }
