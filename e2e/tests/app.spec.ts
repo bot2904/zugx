@@ -490,6 +490,9 @@ test("bildfahrplan: arrow keys zap through days and hours", async ({ page }) => 
   await expect(page).toHaveURL(/from=9/);
   await page.keyboard.press("h");
   await expect(page).toHaveURL(/from=8/);
+  // start time typed into the time input
+  await page.getByLabel(/^(Start time|Startzeit|Ora di inizio)$/).fill("14:30");
+  await expect(page).toHaveURL(/from=14.5/);
 });
 
 test("journeys: placeholder rows while loading later connections, new rows appended", async ({

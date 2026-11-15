@@ -297,6 +297,11 @@ const trainsOnDate = computed(() => (data.value?.trains ?? []).filter(runsOnDate
 function shiftDay(delta: number) {
   setQuery({ d: addDays(date.value, delta) });
 }
+/** window start from the time input (HH:MM) */
+function setStartTime(v: string) {
+  const m = /^(\d\d):(\d\d)/.exec(v);
+  if (m) setQuery({ from: Math.round((Number(m[1]) + Number(m[2]) / 60) * 100) / 100 });
+}
 /** window start ± hours (whole hours: from 7.5, one earlier is 7, one later 8) */
 function shiftHour(delta: number) {
   const f = from.value;
@@ -635,7 +640,14 @@ function toggleCat(c: string) {
       </span>
       <span class="flex items-center gap-1">
         <button class="btn" v-tip="`${$t('bf.hourEarlier')} (↑)`" @click="shiftHour(-2)">▲</button>
-        <span class="mono" v-tip="$t('bf.wheelHint')">{{ hhmmOf(startMin) }}</span>
+        <input
+          type="time"
+          class="input mono text-xs"
+          :value="hhmmOf(startMin)"
+          :aria-label="$t('bf.startTime')"
+          v-tip="$t('bf.wheelHint')"
+          @change="setStartTime(($event.target as HTMLInputElement).value)"
+        />
         <button class="btn" v-tip="`${$t('bf.hourLater')} (↓)`" @click="shiftHour(2)">▼</button>
         <button
           v-for="h in [2, 4, 8, 24]"

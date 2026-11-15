@@ -151,6 +151,7 @@ export default {
     hint: "Positionen werden von ÖBB HAFAS berechnet.",
   },
   bf: {
+    startTime: "Startzeit",
     showBoth: "Bildfahrplan und Tabelle",
     chartNewWindow: "Bildfahrplan in neuem Fenster",
     tableNewWindow: "Tabelle in neuem Fenster",

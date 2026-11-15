@@ -151,6 +151,7 @@ export default {
     hint: "Posizioni calcolate da ÖBB HAFAS.",
   },
   bf: {
+    startTime: "Ora di inizio",
     showBoth: "Grafico e tabella",
     chartNewWindow: "Grafico in nuova finestra",
     tableNewWindow: "Tabella in nuova finestra",
