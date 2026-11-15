@@ -771,6 +771,26 @@ Goal: a new view "VzG-Grafik" modelled on ÖBB's VzG pages (Strecke 10101 / REGE
 9. Scope of lines: only ÖBB (ref pattern ddd dd), or also private lines (GKB, Montafonerbahn, Zillertalbahn, narrow gauge)?
 10. Feed the speed profiles into the Bildfahrplan now (step 2 of the realistic paths), or first ship the VzG-Grafik view?
 
+### VzG chart / line map: ideas from the Wikipedia route diagram (Streckenband, BS icons)
+
+Reference: the Arlbergbahn's route diagram on Wikipedia (Innsbruck – Landeck): a schematic vertical strip of BS icons with km, names, details and elevation per row. What it shows that our VzG chart lacks, and where the data would come from:
+
+- **Track layout as a schematic strip**: single/double track (the line splits into two where it becomes double track), stations as filled circles, halts smaller, closed stations faint, sidings/connections (Anschlussstelle "Awanst", Überleitstelle "Üst", Abzweig) as small branches. OSM: `tracks` on the ways (already extracted), `railway=station|halt|service_station|crossover|junction` + `railway:ref`, sidings/industrial spurs (`service=spur`, `usage=industrial` — excluded today, would be needed as stubs only).
+- **Junctions with the connecting lines named and directed**: "Mittenwaldbahn nach Garmisch-Partenkirchen", "Brennerbahn nach Verona", "von Kufstein" — our connections plus the far end of the other line.
+- **Tunnels with length and portals**, **bridges with length and height** ("Trisannabrücke (L 207 m / H 87,4 m)", "Zammer Tunnel (2335 m), Ostportal … Westportal"). OSM `tunnel`/`bridge` + names (`tunnel:name`, `bridge:name`), length from the geometry, height from OSM `height` (rare) or a DEM (terrain below the deck).
+- **Road crossings**: motorways crossing the line with their numbers ("A12 E60 Inntal Autobahn"). OSM `highway=motorway|trunk` ways intersecting the line (bridge or tunnel over/under), `ref`/`int_ref`.
+- **Elevation per station** ("582 m ü. A.", a column on the right; highest point). OSM `ele` on station nodes (partly), else a DEM (basemap.at DGM) at the station position — also enables a **gradient column** (VzG columns 4/5) as a by-product.
+- **History in the rows**: former names ("vorm. Wilten", "bis 2005: Landeck", "1944: Imst"), opening/closing dates ("Unterperfuss bis 29. September 1968", "Oberhofen im Inntal ab 12. Dezember 2004"), realignments ("Beginn/Ende Linienverlegung", old alignment drawn faint), old tunnels ("alter Moltertobeltunnel, bis 22. April 1914"). OSM `old_name`, `start_date`/`end_date`, `railway=abandoned|disused` (not extracted), Wikidata for names over time.
+- **Chainage errors ("Fehlerprofil")**: km jumps where the kilometrage was not renumbered after a realignment ("Fehlerprofil (−85 m)"). Our chainage fit already sees these as steps between consecutive OSM `railway:position` values — show them as rows instead of smoothing them away.
+- **Links**: station and structure names link to their articles; OSM `wikipedia`/`wikidata` on stations, bridges and tunnels.
+- **Layout**: km with 3 decimals left, the strip, names in the middle (main stations large), remarks after the name, elevation right — a compact, scrollable list that works on phones better than our wide chart.
+
+**Possible outputs**
+
+1. **"Streckenband" mode for the VzG view**: the schematic strip as an alternative to the speed chart (same data, plus tracks, structures, elevation, history), or as extra columns in the chart (structures, elevation/gradient).
+2. **Line map**: named tunnels/bridges with lengths (see the reference-map ideas), stations by class, closed stations faint, realignments.
+3. **Wikitext export** of a draft route diagram (`{{BS-table}}` / BS rows: icon codes, km, names, links) from the OSM data, for Wikipedia editors to start from — the BS icons are on Commons, so only the row codes need generating; the facts (km, names, lengths) are fine to reuse with an OSM attribution note.
+
 ### Line map (Streckenkarte): ideas from reference maps (collected 2026-11-15)
 
 First version done (`/vzg/:line/map`): line in red with tunnels dashed, other lines grey, stations with non-overlapping labels linked to departure boards, connecting lines linked to their maps, optional km posts, colour by permitted speed (ColorBrewer RdYlBu), scale bar, north arrow, title/legend/sources inside, SVG download, print, snapshot test (Stubaitalbahn). Compared with five reference maps — a German-Wikipedia locator map ("Mittelbadische Eisenbahnen"), a modern editorial map ("Zackenbahn", Jelenia Góra – Harrachov), the SBB GA network map, a Wikipedia project map ("Brenner-Nordzulauf") and a Wikipedia line map ("Arlbergbahn") — ours lacks:
