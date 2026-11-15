@@ -364,6 +364,9 @@ importers:
 
   packages/netz:
     dependencies:
+      '@zugx/db':
+        specifier: workspace:*
+        version: link:../db
       '@zugx/toml':
         specifier: workspace:*
         version: link:../toml

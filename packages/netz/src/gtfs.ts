@@ -53,6 +53,14 @@ export interface Feed {
 
 /** Raw GTFS tables as text-chunk iterables (lets tests feed synthetic data). */
 export type TableSource = (name: string) => Iterable<string> | undefined;
+/** GTFS tables as records (column → value text), e.g. rows of the local SQLite (@zugx/db) */
+export interface RecordSource {
+  records(name: string): Iterable<Record<string, string>>;
+}
+export type Source = TableSource | RecordSource;
+/** the records of a table from either kind of source */
+const table = (src: Source, name: string): Iterable<Record<string, string>> =>
+  typeof src === "function" ? csvRecords(src(name) ?? []) : src.records(name);
 
 const NEEDED = ["stops", "routes", "trips", "calendar", "calendar_dates", "stop_times"]; // shapes: streamed, loadShapes
 
@@ -114,14 +122,14 @@ const gtfsDate = (day: string) => day.replaceAll("-", "");
 const WEEKDAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
 
 /** Set of service_ids active on `day` (YYYY-MM-DD). */
-export function activeServices(src: TableSource, day: string): Set<string> {
+export function activeServices(src: Source, day: string): Set<string> {
   const d = gtfsDate(day);
   const weekday = WEEKDAYS[Temporal.PlainDate.from(day).dayOfWeek - 1]!;
   const active = new Set<string>();
-  for (const r of csvRecords(src("calendar") ?? [])) {
+  for (const r of table(src, "calendar")) {
     if (r[weekday] === "1" && r.start_date! <= d && d <= r.end_date!) active.add(r.service_id!);
   }
-  for (const r of csvRecords(src("calendar_dates") ?? [])) {
+  for (const r of table(src, "calendar_dates")) {
     if (r.date !== d) continue;
     if (r.exception_type === "1") active.add(r.service_id!);
     else if (r.exception_type === "2") active.delete(r.service_id!);
@@ -145,10 +153,10 @@ export function parentDhid(stopId: string): string {
 }
 
 /** First and last day (YYYY-MM-DD) covered by calendar.txt / calendar_dates.txt. */
-export function feedPeriod(src: TableSource): { begin: string; end: string } {
+export function feedPeriod(src: Source): { begin: string; end: string } {
   let lo = "99999999";
   let hi = "00000000";
-  for (const r of csvRecords(src("calendar") ?? [])) {
+  for (const r of table(src, "calendar")) {
     if (r.start_date! < lo) lo = r.start_date!;
     if (r.end_date! > hi) hi = r.end_date!;
   }
@@ -160,11 +168,7 @@ export function feedPeriod(src: TableSource): { begin: string; end: string } {
  * Running days per service_id within [begin, end] (YYYY-MM-DD, inclusive), as day
  * indexes counted from `begin`.
  */
-export function serviceDays(
-  src: TableSource,
-  begin: string,
-  end: string,
-): Map<string, Set<number>> {
+export function serviceDays(src: Source, begin: string, end: string): Map<string, Set<number>> {
   const b = Temporal.PlainDate.from(begin);
   const n = b.until(end).days + 1;
   const days = Array.from({ length: n }, (_, i) => {
@@ -177,14 +181,14 @@ export function serviceDays(
     if (!set) out.set(id, (set = new Set()));
     return set;
   };
-  for (const r of csvRecords(src("calendar") ?? [])) {
+  for (const r of table(src, "calendar")) {
     const set = get(r.service_id!);
     days.forEach(({ d, wd }, i) => {
       if (r[wd] === "1" && r.start_date! <= d && d <= r.end_date!) set.add(i);
     });
   }
   const index = new Map(days.map(({ d }, i) => [d, i]));
-  for (const r of csvRecords(src("calendar_dates") ?? [])) {
+  for (const r of table(src, "calendar_dates")) {
     const i = index.get(r.date!);
     if (i === undefined) continue;
     if (r.exception_type === "1") get(r.service_id!).add(i);
@@ -194,11 +198,11 @@ export function serviceDays(
 }
 
 /** Loads all rail trips running on `day`, or all rail trips of the feed if `day` is null. */
-export function loadFeed(src: TableSource, day: string | null): Feed {
+export function loadFeed(src: Source, day: string | null): Feed {
   const stations = new Map<string, Station>();
   const parentOf = new Map<string, string>();
   const orphans: Station[] = [];
-  for (const r of csvRecords(src("stops") ?? [])) {
+  for (const r of table(src, "stops")) {
     const id = r.stop_id!;
     const st = {
       id,
@@ -222,7 +226,7 @@ export function loadFeed(src: TableSource, day: string | null): Feed {
   for (const o of orphans) if (!stations.has(o.id)) stations.set(o.id, o);
 
   const busRoutes = new Set<string>();
-  for (const r of csvRecords(src("routes") ?? [])) {
+  for (const r of table(src, "routes")) {
     // 2 = rail; 3 = bus (Schienenersatzverkehr), everything else non-rail too
     if (r.route_type !== "2" && !(Number(r.route_type) >= 100 && Number(r.route_type) < 200)) {
       busRoutes.add(r.route_id!);
@@ -231,7 +235,7 @@ export function loadFeed(src: TableSource, day: string | null): Feed {
 
   const services = day === null ? null : activeServices(src, day);
   const trips = new Map<string, Trip>();
-  for (const r of csvRecords(src("trips") ?? [])) {
+  for (const r of table(src, "trips")) {
     if ((services && !services.has(r.service_id!)) || busRoutes.has(r.route_id!)) continue;
     const short = (r.trip_short_name ?? "").trim();
     if (!short) continue;
@@ -249,7 +253,7 @@ export function loadFeed(src: TableSource, day: string | null): Feed {
   }
 
   const seq = new Map<Trip, number[]>();
-  for (const r of csvRecords(src("stop_times") ?? [])) {
+  for (const r of table(src, "stop_times")) {
     const trip = trips.get(r.trip_id!);
     if (!trip) continue;
     const arr = parseGtfsTime(r.arrival_time || r.departure_time!);

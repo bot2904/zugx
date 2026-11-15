@@ -19,7 +19,8 @@ import {
   CORRIDORS,
   type SpeedLookup,
 } from "./corridors.ts";
-import { feedPeriod, loadFeed, loadShapes, openFeed, parentDhid, serviceDays } from "./gtfs.ts";
+import { feedPeriod, loadFeed, loadShapes, parentDhid, serviceDays } from "./gtfs.ts";
+import { openZugxDb, recordSource } from "@zugx/db/query";
 import { buildNetz } from "./netz.ts";
 import { trafficDensity } from "./density.ts";
 import { corridorKmAt, lineFinder, linePosAt, shapeLine } from "./via.ts";
@@ -125,7 +126,8 @@ async function main() {
   const day = values.day;
   const cats = values.cats.split(",");
   const t0 = Date.now();
-  const src = await openFeed(join(root, ".cache"));
+  // GTFS tables from the local SQLite (vp run db:build); shapes still from the zip (loadShapes)
+  const src = recordSource(openZugxDb());
   const feed = loadFeed(src, day);
   console.log(`${day}: ${feed.trips.length} rail trips (${Date.now() - t0} ms)`);
 

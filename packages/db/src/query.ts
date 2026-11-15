@@ -166,3 +166,30 @@ export function gtfsFromDb(
   }
   return g;
 }
+
+/**
+ * GTFS tables as records (column → value as text, null → ""), rows in file order (rowid): for
+ * readers written against the CSV files (packages/netz)
+ */
+export function recordSource(db: Db): { records(name: string): Iterable<Record<string, string>> } {
+  const TABLES = new Set([
+    "agency",
+    "stops",
+    "routes",
+    "trips",
+    "calendar",
+    "calendar_dates",
+    "stop_times",
+  ]);
+  return {
+    *records(name: string) {
+      if (!TABLES.has(name)) return;
+      for (const row of db.prepare(`select * from ${name} order by rowid`).iterate()) {
+        const out: Record<string, string> = {};
+        for (const [k, v] of Object.entries(row as Record<string, unknown>))
+          out[k] = v === null || v === undefined ? "" : String(v);
+        yield out;
+      }
+    },
+  };
+}
