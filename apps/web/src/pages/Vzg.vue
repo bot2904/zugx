@@ -443,6 +443,10 @@ const fmt = (km: number) => km.toFixed(3);
         {{ data.name }}
         <template v-if="data.operator"> · {{ data.operator }}</template>
         <template v-if="data.gauge && data.gauge !== '1435'"> · {{ data.gauge }} mm</template>
+        ·
+        <RouterLink :to="`/vzg/${data.id}/map`" v-tip="$t('vzg.mapTip')">{{
+          $t("vzg.map")
+        }}</RouterLink>
         <template v-if="data.wikidata">
           ·
           <a

@@ -32,3 +32,9 @@ points = [
   { km = 17.9, kind = "halt", label = "Waldneukirchen", pos = [47.98484, 14.27644], measured = true },
   { km = 19.2, kind = "station", label = "Grünburg", pos = [47.97563, 14.26816], measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "cqedHgl}vAiAtCmBrg@k@~Io@jDdBnQiArJ^`c@g@`PuJh^aAtF[~ET~FqBvXaG|RyB~DcJzImKfVsC|Ji@~MPlM[pJyDpOiAtS]hPJn`@\\tDbCxCxa@nMpD|E~@|JxJzFrIl@~B[tDgGfBeHdD{FbEqC`HYpJt@dExBzKdBzKbHxe@th@vLnb@n@fEBhGZfBd[rn@pSbT~JlGlBtBdD|GpEzLrDxPvG~K|F~O^lHfBxEx@bFdEzNdFtW|FbOzHdJjE~I|@~@rAPpIiDpESrDuBxGTbJjBpGvHzEVfC|Hz@bAdFRpEbBhDzHvOzSrAxCxM|HdHjChBE" },
+]
+posts = [[0, 48.03874, 14.4098], [1, 48.03963, 14.39687], [2, 48.04099, 14.3839], [3, 48.04376, 14.37144], [4, 48.04932, 14.36134], [5, 48.05089, 14.34832], [6, 48.04713, 14.33869], [7, 48.03973, 14.33318], [8, 48.03221, 14.33781], [9, 48.0243, 14.33193], [10, 48.01875, 14.32187], [11, 48.01326, 14.31166], [12, 48.00639, 14.3034], [13, 48.00188, 14.29211], [14, 47.99687, 14.28126], [15, 47.9887, 14.28018], [16, 47.98148, 14.27379]]

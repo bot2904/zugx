@@ -8,6 +8,7 @@ import { mkdirSync, readFileSync, readdirSync, rmSync } from "node:fs";
 import { join } from "node:path";
 import { writeToml } from "@zugx/toml";
 import { connections } from "../src/connections.ts";
+import { decodePolyline, encodePolyline, simplify } from "../src/geo.ts";
 import { buildLines } from "../src/lines.ts";
 import type { RailExtract, VzgIndexEntry } from "../src/types.ts";
 
@@ -70,6 +71,17 @@ for (const l of lines) {
     ],
   });
 }
+// all lines' geometry, coarser (~40 m), for the context network on the line maps
+writeToml(join(out, "geometry.toml"), {
+  lines: lines.flatMap((l) => {
+    const g = l.tracks[0]?.geo;
+    if (!g) return [];
+    const pts = g.segments.flatMap((s) => decodePolyline(s.line));
+    return [
+      { id: l.id, ...(l.ref ? { ref: l.ref } : {}), line: encodePolyline(simplify(pts, 40)) },
+    ];
+  }),
+});
 writeToml(join(out, "index.toml"), {
   source: `OpenStreetMap (${ex.source}), © OpenStreetMap contributors, ODbL 1.0`,
   created: ex.created,

@@ -27,6 +27,12 @@ points = [
   { km = 86.684, kind = "signal", label = "R305", signal = "main", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "axg{GeteyA`B_KrF{g@fDq_@zY}oCpKcqC" },
+]
+posts = [[86, 46.57341, 14.79081], [85, 46.57116, 14.80318], [84, 46.5688, 14.81582], [83, 46.56762, 14.82887]]
+
 [[connections]]
 km = 86.343
 station = "Bleiburg/Pliberk"

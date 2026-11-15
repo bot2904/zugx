@@ -134,6 +134,26 @@ points = [
   { km = 16.361, kind = "station", label = "Heiligenstadt", uic = "8170015", pos = [48.24805, 16.36554], measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "_sdeHmyfbBrSwrAhCwUhAw_ASyNaAcQ@wKb@oJvCaYn@q`@O_EcAkDaBqBwC{AsE\\_HtH" },
+  { line = "amdeHuapbBi@t@", tunnel = true },
+  { line = "kndeH_`pbB{BdCoB|@" },
+  { line = "wudeH{yobB_F[eZiH_IyC", tunnel = true },
+  { line = "}afeH{hpbBck@eO_CNiIpDiE@mZiHsLuHoDyEyBsH_EoUgHgNe@mD]oPgBaGkEmHkCoBcC[uLZiCq@wBiB" },
+  { line = "inkeH}ltbBgJyJ", tunnel = true },
+  { line = "qykeHwxtbBqCwC" },
+  { line = "c~keHo}tbBiXuYoAsCq@iE", tunnel = true },
+  { line = "o{leHccvbBHaN" },
+  { line = "e{leHervbBA}@", tunnel = true },
+  { line = "g{leHctvbBkAiHwC}D}Cy@iIXuCgA" },
+  { line = "ivmeHsfwbBaA_A", tunnel = true },
+  { line = "kxmeHshwbB}@wA" },
+  { line = "izmeHkkwbBeA{C", tunnel = true },
+  { line = "o|meHgpwbBg@uIdCmVFkQdDiN`@yDCiKv@mKk@yFuAwC{AoAyJiA_r@q]mBaDs@mFXqF~AqE" },
+]
+posts = [[-3, 48.19661, 16.26495], [-2, 48.19373, 16.27771], [-1, 48.19362, 16.29116], [0, 48.19277, 16.30443], [1, 48.19849, 16.30633], [2, 48.20727, 16.30947], [3, 48.21598, 16.31049], [4, 48.22376, 16.31628], [5, 48.2275, 16.32784], [6, 48.23544, 16.33263], [7, 48.24035, 16.34263], [8, 48.24502, 16.35027], [9, 48.25394, 16.36868]]
+
 [[tracks]]
 track = "2"
 kmFrom = -3.372
@@ -255,6 +275,26 @@ points = [
   { km = 9.405, kind = "signal", label = "VHT931", signal = "shunting", measured = true },
   { km = 16.361, kind = "station", label = "Heiligenstadt", uic = "8170015", pos = [48.24805, 16.36554], measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "_sdeHmyfbBrSwrAhCwUhAw_ASyNaAcQ@wK^yJlCcWv@gb@OwDcAkDgCoCgC_AwE|@}F~G" },
+  { line = "_mdeHgapbBg@n@", tunnel = true },
+  { line = "gndeHw_pbBkBxBaCjA" },
+  { line = "uudeHqyobBaF[cZiHcIyC", tunnel = true },
+  { line = "_bfeHqhpbB_k@cOcCNgInDmEBkZiHuK}GsBeBkBgDmB}G_EqUcH}Mg@yD_@oPcB{FmEmHgCkBaC[aMZ_Cq@yBmB" },
+  { line = "mnkeHultbBgJyJ", tunnel = true },
+  { line = "uykeHoxtbBqCwC" },
+  { line = "g~keHg}tbBiXuYsAuCo@mE", tunnel = true },
+  { line = "u{leHacvbBFcN" },
+  { line = "m{leHervbBA{@", tunnel = true },
+  { line = "o{leHatvbBiAeHuCwDyCy@iIVyCgA" },
+  { line = "mvmeHifwbBcA_A", tunnel = true },
+  { line = "qxmeHihwbB}@yA" },
+  { line = "ozmeHckwbBeA_D", tunnel = true },
+  { line = "u|meHcpwbBg@{IbCkVHsQfDoN\\mDCiKv@}Ja@gFaAiCqBqB{JgAgr@g^kBmDk@eF\\oFzAgE" },
+]
+posts = [[-3, 48.19661, 16.26494], [-2, 48.19373, 16.2777], [-1, 48.19361, 16.29116], [0, 48.19281, 16.30444], [1, 48.19863, 16.30628], [2, 48.20728, 16.30941], [3, 48.21598, 16.31044], [4, 48.22373, 16.31604], [5, 48.22773, 16.3281], [6, 48.23563, 16.33276], [7, 48.24057, 16.34298], [8, 48.24506, 16.35028], [9, 48.24415, 16.36334]]
 
 [[connections]]
 km = -3.284

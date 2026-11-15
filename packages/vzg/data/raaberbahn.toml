@@ -166,3 +166,9 @@ points = [
   { km = 115.165, kind = "signal", signal = "electricity" },
   { km = 115.303, kind = "signal", signal = "shunting" },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "qafbHov}cB_Yjm@eeAhpBmE~GkHxGcIjDeHfAwNV_FtAaFxE{JhQgBpEq@|E\\fUiDd`@_CnHkDjDeD|@aEOeDmAaC{B_BeD{@{Da@eQy@gG}CmGoEiC_EGw^pGy_A@}KuA_T}ImFJyElDqCpHe@hHr@jZOpEqBjIsDjE_FjAydBlBaMjCgHnEmi@bf@}h@`O}FlDeTvQ{LlKib@bd@uDhGwGlRoCxDyEhBmQWaCz@sChCs[b]}CfHk@dF?nEpDzSAdLwI`{@uBhHcKpUuFnI_RtSqSjJuNjOwE|CcEhAgKp@{D|AoDhDiC|E}B~KwCzh@LnJ`Ddg@WfJeBzKeFpLcQjPiDpGgB|KSfXsAhG_CbFqDfEgf@d]" },
+]
+posts = [[90, 47.7154, 16.53834], [91, 47.72135, 16.52832], [92, 47.72743, 16.51847], [93, 47.73485, 16.51173], [94, 47.74207, 16.50545], [95, 47.74467, 16.49359], [96, 47.74989, 16.50213], [97, 47.75873, 16.50123], [98, 47.76772, 16.50129], [99, 47.77562, 16.50062], [100, 47.77911, 16.49094], [101, 47.7881, 16.49062], [102, 47.797, 16.48954], [103, 47.80466, 16.48266], [104, 47.81318, 16.47877], [105, 47.82076, 16.47168], [106, 47.82722, 16.46269], [107, 47.83534, 16.45848], [108, 47.83736, 16.44733], [109, 47.84035, 16.43495], [110, 47.84726, 16.42682], [111, 47.85538, 16.42187], [112, 47.85953, 16.41138], [113, 47.8594, 16.39833], [114, 47.8648, 16.3886], [115, 47.87047, 16.37975]]

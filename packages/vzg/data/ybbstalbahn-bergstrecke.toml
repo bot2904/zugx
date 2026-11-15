@@ -24,3 +24,9 @@ points = [
   { km = 67.9, kind = "halt", label = "Gaming", pos = [47.92885, 15.08594], measured = true },
   { km = 70.933, kind = "station", label = "Kienberg", pos = [47.94294, 15.114] },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "ug{bH_enzAk@cEcRwl@oSiYgEwQsq@apAuBq@eH|@}@~@iBlFaCx@eRmEoPmGkKcAyGiH{Y_JoMuUgCeBaKYwA^_EhIiD|@{B`FoKvHeEdM}I~DsDzI{DjC{BlEiStJ{@vBaCbN_ElKa@nFgAfC]vCw@hAgFW}B}CkCgBeDZsBaBoD[gC_E_CeBw@_Do@m@kAF{E~CeBu@iAeDy@q@aAF{A`BkABkC_Ds@uDu@m@aADq@t@e@lEm@lAcHzCsAB_DuA}Cj@gAa@sAsC}BkBaL{SiE{UxDu[lCqGlEsGnBeLZo\\WeJn@mEImFgBsF|AaIiA_L`@uIiAcKo@s@aDYs@yBd@gCvCuAj@_AnA_LwAwGCyFoAkNqGgKsJ}BuFjBaDcDc@yCrAeFm@aHo@y@iFPaAm@w@uFoCwBgBoF]uGiEsEuA_LqBsDcGuDsFs@{A^aHSoCpBu@?mDeHsCD_Ak@w@yE}CoF}E_CePqPuAHiFjEeBZmBc@{D}CoGiAaBmAeEkJDiH_@{B{Woe@mHcGsB_DsEoCoJuSkL}PaFaKeHmBwAcC{BeIiOkKsAmBk@sCCqCvCsQJcD_DaQoCcJSkP" },
+]
+posts = [[49, 47.82473, 14.99395], [50, 47.8305, 15.00393], [51, 47.83661, 15.01375], [52, 47.84437, 15.01481], [53, 47.85304, 15.01895], [54, 47.86082, 15.0231], [55, 47.86698, 15.01642], [56, 47.87371, 15.00932], [57, 47.87953, 15.00402], [58, 47.88691, 15.00744], [59, 47.89393, 15.00857], [60, 47.89545, 15.02044], [61, 47.89334, 15.03349], [62, 47.89395, 15.04459], [63, 47.89856, 15.05365], [64, 47.9031, 15.06185], [65, 47.90976, 15.06766], [66, 47.91658, 15.07372], [67, 47.92396, 15.0773], [68, 47.92961, 15.08655], [69, 47.93587, 15.09525], [70, 47.94209, 15.10291]]

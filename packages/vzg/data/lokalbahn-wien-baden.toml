@@ -291,6 +291,12 @@ points = [
   { km = 27.145, kind = "signal", label = "Z43", signal = "main", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "ow_eHettbBf[~N~OAhCsBdNqWtHiIhPmJfTwJpFcAfC~@`F~EdD|JnMxLxe@b]zFdAvGKzS~NrUtMdo@xXba@rH~i@jIjLz@fRG~_CpH`MUnMbCpJLrk@`Kde@uFzC}AjQ{Bpn@jYnEfArDShD}A`EaD|HiJzBiAbCTrGhCjKnAhCjAvEjCbEzGt@vBrBbNdCtEhcBjb@tfAzz@|\\nTdF~GlEbSh@nJoHviBPnFz@|BbB|A`n@lW|CvFh@vIiCrOoItTwLpc@oArGm@`Sa@nCcEtLkCxA" },
+]
+posts = [[3, 48.16785, 16.32841], [4, 48.16053, 16.33502], [5, 48.15218, 16.3377], [6, 48.14577, 16.33092], [7, 48.13747, 16.32629], [8, 48.12915, 16.32118], [9, 48.1205, 16.31772], [10, 48.11163, 16.31563], [11, 48.10265, 16.31518], [12, 48.09368, 16.31452], [13, 48.08465, 16.31414], [14, 48.07585, 16.31215], [15, 48.06709, 16.31276], [16, 48.05842, 16.31099], [17, 48.05032, 16.31259], [18, 48.04266, 16.30758], [19, 48.03493, 16.3026], [20, 48.02619, 16.29962], [21, 48.0182, 16.29315], [22, 48.01024, 16.28698], [23, 48.00729, 16.27557], [24, 48.00847, 16.26239], [25, 48.00061, 16.25689], [26, 48.00204, 16.24573], [27, 48.00573, 16.23383]]
+
 [[connections]]
 km = 3.49
 station = "Schöpfwerk"

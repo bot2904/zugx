@@ -22,3 +22,15 @@ points = [
   { km = 19.328, kind = "halt", label = "Koglhof", pos = [47.31689, 15.69255] },
   { km = 23.94, kind = "station", label = "Birkfeld", pos = [47.35296, 15.69817] },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "a~c_He_m~AGsEyBwGmAcBsC]{HxCeBs@w@cBKeDjBuJ[aPsAcGkHiNcFa_@JwH`C}MAwBk@iBsDeC}C_GmB}AoCfA{JrIiBXgBcC@_Ky@eCiBe@}GhBcBi@uDgK`CgTmC{W}AaDeI{AoDoEY{C~@_Kc@kCyB_AeNrBy@k@{@_CeDcPuBgDyAk@kBF{FrD{DwB_AyCp@uFGsC{@yBuDsCU_MwAiCgBCgDdDoB|@aI|@_Bi@{F}McAkQu@gEkAeBgCu@oEyDsAyBs@aD" },
+  { line = "_jk_Howx~AaBwR", tunnel = true },
+  { line = "amk_Hgky~ALkIh@mFdE}RKiCeFqO}E}UwGgLeKmAcHoDu@mBEwF_@aB}DsBqAt@_ChFaKvFcNvZuEhDkD`IuGhD{B|DyF|OcErTuYp]eCl@iGuBqGpAwOdLwM|E}DhFsGWuCdDeDrAeIdNsAbAcInBoJQiAoBQ}NsA_GcC_C_LkAcDwByDpAaHv@}D~CsD|GqAv@qBs@yAiHeCoDiBe@oNGwKaK}C~@_JfJoBSuHiDaEOgBt@iCrF" },
+  { line = "qzw_H}_x~AeDL", tunnel = true },
+  { line = "w_x_Ho_x~AgEyA_IpCiBFcAY{CeDmHqBuKq@qImCiD`@gFSsFaBqH{GqFcCaBb@uBhD" },
+  { line = "ag{_Hgvx~AqBXkAg@", tunnel = true },
+  { line = "_m{_Huvx~AkBeFwBwCsCw@wA`@uC`I}BTkIyMcU_PeEjAsJhNaBEqFyDyGdBiBzAgElH_H|DyJIiOuL" },
+]
+posts = [[1, 47.21369, 15.63934], [2, 47.21703, 15.64858], [3, 47.219, 15.6602], [4, 47.22544, 15.6623], [5, 47.22823, 15.6727], [6, 47.23405, 15.67824], [7, 47.23927, 15.68501], [8, 47.24556, 15.68928], [9, 47.24962, 15.69998], [10, 47.25039, 15.71206], [11, 47.2569, 15.71918], [12, 47.26356, 15.71087], [13, 47.26896, 15.70099], [14, 47.27677, 15.69624], [15, 47.28477, 15.69136], [16, 47.29103, 15.69115], [17, 47.29881, 15.6917], [18, 47.30616, 15.69542], [19, 47.31409, 15.69292], [20, 47.32265, 15.69459], [21, 47.33086, 15.69641], [22, 47.33773, 15.69995], [23, 47.34549, 15.7], [24, 47.35342, 15.69856]]

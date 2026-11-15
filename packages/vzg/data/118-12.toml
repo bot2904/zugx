@@ -18,3 +18,9 @@ points = [
   { km = 5.583, kind = "signal", label = "M392", signal = "main,shunting", measured = true },
   { km = 6.376, kind = "signal", label = "F392/g,l", signal = "distant,main,shunting", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "ozzdHa|gcBde@kX" },
+]
+posts = [[6, 48.14455, 16.43174]]

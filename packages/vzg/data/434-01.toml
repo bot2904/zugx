@@ -238,6 +238,18 @@ points = [
   { km = 39.959, kind = "signal", label = "FE231R", signal = "minor", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "ouf~Gaz`{AyC}N]iEd@uOrCgTg@oHsB_F" },
+  { line = "izf~Gwfc{AyAeB", tunnel = true },
+  { line = "c}f~G}ic{AeDiGo@gInAgOhCwOhAkLxAgFlFuIbDkKlEsH" },
+  { line = "{df~Gyrf{A~AmGPcI", tunnel = true },
+  { line = "iaf~Gkeg{Ae@}JVoReBuRPeE|@aE~NsX``@qpAlCiGjIaN~RcKfQmP|FmKh[}qAz@sIh@kVr@sEdC}EnTsQ`CaDbHcS^_G[kH" },
+  { line = "gl`~G_qt{A\\kG", tunnel = true },
+  { line = "ik`~Gkyt{A`IgU~IaGjG{LhJkDxCyDrAkG|Ao[pB{Gz}AeuB|CkG`AuFPaF_CunAZ{LlAuHhd@okBjAiJ?qImGwrAFcJnA_K~B{Hp}CyaIzBgK`Hqt@~@wExDsHxP}OnIgQzAyElCgPvGaKzA}Dp@eGQmGuDqPcEg_@}Kaa@__@{pAuDaHuFcEqhAgYaJDuS|DkIe@aGwC_r@uj@mFoCuuCug@kJNcyCrb@eLI_VkJ}o@{ZeByCkAgF_Ec^qBkHmBmC}B}@eCJmJ~F" },
+]
+posts = [[39, 47.06207, 15.09468], [38, 47.06219, 15.10644], [37, 47.05847, 15.11756], [36, 47.0561, 15.12912], [35, 47.05144, 15.14049], [34, 47.04476, 15.1485], [33, 47.03905, 15.15821], [32, 47.03591, 15.17035], [31, 47.02997, 15.17936], [30, 47.0258, 15.18987], [29, 47.02104, 15.19952], [28, 47.01458, 15.20849], [27, 47.00779, 15.21694], [26, 47.00419, 15.22726], [25, 47.00414, 15.24033], [24, 47.00012, 15.25202], [23, 46.99811, 15.26436], [22, 46.99894, 15.27737], [21, 46.99394, 15.28826], [20, 46.98867, 15.29898], [19, 46.98344, 15.30963], [18, 46.97835, 15.31999], [17, 46.97299, 15.3309], [16, 46.97019, 15.34341], [15, 46.96409, 15.35266], [14, 46.96286, 15.36411], [13, 46.9667, 15.3759], [12, 46.97128, 15.38719], [11, 46.97975, 15.39116], [10, 46.98859, 15.39216], [9, 46.99679, 15.39634], [8, 47.00496, 15.40135], [7, 47.01381, 15.40374], [6, 47.02268, 15.40613], [5, 47.03157, 15.40611], [4, 47.04046, 15.40406], [3, 47.04932, 15.40201], [2, 47.05813, 15.40297], [1, 47.06644, 15.40783], [0, 47.07128, 15.41651]]
+
 [[tracks]]
 track = "2"
 kmFrom = -0.133
@@ -467,6 +479,18 @@ points = [
   { km = 39.941, kind = "stop", label = "Köflach", pos = [47.06159, 15.08295] },
   { km = 39.959, kind = "signal", label = "FE231R", signal = "minor", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "ouf~Gaz`{AyC}N]iEd@uOrCgTg@oHsB_F" },
+  { line = "izf~Gwfc{AyAeB", tunnel = true },
+  { line = "c}f~G}ic{AeDiGo@gInAgOhCwOhAkLxAgFlFuIbDkKlEsH" },
+  { line = "{df~Gyrf{A~AmGPcI", tunnel = true },
+  { line = "iaf~Gkeg{Ae@}JVoReBuRPeE|@aE~NsX``@qpAlCiGjIaN~RcKfQmP|FmKh[}qAz@sIh@kVr@sEdC}EnTsQ`CaDbHcS^_G[kH" },
+  { line = "gl`~G_qt{A\\kG", tunnel = true },
+  { line = "ik`~Gkyt{A`IgU~IaGjG{LhJkDxCyDrAkG|Ao[pB{Gz}AeuB|CkG`AuFPaF_CunAZ{LlAuHhd@okBjAiJ?qImGwrAFcJnA_K~B{Hp}CyaIzBgK`Hqt@~@wExDsHxP}OnIgQzAyElCgPvGaKzA}Dp@eGQmGuDqPcEg_@}Kaa@__@{pAuDaHuFcEqhAgYaJDuS|DkIe@aGwC_r@uj@mFoCuuCug@kJNcyCrb@eLI_VkJ}o@{ZeByCkAgF_Ec^qBkHmBmC}B}@eCJmJ~F" },
+]
+posts = [[39, 47.06207, 15.09468], [38, 47.06219, 15.10644], [37, 47.05847, 15.11756], [36, 47.0561, 15.12912], [35, 47.05144, 15.14049], [34, 47.04476, 15.1485], [33, 47.03905, 15.15821], [32, 47.03591, 15.17035], [31, 47.02997, 15.17936], [30, 47.0258, 15.18987], [29, 47.02104, 15.19952], [28, 47.01458, 15.20849], [27, 47.00779, 15.21694], [26, 47.00419, 15.22726], [25, 47.00414, 15.24033], [24, 47.00012, 15.25202], [23, 46.99811, 15.26436], [22, 46.99894, 15.27737], [21, 46.99394, 15.28826], [20, 46.98867, 15.29898], [19, 46.98344, 15.30963], [18, 46.97835, 15.31999], [17, 46.97299, 15.3309], [16, 46.97019, 15.34341], [15, 46.96409, 15.35266], [14, 46.96286, 15.36411], [13, 46.9667, 15.3759], [12, 46.97128, 15.38719], [11, 46.97975, 15.39116], [10, 46.98859, 15.39216], [9, 46.99679, 15.39634], [8, 47.00496, 15.40135], [7, 47.01381, 15.40374], [6, 47.02268, 15.40613], [5, 47.03157, 15.40611], [4, 47.04046, 15.40406], [3, 47.04932, 15.40201], [2, 47.05813, 15.40297], [1, 47.06644, 15.40783], [0, 47.07128, 15.41651]]
 
 [[connections]]
 km = -0.052

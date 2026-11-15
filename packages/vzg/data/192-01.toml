@@ -75,3 +75,9 @@ points = [
   { km = 22.782, kind = "signal", signal = "electricity" },
   { km = 22.798, kind = "signal", label = "V53", signal = "shunting", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "enudHevhdBrByClGkDbBwBlA{Ex@wKhAyBzA_A`RD|KwDjIw@fMyCf~@bA~L`DfZlSpCM|EuEfCo@bUbJ`j@||@rBnBbBb@pLAtBeA~DcEtC_@dCzAxGbL~BvAlBL~c@{CvgAe]nh@a_@zB{DpD_OfCcCfDYlXjKtn@hr@nBt@~Lx@nBv@vB`Eb@lH" },
+]
+posts = [[11, 48.11927, 16.59867], [12, 48.11228, 16.60428], [13, 48.10342, 16.60579], [14, 48.09455, 16.60453], [15, 48.08636, 16.60209], [16, 48.07942, 16.59391], [17, 48.07171, 16.59179], [18, 48.06348, 16.58944], [19, 48.05469, 16.59295], [20, 48.04636, 16.59809], [21, 48.03919, 16.60274], [22, 48.0316, 16.59573]]

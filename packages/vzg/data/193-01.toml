@@ -33,3 +33,9 @@ points = [
   { km = 2.453, kind = "signal", signal = "snowplow" },
   { km = 2.687, kind = "signal", signal = "snowplow" },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "qaedHg{neB~ArMbDtLndAj`CjPnXdBhGJxG" },
+]
+posts = [[3, 48.03621, 16.79279], [2, 48.03125, 16.78159], [1, 48.0257, 16.77122]]

@@ -20,3 +20,9 @@ points = [
   { km = 7.666, kind = "halt", label = "Lintsching", pos = [47.14206, 13.77298] },
   { km = 9.225, kind = "halt", label = "St. Andrä-Andlwirt", pos = [47.14661, 13.79204] },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "cht~GusorApMgFlBcBpAyDFsGkKgv@_]odAaEuf@`ByQZwRg@aE}HuYCwDx@cNg@{HuAiFwFeMiA_H]gLwEsIw@oCkDy^{KcTsCeMgBsi@JiE`A{D~DoHhC{QdIg\\R_GkA_GgIiNoAwDyLk|@_HyZi@mGVcHxCkP{@yLFuEfO_f@|HkOhEaFzFkCpIY" },
+]
+posts = [[0, 47.13106, 13.68395], [1, 47.12897, 13.69378], [2, 47.1334, 13.7052], [3, 47.13495, 13.71769], [4, 47.13649, 13.73017], [5, 47.14045, 13.7416], [6, 47.144, 13.75328], [7, 47.14177, 13.76543], [8, 47.14345, 13.77681], [9, 47.14665, 13.78913], [10, 47.14472, 13.8014]]

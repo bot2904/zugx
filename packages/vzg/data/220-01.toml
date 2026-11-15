@@ -64,6 +64,16 @@ points = [
   { km = 15.719, kind = "signal", signal = "shunting" },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "{jcaH}wzyA{CLuFtBgIfA" },
+  { line = "uadaHqqzyAiErD", tunnel = true },
+  { line = "_hdaH}kzyAsG~QqDvE{u@|u@uQ|MaV~[_HlHuBbEqIjY{Px\\gE~E_PhLqHpLiFpDqApB_Gp\\OpGVjIa@xN{B`QcFnPwE|Hu`@`^qDfJaEjGm@nDGfFwBzJc@jJeBvHmAxJgKl\\YbNe@rDgExHs@zCBfNuAtXf@fKlBtMdBpGzLvRzAtISvFsBfLnAfR@`Gw@|DgGxLaC|N?rDhAfKNxFc@jFaCrIc@nD|@lXiB|SaCpGkFxGoOxGoPpQkCv@iXzBwDbB_DxDkNbZ_DrBcG`BwBpB" },
+  { line = "oiqaHob~xAuApE", tunnel = true },
+  { line = "elqaH}{}xA@~N" },
+]
+posts = [[15, 47.5416, 14.88384], [14, 47.54875, 14.87592], [13, 47.55624, 14.86868], [12, 47.56221, 14.85903], [11, 47.56907, 14.85074], [10, 47.57302, 14.8399], [9, 47.57727, 14.82885], [8, 47.58353, 14.82007], [7, 47.58718, 14.80803], [6, 47.58918, 14.79558], [5, 47.58529, 14.78426], [4, 47.58768, 14.77227], [3, 47.58803, 14.75943], [2, 47.59425, 14.75113], [1, 47.60241, 14.74679], [0, 47.60788, 14.73767]]
+
 [[connections]]
 km = -0.004
 station = "Hieflau"

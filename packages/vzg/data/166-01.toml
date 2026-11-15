@@ -70,6 +70,12 @@ points = [
   { km = 5.222, kind = "signal", signal = "speed_limit" },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "msbcH{mwaBdA}ELuDyB}[`@yKxAgFnCuDdDaB|DKxi@vTdYR~Ez@rSpObS~JbDvEzYjw@hN~VnBvBfD`@fDgBdO{Y" },
+]
+posts = [[5, 47.85957, 16.18446], [4, 47.85573, 16.19236], [3, 47.84708, 16.18932], [2, 47.83876, 16.18477], [1, 47.83321, 16.17441], [0, 47.82675, 16.17307]]
+
 [[connections]]
 km = -0.008
 station = "Bad Fischau-Brunn"

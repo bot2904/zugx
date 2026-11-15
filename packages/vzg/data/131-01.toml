@@ -41,6 +41,12 @@ points = [
   { km = 13.402, kind = "station", label = "Simmering", uic = "8170076", pos = [48.16978, 16.42053], measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "cyaeHizgcBxkAxq@hFbHbWtg@dClChCdAdFChEkC~U_`@zRaV" },
+]
+posts = [[5, 48.17907, 16.42649], [4, 48.1709, 16.42101], [3, 48.15755, 16.41971]]
+
 [[connections]]
 km = 3.773
 station = "Wien Simmering"

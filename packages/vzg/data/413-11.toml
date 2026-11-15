@@ -24,3 +24,9 @@ points = [
   { km = 1.537, kind = "signal", label = "1R742", signal = "main_repeated", measured = true },
   { km = 1.63, kind = "signal", label = "R742", signal = "main", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "euh`He_i|AwFAsD|AmOzOyCtGy@`IuBvgA" },
+]
+posts = [[1, 47.40508, 15.28324]]

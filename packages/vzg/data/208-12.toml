@@ -37,3 +37,9 @@ points = [
   { km = 184.68, kind = "signal", label = "f552/V532R", signal = "distant,shunting", measured = true },
   { km = 184.68, kind = "signal", label = "S552/l,k", signal = "distant,main,shunting", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "atpeH{dnvAkCeF`F~G|DnBvCFfCs@xE}F_AfCiGrLkObP}Zt`@iErAcLg@ib@vI}MxJkOvC" },
+]
+posts = [[182, 48.25656, 14.33046], [183, 48.26357, 14.32212], [184, 48.27226, 14.31975]]

@@ -22,6 +22,12 @@ points = [
   { km = 1.011, kind = "signal", label = "O433/r", signal = "distant,main,shunting", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "c`_fHin_aBrM\\zDrCpAtDpIdd@" },
+]
+posts = [[1, 48.32796, 16.05216]]
+
 [[connections]]
 km = 0.85
 station = "Tulln Stadt"

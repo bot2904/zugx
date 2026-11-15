@@ -64,6 +64,12 @@ points = [
   { km = 12.093, kind = "signal", label = "G217/r", signal = "distant,main", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "erdeHkvfbBcCdMsNb_@yBbIkAvL}@t`@kAbKiBtIiCvHeDvGyPpRuDjG}EhPcChOcCvbARjOtAtL~AdHbLtWhCrIfBhMf@~L_@dNuAnQeDjVwCbe@" },
+]
+posts = [[6, 48.19779, 16.25912], [7, 48.20185, 16.24728], [8, 48.2053, 16.23551], [9, 48.21021, 16.22503], [10, 48.21033, 16.21166], [11, 48.20621, 16.19977], [12, 48.20806, 16.1868]]
+
 [[connections]]
 km = 0
 station = "Hütteldorf"

@@ -27,6 +27,12 @@ points = [
   { km = 211.18, kind = "signal", label = "Bd11/r", signal = "distant,main", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "y_ceHuk|tA|aBx~D" },
+]
+posts = [[209, 48.18571, 14.06941], [210, 48.18026, 14.05874], [211, 48.17484, 14.04835]]
+
 [[tracks]]
 track = "2"
 kmFrom = 208.3
@@ -48,3 +54,9 @@ points = [
   { km = 211.017, kind = "signal", label = "zd11", signal = "distant,speed_limit_distant", measured = true },
   { km = 211.18, kind = "signal", label = "Bd11/r", signal = "distant,main", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "y_ceHuk|tA|aBx~D" },
+]
+posts = [[209, 48.18571, 14.06941], [210, 48.18026, 14.05874], [211, 48.17484, 14.04835]]

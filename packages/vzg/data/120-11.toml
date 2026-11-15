@@ -25,6 +25,12 @@ points = [
   { km = 5.794, kind = "signal", signal = "minor" },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "{_deHcgibBkP~bA" },
+]
+posts = [[5, 48.19494, 16.27185]]
+
 [[connections]]
 km = 0
 station = "Hütteldorf"

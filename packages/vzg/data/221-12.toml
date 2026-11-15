@@ -34,6 +34,12 @@ points = [
   { km = 184.359, kind = "signal", label = "V251", signal = "shunting", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "{sueH{tmvA}K|gA^fHrC~ErBr@lCOfUwJ~[mBzEaArCsAjG_GzDqA" },
+]
+posts = [[3, 48.28663, 14.32009], [2, 48.28116, 14.31671], [1, 48.27255, 14.31966]]
+
 [[connections]]
 km = 3.313
 station = "Linz Franckstraße"

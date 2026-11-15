@@ -305,3 +305,9 @@ points = [
   { km = 39.631, kind = "signal", signal = "main" },
   { km = 39.831, kind = "stop", label = "Drosendorf", pos = [48.86414, 15.62475] },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "ozfiHqjj~AnEcYvN{PlCcAja@aEzBiAnD_ElJ_DlCTxBlBhAbDfDnQjCfEjCrA|PlDvWeBdCzApGpJhDjAxBWzXmKrMyMn\\wWdZ}r@vCwEpu@_i@rCgF`@iDZiS|O{t@nG_l@OcEcAeDiJoJcKsPgB_Eg@iEByEh@eDvOag@|@uKOaKsA_J_B}EeWid@wY}a@ml@cs@{AmD_@yDLmDzH{h@`Eeg@lAel@zBgTfBgFnCmEzCoB`Ey@|CXlL`E|Me@xBq@hj@_|@|@kDZeG_EulANiNbCwK|Ok^^gE@iPbCeMfDqGnL{G`CgCnF{P`IqG~EiJfL{PtKg[bCoC`LcHlAuC`@}Ei@iNuIy`@{Fct@iAkHkf@m{@uKwT__@k]kJa`@]mCDyDnC{LzBwWtHy`@`FkOt@u^zEgYdC_HfDmFpDcDjLeGzA{BlAkEfHkw@S{GsCgXFeEx@_EzJaThCsChMiFf^{HbRyM`P}QtMqYVcIs@oDoAwBiDuAeGrAsC]}I_MuJgCaKiOw@_DKgDbC}SRwKx@uDvCgDfJ_AvGkJ|DoRhJ}NzBuUnFaKxFkT`@aFgAsLXcHbI}OdAmGe@iGqCuG}@gEE}Dn@wEjUac@~AmBhBw@vCHtE~CxCX`DkBpE{HhEm@pB~@`M|MxGbF" },
+]
+posts = [[39, 48.85858, 15.63065], [38, 48.85014, 15.63279], [37, 48.84319, 15.62693], [36, 48.83495, 15.62574], [35, 48.82695, 15.63208], [34, 48.82089, 15.64237], [33, 48.81289, 15.64854], [32, 48.80918, 15.6604], [31, 48.80807, 15.67266], [30, 48.81067, 15.68292], [29, 48.81056, 15.69519], [28, 48.81736, 15.7047], [27, 48.82433, 15.71278], [26, 48.82378, 15.725], [25, 48.82249, 15.73815], [24, 48.81518, 15.74206], [23, 48.80817, 15.74942], [22, 48.80634, 15.76161], [21, 48.80448, 15.77415], [20, 48.80007, 15.78479], [19, 48.79345, 15.79378], [18, 48.78745, 15.80293], [17, 48.79009, 15.8161], [16, 48.7948, 15.82714], [15, 48.80128, 15.83624], [14, 48.80634, 15.84628], [13, 48.80293, 15.8589], [12, 48.80008, 15.87143], [11, 48.79478, 15.88066], [10, 48.79389, 15.89374], [9, 48.78512, 15.89913], [8, 48.77828, 15.90585], [7, 48.78104, 15.91352], [6, 48.78534, 15.92235], [5, 48.78008, 15.93155], [4, 48.77537, 15.94253], [3, 48.77395, 15.95456], [2, 48.76946, 15.9645], [1, 48.76167, 15.96348]]

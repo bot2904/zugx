@@ -29,6 +29,12 @@ points = [
   { km = 7.283, kind = "signal", label = "h", signal = "distant", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "itydHmuhcBuj@~[uHtB{n@j]" },
+]
+posts = [[8, 48.14374, 16.43228], [7, 48.15206, 16.42726]]
+
 [[connections]]
 km = 6.772
 station = "Wien Zentralfriedhof"

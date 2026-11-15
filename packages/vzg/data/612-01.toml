@@ -31,3 +31,9 @@ points = [
   { km = 25.468, kind = "signal", signal = "crossing_distant" },
   { km = 25.712, kind = "signal", label = "au31", signal = "distant", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "acw|Gomm|Ap@pI]|I_Nlm@eAfHuDtcAkHr{@" },
+]
+posts = [[24, 46.82017, 15.30045], [25, 46.82152, 15.28754]]

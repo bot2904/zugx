@@ -6,7 +6,8 @@
   "type": "module",
   "exports": {
     ".": "./src/types.ts",
-    "./speed": "./src/speed.ts"
+    "./speed": "./src/speed.ts",
+    "./geo": "./src/geo.ts"
   },
   "scripts": {
     "test": "vp test run"

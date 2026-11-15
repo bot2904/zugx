@@ -26,6 +26,20 @@ points = [
   { km = 17.94, kind = "halt", label = "Vordernberg Markt", pos = [47.48579, 14.99456] },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "{jcaH}wzyA|EM|TbHzEp@`BlAbElGlIrCbJzApBpBbAtC" },
+  { line = "ubaaHasyyApC~Nx@lA", tunnel = true },
+  { line = "i|`aHs`yyArCx@vCk@xBuCz@yEYiGmEgM@oM}@kF" },
+  { line = "kv`aHcxzyAwAqJ", tunnel = true },
+  { line = "cy`aHuc{yAh@sG`FqNvLgNlGuL~FyBlImG|V}UrD_GlFaUE_Lr@gJOwC_A}DiAiBkBsAwB]}B^eBtAcHxKeDvImBtB_O|IcDP" },
+  { line = "s{_aHmy~yA}A}Aki@qoAi@sF", tunnel = true },
+  { line = "gjaaHqtazAG}NeA}EoCmDmKaH{AyD]uDr@mOnFgN`@}HlB_KtAsPzCaN" },
+  { line = "glaaHw{ezAbNa\\lE{F", tunnel = true },
+  { line = "uv`aHu`gzA`RcE~D{B|Vwi@j@wHsC}TqAeEuEyFiAkEGuEj@sLjC_LpOmOlJ_Q~AgEdCyMxEkIlJaGjIwJtGcD|DmH|EcElGiIzK_GtHk@pGuDjGmAnIgItBaAvO{@lGrB|Fn@" },
+]
+posts = [[2, 47.52955, 14.88549], [3, 47.52271, 14.87869], [4, 47.52287, 14.88961], [5, 47.517, 14.89868], [6, 47.50998, 14.90632], [7, 47.51214, 14.9145], [8, 47.51914, 14.90994], [9, 47.52461, 14.92034], [10, 47.52925, 14.93023], [11, 47.52674, 14.94236], [12, 47.52085, 14.95122], [13, 47.51448, 14.9599], [14, 47.51651, 14.97191], [15, 47.51057, 14.98156], [16, 47.50335, 14.98909], [17, 47.49523, 14.99408]]
+
 [[connections]]
 km = 7.6
 station = "Erzberg"

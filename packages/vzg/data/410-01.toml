@@ -47,6 +47,12 @@ points = [
   { km = 95.341, kind = "signal", label = "R313", signal = "train_protection", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "sbq{Gk~hyAlYdQ`JnBhIo@~OaI|HqA~F^pa@rJlOlAjHCxl@_E|j@g@tG_AjGmDfDyDzH}MzDyD~EwBfFa@jHrAlFzDzDpGhCxJn@lKc@~Kwj@thFgBpGkCfF{iAj}AeDvFgCvG{CjPo_@vrD" },
+]
+posts = [[80, 46.62036, 14.79467], [81, 46.61181, 14.79545], [82, 46.60298, 14.79317], [83, 46.59403, 14.79395], [84, 46.58508, 14.79442], [85, 46.57742, 14.80044], [86, 46.57346, 14.79082], [87, 46.5758, 14.77826], [88, 46.57814, 14.76564], [89, 46.58075, 14.75316], [90, 46.58572, 14.74655], [91, 46.59022, 14.74088], [92, 46.59459, 14.73502], [93, 46.59658, 14.72692], [94, 46.5981, 14.71855], [95, 46.6002, 14.70689]]
+
 [[connections]]
 km = 79.949
 station = "Wiederndorf-Aich"

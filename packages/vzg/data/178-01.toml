@@ -20,6 +20,12 @@ points = [
   { km = 1.758, kind = "halt", label = "Alt Nagelberg Ergo", pos = [48.85157, 14.99937] },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "emciHyrozAoNaHsIkNoAoFS_Ep@}SxC_F`EgNM_CgDkLAqGdCkFjIuIn@}EWcIV}BvAuBrDgAv@sA\\aCp@_KiE}S^sH[sD" },
+]
+posts = [[2, 48.85162, 15.00291], [3, 48.84894, 15.01389], [4, 48.84704, 15.02496]]
+
 [[connections]]
 km = 1.758
 station = "Alt Nagelberg Ergo"

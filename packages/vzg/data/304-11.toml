@@ -25,6 +25,12 @@ points = [
   { km = 14.441, kind = "signal", label = "L3/s,t", signal = "distant,main", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "ghw`Hcljz@k\\|EuFvDqBpE{@bGT~Z" },
+]
+posts = [[0, 47.47815, 9.72405]]
+
 [[connections]]
 km = -0.054
 station = "Lauterach"

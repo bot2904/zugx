@@ -188,6 +188,16 @@ export default {
     liveAt: "realtime at {n} stations, last {station} {time}",
   },
   vzg: {
+    map: "Map",
+    mapTip: "Print- and Wikipedia-ready map of this line",
+    mapTitle: "Line map",
+    print: "Print",
+    mapLegendLine: "Line",
+    mapLegendTunnel: "Tunnel",
+    mapLegendNetwork: "other lines",
+    mapLegendKm: "line km",
+    mapSources:
+      "Map data © OpenStreetMap contributors (ODbL 1.0), as of {date}. Not official, no guarantee.",
     connections: "Connecting lines",
     exportTip:
       "Download as SVG (e.g. for Wikimedia Commons): with caption, legend and data sources",

@@ -213,3 +213,9 @@ points = [
   { km = 20.093, kind = "signal", signal = "snowplow" },
   { km = 20.167, kind = "signal", signal = "minor" },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "{{pdHwoxsAyF}KsAwGA_LjBoKfEqH|FmDbHSrGxClD`FpBlHjBjb@z@tE`R~^t]lm@bEjBrJmAjBLjOjJfeBrbC|CbDbIjFrpApj@vDhFfNx_@dDnB~JtAlKnL|DhJ~B`Cxd@xInBbA~N~P|BtQlMhUfGnYjAtCfBvAxOfGnErIhHzF`GrItBvEnF`DtEfGxLrT|EvEjEjCzFdBbGRbSyEnZ`JbMSlDeAlBcCx@gDTa^jA}JfDgStGyPdO{Odc@uSfELzPhJvGi@rHrAv|@fC" },
+]
+posts = [[1, 48.09837, 13.89935], [2, 48.09148, 13.90025], [3, 48.08777, 13.8885], [4, 48.08068, 13.88023], [5, 48.07338, 13.87448], [6, 48.06653, 13.86566], [7, 48.05978, 13.85702], [8, 48.05139, 13.85213], [9, 48.04347, 13.84657], [10, 48.03669, 13.83901], [11, 48.0285, 13.83449], [12, 48.02279, 13.82461], [13, 48.01664, 13.8162], [14, 48.00977, 13.80773], [15, 48.00156, 13.8056], [16, 47.99398, 13.80412], [17, 47.99148, 13.81605], [18, 47.98423, 13.82337], [19, 47.97556, 13.82284], [20, 47.96658, 13.82223]]

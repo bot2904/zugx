@@ -20,6 +20,12 @@ points = [
   { km = 2.408, kind = "signal", label = "R31", signal = "main,shunting", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "}oueHcsqcBoD{C_BsFc@eYcP{rA" },
+]
+posts = [[1, 48.28455, 16.47952], [2, 48.28718, 16.49194]]
+
 [[connections]]
 km = 1.492
 station = "Wien Süßenbrunn"

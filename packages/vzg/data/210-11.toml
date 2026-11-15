@@ -17,3 +17,9 @@ points = [
   { km = 0.073, kind = "signal", label = "V504H", signal = "shunting", measured = true },
   { km = 0.423, kind = "signal", label = "V504R", signal = "shunting", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "urheHun_vAeC|FqArHCxHfAzI" },
+]
+posts = []

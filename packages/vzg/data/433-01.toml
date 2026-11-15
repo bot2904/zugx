@@ -20,3 +20,9 @@ points = [
   { km = 0.282, kind = "signal", label = "Xb23", signal = "train_protection", measured = true },
   { km = 0.924, kind = "signal", label = "Cb23", signal = "train_protection", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "}li}G}|m}AjJGfGtAlEbDhLzMdFlCbHx@lM@" },
+]
+posts = [[0, 46.91164, 15.47743], [1, 46.90355, 15.47293]]

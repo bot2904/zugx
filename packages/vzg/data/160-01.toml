@@ -31,3 +31,9 @@ points = [
   { km = 5.413, kind = "signal", signal = "stop" },
   { km = 5.506, kind = "signal", signal = "minor" },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "_mwdHqmkbB|B|ChHlUp@|E^fJdJr[d@zGWzEaCrJp@bL]~DgE|LkIbIgBxDm@bDO~CR|J_A|L^tI}ElZSnHVlKfAjLj@|QrC`UhLh\\vLh`@lBlJVfN" },
+]
+posts = [[1, 48.12799, 16.27907], [2, 48.12648, 16.26677], [3, 48.12991, 16.25542], [4, 48.13068, 16.24233], [5, 48.12733, 16.23033]]

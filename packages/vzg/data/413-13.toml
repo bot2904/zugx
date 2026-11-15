@@ -24,6 +24,12 @@ points = [
   { km = 203.538, kind = "signal", label = "R3", signal = "main", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "yf}_HocqzAA{HdBqOD}D_A}GwBsEuDsCoDYeSnH" },
+]
+posts = [[203, 47.34155, 15.01039]]
+
 [[connections]]
 km = 202.46
 station = "St. Michael"

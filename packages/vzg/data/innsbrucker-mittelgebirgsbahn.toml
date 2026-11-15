@@ -76,3 +76,15 @@ points = [
   { km = 8.29, kind = "signal", signal = "catenary_mast,switch" },
   { km = 8.362, kind = "halt", label = "Igls Bahnhof", pos = [47.23385, 11.41265], measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "s|k_H{vqdAV{D" },
+  { line = "{{k_Hw|qdAMkA", tunnel = true },
+  { line = "i|k_Hc_rdAgDkNkAyKJkBnAuDa@}FTeE" },
+  { line = "mal_HorsdA?mA", tunnel = true },
+  { line = "mal_H}tsdAe@aQeBmKv@wNaFkYu@gM_A_GRiDuAwT`AoB" },
+  { line = "ynl_HkrwdAZG", tunnel = true },
+  { line = "}ml_HsrwdAhCh@xAtBcAzJrAfGk@bFz@lHxDtLpDvGx@|Cp@Vr@g@DuBuBsC[qKi@cD\\}AlAC^~@\\vF|CdLOxEf@z@t@?l@mBaA{ECmDtDqMh@qVrAiHRgG`AyF@uGp@}Ij@uAbCeAjFzCh@vAdAdOfEtNEpHVtApCnCjB`FjGtFzAxHhHlKdErMzGvGxDjNbMdN" },
+]
+posts = [[1, 47.25299, 11.41225], [2, 47.25471, 11.42488], [3, 47.25387, 11.42592], [4, 47.25173, 11.42462], [5, 47.24897, 11.42546], [6, 47.24603, 11.43561], [7, 47.2417, 11.42519], [8, 47.23618, 11.41523]]

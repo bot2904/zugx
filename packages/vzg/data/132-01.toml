@@ -25,6 +25,12 @@ points = [
   { km = 7.534, kind = "halt", label = "Wien Praterkai", uic = "8101539", pos = [48.19966, 16.44127], measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "oobeHihhcBu{@ye@{NsL}D[}DjC" },
+]
+posts = [[0, 48.18708, 16.43164], [1, 48.19534, 16.43694]]
+
 [[connections]]
 km = 7.534
 station = "Wien Praterkai"

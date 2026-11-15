@@ -25,3 +25,9 @@ points = [
   { km = 38.896, kind = "signal", label = "V953H", signal = "shunting", measured = true },
   { km = 39.206, kind = "signal", label = "V953R", signal = "shunting", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "emgcHg{|bB|FnG|GnErKfKtD`HxZj`C" },
+]
+posts = [[37, 47.8836, 16.37214], [38, 47.87785, 16.36282], [39, 47.87516, 16.3501]]

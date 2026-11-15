@@ -138,6 +138,12 @@ points = [
   { km = 56.701, kind = "signal", label = "R3", signal = "main,shunting", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "miidHizg~AzVkl@pDqBjJMpd@rRzKxGvKr@xJpJjR`BtDxAvGrJrC~JtExUpAdC~AfAhCR~B}@dG_HbEqItBiBxQcAfDtArE|Ht@tD`@jJxA`MdA~C~B`C`Db@|Bs@`HoKtEeE|Ba@dCh@fCfDdBnJ\\nHMzRnArLbBbFhI|MfF`PTdFiAzOXdDz@pCbP~NdQtArItCj[dZhB|@lCPlHgBlCH|BrA`IjI|C|@d\\{@`K~@zGvB`BQnGwDhJl@tIsGlJ|@`IiBtO_QhM}JpAmEBuG" },
+]
+posts = [[0, 48.05676, 15.61244], [1, 48.04956, 15.61709], [2, 48.04123, 15.61314], [3, 48.03353, 15.60725], [4, 48.02788, 15.60508], [5, 48.02155, 15.60015], [6, 48.01432, 15.5997], [7, 48.01129, 15.58771], [8, 48.0076, 15.57724], [9, 47.99924, 15.57259], [10, 47.99098, 15.56914], [11, 47.9823, 15.56917], [12, 47.97391, 15.57166]]
+
 [[connections]]
 km = -0.071
 station = "Traisen"

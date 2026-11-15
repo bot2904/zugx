@@ -25,6 +25,12 @@ points = [
   { km = 84.402, kind = "signal", label = "E904/n", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "wc}bHk{gnAbIkRbKqRn[_e@dNaQ" },
+]
+posts = [[83, 47.83048, 12.99142], [84, 47.82404, 13.00068]]
+
 [[connections]]
 km = 83.993
 station = "Salzburg Liefering"

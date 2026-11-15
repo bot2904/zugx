@@ -18,3 +18,9 @@ points = [
   { km = 0.548, kind = "signal", label = "S21/a61", signal = "distant,main", measured = true },
   { km = 11.08, kind = "signal", label = "H521", signal = "shunting,train_protection", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "kgueHimpcByFs_@eB{CcDqB" },
+]
+posts = [[0, 48.28294, 16.47333]]

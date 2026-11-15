@@ -30,6 +30,12 @@ points = [
   { km = 40.882, kind = "station", label = "Jenbach", uic = "8100102", pos = [47.38842, 11.77827], measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "srf`Hgo{fAyEiR}@eBiFmBoCj@oHtIsDrIcHvF_LjMkBrI_D`GqK`H_GlJyAl@eBUwDcGqBs@yGlCiGh@{JzDmBzCwD|LqCjDuIfDeLdW}QfUeHlCiFxFiBdHObLuAbJeExOoBfNyCbKWbHD~TyE~p@" },
+]
+posts = [[0, 47.38899, 11.77933], [1, 47.39504, 11.77859], [2, 47.40203, 11.77018], [3, 47.41032, 11.76799], [4, 47.41659, 11.75937], [5, 47.422, 11.75129], [6, 47.42485, 11.73899]]
+
 [[connections]]
 km = 0
 station = "Jenbach Achenseebahn"

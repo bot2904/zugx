@@ -37,6 +37,14 @@ points = [
   { km = 8.129, kind = "signal", signal = "speed_limit" },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "eu~dH{xqbBaOwWyFsM" },
+  { line = "am_eHg`sbB{FiP", tunnel = true },
+  { line = "}t_eHqqsbBoHq\\eN_gA" },
+]
+posts = [[7, 48.17295, 16.32687], [8, 48.17584, 16.33936]]
+
 [[connections]]
 km = 5.191
 station = "Bahnhof Meidling"

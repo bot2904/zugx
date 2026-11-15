@@ -289,6 +289,12 @@ points = [
   { km = 28.597, kind = "signal", signal = "stop_demand" },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "a_w_HezamAvKMhLoBnJAhCrArJxM`H|RhGzMhBtHzCb[hCdOrD`Jb@nChAp_@lQdo@FxG{B`N]vF|A~Z|@jFbCrGlCzDvGdGv@bCTvDw@|UkArDeHzLyC|T{At~@tHxa@fAfCbG~FxBtDjAzEl@fGYbD}@zBuMlLcBbCmEvO_@~EjArFpXb]dB~CjAvElEx^|FrRjB~PGtFmG~u@MlN`@`IlBrLxHnZ^~GGzFqAvHcJ|LgDhImBlLOlEdCjZ`BfH`EzHzMzNdAdD]jMmD`Xv@tVmB`QGnEfAtIdNbi@f@xGyAjVeD|Qm@jH]zi@jBvMVhFKjiAy@`KaDxMk@xMLfEdEh^\\fKo@pEsNfg@q@fLb@hSKjF}Hng@?jI~CfTbAbWiAvEqFfGiAdCiCzPK~ELfLfHta@v@pPeA`G{IpMw@bDLdXpHhiCjEfUjBzg@h@lj@" },
+]
+posts = [[2, 47.30379, 12.79477], [3, 47.29741, 12.78625], [4, 47.29427, 12.77406], [5, 47.29131, 12.7631], [6, 47.29097, 12.75151], [7, 47.28882, 12.74142], [8, 47.29113, 12.72909], [9, 47.28759, 12.71781], [10, 47.29121, 12.70775], [11, 47.28571, 12.69806], [12, 47.28328, 12.68569], [13, 47.28415, 12.67293], [14, 47.28381, 12.66144], [15, 47.28427, 12.64946], [16, 47.28194, 12.63885], [17, 47.28072, 12.62644], [18, 47.28061, 12.61412], [19, 47.2803, 12.60104], [20, 47.28089, 12.58798], [21, 47.28055, 12.57541], [22, 47.28324, 12.56301], [23, 47.28432, 12.55171], [24, 47.28645, 12.54006], [25, 47.28512, 12.52756], [26, 47.28656, 12.51539], [27, 47.28565, 12.50224], [28, 47.2839, 12.48946]]
+
 [[connections]]
 km = 1.522
 station = "Tischlerhäusl"

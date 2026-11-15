@@ -34,6 +34,12 @@ points = [
   { km = 23.05, kind = "station", label = "Bürmoos", uic = "8100217", pos = [47.9825, 12.92623], measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "{lzcHil{mAd\\hi@bBbFd@bFNnY]xF_Mjd@cEzUsB|Ecl@bi@}C|EmDbK{BbCwCl@_\\sAq^jS{CnEod@ddAoc@jv@gDdDwDjBcc@|KqCjEmE|PoBzBqDt@mDoAiVqXsFiLiDoCcGSaNpGwDvEyKfWyKf]}DdJmK~PaNtO" },
+]
+posts = [[1, 47.97635, 12.91506], [2, 47.97918, 12.90268], [3, 47.98594, 12.89441], [4, 47.99347, 12.88938], [5, 48.00144, 12.88431], [6, 48.0071, 12.87389], [7, 48.01351, 12.86452], [8, 48.02149, 12.85963], [9, 48.02853, 12.86202], [10, 48.03584, 12.86019], [11, 48.04125, 12.84952]]
+
 [[connections]]
 km = 23.05
 station = "Bürmoos"

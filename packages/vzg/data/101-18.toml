@@ -27,6 +27,12 @@ points = [
   { km = 2.067, kind = "signal", label = "V767H", signal = "shunting", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "czl_HkbrdAtD`AdCfDdAhExA`MIzG}C~RYzEhBj`A" },
+]
+posts = [[1, 47.25473, 11.39593], [2, 47.25495, 11.38304]]
+
 [[connections]]
 km = 0.865
 station = "Innsbruck Stubaitalbf"

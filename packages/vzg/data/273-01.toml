@@ -30,3 +30,11 @@ points = [
   { km = 5.845, kind = "stop", label = "Schafbergspitze (Bergfahrt)", pos = [47.77518, 13.43393] },
   { km = 5.9, kind = "station", label = "Schafbergspitze", pos = [47.77513, 13.43399], measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "ibkbHe~_qAwKbAyFnEgD^kBbAqCDkFhDoDh@oOmEcEzAeKzToB|B_GpAaHm@{Ar@sAfHFbIw@lBkD~CgDjNqF~DcBxFgC~DgGtAqP}AyMkD{CrBiDPmDfEqBNmAm@i@mAMyBfAkElA}MEmBoFeP_BwO}AqHmCcJoAoA" },
+  { line = "wxqbH{g_qAsBRy@zB", tunnel = true },
+  { line = "e~qbHkc_qAiE`P" },
+]
+posts = [[1, 47.74781, 13.43727], [2, 47.75514, 13.43305], [3, 47.76014, 13.42405], [4, 47.76807, 13.42323], [5, 47.77162, 13.42977]]

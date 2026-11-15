@@ -282,3 +282,9 @@ points = [
   { km = 25.064, kind = "signal", signal = "snowplow" },
   { km = 25.08, kind = "station", label = "Litschau", pos = [48.94187, 15.04416] },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "qdthHsjlzAeFsFsBeFsAuAyAE_JvBwEiB_EuCuDy@eA_C_A}KuH}N{B_BgBOiEzAiQzLaEpAoC~CcEtAsCbGaI`KmCNuMkEqDz@aDlGeD|DaD|GyDjO_HjGoRv\\kCxBgEBeQgLkB[sOvBaLjG{OxBm[eGeb@cVkQw^uAwAqBB_RfL_CHoBkA{EsIeFqPmC}Wn@cWWmB{@}AyBa@wGrB}AAsLuN{KqHcHuBcH\\iKkBqKcGkF}AuJ{NmEsO{GyFmL{CeAw@iAeC[cCEuToCiLqG_NiHgWkD{GaMeOqBQwNfE}UbRkUgDyAcAsA}CeAsPcAcD_Q{TyEeJgJmJeBg@kIGqE`@}UmGuD}DmFyCiBeFiAsAsGQuCgBk]qIiEc@c\\vAoIkGmOMyCqC}CyMwDoBkMTeGlCwFhAeZ}JmCWsJrCkE~D_JDuLrAuFfEyAQoDoCyIn@uBfBiDrKuBdCyA^cBaAsCgGwEo@}IkFcAsBmA}GaAqAcBYkHzAiAi@y@_B" },
+]
+posts = [[1, 48.76894, 14.97791], [2, 48.77657, 14.98236], [3, 48.77933, 14.98749], [4, 48.78718, 14.98149], [5, 48.7947, 14.97723], [6, 48.80084, 14.96767], [7, 48.80806, 14.9692], [8, 48.81827, 14.9689], [9, 48.82558, 14.97631], [10, 48.83294, 14.97868], [11, 48.836, 14.98911], [12, 48.84413, 14.99338], [13, 48.85167, 14.9996], [14, 48.85678, 15.00854], [15, 48.86226, 15.01914], [16, 48.87033, 15.01642], [17, 48.87673, 15.02387], [18, 48.88428, 15.02925], [19, 48.89241, 15.03402], [20, 48.9012, 15.0361], [21, 48.9091, 15.03942], [22, 48.91745, 15.04075], [23, 48.92614, 15.03985], [24, 48.93369, 15.03591], [25, 48.94112, 15.04109]]

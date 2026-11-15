@@ -19,6 +19,12 @@ points = [
   { km = 9.897, kind = "station", label = "Ampflwang", pos = [48.087, 13.56281] },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "{u_dHiy}qAcAnEwA~BuChAoC]cB{AkA{CsCkVwFeIsUuLoWqEsCt@gQnOeVxPcLdGwUtHa]xDmj@iDu_@hIkPfNaLjGqV`XuUr]s\\~^qLrVeCpCgh@bRukAtPmF|AgCfB" },
+]
+posts = [[0, 48.00878, 13.59269], [1, 48.01438, 13.59777], [2, 48.02293, 13.5997], [3, 48.03091, 13.59356], [4, 48.03972, 13.5911], [5, 48.04864, 13.59124], [6, 48.05684, 13.58607], [7, 48.0638, 13.57759], [8, 48.07059, 13.56891], [9, 48.07903, 13.56464], [10, 48.08792, 13.56262]]
+
 [[connections]]
 km = 0.143
 station = "Timelkam Energie-AG"

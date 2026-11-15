@@ -70,6 +70,12 @@ points = [
   { km = 189.011, kind = "signal", label = "N17/o", signal = "distant,main,shunting", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "avueHorevAmPqQwKgJ_NoFuE}CmD}DmC_FoEcQ_AcMf@cLrDyOlQ}YlCaDnC_Bhd@cLpXcKhTuBzK_C~NgKhb@wIpKh@zD_ArBeBhXe^nQwRlD}GlIoUnJgc@jAiM`Asf@|AwQpFkZrVohA" },
+]
+posts = [[189, 48.28537, 14.288], [188, 48.29352, 14.29462], [187, 48.29559, 14.30636], [186, 48.28825, 14.31327], [185, 48.28083, 14.31639], [184, 48.27226, 14.31975], [183, 48.26357, 14.32212], [182, 48.25651, 14.33041], [181, 48.25213, 14.34212], [180, 48.25046, 14.35525], [179, 48.24661, 14.36739]]
+
 [[tracks]]
 track = "2"
 kmFrom = 178.9
@@ -132,6 +138,12 @@ points = [
   { km = 188.694, kind = "signal", label = "Sch317H", signal = "minor", measured = true },
   { km = 189.011, kind = "signal", label = "N17/o", signal = "distant,main,shunting", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "avueHorevAmPqQwKgJ_NoFuE}CmD}DmC_FoEcQ_AcMf@cLrDyOlQ}YlCaDnC_Bhd@cLpXcKhTuBzK_C~NgKhb@wIpKh@zD_ArBeBhXe^nQwRlD}GlIoUnJgc@jAiM`Asf@|AwQpFkZrVohA" },
+]
+posts = [[189, 48.28537, 14.288], [188, 48.29352, 14.29462], [187, 48.29559, 14.30636], [186, 48.28825, 14.31327], [185, 48.28083, 14.31639], [184, 48.27226, 14.31975], [183, 48.26357, 14.32212], [182, 48.25651, 14.33041], [181, 48.25213, 14.34212], [180, 48.25046, 14.35525], [179, 48.24661, 14.36739]]
 
 [[connections]]
 km = 180.655

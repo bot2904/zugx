@@ -525,3 +525,18 @@ test("help page explains the views and data sources", async ({ page }) => {
   await expect(page.locator("#bildfahrplan")).toBeVisible();
   await expect(page.getByText(/OpenStreetMap/).first()).toBeVisible();
 });
+
+test("VzG line map: drawn from the line's geometry, exportable as SVG", async ({ page }) => {
+  await page.goto("/vzg/101-03");
+  await page.getByRole("link", { name: /^(Map|Karte|Mappa)$/ }).click();
+  await expect(page).toHaveURL(/\/vzg\/101-03\/map$/);
+  const svg = page.locator(".map-card svg");
+  await expect(svg.locator("text", { hasText: "Salzburg-Tiroler-Bahn" }).first()).toBeVisible();
+  await expect(svg.locator("text", { hasText: "Wörgl" }).first()).toBeVisible();
+  await expect(svg.locator("text", { hasText: "OpenStreetMap" })).toBeVisible();
+  const [dl] = await Promise.all([
+    page.waitForEvent("download"),
+    page.getByRole("button", { name: /SVG/ }).click(),
+  ]);
+  expect(dl.suggestedFilename()).toMatch(/^zugx_.*101_03.*\.svg$/);
+});

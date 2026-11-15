@@ -229,6 +229,46 @@ points = [
   { km = 33.164, kind = "signal", signal = "electricity" },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "cql_HujpdAs@zJbCbaAu@rGcMvWuCtDkCvAa_@vKgCdCiArDWjG\\la@[`FeBxFaJ|N_BzD_F`Vh@rV_@lDaE`QaApXBtJo@xL\\fEbAlD" },
+  { line = "emo_H{gedAnEzM", tunnel = true },
+  { line = "ufo_H_yddAdAdFBpD{BzO" },
+  { line = "gho_Hk{cdAUtA", tunnel = true },
+  { line = "}ho_HuxcdAqDda@i@pNl@zMa@zM~@f]" },
+  { line = "mmo_H}j`dAb@hD", tunnel = true },
+  { line = "ilo_Hse`dArDfV" },
+  { line = "ufo_Hkn_dAL|@", tunnel = true },
+  { line = "gfo_Hml_dArAnI`CtG" },
+  { line = "q_o_Hgy~cAP^", tunnel = true },
+  { line = "__o_Hgx~cArAlGRzWvApNcB`ODjK]lJgBxI" },
+  { line = "c`o_Hut{cAeAlG", tunnel = true },
+  { line = "ibo_Hgl{cAAh@" },
+  { line = "kbo_H}j{cADdL[xEqCzLuAhDoiApzA", tunnel = true },
+  { line = "ytq_HehwcAcB~CeAfG" },
+  { line = "czq_H}zvcAUpFN~Dd@vDbBdF", tunnel = true },
+  { line = "_vq_Hm`vcA~AfC" },
+  { line = "_sq_He|ucApCxC", tunnel = true },
+  { line = "mnq_HkwucA`DtEh@dDDjDe@pFuDzJeAnGHrV}@rP" },
+  { line = "qrq_H}`scAs@~BeCrC", tunnel = true },
+  { line = "kxq_HixrcAUP" },
+  { line = "ayq_HwwrcAuC`C", tunnel = true },
+  { line = "w}q_HusrcA}EhF" },
+  { line = "udr_HklrcAqAX", tunnel = true },
+  { line = "ggr_HqkrcAuP`DkCrA" },
+  { line = "i}r_H{crcAuBj@", tunnel = true },
+  { line = "_as_HobrcAiFc@" },
+  { line = "ihs_HscrcAcUiKoBSsBXqAtA{@bCg@pE", tunnel = true },
+  { line = "gkt_HkbrcAOpJ" },
+  { line = "wkt_HyvqcAPpA", tunnel = true },
+  { line = "ekt_HgtqcAZnA" },
+  { line = "ijt_HwqqcA|@lBdBrAbN~C", tunnel = true },
+  { line = "avs_HufqcAlPnI`BrD`@pGuEp`@gGnVm@pN{BxJ{@zLaGpPgBnM" },
+  { line = "}at_HsklcAaBfD", tunnel = true },
+  { line = "_et_HkflcAgHvJuFjFgGxQqNhLqSvCuCEuCmAcHiI}KcDgDHaJfCaMN{DfD{CtLoCbDoCf@uQa@wFrB}CzEkJfVoGzKsC~BkFnAqQjAwR_CaZ}UyF_NcPsSqFyLuGqGaD_QiCgWgLs_@_IyJsAaE}BcMsAkDeB}AoGcCiJkMiBgGqA{KaBaDqDgByHOmBwAyEoH}MwDwKoG}UqHuPoHmToBqP}GeLsHqIwIcBuCgFyOiCcO[{HfB_l@}@yJaC{Gg[ua@uDeDq_@gJaRbA" },
+]
+posts = [[0, 47.25564, 11.39191], [1, 47.25577, 11.37907], [2, 47.26338, 11.37298], [3, 47.26593, 11.36162], [4, 47.26907, 11.35007], [5, 47.27021, 11.33737], [6, 47.27017, 11.32511], [7, 47.27017, 11.31209], [8, 47.26734, 11.29985], [9, 47.26827, 11.2872], [10, 47.27254, 11.27655], [11, 47.2794, 11.26813], [12, 47.28073, 11.25783], [13, 47.28097, 11.24572], [14, 47.28797, 11.23924], [15, 47.29546, 11.23838], [16, 47.28867, 11.23171], [17, 47.29115, 11.21916], [18, 47.29534, 11.20762], [19, 47.3025, 11.2003], [20, 47.31084, 11.20243], [21, 47.31843, 11.198], [22, 47.32521, 11.19099], [23, 47.33382, 11.19008], [24, 47.34069, 11.19795], [25, 47.3456, 11.20807], [26, 47.35043, 11.2189], [27, 47.35611, 11.22824], [28, 47.36423, 11.23288], [29, 47.37281, 11.23666], [30, 47.38139, 11.24165], [31, 47.38341, 11.25391], [32, 47.38793, 11.26418], [33, 47.39635, 11.26772]]
+
 [[connections]]
 km = 0.056
 station = "Innsbruck Westbf"

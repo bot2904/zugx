@@ -89,6 +89,16 @@ points = [
   { km = 389.535, kind = "signal", label = "R434", signal = "main,speed_limit", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "eop{GiursAZvLc@dl@xB~r@t@`HfC~FdEvCtPlDtJsA" },
+  { line = "cbo{GwmnsA\\A", tunnel = true },
+  { line = "eao{GymnsA\\@" },
+  { line = "g`o{GwmnsAd@D", tunnel = true },
+  { line = "a_o{GqmnsA~y@zT|QfKvPjS|KjI|l@pRtKvBjHo@dGmDze@me@|NaTpDoDrE{BhDi@vC`@zCvBvA~BnAvE`Bf]aAzVz@r`@T~b@bCdl@KnRlG|tAnC|HlE`FdDz@dLAdH`BdH|EjGxInGzNnC~Lr@rJn@v_@" },
+]
+posts = [[377, 46.62023, 13.85633], [378, 46.61901, 13.84344], [379, 46.61058, 13.84105], [380, 46.60183, 13.83744], [381, 46.5942, 13.83082], [382, 46.58548, 13.82757], [383, 46.57773, 13.83383], [384, 46.57014, 13.83947], [385, 46.56874, 13.82698], [386, 46.56805, 13.81376], [387, 46.56717, 13.80058], [388, 46.56312, 13.79053], [389, 46.55583, 13.78392]]
+
 [[connections]]
 km = 376.2
 station = "Villach Hbf Autoreisezug"

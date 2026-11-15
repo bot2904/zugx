@@ -25,6 +25,16 @@ points = [
   { km = 9.739, kind = "stop", label = "Puchberg am Schneeberg", pos = [47.79055, 15.91047] },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "ofobHass_BtGw@dF|H`Aj@|AGlA_Aj@oBQgGTqH" },
+  { line = "umnbHaat_B}BuHZoD", tunnel = true },
+  { line = "wpnbHgpt_BbBiAvC`A" },
+  { line = "{hnbHopt_BrCnHhA|@", tunnel = true },
+  { line = "}anbHaet_BlBcAd@qDu@aIsBuDq@sCWuIxCw\\vIw[]yC{EwK]eDFwEbD{Wv@wBvEkEn@mBWyXuEcVkKsPsMyd@_CoLyFyKuEcB_ImJ{EyAeDjAmAU_NaReE{DgSMyM}CyWqOeHiGeGoJ{AqAwBe@_H^sFm@qIqDkMiQwDkBwAwB[qCPaIiEiM}DyV" },
+]
+posts = [[0, 47.76056, 15.83425], [1, 47.75669, 15.83926], [2, 47.75485, 15.84534], [3, 47.75407, 15.85726], [4, 47.75212, 15.86919], [5, 47.7571, 15.88014], [6, 47.76389, 15.8869], [7, 47.77186, 15.89154], [8, 47.77973, 15.89758], [9, 47.78771, 15.90234]]
+
 [[connections]]
 km = 9.739
 station = "Puchberg am Schneeberg"

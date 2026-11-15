@@ -94,3 +94,11 @@ points = [
   { km = 135.539, kind = "signal", label = "VHT103", signal = "shunting", measured = true },
   { km = 135.644, kind = "signal", label = "V103", signal = "shunting", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "ocx~Gu_}z@pb@yp@j\\yZnPyX" },
+  { line = "aqu~Gcg`{@h@}@", tunnel = true },
+  { line = "wou~Gai`{@tOgWjC{OjDuKdM_n@pKiWfEsFvCiAfDAfMbGrJtCtLj@`Ec@pFmD`G}KtBaCjLuD~C_CfKgT`GiFrCu@zTHfK}A~c@iLpDsCjDqHhh@a{@`Wsk@pEyQbM{[~HeVxGwc@cDqo@{@wIN{DpC{M" },
+]
+posts = [[1, 47.14843, 9.82361], [2, 47.14121, 9.83192], [3, 47.13491, 9.84066], [4, 47.13124, 9.85224], [5, 47.1244, 9.85765], [6, 47.11636, 9.85976], [7, 47.10911, 9.86662], [8, 47.10017, 9.86826], [9, 47.09319, 9.87529], [10, 47.08714, 9.885], [11, 47.08209, 9.89579], [12, 47.07925, 9.90786]]

@@ -185,6 +185,14 @@ points = [
   { km = 59.08, kind = "signal", label = "Zr11/t", signal = "distant,main", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "qdqeHiqqnA|IgQvCsMbIyrBEyS}Sc|EoDsWg\\azA}BsNsXmgDu@_WdLojLW_L}@kJoL_o@u@iKEiJlAaQhHgZ~A}MPeOaB{e@n@oSjW_lBvBsWJk[sFitBn@oYnB}OdDqNxF{N|GqKzbCuyBhK}M`IkPdEyM`DwOnK_aA|C_PbEgMzN}WfEcKhDcMzGu\\nP_b@jDgMrCkTlAyg@dAyMbEqTjGuPdG}JjIgGhJyAfVzBfGc@vIwEfGsJfBeGdAyH\\c]dAmMxBgKlJaZjCcSVeKQ{JoD}a@^cQjC_NdHwO`CoHjAgHd@}HMiMcD_ZUaPjCql@~Dw`@RoKsAqO_IqVsAwK?qIfDs}@QsF_A}HeBaGcCoE_OqM{DaFeMm\\iD}FyDeE}HqEw}@cWeHaGqFkKgByHaA_KGok@Y_LmAiLiCsM_F_PiHkOqE}G_OuOcDyEaCmG{A}Hg@mPhCelBEmJaA{L{BqKwDmJiGmJ" },
+  { line = "udleHs}zqAqBeD", tunnel = true },
+  { line = "ghleHyb{qA_CeGwBiM[iLh@cKzB{KlI{Q~BgI~RkvAfAsMJwLsA{zAyAcTmE{QoD}HiDiF_KsIiRaIgH}H_E_KwF}ZwFsLaIyGoRkEcKuF}ImKiH}O{EcTaa@u~Cok@euCoD}U" },
+]
+posts = [[59, 48.26074, 13.04048], [58, 48.25866, 13.05351], [57, 48.25803, 13.06688], [56, 48.25922, 13.0796], [55, 48.26051, 13.09358], [54, 48.26265, 13.10648], [53, 48.2666, 13.11878], [52, 48.26895, 13.13169], [51, 48.27093, 13.14479], [50, 48.27167, 13.15815], [49, 48.27124, 13.17176], [48, 48.27084, 13.18504], [47, 48.27041, 13.19852], [46, 48.26999, 13.21169], [45, 48.27024, 13.22545], [44, 48.27244, 13.2382], [43, 48.27035, 13.25097], [42, 48.26916, 13.26395], [41, 48.26626, 13.27691], [40, 48.26626, 13.29041], [39, 48.26707, 13.30345], [38, 48.26374, 13.3156], [37, 48.25625, 13.32306], [36, 48.24868, 13.33005], [35, 48.241, 13.33725], [34, 48.23598, 13.34803], [33, 48.23322, 13.36074], [32, 48.22785, 13.3714], [31, 48.22319, 13.38263], [30, 48.22145, 13.39592], [29, 48.21544, 13.40531], [28, 48.20701, 13.40686], [27, 48.20459, 13.41937], [26, 48.20194, 13.43216], [25, 48.20057, 13.44452], [24, 48.20014, 13.4571], [23, 48.19877, 13.47007], [22, 48.20087, 13.48298], [21, 48.20033, 13.49616], [20, 48.20652, 13.5052], [19, 48.21409, 13.51155], [18, 48.22262, 13.51594], [17, 48.22435, 13.52874], [16, 48.22835, 13.5402], [15, 48.2339, 13.55014], [14, 48.23338, 13.56368], [13, 48.2353, 13.5765], [12, 48.23775, 13.58805], [11, 48.23373, 13.59977], [10, 48.23165, 13.61285], [9, 48.23204, 13.62646], [8, 48.23679, 13.63706], [7, 48.24334, 13.64483], [6, 48.25032, 13.65171], [5, 48.25631, 13.66135], [4, 48.25904, 13.67429], [3, 48.26172, 13.68671], [2, 48.26547, 13.69941], [1, 48.26913, 13.71175]]
+
 [[connections]]
 km = 21.6
 station = "Ried im Innkreis"

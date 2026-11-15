@@ -17,3 +17,9 @@ points = [
   { km = 76.512, kind = "signal", label = "2T2-7", signal = "main_repeated", measured = true },
   { km = 76.613, kind = "signal", signal = "minor" },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "gxk_Hi~qdAsBG" },
+]
+posts = []

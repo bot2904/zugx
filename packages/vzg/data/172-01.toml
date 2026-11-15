@@ -158,6 +158,16 @@ points = [
   { km = 76.826, kind = "signal", label = "U203/t161", signal = "main", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "ejmeHcluwA}_@qHwFyD{EwHeQap@{_BkvD_AoFQ}ElAwc@dAsErC_DhU{ExBwAbBoDtBkL|C}Dni@cGpSgPbB}CdA_EnJyqDjJcf@`Sk_@vAaExGgdApBiMfa@q}@zAyF|Jy`Af@_]zAgThAqEfM}W`AoEOm_Ap@wHnAiEhB_Dz\\g^rCeFlvAiuF|@oQ~KetEjL}oAzDcOx[_u@dMie@vMsYhMaSrA_FlBqMhAkUGiI}AuIaL{RwGuP{@}FkCyIQmMsCyKsHyFuLkB_R_J}_@{`@ePyLiReDuL|AaEdCwn@`o@cF`AuBe@uB_ByBuEmFcVaEsa@n@yMdFmKr@kEIuEeAuIRsIg@gJDgG" },
+  { line = "uvjeHujwyAI_A", tunnel = true },
+  { line = "_wjeHulwyAeBaGyGqJwBsKcGwM{ByHo@gIXcMqAwPRuEtCqMnByBhGwB~CyClBuDn@wFSiEs@oC}EeGiAaD_@wDEqIc@eD_AsD}DkHq@_F\\qLsAmYHyJs@oLvEqz@GwMdAwNOoIZmQa@mMrBaS" },
+  { line = "sikeHa}dzArAiJ", tunnel = true },
+  { line = "_gkeHkhezA~A_DrHoGhEqPnB}C" },
+]
+posts = [[0, 48.24274, 14.53274], [1, 48.25059, 14.53804], [2, 48.25546, 14.54928], [3, 48.26104, 14.55982], [4, 48.26664, 14.57037], [5, 48.2683, 14.58272], [6, 48.2615, 14.58929], [7, 48.25327, 14.5917], [8, 48.24981, 14.60348], [9, 48.24901, 14.61739], [10, 48.24664, 14.63027], [11, 48.24237, 14.64151], [12, 48.23899, 14.6536], [13, 48.23441, 14.66487], [14, 48.2328, 14.67805], [15, 48.2296, 14.68993], [16, 48.22657, 14.70133], [17, 48.2209, 14.71136], [18, 48.2167, 14.72322], [19, 48.21248, 14.73504], [20, 48.20874, 14.74718], [21, 48.20794, 14.76067], [22, 48.2071, 14.77407], [23, 48.20578, 14.78725], [24, 48.20242, 14.79961], [25, 48.19723, 14.81071], [26, 48.19151, 14.82113], [27, 48.19315, 14.83318], [28, 48.19751, 14.84447], [29, 48.20576, 14.84962], [30, 48.21375, 14.85543], [31, 48.22135, 14.8506], [32, 48.22853, 14.84946], [33, 48.22883, 14.8618], [34, 48.23108, 14.87387], [35, 48.23405, 14.8861], [36, 48.23031, 14.89609], [37, 48.23338, 14.90783], [38, 48.23322, 14.92112], [39, 48.23252, 14.93448], [40, 48.22892, 14.94582]]
+
 [[tracks]]
 track = "2"
 kmFrom = -0.035
@@ -307,3 +317,13 @@ points = [
   { km = 76.678, kind = "signal", label = "F161/r", signal = "distant,main", measured = true },
   { km = 76.826, kind = "signal", label = "U203/t161", signal = "main", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "ejmeHcluwA}_@qHwFyD{EwHeQap@{_BkvD_AoFQ}ElAwc@dAsErC_DhU{ExBwAbBoDtBkL|C}Dni@cGpSgPbB}CdA_EnJyqDjJcf@`Sk_@vAaExGgdApBiMfa@q}@zAyF|Jy`Af@_]zAgThAqEfM}W`AoEOm_Ap@wHnAiEhB_Dz\\g^rCeFlvAiuF|@oQ~KetEjL}oAzDcOx[_u@dMie@vMsYhMaSrA_FlBqMhAkUGiI}AuIaL{RwGuP{@}FkCyIQmMsCyKsHyFuLkB_R_J}_@{`@ePyLiReDuL|AaEdCwn@`o@cF`AuBe@uB_ByBuEmFcVaEsa@n@yMdFmKr@kEIuEeAuIRsIg@gJDgG" },
+  { line = "uvjeHujwyAI_A", tunnel = true },
+  { line = "_wjeHulwyAeBaGyGqJwBsKcGwM{ByHo@gIXcMqAwPRuEtCqMnByBhGwB~CyClBuDn@wFSiEs@oC}EeGiAaD_@wDEqIc@eD_AsD}DkHq@_F\\qLsAmYHyJs@oLvEqz@GwMdAwNOoIZmQa@mMrBaS" },
+  { line = "sikeHa}dzArAiJ", tunnel = true },
+  { line = "_gkeHkhezA~A_DrHoGhEqPnB}C" },
+]
+posts = [[0, 48.24274, 14.53274], [1, 48.25059, 14.53804], [2, 48.25546, 14.54928], [3, 48.26104, 14.55982], [4, 48.26664, 14.57037], [5, 48.2683, 14.58272], [6, 48.2615, 14.58929], [7, 48.25327, 14.5917], [8, 48.24981, 14.60348], [9, 48.24901, 14.61739], [10, 48.24664, 14.63027], [11, 48.24237, 14.64151], [12, 48.23899, 14.6536], [13, 48.23441, 14.66487], [14, 48.2328, 14.67805], [15, 48.2296, 14.68993], [16, 48.22657, 14.70133], [17, 48.2209, 14.71136], [18, 48.2167, 14.72322], [19, 48.21248, 14.73504], [20, 48.20874, 14.74718], [21, 48.20794, 14.76067], [22, 48.2071, 14.77407], [23, 48.20578, 14.78725], [24, 48.20242, 14.79961], [25, 48.19723, 14.81071], [26, 48.19151, 14.82113], [27, 48.19315, 14.83318], [28, 48.19751, 14.84447], [29, 48.20576, 14.84962], [30, 48.21375, 14.85543], [31, 48.22135, 14.8506], [32, 48.22853, 14.84946], [33, 48.22883, 14.8618], [34, 48.23108, 14.87387], [35, 48.23405, 14.8861], [36, 48.23031, 14.89609], [37, 48.23338, 14.90783], [38, 48.23322, 14.92112], [39, 48.23252, 14.93448], [40, 48.22892, 14.94582]]

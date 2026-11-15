@@ -62,6 +62,14 @@ points = [
   { km = 25.286, kind = "stop", label = "Lamprechtshausen", uic = "8100298", pos = [47.9902, 12.95135] },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "cbybHkprnAiO{IwGA", tunnel = true },
+  { line = "e{ybHi{rnAgDPmB|@iHdPmApAo\\hSsJlCkOhGkCrBgCtDcOt[eN~LkFlOgBbDqM`OqOdLwIbRwYj^m^h`@{SvKyDx@}OyBofAyI}Fh@qKjGoKfLqJlGqCdA}N`BiCfA}g@ld@kMtDo`@bWqJvN_OtOaAxDoA~MqBzGsEtJa@jDI~JgAfFcBnCuGjEgInO}BfCeE`Awk@kDsNDuPXkI~C_Zv_@gd@~u@cAhDa@jEJnErAbLa@bJgAlDmGlKuEpEyRfH}CVeCg@{CuBkJgMgPaZ}DoAaJb@aBhAqFlHqGpScE`E}]`Qoa@HgFfBux@br@o^~m@aDfCaEf@wDeA{CeDsk@e`AmBsE{AuKuBemA" },
+  { line = "oa|cH_l`nAKiG", tunnel = true },
+]
+posts = [[0, 47.81344, 13.04503], [1, 47.82102, 13.03972], [2, 47.82915, 13.03443], [3, 47.83531, 13.025], [4, 47.8423, 13.01684], [5, 47.84946, 13.0087], [6, 47.85767, 13.00456], [7, 47.86662, 13.00595], [8, 47.87498, 13.00316], [9, 47.88322, 12.99838], [10, 47.8912, 12.99251], [11, 47.89875, 12.98546], [12, 47.90261, 12.97401], [13, 47.91016, 12.96862], [14, 47.91912, 12.96913], [15, 47.92664, 12.9626], [16, 47.93275, 12.95289], [17, 47.93655, 12.94291], [18, 47.94405, 12.94734], [19, 47.95086, 12.94475], [20, 47.95915, 12.94044], [21, 47.96746, 12.93658], [22, 47.9748, 12.92896], [23, 47.98191, 12.92527], [24, 47.98835, 12.93465], [25, 47.99002, 12.94752]]
+
 [[connections]]
 km = -0.082
 station = "Salzburg Hauptbahnhof"

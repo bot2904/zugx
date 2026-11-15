@@ -18,3 +18,9 @@ points = [
   { km = 0.439, kind = "signal", label = "K570", signal = "main", measured = true },
   { km = 0.727, kind = "signal", label = "FE 570R", signal = "minor" },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "w~vbHoh`bBkEmKeAkI\\iKjCyI" },
+]
+posts = []

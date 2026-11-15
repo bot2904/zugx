@@ -22,6 +22,12 @@ points = [
   { km = 376.625, kind = "signal", label = "V233", signal = "shunting", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "ytp{GkhssAhEj_@" },
+]
+posts = []
+
 [[connections]]
 km = 376.2
 station = "Villach Hbf Autoreisezug"

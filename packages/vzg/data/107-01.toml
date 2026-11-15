@@ -191,6 +191,12 @@ points = [
   { km = 72.4, kind = "halt", label = "St. Pölten Bildungscampus", uic = "8101330", pos = [48.18971, 15.61507], measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "ouedHaxf_BsGbUaC~RcJpWqAxFs@vJ\\`Ua@zEsHtNaGrQiGpNeN`v@sHry@b@xQoBpNz@hVW|SVrDv@rCxEnJxChPxCxJpCpQnCbJ`AfNhHtW`Axe@pEfk@\\vUaKnv@gIna@}Iv[o@nOyAdPyFjTHnSwBrReCtMaCjH}D|Uw@xKChId@fDjDnJr@|GiApSx@pMQvEiAbEwW|n@eE~N_GnIaTrO{KTaJrD{H@iDhAoFjD}AtBsF`TyBxDwMjFsE\\qHe@{O}C}KcG_RoFsDyDcEiNyBeDsD}AgGFiCi@yMmKmCYkNzBwCWqCiCoEcKkIiDmFgH{CqAqDf@iNbK}HjA}i@kIiPYaFq@sHcDsNoLwFmBeFUcS`B{F?wy@eKeIFuNhC}GTmj@sCipDiI}RyCwEn@cM~FgMlA" },
+]
+posts = [[44, 48.04014, 15.76674], [45, 48.04392, 15.75478], [46, 48.04753, 15.74329], [47, 48.05097, 15.73096], [48, 48.05245, 15.71794], [49, 48.05015, 15.70555], [50, 48.04643, 15.69348], [51, 48.04482, 15.68037], [52, 48.04614, 15.6674], [53, 48.0499, 15.65528], [54, 48.0519, 15.64255], [55, 48.05484, 15.6301], [56, 48.05415, 15.61767], [57, 48.05949, 15.6069], [58, 48.06772, 15.60224], [59, 48.07473, 15.59543], [60, 48.08339, 15.59721], [61, 48.09086, 15.60294], [62, 48.099, 15.6063], [63, 48.10676, 15.60793], [64, 48.11565, 15.60934], [65, 48.12449, 15.61324], [66, 48.1331, 15.61345], [67, 48.14194, 15.61447], [68, 48.15089, 15.61458], [69, 48.15987, 15.61511], [70, 48.16884, 15.61562], [71, 48.17816, 15.6162], [72, 48.1867, 15.61556]]
+
 [[connections]]
 km = 56.549
 station = "Traisen"

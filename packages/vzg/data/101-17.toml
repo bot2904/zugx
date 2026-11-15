@@ -28,6 +28,12 @@ points = [
   { km = 189.733, kind = "halt", label = "Linz Untergaumberg", uic = "8101699", pos = [48.28001, 14.27998] },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "cyteHugdvAgL}UmC{Dwi@uc@" },
+]
+posts = [[189, 48.28555, 14.28753]]
+
 [[connections]]
 km = 188.39
 station = "Linz Hauptbahnhof"

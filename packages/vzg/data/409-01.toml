@@ -107,6 +107,12 @@ points = [
   { km = 126.39, kind = "signal", label = "V609R", signal = "shunting", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "iw`{Geu|uAdCqt@m@kJgDoGkTiKsBwBaBwD_BeHa@iPwAiP}CuQ}Fsf@qBqKcAiCoLyP{IwHyHqUuBcDiDcBiEJgDhB{JtJoEx@ad@{KyRiBo_@eBcFbBgPxNoJpAmDe@yDyDkDsM_CaEaEgDsPmIwKwPoEiDoFm@mJ|@kSyEiD}B}IgLe}@{^}EU}L~BkDi@{C_BqCaFaAyG[mTNaRs@a^" },
+]
+posts = [[30, 46.5394, 14.24448], [29, 46.54182, 14.2551], [28, 46.54582, 14.26558], [27, 46.54922, 14.27742], [26, 46.55566, 14.28593], [25, 46.56404, 14.28444], [24, 46.57295, 14.28614], [23, 46.58129, 14.28308], [22, 46.58818, 14.2908], [21, 46.59637, 14.29431], [20, 46.60439, 14.29981], [19, 46.61304, 14.30183], [18, 46.61544, 14.31309]]
+
 [[connections]]
 km = 17.951
 station = "Klagenfurt Hauptbahnhof"

@@ -28,6 +28,12 @@ points = [
   { km = 386.998, kind = "signal", label = "G306", signal = "main", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "yme{GubksAdC~eC" },
+]
+posts = [[386, 46.5635, 13.81981], [387, 46.56314, 13.80676]]
+
 [[connections]]
 km = 386.486
 station = "Fürnitz"

@@ -690,6 +690,34 @@ points = [
   { km = 244.061, kind = "signal", label = "V703H", signal = "shunting", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "u_baHkxauAKpN}Dt[MfQ^rFhFxVn@zUnEdMt@dFEjFgAxIMhKkBxK" },
+  { line = "uzaaH{b|tAu@bG@|G", tunnel = true },
+  { line = "i|aaHyq{tAAxJmBnJWdFp@|LrBhK" },
+  { line = "k{aaHayytAf@~IInDe@`D_BxD", tunnel = true },
+  { line = "s~aaHu}xtAeE|C}IIoEdBuC`EmD`NoDpDaDh@}Iu@yCd@sBtAmCpF_DnQgAdDiHdHoHzKiFlFcDrIqF~I_ChJIfFjA~YjA|J~DhOfIdNr@`FEpFgFpV{BdFiD`CoN`CyBhBcB|CkAxFoH~s@]~HdOhvIgEl`AxBbbAe@pGwAzGqVro@}Hxc@oCt]cGzYC`H|@rFpJ`OlBrFh@|GJbQ_AbI_FtKoAtGgKtkAsEty@eDp\\cA`FsJzZ{Bp]iCzJ_DnE}QdOmZlc@_GnFqBdFa@`EFxEdDbNX~FkBzR}Fx\\gA~Ji@zMf@fLMvHvAjPU|Eu@~CeB|C}DfDcJrK{PfKiGpAoPrGiThTuDxLyGhJiIvWyIlJiB`DsObj@wApMq@jg@aBhJmDjKk@pEDhGlBnKN~FmFx[a@jGPdF|BdN]tN\\bGzCfMlF`JpArEf@tShCnLjEn`@nBhEbHvHlEdKzFhFnBvDlC`Oh@zPxFnUbCvCjItDfL|NlEpAjKCrGmA|KdBbKMfE{AtDqCrFyJtBoBpCu@tEX" },
+  { line = "mfjaHefvrAzDU~CqB", tunnel = true },
+  { line = "q{iaHmjvrAnLwHxKiCnFzA|DpF`f@`lBlI~n@`@pKo@hQmAzGsX`n@sFfPk@hI`C~PMdQiB`H}GpKkDnJkCpCaIjBsFtD_GLwCeBgBwCgAuFi@kK" },
+  { line = "m_jaHgglrAwA_FaCwC", tunnel = true },
+  { line = "gfjaH_slrA{]wOwKKmHqE{D_@iO~BgIfJuDvBgOf@yCt@mCfCgFpJuLhJiEx@iI]{DpA{RnRyIzRsD~EgLrGwOdDoPbQkChIwNtw@g@hFYbW_ApEoBpDsT~U}FbEcc@rDyVyB{CHgD~A{J|JoL`GqBdC_CxGeDv_@_C|Hef@lo@mCzByD|A{^`FuKb@sFgAeSgLqS_@__@lHcGQmQiIqC{BsF}HaCyKmBaFcCkEsCuC}GeCeVAwFcB_DoCwYya@mB_B_D}@cGv@{M|I{BvD_GdQ{S~Z}PpHcQiAu_@{P{CuCaCeHy@mFRiZ" },
+  { line = "u_ebH{ycrAMaE", tunnel = true },
+  { line = "c`ebH}_drAcAgFeDsEuE_BaLiAgMqC}BiBwHaKmBuHQcTuG}ViXym@wCeFqJ}KgDuIiBuLc@wSmAkGgB_EiDuC}GqAyCd@{J`FoMx@{Dg@yBuAoBsC}EuOoB_EeMqMsBaHmF}h@mHmd@i@oMaE_VgCqEcHkEkGaHuA_EcF}VuI{NsE}TwBgG{QkVmR{OiBaCiLwa@mImMiGoO}LsSkEgLkGaHeO_LiBeDqI}UyCuDoGkBu]aBoF}BaGyFqEyIcRqm@wv@ahBuQi\\uf@_l@qFiD}F]eIvB{HxGiBPgEo@mP_IqNmS" },
+  { line = "ozzbH}fbsAaC}A{gAw]", tunnel = true },
+  { line = "mg}bHshcsA_FwA_CA" },
+  { line = "mr}bHmkcsAkKhF", tunnel = true },
+  { line = "y~}bHcdcsA_GQaD{A" },
+  { line = "{k~bHqgcsAyC}D", tunnel = true },
+  { line = "up~bHomcsAuB_BcQaGoDXcDdC" },
+  { line = "cq_cHqscsAsArC{@tE", tunnel = true },
+  { line = "su_cHghcsAo@|FcDxLwHpNoErLwBbBqErAyJF" },
+  { line = "sbacHioasA}Cy@", tunnel = true },
+  { line = "qgacHcqasAof@yVuC[sCb@yE~D_OlYmHnGwH|AeUyAoGnB_CvC}DnK_DvEyEhDeIfCoCjCcI|UeEtEi]`JaNkAqCJoChAuWjRqCf@yIOqPpFiDVoEuBuFwJwCcCaXwCaFcByCaCsDkFuQib@iCaEcEuByN_AeFyDeO{c@wDcJed@ip@iFgD_GNkC|AkCpDmAtDk@fFjD|dAm@bKuB|Fmb@pq@qNrKqDdB_Ev@wIKqDr@sH~GyZvQcWxDwPvHuLNcGhCgIbHiP|Cmr@f\\qGtB{O^{WrIuM_AaEPmW`MiWrC}IdD{D|D}Md[ih@fp@cB~HI`QoB~HcBtBcChA{CTeDk@" },
+  { line = "uo_dHy}urAyAiA", tunnel = true },
+  { line = "or_dHc`vrAgZqY" },
+]
+posts = [[1, 47.52979, 14.09898], [2, 47.52865, 14.08625], [3, 47.52856, 14.07385], [4, 47.52822, 14.0611], [5, 47.53468, 14.05417], [6, 47.54116, 14.04794], [7, 47.54754, 14.03922], [8, 47.54543, 14.02723], [9, 47.54939, 14.01724], [10, 47.55243, 14.00592], [11, 47.55191, 13.99268], [12, 47.55128, 13.9794], [13, 47.55069, 13.96616], [14, 47.55008, 13.95292], [15, 47.55094, 13.93972], [16, 47.55069, 13.9265], [17, 47.55591, 13.91361], [18, 47.5584, 13.90194], [19, 47.55548, 13.89123], [20, 47.55851, 13.87893], [21, 47.56018, 13.86586], [22, 47.56351, 13.85367], [23, 47.56877, 13.84407], [24, 47.57484, 13.83484], [25, 47.57571, 13.82236], [26, 47.57629, 13.80952], [27, 47.58419, 13.80364], [28, 47.59128, 13.79613], [29, 47.59685, 13.78602], [30, 47.59918, 13.77347], [31, 47.60071, 13.76111], [32, 47.60026, 13.74845], [33, 47.59702, 13.7365], [34, 47.59139, 13.72671], [35, 47.58682, 13.71647], [36, 47.57848, 13.71377], [37, 47.57038, 13.71766], [38, 47.56264, 13.71802], [39, 47.55867, 13.70688], [40, 47.55532, 13.69486], [41, 47.55789, 13.68297], [42, 47.56041, 13.67138], [43, 47.56628, 13.66262], [44, 47.57249, 13.66931], [45, 47.58108, 13.67226], [46, 47.58937, 13.66867], [47, 47.5972, 13.66352], [48, 47.60418, 13.65547], [49, 47.6112, 13.64847], [50, 47.61365, 13.63582], [51, 47.6209, 13.62884], [52, 47.62985, 13.62874], [53, 47.6362, 13.62049], [54, 47.64171, 13.61062], [55, 47.64997, 13.60631], [56, 47.65861, 13.60871], [57, 47.66739, 13.60784], [58, 47.67399, 13.61615], [59, 47.68232, 13.61959], [60, 47.68995, 13.62275], [61, 47.69627, 13.6136], [62, 47.70486, 13.61471], [63, 47.70849, 13.62512], [64, 47.7165, 13.62992], [65, 47.72025, 13.64151], [66, 47.72637, 13.65118], [67, 47.73088, 13.66084], [68, 47.73859, 13.66285], [69, 47.74316, 13.67361], [70, 47.74588, 13.68623], [71, 47.75154, 13.69585], [72, 47.75723, 13.70587], [73, 47.7633, 13.71512], [74, 47.7692, 13.72486], [75, 47.77566, 13.73343], [76, 47.7842, 13.73627], [77, 47.78952, 13.74686], [78, 47.79513, 13.75736], [79, 47.80095, 13.76759], [80, 47.80809, 13.77564], [81, 47.81658, 13.77532], [82, 47.82447, 13.78124], [83, 47.83316, 13.7849], [84, 47.84151, 13.78679], [85, 47.84734, 13.77884], [86, 47.85512, 13.77708], [87, 47.863, 13.77647], [88, 47.87103, 13.77289], [89, 47.87836, 13.76597], [90, 47.8857, 13.75974], [91, 47.89409, 13.75642], [92, 47.90224, 13.75805], [93, 47.9102, 13.7629], [94, 47.9174, 13.76944], [95, 47.92294, 13.77984], [96, 47.93031, 13.78573], [97, 47.93093, 13.77327], [98, 47.93575, 13.76241], [99, 47.94366, 13.75745], [100, 47.95182, 13.75239], [101, 47.96029, 13.74962], [102, 47.96878, 13.74501], [103, 47.97735, 13.74178], [104, 47.98585, 13.73962], [105, 47.99428, 13.73634], [106, 48.00091, 13.72682], [107, 48.00839, 13.71683]]
+
 [[connections]]
 km = 0.569
 station = "Stainach-Irdning"

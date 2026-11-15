@@ -99,6 +99,12 @@ points = [
   { km = 16.146, kind = "signal", label = "F1/g", signal = "distant,main", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "sbpaHckiiAz`@`h@tPlZbFlEtChAhE\\|l@{CpFx@dFfDvEpIxIt_@fE~YnA~\\xAzHzB`Gp|DpiFnLvKlM|FfNfBv_@?hHf@rLnD|JjGz_A|dAfl@b`AfInK|JvHfl@~\\dJnIhExGfHhOxWnn@" },
+]
+posts = [[0, 47.60109, 12.17713], [1, 47.59453, 12.16867], [2, 47.58637, 12.16523], [3, 47.57873, 12.16115], [4, 47.57618, 12.14854], [5, 47.57002, 12.13915], [6, 47.56312, 12.13064], [7, 47.5562, 12.12211], [8, 47.54928, 12.11357], [9, 47.54211, 12.10562], [10, 47.5333, 12.10418], [11, 47.52503, 12.09971], [12, 47.51902, 12.09325], [13, 47.51255, 12.08476], [14, 47.50564, 12.07644], [15, 47.49748, 12.07081], [16, 47.49162, 12.06088]]
+
 [[tracks]]
 track = "2"
 kmFrom = -0.019
@@ -189,6 +195,12 @@ points = [
   { km = 15.991, kind = "signal", label = "Sch301H", signal = "minor" },
   { km = 16.146, kind = "signal", label = "F1/g", signal = "distant,main", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "sbpaHckiiAz`@`h@tPlZbFlEtChAhE\\|l@{CpFx@dFfDvEpIxIt_@fE~YnA~\\xAzHzB`Gp|DpiFnLvKlM|FfNfBv_@?hHf@rLnD|JjGz_A|dAfl@b`AfInK|JvHfl@~\\dJnIhExGfHhOxWnn@" },
+]
+posts = [[0, 47.60109, 12.17713], [1, 47.59453, 12.16867], [2, 47.58637, 12.16523], [3, 47.57873, 12.16115], [4, 47.57618, 12.14854], [5, 47.57002, 12.13915], [6, 47.56312, 12.13064], [7, 47.5562, 12.12211], [8, 47.54928, 12.11357], [9, 47.54211, 12.10562], [10, 47.5333, 12.10418], [11, 47.52503, 12.09971], [12, 47.51902, 12.09325], [13, 47.51255, 12.08476], [14, 47.50564, 12.07644], [15, 47.49748, 12.07081], [16, 47.49162, 12.06088]]
 
 [[connections]]
 km = 15.972

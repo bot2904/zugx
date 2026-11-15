@@ -24,6 +24,12 @@ points = [
   { km = 9.7, kind = "halt", label = "Lanzendorf-Rannersdorf", uic = "8101173", pos = [48.11348, 16.44744], measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "uktdHglkcBaSxAmMbCqNaA_DaB}GsHuBmDuCyHgBcCyCcBgDe@" },
+]
+posts = [[0, 48.12152, 16.44661], [1, 48.12642, 16.4515]]
+
 [[connections]]
 km = 9.7
 station = "Lanzendorf-Rannersdorf"

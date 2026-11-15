@@ -22,3 +22,9 @@ points = [
   { km = 0.7, kind = "signal", label = "yu11", signal = "distant", measured = true },
   { km = 0.766, kind = "signal", signal = "speed_limit" },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "iyfeHmmqwAdDfEnB`Fx@lGCrFaAhG}AvDmDvEuCnB" },
+]
+posts = [[0, 48.20887, 14.51225]]

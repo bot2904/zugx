@@ -3,6 +3,7 @@
  * kilometres (chainage) to OSM `railway:position` values, derive speed sections per direction,
  * curve radii and operating points.
  */
+import { encodePolyline, simplify } from "./geo.ts";
 import { lineId } from "./types.ts";
 import type { RailExtract, VzgLine, VzgPoint, VzgTrack } from "./types.ts";
 
@@ -225,6 +226,8 @@ export function shortestPath(
 }
 
 /** Build one track from a continuous path of edges. */
+const isTunnel = (w: Way) => !!w.tags.tunnel && w.tags.tunnel !== "no";
+
 export function buildTrack(
   track: string,
   path: Edge[],
@@ -369,7 +372,46 @@ export function buildTrack(
 
   const kmFrom = round(Math.min(kmAt[0]!, kmAt.at(-1)!));
   const kmTo = round(Math.max(kmAt[0]!, kmAt.at(-1)!));
-  return { track, kmFrom, kmTo, length: round(length), speeds, curves, points };
+  // map geometry: path pieces with/without tunnel, simplified; km posts at whole km
+  const segments: { line: string; tunnel?: boolean }[] = [];
+  let run: [number, number][] = [pts[0]!];
+  let inTunnel = isTunnel(path[0]!.way);
+  path.forEach((e, i) => {
+    const t = isTunnel(e.way);
+    if (t !== inTunnel) {
+      segments.push({
+        line: encodePolyline(simplify(run, 10)),
+        ...(inTunnel ? { tunnel: true } : {}),
+      });
+      run = [pts[i]!];
+      inTunnel = t;
+    }
+    run.push(pts[i + 1]!);
+  });
+  segments.push({ line: encodePolyline(simplify(run, 10)), ...(inTunnel ? { tunnel: true } : {}) });
+  const posts: [number, number, number][] = [];
+  for (let i = 1; i < kmAt.length; i++) {
+    const [k0, k1] = [kmAt[i - 1]!, kmAt[i]!];
+    const lo = Math.min(k0, k1);
+    const hi = Math.max(k0, k1);
+    for (let k = Math.ceil(lo); k <= hi && k1 !== k0; k++) {
+      if (k === lo && i > 1) continue; // a whole km on a vertex: once
+      const f = (k - k0) / (k1 - k0);
+      const [a0, b0] = pts[i - 1]!;
+      const [a1, b1] = pts[i]!;
+      posts.push([k, round(a0 + f * (a1 - a0), 5), round(b0 + f * (b1 - b0), 5)]);
+    }
+  }
+  return {
+    track,
+    kmFrom,
+    kmTo,
+    length: round(length),
+    speeds,
+    curves,
+    points,
+    geo: { segments, posts },
+  };
 }
 
 /** ÖBB section track number "e21" → track 1 ("…1"/"…2" = Regelgleis of direction 1/2) */

@@ -26,6 +26,12 @@ points = [
   { km = 11.3, kind = "station", label = "Stainz", pos = [46.8904, 15.26866], measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "i`_}Gua{|A~GaDlFuEbW}JzBtAfCtEjArEh@bFGtJyCzW?nRiBjMTvEbDnJ`@fFMpDcCfQW|Ze@nJu@bFiD`Ku@rPaJdUKrDf@`J[`EwStx@gD|Icl@leAi^hh@iHdHsLtRaAxN{EpN}AxOuGxWcAj[s@|FoBzFcHdHsBhE{QndAwHtOgHjK{XrX" },
+]
+posts = [[0, 46.85781, 15.38129], [1, 46.85023, 15.38195], [2, 46.85139, 15.36917], [3, 46.85122, 15.35662], [4, 46.85454, 15.34487], [5, 46.85792, 15.333], [6, 46.86382, 15.3234], [7, 46.8702, 15.31451], [8, 46.87575, 15.30461], [9, 46.87832, 15.29203], [10, 46.88281, 15.28109], [11, 46.88813, 15.27085]]
+
 [[connections]]
 km = 0.004
 station = "Preding-Wieselsdorf"

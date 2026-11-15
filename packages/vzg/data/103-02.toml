@@ -59,6 +59,14 @@ points = [
   { km = 68.757, kind = "signal", label = "R5", signal = "main,shunting,speed_limit", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "eoeeHuuv}Agh@miEuBqZ{Cs{@sD}c@yG_c@iSuz@gCmP{@iNIgL\\aMhAyL" },
+  { line = "}fheHyff~ArBaMnGmR", tunnel = true },
+  { line = "yzgeHihg~Ana@}dA~A_Lv@y_@" },
+]
+posts = [[68, 48.20464, 15.53412], [67, 48.2068, 15.54447], [66, 48.20926, 15.55737], [65, 48.21047, 15.5707], [64, 48.21347, 15.58337], [63, 48.21681, 15.5957], [62, 48.21403, 15.60796], [61, 48.20873, 15.6188]]
+
 [[connections]]
 km = 60.478
 station = "St. Pölten Hauptbahnhof"

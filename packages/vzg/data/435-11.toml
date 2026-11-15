@@ -21,3 +21,9 @@ points = [
   { km = 0.48, kind = "signal", label = "R212", signal = "main", measured = true },
   { km = 0.576, kind = "signal", signal = "crossing_distant" },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "y|{|Gy{}|AdB`LEfEk@pDwClFuIbF" },
+]
+posts = []

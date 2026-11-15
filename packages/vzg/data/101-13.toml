@@ -32,3 +32,9 @@ points = [
   { km = 227.628, kind = "stop", label = "Lambach Markt", pos = [48.09434, 13.87011] },
   { km = 227.85, kind = "signal", label = "R24", signal = "main,speed_limit", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "_krdHirzsA`jAjoBnC|IXtJaA~J_K`b@wAdJgBnq@" },
+]
+posts = [[225, 48.10093, 13.89896], [226, 48.09462, 13.88935], [227, 48.09257, 13.87798], [228, 48.09465, 13.86522]]

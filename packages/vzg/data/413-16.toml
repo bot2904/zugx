@@ -25,6 +25,12 @@ points = [
   { km = 385.811, kind = "signal", label = "V313w", signal = "shunting", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "sle{GmnjsAa@in@VqUYqHwAmIiCiHgDsFwI{JkBoFm@aHmAyg@_AcM" },
+]
+posts = [[385, 46.56352, 13.8329], [384, 46.56813, 13.84349]]
+
 [[connections]]
 km = 5.364
 station = "Gödersdorf"

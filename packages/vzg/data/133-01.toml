@@ -32,6 +32,12 @@ points = [
   { km = 16.18, kind = "signal", signal = "shunting" },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "khydHgxhcBeBjFUtHv@tEpHbRxBtJr@jJRjXu@dJa[tuB" },
+]
+posts = [[16, 48.14006, 16.43028], [15, 48.13782, 16.41787], [14, 48.14081, 16.4052]]
+
 [[connections]]
 km = 13.574
 station = "Oberlaa"

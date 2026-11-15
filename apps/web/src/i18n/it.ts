@@ -191,6 +191,16 @@ export default {
     liveAt: "tempo reale in {n} stazioni, ultima {station} {time}",
   },
   vzg: {
+    map: "Mappa",
+    mapTip: "Mappa di questa linea, pronta per la stampa e per Wikipedia",
+    mapTitle: "Mappa della linea",
+    print: "Stampa",
+    mapLegendLine: "Linea",
+    mapLegendTunnel: "Galleria",
+    mapLegendNetwork: "altre linee",
+    mapLegendKm: "chilometri",
+    mapSources:
+      "Dati cartografici © contributori di OpenStreetMap (ODbL 1.0), aggiornati al {date}. Non ufficiale, senza garanzia.",
     connections: "Linee in coincidenza",
     exportTip:
       "Scarica come SVG (ad es. per Wikimedia Commons): con titolo, legenda e fonti dei dati",

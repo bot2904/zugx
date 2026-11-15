@@ -18,3 +18,9 @@ points = [
   { km = 0.122, kind = "signal", label = "H41", signal = "main", measured = true },
   { km = 0.812, kind = "signal", label = "R41", signal = "main", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "oukfHkju`BChKf@vFjBpFjDrDxDbAjEi@fDgCjDeG" },
+]
+posts = [[0, 48.39262, 16.00347]]

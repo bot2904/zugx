@@ -94,6 +94,12 @@ points = [
   { km = 13.348, kind = "signal", signal = "speed_limit" },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "}s}cHkyiqAbDrHdAAhCeBzFuJ`AaN`CoBzDg@|G_G|JaXhI_LfFySnBgAnH?rAdAbZrl@|D`NrLxXnUdRfN|Xj^nYp\\fd@bC~@rOVjJhDlFa@h]fC|FfF|De@|LeMbLiJ`EeLbO}ZxEqUne@qcArKcRpKaLhB{CrU}y@|DmE|BsHnIiIvBqOhPup@hRed@bBeM" },
+]
+posts = [[0, 47.99789, 13.48958], [1, 47.99157, 13.4959], [2, 47.98581, 13.50541], [3, 47.97964, 13.4963], [4, 47.97307, 13.48754], [5, 47.96595, 13.47966], [6, 47.95845, 13.47335], [7, 47.94964, 13.47162], [8, 47.94249, 13.47736], [9, 47.93724, 13.48813], [10, 47.93141, 13.49829], [11, 47.9258, 13.50841], [12, 47.92061, 13.51877], [13, 47.91598, 13.53022]]
+
 [[connections]]
 km = 0
 station = "Vöcklamarkt"

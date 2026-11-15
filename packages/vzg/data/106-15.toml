@@ -47,6 +47,14 @@ points = [
   { km = 7.575, kind = "signal", label = "V773R", signal = "shunting", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "s{}dHyztbBsd@jw@eCxF{CdJmAxGg@xIPnJ" },
+  { line = "mm_eHipqbBxCdZ", tunnel = true },
+  { line = "sh_eHcupbBpD|UJ|PoRtaB" },
+]
+posts = [[7, 48.16767, 16.32559], [6, 48.17109, 16.31401], [5, 48.17014, 16.30099], [4, 48.17244, 16.28944]]
+
 [[connections]]
 km = 3.601
 station = "Schöpfwerk"

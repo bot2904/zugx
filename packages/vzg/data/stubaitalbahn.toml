@@ -118,6 +118,14 @@ points = [
   { km = 18.164, kind = "station", label = "Fulpmes", uic = "8100540", pos = [47.15561, 11.35242], measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "wal_HicqdAlEeAhAb@nCvQ]hCqBbDyBdGWfGgCzEWpE" },
+  { line = "qbl_HijodAp@Zt@_@jAeD", tunnel = true },
+  { line = "}|k_HsoodAnB{KrAuApBGbAp@j@xAj@|Mj@t@~@GlDgDfA{B`C_RrAaAlBEvLhMjIxEdBzDhB^hLfJ`DdAVdACjIuArHxB`Np@bAtDZdFuAzCXfJpIhEdGdAPv@{@JkBkAoJiBgFGyHtAuApGhBrAtBhA|DLxH^rAzADjAwDr@k@bARl@xAGrAiBtFQjFwCzDu@|D_Ch]xExMt@p@`CZbAiAI}E\\}AnDF|F_FjDAfIaK`DKlCpAvAEnGoFzAwDt@e@jFI`BlCt@VpB}BvGa@bDkF~K}FrCE|DnBjCqFzGoBtH_FhH_BxLn@bAq@tAqCxB}@tEhAjCfBdD~KnBn@t@w@rBoHlEkDa@qIf@uAjEoCvBvA|@GhCsHzNyJfGShLfCpKxGhItBdCxCfCvFfDLr@f@bAzG~FxOvCrEdDzBrA~EzCzFdFhDrGtM~KpNvEhEl@|DrBlE`BbBlA~EtATxCiCfAI`FhHpOjMnB|Bz@dCpBvA|AnClMx[bBd@|F_A|FpDbC]r@_B_@eBiE@{CuCEuB`Au@fCpBxFtAfGnH" },
+]
+posts = [[1, 47.25307, 11.38875], [2, 47.24794, 11.39052], [3, 47.24152, 11.38912], [4, 47.23692, 11.3806], [5, 47.23256, 11.38132], [6, 47.22879, 11.37783], [7, 47.2285, 11.36776], [8, 47.22215, 11.37254], [9, 47.21596, 11.37469], [10, 47.20805, 11.37891], [11, 47.1999, 11.37918], [12, 47.19538, 11.38292], [13, 47.18725, 11.3849], [14, 47.1805, 11.37714], [15, 47.17371, 11.36827], [16, 47.16693, 11.36138], [17, 47.16058, 11.35266], [18, 47.15678, 11.35385]]
+
 [[connections]]
 km = 0.014
 station = "Innsbruck Stubaitalbf"

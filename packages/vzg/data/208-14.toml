@@ -32,6 +32,12 @@ points = [
   { km = 182.835, kind = "signal", label = "Sch124R/1G22/1G24", signal = "main_repeated,minor,shunting", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "egqeHoqlvAzOkSjOcPtFgKlHwSdHga@pBeh@lDsb@t^ocB" },
+]
+posts = [[182, 48.25656, 14.33046], [181, 48.25267, 14.34232], [180, 48.25069, 14.3554], [179, 48.24678, 14.36752]]
+
 [[connections]]
 km = 180.655
 station = "Linz Ebelsberg"

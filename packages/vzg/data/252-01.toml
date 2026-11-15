@@ -28,3 +28,9 @@ points = [
   { km = 2.057, kind = "halt", label = "Wels Messe", uic = "8101946", pos = [48.15244, 14.01963], measured = true },
   { km = 2.11, kind = "signal", label = "VHT301", signal = "shunting", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "qa}dHmqptAp\\yJtFmClEsE" },
+]
+posts = [[2, 48.15293, 14.01919]]

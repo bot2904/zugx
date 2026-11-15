@@ -20,3 +20,9 @@ points = [
   { km = 5.034, kind = "stop", label = "Schwarzenberg", pos = [47.39915, 9.85448] },
   { km = 33.6, kind = "stop", label = "Reuthe", pos = [47.38335, 9.87454], measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "{ge`Hi_l{@uDxS}EvQOrEh@fM}BnIYtE\\fObBpHBdGvAbMF~KvC|XBxCy@dD_FvGaCjU_BfEoE~TqErGy@hHeEvM}@`AoEvA_C`KmBhBaCWaFwFsAcHmAcBgFUcDhCuDKuDhCgBPsCmBoE_M" },
+]
+posts = [[0, 47.3819, 9.89701], [1, 47.38454, 9.88474], [2, 47.38286, 9.87185], [3, 47.38596, 9.86015], [4, 47.39161, 9.85115], [5, 47.39896, 9.85412]]

@@ -35,6 +35,12 @@ points = [
   { km = 185.985, kind = "signal", label = "P701", signal = "main,shunting", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "wjpeHmdmvAwM~]}EjGaHdEyxB`g@mL~@mHsAoMb@" },
+]
+posts = [[183, 48.26177, 14.31997], [184, 48.2705, 14.31686], [185, 48.27932, 14.31387]]
+
 [[tracks]]
 track = "2"
 kmFrom = 182.336
@@ -62,3 +68,9 @@ points = [
   { km = 185.526, kind = "signal", label = "T701/s601", signal = "distant,main,shunting", measured = true },
   { km = 185.985, kind = "signal", label = "P701", signal = "main,shunting", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "wjpeHmdmvAwM~]}EjGaHdEyxB`g@mL~@mHsAoMb@" },
+]
+posts = [[183, 48.26177, 14.31997], [184, 48.2705, 14.31686], [185, 48.27932, 14.31387]]

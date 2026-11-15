@@ -23,6 +23,12 @@ points = [
   { km = 75.242, kind = "signal", label = "R2", signal = "main", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "gwbeHcwj}AHr}B" },
+]
+posts = [[74, 48.18811, 15.45755], [75, 48.18815, 15.44412]]
+
 [[tracks]]
 track = "2"
 kmFrom = 73.733
@@ -38,6 +44,12 @@ points = [
   { km = 75.069, kind = "signal", signal = "station_distant" },
   { km = 75.242, kind = "signal", label = "R2", signal = "main", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "gwbeHcwj}AHr}B" },
+]
+posts = [[74, 48.18811, 15.45755], [75, 48.18815, 15.44412]]
 
 [[connections]]
 km = 73.955

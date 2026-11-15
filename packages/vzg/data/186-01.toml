@@ -79,6 +79,12 @@ points = [
   { km = 58.737, kind = "signal", label = "R3", signal = "main,shunting", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "msggHs}bfBwP_@eEjAkGjJkRxRoD|GcPnz@y`@j`BaThhAi@hGj@zHpEzSlBnEnSzPvHdNzSl[bU~PnUrTbJnNpB`G|BlUo@fSkCvQ_EvJwFzTsGhj@}IlV{@lGNrG`BtIfBrCnG~FtBdHXbVcBtR" },
+]
+posts = [[1, 48.54874, 16.89101], [2, 48.5529, 16.87921], [3, 48.55708, 16.86721], [4, 48.56081, 16.85487], [5, 48.55836, 16.84366], [6, 48.55152, 16.83495], [7, 48.54404, 16.82811], [8, 48.54248, 16.81564], [9, 48.54609, 16.80311], [10, 48.54562, 16.79253]]
+
 [[connections]]
 km = 0.004
 station = "Drösing"

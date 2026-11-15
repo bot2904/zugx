@@ -27,6 +27,12 @@ points = [
   { km = 3.323, kind = "station", label = "Linz Franckstraße", uic = "8100807", pos = [48.2859, 14.32369], measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "mzueHiylvAg@fN_Ghi@qA|EiBvC" },
+]
+posts = [[3, 48.28663, 14.32009]]
+
 [[connections]]
 km = 3.323
 station = "Linz Franckstraße"

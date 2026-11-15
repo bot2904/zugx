@@ -124,3 +124,9 @@ points = [
   { km = 19.358, kind = "signal", label = "VHT141", signal = "shunting", measured = true },
   { km = 19.79, kind = "signal", label = "Zd11/h", signal = "distant,main", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "k}ueH}`lvA|Gon@b@qSq@yNuKanAE}H`AmG|FmRbAyFnFaoAhAuL|ByKjJ_ZpDyRb@sLc@kZrAyMvLqr@lDsMdFkKfZ{a@`FwCjFa@dFrAdI`G~Eb@xCcAhHaGxI}BfDuDjBuGVcHW}DcDyRQuOnAqLvF{R`@}Ik@oGuAeFiBgDuI{J}L_XwAgIyI__AgBuFqBeDkQ_NiEeBcD]cF~@iItKuGxBeQ|AwEiBeCqDkAgEgDgV@eFlB_PEiEm@gEsDiHiIaEkCgC{M{V{@sJnAwRIiJiM_u@}AeFuCiEeDyB}EgA" },
+]
+posts = [[4, 48.2849, 14.33275], [5, 48.28696, 14.34592], [6, 48.28478, 14.35849], [7, 48.28293, 14.3716], [8, 48.28028, 14.38401], [9, 48.27749, 14.39668], [10, 48.27113, 14.4061], [11, 48.26278, 14.40664], [12, 48.26068, 14.41696], [13, 48.26056, 14.42885], [14, 48.26512, 14.43994], [15, 48.26988, 14.45029], [16, 48.27816, 14.44777], [17, 48.28149, 14.45764], [18, 48.28759, 14.46762], [19, 48.28894, 14.4797]]

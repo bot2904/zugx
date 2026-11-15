@@ -276,6 +276,12 @@ points = [
   { km = 89.099, kind = "signal", label = "R305", signal = "main", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "agdhHafa_B`AuFzS{u@dBgC|BeAlCHnBhAlR`a@lEdOhQ|zAU~FkAhFsY~q@u@jF]fQ_EfRiBjD{FvFaBvE_OdjA_IxPcBvHc@fY\\tD`ArCjDxC|EUnc@qa@rHwCnI\\fYhLlEbFxYdf@bB`Et@fHo@bv@t@tDvA`CjEbBnCk@rBuB|@{BdCiN`EyEvCm@tR[jCo@jv@ea@dGsGbIoSzDcDrCg@tLCzDdAdDpEbCtKhBtD`D|BfJpBbCtCrAhE`@rGO`]e@bEmExMY`FRfEjArE~FpG~A`FPfEs@tPfEnRrAd`@h@nErB~D|IpFbA~BfCfM`BbCnCdAdFSjEoDrBo@|F\\vJcAni@u@xE_BfC}DbAyErBqStCuh@|BuF`EuBxBFfCrAdHjMjEvEzDjBrEl@rXqEhWaGrIuHpE[lOlJdCtChHvYhBrDjDbBdD_@fSwMhOyWtNaQ~D}@dTbC~Be@fBuAvBuGxCsi@t@}FtDsJ`GoHbFsBhY}DhSjBfMcDdDyBbC_Fr@oFAyDiAqMRyFzDuJ|CgCdE@jBtA|AvCzJfr@fA`ExDnD~BL`Bg@~KmL`CwDlCgH`DuNRsGwFij@SoKh@gGvAqFxCkFbCwAlERpTzKdEjAdXe@zDxAhKnSvCzb@rBzDbDrArH}AfD{BpCmDpi@cnAxFaEfPiCjEl@bf@h[|EtAft@{DbWxBhFeBtKeIzFWdEdCt[l`@nCzB~p@bKpBu@tB{BntAasBvr@gy@lDoBnEe@`\\~F" },
+]
+posts = [[44, 48.68611, 15.74369], [43, 48.68039, 15.74921], [42, 48.67599, 15.73722], [41, 48.67503, 15.72476], [40, 48.67939, 15.71317], [39, 48.68371, 15.70183], [38, 48.6874, 15.6896], [37, 48.68215, 15.68664], [36, 48.67399, 15.68916], [35, 48.66682, 15.68112], [34, 48.66547, 15.66808], [33, 48.65829, 15.67248], [32, 48.65039, 15.67647], [31, 48.64267, 15.68397], [30, 48.63524, 15.67854], [29, 48.63527, 15.66601], [28, 48.63235, 15.65518], [27, 48.62849, 15.64377], [26, 48.62018, 15.6435], [25, 48.6122, 15.64625], [24, 48.60866, 15.65799], [23, 48.60091, 15.65411], [22, 48.59233, 15.65723], [21, 48.58586, 15.64929], [20, 48.57857, 15.65728], [19, 48.57116, 15.66116], [18, 48.56743, 15.67209], [17, 48.55822, 15.67312], [16, 48.5545, 15.68312], [15, 48.54993, 15.67369], [14, 48.54333, 15.67969], [13, 48.54393, 15.69238], [12, 48.53544, 15.69136], [11, 48.52964, 15.68372], [10, 48.52388, 15.68446], [9, 48.51773, 15.69566], [8, 48.50909, 15.69392], [7, 48.50032, 15.69238], [6, 48.49148, 15.69317], [5, 48.48416, 15.68946], [4, 48.4754, 15.68591], [3, 48.46835, 15.69352], [2, 48.46168, 15.70261], [1, 48.45464, 15.71099], [0, 48.44655, 15.71461]]
+
 [[tracks]]
 track = "2"
 kmFrom = -0.196
@@ -543,6 +549,12 @@ points = [
   { km = 89.03, kind = "signal", label = "1R305", signal = "main_repeated", measured = true },
   { km = 89.099, kind = "signal", label = "R305", signal = "main", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "agdhHafa_B`AuFzS{u@dBgC|BeAlCHnBhAlR`a@lEdOhQ|zAU~FkAhFsY~q@u@jF]fQ_EfRiBjD{FvFaBvE_OdjA_IxPcBvHc@fY\\tD`ArCjDxC|EUnc@qa@rHwCnI\\fYhLlEbFxYdf@bB`Et@fHo@bv@t@tDvA`CjEbBnCk@rBuB|@{BdCiN`EyEvCm@tR[jCo@jv@ea@dGsGbIoSzDcDrCg@tLCzDdAdDpEbCtKhBtD`D|BfJpBbCtCrAhE`@rGO`]e@bEmExMY`FRfEjArE~FpG~A`FPfEs@tPfEnRrAd`@h@nErB~D|IpFbA~BfCfM`BbCnCdAdFSjEoDrBo@|F\\vJcAni@u@xE_BfC}DbAyErBqStCuh@|BuF`EuBxBFfCrAdHjMjEvEzDjBrEl@rXqEhWaGrIuHpE[lOlJdCtChHvYhBrDjDbBdD_@fSwMhOyWtNaQ~D}@dTbC~Be@fBuAvBuGxCsi@t@}FtDsJ`GoHbFsBhY}DhSjBfMcDdDyBbC_Fr@oFAyDiAqMRyFzDuJ|CgCdE@jBtA|AvCzJfr@fA`ExDnD~BL`Bg@~KmL`CwDlCgH`DuNRsGwFij@SoKh@gGvAqFxCkFbCwAlERpTzKdEjAdXe@zDxAhKnSvCzb@rBzDbDrArH}AfD{BpCmDpi@cnAxFaEfPiCjEl@bf@h[|EtAft@{DbWxBhFeBtKeIzFWdEdCt[l`@nCzB~p@bKpBu@tB{BntAasBvr@gy@lDoBnEe@`\\~F" },
+]
+posts = [[44, 48.68611, 15.74369], [43, 48.68039, 15.74921], [42, 48.67599, 15.73722], [41, 48.67503, 15.72476], [40, 48.67939, 15.71317], [39, 48.68371, 15.70183], [38, 48.6874, 15.6896], [37, 48.68215, 15.68664], [36, 48.67399, 15.68916], [35, 48.66682, 15.68112], [34, 48.66547, 15.66808], [33, 48.65829, 15.67248], [32, 48.65039, 15.67647], [31, 48.64267, 15.68397], [30, 48.63524, 15.67854], [29, 48.63527, 15.66601], [28, 48.63235, 15.65518], [27, 48.62849, 15.64377], [26, 48.62018, 15.6435], [25, 48.6122, 15.64625], [24, 48.60866, 15.65799], [23, 48.60091, 15.65411], [22, 48.59233, 15.65723], [21, 48.58586, 15.64929], [20, 48.57857, 15.65728], [19, 48.57116, 15.66116], [18, 48.56743, 15.67209], [17, 48.55822, 15.67312], [16, 48.5545, 15.68312], [15, 48.54993, 15.67369], [14, 48.54333, 15.67969], [13, 48.54393, 15.69238], [12, 48.53544, 15.69136], [11, 48.52964, 15.68372], [10, 48.52388, 15.68446], [9, 48.51773, 15.69566], [8, 48.50909, 15.69392], [7, 48.50032, 15.69238], [6, 48.49148, 15.69317], [5, 48.48416, 15.68946], [4, 48.4754, 15.68591], [3, 48.46835, 15.69352], [2, 48.46168, 15.70261], [1, 48.45464, 15.71099], [0, 48.44655, 15.71461]]
 
 [[connections]]
 km = -0.02

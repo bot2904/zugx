@@ -72,6 +72,12 @@ points = [
   { km = 101.05, kind = "station", label = "Wien Hauptbahnhof Autoreisezug", uic = "8103090", pos = [48.17797, 16.39109], measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "qf`eHgfvbBlFfb@hBzFtC`DtXhNzBdDt@zD?dEi@fDwAhD|Wsd@_ExE_DtBaDx@}D?iEoAmWgNgEuFcAiEgGsg@yAoh@wCeVoBiIaM{_@uGy]yHgUwNmn@g@wHH{ItBiX|BgMhFoLpZcc@" },
+]
+posts = [[3, 48.17575, 16.34187], [2, 48.17837, 16.35446], [1, 48.18277, 16.36644], [0, 48.18493, 16.37888], [-1, 48.17967, 16.3893]]
+
 [[connections]]
 km = 0.068
 station = "Wien Hauptbahnhof"

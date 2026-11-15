@@ -65,6 +65,12 @@ points = [
   { km = 31.728, kind = "stop", label = "Mayrhofen im Zillertal", pos = [47.16955, 11.86235] },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "ymf`Hej{fAiKce@sHiUyEsQo@uER{JpHm\\l@uELeHa@aJyJud@gBwPqEwNuGoIc@iF^{BdBsD`[oi@|DoDlPiI|_@ef@pBmEtAqGn@{VvBoJxCqFtBmAdP_CxI}Gne@cW|]cN|]yDj\\zFzo@aHvIiBzJcJzPqItFqKvCoCvPeJpIuBlJaG`UcIxUqE|DRhJtBhRg@lb@cInIaDjs@}c@zNyHhJ_ArK~B`F@tTgH~G}ItV_IzEwCnKoKpEgArJFpEuBdDaFxNk]`NgNtHuSfCoCzKqG~KkAzo@xIb]hCpOsBjFPlNcA|RnBbCxBpO~TzFHjBbAhCrN|C|I~LxQ~]hQzR`TzPbKjIpGzDrExG~KdC|BrCjA`FHxHyBfDInZhBzXxChi@uGnI}BzEA|VlGzObOnF`Cl]pCzSmBdOpF|WPtXnHtMvN" },
+]
+posts = [[1, 47.39201, 11.78899], [2, 47.39093, 11.80138], [3, 47.39424, 11.81331], [4, 47.3923, 11.82293], [5, 47.38506, 11.82997], [6, 47.3806, 11.84023], [7, 47.37311, 11.84622], [8, 47.36468, 11.85107], [9, 47.35584, 11.85213], [10, 47.34695, 11.85266], [11, 47.33874, 11.85747], [12, 47.33088, 11.86328], [13, 47.32221, 11.86574], [14, 47.3134, 11.86675], [15, 47.30515, 11.8716], [16, 47.29692, 11.87555], [17, 47.28867, 11.87876], [18, 47.28028, 11.88294], [19, 47.27358, 11.89132], [20, 47.26626, 11.89771], [21, 47.25736, 11.89585], [22, 47.24848, 11.8961], [23, 47.24063, 11.89139], [24, 47.23445, 11.88309], [25, 47.22663, 11.87688], [26, 47.21912, 11.87006], [27, 47.21026, 11.86996], [28, 47.20145, 11.87059], [29, 47.19295, 11.86934], [30, 47.18446, 11.86621], [31, 47.17563, 11.86545]]
+
 [[connections]]
 km = 0
 station = "Jenbach Achenseebahn"

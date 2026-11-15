@@ -26,3 +26,11 @@ points = [
   { km = 1.455, kind = "signal", label = "V963R", signal = "shunting", measured = true },
   { km = 1.458, kind = "signal", label = "V969R", signal = "shunting", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "_dteHmikvA{WbBySbJaDf@mCw@_CkDw@cFNoF]rEJjEz@fFrA|C" },
+  { line = "o|ueHovjvAJRMQ", tunnel = true },
+  { line = "q|ueHmvjvAaF}BcEjA" },
+]
+posts = [[1, 48.28444, 14.31499]]

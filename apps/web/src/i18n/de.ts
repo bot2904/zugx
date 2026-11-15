@@ -191,6 +191,16 @@ export default {
     liveAt: "Echtzeit an {n} Bahnhöfen, zuletzt {station} {time}",
   },
   vzg: {
+    map: "Karte",
+    mapTip: "Druck- und Wikipedia-taugliche Karte dieser Strecke",
+    mapTitle: "Streckenkarte",
+    print: "Drucken",
+    mapLegendLine: "Strecke",
+    mapLegendTunnel: "Tunnel",
+    mapLegendNetwork: "andere Strecken",
+    mapLegendKm: "Streckenkilometer",
+    mapSources:
+      "Kartendaten © OpenStreetMap-Mitwirkende (ODbL 1.0), Stand {date}. Nicht amtlich, ohne Gewähr.",
     connections: "Anschlussstrecken",
     exportTip:
       "Als SVG herunterladen (z. B. für Wikimedia Commons): mit Titel, Legende und Datenquellen",

@@ -40,6 +40,12 @@ points = [
   { km = 9.816, kind = "signal", label = "R204", signal = "main,shunting", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "iuseHscacBjM{PxLqVlLyn@j@aH@oHq@iHoCmKmK{WyGkUa@oH|@iPSuGiLyl@i\\cbC" },
+]
+posts = [[0, 48.27363, 16.39659], [1, 48.26874, 16.4075], [2, 48.27092, 16.4195], [3, 48.27325, 16.43201], [4, 48.27638, 16.44467]]
+
 [[connections]]
 km = 5.686
 station = "Wien Brünner Straße"

@@ -18,3 +18,9 @@ points = [
   { km = 10.343, kind = "signal", label = "Sch911R", signal = "minor", measured = true },
   { km = 10.535, kind = "signal", label = "Sch911H", signal = "minor", measured = true },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "qvc`Hmha{AmDbByCLkBg@aF{D" },
+]
+posts = []

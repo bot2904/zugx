@@ -34,3 +34,9 @@ points = [
   { km = 9.252, kind = "signal", signal = "snowplow" },
   { km = 9.269, kind = "station", label = "Deutschkreutz", uic = "8100719", pos = [47.60388, 16.62021] },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "{auaHc`ndBlc@~UtPlB~K}@zo@{TvHqAfCDrCrA|AnBvA~D" },
+]
+posts = [[7, 47.62312, 16.62254], [8, 47.61455, 16.62153], [9, 47.60599, 16.6248]]

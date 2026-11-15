@@ -86,3 +86,9 @@ points = [
   { km = 10.343, kind = "signal", signal = "speed_limit" },
   { km = 10.429, kind = "halt", label = "Kammer-Schörfling", pos = [47.94852, 13.59588] },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "yp_dHwbfrAxHhe@`BpEbHzJvFdB|BfBnL`SvPfQlI`Q~RfOxLlDnSXhGu@x`@kJfFItE|AhQ~JlDrE`OhYrC|CdDxAnKP`LsExBb@pEbDzB^rBInFmC~BUzRpDja@i@nDZdHvFbE|L|B|MrAtY" },
+]
+posts = [[3, 48.00477, 13.62644], [4, 47.99758, 13.61892], [5, 47.98991, 13.61248], [6, 47.98124, 13.61428], [7, 47.97351, 13.60957], [8, 47.96572, 13.60652], [9, 47.95702, 13.60549], [10, 47.94933, 13.60147]]

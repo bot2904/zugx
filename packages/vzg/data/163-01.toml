@@ -398,6 +398,12 @@ points = [
   { km = 49.241, kind = "signal", label = "P704/s", signal = "distant,main,speed_limit_distant", measured = true },
 ]
 
+[tracks.geo]
+segments = [
+  { line = "ckybHytabBz^~H|G|ChFpEdU~\\xG|MxA|GSjJsB~FqCdC{x@zRcE|DiA`FoEdb@mMvj@eSrr@eW|w@wWnq@wJfS{@bEEbDfArG~EtJx@zDa@dZbFh`@rn@duBvHl^pI|QtFpRrBx`@kBfc@h@zFnCdEt\\dPbO`MxCpEfNt\\`KzQnOz{@HnGuAn[dHtx@~AvEb\\de@tAhFrJfm@?~]iCpKyEj]H|ElD~_@mGxm@\\n`@~BjTjBp[[xUm@bDiIvUuBvYiBrHcAdLwA`H_DtD}KzA}A`ByBxEuDnMCnCt@xIe@|FuCnEcHbAuCxCeD`L}AvSf@pHbBnFfN~NnB`Fb@`Gu@pNDlDfAvFrCxFj@dCDpZ`@xBpCpGr@bGpBvGjAzJP|J[pFsFzZ{GxWuBrYLtGzBvURzTzD`Zh@vShBlMnEvPlElVpAzD|M|WjDlS" },
+]
+posts = [[-1, 47.80728, 16.23223], [0, 47.80029, 16.22408], [1, 47.80473, 16.2167], [2, 47.81176, 16.21071], [3, 47.81541, 16.19852], [4, 47.82005, 16.18706], [5, 47.82512, 16.17613], [6, 47.82622, 16.16524], [7, 47.824, 16.15258], [8, 47.81937, 16.1411], [9, 47.81468, 16.12934], [10, 47.81287, 16.11734], [11, 47.8074, 16.10945], [12, 47.80098, 16.10039], [13, 47.79711, 16.08869], [14, 47.79639, 16.07563], [15, 47.79045, 16.06518], [16, 47.78854, 16.05339], [17, 47.78945, 16.03998], [18, 47.79068, 16.02704], [19, 47.78994, 16.01402], [20, 47.79319, 16.00183], [21, 47.798, 15.99328], [22, 47.80225, 15.98315], [23, 47.79845, 15.97237], [24, 47.7955, 15.96028], [25, 47.79804, 15.94791], [26, 47.79778, 15.93471], [27, 47.79506, 15.9221], [28, 47.79056, 15.91088]]
+
 [[connections]]
 km = -1.433
 station = "Wiener Neustadt Hauptbahnhof"

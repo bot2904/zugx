@@ -28,3 +28,11 @@ points = [
   { km = 15.313, kind = "signal", signal = "catenary_mast,electricity" },
   { km = 15.315, kind = "signal", signal = "catenary_mast,electricity" },
 ]
+
+[tracks.geo]
+segments = [
+  { line = "ggg_HsnodAwR}I" },
+  { line = "_{g_HqyodAqSuNgP_TmFkKoEmLoDmMkCeNiBwNid@cjF_fAa{JiDmVsEyUyF}T_H{S}L_YuJyPsKiOiQeRsMiKoPgK", tunnel = true },
+  { line = "u}p_HqmleAaQmMaL{MyFkJ}c@a|@" },
+]
+posts = [[15, 47.23146, 11.3912], [14, 47.2386, 11.39898], [13, 47.24216, 11.41096], [12, 47.2442, 11.42382], [11, 47.24623, 11.43668], [10, 47.24836, 11.44951], [9, 47.25072, 11.46225], [8, 47.25311, 11.47498], [7, 47.2555, 11.48772], [6, 47.25789, 11.50045], [5, 47.26063, 11.51301], [4, 47.26532, 11.52422], [3, 47.27198, 11.53303], [2, 47.27992, 11.53923], [1, 47.28648, 11.54812]]
