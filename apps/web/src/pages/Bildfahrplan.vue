@@ -638,7 +638,7 @@ function toggleCat(c: string) {
           :aria-label="$t('bf.prevDay')"
           @click="shiftDay(-1)"
         >
-          ‹
+          ←
         </button>
         <input
           type="date"
@@ -656,7 +656,7 @@ function toggleCat(c: string) {
           :aria-label="$t('bf.nextDay')"
           @click="shiftDay(1)"
         >
-          ›
+          →
         </button>
         <button
           class="btn"
@@ -669,7 +669,14 @@ function toggleCat(c: string) {
         </button>
       </span>
       <span class="flex items-center gap-1">
-        <button class="btn" v-tip="`${$t('bf.hourEarlier')} (↑)`" @click="shiftHour(-2)">▲</button>
+        <button
+          class="btn"
+          v-tip="`${$t('bf.hourEarlier')} (↑)`"
+          :aria-label="$t('bf.hourEarlier')"
+          @click="shiftHour(-2)"
+        >
+          ↑
+        </button>
         <input
           type="time"
           class="input mono text-xs"
@@ -678,7 +685,14 @@ function toggleCat(c: string) {
           v-tip="$t('bf.wheelHint')"
           @change="setStartTime(($event.target as HTMLInputElement).value)"
         />
-        <button class="btn" v-tip="`${$t('bf.hourLater')} (↓)`" @click="shiftHour(2)">▼</button>
+        <button
+          class="btn"
+          v-tip="`${$t('bf.hourLater')} (↓)`"
+          :aria-label="$t('bf.hourLater')"
+          @click="shiftHour(2)"
+        >
+          ↓
+        </button>
         <button
           v-for="h in [2, 4, 8, 24]"
           :key="h"
