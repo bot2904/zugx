@@ -190,6 +190,15 @@ export default {
     liveAt: "tempo reale in {n} stazioni, ultima {station} {time}",
   },
   vzg: {
+    exportTip:
+      "Scarica come SVG (ad es. per Wikimedia Commons): con titolo, legenda e fonti dei dati",
+    exportDesc:
+      "Velocità ammesse (grafico tipo VzG) lungo la linea, da dati OpenStreetMap; non il VzG ufficiale ÖBB.",
+    exportLegend:
+      "Linea rossa: velocità ammessa nel senso di marcia (km/h, scala in alto); tratto-punto: senso opposto. Barre blu: raggio di curva (m), stimato dalla geometria dei binari.",
+    exportData:
+      "Dati: © contributori di OpenStreetMap (ODbL 1.0), aggiornati al {date}. Non ufficiale, senza garanzia.",
+    exportMadeWith: "Creato con zugx – {url}",
     coverage:
       "OpenStreetMap ha un limite di velocità solo per il {p} % di questa linea; altrove il diagramma ha delle lacune.",
     wikidataTip: "Questa linea su Wikidata (DinoData)",

@@ -473,3 +473,26 @@ test("shortcuts ignore Ctrl/⌘ combinations of the same letter (Ctrl+R reloads,
   await page.keyboard.press("r");
   await expect(page).toHaveURL(/\/radar$/);
 });
+
+test("VzG chart exports a standalone SVG with caption and data sources", async ({ page }) => {
+  await page.goto("/vzg/101-01?t=2");
+  await page.locator("svg.vzg").waitFor();
+  const [dl] = await Promise.all([
+    page.waitForEvent("download"),
+    page.getByRole("button", { name: /SVG/ }).click(),
+  ]);
+  expect(dl.suggestedFilename()).toMatch(/^VzG_101_01_Westbahn_.+_2\.svg$/);
+  const svg = await new Promise<string>((resolve) => {
+    void dl.createReadStream().then((s) => {
+      let t = "";
+      s.on("data", (c: Buffer) => (t += c.toString()));
+      s.on("end", () => resolve(t));
+    });
+  });
+  expect(svg).toContain('<svg xmlns="http://www.w3.org/2000/svg"');
+  expect(svg).toMatch(/<title>.*101 01 Westbahn/);
+  expect(svg).toContain("OpenStreetMap");
+  expect(svg).toContain("zugx");
+  expect(svg).not.toContain("class=");
+  expect(svg).not.toContain("var(--");
+});

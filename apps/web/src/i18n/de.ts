@@ -190,6 +190,15 @@ export default {
     liveAt: "Echtzeit an {n} Bahnhöfen, zuletzt {station} {time}",
   },
   vzg: {
+    exportTip:
+      "Als SVG herunterladen (z. B. für Wikimedia Commons): mit Titel, Legende und Datenquellen",
+    exportDesc:
+      "Zulässige Geschwindigkeiten (VzG-artige Grafik) entlang der Strecke, aus OpenStreetMap-Daten; nicht das amtliche ÖBB-VzG.",
+    exportLegend:
+      "Rote Linie: zulässige Geschwindigkeit in Fahrtrichtung (km/h, Skala oben); strichpunktiert: Gegenrichtung. Blaue Balken: Kurvenradius (m), aus der Gleisgeometrie geschätzt.",
+    exportData:
+      "Daten: © OpenStreetMap-Mitwirkende (ODbL 1.0), Stand {date}. Nicht amtlich, ohne Gewähr.",
+    exportMadeWith: "Erstellt mit zugx – {url}",
     coverage:
       "OpenStreetMap kennt nur für {p} % dieser Strecke die zulässige Geschwindigkeit; im übrigen Teil hat das Geschwindigkeitsband Lücken.",
     wikidataTip: "Diese Strecke auf Wikidata (DinoData)",

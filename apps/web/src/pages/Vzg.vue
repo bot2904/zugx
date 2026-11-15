@@ -10,6 +10,7 @@ import VzgIndexView from "../components/VzgIndex.vue";
 import VzgAbbr from "../components/VzgAbbr.vue";
 import { useI18n } from "../i18n/index.ts";
 import { itemWikidata } from "../lib/wikidata.ts";
+import { download, standaloneSvg } from "../lib/svg-export.ts";
 import type { TipContent } from "../lib/tip.ts";
 
 const files = import.meta.glob<{ default: VzgLine }>("../../../../packages/vzg/data/*.toml");
@@ -286,6 +287,42 @@ const curves = computed(() =>
 const curveLabels = computed(() => new Set(place(curves.value, (c) => y((c[0] + c[1]) / 2), 11)));
 const curveOpacity = (r: number) => Math.max(0.15, Math.min(0.9, 300 / r));
 
+// ---- SVG export (e.g. for Wikimedia Commons): caption, data sources, link back to this view
+const chart = ref<SVGSVGElement>();
+function exportSvg() {
+  const l = data.value;
+  const tr = track.value;
+  if (!chart.value || !l || !tr) return;
+  // stations in the direction of travel: first and last
+  const st = tr.points.filter((p) => p.kind === "station" && p.label).sort((a, b) => a.km - b.km);
+  const ends = increasing.value ? [st[0], st.at(-1)] : [st.at(-1), st[0]];
+  const dir = ends.every(Boolean) ? `${ends[0]!.label} → ${ends[1]!.label}` : "";
+  const line = [l.ref, l.name].filter(Boolean).join(" ");
+  const caption = `${t("vzg.title")} ${line} – ${t("vzg.track")} ${tr.track}${dir ? `: ${dir}` : ""}`;
+  const subtitle = [
+    l.operator,
+    l.gauge && l.gauge !== "1435" ? `${l.gauge} mm` : "",
+    `km ${kmText(Math.min(tr.kmFrom, tr.kmTo), 1)} – ${kmText(Math.max(tr.kmFrom, tr.kmTo), 1)}`,
+    `${kmText(tr.length, 1)} km`,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+  const url = `${location.origin}${route.fullPath}`;
+  const svg = standaloneSvg(chart.value, {
+    title: caption,
+    description: t("vzg.exportDesc"),
+    caption,
+    subtitle,
+    footer: [
+      t("vzg.exportLegend"),
+      t("vzg.exportData", { date: index.value?.created ?? "" }),
+      t("vzg.exportMadeWith", { url }),
+    ],
+  });
+  const file = `VzG_${(line || l.id).replace(/[^\p{L}\p{N}]+/gu, "_")}_${t("vzg.track")}_${tr.track}.svg`;
+  download(svg, file);
+}
+
 const entry = computed(() => index.value?.lines.find((l) => l.id === data.value?.id));
 const fmt = (km: number) => km.toFixed(3);
 </script>
@@ -351,6 +388,7 @@ const fmt = (km: number) => km.toFixed(3);
           />
           {{ $t("vzg.allSignals") }}
         </label>
+        <button class="btn ml-2" v-tip="$t('vzg.exportTip')" @click="exportSvg">⤓ SVG</button>
       </span>
     </div>
     <p v-if="missing" class="muted">{{ $t("vzg.noData") }}</p>
@@ -388,6 +426,7 @@ const fmt = (km: number) => km.toFixed(3);
           :viewBox="`0 0 ${W} ${H}`"
           :width="W"
           :height="H"
+          ref="chart"
           class="vzg block font-[inherit]"
           role="img"
           :aria-label="`${$t('vzg.title')} ${data.ref ?? data.name} ${$t('vzg.track')} ${track.track}`"

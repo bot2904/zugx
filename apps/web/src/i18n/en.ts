@@ -187,6 +187,15 @@ export default {
     liveAt: "realtime at {n} stations, last {station} {time}",
   },
   vzg: {
+    exportTip:
+      "Download as SVG (e.g. for Wikimedia Commons): with caption, legend and data sources",
+    exportDesc:
+      "Permitted speeds (VzG-style chart) along the line, from OpenStreetMap data; not the official ÖBB VzG.",
+    exportLegend:
+      "Red line: permitted speed in the direction of travel (km/h, top scale); dash-dot: opposite direction. Blue bars: curve radius (m), estimated from the track geometry.",
+    exportData:
+      "Data: © OpenStreetMap contributors (ODbL 1.0), as of {date}. Not official, no guarantee.",
+    exportMadeWith: "Made with zugx – {url}",
     coverage:
       "OpenStreetMap has a speed limit for only {p} % of this line; the speed diagram has gaps elsewhere.",
     wikidataTip: "This railway line on Wikidata (DinoData)",
