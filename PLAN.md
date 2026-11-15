@@ -1033,6 +1033,15 @@ Licence: CC BY-SA 4.0 is share-alike — everything derived from the Slovenian d
 
 **Switching countries**: mostly no switch — by object: station search, departure plan, train index and search span all countries; a station's country follows from its UIC code (79… SI, 81… AT). Only overviews (Bildfahrplan sheets, network map, line index) get a country filter ("AT | SI | alle", like the network map's region switch), URL parameter only where needed (`/bf?land=si`). Radar and disruptions stay ÖBB HAFAS.
 
+**Decided (2026-11-16)**: GTFS (not NeTEx). OSM extract: `.cache/slovenia-261114.osm.pbf` (300 MB).
+
+**Findings (2026-11-16)**:
+
+- The NAP download `https://b2b.nap.si/data/b2b.gtfs` answers **403** from here (Transitous fetches it from its servers — IP or client restriction?); the community mirror with the same IJPP feed works anonymously: `https://gitlab.com/api/v4/projects/derp-si%2Fgtfs-generators/packages/generic/IJPP/latest/ijpp_intl_gtfs.zip` (43.5 MB, rebuilt daily ~01:00). Plan: NAP first, mirror as fallback (both CC BY-SA 4.0).
+- **Live data exists after all**: community GTFS-RT for the national feed — trip updates `https://rt.gtfs.derp.si/sources/ijpp/trip_updates` and service alerts `…/ijpp/service_alerts` (used by Transitous). A later step could feed the Live switch for Slovenia.
+- Slovenian stations have UIC codes 79xxxxx, which ÖBB HAFAS also uses: the live board works for Slovenian stations with the trains HAFAS knows (mainly cross-border).
+- Cross-border trains (Villach – Jesenice – Ljubljana, Graz – Maribor) appear in both feeds → dedupe by train number and day.
+
 **Open decisions**: (1) scope of the first step — (a) station index, departure plan, train index, timetable search (recommended) or (b) also Bildfahrplan sheets (SŽ has no ÖBB-style sheets; corridors along OSM lines?); (2) GTFS (anonymous) or NeTEx (registration) — start with GTFS; (3) weekly or daily updates; (4) country switch by object as proposed, or an explicit country selector in the menu.
 
 ## Sources
