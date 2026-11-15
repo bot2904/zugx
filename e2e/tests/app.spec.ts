@@ -415,10 +415,29 @@ test("bildfahrplan keeps date and time window when switching sheets via the inde
 }) => {
   await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
   await expect(page).toHaveURL(/\/bf\/[^?]+\?.*d=2026-03-10/);
+  await page.locator("svg[role=img] path").first().waitFor(); // mounted (and remembered)
   await page.goto("/bf");
   await page.locator("tbody tr td:nth-child(2) a").nth(3).click();
   await expect(page).toHaveURL(/\/bf\/[^?]+\?/);
   await expect(page).toHaveURL(/d=2026-03-10/);
   await expect(page).toHaveURL(/from=7/);
   await expect(page).toHaveURL(/h=2/);
+});
+
+test("bildfahrplan: arrow keys zap through days and hours", async ({ page }) => {
+  await page.goto("/bf/westbahn?from=7&h=2&d=2026-03-10");
+  await page.locator("svg[role=img] path").first().waitFor();
+  await page.keyboard.press("ArrowRight");
+  await expect(page).toHaveURL(/d=2026-03-11/);
+  await page.keyboard.press("ArrowLeft");
+  await page.keyboard.press("ArrowLeft");
+  await expect(page).toHaveURL(/d=2026-03-09/);
+  await page.keyboard.press("ArrowDown");
+  await expect(page).toHaveURL(/from=8/);
+  await page.keyboard.press("Shift+ArrowDown");
+  await expect(page).toHaveURL(/from=10/);
+  await page.keyboard.press("ArrowUp");
+  await expect(page).toHaveURL(/from=9/);
+  await page.keyboard.press("h");
+  await expect(page).toHaveURL(/from=8/);
 });

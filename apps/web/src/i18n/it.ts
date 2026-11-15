@@ -158,6 +158,8 @@ export default {
     outside: "fuori dal periodo d'orario {begin} – {end}",
     prevDay: "Giorno precedente",
     nextDay: "Giorno successivo",
+    hourEarlier: "Un'ora prima",
+    hourLater: "Un'ora dopo",
     trainsOnDay: "{n} treni",
     subtitle: "{n} linee, diagrammi spazio-tempo di un giorno feriale",
     filter: "Linea o stazione…",

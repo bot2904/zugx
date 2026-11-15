@@ -156,6 +156,8 @@ export default {
     outside: "outside the timetable period {begin} – {end}",
     prevDay: "Previous day",
     nextDay: "Next day",
+    hourEarlier: "Hour earlier",
+    hourLater: "Hour later",
     trainsOnDay: "{n} trains",
     subtitle: "{n} corridors, time–distance diagrams of one weekday",
     filter: "Corridor or station…",

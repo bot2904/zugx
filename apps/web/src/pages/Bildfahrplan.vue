@@ -14,6 +14,7 @@ import { useRoute, useRouter } from "vue-router";
 import CorridorIndexView from "../components/CorridorIndex.vue";
 import { categoryColor } from "../lib/products.ts";
 import { trainSlug } from "../lib/url.ts";
+import { useKeys } from "../lib/keys.ts";
 import type { TipContent } from "../lib/tip.ts";
 import { api } from "../lib/api.ts";
 import {
@@ -240,6 +241,24 @@ const trainsOnDate = computed(() => (data.value?.trains ?? []).filter(runsOnDate
 function shiftDay(delta: number) {
   setQuery({ d: addDays(date.value, delta) });
 }
+/** window start ± hours (whole hours: from 7.5, one earlier is 7, one later 8) */
+function shiftHour(delta: number) {
+  const f = from.value;
+  const next = delta < 0 ? Math.ceil(f) + delta : Math.floor(f) + delta;
+  const max = Math.max(0, 28 - span.value); // trains after midnight run up to ~28:00
+  setQuery({ from: Math.min(max, Math.max(0, next)) });
+}
+// zapping: ←/→ day, ↑/↓ (h/l) hour, Shift+↑/↓ a whole window, n = now
+useKeys({
+  ArrowLeft: () => id.value && shiftDay(-1),
+  ArrowRight: () => id.value && shiftDay(1),
+  ArrowUp: (e) => id.value && shiftHour(e.shiftKey ? -span.value : -1),
+  ArrowDown: (e) => id.value && shiftHour(e.shiftKey ? span.value : 1),
+  h: () => id.value && shiftHour(-1),
+  l: () => id.value && shiftHour(1),
+  n: () =>
+    id.value && setQuery({ d: undefined, from: Math.max(0, Math.floor(viennaMinutes() / 60) - 1) }),
+});
 const isToday = computed(() => date.value === today);
 const weekday = computed(() =>
   Temporal.PlainDate.from(date.value).toLocaleString(locale.value, { weekday: "short" }),
@@ -466,7 +485,7 @@ function toggleCat(c: string) {
       <span v-if="data" class="flex items-center gap-1 text-xs">
         <button
           class="btn"
-          v-tip="$t('bf.prevDay')"
+          v-tip="`${$t('bf.prevDay')} (←)`"
           :aria-label="$t('bf.prevDay')"
           @click="shiftDay(-1)"
         >
@@ -484,7 +503,7 @@ function toggleCat(c: string) {
         <span class="mono muted">{{ weekday }}</span>
         <button
           class="btn"
-          v-tip="$t('bf.nextDay')"
+          v-tip="`${$t('bf.nextDay')} (→)`"
           :aria-label="$t('bf.nextDay')"
           @click="shiftDay(1)"
         >
@@ -502,13 +521,9 @@ function toggleCat(c: string) {
         </span>
       </span>
       <span class="ml-auto flex items-center gap-1 text-xs">
-        <button class="btn" @click="setQuery({ from: Math.max(0, Math.floor(from) - 1) })">
-          ▲
-        </button>
+        <button class="btn" v-tip="`${$t('bf.hourEarlier')} (↑)`" @click="shiftHour(-1)">▲</button>
         <span class="mono" v-tip="$t('bf.wheelHint')">{{ hhmmOf(startMin) }}</span>
-        <button class="btn" @click="setQuery({ from: Math.min(23, Math.floor(from) + 1) })">
-          ▼
-        </button>
+        <button class="btn" v-tip="`${$t('bf.hourLater')} (↓)`" @click="shiftHour(1)">▼</button>
         <button
           v-for="h in [2, 4, 8, 24]"
           :key="h"

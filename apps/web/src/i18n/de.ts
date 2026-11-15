@@ -158,6 +158,8 @@ export default {
     outside: "außerhalb des Fahrplanzeitraums {begin} – {end}",
     prevDay: "Vortag",
     nextDay: "Folgetag",
+    hourEarlier: "Eine Stunde früher",
+    hourLater: "Eine Stunde später",
     trainsOnDay: "{n} Züge",
     subtitle: "{n} Strecken, Zeit-Weg-Diagramme eines Werktags",
     filter: "Strecke oder Bahnhof…",
