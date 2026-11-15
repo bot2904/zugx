@@ -51,6 +51,15 @@ jobs:
         run: |
           echo "hash=$(git log -1 --format=%h)" >> "$GITHUB_OUTPUT"
           echo "date=$(TZ=Europe/Vienna git log -1 --date='format-local:%Y-%m-%d %H:%M' --format=%cd)" >> "$GITHUB_OUTPUT"
+      # timetable routing data (Live off: journey search in the browser) for the next 14 days:
+      # generated, not committed (apps/web/public/route, copied into the image with the app)
+      - uses: voidzero-dev/setup-vp@v1.22.0
+        with:
+          node-version: "26"
+          cache: true
+      - run: vp install --frozen-lockfile
+      - run: vp run db:build
+      - run: DAYS=14 vp run route:build
       - uses: redhat-actions/buildah-build@v2
         id: build
         with:

@@ -36,3 +36,6 @@ dist-ssr
 .cache/
 e2e/test-results/
 e2e/playwright-report/
+
+# timetable routing data (vp run route:build), generated
+apps/web/public/route/

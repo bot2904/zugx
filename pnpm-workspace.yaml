@@ -29,6 +29,8 @@ catalog:
   workbox-window: ^7.4.1
   # node-gtfs: GTFS → SQLite (packages/db); pinned
   gtfs: 4.21.0
+  # minotor: client-side transit routing (RAPTOR) on GTFS — timetable search without live data
+  minotor: ^13.0.0
 
 overrides:
   vite@*: "catalog:"
