@@ -549,6 +549,51 @@ function toggleCat(c: string) {
         </option>
       </select>
     </div>
+    <div v-if="data" class="mt-2 flex flex-wrap items-center gap-1 text-xs">
+      <label class="flex items-center gap-1">
+        {{ $t("search.from") }}
+        <select
+          class="input max-w-56 text-xs"
+          :value="shownStations[0]?.id"
+          @change="setSection(($event.target as HTMLSelectElement).value, shownStations.at(-1)!.id)"
+        >
+          <option v-for="st in orderedStations" :key="st.id" :value="st.id">{{ st.name }}</option>
+        </select>
+      </label>
+      <button class="btn" v-tip="$t('bf.swap')" :aria-label="$t('bf.swap')" @click="swap">⇄</button>
+      <label class="flex items-center gap-1">
+        {{ $t("search.to") }}
+        <select
+          class="input max-w-56 text-xs"
+          :value="shownStations.at(-1)?.id"
+          @change="setSection(shownStations[0]!.id, ($event.target as HTMLSelectElement).value)"
+        >
+          <option v-for="st in orderedStations" :key="st.id" :value="st.id">{{ st.name }}</option>
+        </select>
+      </label>
+      <button
+        v-if="route.query.a || route.query.b || route.query.rev"
+        class="btn"
+        @click="resetSection"
+      >
+        {{ $t("bf.fullRoute") }}
+      </button>
+      <span class="muted"
+        >{{ Math.round(Math.abs(kmHi - kmLo)) }} km · {{ shownStations.length }}
+        {{ $t("bf.stations") }}</span
+      >
+      <!-- railway lines (VzG/Streckennummern) through this sheet's stations, from the build -->
+      <span v-if="sheetLines.length" class="muted text-xs">
+        · {{ $t("bf.lines") }}:
+        <template v-for="(l, i) in sheetLines" :key="l.id"
+          ><template v-if="i"> · </template
+          ><RouterLink :to="`/vzg/${l.id}`" v-tip="$t('bf.vzgTip')"
+            ><span v-if="l.ref" class="mono">{{ l.ref }}</span>{{ l.ref && l.name ? " " : ""
+            }}{{ l.name }}</RouterLink
+          ></template
+        >
+      </span>
+    </div>
     <!-- date and time window in one row; widths stay fixed while zapping (no jumping controls) -->
     <div v-if="data" class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
       <span class="flex items-center gap-1">
@@ -605,51 +650,6 @@ function toggleCat(c: string) {
       <span class="muted tabular-nums">{{ $t("bf.trainsOnDay", { n: trainsOnDate.length }) }}</span>
       <span v-if="data.begin && (date < data.begin || date > data.end)" class="text-[var(--warn)]">
         {{ $t("bf.outside", { begin: data.begin, end: data.end }) }}
-      </span>
-    </div>
-    <div v-if="data" class="my-2 flex flex-wrap items-center gap-1 text-xs">
-      <label class="flex items-center gap-1">
-        {{ $t("search.from") }}
-        <select
-          class="input max-w-56 text-xs"
-          :value="shownStations[0]?.id"
-          @change="setSection(($event.target as HTMLSelectElement).value, shownStations.at(-1)!.id)"
-        >
-          <option v-for="st in orderedStations" :key="st.id" :value="st.id">{{ st.name }}</option>
-        </select>
-      </label>
-      <button class="btn" v-tip="$t('bf.swap')" :aria-label="$t('bf.swap')" @click="swap">⇄</button>
-      <label class="flex items-center gap-1">
-        {{ $t("search.to") }}
-        <select
-          class="input max-w-56 text-xs"
-          :value="shownStations.at(-1)?.id"
-          @change="setSection(shownStations[0]!.id, ($event.target as HTMLSelectElement).value)"
-        >
-          <option v-for="st in orderedStations" :key="st.id" :value="st.id">{{ st.name }}</option>
-        </select>
-      </label>
-      <button
-        v-if="route.query.a || route.query.b || route.query.rev"
-        class="btn"
-        @click="resetSection"
-      >
-        {{ $t("bf.fullRoute") }}
-      </button>
-      <span class="muted"
-        >{{ Math.round(Math.abs(kmHi - kmLo)) }} km · {{ shownStations.length }}
-        {{ $t("bf.stations") }}</span
-      >
-      <!-- railway lines (VzG/Streckennummern) through this sheet's stations, from the build -->
-      <span v-if="sheetLines.length" class="muted text-xs">
-        · {{ $t("bf.lines") }}:
-        <template v-for="(l, i) in sheetLines" :key="l.id"
-          ><template v-if="i"> · </template
-          ><RouterLink :to="`/vzg/${l.id}`" v-tip="$t('bf.vzgTip')"
-            ><span v-if="l.ref" class="mono">{{ l.ref }}</span>{{ l.ref && l.name ? " " : ""
-            }}{{ l.name }}</RouterLink
-          ></template
-        >
       </span>
     </div>
     <div class="my-2 flex flex-wrap gap-1 text-xs">
