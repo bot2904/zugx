@@ -134,6 +134,7 @@ export default {
     variants: "{n} Laufwegvarianten",
   },
   radar: {
+    donutTip: "{n} Züge ({pct} %)",
     donutLabel:
       "Verspätungsverteilung: {pct} % von {n} Zügen mit Echtzeitdaten höchstens 5′ verspätet",
     openTrip: "Zuglauf öffnen",

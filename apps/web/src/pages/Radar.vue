@@ -355,9 +355,12 @@ function toggle(cls: number) {
               :stroke-width="DONUT.w"
               :stroke-dasharray="a.dash"
               :stroke-dashoffset="a.offset"
-            >
-              <title>{{ $t(`radar.delay.${a.id}`) }}: {{ a.n }} ({{ a.pct }} %)</title>
-            </circle>
+              data-tip-at="pointer"
+              v-tip="{
+                title: $t(`radar.delay.${a.id}`),
+                lines: [$t('radar.donutTip', { n: a.n, pct: a.pct })],
+              }"
+            />
           </g>
           <text x="50" y="50" text-anchor="middle" class="donut-pct">{{ donut.punctual }} %</text>
           <text x="50" y="63" text-anchor="middle" class="donut-sub">≤ 5′</text>

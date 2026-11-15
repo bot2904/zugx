@@ -132,6 +132,7 @@ export default {
     variants: "{n} route variants",
   },
   radar: {
+    donutTip: "{n} trains ({pct} %)",
     donutLabel: "Delay distribution: {pct} % of {n} trains with realtime data at most 5′ late",
     openTrip: "Open train run",
     parts: "Train parts",
