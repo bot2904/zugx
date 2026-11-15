@@ -127,6 +127,8 @@ export default {
   },
   radar: {
     openTrip: "Zuglauf öffnen",
+    parts: "Zugteile",
+    partTip: "Zuglauf von {train} anzeigen",
     palette: "Farben",
     paletteBlue: "Farbenblind-freundlich",
     paletteBlueTip:

@@ -101,6 +101,11 @@ useKeys({ Escape: () => selectedId.value && closePanel() });
 const selectedMovement = computed(() =>
   movements.value.find((m) => m.journeyId === selectedId.value),
 );
+/** the coupled parts of the selected train set (one badge each; a click switches the run shown) */
+const selectedParts = computed(
+  () => groups.value.find((g) => g.some((p) => p.journeyId === selectedId.value)) ?? [],
+);
+const switchPart = (jid: string) => void router.replace({ query: { ...route.query, trip: jid } });
 /** the selected train's route on the map (polyline, else the stops) */
 const routeLines = computed<MapLine[]>(() => {
   const tr = selected.value;
@@ -247,6 +252,24 @@ function toggle(cls: number) {
       >
         <header class="flex items-start gap-2 border-b border-[var(--line)] p-2">
           <div v-if="selected" class="min-w-0 flex-1">
+            <div
+              v-if="selectedParts.length > 1"
+              class="mb-1 flex flex-wrap items-center gap-1"
+              role="group"
+              :aria-label="$t('radar.parts')"
+            >
+              <template v-for="(p, k) in selectedParts" :key="p.journeyId"
+                ><span v-if="k" class="muted">/</span
+                ><button
+                  class="part"
+                  :class="p.journeyId === selectedId && 'part-on'"
+                  :aria-pressed="p.journeyId === selectedId"
+                  v-tip="$t('radar.partTip', { train: p.line.name })"
+                  @click="switchPart(p.journeyId)"
+                >
+                  <LineBadge :line="p.line" small /></button
+              ></template>
+            </div>
             <div class="flex flex-wrap items-center gap-1.5">
               <LineBadge :line="selected.line" />
               <span v-if="selected.line.trainNumber" class="mono muted text-xs">{{
@@ -350,6 +373,23 @@ function toggle(cls: number) {
 </template>
 
 <style scoped>
+/* coupled train parts: the shown one full, the others faded */
+.part {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.part:hover,
+.part-on {
+  opacity: 1;
+}
+.part-on {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-radius: 0.25rem;
+}
 .radar-panel {
   top: 0.5rem;
   right: 0.5rem;

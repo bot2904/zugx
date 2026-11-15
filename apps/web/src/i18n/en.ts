@@ -125,6 +125,8 @@ export default {
   },
   radar: {
     openTrip: "Open train run",
+    parts: "Train parts",
+    partTip: "Show the run of {train}",
     palette: "Colours",
     paletteBlue: "Colour-blind safe",
     paletteBlueTip:

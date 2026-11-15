@@ -127,6 +127,8 @@ export default {
   },
   radar: {
     openTrip: "Apri percorso del treno",
+    parts: "Parti del treno",
+    partTip: "Mostra il percorso di {train}",
     palette: "Colori",
     paletteBlue: "Adatto ai daltonici",
     paletteBlueTip:
