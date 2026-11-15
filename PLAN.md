@@ -670,7 +670,7 @@ Consequences:
 
 Recommendation / next steps: ask services@mobilitaetsverbuende.at in writing first (zugx = open-source, non-commercial; git history; WESTbahn/GKB only). If granted: build-only overlay for WESTbahn & co. in the current year, full attribution set, removal at year end. Alternatives meanwhile: a UI note "ohne WESTbahn, GKB u. a. (nicht in den ÖBB-Open-Data)"; WESTbahn runs from HAFAS for the reference days. Not legal advice.
 
-### Bildfahrplan: realistic train paths instead of straight lines (planned, decide later)
+### Bildfahrplan: realistic train paths instead of straight lines (partly done: passing times by speed limit)
 
 Feedback: "statt der linearen Interpolation zwischen Halten eine realistischere Darstellung — vielleicht die VzG-Daten der OpenRailwayMap anzapfen und daraus eine realistischere Trasse rechnen lassen?"
 
@@ -692,6 +692,25 @@ Today: straight lines between timetable times; passing points (trains running th
 **Validation**: compare with ÖBB's Fahrplanbild PDFs (they show Fahrschaulinien), with HAFAS passing times where available (JourneyDetails sometimes lists non-stop points), and with radar positions (`JourneyGeoPos` is itself calculated by HAFAS).
 
 **Effort / risks**: step 1 small (one module + tests + rendering). Step 2 several days: OSM pipeline in CI, map-matching at junctions/stations, gaps in `maxspeed` (fallback: category v_max), ODbL handling, build time.
+
+**Status (2026-11-15)**
+
+Done:
+
+- Data: speed limits per line and track from OSM via `packages/vzg` (Geofabrik extract, pure Node, no osmium); ODbL attribution in footer and docs.
+- Linking: Bildfahrplan stations ↔ VzG station points by position (≤ 400 m), at build time (`speedLookup` in `packages/vzg/src/speed.ts`).
+- Simplified step 3: passing times (stations passed without stopping) split per stretch by the average permitted speed, capped at the category's top speed (`VMAX` in `packages/netz/src/build.ts`), instead of evenly by distance (`passingPoints` in `packages/netz/src/corridors.ts`); e.g. corridor 110 Wienerwald up to 2 min later.
+
+Open:
+
+1. Step 1 (acceleration/braking at stops): no trapezoid profile, no category parameters (a, b); trains are drawn as straight segments between their points (`Bildfahrplan.vue`). Visually the biggest gain.
+2. Step 2 (running-time calculation): no continuous limit profile per corridor (km → v_lim), only an average speed per station-to-station stretch; no minimum running time + stretching to the timetable time; hence no curved paths between stations.
+3. Linking gaps: stretches whose stations are not found on one VzG line (or lie on different line numbers) use the average of the known ones — corridor 110: 4 of 22 stretches (e.g. Neulengbach, Wien Westbf).
+4. Live overlay: between reported times still straight (planned + delay), no speed weighting.
+5. Validation: not compared yet with ÖBB Fahrplanbild PDFs or HAFAS passing times.
+6. Refresh: OSM extract and VzG build are manual; the weekly CI job only rebuilds the GTFS data.
+
+Next: step 1 client-side (curves at stops), then step 2 on the existing VzG data (limit profile per corridor at build time, Fahrzeitrechnung in the client).
 
 ### VzG-Grafik: speed profile per line and track from OSM (experiments 2026-11-14, view planned)
 
