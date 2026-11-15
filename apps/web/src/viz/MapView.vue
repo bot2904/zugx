@@ -270,6 +270,12 @@ onMounted(() => {
   m.on("load", () => {
     const map = m;
     addOverlays(map);
+    // attribution collapsed on all devices (MapLibre opens the compact one the first time; it is
+    // not re-opened afterwards) — the ⓘ button shows it
+    el.value?.querySelectorAll(".maplibregl-ctrl-attrib.maplibregl-compact-show").forEach((a) => {
+      a.classList.remove("maplibregl-compact-show");
+      a.removeAttribute("open");
+    });
     // tooltip: hover on desktop; on touch the first tap shows it, a second tap on the same marker opens it
     const tip = new Popup({
       closeButton: false,
