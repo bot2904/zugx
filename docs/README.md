@@ -26,6 +26,8 @@ One page per feature: where the data comes from and how it is shown or computed.
 
 Timetable formats offered by Austrian open-data portals (DINO, GTFS, NeTEx) compared: [timetable-formats.md](timetable-formats.md). Planning tools used by experts in the DACH region (FBS, TPS, Viriato, RailSys …): [expert-tools.md](expert-tools.md).
 
+How every committed TOML file is built from which GTFS files, OSM keys/tags and HAFAS lookups (Mermaid diagram): [data-flow.md](data-flow.md).
+
 Licences and fetch dates of all sources: [README → Data & licences](../README.md#data--licences).
 
 Times: HAFAS returns local times (`HHMMSS`, optionally with a day offset) plus a UTC offset; zugx keeps them as ISO strings with offset (`2026-11-13T12:24:00+01:00`), always in Europe/Vienna.

@@ -90,6 +90,8 @@ Code: AGPL-3.0-only. The data below keeps its own licence; the committed files u
 | VzG-Grafik: tracks, speed limits, km positions, signals, stations   | [OpenStreetMap](https://www.openstreetmap.org/) via the [Geofabrik](https://download.geofabrik.de/europe/austria.html) Austria extract (`austria-261113.osm.pbf`) | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/), © OpenStreetMap contributors (see `packages/vzg/data/LICENSE.md`) | OSM data as of 2026-11-13, extracted 2026-11-14 | `packages/vzg/data`; also used for the Bildfahrplan's passing times                  |
 | API test fixtures                                                   | ÖBB HAFAS (recorded responses)                                                                                                                                    | no licence stated; test data only, not shipped                                                                                | 2026-11-13                                      | `packages/hafas/fixtures`                                                            |
 
+How each file is built (GTFS files, OSM keys/tags, HAFAS lookups → scripts → TOML): [docs/data-flow.md](docs/data-flow.md).
+
 The build date and source are also stored in the files themselves (`source`, `created`, `day`, `begin`/`end`). Not covered by the ÖBB GTFS: WESTbahn, GKB, Raaberbahn and other operators (see PLAN.md for data.mobilitaetsverbuende.at).
 
 ### Loaded live by the browser
