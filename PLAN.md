@@ -988,6 +988,7 @@ UIC/HAFAS station map ┘
 - **Views in SQL**: departure plan = `stop_times ⋈ trips ⋈ routes` per station; train index, line per train (`route_short_name`), station index likewise. Only real computations stay TypeScript (passing times, block sections, OSM line matching).
 - **Migration, one export at a time**: a new SQL export must produce byte-identical output to the old script before the old script is removed. Order: departures → lines → stations → trains → netz/corridors.
 - **CI**: the data workflow builds the database first (`vp run db:build`), then the exports; better-sqlite3 needs a native build (fine on the runners).
+- **Status (2026-11-16)**: all build tools read the SQLite, each verified byte-identical against the former zip reader: `lines` and `departures` (SQL queries), `stations` (rail station groups via SQL), `trains` (`gtfsFromDb`: the former in-memory structure built from SQLite, identical incl. order), `netz` (`recordSource`: tables as records in file order). Only `db:build` reads the zip — plus the GTFS shapes for netz (not imported yet). Next: shapes into the database; move logic from the in-memory structures into SQL views step by step; then drop the zip reader of @zugx/gtfs.
 - Not in the browser: SQLite via HTTP range requests (sql.js-httpvfs) was considered and rejected — 40–80 MB even without shapes, ranges only uncompressed, many requests per query, no offline/PWA, binary not diffable.
 
 ### Several countries in one instance (idea 2026-11-16)
