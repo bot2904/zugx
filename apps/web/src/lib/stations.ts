@@ -1,4 +1,5 @@
-// Local station index: lazy-loaded, content-hashed chunk (packages/stations/data/stations.toml).
+// Local station index of all countries: lazy-loaded, content-hashed chunks
+// (packages/stations/data/stations.toml, data/<country>/stations.toml).
 import { normalize, searchKeys, tokenPrefixMatch } from "./normalize.ts";
 
 export interface Station {
@@ -19,16 +20,22 @@ interface Indexed {
   names: string[];
 }
 
+const STATION_FILES = import.meta.glob<{ default: { stations: Station[] } }>(
+  "../../../../packages/stations/data/**/stations.toml",
+);
+
 let index: Indexed[] | undefined;
 let byId = new Map<string, Station>();
 let loading: Promise<Indexed[]> | undefined;
 
 export function loadStations(): Promise<Indexed[]> {
   loading ??= (async () => {
-    const { stations: list } = (await import("@zugx/stations/stations.toml")).default as {
-      stations: Station[];
-    };
-    byId = new Map(list.map((s) => [s.id, s]));
+    const parts = await Promise.all(Object.values(STATION_FILES).map((load) => load()));
+    // a station listed by two countries (none so far): the first
+    byId = new Map();
+    for (const p of parts)
+      for (const s of p.default.stations) if (!byId.has(s.id)) byId.set(s.id, s);
+    const list = [...byId.values()];
     index = list.map((s) => {
       const names = [s.name, ...(s.alias ?? [])];
       return {

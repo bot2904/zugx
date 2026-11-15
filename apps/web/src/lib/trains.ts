@@ -1,35 +1,43 @@
-// Train index (packages/trains/data): default file (long-distance + night) loaded first,
-// full file (incl. regional + S-Bahn) on demand.
+// Train index per country (packages/trains/data, data/<country>): default file (long-distance +
+// night) loaded first, full file (incl. regional + S-Bahn) on demand.
 import { isLongDistance, type TrainEntry, type TrainIndex } from "@zugx/trains";
+import { country, ofCountry } from "./country.ts";
 import { NIGHT, REGIONAL, SUBURBAN } from "./products.ts";
 
 export type { TrainEntry, TrainIndex } from "@zugx/trains";
 
 const files = import.meta.glob<{ default: TrainIndex }>(
-  "../../../../packages/trains/data/trains-*.toml",
+  "../../../../packages/trains/data/**/trains-*.toml",
 );
 
-/** available years, newest first */
-export const years = [
-  ...new Set(
-    Object.keys(files)
-      .map((p) => /trains-(\d{4})/.exec(p)?.[1])
-      .filter(Boolean) as string[],
-  ),
-]
-  .map(Number)
-  .sort((a, b) => b - a);
+/** the years of a country's train index, newest first */
+export function yearsOf(c: string = country.value): number[] {
+  return [
+    ...new Set(
+      Object.keys(ofCountry(files, c))
+        .map((p) => /trains-(\d{4})/.exec(p)?.[1])
+        .filter(Boolean) as string[],
+    ),
+  ]
+    .map(Number)
+    .sort((a, b) => b - a);
+}
 
 const cache = new Map<string, Promise<TrainIndex | undefined>>();
 
-export function loadTrains(year: number, full: boolean): Promise<TrainIndex | undefined> {
-  const key = `${year}:${full}`;
+export function loadTrains(
+  year: number,
+  full: boolean,
+  c: string = country.value,
+): Promise<TrainIndex | undefined> {
+  const key = `${c}:${year}:${full}`;
   let p = cache.get(key);
   if (!p) {
-    const path = Object.keys(files).find((f) =>
-      f.endsWith(`trains-${year}${full ? ".full" : ""}.toml`),
+    const mine = ofCountry(files, c);
+    const path = Object.keys(mine).find((f) =>
+      f.endsWith(`/trains-${year}${full ? ".full" : ""}.toml`),
     );
-    const loader = path ? files[path] : undefined;
+    const loader = path ? mine[path] : undefined;
     p = loader ? loader().then((m) => m.default) : Promise.resolve(undefined);
     cache.set(key, p);
   }
@@ -37,7 +45,8 @@ export function loadTrains(year: number, full: boolean): Promise<TrainIndex | un
 }
 
 /** Year whose timetable period contains the given ISO date, else the newest year. */
-export function yearFor(isoDate: string): number | undefined {
+export function yearFor(isoDate: string, c: string = country.value): number | undefined {
+  const years = yearsOf(c);
   // timetable year Y runs from mid-December Y-1 to mid-December Y
   const y = Number(isoDate.slice(0, 4));
   const md = isoDate.slice(5);

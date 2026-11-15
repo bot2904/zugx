@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // Read-only Netzgrafik: nodes (Knoten) + line sections with departure/arrival minutes at both ends.
+import { country } from "../lib/country.ts";
 import type { NetzModel, NetzNode, Trainrun, TrainrunSection } from "@zugx/netz";
 import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
@@ -186,6 +187,7 @@ const lineWidth = (l: Trainrun) =>
 
 <template>
   <section>
+    <p v-if="country !== 'at'" class="muted text-sm">{{ $t("netz.onlyAt") }}</p>
     <div class="flex flex-wrap items-baseline gap-2">
       <h1 class="m-0 text-xl">{{ $t("netz.title") }}</h1>
       <span class="muted text-sm">{{ $t("netz.subtitle") }}</span>

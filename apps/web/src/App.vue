@@ -10,6 +10,7 @@ import { useKeys } from "./lib/keys.ts";
 import { state } from "./lib/store.ts";
 import { scheme, toggleScheme } from "./lib/theme.ts";
 import { liveMode } from "./lib/live.ts";
+import { COUNTRIES, country } from "./lib/country.ts";
 
 const router = useRouter();
 const route = useRoute();
@@ -118,6 +119,15 @@ function isActive(to: string): boolean {
   return p === to || p.startsWith(`${to}/`);
 }
 
+// ?land=si in a link selects the country (remembered like a choice in the navbar)
+watch(
+  () => route.query.land,
+  (l) => {
+    if (typeof l === "string") country.value = l.toLowerCase();
+  },
+  { immediate: true },
+);
+
 /**
  * Live switch: on a station page it also switches between live board and departure plan; on the
  * Bildfahrplan the realtime overlay follows (?live)
@@ -223,6 +233,17 @@ const shortcuts: [string, string][] = [
           {{ $t("nav.live") }}
         </button>
         <select
+          v-if="COUNTRIES.length > 1"
+          v-model="country"
+          class="input py-0.5 text-xs"
+          :aria-label="$t('nav.country')"
+          v-tip="$t('nav.countryTip')"
+        >
+          <option v-for="c in COUNTRIES" :key="c.id" :value="c.id" :title="c.name[locale]">
+            {{ c.id.toUpperCase() }}
+          </option>
+        </select>
+        <select
           class="input py-0.5 text-xs"
           :value="locale"
           :aria-label="$t('common.language')"
@@ -254,10 +275,12 @@ const shortcuts: [string, string][] = [
     {{ $t("common.source.data") }}: <a href="https://fahrplan.oebb.at/">ÖBB HAFAS</a> ({{
       $t("common.source.unofficial")
     }}),
-    <a href="https://data.oebb.at/de/datensaetze~soll-fahrplan-gtfs~">{{
-      $t("common.source.openData")
-    }}</a>
-    (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>),
+    <template v-for="c in COUNTRIES" :key="c.id"
+      ><a :href="c.licence.page">{{ c.licence.source }}</a> (<a :href="c.licence.url">{{
+        c.licence.name
+      }}</a
+      >),
+    </template>
     <a href="https://www.openstreetmap.org/copyright">© {{ $t("common.source.osm") }}</a>
     (<a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a>) ·
     <a href="https://github.com/simon04/zugx">zugx</a>

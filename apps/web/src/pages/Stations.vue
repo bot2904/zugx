@@ -3,8 +3,7 @@
 // abbreviation (Betriebsstellen-Kürzel, from OSM railway:ref) and the categories stopping there.
 // Filter by name or abbreviation ("Kt", "Vb", "Vps"); an exact abbreviation comes first.
 // A station opens its departure plan (timetable, GTFS); without one, the live board.
-import abbrData from "@zugx/stations/abbr.toml";
-import { computed, shallowRef } from "vue";
+import { computed, shallowRef, watchEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import LineBadge from "../components/LineBadge.vue";
 import { useI18n } from "../i18n/index.ts";
@@ -12,19 +11,34 @@ import { normalize } from "../lib/normalize.ts";
 import { loadStations, type Station } from "../lib/stations.ts";
 import { usePageTitle } from "../lib/title.ts";
 import { liveMode } from "../lib/live.ts";
+import { country, countryOfStation } from "../lib/country.ts";
 
 const { t } = useI18n();
-const ABBR = abbrData as unknown as Record<string, string>;
+/** operating-point abbreviations of all countries (station ids are unique across them) */
+const ABBR: Record<string, string> = Object.assign(
+  {},
+  ...Object.values(
+    import.meta.glob<Record<string, string>>("../../../../packages/stations/data/**/abbr.toml", {
+      eager: true,
+      import: "default",
+    }),
+  ),
+);
 /** stations with a departure plan (the files are loaded only when opened) */
 const POSTERS = new Set(
-  Object.keys(import.meta.glob("../../../../packages/trains/data/departures/*.toml")).map(
+  Object.keys(import.meta.glob("../../../../packages/trains/data/**/departures/*.toml")).map(
     (p) => /([^/]+)\.toml$/.exec(p)?.[1],
   ),
 );
 
 const list = shallowRef<Station[]>([]);
+const all = shallowRef<Station[]>([]);
 void loadStations().then((ix) => {
-  list.value = ix.map((x) => x.s).sort((a, b) => a.name.localeCompare(b.name, "de"));
+  all.value = ix.map((x) => x.s).sort((a, b) => a.name.localeCompare(b.name, "de"));
+});
+/** the selected country's stations */
+watchEffect(() => {
+  list.value = all.value.filter((s) => countryOfStation(s.id) === country.value);
 });
 const route = useRoute();
 const router = useRouter();

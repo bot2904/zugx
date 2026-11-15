@@ -7,6 +7,7 @@ import { isImeEnter, useKeys } from "../lib/keys.ts";
 import SortHeader from "./SortHeader.vue";
 import { normalize } from "../lib/normalize.ts";
 import { categoryColor } from "../lib/products.ts";
+import { sheetNumber } from "../lib/sheets.ts";
 
 const props = defineProps<{ index: CorridorIndex }>();
 const route = useRoute();
@@ -39,8 +40,8 @@ const rows = computed<CorridorIndexEntry[]>(() => {
     return tokens.every((tok) => hay.includes(tok));
   });
   const dir = desc.value ? -1 : 1;
-  // corridors without an ÖBB number sort after the numbered ones
-  const oebbKey = (c: CorridorIndexEntry) => (c.oebb ? c.oebb.padStart(3, "0") : "zzz") + c.name;
+  // corridors without a number sort after the numbered ones
+  const oebbKey = (c: CorridorIndexEntry) => (sheetNumber(c)?.padStart(3, "0") ?? "zzz") + c.name;
   return list.sort((a, b) =>
     sort.value === "oebb"
       ? dir * oebbKey(a).localeCompare(oebbKey(b))
@@ -163,7 +164,7 @@ useKeys({
               @click.stop
               >{{ c.oebb }}</a
             >
-            <span v-else class="muted">{{ c.oebb ?? "–" }}</span>
+            <span v-else class="muted">{{ sheetNumber(c) ?? "–" }}</span>
           </td>
           <td>
             <RouterLink :to="`/bf/${c.id}`" class="font-medium text-[var(--fg)]" @click.stop>{{

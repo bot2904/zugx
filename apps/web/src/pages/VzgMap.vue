@@ -10,15 +10,11 @@ import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useI18n } from "../i18n/index.ts";
 import { usePageTitle } from "../lib/title.ts";
+import { lineCountry, vzgFile, vzgLine } from "../lib/vzg-data.ts";
 import { download } from "../lib/svg-export.ts";
 import { loadStations, nearestStations } from "../lib/stations.ts";
 
 type Coord = [number, number];
-const files = import.meta.glob<{ default: VzgLine }>("../../../../packages/vzg/data/*.toml");
-const loaderOf = (name: string) =>
-  Object.entries(files).find(([p]) => p.endsWith(`/${name}.toml`))?.[1] as
-    | (() => Promise<{ default: unknown }>)
-    | undefined;
 
 const route = useRoute();
 const router = useRouter();
@@ -35,19 +31,22 @@ const index = shallowRef<VzgIndex>();
 const network = shallowRef<{ id: string; ref?: string; line: string }[]>([]);
 const missing = ref(false);
 
-onMounted(async () => {
-  const [i, g] = await Promise.all([loaderOf("index")?.(), loaderOf("geometry")?.()]);
-  index.value = i?.default as VzgIndex | undefined;
-  network.value = (g?.default as { lines?: typeof network.value } | undefined)?.lines ?? [];
-});
+// the line, and the index and network geometry of its country
 watch(
   id,
   async (s) => {
     line.value = undefined;
     missing.value = false;
-    const l = s ? loaderOf(s) : undefined;
-    if (!l) return void (missing.value = true);
-    line.value = (await l()).default as VzgLine;
+    const c = s ? lineCountry(s) : undefined;
+    if (!c) return void (missing.value = true);
+    const [l, i, g] = await Promise.all([
+      vzgLine<VzgLine>(s),
+      vzgFile<VzgIndex>("index", c),
+      vzgFile<{ lines?: typeof network.value }>("geometry", c),
+    ]);
+    line.value = l;
+    index.value = i;
+    network.value = g?.lines ?? [];
   },
   { immediate: true },
 );

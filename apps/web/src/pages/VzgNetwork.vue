@@ -1,46 +1,43 @@
 <script setup lang="ts">
-// Infrastructure network map (`/vzg/netz`): all VzG lines of Austria as a vector map, coloured by an attribute —
+// Infrastructure network map (`/vzg/netz`): all VzG lines of the selected country as a vector map, coloured by an attribute —
 // permitted speed, electrification, ETCS, PZB, track count, gauge or operator (`?attr=`). Drawn
 // from `packages/vzg/data/network.toml` (OSM, ODbL); fixed colours (ColorBrewer), print and SVG.
 import type { NetPiece, VzgBoundaries, VzgIndex, VzgNetwork } from "@zugx/vzg";
 import { decodePolyline } from "@zugx/vzg/geo";
-import { computed, onMounted, shallowRef } from "vue";
+import { computed, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useI18n } from "../i18n/index.ts";
 import { usePageTitle } from "../lib/title.ts";
+import { COUNTRIES, country } from "../lib/country.ts";
+import { densityOf, vzgFile } from "../lib/vzg-data.ts";
 import { download } from "../lib/svg-export.ts";
 import type { TipContent } from "../lib/tip.ts";
 
-const files = import.meta.glob("../../../../packages/vzg/data/*.toml");
-const load = async <T>(name: string) =>
-  (
-    (await Object.entries(files).find(([p]) => p.endsWith(`/${name}.toml`))?.[1]?.()) as
-      | { default: T }
-      | undefined
-  )?.default;
-
 const route = useRoute();
 const router = useRouter();
-const { t } = useI18n();
+const { t, locale } = useI18n();
 const network = shallowRef<VzgNetwork>();
 const index = shallowRef<VzgIndex>();
 const boundaries = shallowRef<VzgBoundaries>();
 // trains per day per km section (netz build, GTFS reference day)
-const densityFile = import.meta.glob("../../../../packages/netz/data/density.toml");
 interface Density {
   day: string;
   lines: { id: string; km: number[]; n: number[] }[];
 }
 const density = shallowRef<Density>();
-onMounted(async () => {
-  const d = Object.values(densityFile)[0];
-  [network.value, index.value, density.value, boundaries.value] = await Promise.all([
-    load<VzgNetwork>("network"),
-    load<VzgIndex>("index"),
-    d ? ((await d()) as { default: Density }).default : undefined,
-    load<VzgBoundaries>("boundaries"),
-  ]);
-});
+// the selected country's network (navbar)
+watch(
+  country,
+  async (c) => {
+    [network.value, index.value, density.value, boundaries.value] = await Promise.all([
+      vzgFile<VzgNetwork>("network", c),
+      vzgFile<VzgIndex>("index", c),
+      densityOf<Density>(c),
+      vzgFile<VzgBoundaries>("boundaries", c),
+    ]);
+  },
+  { immediate: true },
+);
 /** density classes: ColorBrewer YlOrRd (6), width growing with the trains per day */
 const DENSITY_BINS = [10, 25, 50, 100, 200, Infinity];
 const DENSITY_COLORS = ["#ffffb2", "#fed976", "#feb24c", "#fd8d3c", "#f03b20", "#bd0026"];
@@ -268,7 +265,7 @@ const decoded = computed(() =>
     pieces: l.pieces.map((p) => ({ p, pts: decodePolyline(p.line) })),
   })),
 );
-/** borders: Austria and the federal states, decoded */
+/** borders: the country and its federal states, decoded */
 const areas = computed(() =>
   (boundaries.value?.areas ?? []).map((a) => ({
     code: a.code,
@@ -276,19 +273,24 @@ const areas = computed(() =>
     rings: a.rings.map((r) => decodePolyline(r)),
   })),
 );
-// region: Austria or one federal state (?region=AT-7)
+/** the whole country's region code ("AT", "SI"; ISO 3166-1) */
+const CC = computed(() => country.value.toUpperCase());
+const countryName = computed(
+  () => COUNTRIES.find((c) => c.id === country.value)?.name[locale.value] ?? CC.value,
+);
+// region: the country or one of its federal states (?region=AT-7)
 const region = computed(() => {
-  const r = typeof route.query.region === "string" ? route.query.region : "AT";
-  return areas.value.some((a) => a.code === r) ? r : "AT";
+  const r = typeof route.query.region === "string" ? route.query.region : CC.value;
+  return areas.value.some((a) => a.code === r) ? r : CC.value;
 });
 const regionName = computed(() => areas.value.find((a) => a.code === region.value)?.name ?? "");
 const states = computed(() =>
-  areas.value.filter((a) => a.code !== "AT").sort((a, b) => a.name.localeCompare(b.name)),
+  areas.value.filter((a) => a.code !== CC.value).sort((a, b) => a.name.localeCompare(b.name)),
 );
 const setRegion = (r: string) =>
-  void router.replace({ query: { ...route.query, region: r === "AT" ? undefined : r } });
+  void router.replace({ query: { ...route.query, region: r === CC.value ? undefined : r } });
 /** lines a bit thicker when zoomed into a state */
-const widthScale = computed(() => (region.value === "AT" ? 1 : 1.5));
+const widthScale = computed(() => (region.value === CC.value ? 1 : 1.5));
 
 const view = computed(() => {
   // the frame: the region's outline (else all lines), with a small margin
@@ -370,12 +372,12 @@ const attrLabel = (a: Attr) =>
 // "Infrastrukturnetzkarte · Tirol · Geschwindigkeit · zugx"
 usePageTitle(() => [
   t("vzg.netTitle"),
-  region.value === "AT" ? t("vzg.netAustria") : regionName.value,
+  region.value === CC.value ? countryName.value : regionName.value,
   attrLabel(attr.value),
 ]);
 const title = computed(
   () =>
-    `${t("vzg.netTitle")}${region.value === "AT" ? "" : ` ${regionName.value}`} – ${attrLabel(attr.value)}`,
+    `${t("vzg.netTitle")}${region.value === CC.value ? "" : ` ${regionName.value}`} – ${attrLabel(attr.value)}`,
 );
 
 function tip(l: { label: string; operator?: string }, p: NetPiece): TipContent {
@@ -413,14 +415,14 @@ function exportSvg() {
   svg.prepend(meta);
   download(
     `<?xml version="1.0" encoding="UTF-8"?>\n${new XMLSerializer().serializeToString(svg)}`,
-    `zugx_Infrastrukturnetzkarte_${region.value === "AT" ? "Österreich" : regionName.value.replace(/[^\p{L}\p{N}]+/gu, "_")}_${attr.value}.svg`,
+    `zugx_Infrastrukturnetzkarte_${(region.value === CC.value ? (COUNTRIES.find((c) => c.id === country.value)?.name.de ?? CC.value) : regionName.value).replace(/[^\p{L}\p{N}]+/gu, "_")}_${attr.value}.svg`,
   );
 }
 const SANS = "Liberation Sans, Arial, Nimbus Sans L, Helvetica, sans-serif";
 const url = computed(() => {
   const q = new URLSearchParams();
   if (attr.value !== "speed") q.set("attr", attr.value);
-  if (region.value !== "AT") q.set("region", region.value);
+  if (region.value !== CC.value) q.set("region", region.value);
   return `${location.origin}/vzg/netz${q.size ? `?${q}` : ""}`;
 });
 </script>
@@ -435,7 +437,7 @@ const url = computed(() => {
         :aria-label="$t('vzg.netRegion')"
         @change="setRegion(($event.target as HTMLSelectElement).value)"
       >
-        <option value="AT">{{ $t("vzg.netAustria") }}</option>
+        <option :value="CC">{{ countryName }}</option>
         <option v-for="a in states" :key="a.code" :value="a.code">{{ a.name }}</option>
       </select>
       <span class="ml-auto flex flex-wrap gap-1 text-xs">

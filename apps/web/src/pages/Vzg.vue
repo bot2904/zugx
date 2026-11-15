@@ -12,14 +12,11 @@ import VzgBand from "../components/VzgBand.vue";
 import VzgProfile from "../components/VzgProfile.vue";
 import { useI18n } from "../i18n/index.ts";
 import { usePageTitle } from "../lib/title.ts";
+import { country } from "../lib/country.ts";
+import { lineCountry, vzgFile, vzgLine } from "../lib/vzg-data.ts";
 import { itemWikidata } from "../lib/wikidata.ts";
 import { download, standaloneSvg } from "../lib/svg-export.ts";
 import type { TipContent } from "../lib/tip.ts";
-
-const files = import.meta.glob<{ default: VzgLine }>("../../../../packages/vzg/data/*.toml");
-const indexFile = Object.entries(files).find(([p]) => p.endsWith("/index.toml"))?.[1] as
-  | (() => Promise<{ default: VzgIndex }>)
-  | undefined;
 
 const route = useRoute();
 const router = useRouter();
@@ -29,9 +26,15 @@ const missing = ref(false);
 
 const slug = computed(() => (route.params.line ? String(route.params.line) : undefined));
 
-onMounted(async () => {
-  if (indexFile) index.value = (await indexFile()).default;
-});
+// the index: the selected country's lines (navbar); a line of another country (a link) selects
+// its country
+watch(
+  country,
+  async (c) => {
+    index.value = await vzgFile<VzgIndex>("index", c);
+  },
+  { immediate: true },
+);
 
 watch(
   slug,
@@ -39,9 +42,10 @@ watch(
     data.value = undefined;
     missing.value = false;
     if (!s) return;
-    const loader = Object.entries(files).find(([p]) => p.endsWith(`/${s}.toml`))?.[1];
-    if (!loader) return void (missing.value = true);
-    data.value = (await loader()).default;
+    const c = lineCountry(s);
+    if (!c) return void (missing.value = true);
+    country.value = c;
+    data.value = await vzgLine<VzgLine>(s);
   },
   { immediate: true },
 );

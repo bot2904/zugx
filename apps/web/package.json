@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@vueuse/core": "catalog:",
+    "@zugx/gtfs": "workspace:*",
     "@zugx/hafas": "workspace:*",
     "@zugx/netz": "workspace:*",
     "@zugx/stations": "workspace:*",

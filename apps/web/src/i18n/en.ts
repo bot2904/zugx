@@ -39,6 +39,9 @@ export default {
     live: "Live",
     liveTip:
       "Realtime instead of timetable where a page has both (station: live board instead of departure plan; graphic timetable: realtime overlay)",
+    country: "Country",
+    countryTip:
+      "Country of the overviews: trains, Bildfahrpläne, lines, network map, stations (search and journeys cover all countries)",
     liveOnly: "always realtime",
   },
   search: {
@@ -140,7 +143,7 @@ export default {
   },
   trains: {
     title: "Train index",
-    subtitle: "Every train running in Austria in timetable year {year}",
+    subtitle: "Every train running in {country} in timetable year {year}",
     all: "All",
     longDistance: "Long-distance",
     regional: "Regional",
@@ -386,7 +389,6 @@ export default {
   },
   vzg: {
     netRegion: "Region",
-    netAustria: "Austria",
     profSpeedValueSlow: "max. {max} km/h, average {avg} km/h",
     profile: "Line profile",
     profLength: "Length",
@@ -523,6 +525,7 @@ export default {
     partial: "covers km {from}–{to} only (gaps in OSM)",
   },
   netz: {
+    onlyAt: "The Netzgrafik is only available for Austria so far.",
     weekday: "Mon–Fri",
     saturday: "Sat",
     sunday: "Sun/holiday",
@@ -572,7 +575,6 @@ export default {
     source: {
       data: "Data",
       unofficial: "unofficial",
-      openData: "ÖBB open data",
       osm: "OpenStreetMap contributors",
     },
   },

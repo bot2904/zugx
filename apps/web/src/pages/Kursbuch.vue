@@ -10,22 +10,27 @@ import BfBook from "../components/BfBook.vue";
 import { useI18n } from "../i18n/index.ts";
 import { daysBetween, viennaDate } from "../lib/format.ts";
 import { usePageTitle } from "../lib/title.ts";
+import { country, ofCountry } from "../lib/country.ts";
+import { sheetNumber } from "../lib/sheets.ts";
 
 const { t, locale } = useI18n();
 const route = useRoute();
 const router = useRouter();
-const files = import.meta.glob<{ default: Corridor }>(
-  "../../../../packages/netz/data/corridors/*.toml",
+const ALL = import.meta.glob<{ default: Corridor }>(
+  "../../../../packages/netz/data/**/corridors/*.toml",
 );
-const indexFile = Object.entries(files).find(([p]) => p.endsWith("/index.toml"))?.[1] as
-  | (() => Promise<{ default: CorridorIndex }>)
-  | undefined;
+/** the selected country's sheets (navbar) */
+const files = computed(() => ofCountry(ALL, country.value));
+const INDEXES = import.meta.glob<{ default: CorridorIndex }>(
+  "../../../../packages/netz/data/**/corridors/index.toml",
+);
+const indexFile = computed(() => Object.values(ofCountry(INDEXES, country.value))[0]);
 
 const num = (k: string, d: number) => {
   const v = Number(route.query[k]);
   return Number.isFinite(v) && v > 0 ? v : d;
 };
-const from = computed(() => num("von", 100));
+const from = computed(() => num("von", 1));
 const to = computed(() => num("bis", 999));
 const cols = computed(() => num("cols", 12));
 /**
@@ -37,11 +42,15 @@ const pageNumbers = computed(() => route.query.seiten !== "0");
 
 const index = shallowRef<CorridorIndex>();
 /** the sheets in book order: a single ÖBB number in the range, ascending */
-/** every sheet with a single ÖBB number, in book order (the choice for the selection) */
+/**
+ * every sheet with a single number in the book (sheetNumber), in book order (the choice for the
+ * selection)
+ */
 const allSheets = computed(() =>
   (index.value?.corridors ?? [])
-    .filter((c) => c.oebb && /^\d+$/.test(c.oebb))
-    .sort((a, b) => +a.oebb! - +b.oebb! || a.id.localeCompare(b.id)),
+    .map((c) => ({ ...c, nr: sheetNumber(c) ?? "" }))
+    .filter((c) => /^\d+$/.test(c.nr))
+    .sort((a, b) => +a.nr - +b.nr || a.id.localeCompare(b.id)),
 );
 /** chosen sheets (?bilder=100,101,300); none = the range von–bis */
 const picked = computed(
@@ -52,14 +61,15 @@ const picked = computed(
 );
 const sheets = computed(() =>
   allSheets.value.filter((c) =>
-    picked.value.size ? picked.value.has(c.oebb!) : +c.oebb! >= from.value && +c.oebb! <= to.value,
+    picked.value.size ? picked.value.has(c.nr) : +c.nr >= from.value && +c.nr <= to.value,
   ),
 );
 /** the selection by hundreds (1xx, 2xx …), as the book's sections */
 const groups = computed(() => {
   const m = new Map<string, typeof allSheets.value>();
   for (const c of allSheets.value) {
-    const g = `${c.oebb![0]}00`;
+    // by hundreds (1xx, 2xx …), two-digit numbers by tens
+    const g = c.nr.length > 2 ? `${c.nr[0]}00` : `${c.nr[0]}0`;
     m.set(g, [...(m.get(g) ?? []), c]);
   }
   return [...m];
@@ -69,7 +79,7 @@ function setPicked(next: Set<string>) {
   void router.replace({ query: next.size ? { ...q, bilder: [...next].sort().join(",") } : q });
 }
 function togglePick(nrs: string[]) {
-  const cur = new Set(picked.value.size ? picked.value : sheets.value.map((c) => c.oebb!));
+  const cur = new Set(picked.value.size ? picked.value : sheets.value.map((c) => c.nr));
   const all = nrs.every((n) => cur.has(n));
   for (const n of nrs) {
     if (all) cur.delete(n);
@@ -78,7 +88,7 @@ function togglePick(nrs: string[]) {
   setPicked(cur);
 }
 const isPicked = (nr: string) =>
-  picked.value.size ? picked.value.has(nr) : sheets.value.some((c) => c.oebb === nr);
+  picked.value.size ? picked.value.has(nr) : sheets.value.some((c) => c.nr === nr);
 const date = computed(() => {
   const q = typeof route.query.d === "string" ? route.query.d : "";
   if (/^\d{4}-\d\d-\d\d$/.test(q)) return q;
@@ -92,7 +102,14 @@ const loaded = shallowRef<Corridor[]>([]);
 const loading = shallowRef(0);
 /** sheets typeset so far (rendered one after another, so the page stays responsive) */
 const shownCount = shallowRef(0);
-void indexFile?.().then((m) => (index.value = m.default));
+watch(
+  indexFile,
+  (f) => {
+    index.value = undefined;
+    void f?.().then((m) => (index.value = m.default));
+  },
+  { immediate: true },
+);
 let run = 0;
 watch(
   () => (part.value === "vorne" ? [] : sheets.value),
@@ -107,7 +124,7 @@ watch(
     const worker = async () => {
       while (next < list.length) {
         const i = next++;
-        const f = Object.entries(files).find(([p]) => p.endsWith(`/${list[i]!.file}`))?.[1];
+        const f = Object.entries(files.value).find(([p]) => p.endsWith(`/${list[i]!.file}`))?.[1];
         out[i] = f ? (await f()).default : undefined;
         if (my === run) loading.value--;
       }
@@ -138,7 +155,7 @@ const book = computed(() =>
     const stations = c.stations.map((s, i) => ({ ...s, i }));
     return {
       id: c.id,
-      oebb: ref?.oebb ?? c.id,
+      nr: ref?.nr ?? c.id,
       name: ref?.name ?? c.name,
       stations,
       reverse: [...stations].reverse(),
@@ -215,7 +232,7 @@ usePageTitle(() => [t("kursbuch.title"), date.value]);
           {{ $t("kursbuch.pick", { n: sheets.length, total: allSheets.length }) }}
         </summary>
         <div class="mt-1 flex flex-wrap gap-1 text-xs">
-          <button class="btn py-0" @click="setPicked(new Set(allSheets.map((c) => c.oebb!)))">
+          <button class="btn py-0" @click="setPicked(new Set(allSheets.map((c) => c.nr)))">
             {{ $t("kursbuch.pickAll") }}
           </button>
           <button class="btn py-0" @click="setPicked(new Set(['-']))">
@@ -228,18 +245,18 @@ usePageTitle(() => [t("kursbuch.title"), date.value]);
               <label>
                 <input
                   type="checkbox"
-                  :checked="list.every((c) => isPicked(c.oebb!))"
+                  :checked="list.every((c) => isPicked(c.nr))"
                   :indeterminate.prop="
-                    list.some((c) => isPicked(c.oebb!)) && !list.every((c) => isPicked(c.oebb!))
+                    list.some((c) => isPicked(c.nr)) && !list.every((c) => isPicked(c.nr))
                   "
-                  @change="togglePick(list.map((c) => c.oebb!))"
+                  @change="togglePick(list.map((c) => c.nr))"
                 />
                 <span class="mono">{{ g }}</span>
               </label>
             </legend>
             <label v-for="c in list" :key="c.id" class="pick-item">
-              <input type="checkbox" :checked="isPicked(c.oebb!)" @change="togglePick([c.oebb!])" />
-              <span class="mono">{{ c.oebb }}</span> {{ c.name }}
+              <input type="checkbox" :checked="isPicked(c.nr)" @change="togglePick([c.nr])" />
+              <span class="mono">{{ c.nr }}</span> {{ c.name }}
             </label>
           </fieldset>
         </div>
@@ -294,7 +311,7 @@ usePageTitle(() => [t("kursbuch.title"), date.value]);
       <h2>{{ $t("kursbuch.contents") }}</h2>
       <ol>
         <li v-for="s in sheets" :key="s.id">
-          <a :href="`#kb-${s.id}`"><span class="mono">{{ s.oebb }}</span> {{ s.name }}</a>
+          <a :href="`#kb-${s.id}`"><span class="mono">{{ s.nr }}</span> {{ s.name }}</a>
           <span class="muted"> · {{ s.km }} km</span>
         </li>
       </ol>
@@ -312,7 +329,7 @@ usePageTitle(() => [t("kursbuch.title"), date.value]);
         :t1="30 * 60"
         :date="date"
         :per-page="cols"
-        :title="`${c.oebb} · ${c.name}`"
+        :title="`${c.nr} · ${c.name}`"
       />
     </section>
   </section>

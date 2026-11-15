@@ -24,19 +24,27 @@ import {
   totalDays,
   weekdayOf,
   yearFor,
-  years,
+  yearsOf,
   type QuickFilter,
   type TrainEntry,
   type TrainIndex,
 } from "../lib/trains.ts";
 import { trainSlug } from "../lib/url.ts";
+import { COUNTRIES, country } from "../lib/country.ts";
 
 const { t, tm, locale } = useI18n();
 const route = useRoute();
 const router = useRouter();
 
 const todayIso = viennaDate();
-const year = computed(() => Number(route.query.y) || yearFor(todayIso) || years[0] || 0);
+/** the selected country's train index (navbar) */
+const years = computed(() => yearsOf(country.value));
+const countryName = computed(
+  () => COUNTRIES.find((c) => c.id === country.value)?.name[locale.value] ?? country.value,
+);
+const year = computed(
+  () => Number(route.query.y) || yearFor(todayIso, country.value) || years.value[0] || 0,
+);
 const quick = computed<QuickFilter>(() => {
   const q = route.query.g;
   return q === "all" || q === "regional" || q === "suburban" || q === "night" ? q : "long";
@@ -50,6 +58,8 @@ const at = computed(() => (typeof route.query.at === "string" ? route.query.at :
 const q = ref(typeof route.query.q === "string" ? route.query.q : "");
 
 const index = shallowRef<TrainIndex>();
+/** the country the index was loaded for */
+const indexCountry = ref("");
 const loading = ref(false);
 const isFull = ref(false);
 const PAGE = 100; // rows rendered per page: keeps filtering responsive on phones
@@ -68,18 +78,26 @@ const wantFull = computed(
 async function load() {
   if (!year.value) return;
   const full = wantFull.value || isFull.value;
-  if (index.value && index.value.year === year.value && isFull.value === full) return;
+  const c = country.value;
+  if (
+    index.value &&
+    index.value.year === year.value &&
+    isFull.value === full &&
+    indexCountry.value === c
+  )
+    return;
   loading.value = true;
   try {
-    index.value = await loadTrains(year.value, full);
+    index.value = await loadTrains(year.value, full, c);
     isFull.value = full && !!index.value;
-    if (!index.value && full) index.value = await loadTrains(year.value, false);
+    if (!index.value && full) index.value = await loadTrains(year.value, false, c);
+    indexCountry.value = c;
   } finally {
     loading.value = false;
   }
 }
 onMounted(load);
-watch([year, wantFull], load);
+watch([year, wantFull, country], load);
 
 function setQuery(patch: Record<string, string | undefined>) {
   const next: Record<string, string> = {};
@@ -295,7 +313,7 @@ watch(sel, (i) =>
   <section>
     <div class="flex flex-wrap items-baseline gap-2">
       <h1 class="m-0 text-xl">{{ $t("trains.title") }}</h1>
-      <span class="muted text-sm">{{ $t("trains.subtitle", { year }) }}</span>
+      <span class="muted text-sm">{{ $t("trains.subtitle", { year, country: countryName }) }}</span>
       <select
         v-if="years.length > 1"
         class="input ml-auto text-xs"

@@ -8,8 +8,8 @@ import { CACHE_DIR, REPO_ROOT } from "./feed.ts";
 
 export interface Country {
   id: string;
-  /** name in German and English (UI, data headers) */
-  name: { de: string; en: string };
+  /** name per app language (UI, data headers) */
+  name: { de: string; en: string; it: string };
   /** UIC country code: station ids (HAFAS/UIC) of this country start with it, e.g. "81" */
   uic: string;
   timezone: string;
@@ -28,7 +28,7 @@ export interface Country {
   /** reference day of the timetable sheets (a regular Tuesday; default: netz DEFAULT_DAY) */
   day?: string;
   /** licence of the timetable data, for the data files and the attribution */
-  licence: { name: string; url: string; source: string };
+  licence: { name: string; url: string; source: string; page: string };
   /** SQL run on the country's database after the import (feed quirks → the expected shape) */
   fixups?: string[];
 }

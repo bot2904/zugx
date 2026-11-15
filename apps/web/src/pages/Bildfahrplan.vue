@@ -57,6 +57,7 @@ import { categoryBadgeColor, categoryColor } from "../lib/products.ts";
 import { slugToTrain, trainSlug } from "../lib/url.ts";
 import { lineFor } from "../lib/lines.ts";
 import { liveMode } from "../lib/live.ts";
+import { country, countryOfPath } from "../lib/country.ts";
 import { useKeys } from "../lib/keys.ts";
 import { usePageTitle } from "../lib/title.ts";
 import type { TipContent } from "../lib/tip.ts";
@@ -78,18 +79,31 @@ const TripPanel = defineAsyncComponent(() => import("../components/TripPanel.vue
 type CorridorRef = Pick<CorridorIndexEntry, "id" | "name" | "oebb" | "lines"> &
   Partial<Pick<CorridorIndexEntry, "names">>;
 
+// the sheets of all countries (packages/netz/data/corridors, data/<country>/corridors; ids are
+// unique: "101", "si-10"), one index per country
 const files = import.meta.glob<{ default: Corridor }>(
-  "../../../../packages/netz/data/corridors/*.toml",
+  "../../../../packages/netz/data/**/corridors/*.toml",
 );
-const indexFile = Object.entries(files).find(([p]) => p.endsWith("/index.toml"))?.[1] as
-  | (() => Promise<{ default: CorridorIndex }>)
-  | undefined;
+const indexFiles = Object.entries(
+  import.meta.glob<{ default: CorridorIndex }>(
+    "../../../../packages/netz/data/**/corridors/index.toml",
+  ),
+);
 
 const { t, locale } = useI18n();
 const route = useRoute();
 const router = useRouter();
-const list = shallowRef<CorridorRef[]>([]);
-const indexData = shallowRef<CorridorIndex>();
+/** the sheets of all countries, with their country */
+const list = shallowRef<(CorridorRef & { country: string })[]>([]);
+const indexes = shallowRef<Record<string, CorridorIndex>>({});
+/** the index page shows the selected country's sheets (navbar) */
+const indexData = computed<CorridorIndex | undefined>(() => indexes.value[country.value]);
+/** the open sheet's country */
+const sheetCountry = computed(() => list.value.find((c) => c.id === id.value)?.country);
+// a sheet of another country (a link): select that country, so the index matches it
+watch(sheetCountry, (c) => {
+  if (c) country.value = c;
+});
 const data = shallowRef<Corridor>();
 const loading = ref(false);
 
@@ -286,17 +300,22 @@ const now = shallowRef(viennaNow());
 useIntervalFn(() => (now.value = viennaNow()), 30_000);
 
 onMounted(async () => {
-  if (indexFile) {
-    indexData.value = (await indexFile()).default;
-    list.value = indexData.value.corridors;
+  if (indexFiles.length) {
+    const loaded = await Promise.all(
+      indexFiles.map(async ([p, load]) => [countryOfPath(p), (await load()).default] as const),
+    );
+    indexes.value = Object.fromEntries(loaded);
+    list.value = loaded.flatMap(([c, ix]) => ix.corridors.map((e) => ({ ...e, country: c })));
     // old corridor ids (e.g. /bf/brenner) now live under their ÖBB number
-    const alias = id.value ? indexData.value.aliases?.[id.value] : undefined;
+    const alias = id.value
+      ? loaded.map(([, ix]) => ix.aliases?.[id.value!]).find(Boolean)
+      : undefined;
     if (alias) void router.replace({ path: `/bf/${alias}`, query: route.query });
   } else {
     list.value = Object.keys(files)
       .map((p) => /corridors\/([^/]+)\.toml$/.exec(p)?.[1])
       .filter((x): x is string => !!x && x !== "index")
-      .map((x) => ({ id: x, name: x }));
+      .map((x) => ({ id: x, name: x, country: country.value }));
   }
 });
 
@@ -866,7 +885,11 @@ watch([plan, nodeHafas, date, t0, t1, nodeAll], () => void loadNodeBoards(), {
           })
         "
       >
-        <option v-for="c in list" :key="c.id" :value="c.id">
+        <option
+          v-for="c in list.filter((x) => x.country === (sheetCountry ?? country))"
+          :key="c.id"
+          :value="c.id"
+        >
           {{ c.oebb ? `${c.oebb} · ` : "" }}{{ c.name }}
         </option>
       </select>

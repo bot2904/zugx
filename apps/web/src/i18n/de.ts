@@ -41,6 +41,9 @@ export default {
     live: "Live",
     liveTip:
       "Echtzeit statt Fahrplan, wo eine Seite beides hat (Bahnhof: Abfahrtstafel statt Abfahrtsplan; Bildfahrplan: Echtzeit-Überlagerung)",
+    country: "Land",
+    countryTip:
+      "Land der Übersichten: Züge, Bildfahrpläne, Strecken, Netzkarte, Bahnhöfe (Suche und Verbindungen umfassen alle Länder)",
     liveOnly: "immer Echtzeit",
   },
   search: {
@@ -142,7 +145,7 @@ export default {
   },
   trains: {
     title: "Zugindex",
-    subtitle: "Alle Züge in Österreich im Fahrplanjahr {year}",
+    subtitle: "Alle Züge in {country} im Fahrplanjahr {year}",
     all: "Alle",
     longDistance: "Fernverkehr",
     regional: "Regional",
@@ -392,7 +395,6 @@ export default {
   },
   vzg: {
     netRegion: "Region",
-    netAustria: "Österreich",
     profSpeedValueSlow: "höchstens {max} km/h, im Mittel {avg} km/h",
     profile: "Streckenprofil",
     profLength: "Länge",
@@ -529,6 +531,7 @@ export default {
     partial: "nur km {from}–{to} (Lücken in OSM)",
   },
   netz: {
+    onlyAt: "Die Netzgrafik gibt es bisher nur für Österreich.",
     weekday: "Mo–Fr",
     saturday: "Sa",
     sunday: "So/Feiertag",
@@ -578,7 +581,6 @@ export default {
     source: {
       data: "Daten",
       unofficial: "inoffiziell",
-      openData: "ÖBB Open Data",
       osm: "OpenStreetMap-Mitwirkende",
     },
   },

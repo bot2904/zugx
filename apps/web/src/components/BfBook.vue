@@ -35,7 +35,7 @@ const props = defineProps<{
 }>();
 /** stations with a departure plan (timetable, not live): the station name links to it */
 const POSTERS = new Set(
-  Object.keys(import.meta.glob("../../../../packages/trains/data/departures/*.toml")).map(
+  Object.keys(import.meta.glob("../../../../packages/trains/data/**/departures/*.toml")).map(
     (p) => /([^/]+)\.toml$/.exec(p)?.[1],
   ),
 );

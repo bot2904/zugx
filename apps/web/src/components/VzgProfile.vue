@@ -7,27 +7,28 @@ import type { VzgLine, VzgNetwork } from "@zugx/vzg";
 import { decodePolyline } from "@zugx/vzg/geo";
 import { computed, onMounted, shallowRef } from "vue";
 import { useI18n } from "../i18n/index.ts";
+import { DEFAULT_COUNTRY } from "../lib/country.ts";
+import { densityOf, lineCountry, vzgFile } from "../lib/vzg-data.ts";
 
 const props = defineProps<{ line: VzgLine }>();
 const { t, locale } = useI18n();
 
-// network attributes and densities: loaded once, shared by all lines
-const vzgFiles = import.meta.glob("../../../../packages/vzg/data/network.toml");
-const densityFiles = import.meta.glob("../../../../packages/netz/data/density.toml");
+// network attributes and densities of the line's country: loaded once per country
 interface Density {
   day: string;
   lines: { id: string; km: number[]; n: number[] }[];
 }
-let shared: Promise<[VzgNetwork | undefined, Density | undefined]> | undefined;
-const loadShared = () =>
-  (shared ??= Promise.all([
-    Object.values(vzgFiles)[0]?.().then((m) => (m as { default: VzgNetwork }).default),
-    Object.values(densityFiles)[0]?.().then((m) => (m as { default: Density }).default),
-  ]));
+const shared = new Map<string, Promise<[VzgNetwork | undefined, Density | undefined]>>();
+function loadShared(c: string) {
+  let p = shared.get(c);
+  if (!p)
+    shared.set(c, (p = Promise.all([vzgFile<VzgNetwork>("network", c), densityOf<Density>(c)])));
+  return p;
+}
 const network = shallowRef<VzgNetwork>();
 const density = shallowRef<Density>();
 onMounted(async () => {
-  [network.value, density.value] = await loadShared();
+  [network.value, density.value] = await loadShared(lineCountry(props.line.id) ?? DEFAULT_COUNTRY);
 });
 
 const km = (v: number, d = 1) =>

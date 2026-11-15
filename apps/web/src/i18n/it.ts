@@ -41,6 +41,9 @@ export default {
     live: "Live",
     liveTip:
       "Tempo reale invece dell’orario dove una pagina ha entrambi (stazione: tabellone invece del quadro partenze; orario grafico: sovrapposizione in tempo reale)",
+    country: "Paese",
+    countryTip:
+      "Paese delle panoramiche: treni, orari grafici, linee, mappa della rete, stazioni (ricerca e viaggi coprono tutti i paesi)",
     liveOnly: "sempre in tempo reale",
   },
   search: {
@@ -141,7 +144,7 @@ export default {
   },
   trains: {
     title: "Indice dei treni",
-    subtitle: "Tutti i treni in Austria nell'orario {year}",
+    subtitle: "Tutti i treni in {country} nell'orario {year}",
     all: "Tutti",
     longDistance: "Lunga percorrenza",
     regional: "Regionali",
@@ -392,7 +395,6 @@ export default {
   },
   vzg: {
     netRegion: "Regione",
-    netAustria: "Austria",
     profSpeedValueSlow: "max. {max} km/h, media {avg} km/h",
     profile: "Profilo della linea",
     profLength: "Lunghezza",
@@ -530,6 +532,7 @@ export default {
     partial: "solo km {from}–{to} (lacune in OSM)",
   },
   netz: {
+    onlyAt: "La Netzgrafik è disponibile finora solo per l’Austria.",
     weekday: "lun–ven",
     saturday: "sab",
     sunday: "dom/festivi",
@@ -579,7 +582,6 @@ export default {
     source: {
       data: "Dati",
       unofficial: "non ufficiale",
-      openData: "ÖBB open data",
       osm: "contributori di OpenStreetMap",
     },
   },

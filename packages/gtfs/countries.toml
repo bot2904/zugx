@@ -5,7 +5,7 @@
 # fix-ups run after the import.
 
 [at]
-name = { de = "Österreich", en = "Austria" }
+name = { de = "Österreich", en = "Austria", it = "Austria" }
 # UIC country code: station ids (HAFAS/UIC) of this country start with it
 uic = "81"
 timezone = "Europe/Vienna"
@@ -14,10 +14,10 @@ feeds = ["https://static.web.oebb.at/open-data/soll-fahrplan-gtfs/GTFS_Fahrplan_
 osm = "austria"
 # line numbers of the national infrastructure manager in OSM (route=tracks ref; ÖBB: "101 01")
 lineRef = '^\d{3} \d{2}$'
-licence = { name = "CC BY 4.0", url = "https://creativecommons.org/licenses/by/4.0/", source = "ÖBB GTFS" }
+licence = { name = "CC BY 4.0", url = "https://creativecommons.org/licenses/by/4.0/", source = "ÖBB GTFS", page = "https://data.oebb.at/de/datensaetze~soll-fahrplan-gtfs~" }
 
 [si]
-name = { de = "Slowenien", en = "Slovenia" }
+name = { de = "Slowenien", en = "Slovenia", it = "Slovenia" }
 uic = "79"
 timezone = "Europe/Ljubljana"
 # the national IJPP feed (NAP nap.si) via the derp.si mirror: the NAP URL refuses some clients
@@ -33,7 +33,7 @@ osmLineMembers = true
 # reference day of the Bildfahrplan sheets: a regular Tuesday in the feed's current period (the
 # Primorska line was closed until 2026-04-05)
 day = "2026-11-24"
-licence = { name = "CC BY-SA 4.0", url = "https://creativecommons.org/licenses/by-sa/4.0/", source = "IJPP / NAP Slovenija" }
+licence = { name = "CC BY-SA 4.0", url = "https://creativecommons.org/licenses/by-sa/4.0/", source = "IJPP / NAP Slovenija", page = "https://www.nap.si/" }
 # SŽ and the foreign rail operators name the train in the route ("ICS 20", "LP 2100"); the trip's
 # short name is empty
 fixups = [

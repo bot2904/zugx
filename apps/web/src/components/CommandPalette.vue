@@ -27,7 +27,7 @@ watch(open, async (o) => {
     sel.value = 0;
     await loadStations();
     const y = yearFor(viennaDate());
-    if (y && !trains.value) void loadTrains(y, false).then((t) => (trains.value = t));
+    if (y) void loadTrains(y, false).then((t) => (trains.value = t));
     await nextTick();
     input.value?.focus();
   }

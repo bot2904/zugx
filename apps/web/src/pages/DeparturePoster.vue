@@ -27,7 +27,7 @@ interface Departures {
 }
 
 const files = import.meta.glob<{ default: Departures }>(
-  "../../../../packages/trains/data/departures/*.toml",
+  "../../../../packages/trains/data/**/departures/*.toml",
 );
 const { t, locale } = useI18n();
 const route = useRoute();
