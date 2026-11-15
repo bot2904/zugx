@@ -175,6 +175,7 @@ export default {
     variants: "{n} varianti di percorso",
   },
   radar: {
+    trainsFilter: "Treni",
     donutTip: "{n} treni ({pct} %)",
     donutLabel:
       "Distribuzione dei ritardi: {pct} % di {n} treni con dati in tempo reale al massimo 5′ di ritardo",

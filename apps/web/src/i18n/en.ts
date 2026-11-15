@@ -174,6 +174,7 @@ export default {
     variants: "{n} route variants",
   },
   radar: {
+    trainsFilter: "Trains",
     donutTip: "{n} trains ({pct} %)",
     donutLabel: "Delay distribution: {pct} % of {n} trains with realtime data at most 5′ late",
     openTrip: "Open train run",

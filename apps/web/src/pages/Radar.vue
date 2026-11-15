@@ -3,7 +3,7 @@
 import { useAutoRefresh } from "../lib/refresh.ts";
 import { groupMovements, type Line, type Movement, type Trip } from "@zugx/hafas";
 import type { Map as MlMap } from "maplibre-gl";
-import { useDebounceFn, useLocalStorage } from "@vueuse/core";
+import { useDebounceFn, useLocalStorage, useMediaQuery } from "@vueuse/core";
 import { computed, ref, shallowRef, watch } from "vue";
 import { useI18n } from "../i18n/index.ts";
 import { useRoute, useRouter } from "vue-router";
@@ -124,6 +124,11 @@ const mode = useLocalStorage<"delay" | "category">("zugx:radar-mode", "delay");
 
 /** coupled train parts at the same position as one train set, likely operational part first */
 const groups = computed(() => groupMovements(movements.value));
+/** desktop: controls and legend open; phones: collapsed (more map) */
+const wide = useMediaQuery("(min-width: 641px)");
+const shownGroups = computed(
+  () => PRODUCT_GROUPS.slice(0, 7).filter((g) => products.value & g.cls).length,
+);
 
 const counts = computed(() => {
   const c: Record<string, number> = Object.fromEntries(
@@ -219,33 +224,39 @@ function toggle(cls: number) {
       <h1 class="m-0 text-xl">{{ $t("radar.title") }}</h1>
       <span class="muted text-sm">{{ $t("radar.trains", { n: groups.length }) }}</span>
       <span v-if="loading" class="muted animate-pulse text-xs">●</span>
-      <span
-        class="flex items-center gap-1 text-xs"
-        role="radiogroup"
-        :aria-label="$t('radar.colour')"
-      >
-        <span class="muted">{{ $t("radar.colour") }}:</span>
-        <button
-          class="btn chip py-0.5 text-xs"
-          role="radio"
-          :aria-checked="mode === 'delay'"
-          :class="mode === 'delay' && 'btn-on'"
-          @click="mode = 'delay'"
-        >
-          {{ $t("radar.byDelay") }}
-        </button>
-        <button
-          class="btn chip py-0.5 text-xs"
-          role="radio"
-          :aria-checked="mode === 'category'"
-          :class="mode === 'category' && 'btn-on'"
-          @click="mode = 'category'"
-        >
-          {{ $t("radar.byCategory") }}
-        </button>
-      </span>
-      <span class="ml-auto flex min-w-0 max-w-full flex-wrap gap-1">
-        <span class="chips flex min-w-0 max-w-full flex-wrap gap-1">
+      <!-- colour mode and train filter: compact dropdowns (open on desktop, closed on phones) -->
+      <details class="ctl" :open="wide">
+        <summary class="btn chip py-0.5 text-xs">
+          {{ $t("radar.colour") }}:
+          <b>{{ mode === "delay" ? $t("radar.byDelay") : $t("radar.byCategory") }}</b>
+        </summary>
+        <span class="ctl-body" role="radiogroup" :aria-label="$t('radar.colour')">
+          <button
+            class="btn chip py-0.5 text-xs"
+            role="radio"
+            :aria-checked="mode === 'delay'"
+            :class="mode === 'delay' && 'btn-on'"
+            @click="mode = 'delay'"
+          >
+            {{ $t("radar.byDelay") }}
+          </button>
+          <button
+            class="btn chip py-0.5 text-xs"
+            role="radio"
+            :aria-checked="mode === 'category'"
+            :class="mode === 'category' && 'btn-on'"
+            @click="mode = 'category'"
+          >
+            {{ $t("radar.byCategory") }}
+          </button>
+        </span>
+      </details>
+      <details class="ctl" :open="wide">
+        <summary class="btn chip py-0.5 text-xs">
+          {{ $t("radar.trainsFilter") }}
+          <b>{{ shownGroups }}/{{ PRODUCT_GROUPS.slice(0, 7).length }}</b>
+        </summary>
+        <span class="ctl-body chips">
           <button
             v-for="g in PRODUCT_GROUPS.slice(0, 7)"
             :key="g.id"
@@ -256,7 +267,7 @@ function toggle(cls: number) {
             {{ $t(`products.${g.id}`) }}
           </button>
         </span>
-      </span>
+      </details>
     </div>
     <Status :error="error" @retry="refresh" />
     <div class="relative">
@@ -337,11 +348,13 @@ function toggle(cls: number) {
           </template>
         </div>
       </aside>
-      <div
-        class="card absolute bottom-8 left-2 z-10 p-2 text-xs shadow"
+      <details
+        class="legend card absolute bottom-8 left-2 z-10 p-2 text-xs shadow"
         role="group"
         :aria-label="$t('radar.legend')"
+        :open="wide"
       >
+        <summary class="cursor-pointer">{{ $t("radar.legend") }}</summary>
         <svg
           v-if="mode === 'delay' && donut.total"
           class="donut mx-auto mb-1"
@@ -425,13 +438,43 @@ function toggle(cls: number) {
             <span class="muted ml-auto pl-2 mono">{{ c.n }}</span>
           </li>
         </ul>
-      </div>
+      </details>
     </div>
     <p class="muted mt-1 text-xs">{{ $t("radar.hint") }}</p>
   </section>
 </template>
 
 <style scoped>
+/* compact dropdown controls: summary as a chip, body inline next to it */
+.ctl {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.ctl > summary {
+  list-style: none;
+  cursor: pointer;
+}
+.ctl > summary::-webkit-details-marker {
+  display: none;
+}
+.ctl > summary::after {
+  content: " ▾";
+}
+.ctl[open] > summary::after {
+  content: " ▴";
+}
+.ctl-body {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+.legend > summary {
+  font-weight: 600;
+}
+.legend[open] > summary {
+  margin-bottom: 0.25rem;
+}
 /* delay donut in the legend: desktop only (on phones the legend stays small) */
 .donut {
   display: block;

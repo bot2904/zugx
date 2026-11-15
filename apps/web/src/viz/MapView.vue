@@ -16,7 +16,7 @@ import {
   type StyleSpecification,
 } from "maplibre-gl";
 import type { Feature, FeatureCollection } from "geojson";
-import { useLocalStorage, useResizeObserver } from "@vueuse/core";
+import { useResizeObserver } from "@vueuse/core";
 import { onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { scheme } from "../lib/theme.ts";
 
@@ -108,11 +108,8 @@ function fitAll() {
 }
 
 // ---- base map: OpenFreeMap vector styles (calm, railways included), optional OpenRailwayMap overlay ----
-const ORM_KEY = "zugx:map-orm";
-// railway overlay on by default; switching it off is remembered
-const orm = useLocalStorage(ORM_KEY, true, {
-  serializer: { read: (v) => v !== "0", write: (v) => (v ? "1" : "0") },
-});
+// the OpenRailwayMap overlay is always on (zugx's users want the rail network on every map)
+const orm = ref(true);
 const styleUrl = (): string | StyleSpecification =>
   props.base === "osm"
     ? {
@@ -348,15 +345,5 @@ onBeforeUnmount(() => map?.remove());
       class="w-full overflow-hidden rounded-md border border-[var(--line)]"
       :style="{ height }"
     />
-    <button
-      v-if="railway"
-      class="btn chip absolute top-2 left-2 z-10 bg-[var(--bg2)] py-0.5 text-xs shadow"
-      :class="orm && 'btn-on'"
-      :aria-pressed="orm"
-      v-tip="$t('map.ormTip')"
-      @click="orm = !orm"
-    >
-      {{ $t("map.orm") }}
-    </button>
   </div>
 </template>

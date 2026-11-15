@@ -176,6 +176,7 @@ export default {
     variants: "{n} Laufwegvarianten",
   },
   radar: {
+    trainsFilter: "Züge",
     donutTip: "{n} Züge ({pct} %)",
     donutLabel:
       "Verspätungsverteilung: {pct} % von {n} Zügen mit Echtzeitdaten höchstens 5′ verspätet",
