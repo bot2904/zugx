@@ -56,8 +56,8 @@ const { locale } = useI18n();
       </p>
       <p>
         <strong>Abfahrtsplan</strong> (Link auf der Abfahrtstafel): alle Abfahrten eines Tages aus
-        dem Jahresfahrplan, gestaltet wie der Aushang im Bahnhof – nach Stunden, mit Zug, Ziel,
-        Unterwegshalten und Gleis; Datum wählbar (←/→), druckbar. Ohne Echtzeit.
+        dem Jahresfahrplan, nach Stunden in Spalten wie der Aushang im Bahnhof – mit Zug, Ziel,
+        Unterwegshalten (verlinkt) und Gleis; Datum wählbar (←/→). Ohne Echtzeit.
       </p>
 
       <h2 id="zuglauf">Zuglauf</h2>
@@ -341,8 +341,8 @@ const { locale } = useI18n();
       </p>
       <p>
         <strong>Departure poster</strong> (link on the station board): all departures of a day from
-        the annual timetable, laid out like the poster in the station – by hour, with train,
-        destination, following stops and platform; choose the date (←/→), print it. No realtime.
+        the annual timetable, by hour in columns like the poster in the station – with train,
+        destination, following stops (linked) and platform; choose the date (←/→). No realtime.
       </p>
 
       <h2 id="zuglauf">Train run</h2>

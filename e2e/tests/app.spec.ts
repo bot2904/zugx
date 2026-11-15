@@ -249,12 +249,18 @@ test("departure poster: all departures of a day from the timetable, by hour", as
     .click();
   await expect(page).toHaveURL(/\/station\/8100013\/plan/);
   await page.goto("/station/8100013/plan?d=2026-03-10");
-  const poster = page.locator(".poster");
-  await expect(poster.locator(".station")).toHaveText(/Linz/);
-  expect(await poster.locator(".dep").count()).toBeGreaterThan(200);
-  await expect(poster.locator(".hour-head").first()).toBeVisible();
-  // a train links to its run on that day
-  await expect(poster.locator(".dep a").first()).toHaveAttribute("href", /\/train\/.*d=2026-03-10/);
+  await expect(page.locator("h1")).toHaveText(/Linz/);
+  expect(await page.locator(".dep").count()).toBeGreaterThan(200);
+  await expect(page.locator(".hour-head").first()).toBeVisible();
+  // a train links to its run on that day, stations to their plans
+  await expect(page.locator(".dep .train").first()).toHaveAttribute(
+    "href",
+    /\/train\/.*d=2026-03-10/,
+  );
+  await expect(page.locator(".dep .dest-name").first()).toHaveAttribute(
+    "href",
+    /\/station\/\d+(\/plan)?/,
+  );
   // next day
   await page.keyboard.press("ArrowRight");
   await expect(page).toHaveURL(/d=2026-03-11/);

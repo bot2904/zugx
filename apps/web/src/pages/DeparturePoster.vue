@@ -1,13 +1,13 @@
 <script setup lang="ts">
-// Departure poster ("Abfahrt", like the printed timetables in the stations): every train leaving
-// the station on the chosen day, from the open data GTFS (timetable, not live) — grouped by hour in
-// newspaper columns, with following stops and platform. Data: packages/trains/data/departures
+// Departure plan: every train leaving the station on the chosen day, from the open data GTFS
+// (timetable, not live) — grouped by hour in columns like the posters in the stations, in zugx's
+// own style: train badges, stations linked to their plans. Data: packages/trains/data/departures
 // (one file per station, loaded on demand; built by `vp run departures:build`).
 import { computed, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useI18n } from "../i18n/index.ts";
 import { addDays, daysBetween, viennaDate } from "../lib/format.ts";
-import { categoryColor } from "../lib/products.ts";
+import LineBadge from "../components/LineBadge.vue";
 import { trainSlug } from "../lib/url.ts";
 import { useKeys } from "../lib/keys.ts";
 import { usePageTitle } from "../lib/title.ts";
@@ -60,12 +60,7 @@ useKeys({
   ArrowRight: () => setDate(addDays(date.value, 1)),
 });
 const weekday = computed(() =>
-  Temporal.PlainDate.from(date.value).toLocaleString(locale.value, {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  }),
+  Temporal.PlainDate.from(date.value).toLocaleString(locale.value, { weekday: "short" }),
 );
 
 // ---- the day's departures ----
@@ -99,18 +94,33 @@ const hours = computed(() => {
   return [...byHour].sort((a, b) => a[0] - b[0]);
 });
 const count = computed(() => hours.value.reduce((n, [, rs]) => n + rs.length, 0));
-const hh = (h: number) => `${h % 24}`;
+const hh = (h: number) => String(h % 24).padStart(2, "0");
+/** another station: its plan on the same day (stations without one: the live board) */
+const stationLink = (sid: string) =>
+  Object.keys(files).some((p) => p.endsWith(`/${sid}.toml`))
+    ? { path: `/station/${sid}/plan`, query: route.query.d ? { d: route.query.d } : {} }
+    : `/station/${sid}`;
 const mm = (m: number) => String(m % 60).padStart(2, "0");
 
-const doPrint = () => window.print();
 usePageTitle(() => [t("poster.title"), data.value ? name(data.value.id) : undefined]);
 </script>
 
 <template>
-  <section class="poster-page">
-    <div class="no-print mb-2 flex flex-wrap items-center gap-2 text-xs">
-      <RouterLink :to="`/station/${id}`" class="btn">← {{ $t("poster.live") }}</RouterLink>
-      <button class="btn" :aria-label="$t('bf.prevDay')" @click="setDate(addDays(date, -1))">
+  <section>
+    <div class="mb-2 flex flex-wrap items-center gap-2">
+      <h1 class="m-0 text-xl">
+        {{ $t("poster.title") }}
+        <template v-if="data">· {{ name(data.id) }}</template>
+      </h1>
+      <RouterLink :to="`/station/${id}`" class="text-sm">{{ $t("poster.live") }} →</RouterLink>
+    </div>
+    <div class="mb-3 flex flex-wrap items-center gap-1 text-xs">
+      <button
+        class="btn"
+        v-tip="`${$t('bf.prevDay')} (←)`"
+        :aria-label="$t('bf.prevDay')"
+        @click="setDate(addDays(date, -1))"
+      >
         ←
       </button>
       <input
@@ -122,126 +132,65 @@ usePageTitle(() => [t("poster.title"), data.value ? name(data.value.id) : undefi
         :aria-label="$t('trains.runsOn')"
         @change="setDate(($event.target as HTMLInputElement).value || undefined)"
       />
-      <button class="btn" :aria-label="$t('bf.nextDay')" @click="setDate(addDays(date, 1))">
+      <span class="mono muted">{{ weekday }}</span>
+      <button
+        class="btn"
+        v-tip="`${$t('bf.nextDay')} (→)`"
+        :aria-label="$t('bf.nextDay')"
+        @click="setDate(addDays(date, 1))"
+      >
         →
       </button>
       <button v-if="date !== today" class="btn" @click="setDate(undefined)">
         {{ $t("trains.today") }}
       </button>
-      <span class="muted">{{ $t("poster.count", { n: count }) }}</span>
-      <button class="btn ml-auto" @click="doPrint">⎙ {{ $t("poster.print") }}</button>
+      <span class="muted ml-1">{{ $t("poster.count", { n: count }) }}</span>
     </div>
 
     <p v-if="missing" class="muted">{{ $t("poster.noData") }}</p>
-    <article v-else-if="data" class="poster">
-      <header class="poster-head">
-        <svg viewBox="0 0 48 48" class="icon" aria-hidden="true">
-          <rect
-            x="2"
-            y="2"
-            width="44"
-            height="44"
-            rx="4"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="3"
-          />
-          <rect x="11" y="10" width="26" height="20" rx="3" fill="currentColor" />
-          <rect x="14" y="13" width="20" height="7" fill="#000" opacity="0.9" />
-          <circle cx="16" cy="35" r="3.5" fill="currentColor" />
-          <circle cx="32" cy="35" r="3.5" fill="currentColor" />
-        </svg>
-        <span class="big">{{ $t("poster.departure") }}</span>
-        <span class="langs">Departure · Partenza · Départ</span>
-      </header>
-      <div class="poster-body">
-        <h1 class="station">{{ name(data.id) }}</h1>
-        <p class="date">{{ weekday }}</p>
-        <p v-if="!count" class="muted">{{ $t("poster.none") }}</p>
-        <div class="cols">
-          <section v-for="[h, rows] in hours" :key="h" class="hour">
-            <h2 class="hour-head">
-              <span>{{ hh(h) }}<span class="min">00</span></span>
-              <span class="plat-head">{{ $t("poster.platform") }}</span>
-            </h2>
-            <div v-for="(r, k) in rows" :key="k" class="dep">
-              <span class="time mono">{{ hh(h) }}<span class="min">{{ mm(r[0]) }}</span></span>
-              <RouterLink
-                class="train"
-                :to="{ path: `/train/${trainSlug(`${r[1]} ${r[2]}`)}`, query: { d: date } }"
-                :style="{ color: categoryColor(r[1]) }"
-                ><span class="cat">{{ r[1] }}</span>
-                <span class="nr">{{ r[2] }}</span></RouterLink
-              >
-              <span class="dest">
-                <strong>{{ name(r[3]) }}</strong
-                ><span v-if="r[4].length" class="via">{{
-                  ` ${$t("poster.via")} ${r[4].map(name).join(" – ")}`
-                }}</span>
+    <template v-else-if="data">
+      <p v-if="!count" class="muted">{{ $t("poster.none") }}</p>
+      <div class="cols">
+        <section v-for="[h, rows] in hours" :key="h" class="hour card p-2">
+          <h2 class="hour-head m-0">
+            <span class="mono">{{ hh(h) }}:00</span>
+            <span class="muted plat-head">{{ $t("poster.platform") }}</span>
+          </h2>
+          <div v-for="(r, k) in rows" :key="k" class="dep">
+            <span class="time mono">{{ hh(h) }}:{{ mm(r[0]) }}</span>
+            <RouterLink
+              class="train"
+              :to="{ path: `/train/${trainSlug(`${r[1]} ${r[2]}`)}`, query: { d: date } }"
+              ><LineBadge :cat="r[1]" :nr="r[2]" small
+            /></RouterLink>
+            <span class="dest">
+              <RouterLink :to="stationLink(r[3])" class="dest-name">{{ name(r[3]) }}</RouterLink>
+              <span v-if="r[4].length" class="via muted">
+                {{ $t("poster.via") }}
+                <template v-for="(v, n) in r[4]" :key="n"
+                  ><template v-if="n"> – </template
+                  ><RouterLink :to="stationLink(v)" class="via-link">{{
+                    name(v)
+                  }}</RouterLink></template
+                >
               </span>
-              <span class="plat mono">{{ r[6] }}</span>
-            </div>
-          </section>
-        </div>
-        <footer class="poster-foot">
-          {{ $t("poster.source", { begin: data.begin, end: data.end, source: data.source }) }}
-        </footer>
+            </span>
+            <span class="plat mono">{{ r[6] }}</span>
+          </div>
+        </section>
       </div>
-    </article>
+      <p class="muted mt-3 text-xs">
+        {{ $t("poster.source", { begin: data.begin, end: data.end, source: data.source }) }}
+      </p>
+    </template>
   </section>
 </template>
 
 <style scoped>
-.poster {
-  --ink: #111;
-  --paper: #ffe14d;
-  color: var(--ink);
-  background: var(--paper);
-  border-radius: 0.375rem;
-  overflow: hidden;
-  font-family: "Helvetica Neue", Arial, system-ui, sans-serif;
-}
-.poster a {
-  color: inherit;
-}
-.poster-head {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  padding: 0.75rem 1.25rem;
-  background: #000;
-  color: #fff;
-}
-.poster-head .icon {
-  width: 2.75rem;
-  height: 2.75rem;
-  align-self: center;
-}
-.poster-head .big {
-  font-size: 2.5rem;
-  font-weight: 800;
-  line-height: 1;
-}
-.poster-head .langs {
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-.poster-body {
-  padding: 0.75rem 1.25rem 1rem;
-}
-.station {
-  margin: 0;
-  font-size: 2.25rem;
-  font-weight: 800;
-}
-.date {
-  margin: 0 0 1rem;
-  font-weight: 700;
-}
-/* newspaper columns: hours flow from column to column */
+/* hours flow through columns like the posters in the stations */
 .cols {
-  column-width: 22rem;
-  column-gap: 1.5rem;
+  column-width: 24rem;
+  column-gap: 0.75rem;
 }
 .hour {
   break-inside: avoid-column;
@@ -251,68 +200,46 @@ usePageTitle(() => [t("poster.title"), data.value ? name(data.value.id) : undefi
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin: 0;
   padding-bottom: 0.125rem;
-  border-bottom: 3px solid var(--ink);
-  font-size: 1.5rem;
-  font-weight: 800;
-}
-.hour-head .min {
-  margin-left: 0.25em;
+  border-bottom: 1px solid var(--line);
+  font-size: 1rem;
 }
 .plat-head {
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.6875rem;
+  font-weight: 400;
 }
 .dep {
   display: grid;
-  grid-template-columns: 2.6rem 4.6rem 1fr 2rem;
-  gap: 0 0.375rem;
-  padding: 0.125rem 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--ink) 35%, transparent);
-  font-size: 0.8rem;
-  line-height: 1.15;
-  break-inside: avoid;
+  grid-template-columns: 2.75rem auto 1fr 1.75rem;
+  gap: 0 0.5rem;
+  align-items: baseline;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.8125rem;
+  line-height: 1.25;
+}
+.dep:last-child {
+  border-bottom: 0;
 }
 .time {
-  text-align: right;
-}
-.time .min {
-  margin-left: 0.2em;
-  font-weight: 700;
-}
-.train {
-  font-weight: 800;
-  white-space: nowrap;
-  text-decoration: none;
-}
-.train .cat {
-  font-style: italic;
-}
-.train .nr {
-  font-size: 0.7rem;
   font-weight: 600;
 }
-.train:hover {
-  text-decoration: underline;
-}
-.dest strong {
-  font-weight: 800;
+.dest-name {
+  font-weight: 600;
+  color: var(--fg);
 }
 .via {
-  font-weight: 400;
+  margin-left: 0.3em;
+  font-size: 0.75rem;
+}
+.via-link {
+  color: inherit;
+}
+.dest-name:hover,
+.via-link:hover {
+  color: var(--link);
 }
 .plat {
   text-align: right;
-  font-weight: 700;
-}
-.poster-foot {
-  margin-top: 1rem;
-  font-size: 0.7rem;
-}
-@media print {
-  .poster {
-    border-radius: 0;
-  }
 }
 </style>
