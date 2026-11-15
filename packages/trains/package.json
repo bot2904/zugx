@@ -16,6 +16,7 @@
     "test": "vp test run"
   },
   "dependencies": {
+    "@zugx/db": "workspace:*",
     "@zugx/gtfs": "workspace:*",
     "@zugx/toml": "workspace:*"
   },

@@ -105,7 +105,7 @@ export function compareTrains(a: TrainEntry, b: TrainEntry): number {
 }
 
 /** Guess the timetable year of a feed: the year most service days fall into. */
-export function feedYear(g: Gtfs): number {
+export function feedYear(g: Pick<Gtfs, "services">): number {
   const votes = new Map<number, number>();
   for (const days of g.services.values())
     for (const d of days) {

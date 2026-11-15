@@ -29,6 +29,9 @@ jobs:
 
       - run: vp install --frozen-lockfile
 
+      - name: Import GTFS into SQLite (.cache/zugx.sqlite)
+        run: vp run db:build
+
       - name: Build stations
         run: vp run stations:build
 

@@ -2,10 +2,12 @@
 // "REX 22332" = "REX 1"), from the GTFS route_short_name (S1, REX1, RX50 …). Live data (HAFAS)
 // has both line and train number; the timetable views (Abfahrtsplan, Bildfahrplan, Kursbuch) only
 // the train number — this fills in the line. Trains in several lines over the year: the most
-// frequent. One train per line (diffable). Run: vp run lines:build
+// frequent. One train per line (diffable). Reads the local SQLite (vp run db:build).
+// Run: vp run lines:build
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { fetchFeeds, isRailRouteType, loadGtfs, parseTrainName, timer } from "@zugx/gtfs";
+import { parseTrainName, timer } from "@zugx/gtfs";
+import { openZugxDb, RAIL_ROUTE_TYPES, rows, serviceDays } from "@zugx/db/query";
 import { feedYear } from "./build.ts";
 
 const DATA = join(import.meta.dirname, "..", "data");
@@ -18,36 +20,42 @@ export function lineOf(cat: string, routeShort: string): string | undefined {
   return rc === cat ? `${cat} ${m[2]}` : undefined;
 }
 
-async function main() {
+function main() {
   const t = timer();
-  const g = await loadGtfs(await fetchFeeds(), {
-    keepTrip: (tr, r) => !!r && isRailRouteType(r.type) && tr.shortName !== "",
-  });
-  const year = Number(process.env.TRAINS_YEAR) || feedYear(g);
+  const db = openZugxDb();
+  const year = Number(process.env.TRAINS_YEAR) || feedYear({ services: serviceDays(db) });
+  // trips per train and route short name (rail, with a train name)
+  const trips = rows<{ name: string; route: string; n: number }>(
+    db,
+    // in file order (rowid) of each group's first trip: ties go to the line seen first
+    `select trim(t.trip_short_name) name, r.route_short_name route, count(*) n
+       from trips t join routes r using (route_id)
+      where ${RAIL_ROUTE_TYPES} and trim(coalesce(t.trip_short_name, '')) <> ''
+      group by 1, 2
+      order by min(t.rowid)`,
+  );
   // train → line → number of trips
   const votes = new Map<string, Map<string, number>>();
-  for (const trip of g.trips.values()) {
-    const tn = parseTrainName(trip.shortName);
-    const r = g.routes.get(trip.routeId);
-    if (!tn || !r) continue;
-    const line = lineOf(tn.cat, r.shortName);
-    if (!line) continue;
+  for (const { name, route, n } of trips) {
+    const tn = parseTrainName(name);
+    const line = tn && route ? lineOf(tn.cat, route) : undefined;
+    if (!tn || !line) continue;
     const key = `${tn.cat} ${tn.nr}`;
     const m = votes.get(key) ?? new Map<string, number>();
-    m.set(line, (m.get(line) ?? 0) + 1);
+    m.set(line, (m.get(line) ?? 0) + n);
     votes.set(key, m);
   }
-  const rows = [...votes]
+  const out = [...votes]
     .map(([k, m]) => [k, [...m].sort((a, b) => b[1] - a[1])[0]![0]] as const)
     .sort((a, b) => a[0].localeCompare(b[0], "en", { numeric: true }));
-  const out = join(DATA, `lines-${year}.toml`);
+  const file = join(DATA, `lines-${year}.toml`);
   writeFileSync(
-    out,
-    `# regional line per train, from the ÖBB GTFS route_short_name (CC BY 4.0); built by packages/trains/src/lines.ts\n${rows
+    file,
+    `# regional line per train, from the ÖBB GTFS route_short_name (CC BY 4.0); built by packages/trains/src/lines.ts\n${out
       .map(([k, l]) => `${JSON.stringify(k)} = ${JSON.stringify(l)}`)
       .join("\n")}\n`,
   );
-  console.log(`lines: ${rows.length} trains with a line → ${out} (${t()})`);
+  console.log(`lines: ${out.length} trains with a line → ${file} (${t()})`);
 }
 
-if (import.meta.main) await main();
+if (import.meta.main) main();
