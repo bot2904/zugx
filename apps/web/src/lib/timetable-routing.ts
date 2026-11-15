@@ -127,9 +127,24 @@ export async function timetableJourneys(
   const journeys: Journey[] = [];
   for (const route of result.routes()) {
     const legs: Leg[] = [];
+    let prevArr = -Infinity;
     for (const l of route.legs) {
       if ("route" in l) {
         const [cat = "", ...rest] = l.route.name.split(" ");
+        // the same train continuing (border stations: each country's feed has its part, sometimes
+        // under another category, D 311 → MV 311): one leg
+        const prev = legs.at(-1);
+        if (
+          prev?.kind === "journey" &&
+          prev.line?.number === rest.join(" ") &&
+          l.departureTime - prevArr <= 15
+        ) {
+          prev.destination = location(l.to);
+          prev.arr = ev(l.arrivalTime, l.to);
+          prevArr = l.arrivalTime;
+          continue;
+        }
+        prevArr = l.arrivalTime;
         legs.push({
           kind: "journey",
           origin: location(l.from),
