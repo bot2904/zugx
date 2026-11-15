@@ -40,15 +40,15 @@ const { locale } = useI18n();
           <strong>Vergleichen</strong> stellt mehrere Verbindungen nebeneinander.
         </li>
         <li>
-          Ein Klick öffnet die Details: alle Halte, Gleise, Echtzeit, Hinweise; „Was, wenn ich den
-          Anschluss verpasse?“ sucht die nächste Möglichkeit ab dem Umstiegsbahnhof. Verbindungen
-          lassen sich teilen und in den Kalender eintragen.
+          Ein Klick öffnet die Details: alle Halte, Bahnsteige, Echtzeit, Hinweise; „Was, wenn ich
+          den Anschluss verpasse?“ sucht die nächste Möglichkeit ab dem Umstiegsbahnhof.
+          Verbindungen lassen sich teilen und in den Kalender eintragen.
         </li>
       </ul>
 
       <h2 id="abfahrten">Abfahrtstafel</h2>
       <p>
-        Abfahrten bzw. Ankünfte eines Bahnhofs mit Echtzeit: Verspätung, Gleis (Gleiswechsel
+        Abfahrten bzw. Ankünfte eines Bahnhofs mit Echtzeit: Verspätung, Bahnsteig (Bahnsteigwechsel
         hervorgehoben), Ausfälle und Hinweise. Filter nach Verkehrsmittel (z. B. nur Fernverkehr),
         „Früher / Später“ blättert, die Liste aktualisiert sich automatisch. Große Bahnhöfe wie Wien
         Hbf führen auch Straßenbahn und Bus – diese lassen sich über die Filter einblenden. Der
@@ -57,13 +57,14 @@ const { locale } = useI18n();
       <p>
         <strong>Abfahrtsplan</strong> (Link auf der Abfahrtstafel): alle Abfahrten eines Tages aus
         dem Jahresfahrplan, nach Stunden in Spalten wie der Aushang im Bahnhof – mit Zug, Ziel,
-        Unterwegshalten (verlinkt) und Gleis; Datum wählbar (←/→). Ohne Echtzeit.
+        Unterwegshalten (verlinkt) und Bahnsteig; Datum wählbar (←/→). Ohne Echtzeit.
       </p>
 
       <h2 id="zuglauf">Zuglauf</h2>
       <p>
-        Ein Zug mit allen Halten, geplanten und tatsächlichen Zeiten, Gleisen, Verspätungsverlauf
-        und Karte. Erreichbar über einen Klick auf einen Zug oder direkt per Adresse, z. B.
+        Ein Zug mit allen Halten, geplanten und tatsächlichen Zeiten, Bahnsteigen,
+        Verspätungsverlauf und Karte. Erreichbar über einen Klick auf einen Zug oder direkt per
+        Adresse, z. B.
         <code>/train/RJX-162</code>, mit <code>?d=2026-11-13</code> für ein anderes Datum.
       </p>
 
