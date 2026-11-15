@@ -190,6 +190,8 @@ export default {
     liveAt: "tempo reale in {n} stazioni, ultima {station} {time}",
   },
   vzg: {
+    coverage:
+      "OpenStreetMap ha un limite di velocità solo per il {p} % di questa linea; altrove il diagramma ha delle lacune.",
     wikidataTip: "Questa linea su Wikidata (DinoData)",
     tipKmMeasured: "km {km} (da OSM)",
     tipKmInterpolated: "km {km} (interpolato)",

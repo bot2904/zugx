@@ -187,6 +187,8 @@ export default {
     liveAt: "realtime at {n} stations, last {station} {time}",
   },
   vzg: {
+    coverage:
+      "OpenStreetMap has a speed limit for only {p} % of this line; the speed diagram has gaps elsewhere.",
     wikidataTip: "This railway line on Wikidata (DinoData)",
     tipKmMeasured: "km {km} (from OSM)",
     tipKmInterpolated: "km {km} (interpolated)",

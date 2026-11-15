@@ -558,7 +558,7 @@ const fmt = (km: number) => km.toFixed(3);
         </svg>
       </div>
       <p v-if="entry && entry.speedCoverage < 0.95" class="muted text-xs">
-        {{ Math.round(entry.speedCoverage * 100) }} % maxspeed
+        {{ $t("vzg.coverage", { p: Math.round(entry.speedCoverage * 100) }) }}
       </p>
     </template>
   </section>

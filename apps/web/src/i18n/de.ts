@@ -190,6 +190,8 @@ export default {
     liveAt: "Echtzeit an {n} Bahnhöfen, zuletzt {station} {time}",
   },
   vzg: {
+    coverage:
+      "OpenStreetMap kennt nur für {p} % dieser Strecke die zulässige Geschwindigkeit; im übrigen Teil hat das Geschwindigkeitsband Lücken.",
     wikidataTip: "Diese Strecke auf Wikidata (DinoData)",
     tipKmMeasured: "km {km} (aus OSM)",
     tipKmInterpolated: "km {km} (interpoliert)",
