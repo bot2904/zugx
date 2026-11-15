@@ -10,7 +10,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 
 import { join } from "node:path";
 import { parseArgs } from "node:util";
 import { readToml, toToml } from "@zugx/toml";
-import { linesThrough, speedLookup } from "@zugx/vzg/speed";
+import { linesThrough, signalLookup, speedLookup } from "@zugx/vzg/speed";
 import type { VzgLine } from "@zugx/vzg";
 import {
   buildCorridor,
@@ -178,6 +178,7 @@ async function main() {
   };
   const vzgLines = loadVzg();
   const speeds = loadSpeeds(vzgLines, year.feed.stations);
+  const signalsAt = vzgLines.length ? signalLookup(vzgLines) : undefined;
   console.log(speeds ? "passing times weighted by VzG speed limits" : "passing times by distance");
   // single/double track per corridor along the trains' shapes: from the OSM tracks
   // (.cache/osm-rail.json of vzg:extract), else from the VzG network pieces
@@ -198,6 +199,50 @@ async function main() {
     for (const st of c.stations) {
       const h = hafas?.get(st.id);
       if (h) st.hafasId = h;
+    }
+    // block sections: main signals between neighbouring stations (capacity / blocking times)
+    if (signalsAt) {
+      const up: number[] = [];
+      const down: number[] = [];
+      const known: [number, number][] = [];
+      const places: number[] = [];
+      for (let k = 0; k + 1 < c.stations.length; k++) {
+        const a = c.stations[k]!;
+        const b = c.stations[k + 1]!;
+        const ga = year.feed.stations.get(a.id);
+        const gb = year.feed.stations.get(b.id);
+        if (!ga || !gb || b.km <= a.km) continue;
+        const sig = signalsAt([ga.lat, ga.lon], [gb.lat, gb.lon], b.km - a.km);
+        if (!sig) continue;
+        known.push([a.km, b.km]);
+        for (const f of sig.places)
+          places.push(Math.round((a.km + f * (b.km - a.km)) * 1000) / 1000);
+        for (const s of sig.signals) {
+          const km = Math.round((a.km + s.f * (b.km - a.km)) * 1000) / 1000;
+          (s.dir === 1 ? up : down).push(km);
+        }
+      }
+      // crossing places without passenger stop (not always mapped as stations): where both
+      // directions have an entry and an exit signal within 2 km (a passing loop)
+      const ups = [...new Set(up)].sort((x, y) => x - y);
+      const downs = [...new Set(down)].sort((x, y) => x - y);
+      for (const u of ups) {
+        const nu = ups.filter((x) => x >= u && x <= u + 2);
+        const nd = downs.filter((x) => x >= u - 0.5 && x <= u + 2.5);
+        if (nu.length < 2 || nd.length < 2) continue;
+        const mid =
+          Math.round(((Math.min(...nu, ...nd) + Math.max(...nu, ...nd)) / 2) * 1000) / 1000;
+        const nearStop = c.stations.some((st) => Math.abs(st.km - mid) < 1);
+        if (!nearStop && !places.some((p) => Math.abs(p - mid) < 1)) places.push(mid);
+      }
+      places.sort((x, y) => x - y);
+      if (known.length)
+        c.blocks = {
+          up: [...new Set(up)].sort((x, y) => x - y),
+          down: [...new Set(down)].sort((x, y) => x - y),
+          known,
+          ...(places.length ? { places } : {}),
+        };
     }
     // minimum running times per category between neighbouring stations (running-time reserve)
     if (speeds) {

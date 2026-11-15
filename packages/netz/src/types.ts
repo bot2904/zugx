@@ -200,6 +200,19 @@ export interface Corridor {
    * pair k → k+1 `[in corridor order, against it]`, "" (null) where unknown
    */
   minRun?: Record<string, [number | null, number | null][]>;
+  /**
+   * block sections: corridor km of the main signals (OSM) for trains in corridor order (`up`)
+   * and against it (`down`); `known` = km ranges between neighbouring stations where the signals
+   * come from a VzG line (elsewhere the stations are the only block boundaries)
+   */
+  blocks?: {
+    up: number[];
+    down: number[];
+    known: [number, number][];
+    /** stations between the timetable's stations (OSM railway=station without passenger stops,
+     * e.g. passing loops): where trains can cross */
+    places?: number[];
+  };
 }
 
 export interface CorridorIndexEntry {

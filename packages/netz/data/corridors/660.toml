@@ -61,5 +61,6 @@ trains = [
   { cat = "S", nr = "7590", dir = -1, origin = "Weizelsdorf", headsign = "Klagenfurt Hbf", pts = [[4, "", 1384], [3, 1389, 1389], [2, 1392, 1392], [1, 1396, 1397], [0, 1399, ""]], days = "////////////////////////////////////////////////////////////8A==" },
   { cat = "S", nr = "7593", dir = 1, origin = "Klagenfurt Hbf", headsign = "Weizelsdorf", pts = [[0, "", 1421], [1, 1423, 1423], [2, 1427, 1428], [3, 1430, 1431], [4, 1437, ""]], days = "AAxYAAAAAwYAAAAAAYMAAABwAsGAFgwYMGDBg34MGDBgwYAAAAAAYMAAAAAAAA==" },
 ]
+blocks = { up = [1.385, 2.263, 6.627, 7.37, 11.334], down = [1.171, 1.927, 2.952, 3.042, 7.157, 7.979, 8.103, 11.795], known = [[0, 1.3], [1.3, 5.2], [5.2, 7.2], [7.2, 12.2]] }
 minRun = { S = [[1.1, 1.1], [3.3, 3.3], [1.7, 1.7], [4.3, 4.3]] }
 tracks = [[0, 12.2, 1]]

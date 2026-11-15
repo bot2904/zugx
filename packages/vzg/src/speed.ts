@@ -98,3 +98,68 @@ export function linesThrough(lines: VzgLine[], stations: Coord[], maxKm = 0.25) 
       stations: n,
     }));
 }
+
+/**
+ * Main signals (block boundaries) between two stations: `(posA, posB, lengthKm)` → each main or
+ * combined signal on the VzG track that has both stations, as the fraction `f` of the way from A
+ * to B and the direction it applies to (1 = trains from A towards B, −1 = from B towards A); per
+ * direction the Regelgleis of that direction where a line has two. Plus the stations in between
+ * (OSM railway=station, also operational stations without passenger stops: crossing places).
+ * Undefined if no track has both.
+ */
+export function signalLookup(lines: VzgLine[], maxKm = 0.4) {
+  const pts: { track: VzgTrack; line: VzgLine; km: number; pos: Coord }[] = [];
+  for (const l of lines)
+    for (const track of l.tracks)
+      for (const p of track.points) if (p.pos) pts.push({ track, line: l, km: p.km, pos: p.pos });
+  const around = (c: Coord) => {
+    const best = new Map<VzgTrack, { line: VzgLine; km: number; d: number }>();
+    for (const p of pts) {
+      if (Math.abs(p.pos[0] - c[0]) > 0.01) continue;
+      const d = distKm(p.pos, c);
+      if (d <= maxKm && d < (best.get(p.track)?.d ?? Infinity))
+        best.set(p.track, { line: p.line, km: p.km, d });
+    }
+    return best;
+  };
+  return (a: Coord, b: Coord, lengthKm?: number) => {
+    const A = around(a);
+    const B = around(b);
+    // the line (both its tracks) whose length between the stations fits best
+    let best: { line: VzgLine; err: number } | undefined;
+    for (const [t, x] of A) {
+      const y = B.get(t);
+      if (!y || x.km === y.km) continue;
+      const err = lengthKm ? Math.abs(Math.abs(y.km - x.km) - lengthKm) : 0;
+      if (!best || err < best.err) best = { line: x.line, err };
+    }
+    if (!best) return undefined;
+    const out: { f: number; dir: 1 | -1 }[] = [];
+    const places: number[] = [];
+    const tracks = best.line.tracks.filter((t) => A.has(t) && B.has(t));
+    for (const rel of [1, -1] as const) {
+      for (const t of tracks) {
+        const ka = A.get(t)!.km;
+        const kb = B.get(t)!.km;
+        const up = kb > ka ? 1 : -1; // line km grows from A to B
+        const lineDir = (rel * up) as 1 | -1; // the direction in line-km terms
+        // double track: the Regelgleis of this direction ("1" = towards increasing km)
+        if (tracks.length > 1 && t.track !== (lineDir === 1 ? "1" : "2")) continue;
+        for (const p of t.points) {
+          if (p.kind !== "signal" || p.dir !== lineDir || !/main|combined/.test(p.signal ?? ""))
+            continue;
+          const f = (p.km - ka) / (kb - ka);
+          if (f > 0.001 && f < 0.999) out.push({ f, dir: rel });
+        }
+      }
+    }
+    const t = tracks[0]!;
+    const [ka, kb] = [A.get(t)!.km, B.get(t)!.km];
+    for (const p of t.points)
+      if (p.kind === "station") {
+        const f = (p.km - ka) / (kb - ka);
+        if (f > 0.02 && f < 0.98) places.push(f);
+      }
+    return { signals: out, places };
+  };
+}
