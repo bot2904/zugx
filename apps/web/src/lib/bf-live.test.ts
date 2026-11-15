@@ -111,6 +111,11 @@ describe("Bildfahrplan live overlay", () => {
     addEvent(s, "IR 585", 0, "dep", ev("10:10", "10:10"), DAY);
     addEvent(s, "IR 585", 3, "arr", ev("11:20", "11:21"), DAY);
     expect(buildRuns(s, [rjx], stations, 690).has("IR 585")).toBe(true);
+    // far faster than any timetable train (a shorter way elsewhere): left out too
+    s.extra.set("RJX 186", { cat: "RJX", nr: "186", headsign: "C" });
+    addEvent(s, "RJX 186", 0, "dep", ev("10:00", "10:00"), DAY);
+    addEvent(s, "RJX 186", 3, "arr", ev("10:25", "10:25"), DAY);
+    expect(buildRuns(s, [rjx], stations, 690).has("RJX 186")).toBe(false);
   });
 
   it("radar and board events merge per station", () => {

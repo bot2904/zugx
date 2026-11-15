@@ -169,30 +169,35 @@ export function alongCorridor(is: number[], stations: CorridorStation[]): boolea
 }
 
 /**
- * longest planned running time of the timetable's trains between two corridor stations (either
- * direction), undefined if no train runs between them
+ * shortest and longest planned running time of the timetable's trains between two corridor
+ * stations (either direction), undefined if no train runs between them
  */
-export function slowestRun(trains: CorridorTrain[], a: number, b: number): number | undefined {
-  let max: number | undefined;
+export function runRange(
+  trains: CorridorTrain[],
+  a: number,
+  b: number,
+): { min: number; max: number } | undefined {
+  let r: { min: number; max: number } | undefined;
   for (const t of trains) {
     const pa = t.pts.find(([i]) => i === a);
     const pb = t.pts.find(([i]) => i === b);
     if (!pa || !pb) continue;
-    const ta = pa[2] ?? pa[1];
-    const tb = pb[1] ?? pb[2];
-    const ta2 = pa[1] ?? pa[2];
-    const tb2 = pb[2] ?? pb[1];
-    if (ta === null || tb === null || ta2 === null || tb2 === null) continue;
-    const d = Math.min(Math.abs(tb - ta), Math.abs(ta2 - tb2));
-    if (max === undefined || d > max) max = d;
+    // departure at the earlier station, arrival at the later one
+    const [p, q] = (pa[2] ?? pa[1] ?? 0) <= (pb[2] ?? pb[1] ?? 0) ? [pa, pb] : [pb, pa];
+    const from = p[2] ?? p[1];
+    const to = q[1] ?? q[2];
+    if (from === null || to === null) continue;
+    const d = to - from;
+    r = r ? { min: Math.min(r.min, d), max: Math.max(r.max, d) } : { min: d, max: d };
   }
-  return max;
+  return r;
 }
 
 /**
- * a train not in the GTFS, seen at corridor stations: cut where it takes far longer between two
- * of them than any timetable train (it runs another way in between, e.g. IR Graz – Klagenfurt
- * via Bruck an der Mur instead of the Koralmbahn); the longest plausible piece
+ * a train not in the GTFS, seen at corridor stations: cut where its time between two of them
+ * doesn't fit the timetable's trains there — far slower (it runs another way in between, e.g. IR
+ * Graz – Klagenfurt via Bruck an der Mur instead of the Koralmbahn) or far faster (a shorter way,
+ * e.g. RJX Wörgl – Salzburg via Rosenheim instead of the Giselabahn); the longest plausible piece
  */
 export function plausiblePiece(pts: LivePt[], trains: CorridorTrain[]): LivePt[] {
   const time = (p: LivePt) => p.dep?.plan ?? p.arr?.plan ?? 0;
@@ -202,8 +207,9 @@ export function plausiblePiece(pts: LivePt[], trains: CorridorTrain[]): LivePt[]
   for (const p of pts) {
     const prev = cur.at(-1);
     if (prev) {
-      const slow = slowestRun(trains, prev.i, p.i);
-      if (slow !== undefined && arrive(p) - time(prev) > slow * 1.5 + 10) {
+      const r = runRange(trains, prev.i, p.i);
+      const dt = arrive(p) - time(prev);
+      if (r && (dt > r.max * 1.5 + 10 || dt < r.min * 0.8 - 5)) {
         if (cur.length > best.length) best = cur;
         cur = [];
       }
