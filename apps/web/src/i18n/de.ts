@@ -1,7 +1,9 @@
 import type en from "./en.ts";
 
 export default {
-  app: { tagline: "Österreichs Züge, schnell. Abfahrten, Verbindungen, Zugläufe – live." },
+  app: {
+    tagline: "Züge in Österreich und Slowenien, schnell. Abfahrten, Verbindungen, Zugläufe – live.",
+  },
   stations: {
     title: "Bahnhöfe",
     count: "{n} Bahnhöfe",

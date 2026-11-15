@@ -4,12 +4,13 @@ import { ref, type App } from "vue";
 import de from "./de.ts";
 import en from "./en.ts";
 import it from "./it.ts";
+import sl from "./sl.ts";
 
-export const LOCALES = ["en", "de", "it"] as const;
+export const LOCALES = ["en", "de", "it", "sl"] as const;
 export type Locale = (typeof LOCALES)[number];
 
 type Messages = typeof en;
-const MESSAGES: Record<Locale, Messages> = { en, de, it };
+const MESSAGES: Record<Locale, Messages> = { en, de, it, sl };
 
 /** dotted paths to string messages, e.g. "nav.trains" */
 type Leaves<T, P extends string = ""> = {
@@ -89,5 +90,6 @@ declare module "vue" {
   }
 }
 
-/** HAFAS language code for the current locale */
-export const hafasLang = () => ({ en: "eng", de: "deu", it: "ita" } as const)[locale.value];
+/** HAFAS language code for the current locale (ÖBB HAFAS has no Slovenian: English texts) */
+export const hafasLang = () =>
+  ({ en: "eng", de: "deu", it: "ita", sl: "eng" } as const)[locale.value];

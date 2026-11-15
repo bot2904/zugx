@@ -3,6 +3,7 @@ import { beforeAll, describe, expect, it, vi } from "vite-plus/test";
 import de from "./de.ts";
 import en from "./en.ts";
 import it_ from "./it.ts";
+import sl from "./sl.ts";
 
 // the module reads browser globals at load time
 vi.stubGlobal("localStorage", { getItem: () => null, setItem: () => {} });
@@ -19,9 +20,10 @@ const shape = (o: unknown, p = ""): string[] =>
     : [`${p.slice(0, -1)}:${Array.isArray(o) ? `[${o.length}]` : typeof o}`];
 
 describe("i18n", () => {
-  it("de and it have exactly the keys of en", () => {
+  it("de, it and sl have exactly the keys of en", () => {
     expect(shape(de)).toEqual(shape(en));
     expect(shape(it_)).toEqual(shape(en));
+    expect(shape(sl)).toEqual(shape(en));
   });
   it("interpolates named params, missing params stay visible", () => {
     i18n.setLocale("en");

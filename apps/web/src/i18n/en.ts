@@ -1,5 +1,7 @@
 export default {
-  app: { tagline: "Austrian trains, fast. Departures, connections, train runs – live." },
+  app: {
+    tagline: "Trains in Austria and Slovenia, fast. Departures, connections, train runs – live.",
+  },
   stations: {
     title: "Stations",
     count: "{n} stations",

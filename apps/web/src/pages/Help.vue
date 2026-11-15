@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // End-user help: all views and features, keyboard shortcuts, where the data comes from.
-// German and English (Italian UI shows the English text).
+// German, English and Slovenian (Italian UI shows the English text).
 import { useI18n } from "../i18n/index.ts";
 const { locale } = useI18n();
 </script>
@@ -31,8 +31,11 @@ const { locale } = useI18n();
         <kbd>e</kbd>) wählt, wo eine Seite beides hat, zwischen Echtzeit und Fahrplan: beim Bahnhof
         Abfahrtstafel oder Abfahrtsplan, im Bildfahrplan die Echtzeit-Überlagerung, und in der
         Suche: mit Live aus werden Verbindungen ohne Server direkt im Browser aus dem ÖBB-Fahrplan
-        berechnet (Bahn, die nächsten Tage, ohne Verspätungen). Die Wahl wird gemerkt.
-        Schnellzugriff (<kbd>⌘K</kbd>) und Roh-JSON (<kbd>d</kbd>) stehen in der Fußzeile.
+        berechnet (Bahn, die nächsten Tage, ohne Verspätungen). Die Wahl wird gemerkt. Die
+        <strong>Länderauswahl</strong> (AT/SI) bestimmt, welches Landes Züge, Bildfahrpläne,
+        Strecken, Netzkarte und Bahnhöfe gezeigt werden; Suche und Verbindungen umfassen alle
+        Länder. Für Slowenien gibt es keine Echtzeit, dort ist der Live-Schalter aus. Schnellzugriff
+        (<kbd>⌘K</kbd>) und Roh-JSON (<kbd>d</kbd>) stehen in der Fußzeile.
       </p>
 
       <h2 id="suche">Suche &amp; Verbindungen</h2>
@@ -337,6 +340,326 @@ const { locale } = useI18n();
       </p>
     </template>
 
+    <template v-else-if="locale === 'sl'">
+      <h1>Pomoč</h1>
+      <p>
+        zugx prikazuje vozni red in podatke v realnem času za vlake v Avstriji in Sloveniji – hitro,
+        pregledno, na telefonu in računalniku. Ta stran pojasnjuje vse poglede, kako jih uporabljati
+        in od kod so podatki.
+      </p>
+      <nav aria-label="Vsebina" class="toc">
+        <a href="#suche">Iskanje in povezave</a> · <a href="#abfahrten">Tabla odhodov</a> ·
+        <a href="#zuglauf">Potek vlaka</a> · <a href="#zuege">Vlaki</a> ·
+        <a href="#radar">Radar</a> · <a href="#bildfahrplan">Grafikon voznega reda</a> ·
+        <a href="#vzg">Diagram hitrosti (VzG)</a> · <a href="#netzgrafik">Netzgrafik</a> ·
+        <a href="#stoerungen">Motnje</a> · <a href="#tasten">Tipkovnica</a> ·
+        <a href="#daten">Podatki in viri</a> · <a href="#grenzen">Omejitve</a>
+      </nav>
+
+      <h2 id="navigation">Meni, država in stikalo V živo</h2>
+      <p>
+        Meni prikazuje vse na en klik: najprej Iskanje, Radar in Motnje (vedno v realnem času, rdeča
+        pika ●), nato Postaje in Vlake, nato grafikon voznega reda in Netzgrafik (vozni red), nato
+        Proge in zemljevid infrastrukturnega omrežja. Stikalo <strong>● V živo</strong> zgoraj desno
+        (tipka <kbd>e</kbd>) izbira med realnim časom in voznim redom, kjer stran ponuja oboje:
+        tabla odhodov ali plakat odhodov za postajo, prikaz v realnem času v grafikonu voznega reda
+        in iskanje: pri izklopljenem načinu V živo se povezave izračunajo v brskalniku iz voznega
+        reda (železnica, naslednji dnevi, brez zamud). Nastavitev se zapomni. Izbirnik
+        <strong>države</strong> (AT/SI) določa, katere države vlaki, grafikoni voznega reda, proge,
+        zemljevid omrežja in postaje so prikazani; iskanje in povezave zajemajo vse države. Za
+        Slovenijo ni podatkov v realnem času, zato je stikalo V živo tam izklopljeno. Hitri skok
+        (<kbd>⌘K</kbd>) in surovi JSON (<kbd>d</kbd>) sta v nogi strani.
+      </p>
+
+      <h2 id="suche">Iskanje in povezave</h2>
+      <p>
+        Na začetni strani vnesite izhodišče in cilj (predlogi med tipkanjem, iz vgrajenega seznama
+        postaj), po želji čas in »prek«. Brez cilja se odpre tabla odhodov.
+      </p>
+      <ul>
+        <li>
+          <strong>Časovnica</strong>: vsaka povezava kot pas, odseki v barvi vlaka, vmes časi
+          prestopa (tesni so poudarjeni), označene zamude in odpovedi; ali kot
+          <strong>tabela</strong>.
+        </li>
+        <li>
+          <strong>Prej / Pozneje</strong> naloži več povezav; označite več povezav in jih
+          <strong>primerjajte</strong> drugo ob drugi.
+        </li>
+        <li>
+          Klik za podrobnosti: vsi postanki, tiri, realni čas, opombe; »Kaj če zamudim?« poišče
+          naslednjo možnost s prestopne postaje. Povezave lahko delite ali dodate v koledar.
+        </li>
+      </ul>
+
+      <h2 id="abfahrten">Tabla odhodov</h2>
+      <p>
+        Odhodi ali prihodi z realnim časom: zamuda, tir (spremembe poudarjene), odpovedi in opombe.
+        Filtriranje po vrsti prevoza (npr. samo daljinski), listanje s »Prej / Pozneje«, seznam se
+        samodejno osvežuje. Velike postaje, kot je Wien Hbf, prikazujejo tudi tramvaje in avtobuse –
+        vklopite jih s filtri. Zvezdica shrani postajo med priljubljene; povezava na Wikipodatke
+        odpre postajo na Wikipodatkih.
+      </p>
+      <p>
+        <strong>Plakat odhodov</strong> (povezava na tabli odhodov): vsi odhodi dneva iz letnega
+        voznega reda, po urah v stolpcih kot plakat na postaji – z vlakom, ciljem, naslednjimi
+        postanki (povezanimi) in tirom; izberite datum (←/→). Brez realnega časa.
+      </p>
+
+      <h2 id="zuglauf">Potek vlaka</h2>
+      <p>
+        Vlak z vsemi postanki, načrtovanimi in dejanskimi časi, tiri, profilom zamude in
+        zemljevidom. Kliknite vlak kjer koli ali odprite npr. <code>/train/RJX-162</code> (dodajte
+        <code>?d=2026-11-13</code> za drug datum). Pri zamudi je pod načrtovanim časom prikazan
+        pričakovani dejanski čas. Znaki kot v knjigi voznega reda ÖBB: ◗ samo vstop, ◖ samo izstop,
+        | brez postanka za potnike.
+      </p>
+
+      <h2 id="bahnhoefe">Postaje</h2>
+      <p>
+        Vse postaje izbrane države od A do Ž z okrajšavo obratnega mesta (iz OpenStreetMap) in
+        vrstami vlakov, ki tam ustavljajo. Filter išče po imenih in okrajšavah, tudi po več hkrati,
+        ločenih z vejicami ali presledki, ne glede na velike in male črke (»Kt, Vb, Lj« ali »kt vb
+        lj«); postaja odpre svoj plakat odhodov iz voznega reda.
+      </p>
+
+      <h2 id="zuege">Vlaki (seznam vlakov)</h2>
+      <p>
+        Vsi vlaki voznoredne dobe izbrane države – številka, ime, pot, dnevi vožnje – za iskanje in
+        filtriranje po prevozniku, vrsti, postaji ali datumu.
+      </p>
+
+      <h2 id="radar">Radar</h2>
+      <p>
+        Zemljevid vseh vlakov v pogledu v živo, obarvanih po zamudi ali vrsti; male puščice kažejo
+        smer. Kliknite vlak, da se njegov potek odpre v stranski plošči. Položaje izračuna
+        načrtovalnik poti ÖBB iz voznega reda in podatkov v realnem času – niso položaji GPS.
+        »Železniški zemljevid« doda tire iz OpenRailwayMap.
+      </p>
+      <p>
+        <strong>Deli vlaka</strong>: spojeni vlaki (nočni vlaki, Railjeti z delom za drug cilj) so
+        na zemljevidu prikazani kot en vlak, npr. »NJ 466 / EN 40462« – najprej verjetni obratovalni
+        vlak (samo tržne številke od 40000 na koncu, sicer nižja številka). V poteku izberete del s
+        klikom na njegovo oznako. Okvir »Deli vlaka« (tudi na strani vlaka) za vsak odsek navaja
+        vlake, s katerimi vozi spojen, in – pri samo tržnih številkah – obratovalni vlak (EN 40462:
+        EC 462 do Salzburga, »od tu NJ 466«). Na podlagi podatkov načrtovalnika poti ÖBB; katera
+        številka je na spojenem odseku obratovalna, tam ni vedno razvidno.
+      </p>
+
+      <h2 id="bildfahrplan">Grafikon voznega reda (Bildfahrplan)</h2>
+      <p>
+        Diagrami čas–pot za proge (grafikoni voznega reda ÖBB, nekateri daljši koridorji in proge SŽ
+        v Sloveniji): postaje vodoravno po kilometrih proge, čas navzdol. Vsak vlak je črta v barvi
+        svoje vrste; strme črte so počasne, navpični deli so postanki. Kliknite vlak (v diagramu ali
+        tabelah), da se njegov potek odpre v stranski plošči, Ctrl/⌘ + klik za celotno stran vlaka.
+        Barve sledijo ravni ponudbe, kot je običajno pri načrtovanju voznega reda: RJX magenta, RJ
+        rdeča, EC/IC rjavo-rdeča, ICE temno siva, IR in CJX vijolična, REX zelena, R sivo-modra, S
+        modra, Nightjet nočno modra, zasebni daljinski prevozniki (WESTbahn, RegioJet) oranžna.
+      </p>
+      <ul>
+        <li>
+          Kateri koli dan voznoredne dobe, odsek in smer, časovno okno 1–24 ur; kolesce miške
+          premika v času, Ctrl/⌘ + kolesce povečuje. Datum in čas ostaneta pri menjavi listov.
+        </li>
+        <li>
+          Časi na postajah, kjer vlak pelje brez postanka, so ocenjeni in uteženi z dovoljeno
+          hitrostjo (pozneje na počasnih odsekih, prej na hitrih).
+        </li>
+        <li>
+          Pomaknite se nad vlak za številko in pot, kliknite za potek vlaka; postaja odpre svojo
+          tablo odhodov; povezave prog odprejo diagram hitrosti.
+        </li>
+        <li>
+          <strong>V živo</strong> (samo danes): dejanske poti iz načrtovalnika poti ÖBB, narisane
+          krepko čez načrt – polna črta do zdaj, črtkano kot napoved, pike ob sporočenih časih,
+          trenutna zamuda ob črti »zdaj«; nadomeščeni načrt postane tanek in bled. Prikazani so tudi
+          vlaki, ki jih ni v podatkih voznega reda (npr. WESTbahn).
+        </li>
+        <li>
+          <strong>Merilo</strong> 1×/2×/4× raztegne časovno os (tipki <kbd>+</kbd>/<kbd>−</kbd>).
+          Ena ali dve tanki črti ob zgornjem robu kažeta enotirno ali dvotirno progo.
+        </li>
+        <li>
+          <strong>Tabele voznega reda</strong> pod diagramom, za obe smeri: kot knjiga voznega reda
+          ÖBB (postaje kot vrstice, vlak na stolpec, »|« = pelje skozi; ime postaje odpre njen
+          plakat odhodov za ta dan, zraven pa številke listov, ki se tam odcepijo, kot povezave; pri
+          vklopljenem realnem času zamuda in pričakovani čas na postanek);
+          <strong>Zasukaj</strong> prikaže vrstico na vlak. Celotno
+          <a href="/kursbuch">knjigo voznega reda</a> (vsi listi izbrane države za en dan, A4 s
+          številkami strani) lahko natisnete kot PDF.
+        </li>
+        <li>
+          <strong>Drugi zaslon</strong>: diagram in tabele se lahko odprejo v lastnih oknih; dan,
+          čas, odsek in vlak pod kazalcem ostanejo usklajeni.
+        </li>
+      </ul>
+      <h3 id="planning">Načrtovanje</h3>
+      <p>
+        Pod diagramom pet pogledov ovrednoti prikazani vozni red – za krajše prestope, zanesljivejše
+        vlake na enotirnih progah in hitrejše vožnje:
+      </p>
+      <ul>
+        <li>
+          <strong>Vozlišče</strong>: za postajo (izberite jo ali kliknite njeno ime v diagramu)
+          linije z običajnimi minutami prihoda in odhoda ter intervalom, ali se srečajo okoli minute
+          vozlišča (polno vozlišče :00, polovično :30), simetrijska minuta; in za vsak prihod prva
+          zveza po smeri (zeleno ≤ 10′, oranžno ≤ 20′, rdeče dlje) ter tesno zamujene zveze.
+          Najkrajši čas prestopa je nastavljiv. Z »vse linije« pridejo iz načrtovalnika poti ÖBB
+          tudi vsi drugi vlaki na postaji (druge proge, WESTbahn …).
+        </li>
+        <li>
+          <strong>Križanja</strong>: kjer se vlaki obeh smeri srečajo ob enotirni progi – z rezervo
+          v vsako smer (koliko zamude nasprotnega vlaka se absorbira) in s podatki v živo
+          pričakovano preneseno zamudo. V diagramu: enotirna proga osenčena, križanja kot pike,
+          srečanja med dvema postajama kot ✕ (pogosto izogibališče brez postanka za potnike).
+        </li>
+        <li>
+          <strong>Rezerva voznega časa</strong>: načrtovani vozni čas med dvema postankoma v
+          primerjavi z najkrajšim možnim pri dovoljeni hitrosti (vključno s speljevanjem in
+          ustavljanjem) – po odseku, vrsti in smeri. Veliko rezerve pomeni prostor za hitrejše
+          vlake. Nastavljivo: pospešek pri speljevanju (motorni vlak, z lokomotivo), zaviranje,
+          običajni dodatek in prag za veliko rezerve.
+        </li>
+        <li>
+          <strong>Zmogljivost</strong>: stopnice zasedenosti – za vsak vlak in prostorski odsek (od
+          glavnega do glavnega signala, pri ETCS Level 2 od oznake ETCS do oznake ETCS, iz
+          OpenStreetMap) čas, ko je odsek zaseden za druge vlake, narisan kot pravokotniki v
+          diagramu; rdeče = konflikt. Tabela za vsak prostorski odsek prikaže zasedenost časovnega
+          okna, najdaljši čas zasedenosti in ozko grlo. Nastavljivo: razdalja predsignala, čas
+          postavitve vozne poti in reakcije, čas sprostitve, dolžine vlakov, toleranca.
+        </li>
+        <li>
+          <strong>Točnost (v živo)</strong>: kje vlaki izgubljajo čas, po odseku in postanku, iz
+          sporočenih časov v realnem času. Zbira se v vašem brskalniku, medtem ko teče V živo (7
+          dni).
+        </li>
+      </ul>
+      <p class="muted">
+        Omejitve: križanja, rezerva voznega časa in točnost samo za vlake tega lista; enotirnost in
+        dvotirnost iz OpenStreetMap, časi prevoza in najkrajši vozni časi so ocenjeni.
+      </p>
+
+      <h2 id="vzg">Diagram hitrosti (VzG)</h2>
+      <p>
+        Dovoljene hitrosti vzdolž proge po zgledu VzG ÖBB (seznam dovoljenih hitrosti): kilometri
+        proge navzdol v smeri vožnje, postaje in signali, kilometri sprememb hitrosti, pas hitrosti
+        (smer vožnje polna črta, nasprotna smer črta-pika) in polmeri lokov. Izberite tir (redni tir
+        1/2), smer in merilo; za podrobnosti se pomaknite nad diagram.
+      </p>
+      <ul>
+        <li>
+          Vse proge ÖBB po številki proge in druge železnice (npr. Stubaitalbahn, Zillertalbahn,
+          Lokalbahn Wien–Baden); v Sloveniji proge SŽ po njihovi številki (10, 20, 30 …).
+        </li>
+        <li>
+          <strong>Priključne proge</strong>: na odcepnih postajah povezave (»↗ 222 01«) odprejo
+          diagram druge proge.
+        </li>
+        <li>
+          <strong>⤓ SVG</strong> prenese diagram kot samostojno datoteko z napisom, legendo in viri
+          – npr. za Wikimedia Commons (licenca ODbL, kot podatki OpenStreetMap).
+        </li>
+        <li>
+          <strong>Pregled</strong> (<code>/vzg</code>): vse proge z imenom, od–do,
+          enotirno/dvotirno, dolžino, postajami in signali; filtriranje po številki (»10101« najde
+          »101 01«), imenu ali postaji, razvrščanje.
+        </li>
+        <li>
+          Postaje z njihovo <strong>nadmorsko višino</strong>, kjer je vpisana v OpenStreetMap.
+        </li>
+        <li>
+          <strong>Shema proge</strong> (Streckenband): proga kot shematski pas kot na Wikipediji –
+          postaje po vrsti, mostovi in predori z imenom in dolžino, odcepi.
+        </li>
+        <li>
+          <strong>Profil proge</strong> pod diagramom: dolžina, postaje in postajališča, najvišja in
+          povprečna hitrost, predori in mostovi, najožji lok, elektrifikacija, varovanje vlakov
+          (ETCS/PZB), delež dvotirnosti, tirna širina, nadmorske višine, vlaki na dan in priključne
+          proge.
+        </li>
+        <li>
+          <strong>Zemljevid proge</strong>: zemljevid proge, primeren za tisk in Wikipedijo, s
+          predori, postajami (povezanimi z njihovo tablo odhodov) in priključnimi progami
+          (povezanimi z njihovim zemljevidom); po želji obarvan po dovoljeni hitrosti in s kilometri
+          proge; za prenos kot SVG.
+        </li>
+        <li>
+          <strong>Zemljevid infrastrukturnega omrežja</strong> (<code>/vzg/netz</code>): vse proge
+          izbrane države, obarvane po hitrosti, elektrifikaciji, ETCS, PZB, številu tirov, tirni
+          širini, upravljavcu ali <strong>vlakih na dan</strong> (gostota prometa iz voznega reda);
+          z državno mejo (v Avstriji tudi z mejami zveznih dežel), za celo državo ali eno zvezno
+          deželo. Pomaknite se nad progo za vrednosti, kliknite za zemljevid proge; za prenos kot
+          SVG.
+        </li>
+        <li>
+          Podatki iz OpenStreetMap, ne uradni VzG: brez zavornih poti, vzponov ali opomb; polmeri
+          lokov so ocenjeni iz geometrije tira.
+        </li>
+      </ul>
+
+      <h2 id="netzgrafik">Netzgrafik</h2>
+      <p>
+        Taktni vozni red kot omrežje: vozlišča z minutami prihoda in odhoda, linije s taktom in
+        voznim časom, rekonstruirano iz voznega reda delavnika, sobote ali nedelje. Odprite ga v
+        urejevalniku Netzgrafik-Editor (Open Rail Association) ali ga izvozite. Za zdaj samo za
+        Avstrijo.
+      </p>
+
+      <h2 id="stoerungen">Motnje</h2>
+      <p>Trenutna obvestila ÖBB o motnjah in gradbenih delih z obdobjem veljavnosti.</p>
+
+      <h2 id="tasten">Bližnjice na tipkovnici</h2>
+      <p>
+        Na računalniku <kbd>?</kbd> prikaže vse bližnjice. Pogoste: <kbd>/</kbd> iskanje,
+        <kbd>Ctrl/⌘ K</kbd> hitri skok, <kbd>j</kbd>/<kbd>k</kbd> naslednja/prejšnja vrstica,
+        <kbd>h</kbd>/<kbd>l</kbd> prej/pozneje, <kbd>g</kbd> začetek, <kbd>t</kbd> vlaki,
+        <kbd>r</kbd> radar. Grafikon voznega reda: <kbd>←</kbd>/<kbd>→</kbd> dan, <kbd>↑</kbd>/<kbd
+          >↓</kbd
+        >
+        dve uri (Shift: celo okno), <kbd>+</kbd>/<kbd>−</kbd> merilo, <kbd>n</kbd> zdaj.
+      </p>
+
+      <h2 id="daten">Podatki in viri</h2>
+      <ul>
+        <li>
+          <strong>Realni čas, povezave, table odhodov, poteki vlakov, radar, motnje</strong>:
+          načrtovalnik poti ÖBB (Scotty/HAFAS) – neuradni vmesnik, zahteve gredo prek zugx do ÖBB.
+        </li>
+        <li>
+          <strong>Voznoredna doba</strong> (seznam postaj, seznam vlakov, grafikon voznega reda,
+          Netzgrafik): Avstrija –
+          <a href="https://data.oebb.at/de/datensaetze~soll-fahrplan-gtfs~"
+            >odprti podatki ÖBB (GTFS)</a
+          >, CC BY 4.0, redno posodobljeno; samo ÖBB (in nekateri partnerji) – ne WESTbahn, GKB,
+          Raaberbahn ipd. Slovenija – nacionalni vozni red IJPP (<a href="https://www.nap.si/"
+            >NAP Slovenija</a
+          >), CC BY-SA 4.0.
+        </li>
+        <li>
+          <strong>Proge, omejitve hitrosti, signali, kilometri, enotirnost/dvotirnost, meje</strong>
+          (diagram hitrosti, zemljevid proge in infrastrukturnega omrežja, časi prevoza in število
+          tirov v grafikonu voznega reda):
+          <a href="https://www.openstreetmap.org/copyright">© sodelavci OpenStreetMap</a>, ODbL.
+        </li>
+        <li>
+          <strong>Zemljevidi</strong>: OpenFreeMap, OpenStreetMap, OpenRailwayMap (navedbe v kotu
+          zemljevida).
+        </li>
+        <li>
+          <strong>Wikipodatki</strong>: povezave do postaj prek DinoData, do prog prek podatkov
+          OpenStreetMap.
+        </li>
+      </ul>
+      <p>
+        Varstvo zasebnosti in obdelava podatkov: <RouterLink to="/privacy">Zasebnost</RouterLink>.
+      </p>
+
+      <h2 id="grenzen">Omejitve</h2>
+      <p>
+        zugx ni storitev ÖBB ali SŽ; brez jamstva, zavezujoče so informacije prevoznika. Položaji na
+        radarju in časi prevoza so izračunani ali ocenjeni; diagram hitrosti ni uradni VzG.
+      </p>
+    </template>
     <template v-else>
       <h1>Help</h1>
       <p>
@@ -360,8 +683,11 @@ const { locale } = useI18n();
         <strong>● Live</strong> switch top right (key <kbd>e</kbd>) chooses realtime or timetable
         where a page has both: live board or departure plan for a station, the realtime overlay in
         the graphic timetable, and the search: with Live off, journeys are computed in the browser
-        from the ÖBB timetable (rail, the next days, no delays). It is remembered. Quick jump
-        (<kbd>⌘K</kbd>) and raw JSON (<kbd>d</kbd>) are in the footer.
+        from the ÖBB timetable (rail, the next days, no delays). It is remembered. The
+        <strong>country</strong> selector (AT/SI) chooses whose trains, graphic timetables, lines,
+        network map and stations are shown; search and journeys cover all countries. Slovenia has no
+        realtime data, so Live is off there. Quick jump (<kbd>⌘K</kbd>) and raw JSON (<kbd>d</kbd>)
+        are in the footer.
       </p>
 
       <h2 id="suche">Search &amp; journeys</h2>

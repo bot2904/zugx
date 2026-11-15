@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// Datenschutzerklärung (DSGVO). German is authoritative; English as a courtesy.
+// Datenschutzerklärung (DSGVO). German is authoritative; English and Slovenian as a courtesy.
 // Keep in sync with the actual data flows: deploy/Caddyfile (log, proxy), MapView (tile hosts),
 // lib/store.ts + useLocalStorage keys, StationInput (geolocation).
 import { useI18n } from "../i18n/index.ts";
@@ -89,7 +89,7 @@ const EMAIL = "simon.legner@gmail.com";
 
       <h2>6. Speicherung im Browser</h2>
       <p>
-        Ihre Einstellungen (Sprache, Farbschema, Kartenoptionen) sowie zuletzt gesuchte und
+        Ihre Einstellungen (Sprache, Farbschema, Kartenoptionen, Land) sowie zuletzt gesuchte und
         favorisierte Bahnhöfe und Verbindungen speichert zugx im <em>localStorage</em> Ihres
         Browsers. Für die Offline-Nutzung legt ein Service Worker die App-Dateien im Browser-Cache
         ab. Diese Daten bleiben auf Ihrem Gerät und werden nicht an uns übertragen. Die Speicherung
@@ -125,6 +125,115 @@ const EMAIL = "simon.legner@gmail.com";
       <p><RouterLink to="/imprint">Impressum</RouterLink></p>
     </template>
 
+    <template v-else-if="locale === 'sl'">
+      <h1>Varstvo zasebnosti</h1>
+      <p class="muted">
+        Stanje november 2026. Zavezujoča je
+        <a href="#" @click.prevent="setLocale('de')">nemška različica</a>.
+      </p>
+      <p>
+        zugx ne uporablja piškotkov, sledenja, analitike ali oglasov. Uporabniških računov ni. Ta
+        stran navaja podatke, ki se kljub temu obdelujejo iz tehničnih razlogov.
+      </p>
+
+      <h2>1. Upravljavec</h2>
+      <p>
+        Simon Legner, Innsbruck, Avstrija –
+        <a :href="`mailto:${EMAIL}`">{{ EMAIL }}</a>
+      </p>
+
+      <h2>2. Gostovanje in Cloudflare</h2>
+      <p>
+        Spletna stran teče na lastnem strežniku v Avstriji (spletni strežnik Caddy). Strežnik je z
+        internetom povezan prek <em>Cloudflare Tunnel</em>: vse zahteve gredo prek družbe
+        Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, ZDA. Cloudflare obdeluje vaš
+        naslov IP in podatke zahteve (naslov, identifikacija brskalnika, čas), da dostavi stran in
+        jo zaščiti pred napadi; šifrirana povezava se konča pri Cloudflaru. Cloudflare je
+        certificiran po okviru EU-ZDA za zasebnost podatkov (sklep o ustreznosti, člen 45 GDPR).
+        Pravna podlaga: naš zakoniti interes za varno in razpoložljivo delovanje (člen 6(1)(f)
+        GDPR). Več:
+        <a href="https://www.cloudflare.com/privacypolicy/">politika zasebnosti Cloudflare</a>.
+      </p>
+
+      <h2>3. Strežniški dnevniki</h2>
+      <p>
+        Spletni strežnik zabeleži vsako zahtevo: čas, skrajšan naslov IP (IPv4 na /24, IPv6 na /48 –
+        celoten naslov se ne shrani), metodo, zahtevani naslov s parametri (npr. številke postaj),
+        statusno kodo, velikost in trajanje. Glave brskalnika in piškotki se ne beležijo. Dnevniki
+        se hranijo v sistemskem dnevniku strežnika (systemd), uporabljajo se samo za odpravljanje
+        napak in preprečevanje zlorab ter se samodejno prepišejo glede na velikost, običajno po
+        nekaj tednih. Pravna podlaga: člen 6(1)(f) GDPR.
+      </p>
+
+      <h2>4. Poizvedbe po voznem redu</h2>
+      <p>
+        Iskanja odhodov, povezav, vlakov in motenj naš strežnik posreduje načrtovalniku poti družbe
+        ÖBB-Personenverkehr AG (fahrplan.oebb.at). Pošlje se samo vsebina poizvedbe (npr. postaje,
+        datum, čas, številka vlaka). Vaš naslov IP, piškotki in glave brskalnika se
+        <strong>ne</strong> posredujejo – ÖBB vidi samo naš strežnik. Iskanje postaj najprej poteka
+        lokalno v vašem brskalniku. Pravna podlaga: člen 6(1)(b) in (f) GDPR (zagotavljanje
+        zahtevanih informacij).
+      </p>
+
+      <h2>5. Zemljevidi</h2>
+      <p>
+        Ko je prikazan zemljevid (radar, zemljevidi vlakov in povezav, načrt postaje), vaš brskalnik
+        naloži ploščice zemljevida neposredno s teh storitev, ki prejmejo vaš naslov IP, območje
+        zemljevida in identifikacijo brskalnika:
+      </p>
+      <ul>
+        <li>
+          OpenFreeMap (tiles.openfreemap.org) – osnovni zemljevid,
+          <a href="https://openfreemap.org/">openfreemap.org</a>
+        </li>
+        <li>
+          OpenStreetMap Foundation, St John’s Innovation Centre, Cowley Road, Cambridge, CB4 0WS,
+          Združeno kraljestvo (tile.openstreetmap.org) – načrt postaje,
+          <a href="https://osmfoundation.org/wiki/Privacy_Policy">politika zasebnosti</a> (sklep o
+          ustreznosti za Združeno kraljestvo)
+        </li>
+        <li>
+          OpenRailwayMap (a.tiles.openrailwaymap.org) – železniški sloj, ki ga je mogoče na
+          zemljevidu izklopiti, <a href="https://www.openrailwaymap.org/">openrailwaymap.org</a>
+        </li>
+      </ul>
+      <p>Pravna podlaga: naš zakoniti interes za prikaz zemljevidov (člen 6(1)(f) GDPR).</p>
+
+      <h2>6. Shranjevanje v brskalniku</h2>
+      <p>
+        zugx shranjuje vaše nastavitve (jezik, barvna shema, možnosti zemljevida, država) ter
+        nedavno iskane in priljubljene postaje in povezave v <em>localStorage</em> vašega
+        brskalnika. Za uporabo brez povezave service worker hrani datoteke aplikacije v
+        predpomnilniku brskalnika. Ti podatki ostanejo na vaši napravi in se nam ne pošiljajo.
+        Shranjevanje je nujno potrebno za funkcije, ki jih uporabljate (§ 165(3) avstrijskega zakona
+        o telekomunikacijah 2021). Kadar koli ga lahko odstranite v nastavitvah brskalnika (»izbriši
+        podatke spletnega mesta«).
+      </p>
+
+      <h2>7. Lokacija</h2>
+      <p>
+        Samo če izberete »V bližini«, brskalnik vpraša za vašo lokacijo. Uporabi se izključno v
+        vašem brskalniku za iskanje najbližje postaje in se ne prenaša ne shranjuje. Pravna podlaga:
+        vaša privolitev (člen 6(1)(a) GDPR), ki jo lahko prekličete v nastavitvah brskalnika.
+      </p>
+
+      <h2>8. Koledar in deljenje</h2>
+      <p>
+        Vnosi v koledar (.ics) in povezave za deljenje nastanejo lokalno v vašem brskalniku. Sami
+        odločite, kaj posredujete naprej.
+      </p>
+
+      <h2>9. Vaše pravice</h2>
+      <p>
+        Imate pravico do dostopa, popravka, izbrisa, omejitve obdelave, prenosljivosti podatkov in
+        ugovora (členi 15–21 GDPR). Ker hranimo le skrajšane naslove IP, vnosov v dnevnikih običajno
+        ne moremo povezati z osebo. Zahteve pošljite na
+        <a :href="`mailto:${EMAIL}`">{{ EMAIL }}</a>. Pritožbo lahko vložite tudi pri avstrijskem
+        organu za varstvo podatkov: Barichgasse 40–42, 1030 Dunaj,
+        <a href="https://www.dsb.gv.at/">dsb.gv.at</a>.
+      </p>
+      <p><RouterLink to="/imprint">Kolofon</RouterLink></p>
+    </template>
     <template v-else>
       <h1>Privacy policy</h1>
       <p class="muted">
@@ -200,12 +309,12 @@ const EMAIL = "simon.legner@gmail.com";
 
       <h2>6. Storage in your browser</h2>
       <p>
-        zugx stores your settings (language, colour scheme, map options) and recently searched and
-        favourite stations and connections in your browser's <em>localStorage</em>. For offline use,
-        a service worker keeps the app files in the browser cache. This data stays on your device
-        and is not sent to us. The storage is strictly necessary for the features you use (§ 165(3)
-        Austrian Telecommunications Act 2021). You can remove it at any time in your browser
-        settings ("clear site data").
+        zugx stores your settings (language, colour scheme, map options, country) and recently
+        searched and favourite stations and connections in your browser's <em>localStorage</em>. For
+        offline use, a service worker keeps the app files in the browser cache. This data stays on
+        your device and is not sent to us. The storage is strictly necessary for the features you
+        use (§ 165(3) Austrian Telecommunications Act 2021). You can remove it at any time in your
+        browser settings ("clear site data").
       </p>
 
       <h2>7. Location</h2>
