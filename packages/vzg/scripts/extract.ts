@@ -12,7 +12,6 @@
  * beside the tracks) with their coordinates.
  */
 import { writeFileSync } from "node:fs";
-import { join } from "node:path";
 import { currentCountry, osmPbf, osmRailPath } from "@zugx/gtfs/country";
 import { readPbf, type Tags } from "../src/pbf.ts";
 import type { RailExtract } from "../src/types.ts";
