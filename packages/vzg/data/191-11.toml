@@ -8,13 +8,23 @@ to = "Wien Zvbf (in Zur)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
 
 [[tracks]]
-track = "2"
-kmFrom = 5.583
-kmTo = 6.376
-length = 0.744
-speeds = [[5.583, 6.376, 40, 40]]
-curves = []
+track = "1"
+kmFrom = 6.3
+kmTo = 8.255
+length = 1.953
+speeds = [[6.3, 6.955, 60, 60], [6.955, 8.255, 40, 40]]
+curves = [[7.179, 7.455, 860]]
 points = [
+  { km = 0.595, kind = "signal", label = "f006", signal = "distant", measured = true },
+  { km = 5.39, kind = "signal", label = "V360S", signal = "shunting", measured = true },
   { km = 5.583, kind = "signal", label = "M392", signal = "main,shunting", measured = true },
+  { km = 6.3, kind = "signal", label = "H734", signal = "main,shunting", measured = true },
   { km = 6.376, kind = "signal", label = "F392/g,l", signal = "distant,main,shunting", measured = true },
+  { km = 6.66, kind = "signal", label = "V744H", signal = "shunting", measured = true },
+  { km = 6.772, kind = "station", label = "Wien Zentralfriedhof", uic = "8101820", pos = [48.15411, 16.4261] },
+  { km = 6.926, kind = "signal", label = "R744", signal = "main,shunting", measured = true },
+  { km = 7.027, kind = "signal", label = "V754H", signal = "shunting", measured = true },
+  { km = 7.193, kind = "signal", label = "V754R", signal = "shunting", measured = true },
+  { km = 7.258, kind = "signal", label = "V358", signal = "shunting", measured = true },
+  { km = 7.283, kind = "signal", label = "h", signal = "distant", measured = true },
 ]

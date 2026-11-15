@@ -9,17 +9,12 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 0.222
-kmTo = 1.079
-length = 0.675
-speeds = [[0.222, 0.715, 25, 25], [0.715, 1.079, 40, 40]]
-curves = [[0.374, 0.488, 940], [0.564, 0.946, 410]]
+kmFrom = 0.728
+kmTo = 1.131
+length = 0.394
+speeds = [[0.728, 1.131, 40, 40]]
+curves = [[0.83, 1.003, 520]]
 points = [
-  { km = 0.222, kind = "signal", label = "k290", signal = "distant", measured = true },
-  { km = 0.251, kind = "halt", label = "Ischlerbahnstraße", pos = [47.81858, 13.04703] },
-  { km = 0.487, kind = "signal", signal = "electricity" },
-  { km = 0.667, kind = "signal", signal = "electricity" },
-  { km = 0.675, kind = "signal", signal = "electricity" },
   { km = 0.749, kind = "signal", signal = "electricity" },
   { km = 0.753, kind = "signal", signal = "electricity" },
   { km = 0.771, kind = "signal", label = "K290/k280", signal = "distant,main,speed_limit", measured = true },

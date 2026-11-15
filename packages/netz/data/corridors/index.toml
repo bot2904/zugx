@@ -18,8 +18,12 @@ major = ["Flughafen Wien", "Wien Hbf", "St. Pölten Hbf", "Linz Hbf"]
 names = ["Flughafen Wien", "Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Tullnerfeld", "St. Pölten Hbf", "Amstetten", "St. Valentin", "Linz Hbf"]
 cats = { S = 472, REX = 172, CJX = 110, RJX = 77, IC = 63, RJ = 39, EC = 31, NJ = 15, R = 10, D = 8, ICE = 8, EN = 8 }
 lines = [
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", stations = 6 },
+  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 3 },
   { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 3 },
-  { id = "122-12", ref = "122 12", name = "Verbindungsbahn", stations = 3 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
 ]
 
 [[corridors]]
@@ -36,7 +40,7 @@ major = ["Linz Hbf", "Wels Hbf", "Attnang-Puchheim", "Salzburg Hbf"]
 names = ["Linz Hbf", "Leonding Westbahn", "Pasching b.Linz", "Hörsching", "Oftering", "Marchtrenk", "Wels Hbf", "Gunskirchen", "Lambach OÖ", "Lambach OÖ Markt", "Neukirchen b.Lambach", "Breitenschützing", "Schwanenstadt", "Attnang-Puchheim", "Vöcklabruck", "Timelkam", "Neukirchen-Gampern", "Redl-Zipf", "Vöcklamarkt", "Frankenmarkt", "Pöndorf", "Oberhofen-Zell am Moos", "Straßwalchen", "Neumarkt", "Köstendorf Weng S-Bahn", "Wallersee S-Bahn", "Seekirchen", "Seekirchen Stadt S-Bahn", "Eugendorf S-Bahn", "Hallwang-Elixhausen S-Bahn", "Salzburg Kasern S-Bahn", "Salzburg Hbf"]
 cats = { REX = 100, S = 82, R = 64, RJX = 57, IC = 40, NJ = 11, ICE = 8, EN = 8, RJ = 4, EC = 2 }
 lines = [
-  { id = "101-02", ref = "101 02", name = "Westbahn", stations = 21 },
+  { id = "101-02", ref = "101 02", name = "Westbahn", stations = 25 },
 ]
 
 [[corridors]]
@@ -53,7 +57,10 @@ major = ["Wien Westbf", "Neulengbach", "St. Pölten Hbf"]
 names = ["Wien Westbf", "Wien Penzing", "Wien Hütteldorf", "Wien Wolf in der Au", "Wien Hadersdorf", "Wien Weidlingau", "Purkersdorf Sanatorium Bhf.", "Unterpurkersdorf", "Purkersdorf Zentrum", "Untertullnerbach", "Tullnerbach-Pressbaum", "Pressbaum", "Dürrwien", "Rekawinkel", "Eichgraben-Altlengbach", "Maria Anzbach", "Neulengbach Stadt", "Neulengbach", "Ollersbach", "Kirchstetten", "Böheimkirchen", "Pottenbrunn", "St. Pölten Hbf"]
 cats = { S = 369, REX = 81, CJX = 58, RJX = 57, IC = 44, EC = 25, NJ = 11, ICE = 8, D = 8, EN = 8, RJ = 5 }
 lines = [
-  { id = "101-01", ref = "101 01", name = "Westbahn", stations = 19 },
+  { id = "101-01", ref = "101 01", name = "Westbahn", stations = 21 },
+  { id = "103-01", ref = "103 01", name = "Westbahn", stations = 18 },
+  { id = "123-01", ref = "123 01", name = "Verbindungsbahn", stations = 6 },
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", stations = 4 },
 ]
 
 [[corridors]]
@@ -70,8 +77,9 @@ major = ["St. Pölten Hbf", "Traismauer", "Tullnerfeld", "Tulln", "Wien Franz-Jo
 names = ["St. Pölten Hbf", "St. Pölten Traisenpark/P+R Nord", "Viehofen", "Oberradlberg", "Unterradlberg", "Herzogenburg", "Herzogenburg Stadt", "Getzersdorf/Traisen", "Traismauer", "Gemeinlebarn", "Sitzenberg-Reidling", "Trasdorf", "Moosbierbaum-Heiligeneich", "Atzenbrugg", "Michelhausen", "Tullnerfeld", "Tulln Stadt", "Tulln", "Wien Heiligenstadt", "Wien Spittelau", "Wien Franz-Josefs-Bahnhof"]
 cats = { REX = 130, S = 98, CJX = 58, RJX = 57, R = 48, IC = 43, NJ = 11, ICE = 8, EN = 8, RJ = 5, EC = 2, D = 2 }
 lines = [
-  { id = "110-01", ref = "110 01", name = "Tullnerfelder Bahn", stations = 14 },
-  { id = "109-01", ref = "109 01", name = "Franz-Josefs-Bahn", stations = 3 },
+  { id = "110-01", ref = "110 01", name = "Tullnerfelder Bahn", stations = 18 },
+  { id = "109-01", ref = "109 01", name = "Franz-Josefs-Bahn", stations = 4 },
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", stations = 3 },
 ]
 
 [[corridors]]
@@ -105,7 +113,7 @@ major = ["Pöchlarn", "Scheibbs"]
 names = ["Pöchlarn", "Erlauf", "Petzenkirchen", "Wieselburg", "Mühling", "Mühling-Plaika", "Schauboden", "Purgstall/Erlauf", "Sölling", "Saffen", "Scheibbs"]
 cats = { R = 49, REX = 2 }
 lines = [
-  { id = "155-01", ref = "155 01", name = "Erlauftalbahn", stations = 9 },
+  { id = "155-01", ref = "155 01", name = "Erlauftalbahn", stations = 11 },
 ]
 
 [[corridors]]
@@ -122,7 +130,7 @@ major = ["Amstetten", "Waidhofen/Ybbs", "Kleinreifling", "Selzthal"]
 names = ["Amstetten", "Greinsfurth", "Ulmerfeld-Hausmening", "Kröllendorf", "Hilm-Kematen", "Rosenau am Sonntagberg", "Sonntagberg", "Böhlerwerk an der Ybbs", "Waidhofen/Ybbs", "Waidhofen/Ybbs Stadt", "Oberland OÖ", "Gaflenz", "Weyer/Enns", "Kastenreith", "Kleinreifling", "Selzthal"]
 cats = { R = 100, RJX = 57, IC = 43, REX = 17, NJ = 11, ICE = 8, EN = 8, RJ = 4, EC = 2, D = 2 }
 lines = [
-  { id = "102-01", ref = "102 01", name = "Ennstalbahn", stations = 11 },
+  { id = "102-01", ref = "102 01", name = "Ennstalbahn", stations = 15 },
 ]
 
 [[corridors]]
@@ -140,6 +148,7 @@ names = ["St. Valentin", "Herzograd", "Ernsthofen", "Dorf an der Enns", "Ramingd
 cats = { S = 40, R = 25, REX = 21 }
 lines = [
   { id = "203-01", ref = "203 01", name = "Rudolfsbahn", stations = 12 },
+  { id = "102-01", ref = "102 01", name = "Ennstalbahn", stations = 3 },
 ]
 
 [[corridors]]
@@ -156,7 +165,7 @@ major = ["St. Valentin", "Perg", "St.Nikola-Struden"]
 names = ["St. Valentin", "St. Pantaleon", "Mauthausen OÖ", "Schwertberg", "Aisthofen", "Perg", "Perg Schulzentrum", "Arbing", "Baumgartenberg", "Saxen", "Dornach b.Grein", "Grein-Bad Kreuzen", "Grein Stadt", "St.Nikola-Struden"]
 cats = { R = 30, REX = 17 }
 lines = [
-  { id = "172-01", ref = "172 01", name = "Wachaubahn", stations = 10 },
+  { id = "172-01", ref = "172 01", name = "Wachaubahn", stations = 12 },
 ]
 
 [[corridors]]
@@ -173,7 +182,7 @@ major = ["Linz Hbf", "Kirchdorf/Krems", "Selzthal"]
 names = ["Linz Hbf", "Linz/Donau Oed", "Linz/Donau Wegscheid", "Traun OÖ St.Martin", "Traun OÖ", "Ansfelden", "Nettingsdorf", "Nöstlbach-St.Marien", "Neuhofen/Krems", "Kematen/Krems-Piberbach", "Rohr-Bad Hall", "Kremsmünster", "Wartberg/Krems", "Nußbach", "Schlierbach/Krems", "Kirchdorf/Krems", "Micheldorf in OÖ", "Klaus an der Pyhrnbahn", "Hinterstoder", "Roßleithen", "Windischgarsten", "Spital am Pyhrn", "Ardning", "Selzthal"]
 cats = { S = 53, IR = 18, REX = 16, R = 1 }
 lines = [
-  { id = "204-01", ref = "204 01", name = "Pyhrnbahn", stations = 16 },
+  { id = "204-01", ref = "204 01", name = "Pyhrnbahn", stations = 24 },
 ]
 
 [[corridors]]
@@ -207,7 +216,7 @@ major = ["Linz/Donau Urfahr", "Rottenegg", "Aigen-Schlägl"]
 names = ["Linz/Donau Urfahr", "Puchenau", "Puchenau West", "Achleitnersiedlung", "Dürnberg b.Ottensheim", "Ottensheim", "Walding b.Linz", "Rottenegg", "Lacken im Mühlkreis", "Gerling OÖ", "Neuhaus-Niederwaldkirchen", "Kleinzell im Mühlkreis", "Neufelden", "Iglmühle", "Haslach/Mühl", "Rohrbach-Berg", "Oepping", "Schlägl", "Aigen-Schlägl"]
 cats = { R = 89, REX = 3 }
 lines = [
-  { id = "258-01", ref = "258 01", name = "Mühlkreisbahn", stations = 14 },
+  { id = "258-01", ref = "258 01", name = "Mühlkreisbahn", stations = 19 },
 ]
 
 [[corridors]]
@@ -223,6 +232,9 @@ file = "150.toml"
 major = ["Linz Hbf", "Wels Hbf", "Neumarkt-Kallham", "Passau Hbf"]
 names = ["Linz Hbf", "Leonding Westbahn", "Pasching b.Linz", "Hörsching", "Oftering", "Marchtrenk", "Wels Hbf", "Haiding", "Bad Schallerbach-Wallern", "Schlüßlberg", "Grieskirchen-Gallspach", "Obertrattnach-Markt Hofkirchen", "Neumarkt-Kallham", "Kimpling", "Kumpfmühl", "Riedau", "Zell/Pram", "Andorf", "Taufkirchen/Pram", "Schärding", "Wernstein/Inn", "Passau Hbf"]
 cats = { REX = 71, RJX = 57, R = 44, IC = 40, S = 38, NJ = 11, ICE = 8, EN = 8, RJ = 4, EC = 2 }
+lines = [
+  { id = "205-01", ref = "205 01", name = "Passauer Bahn", stations = 15 },
+]
 
 [[corridors]]
 id = "151"
@@ -238,7 +250,8 @@ major = ["Linz Hbf", "Wels Hbf", "Ried im Innkreis", "Braunau/Inn", "Simbach (In
 names = ["Linz Hbf", "Leonding Westbahn", "Pasching b.Linz", "Hörsching", "Oftering", "Marchtrenk", "Wels Hbf", "Haiding", "Bad Schallerbach-Wallern", "Schlüßlberg", "Grieskirchen-Gallspach", "Obertrattnach-Markt Hofkirchen", "Neumarkt-Kallham", "Wendling b.Haag", "Pram-Haag", "Peterskirchen", "Ried im Innkreis", "Neuratting", "Gurten OÖ", "Geinberg", "Obernberg-Altheim", "Mühlheim/Inn", "Mining", "Hagenau im Innkreis", "Braunau/Inn", "Simbach (Inn)"]
 cats = { R = 77, REX = 72, RJX = 57, IC = 40, S = 38, NJ = 11, ICE = 8, EN = 8, RJ = 4, EC = 2 }
 lines = [
-  { id = "207-01", ref = "207 01", name = "Innkreisbahn", stations = 11 },
+  { id = "207-01", ref = "207 01", name = "Innkreisbahn", stations = 12 },
+  { id = "205-01", ref = "205 01", name = "Passauer Bahn", stations = 7 },
 ]
 
 [[corridors]]
@@ -269,7 +282,8 @@ major = ["Attnang-Puchheim", "Gmunden", "Bad Ischl", "Hallstatt", "Bad Aussee", 
 names = ["Attnang-Puchheim", "Wankham b.Attnang", "Aurachkirchen", "Pinsdorf", "Gmunden", "Altmünster/Traunsee", "Traunkirchen", "Traunkirchen Ort", "Ebensee Landungsplatz", "Ebensee", "Steinkogel", "Bad Ischl", "Lauffen b.Bad Ischl", "Bad Goisern Jodschwefelbad", "Bad Goisern", "Steeg-Gosau", "Obersee OÖ", "Hallstatt", "Obertraun-Dachsteinhöhlen", "Obertraun Koppenbrüllerhöhle", "Bad Aussee", "Kainisch", "Bad Mitterndorf-Heilbrunn", "Bad Mitterndorf", "Tauplitz", "Pürgg", "Stainach-Irdning", "Wörschach Schwefelbad", "Liezen", "Selzthal"]
 cats = { R = 53, REX = 23, IR = 16, IC = 2, EC = 2 }
 lines = [
-  { id = "206-01", ref = "206 01", name = "Salzkammergutbahn", stations = 19 },
+  { id = "206-01", ref = "206 01", name = "Salzkammergutbahn", stations = 27 },
+  { id = "102-01", ref = "102 01", name = "Ennstalbahn", stations = 4 },
 ]
 
 [[corridors]]
@@ -303,7 +317,7 @@ major = ["Vöcklabruck", "Kammer-Schörfling"]
 names = ["Vöcklabruck", "Oberthalheim-Timelkam", "Lenzing OÖ", "Lenzing OÖ Ort", "Siebenmühlen-Rosenau", "Kammer-Schörfling"]
 cats = { R = 37, REX = 1 }
 lines = [
-  { id = "260-01", ref = "260 01", name = "Kammerer Bahn", stations = 4 },
+  { id = "260-01", ref = "260 01", name = "Kammerer Bahn", stations = 5 },
 ]
 
 [[corridors]]
@@ -321,7 +335,7 @@ names = ["Freilassing", "Salzburg Liefering S-Bahn", "Salzburg Taxham Europark S
 cats = { S = 127, REX = 68, RJX = 58, IC = 38, R = 18, NJ = 11, RJ = 10, EN = 10, ICE = 6, EC = 5 }
 lines = [
   { id = "101-02", ref = "101 02", name = "Westbahn", stations = 9 },
-  { id = "217-11", ref = "217 11", stations = 4 },
+  { id = "217-01", ref = "217 01", stations = 5 },
   { id = "261-01", ref = "261 01", name = "Mattigtalbahn", stations = 4 },
 ]
 
@@ -339,8 +353,8 @@ major = ["Freilassing", "Salzburg Hbf", "Schwarzach-St. Veit", "Saalfelden"]
 names = ["Freilassing", "Salzburg Liefering S-Bahn", "Salzburg Taxham Europark S-Bahn", "Salzburg Aiglhof S-Bahn", "Salzburg Mülln-Altstadt S-Bahn", "Salzburg Hbf", "Salzburg Sam S-Bahn", "Salzburg Gnigl S-Bahn", "Salzburg Parsch S-Bahn", "Salzburg Aigen S-Bahn", "Salzburg-Süd S-Bahn", "Elsbethen S-Bahn", "Puch Urstein (FH)", "Puch S-Bahn", "Oberalm S-Bahn", "Hallein", "Hallein Burgfried S-Bahn", "Bad Vigaun S-Bahn", "Kuchl Garnei S-Bahn", "Kuchl S-Bahn", "Golling-Abtenau", "Tenneck", "Werfen", "Pfarrwerfen", "Bischofshofen", "Mitterberghütten", "St.Johann", "Schwarzach-St. Veit", "Lend", "Taxenbach-Rauris", "Gries", "Bruck-Fusch", "Zell am See", "Maishofen-Saalbach", "Saalfelden"]
 cats = { S = 151, RJX = 52, REX = 45, R = 41, IR = 30, IC = 20, RJ = 13, NJ = 13, EN = 12, ICE = 9, EC = 6, D = 4 }
 lines = [
-  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", stations = 29 },
-  { id = "217-11", ref = "217 11", stations = 4 },
+  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", stations = 30 },
+  { id = "217-01", ref = "217 01", stations = 5 },
 ]
 
 [[corridors]]
@@ -357,8 +371,9 @@ major = ["Saalfelden", "Wörgl Hbf", "Innsbruck Hbf"]
 names = ["Saalfelden", "Leogang-Steinberge", "Leogang", "Hochfilzen", "Pfaffenschwendt", "Fieberbrunn", "St. Johann i. T. Grieswirt", "St. Johann i. T.", "Oberndorf i. T.", "Kitzbühel", "Kitzbühel Hahnenkamm", "Kitzbühel Schwarzsee", "Kirchberg i. T.", "Brixen i. Th.", "Westendorf", "Windau", "Hopfgarten i. Br. Berglift", "Hopfgarten i. Br.", "Wörgl Süd-Bruckhäusl", "Wörgl Hbf", "Kundl", "Rattenberg-Kramsach", "Brixlegg", "Münster-Wiesing", "Jenbach", "Stans", "Schwaz", "Pill-Vomperbach", "Terfens-Weer", "Fritzens-Wattens", "Volders-Baumkirchen", "Hall in Tirol", "Hall-Thaur", "Rum", "Innsbruck Messe", "Innsbruck Hbf"]
 cats = { S = 122, REX = 71, RJX = 39, IR = 29, CJX = 17, RJ = 13, NJ = 10, EC = 4, EN = 4, ICE = 2, D = 1 }
 lines = [
-  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", stations = 18 },
-  { id = "101-04", ref = "101 04", name = "Unterinntalbahn", stations = 16 },
+  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", stations = 20 },
+  { id = "101-04", ref = "101 04", name = "Unterinntalbahn", stations = 17 },
+  { id = "330-01", ref = "330 01", name = "Neue Unterinntalbahn", stations = 5 },
 ]
 
 [[corridors]]
@@ -375,8 +390,10 @@ major = ["Salzburg Hbf", "Bischofshofen", "Mallnitz-Obervellach", "Spittal-Mills
 names = ["Salzburg Hbf", "Salzburg Sam S-Bahn", "Salzburg Gnigl S-Bahn", "Salzburg Parsch S-Bahn", "Salzburg Aigen S-Bahn", "Salzburg-Süd S-Bahn", "Elsbethen S-Bahn", "Puch Urstein (FH)", "Puch S-Bahn", "Oberalm S-Bahn", "Hallein", "Hallein Burgfried S-Bahn", "Bad Vigaun S-Bahn", "Kuchl Garnei S-Bahn", "Kuchl S-Bahn", "Golling-Abtenau", "Tenneck", "Werfen", "Pfarrwerfen", "Bischofshofen", "Mitterberghütten", "St.Johann", "Schwarzach-St. Veit", "Dorfgastein", "Bad Hofgastein", "Bad Gastein", "Böckstein", "Mallnitz-Obervellach", "Kolbnitz", "Mühldorf-Möllbrücke", "Pusarnitz", "Spittal-Millstätter See", "Rothenthurn", "Ferndorf in Ktn", "Markt Paternion", "Paternion-Feistritz", "Weissenstein-Kellerberg", "Puch b.Villach", "Villach Hbf", "Villach Seebach", "Föderlach", "Lind-Rosegg", "Velden/Wörthersee", "Töschling", "Pörtschach/Wörthersee", "Pritschitz", "Krumpendorf/Wörthersee", "Klagenfurt West", "Klagenfurt Lend", "Klagenfurt Hbf", "Kühnsdorf-Klopeiner See", "St.Paul im Lavanttal", "Weststeiermark", "Graz Hbf"]
 cats = { S = 188, REX = 42, RJ = 41, R = 41, ATB = 36, IR = 30, RJX = 22, IC = 18, NJ = 10, ICE = 9, EC = 6, D = 4, EN = 4 }
 lines = [
-  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", stations = 22 },
-  { id = "222-01", ref = "222 01", name = "Tauernbahn", stations = 8 },
+  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", stations = 23 },
+  { id = "222-01", ref = "222 01", name = "Tauernbahn", stations = 17 },
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", stations = 12 },
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", stations = 4 },
 ]
 
 [[corridors]]
@@ -393,7 +410,8 @@ major = ["Villach Hbf", "Rosenbach", "Jesenice (SI) železniška posta"]
 names = ["Villach Hbf", "Villach Westbahnhof", "Villach Warmbad", "Gödersdorf", "Finkenstein am Faaker See", "Faak am See", "Ledenitzen", "Rosenbach", "Jesenice (SI) železniška posta"]
 cats = { S = 81, D = 18, NJ = 8, RJX = 6, EN = 4, REX = 2, EC = 2 }
 lines = [
-  { id = "222-02", ref = "222 02", name = "ÖBB Villach – Rosenbach", stations = 4 },
+  { id = "222-02", ref = "222 02", name = "ÖBB Villach – Rosenbach", stations = 5 },
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", stations = 3 },
   { id = "413-14", ref = "413 14", name = "Nordschleife", stations = 3 },
 ]
 
@@ -411,7 +429,7 @@ major = ["Spittal-Millstätter See", "Lienz", "Sillian", "San Candido, Stazione 
 names = ["Spittal-Millstätter See", "Lendorf im Drautal", "Möllbrücke-Sachsenburg", "Sachsenburg Markt", "Kleblach-Lind", "Steinfeld im Drautal", "Greifenburg-Weißensee", "Berg im Drautal", "Dellach im Drautal", "Irschen", "Oberdrauburg", "Nikolsdorf", "Dölsach", "Lienz-Peggetz", "Lienz", "Thal", "Mittewald", "Abfaltersbach", "Tassenbach", "Heinfels", "Sillian", "Weitlanbrunn", "Versciaco, Stazione di Versciaco - Elmo", "San Candido, Stazione di San Candido"]
 cats = { S = 97, IC = 16, RJ = 12, NJ = 8, ICE = 6, EC = 4, R = 4, EN = 4 }
 lines = [
-  { id = "407-01", ref = "407 01", name = "Drautalbahn", stations = 15 },
+  { id = "407-01", ref = "407 01", name = "Drautalbahn", stations = 21 },
 ]
 
 [[corridors]]
@@ -428,7 +446,10 @@ major = ["Bischofshofen", "Schladming", "Liezen", "Selzthal", "Leoben Hbf", "Bru
 names = ["Bischofshofen", "Pöham", "Hüttau", "Niedernfritz-St.Martin", "Eben", "Altenmarkt", "Radstadt", "Mandling", "Pichl bei Schladming", "Schladming", "Haus", "Aich-Assach", "Pruggern", "Gröbming", "Stein an der Enns", "Öblarn", "Niederöblarn", "Stainach-Irdning", "Wörschach Schwefelbad", "Liezen", "Selzthal", "Rottenmann", "Trieben", "Gaishorn", "Wald am Schoberpaß", "Kalwang", "Mautern", "Kammern", "St.Michael", "Leoben Hbf", "Leoben Lerchenfeld", "Niklasdorf", "Bruck/Mur"]
 cats = { S = 81, IR = 68, R = 37, REX = 26, IC = 4, EC = 2 }
 lines = [
-  { id = "404-01", ref = "404 01", name = "Rudolfsbahn", stations = 4 },
+  { id = "102-01", ref = "102 01", name = "Ennstalbahn", stations = 20 },
+  { id = "412-01", ref = "412 01", name = "Erzbergbahn", stations = 10 },
+  { id = "404-01", ref = "404 01", name = "Rudolfsbahn", stations = 8 },
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", stations = 4 },
 ]
 
 [[corridors]]
@@ -445,8 +466,10 @@ major = ["Salzburg Hbf", "Kufstein", "Innsbruck Hbf", "Brennero/Brenner"]
 names = ["Salzburg Hbf", "Kufstein", "Schaftenau", "Kirchbichl", "Wörgl Hbf", "Kundl", "Rattenberg-Kramsach", "Brixlegg", "Münster-Wiesing", "Jenbach", "Stans", "Schwaz", "Pill-Vomperbach", "Terfens-Weer", "Fritzens-Wattens", "Volders-Baumkirchen", "Hall in Tirol", "Hall-Thaur", "Rum", "Innsbruck Messe", "Innsbruck Hbf", "Matrei a. Br.", "Steinach a. Br.", "St. Jodok a. Br.", "Gries a. Br.", "Brennero/Brenner"]
 cats = { S = 147, REX = 72, RJX = 53, CJX = 17, IR = 14, RJ = 13, NJ = 10, EC = 4, EN = 4, ICE = 2 }
 lines = [
-  { id = "101-04", ref = "101 04", name = "Unterinntalbahn", stations = 16 },
-  { id = "302-01", ref = "302 01", name = "Unterinntalbahn", stations = 3 },
+  { id = "101-04", ref = "101 04", name = "Unterinntalbahn", stations = 17 },
+  { id = "302-02", ref = "302 02", name = "Brennerbahn", stations = 5 },
+  { id = "330-01", ref = "330 01", name = "Neue Unterinntalbahn", stations = 5 },
+  { id = "302-01", ref = "302 01", name = "Unterinntalbahn", stations = 4 },
 ]
 
 [[corridors]]
@@ -462,6 +485,9 @@ file = "400.toml"
 major = ["Innsbruck Hbf", "Ötztal-Bahnhof", "Landeck-Zams", "Bludenz"]
 names = ["Innsbruck Hbf", "Innsbruck Westbahnhof", "Völs", "Kematen i. T.", "Zirl", "Inzing", "Hatting", "Flaurling", "Oberhofen i. I.", "Telfs-Pfaffenhofen", "Rietz", "Stams", "Mötz", "Silz", "Haiming", "Ötztal-Bahnhof", "Roppen", "Imst-Pitztal", "Imsterberg", "Schönwies", "Landeck-Zams", "St. Anton a. A.", "Langen a. A.", "Bludenz"]
 cats = { S = 128, REX = 65, RJX = 28, NJ = 6, EN = 4, RJ = 3, EC = 2, CJX = 1 }
+lines = [
+  { id = "101-05", ref = "101 05", name = "Arlbergbahn", stations = 23 },
+]
 
 [[corridors]]
 id = "420"
@@ -477,7 +503,7 @@ major = ["Bludenz", "Schruns"]
 names = ["Bludenz", "Bludenz Moos", "Bludenz Brunnenfeld", "Lorüns", "St. Anton im Montafon", "Vandans", "Kaltenbrunnen", "Tschagguns", "Schruns"]
 cats = { S = 68 }
 lines = [
-  { id = "montafonerbahn", name = "Montafonerbahn", stations = 3 },
+  { id = "montafonerbahn", name = "Montafonerbahn", stations = 8 },
 ]
 
 [[corridors]]
@@ -494,7 +520,7 @@ major = ["Wiener Neustadt Hbf", "Semmering", "Mürzzuschlag"]
 names = ["Wiener Neustadt Hbf", "St. Egyden/Stfd", "Neunkirchen", "Ternitz", "Pottschach", "Gloggnitz", "Schlöglmühl", "Payerbach-Reichenau", "Küb", "Eichberg am Semmering", "Klamm-Schottwien", "Breitenstein", "Wolfsbergkogel", "Semmering", "Steinhaus", "Spital am Semmering", "Mürzzuschlag"]
 cats = { CJX = 72, RJ = 31, RJX = 19, R = 18, IC = 15, EC = 6, NJ = 4, REX = 2 }
 lines = [
-  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 16 },
+  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 17 },
 ]
 
 [[corridors]]
@@ -511,9 +537,13 @@ major = ["Flughafen Wien", "Mürzzuschlag", "Bruck/Mur", "Graz Hbf", "Klagenfurt
 names = ["Flughafen Wien", "Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wiener Neustadt Hbf", "Semmering", "Steinhaus", "Spital am Semmering", "Mürzzuschlag", "Langenwang", "Krieglach", "Mitterdorf-Veitsch", "Wartberg", "Kindberg", "Allerheiligen-Mürzhofen", "St.Marein-St.Lorenzen", "Kapfenberg Fachhochschule", "Kapfenberg", "Bruck/Mur", "Pernegg", "Mixnitz-Bärenschützklamm", "Frohnleiten", "Peggau-Deutschfeistritz", "Stübing", "Gratwein-Gratkorn", "Judendorf-Straßengel", "Graz Hbf", "Weststeiermark", "St.Paul im Lavanttal", "Kühnsdorf-Klopeiner See", "Klagenfurt Hbf", "Klagenfurt Lend", "Klagenfurt West", "Krumpendorf/Wörthersee", "Pritschitz", "Pörtschach/Wörthersee", "Töschling", "Velden/Wörthersee", "Lind-Rosegg", "Föderlach", "Villach Seebach", "Villach Hbf"]
 cats = { S = 659, REX = 206, RJX = 83, IC = 64, CJX = 54, IR = 54, RJ = 45, EC = 34, R = 28, ICE = 17, NJ = 17, D = 8, EN = 8 }
 lines = [
-  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 22 },
+  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 26 },
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", stations = 13 },
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", stations = 4 },
   { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 3 },
-  { id = "122-12", ref = "122 12", name = "Verbindungsbahn", stations = 3 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
 ]
 
 [[corridors]]
@@ -530,8 +560,9 @@ major = ["Graz Hbf", "Leibnitz", "Spielfeld-Straß", "Bad Radkersburg"]
 names = ["Graz Hbf", "Graz Don Bosco", "Graz Puntigam", "Feldkirchen-Seiersberg", "Flughafen Graz-Feldkirchen", "Kalsdorf", "Werndorf", "Wildon", "Lebring", "Kaindorf", "Leibnitz", "Ehrenhausen", "Spielfeld-Straß", "Lichendorf", "Weitersfeld an der Mur", "Mureck", "Gosdorf", "Purkla", "Halbenrain", "Bad Radkersburg"]
 cats = { S = 165, IR = 42, RJ = 31, REX = 20, RJX = 19, ICE = 6, IC = 6, EC = 4, NJ = 4 }
 lines = [
-  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 11 },
-  { id = "462-01", ref = "462 01", name = "Radkersburger Bahn", stations = 3 },
+  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 13 },
+  { id = "462-01", ref = "462 01", name = "Radkersburger Bahn", stations = 8 },
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", stations = 5 },
 ]
 
 [[corridors]]
@@ -548,9 +579,11 @@ major = ["Wien Hbf", "Baden", "Wiener Neustadt Hbf", "Payerbach-Reichenau"]
 names = ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wien Hetzendorf", "Wien Atzgersdorf", "Wien Liesing", "Perchtoldsdorf", "Brunn-Maria Enzersdorf", "Mödling", "Guntramsdorf Thallern", "Gumpoldskirchen", "Pfaffstätten", "Baden", "Bad Vöslau", "Kottingbrunn", "Leobersdorf", "Sollenau", "Felixdorf", "Theresienfeld", "Wiener Neustadt Nord", "Wiener Neustadt Hbf", "St. Egyden/Stfd", "Neunkirchen", "Ternitz", "Pottschach", "Gloggnitz", "Schlöglmühl", "Payerbach-Reichenau"]
 cats = { S = 475, REX = 173, RJX = 76, CJX = 74, IC = 57, R = 55, RJ = 36, EC = 32, NJ = 16, ICE = 8, D = 8, EN = 8 }
 lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 28 },
   { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 20 },
-  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 7 },
-  { id = "122-12", ref = "122 12", name = "Verbindungsbahn", stations = 4 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
 ]
 
 [[corridors]]
@@ -567,8 +600,11 @@ major = ["Wien Hbf", "Pottendorf-Landegg", "Ebenfurth", "Wiener Neustadt Hbf"]
 names = ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wien Blumental", "Hennersdorf", "Achau", "Münchendorf", "Ebreichsdorf", "Wampersdorf", "Pottendorf-Landegg", "Ebenfurth", "Untereggendorf", "Obereggendorf", "Wiener Neustadt Civitas Nova", "Wiener Neustadt Hbf"]
 cats = { S = 472, REX = 169, RJX = 76, IC = 57, CJX = 52, RJ = 36, EC = 31, NJ = 15, R = 10, ICE = 8, D = 8, EN = 8 }
 lines = [
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 14 },
-  { id = "122-12", ref = "122 12", name = "Verbindungsbahn", stations = 3 },
+  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 4 },
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 3 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
 ]
 
 [[corridors]]
@@ -585,8 +621,11 @@ major = ["Wien Hbf", "Ebenfurth", "Sopron pályaudvar", "Deutschkreutz"]
 names = ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wien Blumental", "Hennersdorf", "Achau", "Münchendorf", "Ebreichsdorf", "Wampersdorf", "Pottendorf-Landegg", "Ebenfurth", "Sopron pályaudvar", "Deutschkreutz"]
 cats = { S = 472, REX = 172, RJX = 76, IC = 57, CJX = 52, RJ = 36, EC = 31, NJ = 15, R = 10, ICE = 8, D = 8, EN = 8 }
 lines = [
-  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 11 },
-  { id = "122-12", ref = "122 12", name = "Verbindungsbahn", stations = 3 },
+  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 3 },
+  { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 3 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
 ]
 
 [[corridors]]
@@ -617,7 +656,7 @@ major = ["Wiener Neustadt Hbf", "Aspang Markt", "Friedberg", "Hartberg", "Fehrin
 names = ["Wiener Neustadt Hbf", "Lanzenkirchen", "Bad Erlach", "Brunn an der Pitten", "Pitten", "Sautern-Schiltern", "Seebenstein", "Gleißenfeld", "Scheiblingkirchen-Warth Bhf.", "Petersbaumgarten", "Edlitz-Grimmenstein", "Aspang Markt", "Ausschlag-Zöbern", "Tauchen-Schaueregg", "Pinggau Markt", "Friedberg", "Dechantskirchen", "Rohrbach-Vorau", "Grafendorf", "St.Johann in der Haide", "Hartberg", "Sebersdorf", "Bad Waltersdorf", "Bad Blumau", "Bierbaum/Safen", "Fürstenfeld", "Übersbach", "Söchau", "Hatzendorf", "Fehring"]
 cats = { R = 44, REX = 26 }
 lines = [
-  { id = "167-01", ref = "167 01", name = "Thermenbahn", stations = 3 },
+  { id = "167-01", ref = "167 01", name = "Thermenbahn", stations = 29 },
 ]
 
 [[corridors]]
@@ -635,6 +674,7 @@ names = ["Wiener Neustadt Hbf", "Wiener Neustadt Anemonensee", "Bad Fischau-Brun
 cats = { R = 88, REX = 13 }
 lines = [
   { id = "162-01", ref = "162 01", name = "Gutensteinerbahn", stations = 16 },
+  { id = "163-01", ref = "163 01", name = "Schneebergbahn", stations = 3 },
   { id = "166-01", ref = "166 01", name = "ÖBB Bad Fischau-Brunn – Wöllersdorf", stations = 3 },
 ]
 
@@ -652,7 +692,7 @@ major = ["Wiener Neustadt Hbf", "Grünbach/Schneeberg", "Puchberg am Schneeberg"
 names = ["Wiener Neustadt Hbf", "Wiener Neustadt Anemonensee", "Bad Fischau-Brunn", "Brunn an der Schneebergbahn Bhf.", "Winzendorf", "Urschendorf", "Willendorf", "Rothengrub", "Unterhöflein", "Grünbach/Schneeberg", "Grünbach/Schneeberg Schule", "Grünbach/Schneeberg Kohlenwerk", "Pfennigbach", "Puchberg am Schneeberg"]
 cats = { R = 89, REX = 13 }
 lines = [
-  { id = "163-01", ref = "163 01", name = "Schneebergbahn", stations = 13 },
+  { id = "163-01", ref = "163 01", name = "Schneebergbahn", stations = 14 },
 ]
 
 [[corridors]]
@@ -668,6 +708,9 @@ file = "530.toml"
 major = ["Graz Hbf", "Feldbach", "Fehring", "Szentgotthárd pályaudvar"]
 names = ["Graz Hbf", "Graz Don Bosco", "Graz Ostbahnhof", "Graz Liebenau Murpark", "Raaba", "Hart b.Graz", "Laßnitzhöhe", "Laßnitzthal", "Gleisdorf", "Takern-St.Margarethen", "Studenzen-Fladnitz", "Rohr/Raab", "Gniebing", "Feldbach", "Lödersdorf", "Fehring", "Hohenbrugg an der Raab", "Jennersdorf", "Mogersdorf", "Szentgotthárd pályaudvar"]
 cats = { S = 134, IR = 42, RJ = 31, R = 24, REX = 20, RJX = 19, IC = 7, ICE = 6, EC = 4, NJ = 4 }
+lines = [
+  { id = "414-01", ref = "414 01", name = "Steirische Ostbahn", stations = 19 },
+]
 
 [[corridors]]
 id = "600"
@@ -683,6 +726,7 @@ major = ["Graz Hbf", "Bruck/Mur", "Unzmarkt", "Klagenfurt Hbf"]
 names = ["Graz Hbf", "Judendorf-Straßengel", "Gratwein-Gratkorn", "Stübing", "Peggau-Deutschfeistritz", "Frohnleiten", "Mixnitz-Bärenschützklamm", "Pernegg", "Bruck/Mur", "Niklasdorf", "Leoben Lerchenfeld", "Leoben Hbf", "St.Michael", "Kraubath an der Mur", "Fentsch-St.Lorenzen", "Knittelfeld", "Zeltweg", "Judenburg", "Thalheim-Pöls", "St.Georgen ob Judenburg", "Unzmarkt", "Scheifling", "Mariahof-St.Lambrecht", "Neumarkt", "Friesach", "Micheldorf-Hirt", "Treibach-Althofen", "Kappel am Krappfeld", "Passering", "Launsdorf-Hochosterwitz", "St.Georgen am Längsee", "St. Veit an der Glan", "Glandorf", "Maria Saal", "Klagenfurt Annabichl", "Klagenfurt Ostbahnhof", "Klagenfurt Hbf"]
 cats = { S = 233, IR = 69, RJ = 31, RJX = 19, IC = 15, REX = 14, R = 10, EC = 8, NJ = 4 }
 lines = [
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", stations = 28 },
   { id = "105-01", ref = "105 01", name = "Südbahn", stations = 9 },
 ]
 
@@ -699,6 +743,9 @@ file = "601.toml"
 major = ["Friesach", "St. Veit an der Glan", "Klagenfurt Hbf"]
 names = ["Friesach", "Micheldorf-Hirt", "Treibach-Althofen", "Kappel am Krappfeld", "Passering", "Launsdorf-Hochosterwitz", "St.Georgen am Längsee", "St. Veit an der Glan", "Glandorf", "Maria Saal", "Klagenfurt Annabichl", "Klagenfurt Ostbahnhof", "Klagenfurt Hbf"]
 cats = { S = 65, IR = 36, IC = 4, REX = 2 }
+lines = [
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", stations = 13 },
+]
 
 [[corridors]]
 id = "620"
@@ -714,9 +761,11 @@ major = ["Pusarnitz", "Spittal-Millstätter See", "Villach Hbf", "Klagenfurt Hbf
 names = ["Pusarnitz", "Spittal-Millstätter See", "Rothenthurn", "Ferndorf in Ktn", "Markt Paternion", "Paternion-Feistritz", "Weissenstein-Kellerberg", "Puch b.Villach", "Villach Hbf", "Villach Seebach", "Föderlach", "Lind-Rosegg", "Velden/Wörthersee", "Töschling", "Pörtschach/Wörthersee", "Pritschitz", "Krumpendorf/Wörthersee", "Klagenfurt West", "Klagenfurt Lend", "Klagenfurt Hbf", "Klagenfurt Ebenthal", "Grafenstein", "Kühnsdorf-Klopeiner See", "Mittlern", "St.Michael ob Bleiburg", "Bleiburg", "Bleiburg Stadt", "Wiederndorf-Aich", "St.Paul im Lavanttal", "St.Andrä", "St.Stefan", "Wolfsberg Reding", "Wolfsberg"]
 cats = { S = 128, RJ = 72, REX = 50, RJX = 41, IC = 20, ICE = 15, NJ = 14, EC = 4, R = 4, EN = 4 }
 lines = [
-  { id = "401-01", ref = "401 01", name = "Koralmbahn", stations = 5 },
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", stations = 12 },
+  { id = "222-01", ref = "222 01", name = "Tauernbahn", stations = 9 },
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", stations = 7 },
+  { id = "410-01", ref = "410 01", name = "Jauntalbahn", stations = 5 },
   { id = "457-01", ref = "457 01", name = "Lavanttalbahn", stations = 4 },
-  { id = "410-01", ref = "410 01", name = "Jauntalbahn", stations = 3 },
 ]
 
 [[corridors]]
@@ -733,7 +782,7 @@ major = ["St. Veit an der Glan", "Feldkirchen in Ktn", "Villach Hbf"]
 names = ["St. Veit an der Glan", "St.Veit an der Glan Westbahnhof", "Liebenfels", "Tauchendorf-Haidensee", "Glanegg in Ktn", "Mautbrücken", "St.Martin-Sittich Bahnhst (Bundesstraße)", "Feldkirchen in Ktn", "Tiffen", "Steindorf am Ossiacher See", "Ossiach-Bodensdorf", "St.Urban/Ossiacher See", "Sattendorf", "Annenheim", "Villach St.Ruprecht", "Villach Landskron", "Villach Hbf"]
 cats = { S = 42, IC = 4 }
 lines = [
-  { id = "408-01", ref = "408 01", name = "Rudolfsbahn", stations = 14 },
+  { id = "408-01", ref = "408 01", name = "Rudolfsbahn", stations = 16 },
 ]
 
 [[corridors]]
@@ -750,7 +799,7 @@ major = ["Klagenfurt Hbf", "Weizelsdorf"]
 names = ["Klagenfurt Hbf", "Klagenfurt Süd", "Köttmannsdorf Lambichl", "Maria Rain", "Weizelsdorf"]
 cats = { S = 42 }
 lines = [
-  { id = "409-01", ref = "409 01", name = "Rosentalbahn", stations = 3 },
+  { id = "409-01", ref = "409 01", name = "Rosentalbahn", stations = 5 },
 ]
 
 [[corridors]]
@@ -767,8 +816,8 @@ major = ["Villach Hbf", "Arnoldstein", "Hermagor"]
 names = ["Villach Hbf", "Villach Westbahnhof", "Villach Warmbad", "Fürnitz", "Neuhaus a.d. Gail", "Pöckau", "Arnoldstein", "Nötsch", "Emmersdorf im Gailtal", "St.Stefan-Vorderberg", "Görtschach-Förolach", "Pressegger See", "Vellach-Khünburg", "Hermagor"]
 cats = { S = 81, D = 18, NJ = 8, RJX = 6, EN = 5, REX = 2, EC = 2 }
 lines = [
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", stations = 7 },
   { id = "451-01", ref = "451 01", name = "Gailtalbahn", stations = 7 },
-  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", stations = 5 },
   { id = "413-14", ref = "413 14", name = "Nordschleife", stations = 4 },
 ]
 
@@ -786,7 +835,7 @@ major = ["Wien Hbf", "Bruck/Leitha", "Hegyeshalom"]
 names = ["Wien Hbf", "Wien Grillgasse", "Kledering", "Lanzendorf-Rannersdorf", "Gramatneusiedl", "Götzendorf", "Trautmannsdorf/Leitha Bhf.", "Sarasdorf", "Wilfleinsdorf", "Bruck/Leitha", "Parndorf Ort", "Parndorf", "Zurndorf", "Nickelsdorf", "Hegyeshalom"]
 cats = { REX = 214, S = 158, R = 88, RJX = 42, IC = 39, RJ = 30, EC = 27, EN = 8, ER = 7, D = 6, NJ = 2 }
 lines = [
-  { id = "118-01", ref = "118 01", name = "Ostbahn", stations = 10 },
+  { id = "118-01", ref = "118 01", name = "Ostbahn", stations = 13 },
 ]
 
 [[corridors]]
@@ -803,7 +852,7 @@ major = ["Wien Hbf", "Bruck/Leitha", "Kittsee", "Bratislava-Petržalka stanica"]
 names = ["Wien Hbf", "Wien Grillgasse", "Kledering", "Lanzendorf-Rannersdorf", "Gramatneusiedl", "Götzendorf", "Trautmannsdorf/Leitha Bhf.", "Sarasdorf", "Wilfleinsdorf", "Bruck/Leitha", "Parndorf Ort", "Parndorf", "Neudorf bei Parndorf", "Gattendorf", "Pama", "Kittsee", "Kittsee Tarifpunkt A6/Staatsgrenze", "Bratislava-Petržalka stanica"]
 cats = { REX = 214, S = 158, R = 86, RJX = 42, IC = 39, RJ = 30, EC = 27, EN = 8, D = 6, NJ = 2 }
 lines = [
-  { id = "118-01", ref = "118 01", name = "Ostbahn", stations = 10 },
+  { id = "118-01", ref = "118 01", name = "Ostbahn", stations = 11 },
   { id = "194-01", ref = "194 01", stations = 4 },
 ]
 
@@ -821,7 +870,8 @@ major = ["Wien Hbf", "Kledering", "Traiskirchen Aspangbahn", "Wiener Neustadt Hb
 names = ["Wien Hbf", "Wien Grillgasse", "Kledering", "Maria Lanzendorf", "Laxenburg-Biedermannsdorf Bhf.", "Guntramsdorf Kaiserau", "Möllersdorf Aspangbahn", "Traiskirchen Aspangbahn", "Trumau", "Oberwaltersdorf", "Tattendorf", "Teesdorf", "Sollenau", "Felixdorf", "Theresienfeld", "Wiener Neustadt Nord", "Wiener Neustadt Hbf"]
 cats = { REX = 330, S = 211, R = 120, RJ = 61, RJX = 61, CJX = 57, IC = 54, EC = 32, EN = 8, D = 6, NJ = 5 }
 lines = [
-  { id = "161-01", ref = "161 01", name = "Aspangbahn", stations = 10 },
+  { id = "161-01", ref = "161 01", name = "Aspangbahn", stations = 11 },
+  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 7 },
   { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 5 },
 ]
 
@@ -857,6 +907,7 @@ major = ["Wien Hbf", "Neusiedl am See", "Pamhagen", "Fertőszentmiklós pályaud
 names = ["Wien Hbf", "Wien Grillgasse", "Kledering", "Lanzendorf-Rannersdorf", "Gramatneusiedl", "Bruck/Leitha", "Parndorf Ort", "Neusiedl am See", "Neusiedl am See Bad", "Weiden am See", "Gols", "Mönchhof-Halbturn", "Frauenkirchen", "St. Andrä am Zicksee", "Wallern im Bgld", "Pamhagen", "Fertőszentmiklós pályaudvar"]
 cats = { REX = 243, S = 159, R = 86, RJX = 42, IC = 39, RJ = 30, EC = 27, EN = 8, D = 6, NJ = 2 }
 lines = [
+  { id = "neusiedler-seebahn", name = "Neusiedler Seebahn", stations = 8 },
   { id = "118-01", ref = "118 01", name = "Ostbahn", stations = 6 },
 ]
 
@@ -874,7 +925,7 @@ major = ["Wien Franz-Josefs-Bahnhof", "Tulln", "Sigmundsherberg", "Gmünd NÖ", 
 names = ["Wien Franz-Josefs-Bahnhof", "Wien Spittelau", "Wien Heiligenstadt", "Tulln", "Absdorf-Hippersdorf", "Großweikersdorf", "Ziersdorf", "Limberg-Maissau", "Eggenburg", "Sigmundsherberg", "Hötzelsdorf-Geras", "Irnfritz", "Göpfritz an der Wild", "Allentsteig", "Schwarzenau", "Vitis", "Hirschbach bei Gmünd", "Pürbach-Schrems", "Gmünd NÖ", "TP Gmünd Lainsitzbrücke Schiene", "České Velenice"]
 cats = { REX = 136, SP = 15, OS = 4, RR = 4, R = 1 }
 lines = [
-  { id = "109-01", ref = "109 01", name = "Franz-Josefs-Bahn", stations = 18 },
+  { id = "109-01", ref = "109 01", name = "Franz-Josefs-Bahn", stations = 19 },
 ]
 
 [[corridors]]
@@ -891,8 +942,8 @@ major = ["Wien Franz-Josefs-Bahnhof", "Tulln", "Krems"]
 names = ["Wien Franz-Josefs-Bahnhof", "Wien Spittelau", "Wien Heiligenstadt", "Tulln", "Absdorf-Hippersdorf", "Kirchberg am Wagram Bhf.", "Fels am Wagram", "Wagram-Grafenegg", "Etsdorf-Straß", "Hadersdorf/Kamp", "Gedersdorf", "Rohrendorf bei Krems", "Krems"]
 cats = { REX = 132, R = 43 }
 lines = [
-  { id = "111-01", ref = "111 01", name = "ÖBB Absdorf-Hippersdorf – Krems", stations = 5 },
-  { id = "109-01", ref = "109 01", name = "Franz-Josefs-Bahn", stations = 4 },
+  { id = "111-01", ref = "111 01", name = "ÖBB Absdorf-Hippersdorf – Krems", stations = 9 },
+  { id = "109-01", ref = "109 01", name = "Franz-Josefs-Bahn", stations = 5 },
 ]
 
 [[corridors]]
@@ -909,9 +960,9 @@ major = ["St. Pölten Hbf", "Herzogenburg", "Krems", "Hadersdorf/Kamp", "Horn", 
 names = ["St. Pölten Hbf", "St. Pölten Traisenpark/P+R Nord", "Viehofen", "Oberradlberg", "Unterradlberg", "Herzogenburg", "Herzogenburg-Wielandsthal", "Statzendorf", "Paudorf", "Furth-Göttweig", "Furth-Palt", "Krems", "Rohrendorf bei Krems", "Gedersdorf", "Hadersdorf/Kamp", "Gobelsburg", "Langenlois", "Zöbing", "Schönberg/Kamp", "Stiefern", "Altenhof/Kamp", "Plank am Kamp", "Buchberg/Kamp", "Gars-Thunau", "Kamegg", "Rosenburg", "Horn", "Breiteneich bei Horn", "Sigmundsherberg"]
 cats = { R = 109, REX = 83, S = 43 }
 lines = [
-  { id = "174-01", ref = "174 01", name = "Kamptalbahn", stations = 14 },
-  { id = "173-01", ref = "173 01", name = "Kremser Bahn", stations = 5 },
-  { id = "110-01", ref = "110 01", name = "Tullnerfelder Bahn", stations = 4 },
+  { id = "174-01", ref = "174 01", name = "Kamptalbahn", stations = 15 },
+  { id = "110-01", ref = "110 01", name = "Tullnerfelder Bahn", stations = 6 },
+  { id = "173-01", ref = "173 01", name = "Kremser Bahn", stations = 6 },
   { id = "111-01", ref = "111 01", name = "ÖBB Absdorf-Hippersdorf – Krems", stations = 4 },
 ]
 
@@ -929,10 +980,13 @@ major = ["Mödling", "Wien Meidling", "Wien Hbf", "Wien Praterstern", "Wien Flor
 names = ["Mödling", "Brunn-Maria Enzersdorf", "Perchtoldsdorf", "Wien Liesing", "Wien Atzgersdorf", "Wien Hetzendorf", "Wien Meidling", "Wien Matzleinsdorfer Platz", "Wien Hbf", "Wien Quartier Belvedere", "Wien Rennweg", "Wien Mitte-Landstraße", "Wien Praterstern", "Wien Traisengasse", "Wien Handelskai", "Wien Floridsdorf", "Wien Brünner Straße", "Wien Jedlersdorf", "Wien Strebersdorf"]
 cats = { S = 552, REX = 243, RJX = 76, CAT = 72, CJX = 57, IC = 57, RJ = 36, EC = 31, R = 21, NJ = 15, ICE = 8, D = 8, EN = 8 }
 lines = [
+  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 9 },
   { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 9 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 7 },
   { id = "112-01", ref = "112 01", name = "Nordwestbahn", stations = 4 },
-  { id = "122-12", ref = "122 12", name = "Verbindungsbahn", stations = 4 },
-  { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 3 },
+  { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 4 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
 ]
 
 [[corridors]]
@@ -949,7 +1003,8 @@ major = ["Wien Hbf", "Gänserndorf", "Hohenau/March", "Břeclav"]
 names = ["Wien Hbf", "Wien Quartier Belvedere", "Wien Rennweg", "Wien Mitte-Landstraße", "Wien Praterstern", "Wien Traisengasse", "Wien Handelskai", "Wien Floridsdorf", "Wien Siemensstraße", "Wien Leopoldau", "Wien Süßenbrunn", "Deutsch-Wagram", "Helmahof", "Strasshof", "Silberwald", "Gänserndorf", "Weikendorf-Dörfles", "Tallesbrunn", "Angern/March", "Stillfried", "Dürnkrut", "Jedenspeigen", "Sierndorf an der March", "Drösing", "Hohenau/March", "Rabensburg", "Bernhardsthal", "Břeclav"]
 cats = { S = 408, REX = 220, CAT = 72, CJX = 46, R = 14, RJ = 12, EC = 11, RJX = 6, IC = 5, EN = 4, NJ = 2 }
 lines = [
-  { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 13 },
+  { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 23 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 8 },
 ]
 
 [[corridors]]
@@ -966,8 +1021,9 @@ major = ["Wien Hbf", "Wolkersdorf", "Mistelbach", "Laa/Thaya"]
 names = ["Wien Hbf", "Wien Quartier Belvedere", "Wien Rennweg", "Wien Mitte-Landstraße", "Wien Praterstern", "Wien Traisengasse", "Wien Handelskai", "Wien Floridsdorf", "Wien Siemensstraße", "Wien Leopoldau", "Gerasdorf", "Kapellerfeld", "Seyring", "Obersdorf", "Wolkersdorf", "Ulrichskirchen", "Schleinbach", "Hautzendorf", "Niederkreuzstetten", "Neubau-Kreuzstetten", "Ladendorf", "Paasdorf", "Mistelbach", "Mistelbach Stadt", "Siebenhirten (NÖ) Haltestelle", "Hörersdorf", "Frättingsdorf", "Enzersdorf bei Staatz", "Staatz", "Kottingneusiedl", "Laa/Thaya"]
 cats = { S = 448, REX = 231, CAT = 72, CJX = 46, R = 12 }
 lines = [
-  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 21 },
-  { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 5 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 22 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 7 },
+  { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 6 },
 ]
 
 [[corridors]]
@@ -985,7 +1041,8 @@ names = ["Wien Hbf", "Wien Quartier Belvedere", "Wien Rennweg", "Wien Mitte-Land
 cats = { S = 410, REX = 217, CAT = 72, CJX = 46, R = 27 }
 lines = [
   { id = "112-01", ref = "112 01", name = "Nordwestbahn", stations = 22 },
-  { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 3 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 5 },
+  { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 4 },
 ]
 
 [[corridors]]
@@ -1003,7 +1060,8 @@ names = ["Wien Floridsdorf", "Wien Handelskai", "Wien Traisengasse", "Wien Prate
 cats = { S = 432, REX = 225, CAT = 72, CJX = 46, IC = 34, RJ = 18, RJX = 18, R = 12 }
 lines = [
   { id = "191-01", ref = "191 01", name = "Pressburger Bahn", stations = 18 },
-  { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 3 },
+  { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 4 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 4 },
 ]
 
 [[corridors]]
@@ -1021,9 +1079,11 @@ names = ["Wien Hütteldorf", "Wien Speising", "Wien Meidling", "Wien Matzleinsdo
 cats = { S = 476, REX = 213, RJX = 79, IC = 60, CJX = 52, R = 48, RJ = 46, EC = 35, NJ = 15, ICE = 8, D = 8, EN = 8 }
 lines = [
   { id = "117-01", ref = "117 01", name = "Marchegger Ostbahn", stations = 11 },
-  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 5 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 10 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 8 },
+  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 3 },
   { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 3 },
-  { id = "122-12", ref = "122 12", name = "Verbindungsbahn", stations = 3 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
 ]
 
 [[corridors]]
@@ -1057,7 +1117,7 @@ major = ["Wien Handelskai", "Wien Heiligenstadt", "Wien Hütteldorf"]
 names = ["Wien Handelskai", "Wien Heiligenstadt", "Wien Oberdöbling", "Wien Krottenbachstraße", "Wien Gersthof", "Wien Hernals", "Wien Ottakring", "Wien Breitensee", "Wien Penzing", "Wien Hütteldorf"]
 cats = { S = 367, REX = 81, CJX = 58, IC = 2 }
 lines = [
-  { id = "120-01", ref = "120 01", name = "Vorortelinie", stations = 7 },
+  { id = "120-01", ref = "120 01", name = "Vorortelinie", stations = 9 },
 ]
 
 [[corridors]]
@@ -1074,9 +1134,13 @@ major = ["Wien Hbf", "Wien Meidling", "Tullnerfeld", "St. Pölten Hbf", "Amstett
 names = ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Tullnerfeld", "St. Pölten Hbf", "Prinzersdorf", "Markersdorf an der Pielach Bf.", "Groß Sierning", "Loosdorf/Melk", "Melk", "Pöchlarn", "Krummnußbaum", "Säusenstein", "Ybbs/Donau", "Neumarkt/Ybbs-Karlsbach Bf.", "Blindenmarkt", "Amstetten", "Mauer-Öhling", "Aschbach", "Krenstetten-Biberbach", "St. Peter-Seitenstetten Bhf.", "St. Johann-Weistrach", "Stadt Haag", "St. Valentin", "Ennsdorf", "Enns", "Asten-Fisching", "Linz/Donau Pichling", "Linz/Donau Ebelsberg", "Linz Hbf", "Leonding Westbahn", "Pasching b.Linz", "Hörsching", "Oftering", "Marchtrenk", "Wels Hbf", "Gunskirchen", "Lambach OÖ", "Lambach OÖ Markt", "Neukirchen b.Lambach", "Breitenschützing", "Schwanenstadt", "Attnang-Puchheim", "Vöcklabruck", "Timelkam", "Neukirchen-Gampern", "Redl-Zipf", "Vöcklamarkt", "Frankenmarkt", "Pöndorf", "Oberhofen-Zell am Moos", "Straßwalchen", "Neumarkt", "Köstendorf Weng S-Bahn", "Wallersee S-Bahn", "Seekirchen", "Seekirchen Stadt S-Bahn", "Eugendorf S-Bahn", "Hallwang-Elixhausen S-Bahn", "Salzburg Kasern S-Bahn", "Salzburg Hbf"]
 cats = { S = 612, REX = 294, R = 155, CJX = 111, RJX = 76, IC = 61, RJ = 38, EC = 31, NJ = 16, EN = 9, D = 8, ICE = 8 }
 lines = [
-  { id = "101-02", ref = "101 02", name = "Westbahn", stations = 21 },
+  { id = "101-02", ref = "101 02", name = "Westbahn", stations = 25 },
+  { id = "130-01", ref = "130 01", name = "Neue Westbahn", stations = 21 },
+  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 3 },
   { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 3 },
-  { id = "122-12", ref = "122 12", name = "Verbindungsbahn", stations = 3 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
 ]
 
 [[corridors]]
@@ -1093,9 +1157,11 @@ major = ["Wien Hbf", "Wien Meidling", "Baden", "Wiener Neustadt Hbf", "Gloggnitz
 names = ["Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling", "Wien Hetzendorf", "Wien Atzgersdorf", "Wien Liesing", "Perchtoldsdorf", "Brunn-Maria Enzersdorf", "Mödling", "Guntramsdorf Thallern", "Gumpoldskirchen", "Pfaffstätten", "Baden", "Bad Vöslau", "Kottingbrunn", "Leobersdorf", "Sollenau", "Felixdorf", "Theresienfeld", "Wiener Neustadt Nord", "Wiener Neustadt Hbf", "St. Egyden/Stfd", "Neunkirchen", "Ternitz", "Pottschach", "Gloggnitz", "Schlöglmühl", "Payerbach-Reichenau", "Küb", "Eichberg am Semmering", "Klamm-Schottwien", "Breitenstein", "Wolfsbergkogel", "Semmering", "Steinhaus", "Spital am Semmering", "Mürzzuschlag", "Langenwang", "Krieglach", "Mitterdorf-Veitsch", "Wartberg", "Kindberg", "Allerheiligen-Mürzhofen", "St.Marein-St.Lorenzen", "Kapfenberg Fachhochschule", "Kapfenberg", "Bruck/Mur", "Pernegg", "Mixnitz-Bärenschützklamm", "Frohnleiten", "Peggau-Deutschfeistritz", "Stübing", "Gratwein-Gratkorn", "Judendorf-Straßengel", "Graz Hbf"]
 cats = { S = 591, REX = 183, RJX = 76, CJX = 74, R = 73, IC = 57, IR = 54, RJ = 36, EC = 34, NJ = 16, ICE = 8, D = 8, EN = 8 }
 lines = [
-  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 34 },
+  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 55 },
   { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 20 },
-  { id = "122-12", ref = "122 12", name = "Verbindungsbahn", stations = 4 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 3 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
 ]
 
 [[corridors]]
@@ -1112,7 +1178,8 @@ major = ["Graz Hbf", "Weststeiermark", "St.Paul im Lavanttal", "Kühnsdorf-Klope
 names = ["Graz Hbf", "Weststeiermark", "St.Paul im Lavanttal", "Kühnsdorf-Klopeiner See", "Grafenstein", "Klagenfurt Ebenthal", "Klagenfurt Hbf", "Klagenfurt Lend", "Klagenfurt West", "Krumpendorf/Wörthersee", "Pritschitz", "Pörtschach/Wörthersee", "Töschling", "Velden/Wörthersee", "Lind-Rosegg", "Föderlach", "Villach Seebach", "Villach Hbf"]
 cats = { S = 87, RJ = 35, REX = 27, RJX = 22, ICE = 9, IC = 4, NJ = 4, EC = 1 }
 lines = [
-  { id = "401-01", ref = "401 01", name = "Koralmbahn", stations = 3 },
+  { id = "413-01", ref = "413 01", name = "ÖBB Bruck an der Mur – Leoben", stations = 12 },
+  { id = "401-01", ref = "401 01", name = "Koralmbahn", stations = 6 },
 ]
 
 [[corridors]]
@@ -1128,7 +1195,7 @@ major = ["Bludenz", "Feldkirch", "Dornbirn", "Bregenz"]
 names = ["Bludenz", "Nüziders", "Ludesch", "Nenzing", "Schlins", "Frastanz", "Feldkirch", "Feldkirch Amberg", "Rankweil", "Sulz-Röthis", "Klaus", "Götzis", "Altach", "Hohenems", "Dornbirn Hatlerdorf", "Dornbirn Schoren", "Dornbirn", "Dornbirn Haselstauden", "Schwarzach", "Wolfurt", "Lauterach", "Bregenz Riedenburg", "Bregenz"]
 cats = { S = 153, REX = 55, RJX = 28, R = 27, EC = 19, NJ = 6, EN = 4, RJ = 3 }
 lines = [
-  { id = "101-05", ref = "101 05", name = "Arlbergbahn", stations = 6 },
+  { id = "101-05", ref = "101 05", name = "Arlbergbahn", stations = 23 },
 ]
 
 [[corridors]]
@@ -1145,7 +1212,7 @@ major = ["Salzburg Hbf", "Bischofshofen", "Schwarzach-St. Veit", "Zell am See", 
 names = ["Salzburg Hbf", "Salzburg Sam S-Bahn", "Salzburg Gnigl S-Bahn", "Salzburg Parsch S-Bahn", "Salzburg Aigen S-Bahn", "Salzburg-Süd S-Bahn", "Elsbethen S-Bahn", "Puch Urstein (FH)", "Puch S-Bahn", "Oberalm S-Bahn", "Hallein", "Hallein Burgfried S-Bahn", "Bad Vigaun S-Bahn", "Kuchl Garnei S-Bahn", "Kuchl S-Bahn", "Golling-Abtenau", "Tenneck", "Werfen", "Pfarrwerfen", "Bischofshofen", "Mitterberghütten", "St.Johann", "Schwarzach-St. Veit", "Lend", "Taxenbach-Rauris", "Gries", "Bruck-Fusch", "Zell am See", "Maishofen-Saalbach", "Saalfelden", "Leogang-Steinberge", "Leogang", "Hochfilzen", "Pfaffenschwendt", "Fieberbrunn", "St. Johann i. T. Grieswirt", "St. Johann i. T.", "Oberndorf i. T.", "Kitzbühel", "Kitzbühel Hahnenkamm", "Kitzbühel Schwarzsee", "Kirchberg i. T.", "Brixen i. Th.", "Westendorf", "Windau", "Hopfgarten i. Br. Berglift", "Hopfgarten i. Br.", "Wörgl Süd-Bruckhäusl", "Wörgl Hbf"]
 cats = { S = 119, R = 38, IR = 31, REX = 17, IC = 16, RJ = 8, NJ = 8, EC = 6, ICE = 6, D = 4, EN = 4 }
 lines = [
-  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", stations = 46 },
+  { id = "101-03", ref = "101 03", name = "Salzburg-Tiroler-Bahn", stations = 49 },
 ]
 
 [[corridors]]
@@ -1162,7 +1229,10 @@ major = ["Wien Floridsdorf", "Wien Praterstern", "Wien Mitte-Landstraße", "Wien
 names = ["Wien Floridsdorf", "Wien Handelskai", "Wien Traisengasse", "Wien Praterstern", "Wien Mitte-Landstraße", "Wien Rennweg", "Wien Quartier Belvedere", "Wien Hbf", "Wien Matzleinsdorfer Platz", "Wien Meidling"]
 cats = { S = 545, REX = 237, RJX = 76, CAT = 72, IC = 57, CJX = 52, RJ = 36, EC = 31, NJ = 15, R = 12, ICE = 8, D = 8, EN = 8 }
 lines = [
+  { id = "122-01", ref = "122 01", name = "Verbindungsbahn", stations = 7 },
+  { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 4 },
+  { id = "105-01", ref = "105 01", name = "Südbahn", stations = 3 },
   { id = "106-01", ref = "106 01", name = "Pottendorfer Linie", stations = 3 },
-  { id = "114-01", ref = "114 01", name = "Nordbahn", stations = 3 },
-  { id = "122-12", ref = "122 12", name = "Verbindungsbahn", stations = 3 },
+  { id = "116-01", ref = "116 01", name = "Laaer Ostbahn", stations = 3 },
+  { id = "pottendorfer-linie-anbindung-wien-hbf", name = "Pottendorfer Linie Anbindung Wien Hbf", stations = 3 },
 ]

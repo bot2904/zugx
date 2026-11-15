@@ -9,12 +9,19 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 1.494
-kmTo = 6.159
-length = 4.632
-speeds = [[1.494, 1.789, 80, 80], [1.789, 1.926, 60, 80], [1.926, 2.669, 60, 60], [2.669, 5.292, 80, 80], [5.292, 6.159, 90, 90]]
-curves = [[2.022, 2.212, 1080], [2.705, 2.829, 970], [2.879, 3.479, 700], [3.981, 4.191, 860], [4.409, 4.896, 330], [4.947, 5.097, 980], [5.197, 5.348, 900], [5.448, 5.875, 420], [5.925, 6.051, 410]]
+kmFrom = 0.635
+kmTo = 12.822
+length = 12.112
+speeds = [[0.635, 0.854, 80, 60], [0.854, 1.789, 80, 80], [1.789, 1.926, 60, 80], [1.926, 2.669, 60, 60], [2.669, 5.292, 80, 80], [5.292, 6.636, 90, 90], [6.636, 7.175, 40, 40], [7.175, 7.295, 60, 40], [7.295, 8.89, 60, 60], [8.89, 10.082, 75, 75], [10.082, 10.367, 60, 60], [10.367, 11.648, 75, 75], [11.648, 12.414, 50, 50], [12.414, 12.756, 40, 40], [12.756, 12.822, 30, 30]]
+curves = [[1.435, 1.612, 1170], [2.04, 2.202, 840], [2.594, 2.644, 2500], [2.721, 2.82, 770], [2.87, 3.144, 610], [3.194, 3.32, 570], [3.371, 3.496, 1030], [3.97, 4.182, 910], [4.4, 4.888, 330], [4.938, 5.088, 1130], [5.188, 5.339, 810], [5.439, 6.194, 410], [6.246, 6.584, 440], [6.688, 7.114, 420], [7.338, 7.488, 980], [7.613, 7.714, 2360], [8.265, 8.49, 430], [8.54, 8.616, 1060], [9.545, 9.67, 1220], [10.242, 10.422, 830], [10.498, 10.649, 820], [10.975, 11.05, 2640], [11.276, 11.476, 960], [11.689, 11.928, 540], [12.38, 12.708, 810]]
 points = [
+  { km = 0.676, kind = "signal", signal = "electricity" },
+  { km = 0.677, kind = "signal", signal = "electricity" },
+  { km = 0.947, kind = "signal", signal = "electricity" },
+  { km = 0.948, kind = "signal", signal = "electricity" },
+  { km = 1.116, kind = "signal", signal = "speed_limit_distant" },
+  { km = 1.227, kind = "signal", signal = "crossing_distant" },
+  { km = 1.479, kind = "signal", signal = "snowplow" },
   { km = 1.494, kind = "signal", label = "c", signal = "distant", measured = true },
   { km = 1.509, kind = "signal", signal = "snowplow" },
   { km = 1.515, kind = "signal", signal = "crossing" },
@@ -43,4 +50,47 @@ points = [
   { km = 4.815, kind = "signal", label = "zr11", signal = "distant", measured = true },
   { km = 5.45, kind = "signal", label = "ar11", signal = "distant", measured = true },
   { km = 6.159, kind = "signal", label = "Ar11/e", signal = "distant,main", measured = true },
+  { km = 6.682, kind = "signal", label = "VHT211", signal = "shunting", measured = true },
+  { km = 6.853, kind = "signal", label = "H221", signal = "main", measured = true },
+  { km = 6.906, kind = "station", label = "St. Anton im Montafon", pos = [47.10998, 9.86615], measured = true },
+  { km = 7.03, kind = "signal", label = "E221", signal = "main", measured = true },
+  { km = 7.048, kind = "signal", signal = "crossing_distant" },
+  { km = 7.102, kind = "signal", signal = "snowplow" },
+  { km = 7.108, kind = "signal", signal = "crossing_distant" },
+  { km = 7.175, kind = "signal", signal = "speed_limit" },
+  { km = 7.19, kind = "signal", label = "VHT231", signal = "shunting", measured = true },
+  { km = 7.295, kind = "signal", signal = "speed_limit" },
+  { km = 7.298, kind = "signal", signal = "crossing_distant" },
+  { km = 7.705, kind = "signal", label = "U271/h", signal = "distant,main", measured = true },
+  { km = 7.81, kind = "signal", label = "r271", signal = "distant", measured = true },
+  { km = 7.993, kind = "signal", signal = "speed_limit_distant" },
+  { km = 8.142, kind = "halt", label = "Vandans", pos = [47.09879, 9.86877], measured = true },
+  { km = 8.21, kind = "signal", label = "R271", signal = "main", measured = true },
+  { km = 8.252, kind = "signal", signal = "crossing_distant" },
+  { km = 8.269, kind = "signal", label = "VHT281", signal = "shunting", measured = true },
+  { km = 8.317, kind = "signal", label = "Zs11/u", signal = "distant,main", measured = true },
+  { km = 8.458, kind = "signal", signal = "crossing_distant" },
+  { km = 8.708, kind = "signal", label = "zs11", signal = "distant", measured = true },
+  { km = 9.812, kind = "signal", label = "as11", signal = "distant", measured = true },
+  { km = 10.281, kind = "halt", label = "Kaltenbrunnen", pos = [47.08553, 9.88791], measured = true },
+  { km = 10.323, kind = "signal", label = "As11/r", signal = "distant,main", measured = true },
+  { km = 10.375, kind = "signal", label = "VHT331", signal = "shunting", measured = true },
+  { km = 10.706, kind = "signal", label = "H351", signal = "main", measured = true },
+  { km = 11.002, kind = "signal", label = "Sch351R", signal = "minor", measured = true },
+  { km = 11.235, kind = "signal", label = "R361", signal = "main", measured = true },
+  { km = 11.292, kind = "signal", label = "Sch371H", signal = "minor", measured = true },
+  { km = 11.455, kind = "signal", label = "VHT371", signal = "shunting", measured = true },
+  { km = 11.505, kind = "signal", label = "Zt11/h", signal = "distant,main", measured = true },
+  { km = 11.75, kind = "halt", label = "Tschagguns", uic = "8100118", pos = [47.07914, 9.90483], measured = true },
+  { km = 11.851, kind = "signal", label = "at11", signal = "distant", measured = true },
+  { km = 11.914, kind = "signal", label = "zt11", signal = "distant", measured = true },
+  { km = 12.299, kind = "signal", label = "At11", signal = "main", measured = true },
+  { km = 12.434, kind = "signal", label = "VHT411", signal = "shunting", measured = true },
+  { km = 12.642, kind = "signal", signal = "speed_limit" },
+  { km = 12.68, kind = "signal", label = "H421", signal = "main", measured = true },
+  { km = 12.756, kind = "stop", label = "Schruns", pos = [47.07962, 9.91748] },
+  { km = 12.822, kind = "signal", label = "Sch421R", signal = "minor", measured = true },
+  { km = 135.433, kind = "signal", label = "C/r", signal = "distant,main", measured = true },
+  { km = 135.539, kind = "signal", label = "VHT103", signal = "shunting", measured = true },
+  { km = 135.644, kind = "signal", label = "V103", signal = "shunting", measured = true },
 ]

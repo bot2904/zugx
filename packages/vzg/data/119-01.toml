@@ -10,12 +10,14 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 0.868
-kmTo = 12.672
-length = 11.811
-speeds = [[0.868, 11.606, 120, 120], [11.606, 12.672, 80, 80]]
-curves = [[1.838, 2.211, 1260], [11.611, 12.011, 460], [12.386, 12.561, 920]]
+kmFrom = -1.031
+kmTo = 12.948
+length = 13.993
+speeds = [[-1.031, -0.271, 100, 100], [-0.271, 0.868, 120, 100], [0.868, 11.606, 120, 120], [11.606, 12.948, 80, 80]]
+curves = [[1.839, 2.211, 1260], [11.612, 12.011, 470], [12.386, 12.837, 760]]
 points = [
+  { km = -0.387, kind = "stop", label = "Wampersdorf", pos = [47.93151, 16.41742] },
+  { km = 0.668, kind = "signal", label = "VHT103", signal = "shunting", measured = true },
   { km = 0.868, kind = "signal", label = "Ak21/r", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
   { km = 1.213, kind = "signal", signal = "snowplow" },
   { km = 1.508, kind = "signal", signal = "crossing_distant" },
@@ -74,4 +76,11 @@ points = [
   { km = 12.314, kind = "signal", signal = "electricity" },
   { km = 12.321, kind = "signal", signal = "electricity" },
   { km = 12.672, kind = "signal", label = "Xi11/h", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+  { km = 12.692, kind = "signal", signal = "electricity" },
+  { km = 12.904, kind = "signal", label = "VHT314", signal = "shunting", measured = true },
+  { km = 12.946, kind = "signal", label = "V314H", signal = "shunting", measured = true },
+  { km = 29.657, kind = "signal", label = "V103R", signal = "shunting", measured = true },
+  { km = 30.499, kind = "signal", label = "H203", signal = "main,speed_limit", measured = true },
+  { km = 30.574, kind = "signal", label = "1H203", signal = "main_repeated", measured = true },
+  { km = 31.259, kind = "signal", label = "R203", signal = "main,speed_limit", measured = true },
 ]

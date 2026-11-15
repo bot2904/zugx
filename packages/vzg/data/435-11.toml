@@ -9,14 +9,15 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 0.214
-kmTo = 0.496
-length = 0.284
-speeds = [[0.214, 0.496, 60, 60]]
-curves = [[0.314, 0.389, 250]]
+kmFrom = 0.002
+kmTo = 0.653
+length = 0.653
+speeds = [[0.002, 0.653, 60, 60]]
+curves = [[0.102, 0.525, 260]]
 points = [
   { km = 0.235, kind = "signal", label = "H212", signal = "main", measured = true },
   { km = 0.32, kind = "signal", label = "1H212", signal = "main_repeated", measured = true },
   { km = 0.395, kind = "signal", label = "1R212", signal = "main_repeated", measured = true },
   { km = 0.48, kind = "signal", label = "R212", signal = "main", measured = true },
+  { km = 0.576, kind = "signal", signal = "crossing_distant" },
 ]

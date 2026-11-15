@@ -9,12 +9,13 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 0.4
-kmTo = 3.1
-length = 2.697
-speeds = [[0.4, 1.305, 25, 25], [1.305, 1.334, 10, 25], [1.334, 1.372, 25, 10], [1.372, 3.1, 25, 25]]
-curves = [[0.5, 0.749, 1170], [0.824, 0.899, 1800], [1.049, 1.348, 580], [1.398, 1.597, 220], [1.647, 1.897, 430], [1.947, 2.121, 410], [2.171, 2.97, 450]]
+kmFrom = 0.147
+kmTo = 10.42
+length = 10.27
+speeds = [[0.147, 1.305, 25, 25], [1.305, 1.334, 10, 25], [1.334, 1.372, 25, 10], [1.372, 8.842, 25, 25], [8.842, 8.906, 25, 10], [8.906, 10.42, 25, 25]]
+curves = [[0.247, 0.372, 1550], [0.422, 0.746, 910], [0.821, 0.896, 1870], [1.046, 1.694, 470], [1.744, 1.894, 730], [1.944, 2.118, 390], [2.168, 2.792, 410], [2.842, 3.073, 530], [3.125, 3.625, 630], [3.725, 3.825, 760], [3.875, 4, 330], [4.05, 4.375, 320], [4.425, 5, 340], [5.05, 5.275, 330], [5.325, 5.85, 240], [5.9, 6.775, 170], [6.825, 7.35, 700], [7.4, 7.775, 430], [7.825, 8.625, 510], [8.675, 8.875, 260], [8.925, 9.025, 930], [9.075, 9.4, 230], [9.45, 9.775, 410], [9.825, 9.875, 390], [9.925, 10.175, 410]]
 points = [
+  { km = 0.147, kind = "station", label = "Mixnitz-Bärenschützklamm", pos = [47.33191, 15.35995] },
   { km = 1.117, kind = "signal", signal = "whistle" },
   { km = 1.423, kind = "signal", signal = "whistle" },
   { km = 1.557, kind = "signal", signal = "whistle" },
@@ -25,4 +26,31 @@ points = [
   { km = 2.748, kind = "signal", signal = "whistle" },
   { km = 2.962, kind = "signal", signal = "whistle" },
   { km = 2.996, kind = "signal", signal = "whistle" },
+  { km = 3.123, kind = "signal", signal = "whistle" },
+  { km = 3.793, kind = "signal", signal = "whistle" },
+  { km = 4.225, kind = "signal", signal = "whistle" },
+  { km = 4.237, kind = "signal", signal = "whistle" },
+  { km = 4.435, kind = "signal", signal = "whistle" },
+  { km = 4.807, kind = "signal", signal = "main" },
+  { km = 5.007, kind = "signal", signal = "whistle" },
+  { km = 5.102, kind = "signal", signal = "main" },
+  { km = 5.198, kind = "signal", signal = "whistle" },
+  { km = 5.769, kind = "signal", signal = "whistle" },
+  { km = 5.785, kind = "signal", signal = "whistle" },
+  { km = 6.029, kind = "signal", signal = "whistle" },
+  { km = 6.371, kind = "signal", signal = "whistle" },
+  { km = 6.51, kind = "signal", signal = "whistle" },
+  { km = 6.677, kind = "signal", signal = "whistle" },
+  { km = 6.93, kind = "signal", signal = "whistle" },
+  { km = 7.867, kind = "signal", signal = "whistle" },
+  { km = 8.05, kind = "signal", signal = "whistle" },
+  { km = 8.795, kind = "signal", signal = "whistle" },
+  { km = 8.934, kind = "signal", signal = "whistle" },
+  { km = 9.005, kind = "signal", signal = "whistle" },
+  { km = 9.023, kind = "halt", label = "Breitenau", pos = [47.38885, 15.4202] },
+  { km = 9.594, kind = "signal", signal = "whistle" },
+  { km = 9.733, kind = "halt", label = "St. Jakob-Breitenau", pos = [47.38973, 15.42899] },
+  { km = 9.794, kind = "signal", signal = "whistle" },
+  { km = 9.836, kind = "signal", signal = "main" },
+  { km = 9.996, kind = "signal", signal = "whistle" },
 ]

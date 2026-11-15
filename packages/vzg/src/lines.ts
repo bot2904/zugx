@@ -486,19 +486,41 @@ export function lineTracks(
     "1": lineWays.filter((w) => trackOf(w.tags["railway:track_ref"]) === "1"),
     "2": lineWays.filter((w) => trackOf(w.tags["railway:track_ref"]) === "2"),
   };
+  // double track: both directions have their own section tracks; one direction alone (a few
+  // station tracks with direction numbers, e.g. Karwendelbahn near Innsbruck) is a single-track line
   const directions = (["1", "2"] as const).filter((d) => seeds[d].length >= 2);
-  const runs: [string, Way[], "1" | "2" | undefined][] = directions.length
-    ? directions.map((d) => [d, seeds[d], d])
-    : [["1", lineWays, undefined]];
-  for (const [track, ws, d] of runs) {
-    // lines without (enough) OSM km positions: between their two farthest ends, km from 0
-    const ext = kmExtremes(ws, nodeTags, adj, ex.coords) ?? farthestEnds(ws, ex.coords);
-    if (!ext) continue;
-    const path = shortestPath(adj, ext.lo.n, ext.hi.n, (e) => cost(e, d));
-    const t = path && buildTrack(track, path, ex, nodeTags);
-    if (t) tracks.push(t);
+  const double = directions.length === 2;
+  const runs: [string, "1" | "2" | undefined][] = double
+    ? directions.map((d) => [d, d])
+    : [["1", undefined]];
+  // the line's ends: the two farthest ends of its relation's ways (independent of how well its
+  // km positions are tagged; double track often covers only part of a line, e.g. Salzburg –
+  // Taxenbach on the Salzburg-Tiroler-Bahn); without relation: from the km positions
+  const rel = lineWays.filter((w) => members.has(w.id));
+  const candidates = [
+    rel.length ? farthestEnds(rel, ex.coords) : null,
+    // per direction from its own section tracks (only the double-track part)
+    ...directions.map((d) => kmExtremes(seeds[d], nodeTags, adj, ex.coords)),
+    kmExtremes(lineWays, nodeTags, adj, ex.coords),
+    farthestEnds(lineWays, ex.coords),
+  ].filter((e): e is NonNullable<typeof e> => !!e);
+  // the first candidate whose paths are plausible: no detour (path much longer than its km
+  // range, i.e. a gap in the line bridged over other lines); relation ends may also lie in
+  // disconnected parts (no path); else the first that yields tracks at all
+  let fallback: { ts: VzgTrack[]; ratio: number } | undefined;
+  for (const ext of candidates) {
+    const ts: VzgTrack[] = [];
+    for (const [track, d] of runs) {
+      const path = shortestPath(adj, ext.lo.n, ext.hi.n, (e) => cost(e, d));
+      const t = path && buildTrack(track, path, ex, nodeTags);
+      if (t) ts.push(t);
+    }
+    if (!ts.length) continue;
+    const ratio = Math.max(...ts.map((t) => (t.length - 2) / Math.max(1, t.kmTo - t.kmFrom)));
+    if (ratio <= 1.3) return ts;
+    if (!fallback || ratio < fallback.ratio) fallback = { ts, ratio };
   }
-  return tracks;
+  return fallback?.ts ?? tracks;
 }
 
 /** All lines with ÖBB-style numbers ("101 01") from the extract. */

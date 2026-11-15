@@ -10,12 +10,14 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 0.126
-kmTo = 0.595
-length = 0.47
-speeds = [[0.126, 0.595, 50, 50]]
-curves = [[0.226, 0.45, 210]]
+kmFrom = 0.002
+kmTo = 0.71
+length = 0.71
+speeds = [[0.002, 0.71, 50, 50]]
+curves = [[0.102, 0.451, 200]]
 points = [
+  { km = 0.055, kind = "signal", signal = "speed_limit" },
   { km = 0.126, kind = "signal", label = "H35/yb03,zb05", signal = "distant,main,shunting,speed_limit", measured = true },
   { km = 0.595, kind = "signal", label = "S635/p", signal = "distant,main,shunting,speed_limit", measured = true },
+  { km = 5.191, kind = "station", label = "Bahnhof Meidling", uic = "8170040", pos = [48.17353, 16.33142], measured = true },
 ]

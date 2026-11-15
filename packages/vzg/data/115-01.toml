@@ -10,12 +10,22 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 32.902
-kmTo = 48.084
-length = 15.164
-speeds = [[32.902, 48.084, 120, 120]]
-curves = [[36.888, 38.141, 1890], [44.484, 45.076, 1580]]
+kmFrom = 31.273
+kmTo = 49.872
+length = 18.592
+speeds = [[31.273, 32.564, 100, 100], [32.564, 32.902, 80, 80], [32.902, 48.084, 120, 120], [48.084, 48.495, 100, 120], [48.495, 49.872, 100, 100]]
+curves = [[32.044, 32.5, 680], [36.897, 38.126, 1920], [44.494, 45.087, 1560]]
 points = [
+  { km = 31.273, kind = "signal", label = "H304", signal = "main,shunting,speed_limit", measured = true },
+  { km = 31.313, kind = "station", label = "Gänserndorf", uic = "8100245", pos = [48.34027, 16.73258], measured = true },
+  { km = 31.449, kind = "signal", label = "Sch304R/SN/Sch304R", signal = "main_repeated,minor", measured = true },
+  { km = 31.454, kind = "signal", label = "Sch404H/SN/Sch404H", signal = "main_repeated,minor", measured = true },
+  { km = 31.837, kind = "signal", label = "R404", signal = "main,shunting", measured = true },
+  { km = 31.985, kind = "signal", label = "V504H", signal = "shunting", measured = true },
+  { km = 32.493, kind = "signal", label = "V504R", signal = "shunting", measured = true },
+  { km = 32.64, kind = "signal", label = "V604H/h", signal = "distant,shunting,speed_limit_distant", measured = true },
+  { km = 32.713, kind = "signal", label = "VHT604", signal = "shunting", measured = true },
+  { km = 32.752, kind = "signal", signal = "snowplow" },
   { km = 32.902, kind = "signal", label = "Xm11", signal = "main,speed_limit", measured = true },
   { km = 32.992, kind = "signal", signal = "snowplow" },
   { km = 32.994, kind = "signal", signal = "snowplow" },
@@ -25,6 +35,10 @@ points = [
   { km = 34.4, kind = "signal", signal = "station_distant" },
   { km = 34.874, kind = "signal", signal = "snowplow" },
   { km = 34.917, kind = "signal", signal = "snowplow" },
+  { km = 35.095, kind = "signal", label = "H203", signal = "main,speed_limit", measured = true },
+  { km = 35.651, kind = "signal", label = "Sch203R/SN/Sch203R", signal = "main_repeated,minor", measured = true },
+  { km = 35.711, kind = "signal", label = "Sch303H", signal = "minor", measured = true },
+  { km = 35.845, kind = "signal", label = "R303", signal = "main,speed_limit", measured = true },
   { km = 35.96, kind = "signal", signal = "snowplow" },
   { km = 35.965, kind = "signal", signal = "whistle" },
   { km = 36.403, kind = "signal", signal = "snowplow" },
@@ -67,4 +81,7 @@ points = [
   { km = 47.511, kind = "signal", signal = "snowplow" },
   { km = 47.521, kind = "signal", signal = "snowplow" },
   { km = 48.084, kind = "signal", label = "An21/r", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+  { km = 48.284, kind = "signal", label = "VHT103", signal = "shunting", measured = true },
+  { km = 48.492, kind = "signal", label = "V103R", signal = "shunting", measured = true },
+  { km = 49.344, kind = "stop", label = "Marchegg", pos = [48.25006, 16.9172] },
 ]

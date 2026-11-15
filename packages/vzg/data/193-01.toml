@@ -9,12 +9,16 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 0.359
-kmTo = 2.621
-length = 2.264
-speeds = [[0.359, 2.621, 40, 40]]
-curves = [[0.558, 0.708, 1420], [1.433, 1.483, 2300]]
+kmFrom = 0.023
+kmTo = 3.016
+length = 2.998
+speeds = [[0.023, 3.016, 40, 40]]
+curves = [[0.146, 0.309, 410], [0.568, 0.692, 1390], [1.44, 1.488, 2610], [2.585, 2.916, 820]]
 points = [
+  { km = 0.08, kind = "signal", label = "V143H", signal = "shunting", measured = true },
+  { km = 0.091, kind = "signal", signal = "speed_limit" },
+  { km = 0.203, kind = "signal", label = "VHT143", signal = "shunting", measured = true },
+  { km = 0.256, kind = "signal", signal = "snowplow" },
   { km = 0.359, kind = "signal", label = "D", signal = "main", measured = true },
   { km = 0.508, kind = "signal", signal = "whistle" },
   { km = 0.787, kind = "signal", label = "d", signal = "distant", measured = true },
@@ -27,4 +31,5 @@ points = [
   { km = 2.118, kind = "signal", signal = "crossing" },
   { km = 2.243, kind = "signal", signal = "whistle" },
   { km = 2.453, kind = "signal", signal = "snowplow" },
+  { km = 2.687, kind = "signal", signal = "snowplow" },
 ]

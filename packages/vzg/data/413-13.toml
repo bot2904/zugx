@@ -9,12 +9,16 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 202.937
-kmTo = 203.538
-length = 0.601
-speeds = [[202.937, 203.538, 60, 60]]
-curves = [[203.037, 203.412, 300]]
+kmFrom = 202.46
+kmTo = 203.671
+length = 1.211
+speeds = [[202.46, 203.671, 60, 60]]
+curves = [[202.672, 203.421, 300], [203.471, 203.571, 480]]
 points = [
+  { km = 202.46, kind = "signal", label = "U3", signal = "main" },
+  { km = 202.46, kind = "station", label = "St. Michael", uic = "8100071", pos = [47.34662, 15.00919] },
+  { km = 202.758, kind = "signal", label = "V7", signal = "shunting" },
+  { km = 202.874, kind = "signal", label = "E3/s", signal = "distant,main,speed_limit,speed_limit_distant" },
   { km = 202.937, kind = "signal", label = "r3", signal = "distant", measured = true },
   { km = 202.971, kind = "signal", label = "1E3", signal = "main_repeated" },
   { km = 203.538, kind = "signal", label = "R3", signal = "main", measured = true },

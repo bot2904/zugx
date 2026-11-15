@@ -8,12 +8,12 @@ to = "Wien Blumental (in Id)"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
 
 [[tracks]]
-track = "2"
-kmFrom = 0.141
-kmTo = 0.672
-length = 0.522
-speeds = [[0.141, 0.672, 60, 60]]
-curves = [[0.236, 0.541, 250]]
+track = "1"
+kmFrom = 0.002
+kmTo = 0.812
+length = 0.801
+speeds = [[0.002, 0.812, 60, 60]]
+curves = [[0.192, 0.711, 280]]
 points = [
   { km = 0.141, kind = "signal", label = "V142R", signal = "shunting", measured = true },
   { km = 0.171, kind = "signal", label = "VHT142", signal = "shunting", measured = true },

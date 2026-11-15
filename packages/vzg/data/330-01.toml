@@ -10,29 +10,51 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 48.576
-kmTo = 51.14
-length = 2.557
-speeds = [[48.576, 51.14, 220, 220]]
-curves = [[49.23, 49.28, 2960], [49.557, 49.632, 2930], [49.807, 49.857, 2950], [50.107, 50.207, 2810], [50.357, 50.457, 2890], [50.808, 50.858, 2900]]
+kmFrom = 24.838
+kmTo = 62.159
+length = 37.119
+speeds = [[24.838, 25.879, 160, 160], [25.879, 57.653, 220, 220], [57.653, 58.955, 210, 210], [58.955, 62.159, 200, 200]]
+curves = [[27.452, 27.528, 2990], [27.578, 27.679, 2970], [27.831, 27.882, 2910], [28.009, 28.059, 2970], [28.194, 28.319, 2950], [33.956, 34.031, 2890], [35.66, 35.736, 2960], [35.987, 36.163, 2910], [36.338, 36.539, 2930], [37.565, 37.64, 2820], [37.866, 37.991, 2960], [38.116, 38.166, 2930], [38.267, 38.342, 2970], [38.417, 38.492, 2980], [39.971, 41.206, 2740], [41.957, 43.078, 2620], [45.078, 45.76, 2640], [48.347, 48.572, 2890], [48.823, 48.873, 2930], [49.551, 49.627, 3000], [49.801, 49.851, 2890], [50.125, 50.2, 2810], [50.35, 50.475, 2930], [50.8, 50.9, 2950], [51.025, 51.075, 2990], [52.252, 52.328, 2950], [52.479, 52.63, 2920], [52.757, 52.807, 2960], [53.034, 53.135, 2930], [53.328, 53.403, 2960], [53.528, 53.603, 2900], [53.754, 53.829, 2880], [55.004, 55.079, 2930], [57.887, 58.892, 2500], [59.318, 60.659, 2000]]
 points = [
-  { km = 48.576, kind = "signal", label = "VHT501", signal = "shunting", measured = true },
-  { km = 48.886, kind = "signal", label = "H601", signal = "train_protection", measured = true },
-  { km = 49.632, kind = "signal", label = "SM601R", signal = "train_protection", measured = true },
-  { km = 50.083, kind = "signal", label = "SM611H", signal = "train_protection", measured = true },
-  { km = 50.833, kind = "signal", label = "R611", signal = "train_protection", measured = true },
-  { km = 51.04, kind = "signal", label = "V701H", signal = "shunting", measured = true },
-  { km = 51.14, kind = "signal", label = "VHT701", signal = "shunting", measured = true },
-]
-
-[[tracks]]
-track = "2"
-kmFrom = 48.576
-kmTo = 51.14
-length = 2.561
-speeds = [[48.576, 51.14, 220, 220]]
-curves = [[48.802, 48.877, 2990], [49.053, 49.103, 2960], [49.805, 49.855, 2930], [50.104, 50.204, 2810], [50.354, 50.454, 2900], [50.804, 50.904, 2970]]
-points = [
+  { km = 0, kind = "station", label = "Jenbach Achenseebahn", pos = [47.38899, 11.77933], measured = true },
+  { km = 0, kind = "station", label = "Jenbach Zillertalbahn", uic = "8100545", pos = [47.38814, 11.77821], measured = true },
+  { km = 25.309, kind = "signal", label = "C304", signal = "train_protection", measured = true },
+  { km = 25.359, kind = "signal", label = "W504", signal = "train_protection", measured = true },
+  { km = 26.446, kind = "signal", signal = "electricity" },
+  { km = 26.447, kind = "signal", signal = "electricity" },
+  { km = 26.473, kind = "signal", label = "C504", signal = "train_protection", measured = true },
+  { km = 26.583, kind = "signal", label = "Wf34", signal = "train_protection", measured = true },
+  { km = 26.68, kind = "signal", signal = "electricity" },
+  { km = 26.681, kind = "signal", signal = "electricity" },
+  { km = 28.078, kind = "signal", label = "Cf34", signal = "train_protection", measured = true },
+  { km = 28.153, kind = "signal", label = "Wf44", signal = "train_protection", measured = true },
+  { km = 29.238, kind = "signal", label = "Cf44", signal = "train_protection", measured = true },
+  { km = 29.307, kind = "signal", label = "Wa14", signal = "train_protection", measured = true },
+  { km = 30.494, kind = "signal", label = "Ca14", signal = "train_protection", measured = true },
+  { km = 30.564, kind = "signal", label = "Wa24", signal = "train_protection", measured = true },
+  { km = 31.684, kind = "signal", label = "Ca24", signal = "train_protection", measured = true },
+  { km = 32.661, kind = "signal", label = "Wa34", signal = "train_protection", measured = true },
+  { km = 33.871, kind = "signal", label = "Ca34", signal = "train_protection", measured = true },
+  { km = 33.955, kind = "signal", label = "Wa44", signal = "train_protection", measured = true },
+  { km = 35.295, kind = "signal", label = "Ca44", signal = "train_protection", measured = true },
+  { km = 35.369, kind = "signal", label = "Wa54", signal = "train_protection", measured = true },
+  { km = 37.089, kind = "signal", label = "Ca54", signal = "train_protection", measured = true },
+  { km = 37.199, kind = "signal", label = "Wa64", signal = "train_protection", measured = true },
+  { km = 38.961, kind = "signal", label = "Ca64", signal = "train_protection", measured = true },
+  { km = 39.889, kind = "signal", label = "Wa74", signal = "train_protection", measured = true },
+  { km = 40.882, kind = "station", label = "Jenbach", uic = "8100102", pos = [47.38842, 11.77827], measured = true },
+  { km = 40.916, kind = "signal", label = "Ca74", signal = "train_protection", measured = true },
+  { km = 40.986, kind = "signal", label = "Wa84", signal = "train_protection", measured = true },
+  { km = 42.297, kind = "signal", label = "Ca84", signal = "train_protection", measured = true },
+  { km = 42.355, kind = "signal", label = "Wb14", signal = "train_protection", measured = true },
+  { km = 43.659, kind = "signal", label = "Cb14", signal = "train_protection", measured = true },
+  { km = 43.749, kind = "signal", label = "W204", signal = "train_protection", measured = true },
+  { km = 44.764, kind = "signal", label = "C304", signal = "train_protection", measured = true },
+  { km = 44.862, kind = "signal", label = "Wb24", signal = "train_protection", measured = true },
+  { km = 45.712, kind = "halt", label = "Stans", uic = "8100310", pos = [47.36537, 11.72619], measured = true },
+  { km = 46.515, kind = "signal", label = "Cb24", signal = "train_protection", measured = true },
+  { km = 46.606, kind = "signal", label = "Wb34", signal = "train_protection", measured = true },
+  { km = 48.27, kind = "signal", label = "Cb34", signal = "train_protection", measured = true },
   { km = 48.576, kind = "signal", label = "VHT502", signal = "shunting", measured = true },
   { km = 48.677, kind = "signal", label = "V502R", signal = "shunting", measured = true },
   { km = 48.886, kind = "signal", label = "H602", signal = "train_protection", measured = true },
@@ -40,4 +62,98 @@ points = [
   { km = 50.083, kind = "signal", label = "SM612H", signal = "train_protection", measured = true },
   { km = 50.833, kind = "signal", label = "R612", signal = "train_protection", measured = true },
   { km = 51.14, kind = "signal", label = "VHT702", signal = "shunting", measured = true },
+  { km = 52.09, kind = "signal", label = "Wc14", signal = "train_protection", measured = true },
+  { km = 53.197, kind = "signal", label = "Cc14", signal = "train_protection", measured = true },
+  { km = 53.269, kind = "signal", label = "Wc24", signal = "train_protection", measured = true },
+  { km = 54.301, kind = "signal", label = "Cc24", signal = "train_protection", measured = true },
+  { km = 54.372, kind = "signal", label = "Wc34", signal = "train_protection", measured = true },
+  { km = 55.231, kind = "halt", label = "Terfens-Weer", uic = "8100323", pos = [47.31606, 11.63461], measured = true },
+  { km = 55.406, kind = "signal", label = "Cc34", signal = "train_protection", measured = true },
+  { km = 55.483, kind = "signal", label = "Wc44", signal = "train_protection", measured = true },
+  { km = 56.545, kind = "signal", label = "Cc44", signal = "train_protection", measured = true },
+  { km = 57.458, kind = "signal", label = "Wc54", signal = "train_protection", measured = true },
+  { km = 58.781, kind = "signal", label = "Cc54", signal = "train_protection", measured = true },
+  { km = 58.859, kind = "signal", label = "Wc64", signal = "train_protection", measured = true },
+  { km = 59.067, kind = "station", label = "Fritzens-Wattens", uic = "8100104", pos = [47.30215, 11.58893], measured = true },
+  { km = 59.992, kind = "signal", label = "Cc64", signal = "train_protection", measured = true },
+  { km = 60.058, kind = "signal", label = "Wc74", signal = "train_protection", measured = true },
+  { km = 60.928, kind = "signal", label = "Cc74", signal = "train_protection", measured = true },
+  { km = 61.158, kind = "signal", label = "Wc84", signal = "train_protection", measured = true },
+  { km = 61.16, kind = "halt", label = "Volders-Baumkirchen", uic = "8100337", pos = [47.296, 11.56389], measured = true },
+  { km = 61.819, kind = "signal", label = "Cc84", signal = "train_protection", measured = true },
+]
+
+[[tracks]]
+track = "2"
+kmFrom = 24.838
+kmTo = 62.159
+length = 37.119
+speeds = [[24.838, 25.879, 160, 160], [25.879, 57.653, 220, 220], [57.653, 58.955, 210, 210], [58.955, 62.159, 200, 200]]
+curves = [[27.452, 27.528, 2990], [27.578, 27.679, 2970], [27.831, 27.882, 2910], [28.009, 28.059, 2970], [28.194, 28.319, 2950], [33.956, 34.031, 2890], [35.66, 35.736, 2960], [35.987, 36.163, 2910], [36.338, 36.539, 2930], [37.565, 37.64, 2820], [37.866, 37.991, 2960], [38.116, 38.166, 2930], [38.267, 38.342, 2970], [38.417, 38.492, 2980], [39.971, 41.206, 2740], [41.957, 43.078, 2620], [45.078, 45.76, 2640], [48.347, 48.572, 2890], [48.823, 48.873, 2930], [49.551, 49.627, 3000], [49.801, 49.851, 2890], [50.125, 50.2, 2810], [50.35, 50.475, 2930], [50.8, 50.9, 2950], [51.025, 51.075, 2990], [52.252, 52.328, 2950], [52.479, 52.63, 2920], [52.757, 52.807, 2960], [53.034, 53.135, 2930], [53.328, 53.403, 2960], [53.528, 53.603, 2900], [53.754, 53.829, 2880], [55.004, 55.079, 2930], [57.887, 58.892, 2500], [59.318, 60.659, 2000]]
+points = [
+  { km = 0, kind = "station", label = "Jenbach Achenseebahn", pos = [47.38899, 11.77933], measured = true },
+  { km = 0, kind = "station", label = "Jenbach Zillertalbahn", uic = "8100545", pos = [47.38814, 11.77821], measured = true },
+  { km = 25.309, kind = "signal", label = "C304", signal = "train_protection", measured = true },
+  { km = 25.359, kind = "signal", label = "W504", signal = "train_protection", measured = true },
+  { km = 26.446, kind = "signal", signal = "electricity" },
+  { km = 26.447, kind = "signal", signal = "electricity" },
+  { km = 26.473, kind = "signal", label = "C504", signal = "train_protection", measured = true },
+  { km = 26.583, kind = "signal", label = "Wf34", signal = "train_protection", measured = true },
+  { km = 26.68, kind = "signal", signal = "electricity" },
+  { km = 26.681, kind = "signal", signal = "electricity" },
+  { km = 28.078, kind = "signal", label = "Cf34", signal = "train_protection", measured = true },
+  { km = 28.153, kind = "signal", label = "Wf44", signal = "train_protection", measured = true },
+  { km = 29.238, kind = "signal", label = "Cf44", signal = "train_protection", measured = true },
+  { km = 29.307, kind = "signal", label = "Wa14", signal = "train_protection", measured = true },
+  { km = 30.494, kind = "signal", label = "Ca14", signal = "train_protection", measured = true },
+  { km = 30.564, kind = "signal", label = "Wa24", signal = "train_protection", measured = true },
+  { km = 31.684, kind = "signal", label = "Ca24", signal = "train_protection", measured = true },
+  { km = 32.661, kind = "signal", label = "Wa34", signal = "train_protection", measured = true },
+  { km = 33.871, kind = "signal", label = "Ca34", signal = "train_protection", measured = true },
+  { km = 33.955, kind = "signal", label = "Wa44", signal = "train_protection", measured = true },
+  { km = 35.295, kind = "signal", label = "Ca44", signal = "train_protection", measured = true },
+  { km = 35.369, kind = "signal", label = "Wa54", signal = "train_protection", measured = true },
+  { km = 37.089, kind = "signal", label = "Ca54", signal = "train_protection", measured = true },
+  { km = 37.199, kind = "signal", label = "Wa64", signal = "train_protection", measured = true },
+  { km = 38.961, kind = "signal", label = "Ca64", signal = "train_protection", measured = true },
+  { km = 39.889, kind = "signal", label = "Wa74", signal = "train_protection", measured = true },
+  { km = 40.882, kind = "station", label = "Jenbach", uic = "8100102", pos = [47.38842, 11.77827], measured = true },
+  { km = 40.916, kind = "signal", label = "Ca74", signal = "train_protection", measured = true },
+  { km = 40.986, kind = "signal", label = "Wa84", signal = "train_protection", measured = true },
+  { km = 42.297, kind = "signal", label = "Ca84", signal = "train_protection", measured = true },
+  { km = 42.355, kind = "signal", label = "Wb14", signal = "train_protection", measured = true },
+  { km = 43.659, kind = "signal", label = "Cb14", signal = "train_protection", measured = true },
+  { km = 43.749, kind = "signal", label = "W204", signal = "train_protection", measured = true },
+  { km = 44.764, kind = "signal", label = "C304", signal = "train_protection", measured = true },
+  { km = 44.862, kind = "signal", label = "Wb24", signal = "train_protection", measured = true },
+  { km = 45.712, kind = "halt", label = "Stans", uic = "8100310", pos = [47.36537, 11.72619], measured = true },
+  { km = 46.515, kind = "signal", label = "Cb24", signal = "train_protection", measured = true },
+  { km = 46.606, kind = "signal", label = "Wb34", signal = "train_protection", measured = true },
+  { km = 48.27, kind = "signal", label = "Cb34", signal = "train_protection", measured = true },
+  { km = 48.576, kind = "signal", label = "VHT502", signal = "shunting", measured = true },
+  { km = 48.677, kind = "signal", label = "V502R", signal = "shunting", measured = true },
+  { km = 48.886, kind = "signal", label = "H602", signal = "train_protection", measured = true },
+  { km = 49.632, kind = "signal", label = "SM602R", signal = "train_protection", measured = true },
+  { km = 50.083, kind = "signal", label = "SM612H", signal = "train_protection", measured = true },
+  { km = 50.833, kind = "signal", label = "R612", signal = "train_protection", measured = true },
+  { km = 51.14, kind = "signal", label = "VHT702", signal = "shunting", measured = true },
+  { km = 52.09, kind = "signal", label = "Wc14", signal = "train_protection", measured = true },
+  { km = 53.197, kind = "signal", label = "Cc14", signal = "train_protection", measured = true },
+  { km = 53.269, kind = "signal", label = "Wc24", signal = "train_protection", measured = true },
+  { km = 54.301, kind = "signal", label = "Cc24", signal = "train_protection", measured = true },
+  { km = 54.372, kind = "signal", label = "Wc34", signal = "train_protection", measured = true },
+  { km = 55.231, kind = "halt", label = "Terfens-Weer", uic = "8100323", pos = [47.31606, 11.63461], measured = true },
+  { km = 55.406, kind = "signal", label = "Cc34", signal = "train_protection", measured = true },
+  { km = 55.483, kind = "signal", label = "Wc44", signal = "train_protection", measured = true },
+  { km = 56.545, kind = "signal", label = "Cc44", signal = "train_protection", measured = true },
+  { km = 57.458, kind = "signal", label = "Wc54", signal = "train_protection", measured = true },
+  { km = 58.781, kind = "signal", label = "Cc54", signal = "train_protection", measured = true },
+  { km = 58.859, kind = "signal", label = "Wc64", signal = "train_protection", measured = true },
+  { km = 59.067, kind = "station", label = "Fritzens-Wattens", uic = "8100104", pos = [47.30215, 11.58893], measured = true },
+  { km = 59.992, kind = "signal", label = "Cc64", signal = "train_protection", measured = true },
+  { km = 60.058, kind = "signal", label = "Wc74", signal = "train_protection", measured = true },
+  { km = 60.928, kind = "signal", label = "Cc74", signal = "train_protection", measured = true },
+  { km = 61.158, kind = "signal", label = "Wc84", signal = "train_protection", measured = true },
+  { km = 61.16, kind = "halt", label = "Volders-Baumkirchen", uic = "8100337", pos = [47.296, 11.56389], measured = true },
+  { km = 61.819, kind = "signal", label = "Cc84", signal = "train_protection", measured = true },
 ]

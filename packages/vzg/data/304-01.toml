@@ -10,12 +10,21 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 2.25
-kmTo = 6.16
-length = 3.909
-speeds = [[2.25, 2.478, 90, 90], [2.478, 5.576, 130, 130], [5.576, 6.16, 110, 110]]
-curves = [[2.35, 2.474, 840], [4.587, 4.636, 2510], [4.759, 4.809, 2610], [4.978, 5.026, 2380], [5.151, 5.226, 2800], [5.626, 6.051, 570]]
+kmFrom = 1.356
+kmTo = 9.423
+length = 8.076
+speeds = [[1.356, 2.478, 90, 90], [2.478, 5.576, 130, 130], [5.576, 6.43, 110, 110], [6.43, 8.583, 130, 130], [8.583, 9.423, 80, 80]]
+curves = [[1.667, 2.463, 350], [4.576, 4.626, 2560], [4.749, 4.798, 2450], [4.991, 5.04, 2410], [5.165, 5.215, 2480], [5.615, 6.39, 580], [8.773, 9.323, 310]]
 points = [
+  { km = 1.482, kind = "signal", signal = "electricity", measured = true },
+  { km = 1.482, kind = "signal", signal = "electricity", measured = true },
+  { km = 1.598, kind = "signal", signal = "electricity", measured = true },
+  { km = 1.598, kind = "signal", signal = "electricity", measured = true },
+  { km = 1.744, kind = "halt", label = "Lustenau Museum", pos = [47.44788, 9.66041] },
+  { km = 1.78, kind = "signal", signal = "electricity" },
+  { km = 1.8, kind = "signal", label = "A*501", signal = "distant", measured = true },
+  { km = 1.827, kind = "signal", label = "1A", signal = "main_repeated", measured = true },
+  { km = 2.024, kind = "signal", label = "A/r", signal = "distant,main", measured = true },
   { km = 2.25, kind = "signal", label = "VHT101", signal = "shunting", measured = true },
   { km = 2.424, kind = "signal", label = "V101R", signal = "shunting", measured = true },
   { km = 2.6, kind = "signal", label = "H1", signal = "main", measured = true },
@@ -34,4 +43,15 @@ points = [
   { km = 5.685, kind = "signal", signal = "station_distant" },
   { km = 6.022, kind = "signal", label = "1Az11", signal = "main_repeated", measured = true },
   { km = 6.16, kind = "signal", label = "Az11/g", signal = "distant,main,speed_limit", measured = true },
+  { km = 6.36, kind = "signal", label = "VHT301", signal = "shunting", measured = true },
+  { km = 6.535, kind = "signal", label = "H737", signal = "main", measured = true },
+  { km = 6.563, kind = "stop", label = "Hard-Fussach", pos = [47.47989, 9.68922] },
+  { km = 7.674, kind = "signal", label = "G737/o717", signal = "distant,main", measured = true },
+  { km = 7.836, kind = "signal", label = "M717/h737", signal = "distant,main", measured = true },
+  { km = 8.561, kind = "stop", label = "Lauterach Unterfeld", pos = [47.48083, 9.71572] },
+  { km = 8.584, kind = "signal", label = "GAW273", signal = "speed_limit", measured = true },
+  { km = 8.584, kind = "signal", label = "O717/p,r", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+  { km = 8.852, kind = "signal", label = "U707/m", signal = "distant,main", measured = true },
+  { km = 9.234, kind = "signal", label = "R7/bn11,an12", signal = "distant,main,speed_limit", measured = true },
+  { km = 9.307, kind = "signal", signal = "electricity" },
 ]

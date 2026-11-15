@@ -10,12 +10,16 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 81.012
-kmTo = 91.791
-length = 10.766
-speeds = [[81.012, 81.279, 100, 100], [81.279, 83.83, 120, 120], [83.83, 86.887, 100, 100], [86.887, 88.759, 120, 120], [88.759, 89.199, 100, 100], [89.199, 91.791, 120, 120]]
-curves = [[81.112, 81.261, 870], [81.735, 82.309, 2040], [83.061, 83.162, 2050], [83.84, 84.413, 630], [84.488, 85.965, 530], [88.77, 89.196, 670], [90.873, 91.399, 830]]
+kmFrom = 79.638
+kmTo = 95.341
+length = 14.01
+speeds = [[79.638, 81.279, 100, 100], [81.279, 83.83, 120, 120], [83.83, 86.887, 100, 100], [86.887, 88.759, 120, 120], [88.759, 89.199, 100, 100], [89.199, 93.728, 120, 120], [93.728, 95.341, 100, 100]]
+curves = [[79.788, 79.838, 2290], [80.063, 80.688, 640], [80.763, 81.264, 700], [81.737, 82.312, 2040], [83.064, 83.165, 2070], [83.843, 84.416, 640], [84.491, 85.967, 530], [88.773, 89.173, 660], [91.697, 92.49, 840]]
 points = [
+  { km = 79.83, kind = "signal", label = "H203", signal = "train_protection", measured = true },
+  { km = 79.949, kind = "stop", label = "Wiederndorf-Aich", pos = [46.62077, 14.79496] },
+  { km = 80.034, kind = "signal", label = "R203", signal = "train_protection", measured = true },
+  { km = 80.166, kind = "signal", label = "VHT303", signal = "shunting", measured = true },
   { km = 81.012, kind = "signal", label = "Zy11", signal = "train_protection", measured = true },
   { km = 82.867, kind = "signal", label = "Ay11", signal = "train_protection", measured = true },
   { km = 83.19, kind = "signal", label = "VHT101", signal = "shunting", measured = true },
@@ -34,4 +38,11 @@ points = [
   { km = 87.375, kind = "signal", label = "Zz11", signal = "train_protection", measured = true },
   { km = 89.261, kind = "halt", label = "St. Michael ob Bleiburg/Šmihel pri Pliberku", uic = "8101471", pos = [46.58239, 14.75073], measured = true },
   { km = 91.791, kind = "signal", label = "Az11", signal = "train_protection", measured = true },
+  { km = 92.087, kind = "signal", label = "VHT113", signal = "shunting", measured = true },
+  { km = 92.215, kind = "signal", label = "V113R", signal = "shunting", measured = true },
+  { km = 94.228, kind = "signal", label = "H213", signal = "train_protection", measured = true },
+  { km = 94.368, kind = "stop", label = "Mittlern", pos = [46.59876, 14.71487] },
+  { km = 94.409, kind = "signal", label = "SM213H", signal = "train_protection", measured = true },
+  { km = 94.553, kind = "signal", label = "SM313H", signal = "train_protection", measured = true },
+  { km = 95.341, kind = "signal", label = "R313", signal = "train_protection", measured = true },
 ]

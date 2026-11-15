@@ -9,14 +9,12 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 10.661
-kmTo = 22.93
-length = 11.723
-speeds = [[10.661, 15.991, 40, 40], [15.991, 16.327, 30, 40], [16.327, 16.369, 30, 10], [16.369, 16.428, 40, 10], [16.428, 22.93, 40, 40]]
-curves = [[10.76, 11.315, 380], [11.365, 11.656, 190], [11.784, 11.989, 610], [12.065, 12.218, 730], [12.269, 12.393, 750], [12.443, 12.667, 790], [13.613, 14.089, 1050], [14.394, 14.841, 300], [15.175, 15.341, 490], [16.239, 16.489, 390], [16.565, 17.117, 300], [17.167, 17.456, 330], [17.916, 18.124, 1210], [19.329, 19.535, 1120], [20.165, 20.39, 440], [20.44, 20.842, 240], [20.915, 21.012, 1190], [21.088, 21.315, 640], [21.69, 21.789, 1650], [21.838, 21.936, 1160], [22.172, 22.27, 480]]
+kmFrom = 10.86
+kmTo = 22.849
+length = 11.99
+speeds = [[10.86, 15.991, 40, 40], [15.991, 16.327, 30, 40], [16.327, 16.369, 30, 10], [16.369, 16.428, 40, 10], [16.428, 22.849, 40, 40]]
+curves = [[10.968, 11.316, 320], [11.366, 11.657, 190], [11.785, 11.99, 600], [12.066, 12.219, 740], [12.269, 12.394, 760], [12.444, 12.668, 790], [13.589, 14.09, 1050], [14.394, 14.843, 300], [15.176, 15.342, 480], [16.24, 16.49, 400], [16.565, 17.117, 290], [17.167, 17.457, 330], [17.917, 18.124, 1190], [19.33, 19.536, 1100], [20.165, 20.391, 450], [20.441, 20.843, 240], [20.915, 21.013, 1210], [21.089, 21.316, 650], [21.691, 21.765, 1640], [21.839, 21.937, 1160], [22.173, 22.394, 470], [22.517, 22.738, 200]]
 points = [
-  { km = 10.661, kind = "signal", label = "VHT712", signal = "shunting", measured = true },
-  { km = 10.821, kind = "signal", signal = "whistle" },
   { km = 10.86, kind = "signal", label = "Y/u", signal = "distant,main", measured = true },
   { km = 11.087, kind = "signal", signal = "snowplow" },
   { km = 11.112, kind = "signal", signal = "snowplow" },
@@ -69,5 +67,11 @@ points = [
   { km = 21.255, kind = "signal", signal = "minor" },
   { km = 22.177, kind = "signal", label = "x", signal = "distant", measured = true },
   { km = 22.278, kind = "signal", signal = "minor" },
-  { km = 22.512, kind = "signal", signal = "minor" },
+  { km = 22.329, kind = "signal", signal = "minor" },
+  { km = 22.577, kind = "signal", label = "X/h", signal = "distant,main", measured = true },
+  { km = 22.63, kind = "signal", label = "VHT403", signal = "shunting", measured = true },
+  { km = 22.75, kind = "signal", signal = "electricity" },
+  { km = 22.755, kind = "signal", signal = "speed_limit" },
+  { km = 22.782, kind = "signal", signal = "electricity" },
+  { km = 22.798, kind = "signal", label = "V53", signal = "shunting", measured = true },
 ]

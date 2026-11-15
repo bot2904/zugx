@@ -10,10 +10,10 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 [[tracks]]
 track = "1"
 kmFrom = 4.112
-kmTo = 5.529
-length = 1.694
-speeds = [[4.112, 4.688, 40, 40], [4.688, 4.856, 80, 40], [4.856, 5.529, 80, 80]]
-curves = [[4.21, 4.356, 630], [4.43, 4.576, 580], [4.723, 5.229, 2010], [5.355, 5.481, 880]]
+kmTo = 5.68
+length = 1.844
+speeds = [[4.112, 4.688, 40, 40], [4.688, 4.856, 80, 40], [4.856, 5.68, 80, 80]]
+curves = [[4.229, 4.351, 650], [4.424, 4.595, 700], [4.718, 5.224, 2010], [5.349, 5.48, 850]]
 points = [
   { km = 4.112, kind = "signal", label = "M601", signal = "main,speed_limit", measured = true },
   { km = 4.246, kind = "signal", label = "V704w", signal = "shunting" },

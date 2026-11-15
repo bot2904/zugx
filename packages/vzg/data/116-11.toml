@@ -1,0 +1,26 @@
+id = "116-11"
+ref = "116 11"
+name = "Südschleife"
+operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
+from = "Wien Süßenbrunn-Mitte (in Sue)"
+to = "Wien Süßenbrunn (in Sue)"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 5.821
+kmTo = 7.254
+length = 1.437
+speeds = [[5.821, 7.254, 60, 60]]
+curves = [[6.526, 6.676, 1550], [6.751, 6.85, 1380], [6.9, 7.154, 350]]
+points = [
+  { km = 5.892, kind = "signal", label = "V642H", signal = "shunting", measured = true },
+  { km = 5.964, kind = "signal", label = "V642R", signal = "shunting", measured = true },
+  { km = 6.093, kind = "signal", label = "G30", signal = "main,shunting", measured = true },
+  { km = 6.799, kind = "signal", label = "F30", signal = "main,shunting", measured = true },
+  { km = 6.927, kind = "signal", label = "V430H", signal = "shunting", measured = true },
+  { km = 7.094, kind = "signal", label = "r", signal = "distant", measured = true },
+  { km = 7.16, kind = "signal", label = "V430R", signal = "shunting", measured = true },
+  { km = 7.254, kind = "station", label = "Wien Süßenbrunn", uic = "8101619", pos = [48.28557, 16.48552] },
+]

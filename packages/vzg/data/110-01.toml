@@ -10,12 +10,27 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 1.828
-kmTo = 44.055
-length = 41.704
-speeds = [[1.828, 27.548, 120, 120], [27.548, 28.542, 80, 80], [28.542, 35.969, 120, 120], [35.969, 36.01, 120, 90], [36.01, 36.253, 40, 90], [36.253, 36.761, 40, 40], [36.761, 37.293, 40, 100], [37.293, 38.981, 120, 100], [38.981, 39.225, 100, 100], [39.225, 41.969, 120, 120], [41.969, 42.635, 110, 110], [42.635, 42.85, 90, 90], [42.85, 44.055, 120, 120]]
-curves = [[5.079, 5.932, 740], [11.172, 11.222, 2630], [11.322, 11.372, 2790], [11.522, 11.711, 2720], [11.874, 11.949, 2560], [12.074, 12.932, 880], [16.233, 16.485, 1070], [26.864, 27.137, 2160], [28.09, 28.527, 380], [29.895, 30.271, 1540], [33.244, 33.418, 1670], [35.969, 36.269, 760], [36.445, 36.691, 600], [37.346, 37.446, 1850], [37.844, 38.169, 1690], [38.871, 39.167, 1680], [41.419, 41.719, 1200], [41.97, 42.095, 1880], [42.626, 42.826, 700]]
+kmFrom = -0.445
+kmTo = 46.804
+length = 46.714
+speeds = [[-0.445, 0.161, 40, 60], [0.161, 0.164, 60, 60], [0.164, 0.44, 40, 40], [0.44, 1.011, 40, 60], [1.011, 1.1, 60, 60], [1.1, 1.11, 100, 60], [1.11, 1.757, 100, 100], [1.757, 1.828, 120, 100], [1.828, 27.548, 120, 120], [27.548, 28.542, 80, 80], [28.542, 35.969, 120, 120], [35.969, 36.01, 120, 90], [36.01, 36.253, 40, 90], [36.253, 36.761, 40, 40], [36.761, 37.293, 40, 100], [37.293, 38.981, 120, 100], [38.981, 39.225, 100, 100], [39.225, 41.969, 120, 120], [41.969, 42.635, 110, 110], [42.635, 42.85, 90, 90], [42.85, 45.567, 120, 120], [45.567, 45.796, 60, 120], [45.796, 46.332, 60, 60], [46.332, 46.347, 40, 60], [46.347, 46.804, 40, 40]]
+curves = [[0.255, 0.613, 350], [1.11, 1.737, 990], [5.088, 5.915, 740], [11.155, 11.23, 2810], [11.306, 11.381, 2750], [11.506, 11.686, 2710], [11.883, 11.958, 2690], [12.058, 12.945, 880], [16.241, 16.494, 1090], [26.872, 27.146, 2170], [28.075, 28.536, 420], [29.903, 30.28, 1570], [33.227, 33.427, 1720], [35.952, 36.277, 840], [36.454, 36.699, 540], [37.355, 37.455, 1980], [37.853, 38.178, 1610], [38.854, 39.174, 1790], [41.428, 41.728, 1190], [41.978, 42.079, 1660], [42.609, 42.835, 850], [44.159, 44.683, 1720], [45.858, 46.275, 300], [46.365, 46.44, 2180], [46.54, 46.64, 2560]]
 points = [
+  { km = -0.042, kind = "stop", label = "Tulln an der Donau", pos = [48.32732, 16.06468] },
+  { km = 0.44, kind = "signal", label = "S3/h", signal = "distant,main,shunting", measured = true },
+  { km = 0.505, kind = "signal", label = "o333", signal = "distant", measured = true },
+  { km = 0.613, kind = "signal", label = "V333N", signal = "shunting", measured = true },
+  { km = 0.755, kind = "signal", label = "Sch433H/1S3", signal = "main_repeated,minor", measured = true },
+  { km = 0.85, kind = "stop", label = "Tulln Stadt", pos = [48.32843, 16.05404] },
+  { km = 1.011, kind = "signal", label = "O433/r", signal = "distant,main,shunting", measured = true },
+  { km = 1.1, kind = "signal", label = "V533N", signal = "shunting", measured = true },
+  { km = 1.1, kind = "signal", label = "1R3/GA533N", signal = "main_repeated,speed_limit", measured = true },
+  { km = 1.11, kind = "signal", signal = "speed_limit" },
+  { km = 1.464, kind = "signal", label = "R3", signal = "main,shunting", measured = true },
+  { km = 1.541, kind = "signal", label = "V733N", signal = "shunting", measured = true },
+  { km = 1.673, kind = "signal", signal = "electricity" },
+  { km = 1.731, kind = "signal", label = "VHT31", signal = "shunting", measured = true },
+  { km = 1.757, kind = "signal", signal = "speed_limit" },
   { km = 1.828, kind = "signal", label = "X/s,u", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
   { km = 1.87, kind = "signal", signal = "electricity" },
   { km = 2.73, kind = "signal", label = "x", signal = "distant", measured = true },
@@ -135,7 +150,11 @@ points = [
   { km = 32.455, kind = "signal", label = "Ay11", signal = "main", measured = true },
   { km = 32.478, kind = "signal", signal = "crossing_distant" },
   { km = 32.545, kind = "signal", signal = "crossing_distant" },
+  { km = 32.59, kind = "signal", label = "H3", signal = "main,shunting", measured = true },
   { km = 32.75, kind = "signal", label = "Zy21", signal = "main", measured = true },
+  { km = 32.928, kind = "signal", label = "Sch103R/1N3", signal = "main_repeated,minor", measured = true },
+  { km = 32.985, kind = "signal", label = "Sch203H/1H3", signal = "main_repeated,minor", measured = true },
+  { km = 33.215, kind = "signal", label = "N3", signal = "main,shunting", measured = true },
   { km = 33.458, kind = "signal", signal = "crossing_distant" },
   { km = 34.043, kind = "signal", label = "zy21", signal = "distant", measured = true },
   { km = 34.267, kind = "signal", signal = "crossing_distant" },
@@ -199,4 +218,28 @@ points = [
   { km = 43.758, kind = "signal", label = "V401H", signal = "shunting", measured = true },
   { km = 43.781, kind = "signal", signal = "speed_limit_distant" },
   { km = 44.055, kind = "signal", label = "VHT401", signal = "shunting", measured = true },
+  { km = 44.247, kind = "signal", label = "Zc10/h", signal = "distant,main", measured = true },
+  { km = 44.404, kind = "signal", label = "c10", signal = "distant", measured = true },
+  { km = 44.475, kind = "signal", label = "1Zc10", signal = "main_repeated", measured = true },
+  { km = 44.585, kind = "halt", label = "St. Pölten Traisenpark", uic = "8101990", pos = [48.22034, 15.64115], measured = true },
+  { km = 44.668, kind = "signal", label = "1C10", signal = "main_repeated", measured = true },
+  { km = 44.747, kind = "signal", signal = "snowplow" },
+  { km = 44.906, kind = "signal", signal = "snowplow" },
+  { km = 45.447, kind = "signal", label = "zc10", signal = "distant", measured = true },
+  { km = 45.567, kind = "signal", label = "C10/e", signal = "distant,main", measured = true },
+  { km = 45.622, kind = "signal", label = "VHT108", signal = "shunting", measured = true },
+  { km = 45.66, kind = "signal", signal = "station_distant" },
+  { km = 45.771, kind = "signal", label = "V108R", signal = "shunting", measured = true },
+  { km = 45.791, kind = "signal", signal = "speed_limit" },
+  { km = 45.9, kind = "signal", label = "H8", signal = "main", measured = true },
+  { km = 45.975, kind = "signal", label = "1H8", signal = "main_repeated", measured = true },
+  { km = 46.332, kind = "signal", label = "Sch118R/1E10,2E8", signal = "main_repeated,minor,speed_limit", measured = true },
+  { km = 46.347, kind = "signal", label = "h8/GA118H", signal = "distant,speed_limit", measured = true },
+  { km = 46.609, kind = "stop", label = "St. Pölten Hauptbahnhof", pos = [48.20845, 15.62666] },
+  { km = 46.751, kind = "stop", label = "St. Pölten Hauptbahnhof", pos = [48.20855, 15.62475] },
+  { km = 46.751, kind = "station", label = "St. Pölten Hauptbahnhof", uic = "8101032", pos = [48.20828, 15.62468] },
+  { km = 60.289, kind = "signal", label = "T8", signal = "departure,main,shunting", measured = true },
+  { km = 60.446, kind = "signal", label = "Sch208R/1E8", signal = "departure,main_repeated,minor", measured = true },
+  { km = 60.517, kind = "signal", label = "Sch308H/1T8,1T10", signal = "departure,main_repeated,minor", measured = true },
+  { km = 60.611, kind = "signal", label = "E8/r", signal = "departure,distant,main", measured = true },
 ]

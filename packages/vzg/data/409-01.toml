@@ -10,12 +10,45 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 20.88
+kmFrom = 17.743
 kmTo = 30.171
-length = 9.281
-speeds = [[20.88, 30.171, 70, 70]]
-curves = [[20.979, 21.054, 820], [21.104, 21.204, 950], [21.254, 21.429, 460], [21.479, 21.881, 370], [22.005, 22.255, 650], [22.38, 22.754, 570], [22.804, 23.455, 350], [23.606, 23.932, 510], [24.705, 24.831, 1290], [25.305, 25.68, 430], [25.73, 26.306, 340], [26.456, 26.957, 560], [27.007, 27.408, 1060], [27.634, 27.709, 1180], [27.759, 27.909, 1070], [28.009, 28.41, 1400], [28.46, 28.886, 410], [29.136, 29.563, 300]]
+length = 12.414
+speeds = [[17.743, 18.309, 60, 60], [18.309, 18.47, 100, 100], [18.47, 30.171, 70, 70]]
+curves = [[18.082, 18.182, 1050], [18.257, 18.432, 1760], [18.557, 19.103, 330], [19.173, 19.511, 510], [20.512, 20.736, 650], [20.786, 21.035, 440], [21.085, 21.21, 1050], [21.26, 21.435, 510], [21.485, 21.886, 380], [22.011, 22.261, 630], [22.386, 23.436, 410], [23.611, 23.938, 540], [24.711, 24.836, 1180], [25.311, 25.661, 360], [25.736, 26.287, 300], [26.437, 26.813, 470], [26.863, 26.963, 1210], [27.013, 27.389, 1100], [27.639, 27.715, 1350], [27.765, 27.89, 1180], [28.015, 28.892, 1000], [29.117, 29.568, 310]]
 points = [
+  { km = 17.951, kind = "stop", label = "Klagenfurt Hauptbahnhof", pos = [46.61546, 14.31372] },
+  { km = 18.519, kind = "signal", signal = "crossing_distant" },
+  { km = 18.592, kind = "signal", label = "V629H", signal = "shunting", measured = true },
+  { km = 18.633, kind = "signal", label = "V629R", signal = "shunting", measured = true },
+  { km = 18.65, kind = "signal", label = "n659/GA649", signal = "distant,speed_limit", measured = true },
+  { km = 18.684, kind = "signal", signal = "station_distant" },
+  { km = 18.727, kind = "signal", signal = "snowplow" },
+  { km = 18.897, kind = "signal", signal = "snowplow" },
+  { km = 18.951, kind = "signal", signal = "snowplow" },
+  { km = 19.007, kind = "signal", signal = "snowplow" },
+  { km = 19.029, kind = "signal", signal = "snowplow" },
+  { km = 19.092, kind = "signal", label = "T659/u", signal = "distant,main", measured = true },
+  { km = 19.218, kind = "halt", label = "Klagenfurt Süd", uic = "8103842", pos = [46.6109, 14.30226], measured = true },
+  { km = 19.298, kind = "signal", signal = "snowplow" },
+  { km = 19.303, kind = "signal", label = "N659/r709", signal = "distant,main", measured = true },
+  { km = 19.347, kind = "signal", label = "V679H", signal = "shunting", measured = true },
+  { km = 19.352, kind = "signal", signal = "snowplow" },
+  { km = 19.636, kind = "signal", signal = "snowplow" },
+  { km = 19.66, kind = "signal", label = "V679R", signal = "shunting", measured = true },
+  { km = 19.807, kind = "signal", signal = "crossing_distant" },
+  { km = 19.849, kind = "signal", label = "S709/t659", signal = "distant,main", measured = true },
+  { km = 19.925, kind = "signal", signal = "whistle" },
+  { km = 20.187, kind = "signal", label = "R709", signal = "main", measured = true },
+  { km = 20.335, kind = "signal", signal = "whistle" },
+  { km = 20.341, kind = "signal", label = "V909H", signal = "shunting", measured = true },
+  { km = 20.35, kind = "signal", signal = "snowplow" },
+  { km = 20.431, kind = "signal", signal = "snowplow" },
+  { km = 20.519, kind = "signal", signal = "snowplow" },
+  { km = 20.542, kind = "signal", label = "VHT909", signal = "shunting", measured = true },
+  { km = 20.579, kind = "signal", signal = "crossing_distant" },
+  { km = 20.634, kind = "signal", signal = "snowplow" },
+  { km = 20.68, kind = "signal", signal = "snowplow" },
+  { km = 20.712, kind = "signal", signal = "station_distant" },
   { km = 20.88, kind = "signal", label = "Zp11/s709", signal = "distant,main", measured = true },
   { km = 20.97, kind = "signal", label = "1Zp11", signal = "main_repeated", measured = true },
   { km = 21.355, kind = "signal", signal = "snowplow" },
@@ -65,4 +98,11 @@ points = [
   { km = 30.084, kind = "stop", label = "Weizelsdorf", pos = [46.53948, 14.2434] },
   { km = 30.124, kind = "station", label = "Weizelsdorf", uic = "8100347", pos = [46.53952, 14.24287] },
   { km = 30.171, kind = "signal", label = "FE731R", signal = "minor", measured = true },
+  { km = 125.664, kind = "signal", label = "U507/h", signal = "departure,distant,main", measured = true },
+  { km = 125.921, kind = "signal", label = "Sch507R", signal = "departure,minor", measured = true },
+  { km = 125.925, kind = "signal", label = "Sch527H", signal = "departure,minor", measured = true },
+  { km = 126.005, kind = "signal", label = "1G527", signal = "main_repeated", measured = true },
+  { km = 126.151, kind = "signal", label = "G527", signal = "departure,main", measured = true },
+  { km = 126.36, kind = "signal", label = "V609H", signal = "shunting", measured = true },
+  { km = 126.39, kind = "signal", label = "V609R", signal = "shunting", measured = true },
 ]

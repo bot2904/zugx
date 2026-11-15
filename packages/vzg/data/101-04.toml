@@ -10,14 +10,30 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 19.393
-kmTo = 74.659
-length = 55.011
-speeds = [[19.393, 29.04, 160, 160], [29.04, 32.185, 150, 150], [32.185, 36.712, 160, 160], [36.712, 41.568, 130, 130], [41.568, 51.571, 160, 160], [51.571, 53.292, 120, 120], [53.292, 58.058, 160, 160], [58.058, 59.282, 140, 140], [59.282, 59.911, 150, 150], [59.911, 72.779, 160, 160], [72.779, 74.281, 80, 80], [74.281, 74.659, 80, 60]]
-curves = [[21.797, 22.35, 1280], [24.484, 24.534, 2770], [27.314, 27.415, 2200], [27.616, 27.713, 2450], [29.137, 29.337, 1330], [31.418, 31.667, 1530], [31.951, 32.671, 1240], [36.85, 37.521, 980], [38.026, 38.83, 770], [39.006, 39.655, 1190], [41.161, 41.587, 990], [41.812, 42.59, 1080], [45.268, 45.866, 1650], [46.042, 46.57, 1980], [46.642, 46.718, 2670], [46.822, 47.313, 1580], [51.644, 52.546, 790], [52.897, 53.248, 950], [54.526, 55.029, 1510], [56.032, 56.308, 2160], [58.09, 58.815, 1480], [59.34, 59.944, 1600], [60.119, 60.796, 1900], [63.088, 63.525, 1900], [64.06, 64.814, 1460], [64.99, 65.365, 1520], [66.954, 67.256, 1250], [72.821, 73.145, 370], [74.349, 74.549, 550]]
+kmFrom = 16.238
+kmTo = 75.084
+length = 58.583
+speeds = [[16.238, 17.903, 140, 140], [17.903, 29.04, 160, 160], [29.04, 32.185, 150, 150], [32.185, 36.712, 160, 160], [36.712, 41.568, 130, 130], [41.568, 51.571, 160, 160], [51.571, 53.292, 120, 120], [53.292, 58.058, 160, 160], [58.058, 59.282, 140, 140], [59.282, 59.911, 150, 150], [59.911, 72.779, 160, 160], [72.779, 74.281, 80, 80], [74.281, 75.084, 80, 60]]
+curves = [[17.038, 17.791, 1600], [21.799, 22.353, 1290], [27.317, 27.417, 2200], [27.619, 27.716, 2420], [29.14, 29.34, 1340], [31.421, 31.669, 1560], [31.954, 32.674, 1250], [36.852, 37.524, 970], [38.029, 38.808, 770], [39.008, 39.633, 1160], [41.163, 41.589, 1010], [41.815, 42.593, 1080], [45.146, 45.22, 2980], [45.27, 45.869, 1650], [46.045, 46.573, 2000], [46.645, 46.721, 2600], [46.825, 47.316, 1590], [51.646, 52.548, 790], [52.9, 53.251, 950], [54.529, 55.031, 1510], [56.034, 56.311, 2170], [58.093, 58.818, 1480], [59.343, 59.922, 1590], [60.122, 60.799, 1910], [63.091, 63.528, 1920], [64.063, 64.817, 1460], [64.992, 65.368, 1520], [66.957, 67.233, 1280], [72.823, 73.148, 380], [74.352, 74.727, 600]]
 points = [
   { km = 0, kind = "station", label = "Jenbach Achenseebahn", pos = [47.38899, 11.77933], measured = true },
   { km = 0, kind = "station", label = "Jenbach Zillertalbahn", uic = "8100545", pos = [47.38814, 11.77821], measured = true },
+  { km = 16.027, kind = "station", label = "Wörgl Hauptbahnhof", uic = "8100099", pos = [47.49151, 12.06062], measured = true },
+  { km = 16.451, kind = "signal", label = "V401H", signal = "shunting" },
+  { km = 16.595, kind = "signal", label = "V401R", signal = "shunting" },
+  { km = 16.915, kind = "signal", label = "V501H", signal = "shunting" },
+  { km = 17.024, kind = "signal", label = "V501R", signal = "shunting" },
+  { km = 17.084, kind = "signal", label = "L1/h", signal = "distant,main,speed_limit_distant", measured = true },
+  { km = 17.365, kind = "signal", label = "G1/n", signal = "distant,main,speed_limit_distant", measured = true },
+  { km = 17.911, kind = "signal", signal = "speed_limit" },
+  { km = 18.046, kind = "signal", label = "GA541", signal = "speed_limit", measured = true },
+  { km = 18.048, kind = "signal", label = "V541H", signal = "shunting" },
+  { km = 18.1, kind = "signal", label = "V541R", signal = "shunting" },
+  { km = 18.235, kind = "signal", label = "M1/l", signal = "distant,main,speed_limit", measured = true },
+  { km = 18.74, kind = "signal", label = "N1/o", signal = "distant,main,speed_limit", measured = true },
+  { km = 19.185, kind = "signal", label = "V641H", signal = "shunting" },
+  { km = 19.258, kind = "signal", label = "V641R", signal = "shunting" },
+  { km = 19.259, kind = "signal", label = "GA651", signal = "speed_limit", measured = true },
   { km = 19.393, kind = "signal", label = "S1/m", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
   { km = 19.896, kind = "signal", label = "O1/p1", signal = "distant,main,speed_limit_distant", measured = true },
   { km = 20.499, kind = "signal", label = "T1/s1", signal = "distant,main,speed_limit_distant", measured = true },
@@ -263,18 +279,70 @@ points = [
   { km = 74.398, kind = "signal", label = "V121H", signal = "shunting", measured = true },
   { km = 74.638, kind = "signal", label = "GA121H", signal = "speed_limit", measured = true },
   { km = 74.659, kind = "signal", label = "V121R", signal = "shunting", measured = true },
+  { km = 74.735, kind = "signal", label = "GA121R", signal = "speed_limit", measured = true },
+  { km = 74.83, kind = "signal", label = "V141H", signal = "shunting", measured = true },
+  { km = 74.921, kind = "signal", label = "V141R", signal = "shunting", measured = true },
+  { km = 75.084, kind = "signal", label = "H1", signal = "departure,main,shunting", measured = true },
+  { km = 75.084, kind = "station", label = "Innsbruck Hauptbahnhof", uic = "8101187", pos = [47.2633, 11.40102] },
 ]
 
 [[tracks]]
 track = "2"
-kmFrom = 19.393
-kmTo = 75.098
-length = 55.445
-speeds = [[19.393, 29.04, 160, 160], [29.04, 32.186, 150, 150], [32.186, 36.651, 160, 160], [36.651, 41.566, 130, 130], [41.566, 51.571, 160, 160], [51.571, 53.292, 120, 120], [53.292, 58.057, 160, 160], [58.057, 59.282, 140, 140], [59.282, 59.926, 150, 150], [59.926, 72.785, 160, 160], [72.785, 74.281, 80, 80], [74.281, 75.098, 80, 60]]
-curves = [[21.798, 22.324, 1270], [29.137, 29.337, 1440], [31.142, 31.243, 1960], [31.393, 31.669, 1400], [31.97, 32.656, 1240], [36.849, 37.523, 960], [38.026, 38.829, 790], [39.004, 39.631, 1200], [41.137, 41.587, 890], [41.813, 42.59, 1080], [45.019, 45.898, 2530], [46.074, 46.698, 2140], [46.827, 47.317, 1640], [51.648, 52.554, 780], [52.905, 53.255, 900], [54.533, 55.086, 1530], [56.037, 56.313, 2120], [58.121, 58.798, 1510], [59.349, 59.952, 1550], [60.102, 60.726, 1990], [63.151, 63.582, 1890], [64.068, 64.824, 1420], [64.974, 65.374, 1570], [66.913, 67.24, 1240], [72.805, 73.134, 410], [74.331, 74.703, 600]]
+kmFrom = 16.056
+kmTo = 80.978
+length = 65.934
+speeds = [[16.056, 16.193, 140, 120], [16.193, 16.201, 100, 100], [16.201, 16.205, 60, 60], [16.205, 16.209, 100, 100], [16.209, 16.263, 120, 140], [16.263, 17.9, 140, 140], [17.9, 29.04, 160, 160], [29.04, 32.186, 150, 150], [32.186, 36.651, 160, 160], [36.651, 41.566, 130, 130], [41.566, 51.571, 160, 160], [51.571, 53.292, 120, 120], [53.292, 58.057, 160, 160], [58.057, 59.282, 140, 140], [59.282, 59.926, 150, 150], [59.926, 72.785, 160, 160], [72.785, 74.281, 80, 80], [74.281, 75.549, 80, 60], [75.549, 76.58, 60, 60], [76.58, 76.949, 70, 70], [76.949, 77.732, 90, 90], [77.732, 79.135, 60, 60], [79.135, 79.342, 60, 40], [79.342, 80.73, 40, 40], [80.73, 80.978, 80, 60]]
+curves = [[16.194, 16.209, 170], [17.055, 17.783, 1600], [21.795, 22.321, 1260], [29.134, 29.334, 1380], [31.139, 31.239, 1940], [31.39, 31.666, 1380], [31.967, 32.653, 1240], [36.845, 37.52, 970], [38.023, 38.826, 780], [39.001, 39.652, 1220], [41.134, 41.584, 900], [41.81, 42.587, 1080], [45.016, 45.895, 2540], [46.071, 46.694, 2150], [46.823, 47.314, 1650], [51.644, 52.55, 790], [52.902, 53.251, 930], [54.53, 55.082, 1530], [56.034, 56.31, 2170], [58.118, 58.795, 1510], [59.346, 59.949, 1550], [60.099, 60.748, 1960], [63.147, 63.579, 1890], [64.065, 64.82, 1410], [64.971, 65.371, 1570], [66.91, 67.262, 1260], [72.802, 73.131, 400], [74.353, 74.725, 590], [75.55, 75.794, 580], [75.843, 76.569, 270], [76.669, 76.944, 750], [77.594, 77.794, 750], [77.894, 77.969, 1790], [78.019, 78.094, 2190], [78.494, 78.819, 940], [78.894, 79.669, 330], [79.719, 79.994, 940], [80.244, 80.469, 460], [80.519, 80.794, 370]]
 points = [
   { km = 0, kind = "station", label = "Jenbach Achenseebahn", pos = [47.38899, 11.77933], measured = true },
   { km = 0, kind = "station", label = "Jenbach Zillertalbahn", uic = "8100545", pos = [47.38814, 11.77821], measured = true },
+  { km = 0.349, kind = "signal", label = "n5", signal = "distant", measured = true },
+  { km = 0.546, kind = "signal", label = "V448R", signal = "shunting", measured = true },
+  { km = 0.563, kind = "signal", label = "T5/h", signal = "distant,main,shunting", measured = true },
+  { km = 0.632, kind = "signal", label = "1P8", signal = "main_repeated", measured = true },
+  { km = 0.632, kind = "signal", label = "T8/h", signal = "distant,main,shunting", measured = true },
+  { km = 0.772, kind = "signal", label = "P8/q", signal = "distant,main,shunting,speed_limit", measured = true },
+  { km = 0.772, kind = "signal", label = "1T8", signal = "main_repeated", measured = true },
+  { km = 0.772, kind = "signal", label = "P5/q", signal = "distant,main,shunting", measured = true },
+  { km = 0.865, kind = "signal", label = "V627H", signal = "shunting", measured = true },
+  { km = 0.896, kind = "signal", label = "V623R", signal = "shunting", measured = true },
+  { km = 0.898, kind = "signal", label = "V623H", signal = "shunting", measured = true },
+  { km = 0.932, kind = "signal", label = "V627R", signal = "shunting", measured = true },
+  { km = 1.02, kind = "signal", label = "V637H", signal = "shunting", measured = true },
+  { km = 1.039, kind = "signal", label = "V633R", signal = "shunting", measured = true },
+  { km = 1.051, kind = "signal", label = "V637R", signal = "shunting", measured = true },
+  { km = 1.245, kind = "signal", label = "S3/t", signal = "distant,main,shunting", measured = true },
+  { km = 1.245, kind = "signal", label = "S7/t", signal = "distant,main,shunting", measured = true },
+  { km = 1.365, kind = "signal", signal = "speed_limit", measured = true },
+  { km = 1.365, kind = "signal", signal = "speed_limit", measured = true },
+  { km = 1.829, kind = "signal", label = "1Q7", signal = "main_repeated", measured = true },
+  { km = 1.83, kind = "signal", label = "Q3", signal = "main,shunting", measured = true },
+  { km = 1.889, kind = "signal", label = "Q7", signal = "main,shunting", measured = true },
+  { km = 2.067, kind = "signal", label = "V767H", signal = "shunting", measured = true },
+  { km = 15.726, kind = "signal", label = "H1", signal = "main,speed_limit", measured = true },
+  { km = 15.726, kind = "signal", label = "H2", signal = "main,speed_limit", measured = true },
+  { km = 16.146, kind = "signal", label = "F1/g", signal = "distant,main", measured = true },
+  { km = 16.159, kind = "signal", label = "Sch301H", signal = "minor" },
+  { km = 16.16, kind = "signal", label = "Sch201R", signal = "minor" },
+  { km = 16.161, kind = "stop", label = "Wörgl Hauptbahnhof", pos = [47.49178, 12.06118] },
+  { km = 16.208, kind = "signal", label = "V152R", signal = "shunting" },
+  { km = 16.241, kind = "stop", label = "Wörgl Hauptbahnhof", pos = [47.49181, 12.06113] },
+  { km = 16.242, kind = "signal", label = "Sch202R", signal = "minor" },
+  { km = 16.242, kind = "signal", label = "Sch302H", signal = "minor" },
+  { km = 16.266, kind = "signal", label = "F2/g", signal = "distant,main,speed_limit_distant", measured = true },
+  { km = 16.471, kind = "signal", label = "V402H", signal = "shunting" },
+  { km = 16.575, kind = "signal", label = "V402R", signal = "shunting" },
+  { km = 16.81, kind = "signal", label = "V502H", signal = "shunting" },
+  { km = 17.025, kind = "signal", label = "V502R", signal = "shunting" },
+  { km = 17.084, kind = "signal", label = "L2/h", signal = "distant,main,speed_limit_distant", measured = true },
+  { km = 17.365, kind = "signal", label = "G2/n", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+  { km = 17.472, kind = "signal", label = "V532H", signal = "shunting" },
+  { km = 17.914, kind = "signal", signal = "speed_limit" },
+  { km = 18.235, kind = "signal", label = "M2/l", signal = "distant,main", measured = true },
+  { km = 18.74, kind = "signal", label = "N2/o", signal = "distant,main,speed_limit", measured = true },
+  { km = 19.184, kind = "signal", label = "V642H", signal = "shunting" },
+  { km = 19.258, kind = "signal", label = "V642R", signal = "shunting" },
+  { km = 19.259, kind = "signal", label = "GA652", signal = "speed_limit", measured = true },
   { km = 19.393, kind = "signal", label = "S2/m", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
   { km = 19.896, kind = "signal", label = "O2/p2", signal = "distant,main,speed_limit_distant", measured = true },
   { km = 20.499, kind = "signal", label = "T2/s2", signal = "distant,main,speed_limit_distant", measured = true },
@@ -519,8 +587,38 @@ points = [
   { km = 74.735, kind = "signal", label = "GA122R", signal = "speed_limit", measured = true },
   { km = 74.824, kind = "signal", label = "V132R", signal = "shunting", measured = true },
   { km = 74.826, kind = "signal", label = "V142H", signal = "shunting", measured = true },
+  { km = 74.921, kind = "signal", label = "V141R", signal = "shunting", measured = true },
   { km = 74.924, kind = "signal", label = "V142R", signal = "shunting", measured = true },
   { km = 74.928, kind = "signal", signal = "electricity" },
+  { km = 74.93, kind = "signal", label = "V185H", signal = "shunting", measured = true },
+  { km = 75.084, kind = "signal", label = "H1", signal = "departure,main,shunting", measured = true },
   { km = 75.098, kind = "signal", label = "H2", signal = "departure,main,shunting", measured = true },
-  { km = 75.098, kind = "station", label = "Innsbruck Hauptbahnhof", uic = "8101187", pos = [47.2633, 11.40102] },
+  { km = 75.26, kind = "signal", label = "H33", signal = "main,shunting", measured = true },
+  { km = 75.271, kind = "stop", label = "Innsbruck Hauptbahnhof", pos = [47.26328, 11.40098] },
+  { km = 75.283, kind = "signal", label = "Sch202R", signal = "departure,minor,shunting", measured = true },
+  { km = 75.286, kind = "signal", label = "Sch302H", signal = "departure,minor,shunting,speed_limit", measured = true },
+  { km = 75.549, kind = "signal", label = "O2/p", signal = "departure,distant,main,shunting", measured = true },
+  { km = 75.555, kind = "signal", label = "Sch133/1R33-47", signal = "main_repeated,minor,shunting", measured = true },
+  { km = 75.654, kind = "signal", label = "V404H", signal = "shunting", measured = true },
+  { km = 75.836, kind = "signal", label = "V424H", signal = "shunting", measured = true },
+  { km = 75.891, kind = "signal", label = "R33", signal = "main,shunting", measured = true },
+  { km = 75.985, kind = "signal", signal = "catenary_mast,electricity" },
+  { km = 75.987, kind = "signal", signal = "catenary_mast,electricity" },
+  { km = 76.042, kind = "signal", label = "V448H", signal = "shunting", measured = true },
+  { km = 76.285, kind = "signal", signal = "catenary_mast,electricity" },
+  { km = 76.287, kind = "signal", signal = "catenary_mast,electricity" },
+  { km = 76.58, kind = "signal", signal = "speed_limit" },
+  { km = 76.581, kind = "signal", signal = "speed_limit" },
+  { km = 76.933, kind = "stop", label = "Innsbruck Westbf", pos = [47.25547, 11.39118] },
+  { km = 79.037, kind = "station", label = "Innsbruck Stubaitalbf", pos = [47.25354, 11.39771] },
+  { km = 79.738, kind = "signal", signal = "shunting" },
+  { km = 79.807, kind = "signal", signal = "shunting" },
+  { km = 79.947, kind = "signal", signal = "shunting" },
+  { km = 80.369, kind = "signal", signal = "electricity" },
+  { km = 80.382, kind = "signal", label = "V222", signal = "shunting" },
+  { km = 80.501, kind = "signal", label = "V209", signal = "shunting" },
+  { km = 80.524, kind = "signal", signal = "shunting" },
+  { km = 80.577, kind = "signal", label = "V203", signal = "shunting" },
+  { km = 80.606, kind = "signal", signal = "shunting" },
+  { km = 80.607, kind = "signal", label = "V230", signal = "shunting" },
 ]

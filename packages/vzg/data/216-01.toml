@@ -8,17 +8,22 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 0.16
-kmTo = 0.857
-length = 1.075
-speeds = [[0.16, 0.192, 60, 60], [0.192, 0.207, 95, 95], [0.207, 0.744, 60, 60], [0.744, 0.857, 40, 60]]
-curves = [[0.186, 0.407, 410]]
+kmFrom = -0.028
+kmTo = 1.204
+length = 1.231
+speeds = [[-0.028, 0.59, 60, 60], [0.59, 0.832, 40, 60], [0.832, 1.204, 40, 40]]
+curves = [[0.072, 0.396, 450], [0.874, 1.099, 540]]
 points = [
   { km = 0.16, kind = "signal", label = "b", signal = "distant", measured = true },
-  { km = 0.16, kind = "signal", label = "a", signal = "distant", measured = true },
-  { km = 0.239, kind = "signal", label = "We44", signal = "main", measured = true },
-  { km = 0.703, kind = "signal", signal = "electricity" },
-  { km = 0.709, kind = "signal", signal = "electricity" },
-  { km = 0.744, kind = "signal", label = "A/d", signal = "distant,main", measured = true },
-  { km = 0.857, kind = "signal", label = "VHT 2", signal = "shunting", measured = true },
+  { km = 0.239, kind = "signal", label = "Xe43", signal = "main", measured = true },
+  { km = 0.319, kind = "signal", label = "1Xe43", signal = "main_repeated", measured = true },
+  { km = 0.44, kind = "signal", signal = "electricity" },
+  { km = 0.447, kind = "signal", signal = "electricity" },
+  { km = 0.59, kind = "signal", label = "B/d", signal = "distant,main", measured = true },
+  { km = 0.709, kind = "signal", label = "VHT 31^3", signal = "shunting", measured = true },
+  { km = 0.746, kind = "signal", signal = "electricity" },
+  { km = 0.751, kind = "signal", signal = "electricity" },
+  { km = 0.815, kind = "signal", label = "V31", signal = "shunting" },
+  { km = 1.12, kind = "signal", label = "V5", signal = "shunting" },
+  { km = 1.189, kind = "signal", label = "V11", signal = "shunting" },
 ]

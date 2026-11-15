@@ -9,14 +9,18 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 13.964
-kmTo = 14.441
-length = 0.476
-speeds = [[13.964, 14.441, 60, 60]]
-curves = [[14.064, 14.139, 1570]]
+kmFrom = -0.454
+kmTo = 0.768
+length = 1.227
+speeds = [[-0.454, 0.514, 60, 60], [0.514, 0.768, 80, 60]]
+curves = [[-0.354, -0.279, 1700], [-0.029, 0.541, 340]]
 points = [
+  { km = -0.054, kind = "stop", label = "Lauterach", pos = [47.47767, 9.72414] },
   { km = 0.143, kind = "signal", label = "P705/l3", signal = "distant,main", measured = true },
+  { km = 0.225, kind = "signal", label = "1P705", signal = "main_repeated", measured = true },
+  { km = 0.426, kind = "signal", label = "1U705", signal = "main_repeated", measured = true },
+  { km = 0.514, kind = "signal", label = "U705/m", signal = "distant,main", measured = true },
+  { km = 8.5, kind = "halt", label = "Lauterach Unterfeld", pos = [47.48081, 9.71572], measured = true },
   { km = 14.118, kind = "signal", label = "Sch703/1R3,2U705", signal = "main_repeated,minor", measured = true },
-  { km = 14.161, kind = "stop", label = "Lauterach", pos = [47.47767, 9.72414] },
   { km = 14.441, kind = "signal", label = "L3/s,t", signal = "distant,main", measured = true },
 ]

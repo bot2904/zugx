@@ -10,12 +10,24 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 1.807
-kmTo = 16.112
-length = 14.263
-speeds = [[1.807, 14.215, 120, 120], [14.215, 15.03, 80, 110], [15.03, 16.112, 80, 80]]
-curves = [[14.245, 14.396, 1710], [15.095, 15.321, 740], [15.371, 15.547, 730], [15.597, 15.747, 1140]]
+kmFrom = -0.415
+kmTo = 17.585
+length = 17.852
+speeds = [[-0.415, 0.679, 40, 40], [0.679, 0.725, 120, 40], [0.725, 14.215, 120, 120], [14.215, 15.03, 80, 110], [15.03, 16.675, 80, 80], [16.675, 17.585, 80, 60]]
+curves = [[0.236, 0.286, 2510], [0.336, 0.712, 600], [14.254, 14.38, 1850], [15.078, 15.305, 770], [15.38, 15.556, 790], [15.606, 15.731, 1220], [16.007, 16.082, 2250], [16.61, 16.785, 2320]]
 points = [
+  { km = -0.1, kind = "stop", label = "Absdorf-Hippersdorf", pos = [48.40209, 15.98588] },
+  { km = 0.389, kind = "signal", label = "V304H", signal = "shunting", measured = true },
+  { km = 0.492, kind = "signal", label = "V304R", signal = "shunting", measured = true },
+  { km = 0.565, kind = "signal", label = "h4", signal = "distant", measured = true },
+  { km = 0.679, kind = "signal", label = "1H4/GA114H", signal = "main_repeated,speed_limit", measured = true },
+  { km = 0.725, kind = "signal", label = "E4/r", signal = "distant,main,shunting", measured = true },
+  { km = 1.11, kind = "signal", label = "H4", signal = "main", measured = true },
+  { km = 1.5, kind = "signal", label = "V104H", signal = "shunting", measured = true },
+  { km = 1.672, kind = "signal", signal = "electricity" },
+  { km = 1.673, kind = "signal", signal = "electricity" },
+  { km = 1.684, kind = "signal", signal = "crossing_distant" },
+  { km = 1.696, kind = "signal", label = "VHTz11", signal = "shunting", measured = true },
   { km = 1.807, kind = "signal", label = "Cz11/e4,h41", signal = "distant,main", measured = true },
   { km = 1.828, kind = "signal", signal = "snowplow" },
   { km = 1.831, kind = "signal", signal = "snowplow" },
@@ -78,4 +90,17 @@ points = [
   { km = 15.746, kind = "signal", signal = "snowplow" },
   { km = 15.781, kind = "signal", signal = "snowplow" },
   { km = 16.112, kind = "signal", label = "Y/h", signal = "distant,main,speed_limit", measured = true },
+  { km = 16.119, kind = "signal", signal = "crossing_distant" },
+  { km = 16.435, kind = "signal", label = "VHTy11", signal = "shunting", measured = true },
+  { km = 17.025, kind = "signal", signal = "speed_limit" },
+  { km = 17.106, kind = "stop", label = "Stockerau", pos = [48.38226, 16.21339] },
+  { km = 25.254, kind = "signal", label = "H3", signal = "main,shunting", measured = true },
+  { km = 25.68, kind = "signal", label = "Sch203H/1H3", signal = "main_repeated,minor", measured = true },
+  { km = 25.858, kind = "signal", label = "N3", signal = "main,shunting", measured = true },
+  { km = 26.048, kind = "signal", label = "Sch59/SN303", signal = "main_repeated,minor,speed_limit", measured = true },
+  { km = 26.198, kind = "signal", label = "V66", signal = "shunting", measured = true },
+  { km = 43.692, kind = "signal", label = "U4", signal = "main,shunting", measured = true },
+  { km = 43.898, kind = "signal", label = "Sch404R/1R4", signal = "main_repeated,minor", measured = true },
+  { km = 43.904, kind = "signal", label = "Sch414H/1U4", signal = "main_repeated,minor", measured = true },
+  { km = 44.239, kind = "signal", label = "R4", signal = "main,shunting", measured = true },
 ]

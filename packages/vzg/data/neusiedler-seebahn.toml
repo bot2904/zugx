@@ -1,0 +1,64 @@
+id = "neusiedler-seebahn"
+name = "Neusiedler Seebahn"
+operator = "NSB"
+gauge = "1435"
+wikidata = "Q873029"
+from = "Fertőszentmiklós"
+to = "Neusiedl am See"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 64.137
+kmTo = 102.166
+length = 37.854
+speeds = [[64.137, 90.913, "", ""], [90.913, 91.764, 100, 100], [91.764, 91.959, "", ""], [91.959, 95.417, 120, 120], [95.417, 95.715, 90, 90], [95.715, 98.257, 110, 110], [98.257, 98.911, 70, 70], [98.911, 98.994, 100, 70], [98.994, 101.027, 100, 100], [101.027, 102.166, 60, 60]]
+curves = [[65.612, 65.912, 470], [65.987, 66.237, 480], [67.837, 67.987, 930], [69.162, 69.287, 1690], [70.012, 70.312, 470], [71.287, 71.412, 1650], [72.762, 72.912, 1120], [80.037, 80.337, 1240], [81.762, 82.087, 460], [83.112, 83.362, 1310], [83.487, 83.762, 1210], [85.762, 86.137, 1140], [86.637, 87.162, 310], [87.487, 87.562, 1640], [87.637, 87.837, 580], [88.537, 89.037, 890], [89.762, 89.862, 1960], [90.537, 90.687, 1430], [90.912, 90.962, 2380], [91.713, 91.916, 740], [95.416, 95.691, 640], [96.516, 96.841, 1030], [97.041, 97.241, 860], [97.466, 97.591, 1150], [97.791, 98.091, 800], [98.241, 98.566, 480], [99.166, 99.341, 1280], [100.066, 100.316, 830], [101.016, 101.957, 300]]
+points = [
+  { km = 66.464, kind = "station", label = "Pamhagen", uic = "8133028", pos = [47.70408, 16.90346] },
+  { km = 70.404, kind = "station", label = "Wallern im Burgenland", pos = [47.73397, 16.93046] },
+  { km = 75.855, kind = "station", label = "St. Andrä am Zicksee", pos = [47.78282, 16.92794] },
+  { km = 82.357, kind = "station", label = "Frauenkirchen", pos = [47.83986, 16.91581] },
+  { km = 87.442, kind = "station", label = "Mönchhof-Halbturn", pos = [47.87476, 16.94685] },
+  { km = 90.87, kind = "signal", signal = "speed_limit" },
+  { km = 90.892, kind = "signal", signal = "speed_limit" },
+  { km = 91.169, kind = "station", label = "Gols", pos = [47.8917, 16.90504] },
+  { km = 91.951, kind = "signal", signal = "speed_limit" },
+  { km = 91.959, kind = "signal", signal = "speed_limit" },
+  { km = 95.409, kind = "signal", signal = "speed_limit" },
+  { km = 95.412, kind = "signal", signal = "speed_limit" },
+  { km = 95.715, kind = "signal", signal = "speed_limit" },
+  { km = 95.718, kind = "signal", signal = "speed_limit" },
+  { km = 96.194, kind = "halt", label = "Weiden am See", pos = [47.92575, 16.86381] },
+  { km = 98.257, kind = "signal", signal = "speed_limit" },
+  { km = 98.267, kind = "signal", signal = "speed_limit" },
+  { km = 98.324, kind = "signal", signal = "distant,main" },
+  { km = 98.397, kind = "signal", signal = "crossing_distant" },
+  { km = 98.408, kind = "signal", signal = "shunting" },
+  { km = 98.594, kind = "signal", signal = "main" },
+  { km = 98.71, kind = "station", label = "Bad Neusiedl am See", uic = "8100453", pos = [47.94285, 16.84432] },
+  { km = 98.816, kind = "signal", signal = "main" },
+  { km = 98.911, kind = "signal", signal = "speed_limit" },
+  { km = 98.929, kind = "signal", signal = "shunting" },
+  { km = 98.994, kind = "signal", signal = "speed_limit" },
+  { km = 99, kind = "signal", signal = "distant,main" },
+  { km = 99.318, kind = "signal", signal = "crossing_distant" },
+  { km = 99.446, kind = "signal", signal = "crossing_distant" },
+  { km = 99.896, kind = "signal", signal = "distant" },
+  { km = 99.899, kind = "signal", signal = "speed_limit_distant" },
+  { km = 100.031, kind = "signal", signal = "speed_limit_distant" },
+  { km = 100.192, kind = "signal", signal = "crossing_distant" },
+  { km = 100.784, kind = "signal", signal = "electricity" },
+  { km = 100.994, kind = "signal", signal = "speed_limit" },
+  { km = 101.011, kind = "signal", signal = "electricity" },
+  { km = 101.017, kind = "signal", signal = "electricity" },
+  { km = 101.027, kind = "signal", signal = "speed_limit" },
+  { km = 101.092, kind = "signal", signal = "electricity" },
+  { km = 101.097, kind = "signal", signal = "electricity" },
+  { km = 101.214, kind = "signal", label = "y", signal = "distant", measured = true },
+  { km = 101.412, kind = "signal", signal = "electricity" },
+  { km = 101.714, kind = "signal", label = "1Y", signal = "main_repeated", measured = true },
+  { km = 101.814, kind = "signal", label = "Y/r", signal = "distant,main", measured = true },
+  { km = 101.9, kind = "signal", label = "VHT102", signal = "shunting", measured = true },
+  { km = 102.03, kind = "signal", label = "V102R", signal = "shunting", measured = true },
+]

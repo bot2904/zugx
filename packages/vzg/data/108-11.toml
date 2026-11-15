@@ -8,12 +8,13 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 0.206
-kmTo = 0.439
-length = 0.234
-speeds = [[0.206, 0.439, 40, 60]]
-curves = []
+kmFrom = 0.109
+kmTo = 0.727
+length = 0.619
+speeds = [[0.109, 0.439, 40, 60], [0.439, 0.727, 40, ""]]
+curves = [[0.227, 0.627, 340]]
 points = [
   { km = 0.206, kind = "signal", label = "n/Gl580", signal = "distant", measured = true },
   { km = 0.439, kind = "signal", label = "K570", signal = "main", measured = true },
+  { km = 0.727, kind = "signal", label = "FE 570R", signal = "minor" },
 ]

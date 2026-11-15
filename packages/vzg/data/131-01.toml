@@ -8,29 +8,35 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 0.614
-kmTo = 3.049
-length = 2.423
-speeds = [[0.614, 0.8, 60, 40], [0.8, 3.049, 60, 60]]
-curves = [[0.714, 1.17, 310], [1.35, 1.4, 1830], [1.725, 2.05, 680]]
+kmFrom = 2.739
+kmTo = 5.521
+length = 3.75
+speeds = [[2.739, 3.703, 60, 40], [3.703, 5.521, 60, 60]]
+curves = [[3.114, 3.214, 1280], [3.649, 3.783, 310], [3.824, 3.842, 2430], [3.912, 4.143, 720]]
 points = [
   { km = 0.614, kind = "signal", label = "V135S", signal = "shunting", measured = true },
-  { km = 0.673, kind = "signal", signal = "electricity" },
-  { km = 0.697, kind = "signal", label = "VHT135", signal = "shunting", measured = true },
   { km = 0.697, kind = "signal", label = "d", signal = "distant", measured = true },
+  { km = 0.697, kind = "signal", label = "VHT135", signal = "shunting", measured = true },
   { km = 0.8, kind = "signal", label = "D/e", signal = "distant,main", measured = true },
-  { km = 0.838, kind = "signal", signal = "electricity" },
   { km = 1.082, kind = "signal", label = "1D", signal = "main_repeated", measured = true },
   { km = 1.31, kind = "signal", label = "D/e", signal = "distant,main", measured = true },
   { km = 1.387, kind = "signal", label = "d", signal = "distant", measured = true },
   { km = 1.48, kind = "signal", label = "VHT005", signal = "shunting", measured = true },
-  { km = 2.858, kind = "stop", label = "Wien Haidestraße", pos = [48.17877, 16.42629] },
+  { km = 3.644, kind = "signal", label = "V146N", signal = "shunting", measured = true },
+  { km = 3.669, kind = "signal", signal = "electricity" },
+  { km = 3.711, kind = "signal", signal = "electricity" },
   { km = 3.773, kind = "halt", label = "Wien Simmering", uic = "8101553", pos = [48.17004, 16.41953], measured = true },
+  { km = 3.859, kind = "signal", label = "V146S", signal = "shunting", measured = true },
+  { km = 3.921, kind = "signal", label = "L221", signal = "main,shunting", measured = true },
   { km = 3.94, kind = "signal", label = "H4", signal = "main", measured = true },
   { km = 4.025, kind = "signal", label = "E4/r", signal = "distant,main,speed_limit_distant", measured = true },
   { km = 4.461, kind = "signal", label = "VHT303", signal = "shunting", measured = true },
+  { km = 4.548, kind = "signal", label = "E221", signal = "main,shunting", measured = true },
   { km = 4.66, kind = "signal", label = "V15", signal = "shunting", measured = true },
   { km = 4.865, kind = "signal", label = "U4/h", signal = "distant,main", measured = true },
+  { km = 4.964, kind = "stop", label = "Wien Haidestraße", pos = [48.17877, 16.42629] },
   { km = 5.152, kind = "signal", label = "Sch604H", signal = "minor", measured = true },
+  { km = 5.325, kind = "signal", label = "1R4", signal = "main_repeated", measured = true },
+  { km = 5.521, kind = "signal", label = "R4/a1,b1", signal = "distant,main,shunting,speed_limit", measured = true },
   { km = 13.402, kind = "station", label = "Simmering", uic = "8170076", pos = [48.16978, 16.42053], measured = true },
 ]

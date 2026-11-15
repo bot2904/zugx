@@ -9,12 +9,20 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 61.11
-kmTo = 67.082
-length = 5.94
-speeds = [[61.11, 61.113, 80, 80], [61.113, 61.56, 100, 100], [61.56, 61.861, 100, 160], [61.861, 67.082, 160, 160]]
-curves = [[62.19, 63.482, 1180]]
+kmFrom = 60.478
+kmTo = 68.914
+length = 8.207
+speeds = [[60.478, 61.113, 80, 80], [61.113, 61.56, 100, 100], [61.56, 61.861, 100, 160], [61.861, 67.082, 160, 160], [67.082, 67.969, 100, 160], [67.969, 68.914, 100, 100]]
+curves = [[60.788, 61.183, 650], [62.189, 63.481, 1180], [68.739, 68.789, 2600]]
 points = [
+  { km = 60.478, kind = "stop", label = "St. Pölten Hauptbahnhof", pos = [48.20809, 15.62577] },
+  { km = 60.488, kind = "signal", label = "Sch203R/2E3", signal = "departure,main_repeated,minor", measured = true },
+  { km = 60.491, kind = "signal", label = "Sch303H/1H3", signal = "departure,main_repeated,minor", measured = true },
+  { km = 60.491, kind = "station", label = "St. Pölten Hauptbahnhof", uic = "8101032", pos = [48.20828, 15.62468] },
+  { km = 60.659, kind = "signal", label = "Sch303R/1E3", signal = "departure,main_repeated,minor", measured = true },
+  { km = 60.761, kind = "signal", label = "E3/r", signal = "departure,distant,main", measured = true },
+  { km = 60.766, kind = "signal", label = "V403H", signal = "shunting", measured = true },
+  { km = 60.927, kind = "signal", label = "V403R", signal = "shunting", measured = true },
   { km = 61.11, kind = "signal", label = "U1/h,t", signal = "distant,main,speed_limit_distant", measured = true },
   { km = 61.195, kind = "signal", signal = "speed_limit" },
   { km = 61.217, kind = "signal", signal = "speed_limit" },
@@ -40,4 +48,13 @@ points = [
   { km = 65.747, kind = "signal", label = "Xb31", signal = "main", measured = true },
   { km = 66.85, kind = "signal", label = "xb31", signal = "distant", measured = true },
   { km = 67.082, kind = "signal", label = "C/r", signal = "distant,main,speed_limit,speed_limit_distant", measured = true },
+  { km = 67.2, kind = "signal", label = "VHT105", signal = "shunting", measured = true },
+  { km = 67.254, kind = "signal", label = "V105R", signal = "shunting", measured = true },
+  { km = 67.332, kind = "signal", label = "V115H", signal = "shunting", measured = true },
+  { km = 67.828, kind = "signal", label = "V115R", signal = "shunting", measured = true },
+  { km = 67.969, kind = "signal", label = "H5", signal = "main,shunting,speed_limit", measured = true },
+  { km = 68.209, kind = "signal", label = "V205R", signal = "shunting", measured = true },
+  { km = 68.286, kind = "signal", label = "Sch305H", signal = "minor", measured = true },
+  { km = 68.596, kind = "stop", label = "Prinzersdorf", pos = [48.20307, 15.52645] },
+  { km = 68.757, kind = "signal", label = "R5", signal = "main,shunting,speed_limit", measured = true },
 ]

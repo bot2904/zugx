@@ -9,11 +9,11 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 0.202
-kmTo = 1.7
-length = 1.468
-speeds = [[0.202, 1.7, 60, 60]]
-curves = [[0.884, 1.264, 370], [1.483, 1.549, 1050]]
+kmFrom = 0.059
+kmTo = 1.831
+length = 1.743
+speeds = [[0.059, 1.831, 60, 60]]
+curves = [[0.177, 0.225, 1700], [0.883, 1.264, 370], [1.482, 1.731, 430]]
 points = [
   { km = 0.202, kind = "signal", label = "H742", signal = "main", measured = true },
   { km = 0.394, kind = "signal", signal = "snowplow" },

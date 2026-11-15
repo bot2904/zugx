@@ -9,15 +9,20 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 0.16
-kmTo = 0.8
-length = 0.643
-speeds = [[0.16, 0.8, 50, 50]]
-curves = [[0.259, 0.458, 310], [0.508, 0.682, 310]]
+kmFrom = -0.828
+kmTo = 0.916
+length = 1.748
+speeds = [[-0.828, 0.916, 50, 50]]
+curves = [[-0.728, -0.353, 930], [-0.003, 0.47, 320], [0.52, 0.794, 260]]
 points = [
+  { km = -0.679, kind = "signal", signal = "speed_limit" },
+  { km = 0.092, kind = "signal", signal = "snowplow" },
+  { km = 0.127, kind = "signal", signal = "snowplow" },
   { km = 0.16, kind = "signal", label = "1D", signal = "main_repeated", measured = true },
   { km = 0.703, kind = "signal", label = "D/q602", signal = "distant,main", measured = true },
   { km = 0.718, kind = "signal", label = "xt33", signal = "distant", measured = true },
   { km = 0.74, kind = "signal", signal = "snowplow" },
   { km = 0.8, kind = "signal", label = "VHT151", signal = "shunting", measured = true },
+  { km = 166.055, kind = "signal", label = "Xt33", signal = "main", measured = true },
+  { km = 166.28, kind = "signal", label = "VHT563", signal = "shunting", measured = true },
 ]

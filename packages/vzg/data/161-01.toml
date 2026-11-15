@@ -10,21 +10,22 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 8.282
-kmTo = 41.601
-length = 33.386
-speeds = [[8.282, 10.794, 60, 60], [10.794, 13.85, 80, 80], [13.85, 14.331, 55, 80], [14.331, 15.773, 60, 60], [15.773, 20.083, 80, 80], [20.083, 20.521, 80, 60], [20.521, 22.942, 80, 80], [22.942, 23.291, 40, 80], [23.291, 23.389, 40, 55], [23.389, 23.614, 55, 40], [23.614, 25.254, 55, 55], [25.254, 25.648, 60, 55], [25.648, 25.938, 60, 60], [25.938, 27.757, 60, 80], [27.757, 31.071, 60, 60], [31.071, 31.481, 65, 60], [31.481, 31.853, 65, 50], [31.853, 32.723, 65, 65], [32.723, 32.973, 60, 65], [32.973, 33.708, 60, 60], [33.708, 34, 80, 60], [34, 36.889, 80, 80], [36.889, 37.211, 80, 60], [37.211, 37.635, 80, 65], [37.635, 37.961, 65, 65], [37.961, 38.299, 60, 65], [38.299, 38.912, 60, 60], [38.912, 39.727, 80, 60], [39.727, 41.468, 80, 80], [41.468, 41.601, 60, 80]]
-curves = [[8.382, 8.532, 760], [10.082, 10.419, 1030], [10.823, 11.079, 940], [13.785, 13.985, 1310], [14.629, 14.88, 700], [15.132, 15.484, 360], [15.534, 15.81, 540], [17.304, 17.654, 780], [24.964, 25.782, 520], [28.052, 28.552, 510], [29.488, 30.059, 1060], [30.994, 31.328, 2030], [37.323, 37.371, 2530], [39.436, 39.658, 1120], [39.708, 40.084, 650], [40.589, 41.239, 520]]
+kmFrom = 8.028
+kmTo = 42.685
+length = 34.724
+speeds = [[8.028, 10.794, 60, 60], [10.794, 13.85, 80, 80], [13.85, 14.331, 55, 80], [14.331, 15.773, 60, 60], [15.773, 20.083, 80, 80], [20.083, 20.521, 80, 60], [20.521, 22.942, 80, 80], [22.942, 23.291, 40, 80], [23.291, 23.389, 40, 55], [23.389, 23.614, 55, 40], [23.614, 25.254, 55, 55], [25.254, 25.648, 60, 55], [25.648, 25.938, 60, 60], [25.938, 27.757, 60, 80], [27.757, 31.071, 60, 60], [31.071, 31.481, 65, 60], [31.481, 31.853, 65, 50], [31.853, 32.723, 65, 65], [32.723, 32.973, 60, 65], [32.973, 33.708, 60, 60], [33.708, 34, 80, 60], [34, 36.889, 80, 80], [36.889, 37.211, 80, 60], [37.211, 37.635, 80, 65], [37.635, 37.961, 65, 65], [37.961, 38.299, 60, 65], [38.299, 38.912, 60, 60], [38.912, 39.727, 80, 60], [39.727, 41.468, 80, 80], [41.468, 41.629, 60, 80], [41.629, 42.685, 60, 60]]
+curves = [[8.152, 8.527, 500], [10.077, 10.415, 1040], [10.843, 11.068, 960], [13.78, 13.981, 1380], [14.624, 14.875, 740], [15.127, 15.479, 350], [15.529, 15.806, 540], [17.299, 17.649, 780], [24.984, 25.802, 520], [28.047, 28.547, 500], [29.484, 30.053, 1050], [30.988, 31.323, 2060], [39.431, 39.654, 1070], [39.703, 40.079, 630], [40.584, 41.235, 510], [41.635, 41.71, 2610], [42.21, 42.31, 1590]]
 points = [
   { km = 0.203, kind = "signal", label = "X/n", signal = "distant,main", measured = true },
   { km = 0.903, kind = "signal", label = "x", signal = "distant", measured = true },
   { km = 1.699, kind = "signal", label = "a", signal = "distant", measured = true },
+  { km = 8.126, kind = "signal", label = "V730N", signal = "shunting" },
   { km = 10.487, kind = "signal", label = "A/r", signal = "distant,main", measured = true },
   { km = 10.59, kind = "signal", label = "VHT101", signal = "shunting", measured = true },
   { km = 10.79, kind = "signal", signal = "speed_limit" },
   { km = 10.792, kind = "signal", signal = "speed_limit" },
   { km = 10.995, kind = "signal", label = "H1", signal = "main", measured = true },
-  { km = 11.415, kind = "stop", label = "Maria Lanzendorf", pos = [48.10246, 16.41951] },
+  { km = 11.413, kind = "stop", label = "Maria Lanzendorf", pos = [48.10246, 16.41951] },
   { km = 11.529, kind = "signal", label = "R1", signal = "main", measured = true },
   { km = 11.851, kind = "signal", signal = "speed_limit_distant" },
   { km = 11.86, kind = "signal", label = "VHT301", signal = "shunting", measured = true },
@@ -42,7 +43,7 @@ points = [
   { km = 16.425, kind = "signal", label = "VHT A", signal = "shunting", measured = true },
   { km = 16.485, kind = "signal", label = "H 1-2", signal = "main", measured = true },
   { km = 16.524, kind = "signal", label = "FE1H", signal = "minor", measured = true },
-  { km = 16.842, kind = "stop", label = "Laxenburg-Biedermannsdorf", pos = [48.07767, 16.35703] },
+  { km = 16.828, kind = "stop", label = "Laxenburg-Biedermannsdorf", pos = [48.07767, 16.35703] },
   { km = 17.009, kind = "signal", label = "FE1R", signal = "minor", measured = true },
   { km = 17.063, kind = "signal", label = "R 1-2", signal = "main", measured = true },
   { km = 17.17, kind = "signal", label = "VHT Z", signal = "shunting", measured = true },
@@ -119,8 +120,8 @@ points = [
   { km = 30.461, kind = "signal", signal = "crossing" },
   { km = 30.496, kind = "signal", signal = "whistle" },
   { km = 30.719, kind = "halt", label = "Oberwaltersdorf", uic = "8101328", pos = [47.97511, 16.32836], measured = true },
-  { km = 30.859, kind = "signal", signal = "crossing" },
-  { km = 30.887, kind = "signal", signal = "snowplow" },
+  { km = 30.852, kind = "signal", signal = "crossing" },
+  { km = 30.877, kind = "signal", signal = "snowplow" },
   { km = 31.071, kind = "signal", signal = "speed_limit" },
   { km = 31.278, kind = "signal", signal = "crossing" },
   { km = 31.363, kind = "signal", signal = "crossing_distant" },
@@ -185,7 +186,11 @@ points = [
   { km = 38.907, kind = "signal", signal = "snowplow" },
   { km = 38.919, kind = "signal", signal = "snowplow" },
   { km = 38.925, kind = "signal", signal = "speed_limit" },
+  { km = 39.115, kind = "signal", label = "V9", signal = "shunting", measured = true },
+  { km = 39.243, kind = "signal", label = "H3", signal = "main,shunting", measured = true },
   { km = 39.271, kind = "signal", signal = "snowplow" },
+  { km = 39.628, kind = "signal", label = "1R3", signal = "main_repeated", measured = true },
+  { km = 39.69, kind = "signal", label = "R3", signal = "main,shunting", measured = true },
   { km = 39.727, kind = "signal", signal = "speed_limit" },
   { km = 40.016, kind = "signal", signal = "snowplow" },
   { km = 40.063, kind = "signal", signal = "snowplow" },
@@ -200,4 +205,6 @@ points = [
   { km = 41.495, kind = "signal", signal = "crossing_distant" },
   { km = 41.565, kind = "signal", label = "VHT103", signal = "shunting", measured = true },
   { km = 41.601, kind = "signal", label = "V3", signal = "shunting", measured = true },
+  { km = 41.955, kind = "signal", signal = "station_distant" },
+  { km = 42.575, kind = "stop", label = "Felixdorf", pos = [47.88783, 16.24819] },
 ]

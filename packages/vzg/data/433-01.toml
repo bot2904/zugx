@@ -9,11 +9,11 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 0.134
-kmTo = 0.924
-length = 0.784
-speeds = [[0.134, 0.924, 100, 100]]
-curves = [[0.24, 0.565, 560], [0.665, 0.815, 760]]
+kmFrom = -0.003
+kmTo = 1.345
+length = 1.343
+speeds = [[-0.003, 1.206, 100, 100], [1.206, 1.345, 250, 250]]
+curves = [[0.097, 0.552, 600], [0.677, 1.178, 730]]
 points = [
   { km = 0.134, kind = "signal", label = "V604", signal = "shunting", measured = true },
   { km = 0.159, kind = "signal", label = "VHT604", signal = "shunting", measured = true },

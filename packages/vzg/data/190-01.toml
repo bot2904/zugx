@@ -10,20 +10,23 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 9.424
-kmTo = 10.735
-length = 1.311
-speeds = [[9.424, 9.484, 40, 50], [9.484, 10.735, 40, 40]]
-curves = [[9.7, 9.996, 580]]
+kmFrom = 0.492
+kmTo = 4.544
+length = 4.033
+speeds = [[0.492, 0.732, 50, 40], [0.732, 3.229, 50, 50], [3.229, 3.509, 50, 30], [3.509, 3.519, 50, 40], [3.519, 4.544, 40, 40]]
+curves = [[0.618, 0.795, 780], [1.213, 1.614, 430], [1.666, 1.719, 1470], [3.077, 3.224, 720], [3.274, 3.5, 500], [3.551, 3.728, 970]]
 points = [
   { km = 0.552, kind = "signal", label = "VHT303", signal = "shunting", measured = true },
-  { km = 6.376, kind = "station", label = "Stadlau", uic = "8170925", pos = [48.21977, 16.44956], measured = true },
+  { km = 0.732, kind = "signal", label = "C/e", signal = "distant,main", measured = true },
+  { km = 1.132, kind = "signal", label = "c", signal = "distant", measured = true },
+  { km = 1.768, kind = "signal", signal = "crossing_distant" },
+  { km = 2.558, kind = "signal", label = "KT1", signal = "distant", measured = true },
+  { km = 2.958, kind = "signal", label = "A", signal = "main", measured = true },
+  { km = 2.995, kind = "signal", signal = "crossing_distant" },
+  { km = 3.014, kind = "signal", signal = "crossing_distant" },
+  { km = 3.229, kind = "signal", label = "VHT1", signal = "shunting,speed_limit", measured = true },
+  { km = 3.509, kind = "signal", signal = "speed_limit" },
+  { km = 3.518, kind = "signal", signal = "speed_limit" },
+  { km = 4.544, kind = "signal", label = "FE1", signal = "minor", measured = true },
   { km = 9.467, kind = "signal", label = "V303", signal = "shunting", measured = true },
-  { km = 9.534, kind = "signal", label = "V313S", signal = "shunting", measured = true },
-  { km = 9.682, kind = "signal", label = "V313N", signal = "shunting", measured = true },
-  { km = 9.853, kind = "signal", label = "V323N", signal = "shunting", measured = true },
-  { km = 9.877, kind = "halt", label = "Wien Stadlau", uic = "8104229", pos = [48.21857, 16.44817], measured = true },
-  { km = 9.944, kind = "signal", label = "V333", signal = "shunting", measured = true },
-  { km = 10.015, kind = "signal", label = "H3", signal = "main,shunting", measured = true },
-  { km = 10.735, kind = "signal", label = "E3", signal = "main,shunting", measured = true },
 ]

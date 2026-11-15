@@ -9,12 +9,27 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 2.6
+kmFrom = 0.094
 kmTo = 8.362
-length = 5.7
-speeds = [[2.6, 3.151, 25, 25], [3.151, 3.445, 30, 25], [3.445, 4.586, 25, 25], [4.586, 5.767, 30, 25], [5.767, 6.684, 25, 25], [6.684, 7.101, 30, 25], [7.101, 8.283, 30, 30], [8.283, 8.362, "", ""]]
-curves = [[2.7, 3.178, 330], [3.253, 3.454, 700], [3.504, 5.012, 200], [5.137, 5.363, 540], [5.413, 6.192, 340], [6.242, 6.343, 270], [6.393, 6.544, 310], [6.594, 6.695, 130], [6.745, 7.097, 290], [7.147, 7.297, 370], [7.348, 7.473, 550], [7.524, 7.674, 360], [7.725, 7.875, 270], [7.925, 8.076, 330], [8.126, 8.202, 850]]
+length = 8.207
+speeds = [[0.094, 0.54, 30, 25], [0.54, 1.501, 25, 25], [1.501, 2.067, 30, 25], [2.067, 3.151, 25, 25], [3.151, 3.445, 30, 25], [3.445, 4.586, 25, 25], [4.586, 5.767, 30, 25], [5.767, 6.684, 25, 25], [6.684, 7.101, 30, 25], [7.101, 8.283, 30, 30], [8.283, 8.362, "", ""]]
+curves = [[0.194, 0.269, 440], [0.319, 1.519, 410], [1.694, 2.719, 580], [2.769, 3.171, 250], [3.247, 3.674, 590], [3.724, 3.799, 180], [3.925, 4.226, 130], [4.277, 5.005, 240], [5.131, 5.256, 650], [5.307, 5.457, 480], [5.508, 5.583, 460], [5.633, 6.186, 210], [6.236, 6.914, 310], [6.964, 7.291, 330], [7.341, 7.894, 410], [7.944, 8.22, 700]]
 points = [
+  { km = 0.094, kind = "signal", signal = "speed_limit" },
+  { km = 0.241, kind = "signal", signal = "catenary_mast,electricity" },
+  { km = 0.388, kind = "halt", label = "Bretterkeller", pos = [47.25283, 11.40452] },
+  { km = 0.54, kind = "signal", signal = "speed_limit" },
+  { km = 0.744, kind = "signal", signal = "whistle" },
+  { km = 0.944, kind = "signal", signal = "catenary_mast,whistle" },
+  { km = 1.092, kind = "signal", signal = "whistle" },
+  { km = 1.259, kind = "signal", signal = "whistle" },
+  { km = 1.501, kind = "signal", signal = "speed_limit" },
+  { km = 2.067, kind = "signal", signal = "speed_limit" },
+  { km = 2.07, kind = "signal", signal = "whistle" },
+  { km = 2.239, kind = "halt", label = "Tummelplatz", pos = [47.25504, 11.42792] },
+  { km = 2.274, kind = "signal", signal = "whistle" },
+  { km = 2.505, kind = "signal", signal = "whistle" },
+  { km = 2.57, kind = "halt", label = "Schönruh", pos = [47.25429, 11.43083] },
   { km = 2.657, kind = "signal", signal = "whistle" },
   { km = 2.776, kind = "signal", signal = "catenary_mast,whistle" },
   { km = 2.847, kind = "signal", signal = "catenary_mast,electricity" },

@@ -10,10 +10,10 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 [[tracks]]
 track = "1"
 kmFrom = 0
-kmTo = 0.421
-length = 0.421
-speeds = [[0, 0.421, 60, 60]]
-curves = [[0.2, 0.3, 2220]]
+kmTo = 0.592
+length = 0.592
+speeds = [[0, 0.592, 60, 60]]
+curves = [[0.1, 0.225, 2210], [0.3, 0.475, 300]]
 points = [
   { km = 0.548, kind = "signal", label = "S21/a61", signal = "distant,main", measured = true },
   { km = 11.08, kind = "signal", label = "H521", signal = "shunting,train_protection", measured = true },

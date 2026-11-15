@@ -9,23 +9,57 @@ to = "Unter Purkersdorf"
 source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
 
 [[tracks]]
-track = "2"
-kmFrom = 5.578
-kmTo = 6.559
-length = 0.982
-speeds = [[5.578, 6, 100, 100], [6, 6.509, 100, 80], [6.509, 6.559, 85, 80]]
-curves = [[6.004, 6.277, 1200]]
+track = "1"
+kmFrom = 5.952
+kmTo = 12.202
+length = 6.235
+speeds = [[5.952, 6.56, 60, 60], [6.56, 6.933, 85, 60], [6.933, 7.037, 85, 80], [7.037, 9.603, 120, 120], [9.603, 10.49, 110, 110], [10.49, 11.588, 80, 80], [11.588, 12.093, 80, 60], [12.093, 12.202, 60, 60]]
+curves = [[6.05, 6.246, 860], [6.558, 6.996, 760], [7.147, 8.078, 950], [8.18, 9.013, 930], [9.652, 10.282, 850], [10.485, 11.215, 840], [11.387, 11.513, 1320], [11.639, 11.789, 1350]]
 points = [
   { km = 0, kind = "station", label = "Hütteldorf", uic = "8170019", pos = [48.19697, 16.26084], measured = true },
-  { km = 5.578, kind = "signal", label = "Sch302H", signal = "minor,shunting", measured = true },
-  { km = 5.9, kind = "signal", label = "Sch302R", signal = "minor,shunting", measured = true },
-  { km = 5.9, kind = "station", label = "Wien Hütteldorf", uic = "8101008", pos = [48.19733, 16.26127] },
-  { km = 6, kind = "signal", signal = "speed_limit" },
-  { km = 6.001, kind = "signal", label = "R2", signal = "main,shunting", measured = true },
-  { km = 6.089, kind = "signal", label = "V402H", signal = "shunting", measured = true },
-  { km = 6.265, kind = "signal", label = "V402R", signal = "shunting", measured = true },
-  { km = 6.335, kind = "signal", label = "V452H", signal = "shunting", measured = true },
-  { km = 6.44, kind = "signal", label = "V452R", signal = "shunting", measured = true },
-  { km = 6.51, kind = "signal", label = "V462H", signal = "shunting", measured = true },
-  { km = 6.559, kind = "signal", label = "VHTa14", signal = "shunting", measured = true },
+  { km = 5.952, kind = "signal", label = "R7", signal = "main,shunting", measured = true },
+  { km = 5.952, kind = "station", label = "Wien Hütteldorf", uic = "8101008", pos = [48.19733, 16.26127] },
+  { km = 6.116, kind = "signal", label = "V405H", signal = "shunting", measured = true },
+  { km = 6.244, kind = "signal", label = "V405R", signal = "shunting", measured = true },
+  { km = 6.44, kind = "signal", label = "V455H", signal = "shunting", measured = true },
+  { km = 6.473, kind = "signal", label = "V455R", signal = "shunting", measured = true },
+  { km = 6.56, kind = "signal", signal = "speed_limit" },
+  { km = 6.573, kind = "signal", label = "V465H", signal = "shunting", measured = true },
+  { km = 6.605, kind = "signal", label = "VHTa13", signal = "shunting", measured = true },
+  { km = 6.932, kind = "signal", label = "ba13", signal = "distant", measured = true },
+  { km = 6.932, kind = "signal", label = "W/h", signal = "distant,main", measured = true },
+  { km = 7.061, kind = "signal", signal = "speed_limit" },
+  { km = 7.061, kind = "signal", signal = "speed_limit" },
+  { km = 7.788, kind = "signal", label = "1W", signal = "main_repeated", measured = true },
+  { km = 7.926, kind = "stop", label = "Wien Wolf in der Au", pos = [48.20479, 16.23614] },
+  { km = 8.009, kind = "signal", label = "Ba13", signal = "main", measured = true },
+  { km = 8.052, kind = "signal", signal = "speed_limit_distant" },
+  { km = 8.059, kind = "signal", label = "Za23/w", signal = "distant,main", measured = true },
+  { km = 8.195, kind = "signal", label = "ba23", signal = "distant", measured = true },
+  { km = 8.252, kind = "signal", label = "1Za23", signal = "main_repeated", measured = true },
+  { km = 8.997, kind = "signal", label = "2Za23", signal = "main_repeated", measured = true },
+  { km = 9.138, kind = "stop", label = "Wien Hadersdorf", pos = [48.21031, 16.22312] },
+  { km = 9.282, kind = "signal", label = "Ba23", signal = "main", measured = true },
+  { km = 9.299, kind = "signal", label = "za23", signal = "distant", measured = true },
+  { km = 9.453, kind = "signal", signal = "speed_limit_distant" },
+  { km = 9.603, kind = "signal", signal = "speed_limit" },
+  { km = 9.603, kind = "signal", signal = "speed_limit" },
+  { km = 9.843, kind = "signal", label = "Za33", signal = "main", measured = true },
+  { km = 9.956, kind = "stop", label = "Wien Weidlingau", pos = [48.21045, 16.21221] },
+  { km = 9.98, kind = "signal", label = "1Za33", signal = "main_repeated", measured = true },
+  { km = 10.082, kind = "signal", label = "ba33", signal = "distant,speed_limit_distant", measured = true },
+  { km = 10.49, kind = "signal", signal = "speed_limit" },
+  { km = 10.493, kind = "signal", signal = "speed_limit" },
+  { km = 10.858, kind = "signal", label = "2Za33", signal = "main_repeated", measured = true },
+  { km = 10.89, kind = "stop", label = "Purkersdorf Sanatorium", pos = [48.20636, 16.20135] },
+  { km = 11.053, kind = "signal", label = "Ba33/g", signal = "distant,main,speed_limit", measured = true },
+  { km = 11.071, kind = "signal", label = "za33", signal = "distant", measured = true },
+  { km = 11.21, kind = "signal", label = "VHT107", signal = "shunting", measured = true },
+  { km = 11.22, kind = "signal", label = "V107R", signal = "shunting", measured = true },
+  { km = 11.588, kind = "signal", label = "H207", signal = "main,speed_limit", measured = true },
+  { km = 11.742, kind = "signal", label = "1H207", signal = "main_repeated", measured = true },
+  { km = 11.794, kind = "signal", label = "Sch207R/1G217", signal = "main_repeated,minor", measured = true },
+  { km = 11.839, kind = "station", label = "Unter Purkersdorf", uic = "8101709", pos = [48.20767, 16.19011], measured = true },
+  { km = 11.881, kind = "signal", label = "Sch217H", signal = "minor", measured = true },
+  { km = 12.093, kind = "signal", label = "G217/r", signal = "distant,main", measured = true },
 ]

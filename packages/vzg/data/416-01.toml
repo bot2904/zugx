@@ -1,0 +1,20 @@
+id = "416-01"
+ref = "416 01"
+name = "Rudolfsbahn"
+operator = "ÖBB-Infrastruktur AG"
+gauge = "1435"
+from = "Leoben Hbf"
+to = "Leoben Göss"
+source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors, ODbL 1.0"
+
+[[tracks]]
+track = "1"
+kmFrom = 10.343
+kmTo = 10.734
+length = 0.396
+speeds = [[10.343, 10.734, 40, 40]]
+curves = [[10.44, 10.613, 280]]
+points = [
+  { km = 10.343, kind = "signal", label = "Sch911R", signal = "minor", measured = true },
+  { km = 10.535, kind = "signal", label = "Sch911H", signal = "minor", measured = true },
+]

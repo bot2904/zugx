@@ -9,13 +9,19 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 5.1
-kmTo = 8.5
-length = 3.389
-speeds = [[5.1, 8.5, 20, 20]]
-curves = [[6.298, 6.375, 1950], [7.063, 7.19, 950], [7.241, 7.366, 910], [7.56, 7.901, 300], [7.95, 8.388, 660]]
+kmFrom = -0.077
+kmTo = 11.415
+length = 11.481
+speeds = [[-0.077, 11.415, 20, 20]]
+curves = [[0.023, 0.323, 670], [0.523, 0.573, 2280], [0.623, 1.298, 400], [1.398, 1.648, 670], [1.698, 2.098, 300], [2.148, 2.423, 280], [2.473, 2.673, 650], [2.898, 3.223, 920], [3.273, 3.423, 270], [3.473, 3.673, 320], [3.798, 4.273, 350], [4.948, 5.2, 980], [6.296, 6.398, 1970], [7.061, 7.188, 950], [7.239, 7.364, 880], [7.559, 7.9, 310], [7.948, 8.411, 830], [8.46, 8.709, 560], [8.884, 9.259, 400], [9.309, 9.534, 450], [10.234, 10.509, 710], [10.634, 11.034, 2010]]
 points = [
+  { km = 0.004, kind = "station", label = "Preding-Wieselsdorf", pos = [46.85777, 15.38131] },
+  { km = 0.144, kind = "signal", signal = "speed_limit" },
+  { km = 0.163, kind = "signal", signal = "main" },
+  { km = 0.449, kind = "signal", signal = "distant" },
   { km = 5.1, kind = "halt", label = "Kraubath", pos = [46.85843, 15.33192], measured = true },
   { km = 7.3, kind = "halt", label = "Neudorf", pos = [46.87232, 15.3122], measured = true },
   { km = 8.5, kind = "halt", label = "Herbersdorf", pos = [46.87751, 15.29844], measured = true },
+  { km = 11.083, kind = "signal", signal = "main" },
+  { km = 11.3, kind = "station", label = "Stainz", pos = [46.8904, 15.26866], measured = true },
 ]

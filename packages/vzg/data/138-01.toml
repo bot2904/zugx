@@ -9,11 +9,11 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 0.108
+kmFrom = -0.188
 kmTo = 4.982
-length = 4.862
-speeds = [[0.108, 0.27, 60, 70], [0.27, 3.662, 70, 70], [3.662, 4.982, 70, 60]]
-curves = [[0.352, 0.64, 890], [1.067, 1.844, 850], [1.919, 2.045, 1330], [2.22, 2.521, 390], [2.571, 2.847, 500], [3.269, 3.368, 1390]]
+length = 5.158
+speeds = [[-0.188, 0.27, 60, 70], [0.27, 3.662, 70, 70], [3.662, 4.982, 70, 60]]
+curves = [[0.062, 0.172, 1370], [0.356, 0.618, 720], [1.071, 1.823, 730], [1.923, 2.049, 1340], [2.224, 2.525, 380], [2.575, 2.851, 470], [3.273, 3.372, 1470]]
 points = [
   { km = 0.108, kind = "signal", label = "V313R", signal = "shunting", measured = true },
   { km = 0.177, kind = "signal", label = "V313H", signal = "shunting", measured = true },
@@ -29,7 +29,10 @@ points = [
   { km = 3.491, kind = "signal", label = "VHT104", signal = "shunting", measured = true },
   { km = 3.627, kind = "signal", label = "V104R", signal = "shunting", measured = true },
   { km = 5.686, kind = "halt", label = "Wien Brünner Straße", uic = "8100691", pos = [48.26787, 16.40347], measured = true },
+  { km = 6.397, kind = "signal", label = "V109R", signal = "shunting", measured = true },
+  { km = 6.485, kind = "signal", label = "S333", signal = "main,shunting", measured = true },
   { km = 6.5, kind = "halt", label = "Wien Jedlersdorf", uic = "8101013", pos = [48.27403, 16.39593], measured = true },
+  { km = 6.57, kind = "signal", label = "I333/k", signal = "distant,main,shunting", measured = true },
   { km = 6.95, kind = "halt", label = "Wien Siemensstraße", uic = "8100796", pos = [48.27076, 16.42027], measured = true },
   { km = 8.593, kind = "signal", label = "V114H", signal = "shunting", measured = true },
   { km = 8.792, kind = "signal", label = "V105", signal = "shunting", measured = true },

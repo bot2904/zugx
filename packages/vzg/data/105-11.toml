@@ -8,15 +8,17 @@ source = "OpenStreetMap (austria-261113.osm.pbf), © OpenStreetMap contributors,
 
 [[tracks]]
 track = "1"
-kmFrom = 49.058
-kmTo = 50.903
-length = 1.865
-speeds = [[49.058, 49.748, 40, ""], [49.748, 50.024, "", ""], [50.024, 50.903, "", 40]]
-curves = [[49.478, 49.627, 970], [49.775, 49.849, 2720], [49.899, 49.948, 2300]]
+kmFrom = 48.72
+kmTo = 51.363
+length = 2.663
+speeds = [[48.72, 49.058, 40, 40], [49.058, 49.748, 40, ""], [49.748, 50.024, "", ""], [50.024, 50.903, "", 40], [50.903, 51.363, 40, 40]]
+curves = [[48.82, 49.045, 700], [49.49, 49.639, 850], [49.787, 49.837, 2180], [49.886, 49.935, 2250], [50.95, 51.075, 1150]]
 points = [
+  { km = 48.854, kind = "signal", label = "V153", signal = "shunting" },
   { km = 49.058, kind = "signal", label = "P615/s", signal = "distant,main,speed_limit_distant", measured = true },
   { km = 49.748, kind = "signal", label = "FE 615R", signal = "minor,shunting" },
   { km = 49.852, kind = "signal", label = "V08", signal = "shunting" },
   { km = 50.024, kind = "signal", label = "FE 719H", signal = "minor,shunting" },
   { km = 50.903, kind = "signal", label = "R719", signal = "main", measured = true },
+  { km = 51.279, kind = "signal", label = "V903R", signal = "shunting" },
 ]
