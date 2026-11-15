@@ -10,6 +10,7 @@ import {
   nameSimilarity,
   normalizeName,
   scoreCandidates,
+  withDiacritics,
 } from "../src/match.ts";
 
 const root = join(import.meta.dirname, "..");
@@ -117,5 +118,17 @@ describe("matching helpers", () => {
       },
     ])[0];
     expect(best?.loc.id).toBe("8103000");
+  });
+});
+
+describe("withDiacritics", () => {
+  it("restores the diacritics of a foreign HAFAS name from the GTFS name", () => {
+    expect(withDiacritics("Divaca", ["Divača"])).toBe("Divača");
+    expect(withDiacritics("Sezana", ["Sežana Bahnhof"])).toBe("Sežana");
+  });
+  it("keeps HAFAS names that differ otherwise or already have diacritics", () => {
+    expect(withDiacritics("Jesenice(SLO)", ["Jesenice"])).toBe("Jesenice(SLO)");
+    expect(withDiacritics("Wien Hbf", ["Wien Hauptbahnhof"])).toBe("Wien Hbf");
+    expect(withDiacritics("Völs", ["Vols"])).toBe("Völs");
   });
 });

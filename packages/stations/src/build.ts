@@ -23,6 +23,7 @@ import type { GtfsHafasEntry, GtfsHafasMap, Station } from "./index.ts";
 import {
   cleanGtfsName,
   cleanHafasName,
+  withDiacritics,
   dhidCountry,
   normalizeName,
   scoreCandidates,
@@ -240,7 +241,7 @@ export function buildStations(groups: Map<string, GroupStats>, map: GtfsHafasMap
   const maxLog = Math.log1p(Math.max(1, ...[...byId.values()].map(score)));
   const out: Station[] = [];
   for (const [id, x] of byId) {
-    const name = cleanHafasName(x.e.name ?? "");
+    const name = withDiacritics(cleanHafasName(x.e.name ?? ""), x.gtfsNames);
     // aliases: GTFS names that the client search wouldn't find via the HAFAS name anyway
     const words = new Set(normalizeName(name).split(" "));
     const alias = new Set<string>();

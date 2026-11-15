@@ -83,6 +83,20 @@ export function cleanHafasName(name: string): string {
     .trim();
 }
 
+/**
+ * The HAFAS name with its diacritics restored from a GTFS name that only differs by them (ÖBB
+ * HAFAS writes foreign names without: "Divaca" → "Divača"); else the HAFAS name.
+ */
+export function withDiacritics(hafas: string, gtfsNames: Iterable<string>): string {
+  const plain = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  if (plain(hafas) !== hafas) return hafas;
+  for (const g of gtfsNames) {
+    const c = cleanGtfsName(g);
+    if (c !== hafas && plain(c) === hafas) return c;
+  }
+  return hafas;
+}
+
 /** Remove GTFS name suffixes like " Bahnhof" that HAFAS names don't carry. */
 export function cleanGtfsName(name: string): string {
   return name
