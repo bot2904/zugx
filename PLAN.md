@@ -907,6 +907,8 @@ Goal from the passenger's side: shorter transfer times, more reliable trains on 
 
 Order: 1 + 2, 4 + 5, 8, 6; then 3, 7, 9, 10; 11–13 later.
 
+**Status (2026-11-15):** done — 1 + 2 (`?plan=knoten`), 4 + 5 (`?plan=kreuzung`), 8 (`?plan=reserve`, `minRun` in the corridor files), 6 (`?plan=puenktlichkeit`, collected in the browser). Limits: only the sheet's trains (no transfers to other lines), passing loops without passenger stops unknown (meetings there show as conflicts), minimum running time without dwell/gradients/rolling stock, punctuality only what one browser saw. Open: 3, 7, 9, 10; a shared punctuality history (backend).
+
 ## Sources
 
 - public-transport-enabler `OebbProvider` (via javatips mirror): https://www.javatips.net/api/Advanced-Public-Transport-Timetables-master/app/de/schildbach/pte/OebbProvider.java
