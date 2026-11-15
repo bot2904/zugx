@@ -64,7 +64,10 @@ test("raw API view shows request/response", async ({ page }) => {
 
 test("language switch", async ({ page }) => {
   await page.goto("/station/8103000");
-  await page.getByLabel(/Language|Sprache|Lingua/).selectOption("de");
+  await page.getByRole("button", { name: /Language|Sprache|Lingua|Jezik/ }).click();
+  await page
+    .getByRole("combobox", { name: /^(Language|Sprache|Lingua|Jezik)$/ })
+    .selectOption("de");
   await expect(page.getByText("Abfahrten").first()).toBeVisible();
 });
 

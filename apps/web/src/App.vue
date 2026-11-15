@@ -12,6 +12,14 @@ import { scheme, toggleScheme } from "./lib/theme.ts";
 import { liveAvailable, liveMode } from "./lib/live.ts";
 import { COUNTRIES, country } from "./lib/country.ts";
 
+/** each language in its own name (the language menu) */
+const LOCALE_NAMES: Record<Locale, string> = {
+  en: "English",
+  de: "Deutsch",
+  it: "Italiano",
+  sl: "Slovenščina",
+};
+
 const router = useRouter();
 const route = useRoute();
 
@@ -234,25 +242,39 @@ const shortcuts: [string, string][] = [
           <span class="live-dot" :class="liveMode && 'on'" aria-hidden="true">●</span>
           {{ $t("nav.live") }}
         </button>
-        <select
-          v-if="COUNTRIES.length > 1"
-          v-model="country"
-          class="input py-0.5 text-xs"
-          :aria-label="$t('nav.country')"
-          v-tip="$t('nav.countryTip')"
+        <!-- country and language behind one compact button (keeps the nav inline on desktops) -->
+        <button
+          type="button"
+          class="btn mono whitespace-nowrap"
+          popovertarget="site-settings"
+          aria-controls="site-settings"
+          :aria-label="`${$t('nav.country')} / ${$t('common.language')}`"
         >
-          <option v-for="c in COUNTRIES" :key="c.id" :value="c.id" :title="c.name[locale]">
-            {{ c.id.toUpperCase() }}
-          </option>
-        </select>
-        <select
-          class="input py-0.5 text-xs"
-          :value="locale"
-          :aria-label="$t('common.language')"
-          @change="setLocale(($event.target as HTMLSelectElement).value as Locale)"
-        >
-          <option v-for="l in LOCALES" :key="l" :value="l">{{ l.toUpperCase() }}</option>
-        </select>
+          {{ COUNTRIES.length > 1 ? `${country.toUpperCase()} · ` : "" }}{{ locale.toUpperCase() }}
+          <span aria-hidden="true">▾</span>
+        </button>
+        <div id="site-settings" popover="auto" class="site-settings card p-3 text-sm shadow-lg">
+          <label v-if="COUNTRIES.length > 1" class="flex flex-col gap-1">
+            <span class="muted text-xs">{{ $t("nav.country") }}</span>
+            <select v-model="country" class="input" :aria-label="$t('nav.country')">
+              <option v-for="c in COUNTRIES" :key="c.id" :value="c.id">
+                {{ c.id.toUpperCase() }} · {{ c.name[locale] }}
+              </option>
+            </select>
+            <span class="muted max-w-56 text-xs">{{ $t("nav.countryTip") }}</span>
+          </label>
+          <label class="mt-3 flex flex-col gap-1">
+            <span class="muted text-xs">{{ $t("common.language") }}</span>
+            <select
+              class="input"
+              :aria-label="$t('common.language')"
+              :value="locale"
+              @change="setLocale(($event.target as HTMLSelectElement).value as Locale)"
+            >
+              <option v-for="l in LOCALES" :key="l" :value="l">{{ LOCALE_NAMES[l] }}</option>
+            </select>
+          </label>
+        </div>
         <button
           class="btn"
           v-tip="$t('common.theme')"
