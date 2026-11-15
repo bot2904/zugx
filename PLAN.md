@@ -1027,7 +1027,7 @@ Goal: the same app for Italy, France … — ideally in one instance — by swap
 
 Licence: CC BY-SA 4.0 is share-alike — everything derived from the Slovenian data (TOML exports) is published under CC BY-SA; attribution in footer and README.
 
-**Updates**: `db:build` imports several feeds into the same SQLite with a country/feed column (node-gtfs prefix per feed); the existing exports run per country. The data workflow downloads ÖBB and nap.si and opens a PR with the diff; nap.si changes daily → weekly runs (smaller diffs) plus a forced run at the timetable change. Timetable-search data (minotor) is built from both countries together in CI, so cross-border journeys (Wien → Ljubljana) route automatically.
+**Updates**: `db:build` imports several feeds into the same SQLite with a country/feed column (node-gtfs prefix per feed); the existing exports run per country. **No automatic updates** (decided 2026-11-16): the Slovenian data is rebuilt by hand (`vp run db:build` + exports) when wanted, and committed like the ÖBB data. Timetable-search data (minotor) is built from both countries together, so cross-border journeys (Wien → Ljubljana) route automatically.
 
 **Committed size (estimate)**: station index < 0.1 MB (~200 rail stations), train index ~0.3 MB (~400 trains/day), departure plans ~1–2 MB, Bildfahrplan sheets ~2–3 MB if built; routing data not committed. Layout `packages/*/data/si/…`, one item per line.
 
@@ -1037,12 +1037,12 @@ Licence: CC BY-SA 4.0 is share-alike — everything derived from the Slovenian d
 
 **Findings (2026-11-16)**:
 
-- The NAP download `https://b2b.nap.si/data/b2b.gtfs` answers **403** from here (Transitous fetches it from its servers — IP or client restriction?); the community mirror with the same IJPP feed works anonymously: `https://gitlab.com/api/v4/projects/derp-si%2Fgtfs-generators/packages/generic/IJPP/latest/ijpp_intl_gtfs.zip` (43.5 MB, rebuilt daily ~01:00). Plan: NAP first, mirror as fallback (both CC BY-SA 4.0).
+- The NAP download `https://b2b.nap.si/data/b2b.gtfs` answers **403** from here (Transitous fetches it from its servers — IP or client restriction?); the community mirror with the same IJPP feed works anonymously: `https://gitlab.com/api/v4/projects/derp-si%2Fgtfs-generators/packages/generic/IJPP/latest/ijpp_intl_gtfs.zip` (43.5 MB, rebuilt daily ~01:00). **Decided**: use the GitLab mirror (CC BY-SA 4.0), not the NAP URL.
 - **Live data exists after all**: community GTFS-RT for the national feed — trip updates `https://rt.gtfs.derp.si/sources/ijpp/trip_updates` and service alerts `…/ijpp/service_alerts` (used by Transitous). A later step could feed the Live switch for Slovenia.
 - Slovenian stations have UIC codes 79xxxxx, which ÖBB HAFAS also uses: the live board works for Slovenian stations with the trains HAFAS knows (mainly cross-border).
 - Cross-border trains (Villach – Jesenice – Ljubljana, Graz – Maribor) appear in both feeds → dedupe by train number and day.
 
-**Open decisions**: (1) scope of the first step — (a) station index, departure plan, train index, timetable search (recommended) or (b) also Bildfahrplan sheets (SŽ has no ÖBB-style sheets; corridors along OSM lines?); (2) GTFS (anonymous) or NeTEx (registration) — start with GTFS; (3) weekly or daily updates; (4) country switch by object as proposed, or an explicit country selector in the menu.
+**Open decisions**: (1) scope of the first step — (a) station index, departure plan, train index, timetable search (recommended) or (b) also Bildfahrplan sheets (SŽ has no ÖBB-style sheets; corridors along OSM lines?); (2) GTFS (anonymous) or NeTEx (registration) — start with GTFS; (3) ~~update rhythm~~ — decided: no automatic updates; (4) country switch by object as proposed, or an explicit country selector in the menu.
 
 ## Sources
 
