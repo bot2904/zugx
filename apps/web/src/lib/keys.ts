@@ -1,5 +1,5 @@
 // Global keyboard shortcuts.
-import { useEventListener } from "@vueuse/core";
+import { onKeyStroke } from "@vueuse/core";
 
 export const isTyping = (e: KeyboardEvent) => {
   const t = e.target as HTMLElement | null;
@@ -12,35 +12,41 @@ export const isTyping = (e: KeyboardEvent) => {
   );
 };
 
-/** Register key handlers for the lifetime of a component. Keys: "j", "k", "/", "mod+k", "shift+?" … */
+/**
+ * Register key handlers for the lifetime of a component (VueUse `onKeyStroke` with a key filter).
+ * Keys: "j", "/", "ArrowUp", "mod+k" (Ctrl/⌘), "alt+x" …; the raw `e.key` matches too (e.g. "?"
+ * typed with Shift) — but not for Ctrl/⌘/Alt combinations, so Ctrl+R still reloads instead of
+ * running "r". Skipped while typing in a form field (except `whileTyping`, Ctrl/⌘ combos and
+ * Escape) and during IME composition.
+ */
 export function useKeys(
   map: Record<string, (e: KeyboardEvent) => void>,
   opts: { whileTyping?: string[] } = {},
 ) {
-  const handler = (e: KeyboardEvent) => {
-    if (e.isComposing || e.keyCode === 229) return; // IME composition: never trigger shortcuts
+  const resolve = (e: KeyboardEvent) => {
+    if (e.isComposing || e.keyCode === 229) return undefined; // IME composition
+    const mod = e.ctrlKey || e.metaKey;
     const key = [
-      e.ctrlKey || e.metaKey ? "mod" : "",
+      mod ? "mod" : "",
       e.altKey ? "alt" : "",
       e.key.length === 1 ? e.key.toLowerCase() : e.key,
     ]
       .filter(Boolean)
       .join("+");
-    // with Ctrl/⌘/Alt only exact matches ("mod+k"): Ctrl+R must reload, not run "r";
-    // without, also the raw key (e.g. "?" typed with Shift, "ArrowUp")
-    const fn = map[key] ?? (e.ctrlKey || e.metaKey || e.altKey ? undefined : map[e.key]);
-    if (!fn) return;
-    if (
-      isTyping(e) &&
-      !opts.whileTyping?.includes(key) &&
-      !key.startsWith("mod+") &&
-      e.key !== "Escape"
-    )
-      return;
-    e.preventDefault();
-    fn(e);
+    const fn = map[key] ?? (mod || e.altKey ? undefined : map[e.key]);
+    if (!fn) return undefined;
+    if (isTyping(e) && !opts.whileTyping?.includes(key) && !mod && e.key !== "Escape")
+      return undefined;
+    return fn;
   };
-  useEventListener(window, "keydown", handler);
+  let pending: ((e: KeyboardEvent) => void) | undefined;
+  onKeyStroke(
+    (e) => !!(pending = resolve(e)),
+    (e) => {
+      e.preventDefault();
+      pending?.(e);
+    },
+  );
 }
 
 /**
