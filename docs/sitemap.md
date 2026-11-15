@@ -42,7 +42,26 @@ Every function of zugx, where to find it, and along three dimensions: **data** (
 - **Netzgrafik** vs. **Netzkarte**: similar names, different things (timetable diagram vs. infrastructure map) — renamed to **Infrastrukturnetzkarte**.
 - **Live** is a toggle in the Bildfahrplan but a separate page elsewhere (board, radar).
 
-## Plan: new navigation (draft, for discussion)
+## Plan B: flat, grouped navigation (preferred after user feedback)
+
+Feedback (power user): "as few clicks as possible, a pity if everything goes into menus — it isn't too confusing. For beginners, make the normal features bold: Suche, Züge, Radar, Störungen, Hilfe. The red dot is good."
+
+So: **no dropdowns** — every page stays one click away — but the bar gets **visual grouping**:
+
+```
+zugx  Suche●  Bahnhöfe  Züge  Radar●  Störungen●  │ Fahrplan: Bildfahrplan · Netzgrafik │ Infrastruktur: Strecken · Netzkarte │  Hilfe     [● Live]  ⌘K
+      ───────────── bold: everyday ─────────────     ──────────── normal weight, smaller: planning/experts ────────────
+```
+
+- **Everyday** (bold): Suche ●, Bahnhöfe, Züge, Radar ●, Störungen ●, Hilfe.
+- **Expert groups** (normal weight, slightly smaller, a muted group label and a thin divider): _Fahrplan:_ Bildfahrplan, Netzgrafik · _Infrastruktur:_ Strecken (VzG), Infrastrukturnetzkarte.
+- **●** suffix = always live; **[● Live]** switch for pages with both (Bahnhof, Bildfahrplan; later Zug).
+- **Still fast**: one click to every page; keyboard shortcuts for the everyday ones (`g` Suche, `t` Züge, `r` Radar, new: `b` Bahnhöfe, `s` Störungen, `l` Live); ⌘K jumps anywhere (station, train, sheet, line).
+- **Narrow screens**: the ☰ menu shows the same groups as headed sections; on mid widths the expert groups collapse to their labels (_Fahrplan ▾_, _Infrastruktur ▾_) first, everyday entries stay visible.
+
+Plan A below (dropdowns) is the fallback if the bar gets too long.
+
+## Plan A: navigation with dropdowns (draft, fallback)
 
 ```
 zugx   Suche ●   Radar ●   Störungen ●   Fahrplan ▾   Infrastruktur ▾   Hilfe      [● Live]   ⌘K  DE  ☀
