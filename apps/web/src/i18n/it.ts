@@ -191,6 +191,7 @@ export default {
     liveAt: "tempo reale in {n} stazioni, ultima {station} {time}",
   },
   vzg: {
+    ele: "{m} m s.l.m.",
     band: "Schema della linea",
     bandSpeed: "Velocità",
     bandTip:

@@ -188,6 +188,7 @@ export default {
     liveAt: "realtime at {n} stations, last {station} {time}",
   },
   vzg: {
+    ele: "{m} m a.s.l.",
     band: "Route diagram",
     bandSpeed: "Speed",
     bandTip:

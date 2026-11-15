@@ -252,6 +252,7 @@ function pointTip(p: VzgPoint): TipContent {
     lines: [
       p.label && p.kind !== "signal" && types,
       t(p.measured ? "vzg.tipKmMeasured" : "vzg.tipKmInterpolated", { km: kmText(p.km) }),
+      p.ele !== undefined && t("vzg.ele", { m: p.ele }),
       speedLine(p.km),
     ],
   };
@@ -652,7 +653,10 @@ const fmt = (km: number) => km.toFixed(3);
                 :y="y(p.km) + 3.5"
                 :class="isMain(p) ? 'name' : 'sig mono'"
               >
-                {{ p.label }}
+                {{ p.label
+                }}<tspan v-if="isMain(p) && p.ele !== undefined" class="ele" dx="4">{{
+                  $t("vzg.ele", { m: p.ele })
+                }}</tspan>
               </text>
             </g>
           </g>
@@ -786,6 +790,11 @@ const fmt = (km: number) => km.toFixed(3);
 }
 .vzg .conn a:hover text {
   text-decoration: underline;
+}
+.vzg .ele {
+  font-weight: 400;
+  font-size: 9px;
+  fill: var(--muted);
 }
 .vzg .hit {
   cursor: help;

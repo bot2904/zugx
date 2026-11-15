@@ -191,6 +191,7 @@ export default {
     liveAt: "Echtzeit an {n} Bahnhöfen, zuletzt {station} {time}",
   },
   vzg: {
+    ele: "{m} m ü. A.",
     band: "Streckenband",
     bandSpeed: "Geschwindigkeit",
     bandTip:
