@@ -27,6 +27,12 @@ catalog:
   pbf: ^5.1.2
   "@zugx/toml": workspace:*
   workbox-window: ^7.4.1
+  # node-gtfs: GTFS → SQLite (packages/db); pinned
+  gtfs: 4.21.0
 
 overrides:
   vite@*: "catalog:"
+
+# native builds allowed (node-gtfs → better-sqlite3)
+onlyBuiltDependencies:
+  - better-sqlite3
